@@ -1,0 +1,20 @@
+$width: 8px;
+.jm-tool-right-line-angle {
+  &::after {
+    content: " ";
+    display: inline-block;
+    height: $width;
+    width: $width;
+    border-width: 2px 2px 0 0;
+    border-color: #b2b2b2;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    right: 0;
+  }
+}

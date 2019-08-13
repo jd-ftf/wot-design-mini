@@ -1,0 +1,6 @@
+/*!
+ * JMUI v1.0.0 ()
+ * Copyright 2019 JingDong, Inc.
+ * Licensed under the ISC license
+ */
+.jm-tool-right-line-angle:after{content:" ";display:inline-block;height:8px;width:8px;border-width:2px 2px 0 0;border-color:#b2b2b2;border-style:solid;-webkit-transform:matrix(.71,.71,-.71,.71,0,0);transform:matrix(.71,.71,-.71,.71,0,0);position:relative;top:-2px;position:absolute;top:50%;margin-top:-5px;right:0}

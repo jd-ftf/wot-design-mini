@@ -1,0 +1,133 @@
+/**
+ * 混合宏
+ */
+@import 'config';
+@import 'function';
+
+/**
+ * BEM
+ */
+@mixin b($block) {
+  $B: $namespace + '-' + $block !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+/* 对于伪类，会自动将 e 嵌套在 伪类 底下 */
+@mixin e($element...) {
+  $selector: &;
+  $selectors: '';
+
+  @if containsPseudo($selector) {
+    @each $item in $element {
+      $selectors: #{$selectors + '.' + $B + $elementSeparator + $item + ','};
+    }
+    @at-root {
+      #{$selector} {
+        #{$selectors} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @each $item in $element {
+      $selectors: #{$selectors + $selector + $elementSeparator + $item + ','};
+    }
+    @at-root {
+      #{$selectors} {
+        @content;
+      }
+    }
+  }
+}
+@mixin m($modifier...) {
+  $selectors: '';
+  @each $item in $modifier {
+    $selectors: #{$selectors + & + $modifierSeparator + $item + ','};
+  }
+
+  @at-root {
+    #{$selectors} {
+      @content;
+    }
+  }
+}
+/* 对于需要需要嵌套在 m 底下的 e，调用这个混合宏，一般在切换整个组件的状态，如切换颜色的时候 */
+@mixin me($element...) {
+  $selector: &;
+  $selectors: '';
+
+  @if containsModifier($selector) {
+    @each $item in $element {
+      $selectors: #{$selectors + '.' + $B + $elementSeparator + $item + ','};
+    }
+    @at-root {
+      #{$selector} {
+        #{$selectors} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @each $item in $element {
+      $selectors: #{$selectors + $selector + $elementSeparator + $item + ','};
+    }
+    @at-root {
+      #{$selectors} {
+        @content;
+      }
+    }
+  }
+}
+
+/**
+ * 常用混合宏
+ */
+
+/* 单行超出隐藏 */
+@mixin lineEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 多行超出隐藏 */
+@mixin multiEllipsis($lineNumber: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lineNumber;
+  overflow: hidden;
+}
+
+/* 清除浮动 */
+@mixin clearFloat {
+  &::after {
+    display: block;
+    content: '';
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+/* 0.5px 边框 */
+@mixin halfPixelBorder($direction: 'bottom') {
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    left: 0;
+    @if ($direction == 'bottom') {
+      bottom: 0;
+    }
+    @else {
+      top: 0;
+    }
+    transform: scaleY(0.5);
+    background: $-color-line;
+  }
+}

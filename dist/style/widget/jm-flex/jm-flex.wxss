@@ -1,0 +1,6 @@
+/*!
+ * JMUI v1.0.0 ()
+ * Copyright 2019 JingDong, Inc.
+ * Licensed under the ISC license
+ */
+.jm-flex{display:-webkit-box;display:-webkit-flex;display:flex}.jm-flex__item{-webkit-box-flex:1;-webkit-flex:1;flex:1}
