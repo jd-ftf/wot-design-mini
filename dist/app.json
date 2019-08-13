@@ -1,5 +1,6 @@
 {
   "pages": [
+    "example/button/button",
     "example/index/index"
   ],
   "window": {

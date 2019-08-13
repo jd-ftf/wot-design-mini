@@ -3,30 +3,52 @@
  */
 
 /* 主题颜色 */
-$-color-theme: #0084ff !default;                  // 正常色
-$-color-white: #fff !default;                     // 用于mix的白色
-$-color-black: #000 !default;                     // 用于mix的黑色
-$-color-theme-light: mix($-color-white, $-color-theme, 42%) !default;            // 弱化色
-$-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default;             // 强调色
+$-color-theme: #0084ff !default; // 正常色
+$-color-white: #fff !default; // 用于mix的白色
+$-color-black: #000 !default; // 用于mix的黑色
+$-color-theme-light: mix($-color-white, $-color-theme, 42%) !default; // 弱化色
+$-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调色
 
 /* 辅助色 */
 $-color-aid-red: #e2231a !default;
 
 /* 图形颜色 */
-$-color-icon: #c5c5c5 !default;                   // icon颜色
-$-color-line: #e6e6e6 !default;                      // 分割线
-$-color-bg: #f4f4f4 !default;                     // 背景色
+$-color-icon: #c5c5c5 !default; // icon颜色
+$-color-line: #e6e6e6 !default; // 分割线
+$-color-bg: #f4f4f4 !default; // 背景色
 
 /* 尺寸 */
-$-size-side-padding: 15px !default;                 // 屏幕两边留白
+$-size-side-padding: 15px !default; // 屏幕两边留白
 
 /* button */
-$-button-color-primary: $-color-theme !default;                   // 默认按钮颜色
-$-button-color-primary-active: $-color-theme-emph !default;      // 默认按钮颜色点击态
+$-button-color-primary: $-color-theme !default; // 默认按钮颜色
+$-button-color-primary-active: $-color-theme-emph !default; // 默认按钮颜色点击态
 
 /* navbar */
-$-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
-$-navbar-color-txt: #fff !default;                // navbar字体颜色
-$-navbar-size-height: 44px !default;                // navbar高度
-$-navbar-fs-title: 16px !default;                   // navbar中间标题的字体大小
-$-navbar-fs-side: 14px !default;                    // navbar两边操作的字体大小
+$-navbar-color-bg: $-color-theme !default; // navbar背景颜色
+$-navbar-color-txt: #fff !default; // navbar字体颜色
+$-navbar-size-height: 44px !default; // navbar高度
+$-navbar-fs-title: 16px !default; // navbar中间标题的字体大小
+$-navbar-fs-side: 14px !default; // navbar两边操作的字体大小
+
+/* 文字颜色 */
+$-font-color-important: #333 !default; //模块标题/重要正文
+$-font-color-normal: #666 !default; //普通正文
+$-font-color-secondary: #a7a7a7 !default; //注释/补充/正文
+$-font-color-weak: #d2d2d2 !default; //引导性/不可点文字
+
+/* 标准字体规范 */
+$-font-size-large: 24px !default; //大型标题：仅用于详情页标题
+$-font-size-important: 19px !default; //重要数据：首页展示型数据
+$-font-size-normal: 16px !default; //标题/正文：list标题/重要正文/大面积阅读文字
+$-font-size-plain: 14px !default; //正文：普通正文/首页标题
+$-font-size-secondary: 12px !default; //次要信息：属性类标题/辅助性文字
+$-font-size-weak: 10px !default; //辅助性文字：时间/标签文字
+
+/* 标准字体行高规范 */
+$-font-line-height-large: 30px !default; //大型标题：仅用于详情页标题
+$-font-line-height-important: 23px !default; //重要数据：首页展示型数据
+$-font-line-height-normal: 19px !default; //标题/正文：list标题/重要正文/大面积阅读文字
+$-font-line-height-plain: 17px !default; //正文：普通正文/首页标题
+$-font-line-height-secondary: 14px !default; //次要信息：属性类标题/辅助性文字
+$-font-line-height-weak: 12px !default;//辅助性文字：时间/标签文字
