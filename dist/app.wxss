@@ -1,4 +1,4 @@
-@import "./style/jmui.wxss";
+@import "./style/index.wxss";
 
 page{
     background-color: #F8F8F8;
