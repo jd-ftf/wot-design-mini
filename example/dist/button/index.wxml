@@ -1,0 +1,5 @@
+<button class="jmd__buttonContainer">
+    <view class="jmd-buttonText">
+        <slot></slot>
+    </view>
+</button>

@@ -1,0 +1,9 @@
+@import "./../common/abstracts/_mixin.scss";
+@import "./../common/abstracts/variable.scss";
+.jmd__buttonContainer {
+  font-size: 16px;
+  color: #fff;
+  background-color: $-color-theme;
+  line-height: 42px;
+  text-align: center;
+}

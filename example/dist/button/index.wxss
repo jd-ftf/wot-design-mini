@@ -1,0 +1,6 @@
+/*!
+ * JMUI v1.0.0 ()
+ * Copyright 2019 JingDong, Inc.
+ * Licensed under the ISC license
+ */
+.jmd__buttonContainer{font-size:16px;color:#fff;background-color:#0084ff;line-height:42px;text-align:center}

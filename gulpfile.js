@@ -1,15 +1,30 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var rename = require("gulp-rename");
+var clean = require("gulp-clean");
 var postcss = require("gulp-postcss");
 var cssnano = require("gulp-cssnano");
 var header = require("gulp-header");
 var autoprefixer = require("autoprefixer");
 var watch = require("gulp-watch");
+var minimist = require("minimist");
 var pkg = require("./package.json");
 
+var knownOptions = {
+  string: "env",
+  default: { env: process.env.NODE_ENV || "production" }
+};
+
+var options = minimist(process.argv.slice(2), knownOptions);
+
 gulp.task("watch", function() {
-  watch("src/**", gulp.parallel("build:style", "build:example"));
+  watch("packages/**", gulp.parallel("build:style", "build:example"));
+});
+
+gulp.task("clean", function() {
+  return gulp
+    .src(options.env === "production" ? "./dist/*" : "./example/dist/*")
+    .pipe(clean());
 });
 
 gulp.task("build:style", function() {
@@ -22,7 +37,7 @@ gulp.task("build:style", function() {
     ""
   ].join("\n");
   gulp
-    .src(["src/style/**/*.scss", "src/example/**/*.wxss"], { base: "src" })
+    .src(["packages/**/*.scss"], { base: "packages" })
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([autoprefixer(["iOS >= 8", "Android >= 4.1"])]))
     .pipe(
@@ -38,23 +53,20 @@ gulp.task("build:style", function() {
         path.extname = ".wxss";
       })
     )
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest(options.env === "production" ? "dist" : "example/dist"));
 });
 gulp.task("build:example", function() {
   gulp
-    .src(
-      [
-        "src/app.js",
-        "src/app.json",
-        "src/project.config.json",
-        "src/sitemap.json",
-        "src/app.wxss",
-        "src/example/**",
-        "!src/example/**/*.wxss"
-      ],
-      { base: "src" }
-    )
-    .pipe(gulp.dest("dist"));
+    .src(["packages/**", "!packages/**/*.scss"], { base: "packages" })
+    .pipe(gulp.dest(options.env === "production" ? "dist" : "example/dist"));
 });
 
-gulp.task("default", gulp.parallel("watch", "build:style", "build:example"));
+gulp.task(
+  "dev",
+  gulp.series("clean", gulp.parallel("watch", "build:style", "build:example"))
+);
+
+gulp.task(
+  "build",
+  gulp.series("clean", gulp.parallel("build:style", "build:example"))
+);

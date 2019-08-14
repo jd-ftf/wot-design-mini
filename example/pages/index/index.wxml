@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="page">
+<script src="js/fetch.min.js"></script>
+    <view class="page__hd">
+        <view class="page__title">JMUI</view>
+        <view class="page__desc">JMUI 是一套同京东原生视觉体验一致的基础样式库，由京东官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <view class="kind-list">
+            <block wx:for="{{list}}" wx:key="id">
+                <view class="kind-list__item">
+                    <view id="{{item.id}}" class="jmd-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                        <view class="jmd-flex__item">{{item.name}}</view>
+                        <image class="kind-list__img" src="../images/icon_nav_{{item.id}}.png"></image>
+                    </view>
+                    <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+                        <view class="jmd-cells {{item.open ? 'jmd-cells_show' : ''}}">
+                            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+                                <navigator url="../{{page}}/{{page}}" class="jmd-cell jmd-flex jmd-cell_access">
+                                    <view class="jmd-flex__item">{{page}}</view>
+                                    <view class="jmd-cell__ft jmd-tool-right-line-angle"></view>
+                                </navigator>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="page__ft">
+        
+    </view>
+</view>

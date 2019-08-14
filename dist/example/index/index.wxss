@@ -1,6 +1,0 @@
-/*!
- * JMUI v1.0.0 ()
- * Copyright 2019 JingDong, Inc.
- * Licensed under the ISC license
- */
-.jm-flex{-webkit-box-align:center;-webkit-align-items:center;align-items:center}.jm-cells{margin-top:0;opacity:0;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:.3s;transition:.3s}.jm-cells:after,.jm-cells:before{display:none}.jm-cells_show{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}.jm-cell{margin:10px;border-bottom:1px solid #eee;padding:10px}.jm-cell:before{right:15px}.jm-cell__ft{display:block;position:relative}.kind-list__item{margin:10px 0;background-color:#fff;border-radius:2px;overflow:hidden}.kind-list__item:first-child{margin-top:0}.kind-list__img{width:30px;height:30px}.kind-list__item-hd{padding:20px;-webkit-transition:opacity .3s;transition:opacity .3s}.kind-list__item-hd_show{opacity:.4}.kind-list__item-bd{height:0;overflow:hidden}.kind-list__item-bd_show{height:auto}
