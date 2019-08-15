@@ -1,0 +1,44 @@
+var variable = require("./variable.wxs");
+var array = require("./array.wxs");
+var object = require("./object.wxs");
+
+function traversing(mods, conf) {
+  if (!conf) {
+    return;
+  }
+
+  if (typeof conf === "string" || typeof conf === "number") {
+    mods.push(conf);
+  } else if (array.isArray(conf)) {
+    conf.forEach(function(item) {
+      traversing(mods, item);
+    });
+  } else if (typeof conf === "object") {
+    object.keys(conf).forEach(function(key) {
+      conf[key] && mods.push(key);
+    });
+  }
+}
+/*
+    ele代表元素，mod代表修饰符。
+    修饰符可以为数组，元素为字符串。
+    返回值为组装完该元素的bem格式的数组
+    当数组中某一个值为空，表示返回对应元素的be格式字符串
+*/
+var bem = function(ele, mod) {
+  var mods = [];
+  traversing(mods, mod);
+  return mods
+    .map(function(item) {
+      return (
+        variable.block +
+        variable.elementSeparator +
+        ele +
+        (item ? variable.modifierSeparator + item : "")
+      );
+    })
+    .join(" ");
+};
+module.exports = {
+  bem: bem
+};

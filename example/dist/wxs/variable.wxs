@@ -1,0 +1,8 @@
+var block = "jmd";
+var elementSeparator = "__";
+var modifierSeparator = "--";
+module.exports = {
+  block: block,
+  elementSeparator: elementSeparator,
+  modifierSeparator: modifierSeparator
+};

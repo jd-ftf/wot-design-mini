@@ -3,4 +3,4 @@
  * Copyright 2019 JingDong, Inc.
  * Licensed under the ISC license
  */
-.jmd__buttonContainer{font-size:16px;color:#fff;background-color:#0084ff;line-height:42px;text-align:center}
+.jmd__buttonContainer{font-size:16px;line-height:42px;text-align:center}.jmd__buttonContainer--default{color:#333;border:1px solid #a7a7a7;background-color:#fff}.jmd__buttonContainer--primary{color:#fff;background-color:#0084ff}.jmd__buttonContainer--info{color:#fff;background:#909399}.jmd__buttonContainer--success{color:#fff;background-color:#00c740}.jmd__buttonContainer--warning{color:#fff;background-color:#ffb300}.jmd__buttonContainer--error{color:#fff;background-color:#e2231a}.jmd__buttonContainer--plain{border-color:#0084ff;background-color:#fff;color:#0084ff}.jmd__buttonContainer--disabled{opacity:.3}.jmd__buttonContainer--round{border-radius:20px}
