@@ -1,5 +1,5 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
-<button  class="jmd__buttonContainer  {{ utils.bem('buttonContainer',[type,size,{plain,disabled,round}]) }}">
+<button open-type="{{ openType }}"  hover-class="jmd__buttonContainer--active hover-class" class="jmd__buttonContainer  {{ utils.bem('buttonContainer',[type,size,{plain,disabled,round}]) }}">
     <view class="jmd-buttonText">
         <slot></slot>
     </view>

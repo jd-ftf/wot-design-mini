@@ -9,7 +9,8 @@ Component({
     },
     size: {
       type: String,
-      value: "middle"
-    }
+      value: "large"
+    },
+    openType: String
   }
 });

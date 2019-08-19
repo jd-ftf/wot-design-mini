@@ -7,50 +7,58 @@
 }
 $selector: jmd__buttonContainer;
 .jmd__buttonContainer {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 44px;
+  margin: 0;
+  padding: 0;
   font-size: 16px;
   line-height: 42px;
-  margin: 10px 0;
   text-align: center;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  -webkit-text-size-adjust: 100%;
   &--default {
     color: #333333;
     border: solid 1px #a7a7a7;
     background-color: #fff;
-    &.#{$selector}--plain{
+    &.#{$selector}--plain {
       @include plain(#a7a7a7);
     }
   }
   &--primary {
     color: #fff;
     background-color: $-color-theme;
-    &.#{$selector}--plain{
+    &.#{$selector}--plain {
       @include plain($-color-theme);
     }
   }
   &--info {
     color: #fff;
     background: rgb(144, 147, 153);
-    &.#{$selector}--plain{
+    &.#{$selector}--plain {
       @include plain(rgb(144, 147, 153));
     }
   }
   &--success {
     color: #fff;
     background-color: rgb(0, 199, 64);
-    &.#{$selector}--plain{
+    &.#{$selector}--plain {
       @include plain(rgb(0, 199, 64));
     }
   }
   &--warning {
     color: #fff;
     background-color: rgb(255, 179, 0);
-    &.#{$selector}--plain{
+    &.#{$selector}--plain {
       @include plain(rgb(255, 179, 0));
     }
   }
   &--error {
     color: #fff;
     background-color: rgb(226, 35, 26);
-    &.#{$selector}--plain{
+    &.#{$selector}--plain {
       @include plain(rgb(226, 35, 26));
     }
   }
@@ -59,5 +67,35 @@ $selector: jmd__buttonContainer;
   }
   &--round {
     border-radius: 20px;
+  }
+  &--large {
+    width: 100%;
+    height: 50px;
+    line-height: 48px;
+  }
+  &--middle {
+    padding: 0 15px;
+    font-size: 14px;
+  }
+  &--small {
+    min-width: 60px;
+    height: 30px;
+    padding: 0 8px;
+    font-size: 12px;
+    line-height: 28px;
+  }
+  &--text{
+    display: inline-block;
+    width: auto;
+    margin: 0 15px;
+    background: none;
+    border: none;
+    color: #0084ff;
+    &::after{
+      border: none;
+    }
+  }
+  &--active{
+    
   }
 }

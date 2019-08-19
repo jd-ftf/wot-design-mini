@@ -63,8 +63,15 @@
         按钮尺寸
         <text class="code">size</text>
     </view>
-    <jmd-button type="primary" size="large">主要按钮</jmd-button>
-    <jmd-button type="primary" size="middle">成功按钮</jmd-button>
-    <jmd-button type="primary" size="small">信息按钮</jmd-button>
-    <jmd-button type="primary" size="mini">警告按钮</jmd-button>
+    <jmd-button type="primary" size="large">大型按钮</jmd-button>
+    <jmd-button type="primary" size="middle">普通按钮</jmd-button>
+    <jmd-button type="primary" size="small" style="margin-left:10px;">小型按钮</jmd-button>
+</view>
+<view class="row">
+    <view class="desc">
+        文字按钮
+        <text class="code">text</text>
+    </view>
+    <jmd-button type="text">大型按钮</jmd-button>
+    <jmd-button type="text" disabled>普通按钮</jmd-button>
 </view>
