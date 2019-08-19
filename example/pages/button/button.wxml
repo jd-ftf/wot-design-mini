@@ -34,3 +34,37 @@
     <jmd-button type="warning" plain>警告按钮</jmd-button>
     <jmd-button type="error" plain>危险按钮</jmd-button>
 </view>
+<view class="row">
+    <view class="desc">
+        幽灵按钮
+        <text class="code">disabled</text>
+    </view>
+    <jmd-button plain disabled>默认按钮</jmd-button>
+    <jmd-button type="primary" plain disabled>主要按钮</jmd-button>
+    <jmd-button type="success" plain disabled>成功按钮</jmd-button>
+    <jmd-button type="info" plain disabled>信息按钮</jmd-button>
+    <jmd-button type="warning" plain disabled>警告按钮</jmd-button>
+    <jmd-button type="error" plain disabled>危险按钮</jmd-button>
+</view>
+<view class="row">
+    <view class="desc">
+        圆角按钮
+        <text class="code">round</text>
+    </view>
+    <jmd-button round>默认按钮</jmd-button>
+    <jmd-button type="primary" round>主要按钮</jmd-button>
+    <jmd-button type="success" round>成功按钮</jmd-button>
+    <jmd-button type="info" round>信息按钮</jmd-button>
+    <jmd-button type="warning" round>警告按钮</jmd-button>
+    <jmd-button type="error" round>危险按钮</jmd-button>
+</view>
+<view class="row">
+    <view class="desc">
+        按钮尺寸
+        <text class="code">size</text>
+    </view>
+    <jmd-button type="primary" size="large">主要按钮</jmd-button>
+    <jmd-button type="primary" size="middle">成功按钮</jmd-button>
+    <jmd-button type="primary" size="small">信息按钮</jmd-button>
+    <jmd-button type="primary" size="mini">警告按钮</jmd-button>
+</view>
