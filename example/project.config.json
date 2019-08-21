@@ -22,8 +22,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.0",
-	"appid": "wxe94b063d8e32b5f3",
-	"projectname": "src",
+	"appid": "wxfbbb01e6b81ce4e8",
+	"projectname": "example",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
