@@ -32,7 +32,7 @@
 
 6. 项目架构
 
-   ```javascript
+   ```html
    .
    ├── ReadMe.md
    ├── dist													packages通过gulp打包生成组件库，用于外部项目引入。
