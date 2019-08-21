@@ -43,15 +43,15 @@
    │   ├── app.json								 内部的pages属性用于定义页面，开发哪个页面最好将其放在第一位，工具会默认设置第一个为初始化页面
    │   ├── app.wxss
    │   ├── dist									 组件库需要打包到小程序项目内使用。使用npm run dev 生成。
-   │   ├── pages						小程序项目页面使用目录
+   │   ├── pages						        小程序项目页面使用目录
    │   ├── project.config.json
    │   └── sitemap.json
-   ├── gulpfile.js					组件gulp打包程序
+   ├── gulpfile.js					            组件gulp打包程序
    ├── package-lock.json
    ├── package.json
-   └── packages									    组件库
-       ├── button									    button组件
-       ├── common									    组件公共样式与方法
+   └── packages									组件库
+       ├── button									button组件
+       ├── common									 组件公共样式与方法
        └── wxs										小程序wxs语法公共库
    ```
 
