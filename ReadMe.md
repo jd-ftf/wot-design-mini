@@ -69,10 +69,10 @@
      ```json
      {
        "pages": [
-         "pages/button/button",						第一个字符串定义为自己要开发的组件，这样可以避免更改源码后热编译，小程序开发工具页面定义到首页。
+         "pages/button/button",						//第一个字符串定义为自己要开发的组件，这样可以避免更改源码后热编译，小程序开发工具页面定义到首页。
          "pages/index/index"
        ],
        "usingComponents": {
-         "jmd-button": "dist/button/index"			引入小程序自定义组件库，即打包后开发的工具组件库
+         "jmd-button": "dist/button/index"			//引入小程序自定义组件库，即打包后开发的工具组件库
        }
      ```
