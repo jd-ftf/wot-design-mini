@@ -35,20 +35,20 @@
    ```html
    .
    ├── ReadMe.md
-   ├── dist											packages通过gulp打包生成组件库，用于外部项目引入。
+   ├── dist										packages通过gulp打包生成组件库，用于外部项目引入。
    │   └── button
    ├── example										小程序开发工具打开的项目目录，用于组件库调用实例以及组件库测试操作
    │   ├── app.js
-   │   ├── app.json									内部的pages属性用于定义页面，开发哪个页面最好将其放在第一位，工具会默认设置第一个为初始化页面
+   │   ├── app.json								内部的pages属性用于定义页面，开发哪个页面最好将其放在第一位，工具会默认设置第一个为初始化页面
    │   ├── app.wxss
-   │   ├── dist										组件库需要打包到小程序项目内使用。使用npm run dev 生成。
+   │   ├── dist									组件库需要打包到小程序项目内使用。使用npm run dev 生成。
    │   ├── pages									小程序项目页面使用目录
    │   ├── project.config.json
    │   └── sitemap.json
    ├── gulpfile.js									组件gulp打包程序
    ├── package-lock.json
    ├── package.json
-   └── packages										组件库
+   └── packages									组件库
        ├── button									button组件
        ├── common									组件公共样式与方法
        └── wxs										小程序wxs语法公共库
@@ -58,7 +58,7 @@
 
    - [ ] 新建分支，用于组件开发。
 
-   - [ ] 参照小程序原生框架（https://developers.weixin.qq.com/miniprogram/dev/component/）进行封装，封装为自定义组件（https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/）
+   - [ ] 参照小程序原生框架（ https://developers.weixin.qq.com/miniprogram/dev/component/ ）进行封装，封装为自定义组件（ https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/ ）
 
    - [ ] 组件库packages下新建组件目录例如radio,下面新建index.js（参照小程序自定义组件库开发帮助说明）,index.scss（用于编写小程序样式，可使用sass语法，打包后会生成小程序样式库wxss）,index.json（用于声明新建的是一个自定义组件）,index.wxml（用于定义组件结构）
 
