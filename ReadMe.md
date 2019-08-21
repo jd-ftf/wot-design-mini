@@ -38,11 +38,11 @@
    ├── ReadMe.md
    ├── dist										packages通过gulp打包生成组件库，用于外部项目引入。
    │   └── button
-   ├── example										小程序开发工具打开的项目目录，用于组件库调用实例以及组件库测试操作
+   ├── example								    小程序开发工具打开的项目目录，用于组件库调用实例以及组件库测试操作
    │   ├── app.js
-   │   ├── app.json								内部的pages属性用于定义页面，开发哪个页面最好将其放在第一位，工具会默认设置第一个为初始化页面
+   │   ├── app.json								    内部的pages属性用于定义页面，开发哪个页面最好将其放在第一位，工具会默认设置第一个为初始化页面
    │   ├── app.wxss
-   │   ├── dist									组件库需要打包到小程序项目内使用。使用npm run dev 生成。
+   │   ├── dist									    组件库需要打包到小程序项目内使用。使用npm run dev 生成。
    │   ├── pages									小程序项目页面使用目录
    │   ├── project.config.json
    │   └── sitemap.json
