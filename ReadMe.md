@@ -51,8 +51,8 @@
    ├── package.json
    └── packages									组件库
        ├── button									button组件
-       ├── common									 组件公共样式与方法
-       └── wxs										小程序wxs语法公共库
+       ├── common								组件公共样式与方法
+       └── wxs									小程序wxs语法公共库
    ```
 
 7. 组件库开发步骤
