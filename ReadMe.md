@@ -76,7 +76,3 @@
          "jmd-button": "dist/button/index"			引入小程序自定义组件库，即打包后开发的工具组件库
        }
      ```
-
-     
-
-   
