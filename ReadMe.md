@@ -6,7 +6,7 @@
 
 2. Build Setup
 
-   ```javascript
+   ```xml
    # 安装依赖
    npm install
    
