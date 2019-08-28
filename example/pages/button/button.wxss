@@ -22,3 +22,6 @@ page {
   margin: 0px 2px;
   border-radius: 2px;
 }
+.center{
+  text-align: center;
+}

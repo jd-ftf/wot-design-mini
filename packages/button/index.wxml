@@ -1,6 +1,29 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
-<button open-type="{{ openType }}"  hover-class="jmd__buttonContainer--active hover-class" class="jmd__buttonContainer  {{ utils.bem('buttonContainer',[type,size,{plain,disabled,round}]) }}">
-    <view class="jmd-buttonText">
-        <slot></slot>
-    </view>
+<button
+ hover-class="jmd__buttonContainer--active hover-class"
+ class="jmd__buttonContainer  {{ utils.bem('buttonContainer',[type,size,{plain,disabled,round}]) }}"
+ open-type="{{ openType }}"
+ hover-start-time="{{hoverStartTime}}"
+ send-message-title="{{sendMessageTitle}}"
+ send-message-path="{{sendMessagePath}}"
+ send-message-img="{{sendMessageImg}}"
+ app-parameter="{{appParameter}}"
+ show-message-card="{{showMessageCard}}"
+ session-from="sessionFrom"
+ lang="{{lang}}"
+ hover-stay-time="{{hoverStayTime}}"
+ hover-stop-propagation="{{hoverStopPropagation}}"
+ form-type="{{formType}}"
+ bindtap="onClick"
+ bindgetuserinfo="bindGetUserInfo"
+ bindcontact="bindContact"
+ bindgetphonenumber="bindGetPhoneNumber"
+ binderror="bindError"
+ bindlaunchapp="bindLaunchApp"
+ bindopensetting="bindOpenSetting"
+>
+	<view class="jmd-buttonText">
+		<slot/>
+	</view>
 </button>
+

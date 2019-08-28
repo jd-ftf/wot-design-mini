@@ -1,9 +1,53 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
+
+$button-class-map: (
+  default: (
+    color: $-button-default-color,
+    border: $-button-default-border-color,
+    background: $-button-default-background-color,
+    plain: $-button-default-plain-color
+  ),
+  primary: (
+    color: $-button-primary-color,
+    border: $-button-primary-border-color,
+    background: $-button-primary-background-color,
+    plain: $-button-primary-plain-color
+  ),
+  success: (
+    color: $-button-success-color,
+    border: $-button-success-border-color,
+    background: $-button-success-background-color,
+    plain: $-button-success-plain-color
+  ),
+  warning: (
+    color: $-button-warning-color,
+    border: $-button-warning-border-color,
+    background: $-button-warning-background-color,
+    plain: $-button-warning-plain-color
+  ),
+  error: (
+    color: $-button-error-color,
+    border: $-button-error-border-color,
+    background: $-button-error-background-color,
+    plain: $-button-error-plain-color
+  ),
+  info: (
+    color: $-button-info-color,
+    border: $-button-info-border-color,
+    background: $-button-info-background-color,
+    plain: $-button-info-plain-color
+  )
+);
+
+@function mapToStyle($class, $key) {
+  @return map-get(map-get($button-class-map, $class), $key);
+}
+
 @mixin plain($-color) {
   color: $-color;
   border-color: $-color;
-  background-color: #fff;
+  background-color: $-color-white;
 }
 $selector: jmd__buttonContainer;
 .jmd__buttonContainer {
@@ -11,7 +55,7 @@ $selector: jmd__buttonContainer;
   display: inline-block;
   box-sizing: border-box;
   height: 44px;
-  margin: 0;
+  margin-right: 16px;
   padding: 0;
   font-size: 16px;
   line-height: 42px;
@@ -19,47 +63,30 @@ $selector: jmd__buttonContainer;
   border-radius: 2px;
   -webkit-appearance: none;
   -webkit-text-size-adjust: 100%;
-  &--default {
-    color: #333333;
-    border: solid 1px #a7a7a7;
-    background-color: #fff;
-    &.#{$selector}--plain {
-      @include plain(#a7a7a7);
-    }
-  }
-  &--primary {
-    color: #fff;
-    background-color: $-color-theme;
-    &.#{$selector}--plain {
-      @include plain($-color-theme);
-    }
-  }
-  &--info {
-    color: #fff;
-    background: rgb(144, 147, 153);
-    &.#{$selector}--plain {
-      @include plain(rgb(144, 147, 153));
-    }
-  }
-  &--success {
-    color: #fff;
-    background-color: rgb(0, 199, 64);
-    &.#{$selector}--plain {
-      @include plain(rgb(0, 199, 64));
-    }
-  }
-  &--warning {
-    color: #fff;
-    background-color: rgb(255, 179, 0);
-    &.#{$selector}--plain {
-      @include plain(rgb(255, 179, 0));
-    }
-  }
-  &--error {
-    color: #fff;
-    background-color: rgb(226, 35, 26);
-    &.#{$selector}--plain {
-      @include plain(rgb(226, 35, 26));
+  @each $class in $-class-list {
+    &--#{$class} {
+      color: mapToStyle(#{$class}, "color");
+      background-color: mapToStyle(#{$class}, "background");
+      border: 1px solid mapToStyle(#{$class}, "border");
+      &.#{$selector}--plain {
+        @include plain(mapToStyle(#{$class}, "plain"));
+        &.#{$selector}--active {
+          background-color: mix($-color-white, $-color-black, 85%);
+          &.#{$selector}--disabled {
+            background-color: $-color-white;
+          }
+        }
+      }
+      &.#{$selector}--active {
+        background-color: mix(
+          mapToStyle(#{$class}, "background"),
+          $-color-black,
+          65%
+        );
+        &.#{$selector}--disabled {
+          background-color: mapToStyle(#{$class}, "background");
+        }
+      }
     }
   }
   &--disabled {
@@ -84,18 +111,15 @@ $selector: jmd__buttonContainer;
     font-size: 12px;
     line-height: 28px;
   }
-  &--text{
+  &--text {
     display: inline-block;
     width: auto;
     margin: 0 15px;
     background: none;
     border: none;
-    color: #0084ff;
-    &::after{
+    color: $-text-color;
+    &::after {
       border: none;
     }
-  }
-  &--active{
-    
   }
 }
