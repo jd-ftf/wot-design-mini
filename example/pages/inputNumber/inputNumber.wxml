@@ -1,0 +1,82 @@
+<!--pages/inputNumber/inputNumber.wxml-->
+<view class="row">
+    <view class="desc">
+        基础用法
+    </view>
+    <view class="center">
+        <jmd-input-number size="small" value="{{ 1 }}" />
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        设置计数范围
+        <text class="code">min-max</text>
+    </view>
+    <view class="center">
+        <jmd-input-number
+                value="{{ 0 }}"
+                min="0"
+                max="5"
+        />
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        只弹起整数键盘
+        <text class="code">integer</text>
+    </view>
+    <view class="center">
+        <jmd-input-number
+                value="{{ 2 }}"
+                integer
+        />
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        步数设置
+        <text class="code">step</text>
+    </view>
+    <view class="center">
+            <jmd-input-number
+                    value="{{ 0.2 }}"
+                    step="0.1"
+            />
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        部分禁用--禁用键盘
+        <text class="code">input-lock</text>
+    </view>
+    <view class="center">
+        <jmd-input-number
+                input-lock
+                value="{{ value }}"
+                bind:change="handleChange" />
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        全部禁用状态
+        <text class="code">disabled</text>
+    </view>
+    <view class="center">
+        <jmd-input-number
+                disabled
+                value="{{ value }}"
+                bind:change="handleChange" />
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        异步调用
+        <text class="code">async-change</text>
+    </view>
+    <view class="center">
+        <jmd-input-number
+                async-change
+                value="{{ value1 }}"
+                bind:change="asyncChange" />
+    </view>
+</view>

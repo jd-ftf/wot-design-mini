@@ -1,0 +1,49 @@
+@import "./../common/abstracts/_mixin.scss";
+@import "./../common/abstracts/variable.scss";
+
+$border-color:#dddee1;
+$font-size-common:12px;
+$size-small:20px;
+$size-primary:30px;
+
+$selector: jmd__inputNumberContainer;
+.jmd__inputNumberContainer {
+  view{
+    display: inline-block;
+    line-height: 20px;
+    padding: 5px 0;
+    text-align: center;
+    min-width: 40px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    font-size:$font-size-common;
+    border: 1rpx solid $border-color;
+  }
+  &--input{
+    font-size: $font-size-common;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    height: 30px;
+    width: 40px;
+    min-height: auto;
+    line-height: 30px;
+    border: 1rpx solid $border-color;
+    border-right: none;
+    border-left: none;
+    background: white;
+    color: black;
+  }
+  &--disabled{
+    border-color: $border-color;
+    color: #bbbec4;
+    background: #f7f7f7;
+  }
+  &--minus{
+    border-radius: 2px 0 0 2px;
+  }
+  &--plus{
+    border-radius: 0 2px 2px 0;
+  }
+
+}

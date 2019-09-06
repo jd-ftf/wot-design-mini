@@ -1,0 +1,20 @@
+
+<wxs src="../wxs/utils.wxs" module="utils" />
+<view class="jmd__inputNumberContainer">
+    <view  class=" {{ utils.bem('inputNumberContainer',['minus',{disabled:minusDisabled}])}} "
+           data-disabled="{{ minusDisabled}}"
+           bind:tap="handleMinus">-</view>
+    <input  bind:blur="handleBlur"
+            bind:input="handleInput"
+            bind:focus="handleFocus"
+            type="{{ integer ? 'number' : 'digit' }}"
+            class=" {{ utils.bem('inputNumberContainer',['input',{disabled:inputDisabled}]) }}"
+            value="{{ value }}"
+            disabled="{{ inputDisabled }}"/>
+    <view class=" {{ utils.bem('inputNumberContainer',['plus',{disabled:plusDisabled}]) }}"
+          data-disabled="{{ plusDisabled }}"
+          bind:tap="handlePlus">+</view>
+</view>
+
+
+

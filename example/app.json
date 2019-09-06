@@ -1,7 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/button/button",
-    "pages/index/index"
+    "pages/inputNumber/inputNumber"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,7 +11,8 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "jmd-button": "dist/button/index"
+    "jmd-button": "dist/button/index",
+    "jmd-input-number": "dist/inputNumber/index"
   },
   "sitemapLocation": "sitemap.json"
 }
