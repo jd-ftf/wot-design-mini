@@ -1,6 +1,5 @@
 Component({
   properties: {
-    // small || default || large
     disabled: Boolean,
     asyncChange: Boolean,
     minusDisabled:Boolean,
