@@ -1,49 +1,49 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
 
-$border-color:#dddee1;
-$font-size-common:12px;
-$size-small:20px;
-$size-primary:30px;
+/* inputNumber */
+$-input-number-border:1px solid $-border-color;
+$-input-number-font-size:12px;
+$-input-number-button-width:40px;
+$-input-number-button-height:30px;
 
-$selector: jmd__inputNumberContainer;
 .jmd__inputNumberContainer {
   view{
     display: inline-block;
     line-height: 20px;
     padding: 5px 0;
     text-align: center;
-    min-width: 40px;
+    width:$-input-number-button-width;
     box-sizing: border-box;
     vertical-align: middle;
-    font-size:$font-size-common;
-    border: 1rpx solid $border-color;
+    font-size:$-input-number-font-size;
+    border: $-input-number-border;
   }
   &--input{
-    font-size: $font-size-common;
+    font-size: $-input-number-font-size;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    height: 30px;
-    width: 40px;
+    height: $-input-number-button-height;
+    width: $-input-number-button-width;
     min-height: auto;
-    line-height: 30px;
-    border: 1rpx solid $border-color;
+    line-height: $-input-number-button-height;
+    border: $-input-number-border;
     border-right: none;
     border-left: none;
-    background: white;
-    color: black;
+    background: $-color-white;
+    color: $-text-color;
   }
   &--disabled{
-    border-color: $border-color;
+    border-color: $-border-color;
     color: #bbbec4;
     background: #f7f7f7;
   }
   &--minus{
-    border-radius: 2px 0 0 2px;
+    border-radius:2px 0 0 2px;
   }
   &--plus{
-    border-radius: 0 2px 2px 0;
+    border-radius:0 2px 2px 0;
   }
 
 }
