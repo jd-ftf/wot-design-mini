@@ -3,14 +3,36 @@ Component({
     checked: null,
     loading: Boolean,
     disabled: Boolean,
+    asyncChange: Boolean,
+
     activeColor: String,
     inactiveColor: String,
-    currentColor:String,
-    test:Boolean,
+    activeTextColor: String,
+    inactiveTextColor: String,
     backgroundColor:String,
-    size: {
+    fontColor:String,
+
+    inactiveText:String,
+    activeText:String,
+    activeTextColor: {
       type: String,
-      value: '30px'
+      value:'white'
+    },
+    inactiveTextColor: {
+      type: String,
+      value:'gray'
+    },
+    display:{
+      type: String,
+      value: 'inline-block'
+    },
+    size: {
+      type: Number,
+      value: 2
+    },
+    fontSize:{
+      type: String,
+      value:'12px'
     },
     // 激活状态
     activeValue: {
@@ -26,31 +48,33 @@ Component({
   observers:{
     checked(value) {
       this.setData({ value });
-      this.bgColorControl();
+      this.colorControl();
     },
 
   },
   created() {
     this.setData({ value: this.data.checked });
-    
   },
 
   methods: {
     handleClick() {
-      const { activeValue, inactiveValue } = this.data;
-      
-      this.setData({
-        checked:!this.data.checked 
-      });
+      const { activeValue, inactiveValue,disabled } = this.data;
+      let { loading } = this.data;
 
-      if (!this.data.disabled && !this.data.loading) {
-        const checked = this.data.checked === activeValue;
-        const value = checked ? inactiveValue : activeValue;
-        this.triggerEvent('input', value);
-        this.triggerEvent('change', value);
-      }
+        if (!disabled) {
+          const checked = this.data.checked === activeValue;
+          const value = checked ? inactiveValue : activeValue;
+          
+          this.setData({
+            checked:this.data.asyncChange ? this.data.checked : !this.data.checked 
+          });
+
+          this.triggerEvent('input', value);
+          this.triggerEvent('change', value);
+        }
+      
     },
-    bgColorControl(){
+    colorControl(){
       // background-color
       // {{ (checked ? activeColor : inactiveColor) ? 'background-color: ' + (checked ? activeColor : inactiveColor ) : '' }}
       const { checked,activeColor,inactiveColor } = this.data;

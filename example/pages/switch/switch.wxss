@@ -25,6 +25,7 @@ page {
 .center{
     text-align: center;
     padding-bottom: 10px;
+    
 }
 .test{
     color: red;

@@ -3,14 +3,28 @@ Page({
   data: {
     checked1: true,
     checked2: true,
-    checked3:true
   },
 
-  onChange({ detail }) {
-    this.setData({ checked: detail });
+  onChange1({ detail }) {
+    this.setData({
+      checked1:detail
+    })
   },
 
   onChange2({ detail }) {
-   
+    let _this = this;
+    console.log("异步调用")
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 10000
+    })
+
+    setTimeout(function () {
+      wx.hideToast();
+      _this.setData({
+        checked2: detail
+      })
+    }, 1000)
   }
 });
