@@ -14,7 +14,8 @@
   "usingComponents": {
     "jmd-button": "dist/button/index",
     "jmd-input-number": "dist/inputNumber/index",
-    "jmd-switch": "dist/switch/index"
+    "jmd-switch": "dist/switch/index",
+    "jmd-notice-bar": "dist/noticeBar/index"
   },
   "sitemapLocation": "sitemap.json"
 }

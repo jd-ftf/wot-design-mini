@@ -39,7 +39,7 @@
         <jmd-switch
           checked="{{ checked2 }}" 
           async-change
-          bind:change="onChange2"/>
+          bind:change="asyncChange"/>
     </view>
 </view>
 <view class="row">

@@ -1,0 +1,9 @@
+<!--pages/inputNumber/inputNumber.wxml-->
+<view class="row">
+    <view class="desc">
+        基础用法
+    </view>
+    <view class="center">
+        <jmd-notice-bar />
+    </view>
+</view>

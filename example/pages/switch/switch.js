@@ -11,7 +11,7 @@ Page({
     })
   },
 
-  onChange2({ detail }) {
+  asyncChange({ detail }) {
     let _this = this;
     console.log("异步调用")
     wx.showToast({
