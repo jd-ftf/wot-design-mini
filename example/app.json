@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/switch/switch",
     "pages/inputNumber/inputNumber",
     "pages/index/index",
     "pages/button/button"
@@ -12,7 +13,8 @@
   },
   "usingComponents": {
     "jmd-button": "dist/button/index",
-    "jmd-input-number": "dist/inputNumber/index"
+    "jmd-input-number": "dist/inputNumber/index",
+    "jmd-switch": "dist/switch/index"
   },
   "sitemapLocation": "sitemap.json"
 }

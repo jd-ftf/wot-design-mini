@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.0",
 	"appid": "wxfdd17eae479240f0",
-	"projectname": "example",
+	"projectname": "jmd-vapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

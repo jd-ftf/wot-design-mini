@@ -1,0 +1,47 @@
+@import "./../common/abstracts/_mixin.scss";
+@import "./../common/abstracts/variable.scss";
+
+.jmd__switchContainer {
+  display: inline-block;
+  position: relative;
+  width: $switch-width;
+  height: $switch-height;
+  border: $switch-border;
+  border-radius: $switch-node-size;
+  box-sizing: content-box;
+  background-color: $switch-background-color;
+  transition: background-color $switch-transition-duration;
+  
+
+  &--node {
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 100%;
+    width: $switch-node-size;
+    height: $switch-node-size;
+    z-index: $switch-node-z-index;
+    transition: $switch-transition-duration;
+    box-shadow: $switch-node-box-shadow;
+    background-color: $switch-node-background-color;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.05),0 2px 2px 0 rgba(0,0,0,.1),0 3px 3px 0 rgba(0,0,0,.05);
+  }
+
+  &__loading {
+    top: 25%;
+    left: 25%;
+    position: absolute !important;
+  }
+
+  &--on {
+    background-color: $switch-on-background-color;
+
+    .jmd__switchContainer--node {
+      transform: translateX($switch-width - $switch-node-size);
+    }
+  }
+
+  &--disabled {
+    opacity: $switch-disabled-opacity;
+  }
+}

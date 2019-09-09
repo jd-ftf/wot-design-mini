@@ -1,0 +1,12 @@
+
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view
+  class="jmd__switchContainer {{checked?'jmd__switchContainer--on':''}}"
+  style="font-size: {{ size }} ; background-color: {{ backgroundColor }}"
+  bind:tap="handleClick"
+>
+  <view class="jmd__switchContainer--node node-class">
+    <van-loading wx:if="{{ loading }}" size="50%" custom-class="jmd__switchContainer--loading" />
+  </view>
+</view>
