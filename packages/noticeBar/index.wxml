@@ -1,5 +1,19 @@
-
 <wxs src="../wxs/utils.wxs" module="utils" />
-<view class="jmd__noticeBarContainer ">
+<view 
+   class="jmd__noticeBarContainer "
+    style="color: {{ color }}; background-color: {{ backgroundColor }};"
+   >
+   <view class="jmd__noticeBarContainer--iconLeft" bind:tap="scrollText">icon</view>
+   <view class="jmd__noticeBarContainer--textWrapper">
+      <view 
+         class="jmd__noticeBarContainer--text" 
+         animation="{{ani}}" 
+           bindtransitionend="transitionEnd"
+            bindanimationstart="animationStart"
+            bindanimationiteration="animationIteration">
+         {{ text }}
+      </view>
+   </view>
 </view>
 
+ 

@@ -2,8 +2,7 @@ page {
     background-color: #ededed;
 }
 .row {
-    margin: 10px 0;
-    padding:  0 10px;
+
     background: rgb(255, 255, 255);
 }
 .desc {
