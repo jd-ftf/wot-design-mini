@@ -34,7 +34,9 @@ Component({
     },
   },
   observers:{
-
+    ani(){
+      console.log("更改了",this.data.ani)
+    }
   },
   ready() {
     this.init();
@@ -97,13 +99,15 @@ Component({
       });
     },
     transitionEnd() {
+      
       const _this = this;
       // 复位操作
       this.initAnimation(0, 'linear', 0, 0);
-      // 延时，没有延时函数动画不生效
+      // 延时，没有延时函数动画不生效,延时时间不能过短
       setTimeout(()=>{
+        console.log("jieshu")
         _this.scroll();
-      },10);
+      },20);
     },
   }
 });
