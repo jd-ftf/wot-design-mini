@@ -6,27 +6,27 @@
    >
    <view
       wx:if="{{ showIcon }}"
-      class="jmd__noticeBarContainer--iconLeft">
+      class=" {{ utils.bem('noticeBarContainer',['iconLeft'])}} ">
       icon
    </view>
 
    <view 
-      style="height:{{ wrapabled ? 'auto' : '24px' }}"
-      class="jmd__noticeBarContainer--textWrapper">
+      class="{{ utils.bem('noticeBarContainer',['textWrapper'])}}"
+       style="height:{{ wrapabled ? 'auto' : '24px' }}">
+
       <view 
-         class="jmd__noticeBarContainer--text" 
+         class="{{ utils.bem('noticeBarContainer',['text'])}} " 
          animation="{{ scrollable ? animation : '' }}" 
          style="left:{{ scrollable ? '100%':'0' }}; position:{{ scrollable ? 'absolute':'relative' }};white-space:{{ wrapabled ? 'wrap' : 'nowrap' }}"
-         bindtransitionend="transitionEnd"
-         bindanimationstart="animationStart"
-         bindanimationiteration="animationIteration">
+         bindtransitionend="transitionEnd">
          {{ text }}
       </view>
+
    </view>
 
    <view 
       wx:if="{{ closeable }}"
-      class="jmd__noticeBarContainer--iconRight"
+      class="{{ utils.bem('noticeBarContainer',['iconRight'])}} "
       bind:tap="closeNotice">
       x
    </view>

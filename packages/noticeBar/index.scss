@@ -1,12 +1,13 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
 
+$-notice-line-height:24px;
 
 .jmd__noticeBarContainer {
   display: flex;
   padding: 6px 18px;
   font-size: 14px;
-  line-height: 24px;
+  line-height: $-notice-line-height;
   align-items: center;
   &--iconLeft{
     position: relative;
@@ -27,11 +28,10 @@
   }
   &--textWrapper{
     overflow: hidden;
-    font-size: 12px;
     flex: 12;
     margin-left: 5px;
     position: relative;
-    height: 24px;
+    height: $-notice-line-height;
     text-align: left;
   }
 }

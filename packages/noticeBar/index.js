@@ -113,8 +113,6 @@ Component({
           scrollable : false
         })
       }
-
-     
     },
     /**
      * 动画初始化函数 
