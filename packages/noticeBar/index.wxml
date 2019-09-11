@@ -1,6 +1,6 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <view 
-    class="jmd__noticeBarContainer "
+    class="jmd__noticeBarContainer hover-class"
     wx:if="{{ show }}"
     style="color: {{ color }}; background-color: {{ backgroundColor }};"
    >
@@ -25,11 +25,17 @@
    </view>
 
    <view 
-      wx:if="{{ closeable }}"
+      wx:if="{{ closeable || mode == 'info'}}"
       class="{{ utils.bem('noticeBarContainer',['iconRight'])}} "
       bind:tap="closeNotice">
       x
    </view>
+     <navigator
+      wx:if="{{ mode === 'link' }}"
+      class="{{ utils.bem('noticeBarContainer',['iconRight'])}} "
+      url="{{ url }}">
+      >
+  </navigator>
 </view>
 
  

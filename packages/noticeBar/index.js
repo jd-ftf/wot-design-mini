@@ -2,12 +2,16 @@ const FONT_COLOR = '#ed6a0c';
 const BG_COLOR = '#fffbe8';
 
 Component({
-  
+  externalClasses: ["hover-class"],
   properties: {
     animation:Object,
     text:String,
     textRect:Number,
     wrapRect:Number,
+    mode:{
+      type:String,
+      value:"info"
+    },
     // true : 多行显示 || false：单行
     wrapabled:{
       type:Boolean,
@@ -83,6 +87,7 @@ Component({
         }).exec();
       })
     },
+
     init(){
       Promise.all([
         this.getRect('.jmd__noticeBarContainer--text'),
@@ -95,6 +100,7 @@ Component({
         this.scroll();
       })
     },
+
     /**
      * 滚动动画
      * 如果外层宽度 大于 内层文字宽度 || 设定不滚动 ，则不需要动画
@@ -113,6 +119,7 @@ Component({
       }
 
     },
+
     /**
      * 动画初始化函数 
      * @param duration 
@@ -131,6 +138,7 @@ Component({
         animation:  animation.export()
       });
     },
+
     transitionEnd() {
       const _this = this;
       // 复位操作

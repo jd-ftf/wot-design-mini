@@ -36,11 +36,14 @@
 </view>
 <view class="row">
     <view class="desc">
-        关闭
+        消息模式
          <text class="code">closeable</text>
     </view>
     <view class="center">
-        <jmd-notice-bar text="{{ text }}" closeable/>
+        <jmd-notice-bar text="{{ text }}" mode="info"/>
+    </view>
+        <view class="center">
+        <jmd-notice-bar text="{{ text }}" mode="link" />
     </view>
 </view>
 <view class="row">
