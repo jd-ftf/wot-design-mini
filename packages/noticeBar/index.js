@@ -61,6 +61,7 @@ Component({
       }
     }
   },
+
   ready() {
     this.init();
   },
@@ -101,11 +102,19 @@ Component({
     scroll(){
       const { speed, scrollable, delay, wrapRect, textRect } = this.data;
 
-      if (scrollable && wrapRect < textRect) {
-        const duration = (textRect / speed) * 1000;
-        let scrollWidth = textRect + wrapRect;
-        this.initAnimation(duration, 'linear', delay, scrollWidth)
+      if( wrapRect < textRect ) {
+        if (scrollable ) {
+          const duration = (textRect / speed) * 1000;
+          let scrollWidth = textRect + wrapRect;
+          this.initAnimation(duration, 'linear', delay, scrollWidth)
+        } 
+      } else {
+        this.setData({
+          scrollable : false
+        })
       }
+
+     
     },
     /**
      * 动画初始化函数 
