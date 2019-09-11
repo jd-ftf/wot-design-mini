@@ -63,7 +63,9 @@
         <jmd-switch
           checked="{{ true }}" 
           active-color="#07c160"
-          inactive-color="#f44"/>
+          inactive-color="#f44"
+          active-textColor="#f44"
+          inactive-textColor="#07c160"/>
     </view>
 </view>
 <view class="row">

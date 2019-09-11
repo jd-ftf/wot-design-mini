@@ -1,4 +1,5 @@
 Component({
+  externalClasses: ["hover-class","node-class","input-class"],
   properties: {
     checked: null,
     loading: Boolean,

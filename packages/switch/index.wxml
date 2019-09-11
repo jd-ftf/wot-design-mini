@@ -2,13 +2,13 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <view style="display:{{ display }}">
   <view
-        class="jmd__switchContainer {{checked ? 'jmd__switchContainer--on' : ''}} {{ utils.bem('switchContainer',{disabled}) }} "
+        class="jmd__switchContainer {{checked ? 'jmd__switchContainer--on' : ''}} {{ utils.bem('switchContainer',{disabled}) }} hover-class"
         style="font-size: {{ size+'em' }} ; background-color: {{ backgroundColor }} ;"
         bind:tap="handleClick"
         >
         <input
            disabled="true"
-           class="jmd__switchContainer--input"
+           class="jmd__switchContainer--input input-class"
            value="{{ checked ? activeText : inactiveText}}"
            style="margin-left: {{ checked ? '' : '52%'}}; color: {{ checked ? activeTextColor : inactiveTextColor}}; width : {{ size + 'em' }} ;font-size: {{ fontSize }} ;"/>
         <view class="jmd__switchContainer--node node-class">

@@ -13,7 +13,6 @@ Page({
 
   asyncChange({ detail }) {
     let _this = this;
-    console.log("异步调用")
     wx.showToast({
       title: '加载中',
       icon: 'loading',
