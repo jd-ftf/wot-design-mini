@@ -37,7 +37,7 @@
 <view class="row">
     <view class="desc">
         消息模式
-         <text class="code">closeable</text>
+         <text class="code">mode</text>
     </view>
     <view class="center">
         <jmd-notice-bar text="{{ text }}" mode="info"/>
@@ -52,6 +52,6 @@
          <text class="code">background-color color</text>
     </view>
     <view class="center">
-        <jmd-notice-bar text="{{ text }}" background-color="#0084ff" color="white"/>
+        <jmd-notice-bar text="{{ text }}" background-color="rgb(236, 249, 255)" color="rgb(25, 137, 250)"/>
     </view>
 </view>

@@ -10,7 +10,7 @@ Component({
     wrapRect:Number,
     mode:{
       type:String,
-      value:"info"
+      value:""
     },
     // true : 多行显示 || false：单行
     wrapabled:{
