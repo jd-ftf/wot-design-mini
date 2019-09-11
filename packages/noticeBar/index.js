@@ -4,18 +4,32 @@ const BG_COLOR = '#fffbe8';
 Component({
   
   properties: {
-    ani:Object,
+    animation:Object,
     text:String,
     textRect:Number,
     wrapRect:Number,
+    // true : 多行显示 || false：单行
+    wrapabled:{
+      type:Boolean,
+      value:false
+    },
+    showIcon:{
+      type:Boolean,
+      value:true
+    },
+    closeable:{
+      type:Boolean,
+      value:false
+    },
     delay: {
       type: Number,
       value: 1
     },
     speed: {
       type: Number,
-      value: 100
+      value: 50
     },
+    // 默认滚动
     scrollable: {
       type: Boolean,
       value: true
@@ -32,10 +46,19 @@ Component({
       type: String,
       value: BG_COLOR
     },
+    show:{
+      type:Boolean,
+      value:true
+    }
   },
   observers:{
-    ani(){
-      console.log("更改了",this.data.ani)
+    wrapabled() {
+      const { wrapabled } = this.data;
+      if( wrapabled ) {
+        this.setData({
+          scrollable : false
+        })
+      }
     }
   },
   ready() {
@@ -43,6 +66,10 @@ Component({
   },
 
   methods: {
+    /**
+     * 微信小程序获取节点信息
+     * @param select 选择器 
+     */
     getRect(select) {
       const _this = this;
       return new Promise((resolve,reject)=>{
@@ -95,19 +122,22 @@ Component({
       });
       animation.translateX(-scrollWidth).step();
       this.setData({
-        ani:  animation.export()
+        animation:  animation.export()
       });
     },
     transitionEnd() {
-      
       const _this = this;
       // 复位操作
       this.initAnimation(0, 'linear', 0, 0);
       // 延时，没有延时函数动画不生效,延时时间不能过短
       setTimeout(()=>{
-        console.log("jieshu")
         _this.scroll();
       },20);
     },
+    closeNotice() {
+        this.setData({
+          show : false
+        })
+    }
   }
 });

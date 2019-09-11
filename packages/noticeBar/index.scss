@@ -4,8 +4,7 @@
 
 .jmd__noticeBarContainer {
   display: flex;
-  height: 40px;
-  padding: 0 15px;
+  padding: 6px 18px;
   font-size: 14px;
   line-height: 24px;
   align-items: center;
@@ -20,11 +19,11 @@
     flex: 1;
   }
   &--text{
-    white-space: nowrap;
     position: absolute;
     width: auto;
     left: 100%;
-
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &--textWrapper{
     overflow: hidden;
@@ -33,6 +32,6 @@
     margin-left: 5px;
     position: relative;
     height: 24px;
-
+    text-align: left;
   }
 }

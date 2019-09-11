@@ -1,18 +1,34 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <view 
-   class="jmd__noticeBarContainer "
+    class="jmd__noticeBarContainer "
+    wx:if="{{ show }}"
     style="color: {{ color }}; background-color: {{ backgroundColor }};"
    >
-   <view class="jmd__noticeBarContainer--iconLeft" bind:tap="scrollText">icon</view>
-   <view class="jmd__noticeBarContainer--textWrapper">
+   <view
+      wx:if="{{ showIcon }}"
+      class="jmd__noticeBarContainer--iconLeft">
+      icon
+   </view>
+
+   <view 
+      style="height:{{ wrapabled ? 'auto' : '24px' }}"
+      class="jmd__noticeBarContainer--textWrapper">
       <view 
          class="jmd__noticeBarContainer--text" 
-         animation="{{ani}}" 
-           bindtransitionend="transitionEnd"
-            bindanimationstart="animationStart"
-            bindanimationiteration="animationIteration">
+         animation="{{ scrollable ? animation : '' }}" 
+         style="left:{{ scrollable ? '100%':'0' }}; position:{{ scrollable ? 'absolute':'relative' }};white-space:{{ wrapabled ? 'wrap' : 'nowrap' }}"
+         bindtransitionend="transitionEnd"
+         bindanimationstart="animationStart"
+         bindanimationiteration="animationIteration">
          {{ text }}
       </view>
+   </view>
+
+   <view 
+      wx:if="{{ closeable }}"
+      class="jmd__noticeBarContainer--iconRight"
+      bind:tap="closeNotice">
+      x
    </view>
 </view>
 

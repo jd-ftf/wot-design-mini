@@ -4,6 +4,51 @@
         基础用法
     </view>
     <view class="center">
-        <jmd-notice-bar text="{{ text }}" />
+        <jmd-notice-bar text="{{ text }}"/>
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        速度控制
+         <text class="code">speed</text>
+    </view>
+    <view class="center">
+        <jmd-notice-bar text="{{ text }}" speed="{{100}}"/>
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        禁用滚动
+         <text class="code">scrollable</text>
+    </view>
+    <view class="center">
+        <jmd-notice-bar text="{{ text }}" scrollable="{{ false }}"/>
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        多行展示
+         <text class="code">wrapabled</text>
+    </view>
+    <view class="center">
+        <jmd-notice-bar text="{{ text }}" wrapabled show-icon="{{false}}"/>
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        关闭
+         <text class="code">closeable</text>
+    </view>
+    <view class="center">
+        <jmd-notice-bar text="{{ text }}" closeable/>
+    </view>
+</view>
+<view class="row">
+    <view class="desc">
+        自定义样式
+         <text class="code">background-color color</text>
+    </view>
+    <view class="center">
+        <jmd-notice-bar text="{{ text }}" background-color="#0084ff" color="white"/>
     </view>
 </view>
