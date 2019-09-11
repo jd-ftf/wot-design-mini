@@ -4,7 +4,7 @@
         基础用法
     </view>
     <view class="center">
-        <jmd-input-number size="small" value="{{ 1 }}" />
+        <jmd-input-number size="small" value="{{ 1 }}"/>
     </view>
 </view>
 <view class="row">

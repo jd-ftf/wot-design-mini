@@ -17,7 +17,16 @@ $-input-number-button-height:30px;
     box-sizing: border-box;
     vertical-align: middle;
     font-size:$-input-number-font-size;
+  }
+  &--minus{
     border: $-input-number-border;
+    border-right: none;
+    border-radius:2px 0 0 2px;
+  }
+  &--plus{
+    border: $-input-number-border;
+    border-left: none;
+    border-radius:0 2px 2px 0;
   }
   &--input{
     font-size: $-input-number-font-size;
@@ -29,8 +38,6 @@ $-input-number-button-height:30px;
     min-height: auto;
     line-height: $-input-number-button-height;
     border: $-input-number-border;
-    border-right: none;
-    border-left: none;
     background: $-color-white;
     color: $-text-color;
   }
@@ -38,12 +45,6 @@ $-input-number-button-height:30px;
     border-color: $-border-color;
     color: #bbbec4;
     background: #f7f7f7;
-  }
-  &--minus{
-    border-radius:2px 0 0 2px;
-  }
-  &--plus{
-    border-radius:0 2px 2px 0;
   }
 
 }

@@ -1,4 +1,11 @@
 Component({
+  externalClasses: [
+    'hover-class',
+    'input-class',
+    'plus-class',
+    'minus-class'
+  ],
+
   properties: {
     disabled: Boolean,
     asyncChange: Boolean,
@@ -11,7 +18,7 @@ Component({
     inputLock:Boolean,
 
     integer:Boolean,
-    
+    inputWidth: String,
     // input：'number' / 'digit'
     type: {
       type: String,
@@ -33,6 +40,14 @@ Component({
     step: {
       type: Number,
       value: 1
+    },
+    showPlus: {
+      type: Boolean,
+      value: true
+    },
+    showMinus: {
+      type: Boolean,
+      value: true
     }
   },
   observers:{

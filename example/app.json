@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/noticeBar/noticeBar",
     "pages/inputNumber/inputNumber",
+    "pages/noticeBar/noticeBar",
+
     "pages/switch/switch",
     "pages/index/index",
     "pages/button/button"
