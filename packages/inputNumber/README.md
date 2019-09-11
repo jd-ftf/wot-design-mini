@@ -1,4 +1,4 @@
-# Stepper 步进器
+# inputNumber 计数器
 
 ### 引入
 
@@ -6,7 +6,7 @@
 
 ```json
 "usingComponents": {
-  "jmd-notice-bar": "dist/noticeBar/index"
+    "jmd-input-number": "dist/inputNumber/index",
 }
 ```
 
@@ -81,7 +81,7 @@
 
 | 类名 | 说明 |
 |-----------|-----------|
-| custom-class | 根节点样式类 |
+| hover-class | 根节点样式类 |
 | input-class | 输入框样式类 |
 | plus-class | 加号按钮样式类 |
 | minus-class | 减号按钮样式类 |
