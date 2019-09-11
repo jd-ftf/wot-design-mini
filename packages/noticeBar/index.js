@@ -152,6 +152,9 @@ Component({
         this.setData({
           show : false
         })
+    },
+    onClick(event) {
+      this.triggerEvent('click', event);
     }
   }
 });

@@ -3,7 +3,7 @@
     class="jmd__noticeBarContainer hover-class"
     wx:if="{{ show }}"
     style="color: {{ color }}; background-color: {{ backgroundColor }};"
-   >
+    bind:tap="onClick">
    <view
       wx:if="{{ showIcon }}"
       class=" {{ utils.bem('noticeBarContainer',['iconLeft'])}} ">
