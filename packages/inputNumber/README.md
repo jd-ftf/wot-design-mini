@@ -38,8 +38,7 @@
                 value="{{ 0 }}"
                 step="{{ 0.1 }}"
                 min="0"
-                max="5"
-        />
+                max="5"/>
 ```
 还可设置异步调用
 
@@ -54,10 +53,10 @@
 | 参数 | 说明 | 类型 | 默认值 |
 |-----------|-----------|-----------|-------------|
 | name | 在表单内提交时的标识符 | *string* | - |
-| value | 输入值 | *string \| number* | 最小值 |
-| min | 最小值 | *string \| number* | `1` |
-| max | 最大值 | *string \| number* | - |
-| step | 步数 | *string \| number* | `1` |
+| value | 输入值 | *string* | *number* | 最小值 |
+| min | 最小值 | *string* | *number* | `1` |
+| max | 最大值 | *string* | *number* | - |
+| step | 步数 | *string* | *number* | `1` |
 | integer | 是否只允许输入整数 | *boolean* | `false` |
 | disabled | 是否禁用 | *boolean* | `false` |
 | inputLock | 是否禁用输入框 | *boolean* | `false` |
