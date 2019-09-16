@@ -70,10 +70,13 @@
      ```json
      {
        "pages": [
-         "pages/button/button",						//第一个字符串定义为自己要开发的组件，这样可以避免更改源码后热编译，小程序开发工具页面定义到首页。
-         "pages/index/index"
+         "pages/index/index",
+         "pages/button/button"
        ],
        "usingComponents": {
          "jmd-button": "dist/button/index"			//引入小程序自定义组件库，即打包后开发的工具组件库
        }
      ```
+  可以在微信开发者工具中添加编译模式，将自己开发的组件页面设定为当前编译的页面。
+
+  ![编译页面](https://img10.360buyimg.com/jmadvertisement/jfs/t1/69211/17/10309/119659/5d7f628fE022d5dcd/9534d56d95f58f5e.png)

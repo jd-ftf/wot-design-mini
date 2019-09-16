@@ -7,13 +7,13 @@ function traversing(mods, conf) {
     return;
   }
 
-  if (typeof conf === "string" || typeof conf === "number") {
+  if (typeof conf === 'string' || typeof conf === 'number') {
     mods.push(conf);
   } else if (array.isArray(conf)) {
     conf.forEach(function(item) {
       traversing(mods, item);
     });
-  } else if (typeof conf === "object") {
+  } else if (typeof conf === 'object') {
     object.keys(conf).forEach(function(key) {
       conf[key] && mods.push(key);
     });
@@ -31,13 +31,13 @@ var bem = function(ele, mod) {
   return mods
     .map(function(item) {
       return (
-        variable.block +
-        variable.elementSeparator +
+        variable.namespace +
+        '-' +
         ele +
-        (item ? variable.modifierSeparator + item : "")
+        (item ? variable.modifierSeparator + item : '')
       );
     })
-    .join(" ");
+    .join(' ');
 };
 module.exports = {
   bem: bem

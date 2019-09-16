@@ -49,8 +49,8 @@ $button-class-map: (
   border-color: $-color;
   background-color: $-color-white;
 }
-$selector: jmd__buttonContainer;
-.jmd__buttonContainer {
+$selector: jm-button;
+@include b(button) {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -63,6 +63,7 @@ $selector: jmd__buttonContainer;
   border-radius: 2px;
   -webkit-appearance: none;
   -webkit-text-size-adjust: 100%;
+
   @each $class in $-class-list {
     &--#{$class} {
       color: mapToStyle(#{$class}, "color");

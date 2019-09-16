@@ -10,7 +10,7 @@ Component({
     },
     size: {
       type: String,
-      value: "middle"
+      value: "medium"
     },
     openType: String,
     formType: String,

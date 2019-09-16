@@ -1,8 +1,8 @@
-var block = "jmd";
+var namespace = "jm";
 var elementSeparator = "__";
 var modifierSeparator = "--";
 module.exports = {
-  block: block,
+  namespace: namespace,
   elementSeparator: elementSeparator,
   modifierSeparator: modifierSeparator
 };
