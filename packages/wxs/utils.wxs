@@ -25,7 +25,7 @@ function traversing(mods, conf) {
     返回值为组装完该元素的bem格式的数组
     当数组中某一个值为空，表示返回对应元素的be格式字符串
 */
-var bem = function(ele, mod) {
+var bem = function (ele, mod) {
   var mods = [];
   traversing(mods, mod);
   return mods
@@ -39,6 +39,20 @@ var bem = function(ele, mod) {
     })
     .join(' ');
 };
+
+var isWhen = function (mod) {
+  var mods = [];
+  traversing(mods, mod);
+  return mods
+    .map(function(item) {
+      return (
+        'is-' + item
+      );
+    })
+    .join(' ');
+}
+
 module.exports = {
-  bem: bem
+  bem: bem,
+  isWhen: isWhen
 };

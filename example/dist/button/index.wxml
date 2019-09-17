@@ -1,7 +1,7 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <button
 	hover-class="jm-button--active"
-	class="jm-button {{ utils.bem('button', [type, size, { plain, disabled, round }]) }}"
+	class="jm-button {{ utils.isWhen([type, size, { plain, disabled, round }]) }}"
 	open-type="{{ openType }}"
 	hover-start-time="{{hoverStartTime}}"
 	send-message-title="{{sendMessageTitle}}"

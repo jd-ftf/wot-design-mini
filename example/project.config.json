@@ -56,9 +56,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "pages/button/button",
-					"pathName": "pages/button/button",
+					"id": 0,
+					"name": "pages/button/index",
+					"pathName": "pages/button/index",
+					"query": "",
 					"scene": null
 				}
 			]

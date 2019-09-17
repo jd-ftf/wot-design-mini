@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/button/button"
+    "pages/button/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,7 +10,8 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "jmd-button": "dist/button/index"
+    "demo-block": "/components/demo-block/index",
+    "jm-button": "dist/button/index"
   },
   "sitemapLocation": "sitemap.json"
 }
