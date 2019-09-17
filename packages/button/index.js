@@ -1,16 +1,17 @@
 Component({
-  externalClasses: ["hover-class"],
   properties: {
     plain: Boolean,
     disabled: Boolean,
     round: Boolean,
+    suck: Boolean,
+    block: Boolean,
     type: {
       type: String,
-      value: "default"
+      value: 'default'
     },
     size: {
       type: String,
-      value: "middle"
+      value: "medium"
     },
     openType: String,
     formType: String,
