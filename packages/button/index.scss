@@ -213,12 +213,14 @@
   @include when(suck) {
     font-size: $-button-large-font-size;
     height: $-button-suck-height;
+    line-height: $-button-suck-height;
     width: 100%;
     border: none;
     border-radius: 0;
   }
 
   @include when(block) {
+    display: block;
     width: 100%;
   }
 

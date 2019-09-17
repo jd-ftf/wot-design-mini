@@ -3,6 +3,8 @@ Component({
     plain: Boolean,
     disabled: Boolean,
     round: Boolean,
+    suck: Boolean,
+    block: Boolean,
     type: {
       type: String,
       value: 'default'
