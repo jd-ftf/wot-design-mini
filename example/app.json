@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/button/index"
+    "pages/button/index",
+    "pages/icon/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,7 +12,8 @@
   },
   "usingComponents": {
     "demo-block": "/components/demo-block/index",
-    "jm-button": "dist/button/index"
+    "jm-button": "dist/button/index",
+    "jm-icon": "dist/icon/index"
   },
   "sitemapLocation": "sitemap.json"
 }
