@@ -50,6 +50,17 @@ Component({
       value: true
     }
   },
+  created() {
+    console.log(this.data);
+    const { min } = this.data;
+    const { disabled } = this.data;
+    const { max } = this.data;
+    let { value } = this.data;
+
+    if( min < 1) {
+
+    }
+  },
   observers:{
     value() {
       const { min } = this.data;
@@ -57,7 +68,7 @@ Component({
       const { max } = this.data;
       let { value } = this.data;
 
-      this.lock(this.data.inputLock,( value <=  min ||  value>= max ||  disabled ),"inputDisabled");
+      this.lock(this.data.inputLock,( disabled ),"inputDisabled");
       this.lock(this.data.minusLock ,( value <=  min ||  disabled ),"minusDisabled");
       this.lock(this.data.plusLock,( value >=  max ||  disabled ),"plusDisabled");
 
