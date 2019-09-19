@@ -7,13 +7,6 @@ Page({
         open: false,
         pages: [
           {
-<<<<<<< HEAD
-              id: 'form',
-              name: '表单',
-              open: false,
-              pages: ['button', 'list', 'input', 'slider', 'uploader','inputNumber']
-          },
-=======
             id: 'badge',
             name: 'Badge 徽章'
           }, {
@@ -29,7 +22,6 @@ Page({
         name: '导航组件',
         open: false,
         pages: [
->>>>>>> tmp
           {
             id: 'cell',
             name: 'Cell 单元格'
