@@ -1,10 +1,16 @@
 {
   "pages": [
+<<<<<<< HEAD
     "pages/noticeBar/noticeBar",
     "pages/inputNumber/inputNumber",
     "pages/switch/switch",
     "pages/index/index",
     "pages/button/button"
+=======
+    "pages/index/index",
+    "pages/button/index",
+    "pages/icon/index"
+>>>>>>> tmp
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,10 +19,16 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
+<<<<<<< HEAD
     "jmd-button": "dist/button/index",
     "jmd-input-number": "dist/inputNumber/index",
     "jmd-switch": "dist/switch/index",
     "jmd-notice-bar": "dist/noticeBar/index"
+=======
+    "demo-block": "/components/demo-block/index",
+    "jm-button": "dist/button/index",
+    "jm-icon": "dist/icon/index"
+>>>>>>> tmp
   },
   "sitemapLocation": "sitemap.json"
 }
