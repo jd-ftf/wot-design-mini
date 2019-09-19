@@ -29,10 +29,12 @@ Component({
       type: Number,
       value: 1
     },
+    // -Infinity 无穷小
     min: {
       type: Number,
       value: -Infinity
     },
+    // Infinity 无穷大
     max: {
       type: Number,
       value: Infinity
@@ -40,14 +42,6 @@ Component({
     step: {
       type: Number,
       value: 1
-    },
-    showPlus: {
-      type: Boolean,
-      value: true
-    },
-    showMinus: {
-      type: Boolean,
-      value: true
     },
     mode:{
       type:String,

@@ -3,8 +3,7 @@
 <view class="jm-counter hover-class">
     <view  class="{{ utils.bem('counter',null,['minus'])}} {{ utils.bem('counter--minus',null,[{ disabled:minusDisabled }])}}  minus-class"
            data-disabled="{{ minusDisabled }}"
-           bind:tap="handleMinus"
-           wx:if="{{ showMinus }}" />
+           bind:tap="handleMinus"/>
 
     <input  bind:blur="handleBlur"
             bind:input="handleInput"
@@ -14,12 +13,11 @@
             style="{{ inputWidth ? 'width: ' + inputWidth : '' }}"
             value="{{ value }}"
             disabled="{{ inputDisabled }}"
-            wx:if="{{ mode ? 'custom' : 'non-custom' }}"/>
+            wx:if="{{ mode === 'custom' }}"/>
 
     <view class="{{ utils.bem('counter',null,['plus'])}} {{ utils.bem('counter--plus',null,[{ disabled:plusDisabled }])}} plus-class"
           data-disabled="{{ plusDisabled }}"
-          bind:tap="handlePlus"
-          wx:if="{{ showPlus }}" />
+          bind:tap="handlePlus"/>
 </view>
 
 

@@ -1,82 +1,35 @@
 <!--pages/counter/counter.wxml-->
-<view class="row">
-    <view class="desc">
-        基础用法
-    </view>
-    <view class="center">
-        <jmd-counter value="{{ 1 }}"/>
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        设置计数范围
-        <text class="code">min-max</text>
-    </view>
-    <view class="center">
-        <jmd-counter
+<demo-block title="基本用法">
+    <jmd-counter value="{{ 1 }}"/>
+</demo-block>
+<demo-block title="mode：不可自定义数量">
+    <jmd-counter value="{{ 1 }}" mode="no-custom" min="1"/>
+</demo-block>
+<demo-block title="设置计数范围 min-max">
+    <jmd-counter
                 value="{{ 0 }}"
                 min="0"
-                max="5"
-        />
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        只弹起整数键盘
-        <text class="code">integer</text>
-    </view>
-    <view class="center">
-        <jmd-counter
+                max="5"/>
+</demo-block>
+<demo-block title="只弹起整数键盘 integer">
+    <jmd-counter
                 value="{{ 2 }}"
-                integer
-        />
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        步数设置
-        <text class="code">step</text>
-    </view>
-    <view class="center">
-            <jmd-counter
-                    value="{{ 0.2 }}"
-                    step="0.1"
-            />
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        部分禁用--禁用键盘
-        <text class="code">input-lock</text>
-    </view>
-    <view class="center">
-        <jmd-counter
-                input-lock
-                value="{{ value }}"
-                bind:change="handleChange" />
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        全部禁用状态
-        <text class="code">disabled</text>
-    </view>
-    <view class="center">
-        <jmd-counter
+                integer/>
+</demo-block>
+<demo-block title="步数设置 step">
+    <jmd-counter
+                value="{{ 0.2 }}"
+                step="0.1"/>
+</demo-block>
+<demo-block title="禁用 disabled">
+    <jmd-counter
                 disabled
                 value="{{ value }}"
                 bind:change="handleChange" />
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        异步调用
-        <text class="code">async-change</text>
-    </view>
-    <view class="center">
-        <jmd-counter
+</demo-block>
+<demo-block title="异步调用 async-change">
+    <jmd-counter
                 async-change
                 value="{{ value1 }}"
                 bind:change="asyncChange" />
-    </view>
-</view>
+</demo-block>

@@ -15,7 +15,7 @@
 ### 基础用法
 
 ```html
- <jmd-counter size="small" value="{{ 1 }}" />
+ <jmd-counter value="{{ 1 }}" />
 ```
 
 ### 禁用状态
@@ -53,6 +53,7 @@
 | 参数 | 说明 | 类型 | 默认值 |
 |-----------|-----------|-----------|-------------|
 | name | 在表单内提交时的标识符 | *string* | - |
+| mode | 表单模式:no-custom不可自定义数量，不显示input框；custom可自定义（默认状态） | *string* | `custom` |
 | value | 输入值 | *string* | *number* | 最小值 |
 | min | 最小值 | *string* | *number* | `1` |
 | max | 最大值 | *string* | *number* | - |
@@ -64,8 +65,6 @@
 | plusLock | 是否禁用加按钮 | *boolean* | `false` |
 | async-change | 异步变更，为 `true` 时input值不变化，仅触发事件 | *boolean* | `false` |
 | input-width | 输入框宽度，须指定单位 | *string* | `30px` |
-| show-plus | 是否显示增加按钮 | *boolean* | `true` |
-| show-minus | 是否显示减少按钮 | *boolean* | `true` |
 
 ### Events
 

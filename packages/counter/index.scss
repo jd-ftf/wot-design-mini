@@ -57,7 +57,6 @@ $-counter-border:0.5px solid $-counter-border-color;
   }
   &--plus{
     border-radius: 0 2px 2px 0;
-    border-left: 0;
   }
 
   &--input{
@@ -68,6 +67,7 @@ $-counter-border:0.5px solid $-counter-border-color;
     line-height: $-counter-height;
     height:$-counter-height - 1;
     border:$-counter-border; 
+    border-right: 0;  
     background: $-color-white;
     color: $-counter-color;
     font-size: 12px;
