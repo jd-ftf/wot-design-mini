@@ -42,8 +42,8 @@ Page({
             id: 'input',
             name: 'Input 输入框'
           }, {
-            id: 'input-number',
-            name: 'InputNumber 计数器'
+            id: 'counter',
+            name: 'Counter 计数器'
           }, {
             id: 'radio',
             name: 'Radio 单选框'

@@ -1,9 +1,10 @@
 {
   "pages": [
-    
-    "pages/inputNumber/inputNumber","pages/noticeBar/noticeBar",
-    "pages/switch/switch",
     "pages/index/index",
+    "pages/counter/index",
+    "pages/noticeBar/index",
+    "pages/switch/index",
+    
     "pages/button/index",
     "pages/icon/index"
   ],
@@ -15,7 +16,7 @@
   },
   "usingComponents": {
     "jmd-button": "dist/button/index",
-    "jmd-input-number": "dist/inputNumber/index",
+    "jmd-counter": "dist/counter/index",
     "jmd-switch": "dist/switch/index",
     "jmd-notice-bar": "dist/noticeBar/index",
     "jm-button": "dist/button/index",

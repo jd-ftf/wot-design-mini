@@ -1,7 +1,7 @@
 
 <wxs src="../wxs/utils.wxs" module="utils" />
-<view class="jm-input-number hover-class">
-    <view  class="{{ utils.bem('input-number',null,['minus'])}} {{ utils.bem('input-number--minus',null,[{ disabled:minusDisabled }])}}  minus-class"
+<view class="jm-counter hover-class">
+    <view  class="{{ utils.bem('counter',null,['minus'])}} {{ utils.bem('counter--minus',null,[{ disabled:minusDisabled }])}}  minus-class"
            data-disabled="{{ minusDisabled }}"
            bind:tap="handleMinus"
            wx:if="{{ showMinus }}" />
@@ -10,12 +10,12 @@
             bind:input="handleInput"
             bind:focus="handleFocus"
             type="{{ integer ? 'number' : 'digit' }}"
-            class="{{ utils.bem('input-number',null,['input'])}}  {{ utils.bem('input-number--input',null,[{ disabled:inputDisabled }])}} input-class"
+            class="{{ utils.bem('counter',null,['input'])}}  {{ utils.bem('counter--input',null,[{ disabled:inputDisabled }])}} input-class"
             style="{{ inputWidth ? 'width: ' + inputWidth : '' }}"
             value="{{ value }}"
             disabled="{{ inputDisabled }}"/>
 
-    <view class="{{ utils.bem('input-number',null,['plus'])}} {{ utils.bem('input-number--plus',null,[{ disabled:plusDisabled }])}} plus-class"
+    <view class="{{ utils.bem('counter',null,['plus'])}} {{ utils.bem('counter--plus',null,[{ disabled:plusDisabled }])}} plus-class"
           data-disabled="{{ plusDisabled }}"
           bind:tap="handlePlus"
           wx:if="{{ showPlus }}" />

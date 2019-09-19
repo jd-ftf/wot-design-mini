@@ -1,24 +1,24 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
 
-$-inputNumber-border:0.5px solid $-inputNumber-border-color;
+$-counter-border:0.5px solid $-counter-border-color;
 
-.jm-input-number{
+.jm-counter{
   display: inline-block;
-  height: $-inputNumber-height;
+  height: $-counter-height;
 
   &--minus,
   &--plus{
     display: inline-block;
     position: relative;
-    height: $-inputNumber-height;
+    height: $-counter-height;
     text-align: center;
-    width:$-inputNumber-btn-width;
-    border:$-inputNumber-border; 
+    width:$-counter-btn-width;
+    border:$-counter-border; 
     box-sizing: border-box;
     vertical-align: top;
 
-    // border:$-inputNumber-border;
+    // border:$-counter-border;
     // border-left: none;
     &::before {
       width: 13px;
@@ -37,14 +37,14 @@ $-inputNumber-border:0.5px solid $-inputNumber-border-color;
       bottom: 0;
       left: 0;
       margin: auto;
-      background-color:$-inputNumber-color;
+      background-color:$-counter-color;
       content: '';
     }
     &--disabled {
       
       &::before,
       &::after {
-        background-color:$-inputNumber-disabled-color;
+        background-color:$-counter-disabled-color;
       }
     }
   }
@@ -64,17 +64,17 @@ $-inputNumber-border:0.5px solid $-inputNumber-border-color;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    width: $-inputNumber-input-width;
-    line-height: $-inputNumber-height;
-    height:$-inputNumber-height - 1;
-    border:$-inputNumber-border; 
+    width: $-counter-input-width;
+    line-height: $-counter-height;
+    height:$-counter-height - 1;
+    border:$-counter-border; 
     background: $-color-white;
-    color: $-inputNumber-color;
+    color: $-counter-color;
     font-size: 12px;
 
     &--disabled {
-      color: $-inputNumber-disabled-color;
-      background-color: $-inputNumber-disabled-input-bg;
+      color: $-counter-disabled-color;
+      background-color: $-counter-disabled-input-bg;
     }
   }
 }
