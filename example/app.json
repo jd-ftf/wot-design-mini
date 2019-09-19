@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
+    
     "pages/counter/index",
     "pages/noticeBar/index",
     "pages/switch/index",
-    
+    "pages/index/index",
     "pages/button/index",
     "pages/icon/index"
   ],
@@ -15,6 +15,7 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
+    "demo-block": "/components/demo-block/index",
     "jmd-button": "dist/button/index",
     "jmd-counter": "dist/counter/index",
     "jmd-switch": "dist/switch/index",

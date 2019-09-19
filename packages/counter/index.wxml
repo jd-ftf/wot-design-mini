@@ -13,7 +13,8 @@
             class="{{ utils.bem('counter',null,['input'])}}  {{ utils.bem('counter--input',null,[{ disabled:inputDisabled }])}} input-class"
             style="{{ inputWidth ? 'width: ' + inputWidth : '' }}"
             value="{{ value }}"
-            disabled="{{ inputDisabled }}"/>
+            disabled="{{ inputDisabled }}"
+            wx:if="{{ mode ? 'custom' : 'non-custom' }}"/>
 
     <view class="{{ utils.bem('counter',null,['plus'])}} {{ utils.bem('counter--plus',null,[{ disabled:plusDisabled }])}} plus-class"
           data-disabled="{{ plusDisabled }}"

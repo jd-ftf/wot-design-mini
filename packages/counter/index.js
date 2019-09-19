@@ -48,6 +48,10 @@ Component({
     showMinus: {
       type: Boolean,
       value: true
+    },
+    mode:{
+      type:String,
+      value:'custom'
     }
   },
   created() {
