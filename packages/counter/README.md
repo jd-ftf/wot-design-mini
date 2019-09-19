@@ -1,4 +1,4 @@
-# inputNumber 计数器
+# Counter 计数器
 
 ### 引入
 
@@ -6,7 +6,7 @@
 
 ```json
 "usingComponents": {
-    "jmd-input-number": "dist/inputNumber/index",
+    "jmd-counter": "",
 }
 ```
 
@@ -15,7 +15,7 @@
 ### 基础用法
 
 ```html
- <jmd-input-number size="small" value="{{ 1 }}" />
+ <jmd-counter size="small" value="{{ 1 }}" />
 ```
 
 ### 禁用状态
@@ -23,7 +23,7 @@
 通过设置`disabled`属性来禁用计数器
 
 ```html
-<jmd-input-number
+<jmd-counter
                 disabled
                 value="{{ value }}"
                 bind:change="handleChange" />
@@ -34,7 +34,7 @@
 默认是每次加减为1，可以对组件设置`step`、`min`、`max`属性
 
 ```html
- <jmd-input-number
+ <jmd-counter
                 value="{{ 0 }}"
                 step="{{ 0.1 }}"
                 min="0"
@@ -43,7 +43,7 @@
 还可设置异步调用
 
 ```html
-<jmd-input-number
+<jmd-counter
                 async-change
                 value="{{ value1 }}"
                 bind:change="asyncChange" />
