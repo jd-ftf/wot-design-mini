@@ -49,36 +49,16 @@ Component({
     }
   },
   created() {
-    console.log(this.data);
-    const { min } = this.data;
-    const { disabled } = this.data;
-    const { max } = this.data;
-    let { value } = this.data;
-
-    if( min < 1) {
-
-    }
+      console.log('created');
+  },
+  lifetimes: {
+    attached() {
+      this.init();
+    },
   },
   observers:{
     value() {
-      const { min } = this.data;
-      const { disabled } = this.data;
-      const { max } = this.data;
-      let { value } = this.data;
-
-      this.lock(this.data.inputLock,( disabled ),"inputDisabled");
-      this.lock(this.data.minusLock ,( value <=  min ||  disabled ),"minusDisabled");
-      this.lock(this.data.plusLock,( value >=  max ||  disabled ),"plusDisabled");
-
-      if (value > max) {
-        this.setData({
-          value : max
-        })
-      } else if (value < min) {
-        this.setData({
-          value : min
-        })
-      }
+      this.init();
     }
   },
   methods: {
@@ -106,6 +86,26 @@ Component({
         } else {
           this.setData({[key]:false});
         }
+      }
+    },
+    init() {
+      const { min } = this.data;
+      const { disabled } = this.data;
+      const { max } = this.data;
+      let { value } = this.data;
+
+      this.lock( this.data.inputLock, disabled, "inputDisabled");
+      this.lock( this.data.minusLock , value <=  min ||  disabled, "minusDisabled");
+      this.lock( this.data.plusLock, value >=  max ||  disabled, "plusDisabled");
+
+      if (value > max) {
+        this.setData({
+          value : max
+        })
+      } else if (value < min) {
+        this.setData({
+          value : min
+        })
       }
     },
     /**

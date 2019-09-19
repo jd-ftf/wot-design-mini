@@ -1,9 +1,12 @@
 <!--pages/counter/counter.wxml-->
-<demo-block title="基本用法">
+<demo-block title="基础用法">
     <jmd-counter value="{{ 1 }}"/>
 </demo-block>
-<demo-block title="mode：不可自定义数量">
+<demo-block title="不可自定义 mode">
     <jmd-counter value="{{ 1 }}" mode="no-custom" min="1"/>
+</demo-block>
+<demo-block title="禁用 disabled">
+    <jmd-counter mode="no-custom" disabled />
 </demo-block>
 <demo-block title="设置计数范围 min-max">
     <jmd-counter
