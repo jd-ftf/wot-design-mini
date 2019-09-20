@@ -6,12 +6,6 @@ Component({
     disabled: Boolean,
     asyncChange: Boolean,
 
-    backgroundColor:String,
-    fontColor:String,
-    display:{
-      type: String,
-      value: 'inline-block'
-    },
     // 激活状态
     activeValue: {
       type: null,

@@ -1,7 +1,9 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
+
 $selector: jm-switch__node;
 .jm-switch {
+  display: inline-block;
   position: relative;
   width: $-switch-width;
   height: $-switch-height;

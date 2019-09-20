@@ -1,10 +1,8 @@
 
 <wxs src="../wxs/utils.wxs" module="utils" />
-<view style="display:{{ display }}">
   <view
         class="jm-switch {{checked ? 'jm-switch__on' : ''}} {{ utils.bem('switch', checked ? 'on' : 'node',{disabled}) }} hover-class"
         bind:tap="handleClick">
         <view class="jm-switch__node node-class" />
    </view>      
-</view>
 
