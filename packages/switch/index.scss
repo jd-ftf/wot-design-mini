@@ -1,65 +1,54 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
-
-/* switch */
-$-switch-width: 2em;
-$-switch-height: 1em;
-$-switch-node-size: 1em;
-$-switch-node-z-index: 1;
-$-switch-node-background-color: $-color-white;
-$-switch-node-box-shadow: 1px 1px 1px 1px rgba(0,0,0,.05),0 2px 2px 0 rgba(0,0,0,.1),0 3px 3px 0 rgba(0,0,0,.05);
-$-switch-background-color: $-color-white;
-$-switch-on-background-color: $-switch-color-active;
-$-switch-transition-duration: .3s;
-$-switch-disabled-opacity: .4;
-$-switch-border: 1px solid rgba(0, 0, 0, .1);
-
-.jmd__switchContainer {
-  display: flex;
+$selector: jm-switch__node;
+.jm-switch {
   position: relative;
   width: $-switch-width;
   height: $-switch-height;
-  border: $-switch-border;
-  border-radius: $-switch-node-size;
+  border: solid 1px $-switch-color-border;
+  border-radius: $-switch-height;
   box-sizing: content-box;
   background-color: $-switch-background-color;
   transition: background-color $-switch-transition-duration;
 
-  &--node {
+  &__node {
     top: 0;
     left: 0;
     position: absolute;
-    border-radius: 100%;
-    width: $-switch-node-size;
-    height: $-switch-node-size;
-    z-index: $-switch-node-z-index;
-    transition: $-switch-transition-duration;
-    box-shadow: $-switch-node-box-shadow;
+
+    border-radius: 18px;
+    box-shadow:$-switch-inactive-box-shadow;
     background-color: $-switch-node-background-color;
-  }
 
-  &__loading {
-    top: 25%;
-    left: 25%;
-    position: absolute !important;
-  }
-  &--input{
-    width: $-switch-width;
-    font-size:.4em;
-    color:  $-color-white;
-    width:$-switch-width;
-    height:$-switch-height;
-    margin: auto $-switch-width/4;
-  }
-  &--on {
-    background-color: $-switch-on-background-color;
+    width: $-switch-height;
+    height: $-switch-height;
+    z-index: 1;
+    transition: $-switch-transition-duration;
 
-    .jmd__switchContainer--node {
-      transform: translateX($-switch-width - $-switch-node-size);
+    &--disabled{
+      background-color: $-switch-color-inactive-disabled;
+      .#{$selector} {
+        box-shadow: none;
+      }
     }
   }
 
-  &--disabled {
-    opacity: $-switch-disabled-opacity;
+  // 开
+  &__on {
+    border: solid 1px $-switch-color-active;
+    background-color: $-switch-color-active;
+
+    .#{$selector} {
+      transform: translateX($-switch-width - $-switch-height);
+    }
+
+    &--disabled {    
+      background-color: $-switch-color-active-disabled;
+      border: solid 1px $-switch-color-active-disabled;
+
+      .#{$selector} {
+        box-shadow: none;
+      }
+    }
   }
 }

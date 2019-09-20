@@ -48,13 +48,8 @@ Component({
       value:'custom'
     }
   },
-  created() {
-      console.log('created');
-  },
-  lifetimes: {
-    attached() {
-      this.init();
-    },
+  attached() {
+    this.init();
   },
   observers:{
     value() {

@@ -2,18 +2,9 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <view style="display:{{ display }}">
   <view
-        class="jmd__switchContainer {{checked ? 'jmd__switchContainer--on' : ''}} {{ utils.bem('switchContainer',{disabled}) }} hover-class"
-        style="font-size: {{ size+'em' }} ; background-color: {{ backgroundColor }} ;"
-        bind:tap="handleClick"
-        >
-        <input
-           disabled="true"
-           class="jmd__switchContainer--input input-class"
-           value="{{ checked ? activeText : inactiveText}}"
-           style="margin-left: {{ checked ? '' : '52%'}}; color: {{ checked ? activeTextColor : inactiveTextColor}}; width : {{ size + 'em' }} ;font-size: {{ fontSize }} ;"/>
-        <view class="jmd__switchContainer--node node-class">
-           <jmd-loading wx:if="{{ loading }}" size="50%" class="jmd__switchContainer--loading" />
-        </view>
-</view>      
+        class="jm-switch {{checked ? 'jm-switch__on' : ''}} {{ utils.bem('switch', checked ? 'on' : 'node',{disabled}) }} hover-class"
+        bind:tap="handleClick">
+        <view class="jm-switch__node node-class" />
+   </view>      
 </view>
 

@@ -1,59 +1,23 @@
 <!--pages/inputNumber/inputNumber.wxml-->
-<view class="row">
-    <view class="desc">
-        基础用法
-    </view>
-    <view class="center">
-        <jmd-switch
-          checked="{{ true }}"/>
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        禁用状态
-         <text class="code">disabled</text>
-    </view>
-    <view class="center">
-        <jmd-switch
-          checked="{{ true }}" 
-          disabled/>
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        加载状态(待loading)
-         <text class="code">loading</text>
-    </view>
-    <view class="center">
-        <jmd-switch
-          checked="{{ true }}" 
-          loading/>
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        异步调用
-         <text class="code">async-change</text>
-    </view>
-    <view class="center">
-        <jmd-switch
+<demo-block title="基础用法--关">
+    <jmd-switch checked="{{ false }}"/>
+</demo-block>
+<demo-block title="基础用法--开">
+    <jmd-switch checked="{{ true }}"/>
+</demo-block>
+<demo-block title="禁用状态--关">
+    <jmd-switch checked="{{ false }}" disabled/>
+</demo-block>
+<demo-block title="禁用状态--开">
+    <jmd-switch checked="{{ true }}" disabled/>
+</demo-block>
+<demo-block title="异步调用">
+     <jmd-switch
           checked="{{ checked2 }}" 
           async-change
           bind:change="asyncChange"/>
-    </view>
-</view>
-<view class="row">
-    <view class="desc">
-        自定义内容
-         <text class="code">active-text inactive-text</text>
-    </view>
-    <view class="center">
-        <jmd-switch
-          checked="{{ checked1 }}" 
-          active-text="开启"
-          inactive-text="关闭"/>
-    </view>
-</view>
+</demo-block>
+<!-- 
 <view class="row">
     <view class="desc">
         自定义颜色
@@ -63,24 +27,8 @@
         <jmd-switch
           checked="{{ true }}" 
           active-color="#07c160"
-          inactive-color="#f44"
-          active-textColor="#f44"
-          inactive-textColor="#07c160"/>
+          inactive-color="#f44"/>
     </view>
-</view>
-<view class="row">
-    <view class="desc">
-        自定义大小
-         <text class="code">size</text>
-    </view>
-    <view class="center">
-        <jmd-switch 
-         checked="{{ true }}" 
-          size="3"
-          font-size="15px"
-          active-text="开启"
-          inactive-text="关闭"/>
-    </view>
-</view>
+</view> -->
 
 
