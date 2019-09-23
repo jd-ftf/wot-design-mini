@@ -90,8 +90,8 @@ Component({
 
     init(){
       Promise.all([
-        this.getRect('.jmd__noticeBarContainer--text'),
-        this.getRect('.jmd__noticeBarContainer--textWrapper')
+        this.getRect('.jm-notice-bar--text'),
+        this.getRect('.jm-notice-bar--textWrapper')
       ]).then( (arr) => {
         this.setData ({
           textRect : arr[0],

@@ -1,9 +1,9 @@
 {
   "pages": [
-     "pages/switch/index",
-    "pages/counter/index",
     "pages/noticeBar/index",
+    "pages/counter/index",
    
+    "pages/switch/index",
     "pages/index/index",
     "pages/button/index",
     "pages/icon/index"

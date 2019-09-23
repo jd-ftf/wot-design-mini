@@ -1,21 +1,21 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <view 
-    class="jmd__noticeBarContainer hover-class"
+    class="jm-notice-bar hover-class"
     wx:if="{{ show }}"
     style="color: {{ color }}; background-color: {{ backgroundColor }};"
     bind:tap="onClick">
    <view
       wx:if="{{ showIcon }}"
-      class=" {{ utils.bem('noticeBarContainer',['iconLeft'])}} ">
+      class=" {{ utils.bem('notice-bar',null,['iconLeft'])}} ">
       icon
    </view>
 
    <view 
-      class="{{ utils.bem('noticeBarContainer',['textWrapper'])}}"
+      class="{{ utils.bem('notice-bar',null,['textWrapper'])}}"
        style="height:{{ wrapabled ? 'auto' : '24px' }}">
 
       <view 
-         class="{{ utils.bem('noticeBarContainer',['text'])}} " 
+         class="{{ utils.bem('notice-bar',null,['text'])}} " 
          animation="{{ scrollable ? animation : '' }}" 
          style="left:{{ scrollable ? '100%':'0' }}; position:{{ scrollable ? 'absolute':'relative' }};white-space:{{ wrapabled ? 'wrap' : 'nowrap' }}"
          bindtransitionend="transitionEnd">
@@ -26,13 +26,13 @@
 
    <view 
       wx:if="{{ closeable || mode == 'info'}}"
-      class="{{ utils.bem('noticeBarContainer',['iconRight'])}} "
+      class="{{ utils.bem('notice-bar',null,['iconRight'])}} "
       bind:tap="closeNotice">
       x
    </view>
      <navigator
       wx:if="{{ mode === 'link' }}"
-      class="{{ utils.bem('noticeBarContainer',['iconRight'])}} "
+      class="{{ utils.bem('notice-bar',null,['iconRight'])}} "
       url="{{ url }}">
       >
   </navigator>
