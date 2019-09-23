@@ -12,7 +12,7 @@
       name="warning" size="14px" />
    <view 
       class="{{ utils.bem('notice-bar',null,['textWrapper'])}}"
-       style="height:{{ wrapabled ? 'auto' : '24px' }}">
+       style="height:{{ wrapabled ? 'auto' : '24px' }}; margin:{{ wrapabled ? '0 5px' : '0' }}">
 
       <view 
          class="{{ utils.bem('notice-bar',null,['text'])}} " 

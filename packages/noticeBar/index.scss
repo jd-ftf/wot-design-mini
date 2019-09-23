@@ -5,17 +5,19 @@ $-notice-line-height:24px;
 
 .jm-notice-bar {
   display: flex;
-  padding: 5px 10px;
+  padding: 5px;
   font-size: 14px;
   line-height: $-notice-line-height;
   align-items: center;
   &--iconLeft{
     position: relative;
+    padding-right:5px;
     z-index: 2;
     flex: 1;
   }
   &--iconRight{
     position: relative;
+    padding-left:5px;
     z-index: 2;
     flex: 1;
   }
@@ -28,8 +30,8 @@ $-notice-line-height:24px;
   }
   &--textWrapper{
     overflow: hidden;
-    flex: 12;
-    margin-left: 5px;
+    flex: 18;
+    // margin-left: 5px;
     position: relative;
     height: $-notice-line-height;
     text-align: left;
