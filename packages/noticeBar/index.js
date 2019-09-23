@@ -117,7 +117,6 @@ Component({
           scrollable : false
         });
       }
-
     },
 
     /**

@@ -1,15 +1,15 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
+
 <view 
     class="jm-notice-bar hover-class"
     wx:if="{{ show }}"
     style="color: {{ color }}; background-color: {{ backgroundColor }};"
     bind:tap="onClick">
-   <view
+    
+   <jm-icon 
       wx:if="{{ showIcon }}"
-      class=" {{ utils.bem('notice-bar',null,['iconLeft'])}} ">
-      icon
-   </view>
-
+      class=" {{ utils.bem('notice-bar',null,['iconLeft'])}} "
+      name="warning" size="14px" />
    <view 
       class="{{ utils.bem('notice-bar',null,['textWrapper'])}}"
        style="height:{{ wrapabled ? 'auto' : '24px' }}">
@@ -24,17 +24,16 @@
 
    </view>
 
-   <view 
+   <jm-icon 
       wx:if="{{ closeable || mode == 'info'}}"
       class="{{ utils.bem('notice-bar',null,['iconRight'])}} "
-      bind:tap="closeNotice">
-      x
-   </view>
+      bind:tap="closeNotice"
+      name="close" size="10px" />
      <navigator
       wx:if="{{ mode === 'link' }}"
       class="{{ utils.bem('notice-bar',null,['iconRight'])}} "
       url="{{ url }}">
-      >
+         <jm-icon name="arrow-right" size="10px" />
   </navigator>
 </view>
 

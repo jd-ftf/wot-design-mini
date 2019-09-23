@@ -2,7 +2,7 @@
   "pages": [
     "pages/noticeBar/index",
     "pages/counter/index",
-   
+    
     "pages/switch/index",
     "pages/index/index",
     "pages/button/index",

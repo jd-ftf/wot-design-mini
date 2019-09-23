@@ -6,7 +6,7 @@
 
 ```json
 "usingComponents": {
-  "jmd-notice-bar": "dist/noticeBar/index"
+  "jmd-notice-bar": ""
 }
 ```
 
