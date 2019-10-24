@@ -29,9 +29,9 @@ const cleanTask = function () {
   return exec(`rimraf ${finalPath}`)
 }
 
-const createScssTask = function (src, ext) {
+const createScssTask = function (srcPath, ext, base) {
   return function () {
-    return src(src, { base })
+    return src(srcPath, { base })
       .pipe(sass().on('error', sass.logError))
       .pipe(postcss([autoprefixer(['ios >= 8', 'android >= 4.4'])]))
       .pipe(cssnano({
@@ -44,34 +44,46 @@ const createScssTask = function (src, ext) {
   }
 }
 
-const createJsTask = function (src, replaceStr, str) {
+const createJsTask = function (srcPath, replaceStr, str) {
   return function () {
-    return src(src)
+    return src(srcPath)
       .pipe(jsReplace(replaceStr, str))
       .pipe(dest(finalPath))
   }
 }
 
-const createHtmlTask = function (src, replaceVar, variable, replaceExt, ext) {
+const createHtmlTask = function (srcPath, replaceVar, variable, replaceExt, ext) {
   return function () {
-    return src(src)
+    return src(srcPath)
       .pipe(strReplace(replaceVar, variable))
       .pipe(strReplace(replaceExt, ext))
       .pipe(dest(finalPath))
   }
 }
 
-const copyPackagesTask = function (src, toPath) {
+const createCopyTask = function (srcPath, toPath) {
   return function () {
-    return src(src)
+    return src(srcPath)
       .pipe(dest(toPath))
   }
 }
 
+const sassToJxss = createScssTask([scssDir], 'jxss')
+const jsToJdJs = createJsTask([`${packagesPath}/**/*.js`])
+const jxmlToJxml = createHtmlTask([`${packagesPath}/**/*.jxml`])
+const packagesCopy = createCopyTask([
+  `${packagesPath}/**`,
+  `!${scssDir}`,
+  `!${packagesPath}/**/*.js`,
+  `!${packagesPath}/**/*.jxml`
+], finalPath)
+
 const watchTask = function () {
-  return watch(`${packagesPath}/**`, parallel(transformScssTask, copyPackagesTask))
+  return watch(`${packagesPath}/**`, parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
 }
 
-exports.dev = series(cleanTask, parallel(watchTask, transformScssTask, copyPackagesTask))
+exports.dev = series(cleanTask, parallel(watchTask, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
 
-exports.build = series(cleanTask, parallel(transformScssTask, copyPackagesTask))
+exports.build = series(cleanTask, parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
+
+exports.clean = cleanTask

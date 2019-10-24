@@ -5,13 +5,15 @@ const PluginError = gutil.PluginError
 const PLUGIN_NAME = 'gulp-replace'
 
 module.exports = (replaceStr, str) => {
-  if (!replaceStr || !str) {
-    throw new PluginError(PLUGIN_NAME, 'wrong parameter length')
-  }
-
   return through.obj((file, enc, cb) => {
+    if (!replaceStr || !str) {
+      cb(null, file)
+      return
+    }
+
     if (file.isNull()) {
       cb(null, file)
+      return
     }
 
     try {
