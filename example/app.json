@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/noticeBar/index",
-    "pages/counter/index",
     
+    "pages/counter/index",
+    "pages/noticeBar/index",
     "pages/switch/index",
     "pages/index/index",
     "pages/button/index",
