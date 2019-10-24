@@ -4,12 +4,12 @@ const rename = require('gulp-rename')
 const clean = require('gulp-clean')
 const postcss = require('gulp-postcss')
 const cssnano = require('gulp-cssnano')
-const header = require('gulp-header')
 const autoprefixer = require('autoprefixer')
 const watch = require('gulp-watch')
 const minimist = require('minimist')
 const path = require('path')
-const package = require('../package.json')
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
 const options = minimist(process.argv.slice(2), {
   string: 'env',
@@ -18,14 +18,38 @@ const options = minimist(process.argv.slice(2), {
   }
 })
 
-const libDir = path.resolve(__dirname, '../dist/*')
-const exampleDist = path.resolve(__dirname, '../example/dist/*')
+const libDir = path.resolve(__dirname, '../dist')
+const exampleDist = path.resolve(__dirname, '../example/dist')
+const packagesPath = path.resolve(__dirname, '../packages')
+const finalPath = options.env === 'production' ? libDir : exampleDist
+const scssDir = `${packagesPath}/**/*.scss`
 
-const clean = function () {
-  return src(options.env === 'production' ? '../dist/*' : '../example/dist/*')
-    .pipe(clean())
+const cleanTask = function () {
+  return exec(`rimraf ${finalPath}`)
 }
 
-const transformScss = function () {
-  return src()
+const transformScssTask = function () {
+  return src(scssDir, { base: packagesPath })
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer(['ios >= 8', 'android >= 4.4'])]))
+    .pipe(cssnano({
+      discardComments: { removeAll: true }
+    }))
+    .pipe(rename(path => {
+      path.extname = '.jxss'
+    }))
+    .pipe(dest(finalPath))
 }
+
+const copyPackagesTask = function () {
+  return src([`${packagesPath}/**`, `!${scssDir}`, `!${packagesPath}/common/abstracts`])
+    .pipe(dest(finalPath))
+}
+
+const watchTask = function () {
+  return watch(`${packagesPath}/**`, parallel(transformScssTask, copyPackagesTask))
+}
+
+exports.dev = series(cleanTask, parallel(watchTask, transformScssTask, copyPackagesTask))
+
+exports.build = series(cleanTask, parallel(transformScssTask, copyPackagesTask))

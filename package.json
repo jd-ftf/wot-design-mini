@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev --env development",
-    "build": "gulp build --env production",
+    "dev": "gulp dev --env development --gulpfile build/gulpfile.js",
+    "build": "gulp build --env production --gulpfile build/gulpfile.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -27,7 +27,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-tap": "^1.0.1",
     "gulp-watch": "^5.0.1",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "rimraf": "^3.0.0"
   },
   "dependencies": {
     "vue": "^2.6.10"

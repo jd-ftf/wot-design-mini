@@ -11,7 +11,7 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "demo-block": "/components/demo-block/index",
+    "demo-block": "components/demo-block/index",
     "jm-button": "dist/button/index",
     "jm-icon": "dist/icon/index"
   },
