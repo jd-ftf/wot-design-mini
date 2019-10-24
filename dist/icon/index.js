@@ -4,4 +4,4 @@ Component({
     color: String,
     size: String
   }
-})
+});

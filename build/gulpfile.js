@@ -1,7 +1,6 @@
 const { src, dest, parallel, series } = require('gulp')
 const sass = require('gulp-sass')
 const rename = require('gulp-rename')
-const clean = require('gulp-clean')
 const postcss = require('gulp-postcss')
 const cssnano = require('gulp-cssnano')
 const autoprefixer = require('autoprefixer')
@@ -10,6 +9,8 @@ const minimist = require('minimist')
 const path = require('path')
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
+const jsReplace = require('./plugins/gulp-js-replace')
+const strReplace = require('./plugins/gulp-replace')
 
 const options = minimist(process.argv.slice(2), {
   string: 'env',
@@ -28,22 +29,43 @@ const cleanTask = function () {
   return exec(`rimraf ${finalPath}`)
 }
 
-const transformScssTask = function () {
-  return src(scssDir, { base: packagesPath })
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([autoprefixer(['ios >= 8', 'android >= 4.4'])]))
-    .pipe(cssnano({
-      discardComments: { removeAll: true }
-    }))
-    .pipe(rename(path => {
-      path.extname = '.jxss'
-    }))
-    .pipe(dest(finalPath))
+const createScssTask = function (src, ext) {
+  return function () {
+    return src(src, { base })
+      .pipe(sass().on('error', sass.logError))
+      .pipe(postcss([autoprefixer(['ios >= 8', 'android >= 4.4'])]))
+      .pipe(cssnano({
+        discardComments: { removeAll: true }
+      }))
+      .pipe(rename(path => {
+        path.extname = `.${ext}`
+      }))
+      .pipe(dest(finalPath))
+  }
 }
 
-const copyPackagesTask = function () {
-  return src([`${packagesPath}/**`, `!${scssDir}`, `!${packagesPath}/common/abstracts`])
-    .pipe(dest(finalPath))
+const createJsTask = function (src, replaceStr, str) {
+  return function () {
+    return src(src)
+      .pipe(jsReplace(replaceStr, str))
+      .pipe(dest(finalPath))
+  }
+}
+
+const createHtmlTask = function (src, replaceVar, variable, replaceExt, ext) {
+  return function () {
+    return src(src)
+      .pipe(strReplace(replaceVar, variable))
+      .pipe(strReplace(replaceExt, ext))
+      .pipe(dest(finalPath))
+  }
+}
+
+const copyPackagesTask = function (src, toPath) {
+  return function () {
+    return src(src)
+      .pipe(dest(toPath))
+  }
 }
 
 const watchTask = function () {

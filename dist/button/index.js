@@ -43,6 +43,7 @@ Component({
         this.triggerEvent("click");
       }
     },
+
     bindGetUserInfo(event) {
       this.triggerEvent("getuserinfo", event.detail);
     },
@@ -65,6 +66,8 @@ Component({
 
     bindOpenSetting(event) {
       this.triggerEvent("opensetting", event.detail);
+      wx.request();
     }
+
   }
 });

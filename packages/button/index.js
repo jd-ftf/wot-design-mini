@@ -65,6 +65,7 @@ Component({
 
     bindOpenSetting(event) {
       this.triggerEvent("opensetting", event.detail);
+      jd.request()
     }
   }
 });
