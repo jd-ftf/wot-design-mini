@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
     "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
