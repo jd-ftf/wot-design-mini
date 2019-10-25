@@ -2,6 +2,7 @@
 node_modules/
 /docs/
 /lib/
+/lib-wx/
 /example-wx/
 /example/dist/
 # Editor directories and files

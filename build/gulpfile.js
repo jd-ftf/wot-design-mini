@@ -137,7 +137,7 @@ const wxPackageCopy = createCopyTask([
   `!${finalPath}/**/*.js`,
   `!${finalPath}/**/*.jxml`,
   `!${finalPath}/**/*.jxs`
-])
+], wxFinalPath)
 const wxExampleCopy = createCopyTask([
   `${example}/**`,
   `!${example}/**/*.jxss`,
