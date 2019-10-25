@@ -25,4 +25,5 @@
 	<view class="jm-button__text">
 		<slot />
 	</view>
+	12
 </button>

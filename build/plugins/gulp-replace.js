@@ -6,6 +6,7 @@ const PLUGIN_NAME = 'gulp-replace'
 
 module.exports = (replaceStr, str) => {
   return through.obj((file, enc, cb) => {
+    console.log(file.path)
     if (!replaceStr || !str) {
       cb(null, file)
       return
@@ -17,6 +18,7 @@ module.exports = (replaceStr, str) => {
     }
 
     try {
+      console.log(file.path, file.contents.toString())
       let code = file.contents.toString().replace(new RegExp(replaceStr, 'g'), str)
       file.contents = Buffer.from(code)
     } catch (err) {

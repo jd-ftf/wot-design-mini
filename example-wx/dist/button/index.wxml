@@ -1,4 +1,4 @@
-<jxs src="../xmlUtils/utils.jxs" module="utils" />
+<wxs src="../xmlUtils/utils.wxs" module="utils" />
 <button
 	hover-class="jm-button--active"
 	class="jm-button {{ utils.isWhen([type, size, { plain, disabled, round, suck, block }]) }}"
