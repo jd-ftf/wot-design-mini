@@ -1,1 +1,0 @@
-<view class="jm-icon {{'jm-icon-' + name}}" style="color: {{color}}; font-size: {{size}}"></view>
