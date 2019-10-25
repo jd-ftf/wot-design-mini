@@ -113,18 +113,20 @@ const exampleWx = path.resolve(__dirname, '../example-wx')
 
 const wxCssExampleTask = createReplaceExtTask([`${example}/**/*.jxss`], exampleWx, 'wxss')
 const wxJsExampleTask = createJsTask([`${example}/**/*.js`], exampleWx, 'jd', 'wx')
-const wxHtmlExampleTask = createHtmlTask([`${example}/**/*.jxml`], exampleWx, [
-  {
-    replaceStr: '\\.jxs',
-    str: '.wxs'
-  }, {
-    replaceStr: '<jxs',
-    str: '<wxs'
-  }, {
-    replaceStr: 'jd:',
-    str: 'wx:'
-  }
-], 'wxml')
+const wxHtmlExampleTask = () => {
+  return createHtmlTask([`${example}/**/*.jxml`], exampleWx, [
+    {
+      replaceStr: '\\.jxs',
+      str: '.wxs'
+    }, {
+      replaceStr: '<jxs',
+      str: '<wxs'
+    }, {
+      replaceStr: 'jd:',
+      str: 'wx:'
+    }
+  ], 'wxml')()
+}
 const wxWxsExampleTask = createReplaceExtTask([`${example}/**/*.jxs`], exampleWx, 'wxs')
 const wxExampleCopy = createCopyTask([
   `${example}/**`,
@@ -147,8 +149,6 @@ const watchWx = function () {
 const watchExample = function () {
   return watch([`${example}/**`, `!${example}/dist/**`], parallel(wxCssExampleTask, wxJsExampleTask, wxHtmlExampleTask, wxWxsExampleTask, wxExampleCopy))
 }
-
-// exports.devwx = series(cleanTask(exampleWx), parallel(wxCssExampleTask, wxJsExampleTask, wxHtmlExampleTask, wxWxsExampleTask, wxExampleCopy))
 
 exports.devwx = series(
   cleanTask(finalPath),
