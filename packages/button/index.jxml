@@ -1,7 +1,7 @@
-<wxs src="../wxs/utils.wxs" module="utils" />
+<jxs src="../xmlUtils/utils.jxs" module="utils" />
 <button
 	hover-class="jm-button--active"
-	class="jm-button {{ utils.isWhen([type, size, { plain, disabled, round, suck, block }]) }}"
+	class="jm-button is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
 	open-type="{{ openType }}"
 	hover-start-time="{{hoverStartTime}}"
 	send-message-title="{{sendMessageTitle}}"

@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--index.jxml-->
 <view class="page">
   <view class="page__hd">
     <view class="page__title">
@@ -8,7 +8,7 @@
     <view class="page__desc">该组件库根据京麦APP设计规范进行开发，旨在给开发者提供统一的页面风格。</view>
   </view>
   <view class="page__bd page__bd_spacing">
-    <block wx:for="{{list}}" wx:key="id">
+    <block jd:for="{{list}}" jd:key="id">
       <view class="kind-list__item">
         <view id="{{item.id}}" class="jmd-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}"
           bindtap="kindToggle">
@@ -17,7 +17,7 @@
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
           <view class="jmd-cells {{item.open ? 'jmd-cells_show' : ''}}">
-            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+            <block jd:for="{{item.pages}}" jd:for-item="page" jd:key="*this">
               <navigator url="../{{page.id}}/index" class="jmd-cell jmd-flex jmd-cell_access">
                 <view class="jmd-flex__item page-name">{{page.name}}</view>
                 <view class="jmd-cell__ft jmd-tool-right-line-angle"></view>

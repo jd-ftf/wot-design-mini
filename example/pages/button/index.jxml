@@ -1,0 +1,68 @@
+<view>
+  <demo-block title="基本用法 type">
+    <jm-button>默认按钮</jm-button>
+    <jm-button type="primary">主要按钮</jm-button>
+    <jm-button type="success">成功按钮</jm-button>
+    <jm-button type="info">信息按钮</jm-button>
+    <jm-button type="warning">警告按钮</jm-button>
+    <jm-button type="error">危险按钮</jm-button>
+  </demo-block>
+  <demo-block title="禁用按钮 disabled">
+    <jm-button disabled>默认按钮</jm-button>
+    <jm-button type="primary" disabled>主要按钮</jm-button>
+    <jm-button type="success" disabled>成功按钮</jm-button>
+    <jm-button type="info" disabled>信息按钮</jm-button>
+    <jm-button type="warning" disabled>警告按钮</jm-button>
+    <jm-button type="error" disabled>危险按钮</jm-button>
+  </demo-block>
+  <demo-block title="幽灵按钮 plain">
+    <jm-button plain>默认按钮</jm-button>
+    <jm-button type="primary" plain>主要按钮</jm-button>
+    <jm-button type="success" plain>成功按钮</jm-button>
+    <jm-button type="info" plain>信息按钮</jm-button>
+    <jm-button type="warning" plain>警告按钮</jm-button>
+    <jm-button type="error" plain>危险按钮</jm-button>
+  </demo-block>
+  <demo-block title="幽灵按钮禁用">
+    <jm-button plain disabled>默认按钮</jm-button>
+    <jm-button type="primary" plain disabled>主要按钮</jm-button>
+    <jm-button type="success" plain disabled>成功按钮</jm-button>
+    <jm-button type="info" plain disabled>信息按钮</jm-button>
+    <jm-button type="warning" plain disabled>警告按钮</jm-button>
+    <jm-button type="error" plain disabled>危险按钮</jm-button>
+  </demo-block>
+  <demo-block title="圆角按钮 round">
+    <jm-button round>默认按钮</jm-button>
+    <jm-button type="primary" round>主要按钮</jm-button>
+    <jm-button type="success" round>成功按钮</jm-button>
+    <jm-button type="info" round>信息按钮</jm-button>
+    <jm-button type="warning" round>警告按钮</jm-button>
+    <jm-button type="error" round>危险按钮</jm-button>
+  </demo-block>
+  <demo-block title="按钮尺寸 size">
+    <jm-button type="primary" size="large">大型按钮</jm-button>
+    <jm-button type="primary" size="medium">普通按钮</jm-button>
+    <jm-button type="primary" size="small">小型按钮</jm-button>
+  </demo-block>
+  <demo-block title="文字按钮 text">
+    <jm-button type="text">按钮</jm-button>
+    <jm-button type="text" disabled>按钮</jm-button>
+  </demo-block>
+  <demo-block title="吸顶按钮 suck" hor="{{0}}">
+    <jm-button type="primary" suck>主要按钮</jm-button>
+    <jm-button type="success" suck>成功按钮</jm-button>
+    <jm-button type="info" suck>信息按钮</jm-button>
+    <jm-button type="warning" suck>警告按钮</jm-button>
+    <jm-button type="error" suck>危险按钮</jm-button>
+  </demo-block>
+  <demo-block title="plain的吸顶按钮" hor="{{0}}">
+    <jm-button type="primary" suck plain>主要按钮</jm-button>
+  </demo-block>
+  <demo-block title="块状按钮，宽度100% block">
+    <jm-button type="primary" block size="large">主要按钮</jm-button>
+    <jm-button type="success" block size="large">成功按钮</jm-button>
+    <jm-button type="info" block size="large">信息按钮</jm-button>
+    <jm-button type="warning" block size="large">警告按钮</jm-button>
+    <jm-button type="error" block size="large">危险按钮</jm-button>
+  </demo-block>
+</view>

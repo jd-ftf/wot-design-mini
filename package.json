@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev --env development",
-    "build": "gulp build --env production",
+    "dev": "gulp dev --env development --gulpfile build/gulpfile.js",
+    "dev:wx": "gulp devwx --env development --gulpfile build/gulpfile.js",
+    "build": "gulp build --env production --gulpfile build/gulpfile.js",
+    "build:wx": "gulp buildwx --env production --gulpfile build/gulpfile.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
     "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
@@ -25,8 +28,12 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-tap": "^1.0.1",
+    "gulp-util": "^3.0.8",
     "gulp-watch": "^5.0.1",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "readable-stream": "^3.4.0",
+    "rimraf": "^3.0.0",
+    "through2": "^3.0.1"
   },
   "dependencies": {
     "vue": "^2.6.10"
