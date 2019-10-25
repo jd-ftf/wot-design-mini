@@ -1,37 +1,54 @@
 
-### JMD小程序组件库开发手册
+## JM Design 小程序组件库
 
-1. 文档介绍
+### 文档介绍
 
    基于微信小程序 开发的小程序端组件库，框架使用原生的小程序框架开发。
 
-2. Build Setup
+### 命令介绍
 
-   ```xml
-   # 安装依赖
-   npm install
-   
-   # 运行开发环境(将packages目录下文件打包到/example/dist下的，用于组件库开发)
-   npm run dev
-   
-   # 打包插件库(将packages目录下文件打包到/dist下的，用于外部引用)
-   npm run build
-   
-   ```
+```bash
+# 安装依赖
+npm install
 
-3. 使用的技术栈
+# 运行开发环境(将packages目录下文件打包到/example/dist下的，用于组件库开发)
+npm run dev
 
-   sass + 小程序
+# 打包插件库(将packages目录下文件打包到/lib下的，用于外部引用)
+npm run build
 
-4. 构建工具
+# 运行开发环境（转换为微信语法，demo 文件夹为 example-wx）
+npm run dev:wx
 
-   gulp
+# 打包插件库（同时打包成京东和微信）
+npm run build:wx
+```
 
-5. 开发工具
+### 使用的技术栈
 
-   VSCode（用于源代码编写） + 微信小程序开发工具（用于页面展现效果查看）
+sass + 小程序
 
-6. 项目架构
+### 构建工具
+
+gulp
+
+### 开发流程
+
+#### 使用京东小程序开发者工具开发，下载地址：http://doc.jd.com/ares/alldoc/JDmp/download/IDE%E4%B8%8B%E8%BD%BD.html
+
+  1、运行 `npm run dev` 命令
+  
+  2、在京东小程序开发者工具中导入项目，项目地址选择 example 文件夹
+
+  3、在京东小程序开发者工具上预览效果
+
+  4、创建新组件
+
+    
+
+#### 使用微信开发者工具开发
+
+### 项目架构
 
    ```html
    .
@@ -55,7 +72,7 @@
        └── wxs									小程序wxs语法公共库
    ```
 
-7. 组件库开发步骤
+### 组件库开发步骤
 
    - [ ] 新建分支，用于组件开发。
 
