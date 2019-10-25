@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
-/docs/
 /lib/
 /lib-wx/
 /example-wx/

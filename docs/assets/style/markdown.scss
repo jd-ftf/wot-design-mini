@@ -1,0 +1,248 @@
+@import './variable';
+
+.jm-markdown {
+  line-height: 1.6;
+  word-wrap: break-word;
+  color: #666;
+
+  p {
+    color: #666;
+  }
+  a {
+    background: transparent;
+    text-decoration: none;
+    font-weight: 500;
+    color: $color-theme-l3;
+
+    &:active, &:hover {
+      outline: 0;
+      color: $color-theme-l3;
+    }
+  }
+  strong {
+    font-weight: 700;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0;
+    font-weight: 400;
+    color: $color-important;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 19px;
+    margin: 30px 0 15px;
+  }
+  h4 {
+    font-size: 16px;
+    margin: 30px 0 20px;
+  }
+  h5 {
+    font-size: 13px;
+  }
+  h6 {
+    font-size: 12px;
+  }
+  img {
+    border: none;
+  }
+  hr {
+    height: 1px;
+    margin: 30px 0 20px 0;
+    border: none;
+    background: $color-line;
+  }
+  pre {
+    overflow: auto;
+  }
+  code, kbd, pre {
+    font-family: $code-family;
+    font-size: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+  th {
+    text-align: left;
+    font-weight: 500;
+    padding: 15px;
+    color: $color-theme-l2;
+    border-bottom: 1px solid $color-line-light;
+    max-width: 194px;
+  }
+  td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid $color-line-light;
+    max-width: 194px;
+    color: #666;
+  }
+  blockquote {
+    margin: 30px 0;
+    padding-left: 16px;
+    border-left: 4px solid $color-theme-l5;
+    color: $color-text-light;
+
+    p {
+      margin: 0;
+    }
+  }
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 30px;
+    list-style: disc;
+
+    li {
+      margin: 10px 0;
+
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+  p {
+    line-height: 28px;
+    margin: 15px 0;
+  }
+  code {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 0 5px;
+    line-height: 18px;
+    border-radius: 4px;
+    vertical-align: middle;
+    background: $color-code-bg;
+    color: $color-aid-l2;
+    overflow: auto;
+  }
+  pre {
+    width: 100%;
+
+    code {
+      display: block;
+      padding: 20px;
+      color: $color-code;
+      border-radius: 4px;
+      line-height: 2;
+    }
+  }
+  .language-javascript, .language-JavaScript, .javascript {
+    .hljs-keyword {
+      color: $color-js-keyword;
+    }
+    .hljs-string {
+      color: $color-js-string;
+    }
+    .hljs-comment {
+      color: $color-js-comment;
+    }
+    .hljs-number {
+      color: $color-js-number;
+    }
+    .hljs-literal {
+      color: $color-js-literal;
+    }
+    .hljs-built_in {
+      color: $color-js-built_in;
+    }
+    .hljs-attr {
+      color: $color-js-attr;
+    }
+  }
+  .language-html, .language-HTML {
+    .hljs-tag {
+      color: $color-html-tag;
+    }
+    .hljs-attr {
+      color: $color-html-attr;
+    }
+    .hljs-string {
+      color: $color-html-attr-value;
+    }
+    .hljs-name {
+      color: $color-html-tag-name;
+    }
+    .hljs-comment {
+      color: $color-html-comment;
+    }
+    .javascript {
+      .hljs-attr {
+        color: $color-js-attr;
+      }
+    }
+  }
+  .language-css, .language-scss, .language-sass, .language-less {
+    color: $color-css-selector;
+
+    .hljs-selector-class {
+      color: $color-css-selector;
+    }
+    .hljs-attribute, .hljs-variable {
+      color: $color-css-attr;
+    }
+    .hljs-number {
+      color: $color-css-number;
+    }
+    .hljs-comment {
+      color: $color-js-comment;
+    }
+  }
+  .language-json, .languane-JSON {
+    .hljs-attr {
+      color: $color-json-attr;
+    }
+    .hljs-string {
+      color: $color-json-string;
+    }
+    .hljs-number, .hljs-literal {
+      color: $color-json-type;
+    }
+  }
+  .language-bash, .language-BASH {
+    .hljs-built_in {
+      color: $color-bash-built;
+    }
+  }
+  .info {
+    background: $color-theme-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-theme-l4;
+
+    p {
+      margin: 0;
+    }
+  }
+  .warning {
+    background: $color-warn-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-warn-l4;
+
+    p {
+      margin: 0;
+    }
+  }
+  .error {
+    background: $color-error-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-error-l4;
+
+    p {
+      margin: 0;
+    }
+  }
+}
