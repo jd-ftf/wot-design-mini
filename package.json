@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev --env development --gulpfile build/gulpfile.js",
-    "dev:wx": "gulp devwx --env development --gulpfile build/gulpfile.js",
+    "dev": "npm run dev:docs & gulp dev --env development --gulpfile build/gulpfile.js",
+    "dev:wx": "npm run dev:docs & gulp devwx --env development --gulpfile build/gulpfile.js",
+    "dev:docs": "webpack-dev-server --progress --config build/webpack.docs.conf.js",
     "build": "gulp build --env production --gulpfile build/gulpfile.js",
     "build:wx": "gulp buildwx --env production --gulpfile build/gulpfile.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:docs": "cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.docs.conf.js"
+    "build:docs": "cross-env NODE_ENV=production webpack --progress --config build/webpack.docs.conf.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -62,6 +63,7 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.9.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "webpack-serve": "^3.2.0"
   }
 }

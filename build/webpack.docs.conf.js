@@ -10,11 +10,11 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const webpack = require('webpack')
 
-const isDev = process.env.NODE_ENV === 'development'
+const isProd = process.env.NODE_ENV === 'production'
 let outputConfig
 
 const webpackConf = {
-  mode: isDev ? 'development' : 'production',
+  mode: isProd ? 'production' : 'development',
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './docs/main.js'
@@ -72,7 +72,7 @@ const webpackConf = {
       }
     ]
   },
-  devtool: isDev ? 'cheap-module-eval-source-map' : false,
+  devtool: isProd ? false : 'cheap-module-eval-source-map',
   resolve: {
     extensions: ['.js', '.vue', '.json', '.md'],
     alias: {
@@ -86,18 +86,18 @@ const webpackConf = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(isDev ? 'dev' : 'prod')
+      'process.env.NODE_ENV': JSON.stringify(isProd ? 'prod' : 'dev')
     }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      filename: isDev ? 'index.html' : path.resolve(__dirname, '../docs/dist/docs.html'),
+      filename: isProd ? path.resolve(__dirname, '../docs/dist/docs.html') : 'index.html',
       template: path.resolve(__dirname, '../docs/index.html'),
       favicon: path.resolve(__dirname, '../docs/favicon.ico')
     })
   ]
 }
 
-if (isDev) {
+if (!isProd) {
   let devWebpackConf = merge(webpackConf, {
     devServer: {
       clientLogLevel: 'warning',
@@ -110,11 +110,12 @@ if (isDev) {
       contentBase: false,
       compress: true,
       host: '0.0.0.0',
-      port: 8090,
+      port: 8070,
       overlay: {
         warnings: false,
         errors: true
       },
+      open: true,
       quiet: true,
       disableHostCheck: true
     },
@@ -123,7 +124,7 @@ if (isDev) {
     ]
   })
   outputConfig = new Promise((resolve, reject) => {
-    portfinder.basePort = 8090
+    portfinder.basePort = 8070
     portfinder.getPort((err, port) => {
       if (err) {
         reject(err)
@@ -131,17 +132,7 @@ if (isDev) {
         process.env.PORT = port
         devWebpackConf.devServer.port = port
   
-        devWebpackConf.plugins.push(new FriendlyErrorsPlugin({
-          compilationSuccessInfo: {
-            // 页面入口，examples 路径和 docs 入口
-            messages: [
-    `Docs running at:
-      
-      - http://${devWebpackConf.devServer.host}:${port}
-      
-    `],
-          }
-        }))
+        devWebpackConf.plugins.push(new FriendlyErrorsPlugin())
   
         resolve(devWebpackConf)
       }

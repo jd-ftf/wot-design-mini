@@ -4,6 +4,7 @@ node_modules/
 /lib-wx/
 /example-wx/
 /example/dist/
+/docs/dist/
 # Editor directories and files
 .idea
 .vscode
