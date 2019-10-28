@@ -19,9 +19,11 @@
   ],
   "extends": [
     "eslint:recommended",
+    "@jd/eslint-config-pop",
     "plugin:json/recommended"
   ],
   "rules": {
+    "new-cap": "off",
     "indent": ["error",2]
   }
 }
