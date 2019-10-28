@@ -81,9 +81,9 @@ npm run build:lint:fix
 
 ```
 
-### 注意
-* commit 需要遵循 git flow
-* commit时会自动运行eslint检测，可使用'npm run lint:fix'进行修复，部分需要手动修复。
+### 规范
+* commit时需要遵循 git flow，例如git commit -m "release(0.0.1): new version"。
+* commit时会自动运行eslint检测，不通过检测无法提交。可使用'npm run lint:fix'进行修复，部分错误需要手动修复。
 
 ### 组件库开发步骤
 
