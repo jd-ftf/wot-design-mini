@@ -14,7 +14,7 @@
           </div>
           <div class="demo-preview-item">
             <p>微信app预览</p>
-            <img class="phone-title" src="//img10.360buyimg.com/jmadvertisement/jfs/t1/74460/38/14034/5823/5db2c652Ed4417745/8c876f3ba988a293.jpg" />
+            <img class="phone-title" src="//img10.360buyimg.com/jmadvertisement/jfs/t1/96166/30/911/122457/5db655dbE83581c67/762bd46a13c4831f.jpg" />
           </div>
         </div>
       </div>
