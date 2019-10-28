@@ -13,6 +13,7 @@ Component({
       type: String,
       value: "medium"
     },
+    icon: String,
     openType: String,
     formType: String,
     hoverStopPropagation: {
@@ -44,6 +45,7 @@ Component({
       }
     },
     bindGetUserInfo(event) {
+      console.log(event.detail)
       this.triggerEvent("getuserinfo", event.detail);
     },
 

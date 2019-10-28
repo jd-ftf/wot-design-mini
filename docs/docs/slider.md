@@ -2,13 +2,14 @@
 
 支持单向滑块和双向滑块。
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Slider } from 'jm-design'
-
-Vue.use(Slider)
+```json
+{
+  "usingComponents": {
+    "jm-slider": "/jm-design/slider/index"
+  }
+}
 ```
 
 ### 基本用法

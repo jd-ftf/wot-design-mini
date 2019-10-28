@@ -1,13 +1,13 @@
 ## Cell单元格
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { CellGroup, Cell } from 'jm-design'
-
-Vue.use(CellGroup)
-Vue.use(Cell)
+```json
+{
+  "usingComponents": {
+    "jm-cell": "/jm-design/cell/index"
+  }
+}
 ```
 
 ### 基本用法

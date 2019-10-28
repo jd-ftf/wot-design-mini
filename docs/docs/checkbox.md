@@ -2,12 +2,15 @@
 
 ### 按需引入
 
-```javascript
-import Vue from 'vue'
-import { CheckboxGroup, Checkbox } from 'jm-design'
+### 引入
 
-Vue.use(CheckboxGroup)
-Vue.use(Checkbox)
+```json
+{
+  "usingComponents": {
+    "jm-checkbox": "/jm-design/checkbox/index",
+    "jm-checkbox-group": "/jm-design/checkboxGroup/index"
+  }
+}
 ```
 
 ### 基本用法

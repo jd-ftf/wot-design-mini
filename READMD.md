@@ -78,33 +78,30 @@ npm run build:wx
 ```
 ### 组件库开发步骤
 
-   - [ ] 新建分支，分支名规范：姓名-组件名，例如xieyu-message
+1. 新建分支，分支名规范：姓名-组件名，例如xieyu-message
 
-   - [ ] 参照[小程序原生框架](https://developers.weixin.qq.com/miniprogram/dev/component/)进行封装，封装为[自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/) 
+2. 参照[小程序原生框架](https://developers.weixin.qq.com/miniprogram/dev/component/)进行封装，封装为[自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/) 
 
-   - [ ] 组件库packages下新建以组件命名的目录，例如开发radio组件则建立packages/radio。之后在packages/radio分别新建：  
+3. 组件库packages下新建以组件命名的目录，例如开发radio组件则建立packages/radio。之后在packages/radio分别新建：  
 
-        + index.js  
-        + index.scss(构建时自动转成scss)  
-        + index.json  
-        + index.jxml  
+  + index.js  
+  + index.scss(构建时自动转成scss)  
+  + index.json  
+  + index.jxml  
 
-   - [ ] 小程序项目example开发：pages下新建目录radio,在目录中新建radio的index.js，index.json，index.jxml，index.jxss。
+4. 小程序项目example开发：pages下新建目录如button,在目录中新建index.js，index.json，index.jxml，index.jxss。
 
-   - [ ] example/app.json   
+5. 在 example/pages/button/index.json 中添加组件引用，即可在页面中使用该组件
 
-     ```json5
-     {
-       "pages": [
-         "pages/index/index",
-         "pages/button/button"
-       ],
-       "usingComponents": {
-         //引入小程序自定义组件库，即打包后开发的工具组件库
-         "jmd-button": "dist/button/index"
-       }
-     }
-     ```
-  可以在微信开发者工具中添加编译模式，将自己开发的组件页面设定为当前编译的页面。
+```json
+{
+  "usingComponents": {
+    //引入小程序自定义组件库，即打包后开发的工具组件库
+    "jm-button": "/dist/button/index"
+  }
+}
+```
 
-  ![编译页面](https://img10.360buyimg.com/jmadvertisement/jfs/t1/69211/17/10309/119659/5d7f628fE022d5dcd/9534d56d95f58f5e.png)
+可以在微信开发者工具中添加编译模式，将自己开发的组件页面设定为当前编译的页面。
+
+![编译页面](https://img10.360buyimg.com/jmadvertisement/jfs/t1/69211/17/10309/119659/5d7f628fE022d5dcd/9534d56d95f58f5e.png)

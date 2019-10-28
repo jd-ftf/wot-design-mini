@@ -1,12 +1,13 @@
 ## Search 搜索框
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Search } from 'jm-design'
-
-Vue.use(Search)
+```json
+{
+  "usingComponents": {
+    "jm-search": "/jm-design/search/index"
+  }
+}
 ```
 
 ### 基本用法

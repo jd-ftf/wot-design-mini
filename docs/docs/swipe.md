@@ -1,13 +1,14 @@
 ## Swipe 轮播图
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Swipe, SwipeItem } from 'jm-design'
-
-Vue.use(Swipe)
-Vue.use(SwipeItem)
+```json
+{
+  "usingComponents": {
+    "jm-swipe": "/jm-design/swipe/index",
+    "jm-swipe-item": "/jm-design/swipe-item/index"
+  }
+}
 ```
 
 ### 基本用法

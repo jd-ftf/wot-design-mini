@@ -1,13 +1,14 @@
 ## Radio 单选框
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { RadioGroup, Radio } from 'jm-design'
-
-Vue.use(RadioGroup)
-Vue.use(Radio)
+```json
+{
+  "usingComponents": {
+    "jm-radio": "/jm-design/radio/index",
+    "jm-radio-group": "jm-design/radioGroup/index"
+  }
+}
 ```
 
 ### 基本用法
