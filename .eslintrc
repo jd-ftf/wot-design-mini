@@ -19,7 +19,7 @@
   ],
   "extends": [
     "eslint:recommended",
-    "@jd/eslint-config-pop",
+    "standard",
     "plugin:json/recommended"
   ],
   "rules": {
