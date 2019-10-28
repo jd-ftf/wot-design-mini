@@ -1,5 +1,6 @@
 const { src, dest, parallel, series } = require('gulp')
 const sass = require('gulp-sass')
+const eslint =require('gulp-eslint')
 const rename = require('gulp-rename')
 const postcss = require('gulp-postcss')
 const cssnano = require('gulp-cssnano')
@@ -191,3 +192,11 @@ exports.devwx = series(
 )
 
 exports.buildwx = series(build, cleanTask(wxLib), parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxPackageCopy))
+
+const eslintTask = function () {
+  return src([`${packagesPath}/**/*.js`,`${packagesPath}/**/*.json`])
+    .pipe(eslint())
+    .pipe(eslint.format(require("eslint-friendly-formatter")))
+    .pipe(eslint.failAfterError())
+}
+exports.lint = series(eslintTask)
