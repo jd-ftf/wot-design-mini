@@ -111,25 +111,25 @@ const build = series(cleanTask(finalPath), parallel(sassToJxss, jsToJdJs, jxmlTo
 exports.build = build
 
 const wxLib = path.resolve(__dirname, '../lib-wx')
-const exampleWx = path.resolve(__dirname, '../example-wx')
-const wxFinalPath = options.env === 'production' ? wxLib : exampleWx
+const wxExample = path.resolve(__dirname, '../example-wx')
+const wxExampleDist = `${wxExample}/dist`
+const wxFinalPath = options.env === 'production' ? wxLib : wxExampleDist
+const htmlReplace = [
+  {
+    replaceStr: '\\.jxs',
+    str: '.wxs'
+  }, {
+    replaceStr: '<jxs',
+    str: '<wxs'
+  }, {
+    replaceStr: 'jd:',
+    str: 'wx:'
+  }
+]
 
 const wxCssTask = createReplaceExtTask([`${finalPath}/**/*.jxss`], wxFinalPath, 'wxss')
 const wxJsTask = createJsTask([`${finalPath}/**/*.js`], wxFinalPath, 'jd', 'wx')
-const wxHtmlTask = () => {
-  return createHtmlTask([`${finalPath}/**/*.jxml`], wxFinalPath, [
-    {
-      replaceStr: '\\.jxs',
-      str: '.wxs'
-    }, {
-      replaceStr: '<jxs',
-      str: '<wxs'
-    }, {
-      replaceStr: 'jd:',
-      str: 'wx:'
-    }
-  ], 'wxml')()
-}
+const wxHtmlTask = () => createHtmlTask([`${finalPath}/**/*.jxml`], wxFinalPath, htmlReplace, 'wxml')()
 const wxWxsTask = createReplaceExtTask([`${finalPath}/**/*.jxs`], wxFinalPath, 'wxs')
 const wxPackageCopy = createCopyTask([
   `${finalPath}/**`,
@@ -138,13 +138,17 @@ const wxPackageCopy = createCopyTask([
   `!${finalPath}/**/*.jxml`,
   `!${finalPath}/**/*.jxs`
 ], wxFinalPath)
+const wxExampleCssTask = createReplaceExtTask([`${example}/**/*.jxss`, `!${example}/dist/**`], wxExample, 'wxss')
+const wxExampleJsTask = createJsTask([`${example}/**/*.js`, `!${example}/dist/**`], wxExample, 'jd', 'wx')
+const wxExampleHtmlTask = () => createHtmlTask([`${example}/**/*.jxml`, `!${example}/dist/**`], wxExample, htmlReplace, 'wxml')()
+const wxExampleWxsTask = createReplaceExtTask([`${example}/**/*.jxs`, `!${example}/dist/**`], wxExample, 'wxs')
 const wxExampleCopy = createCopyTask([
   `${example}/**`,
   `!${example}/**/*.jxss`,
   `!${example}/**/*.js`,
   `!${example}/**/*.jxml`,
   `!${example}/**/*.jxs`
-], exampleWx)
+], wxExample)
 
 const watchWx = function () {
   return watch(
@@ -157,21 +161,27 @@ const watchWx = function () {
 }
 
 const watchExample = function () {
-  return watch([`${example}/**`, `!${example}/dist/**`], parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxExampleCopy))
+  return watch([`${example}/**`, `!${example}/dist/**`], parallel(wxExampleCssTask, wxExampleJsTask, wxExampleHtmlTask, wxExampleWxsTask, wxExampleCopy))
 }
 
 exports.devwx = series(
   cleanTask(finalPath),
-  cleanTask(exampleWx),
-  series(
+  cleanTask(wxExample),
+  parallel(
     sassToJxss,
     jsToJdJs,
     jxmlToJxml,
-    packagesCopy,
+    packagesCopy
+  ),
+  parallel(
     wxCssTask,
     wxJsTask,
     wxHtmlTask,
     wxWxsTask,
+    wxExampleCssTask,
+    wxExampleJsTask,
+    wxExampleHtmlTask,
+    wxExampleWxsTask,
     wxExampleCopy
   ),
   parallel(
