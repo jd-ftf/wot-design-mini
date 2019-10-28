@@ -1,12 +1,13 @@
 ## NoticeBar 通知栏
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { NoticeBar } from 'jm-design'
-
-Vue.use(NoticeBar)
+```json
+{
+  "usingComponents": {
+    "jm-notice-bar": "/jm-design/noticeBar/index"
+  }
+}
 ```
 
 ### 基本用法

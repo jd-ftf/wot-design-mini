@@ -1,12 +1,13 @@
 ## Input 输入框
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Input } from 'jm-design'
-
-Vue.use(Input)
+```json
+{
+  "usingComponents": {
+    "jm-input": "/jm-design/input/index"
+  }
+}
 ```
 
 ### 基本用法

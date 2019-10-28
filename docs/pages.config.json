@@ -1,10 +1,10 @@
 {
   "vue-components": {
     "href": "//beta-jmw.jd.com/lib/jm-design/docs.html",
-    "name": "H5组件库"
+    "name": "Vue组件"
   },
   "components": {
-    "name": "组件",
+    "name": "小程序",
     "sideTabs": [
       {
         "Introduction": {
@@ -12,24 +12,9 @@
           "path": "/introduction",
           "demo": "/"
         },
-        "Install": {
-          "name": "安装",
-          "path": "/install",
-          "demo": "/"
-        },
         "QuickUse": {
           "name": "快速上手",
           "path": "/quickUse",
-          "demo": "/"
-        },
-        "locale": {
-          "name": "国际化",
-          "path": "/locale",
-          "demo": "/"
-        },
-        "CustomTheme": {
-          "name": "自定义主题",
-          "path": "/customTheme",
           "demo": "/"
         }
       }, {
@@ -67,16 +52,6 @@
                 "path": "/cell",
                 "demo": "/cell"
               },
-              "Navbar": {
-                "name": "Navbar 导航栏",
-                "path": "/navbar",
-                "demo": "/navbar"
-              },
-              "Tabbar": {
-                "name": "Tabbar 标签栏",
-                "path": "/tabbar",
-                "demo": "/tabbar"
-              },
               "Tab": {
                 "name": "Tabs 标签页",
                 "path": "/tabs",
@@ -111,11 +86,6 @@
                 "path": "/picker",
                 "demo": "/picker"
               },
-              "PickerView": {
-                "name": "PickerView 选择器视图",
-                "path": "/pickerView",
-                "demo": "/pickerView"
-              },
               "Radio": {
                 "name": "Radio 单选框",
                 "path": "/radio",
@@ -145,11 +115,6 @@
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
               },
-              "InfiniteLoad": {
-                "name": "InfiniteLoad 无限加载",
-                "path": "/infiniteLoad",
-                "demo": "/infiniteLoad"
-              },
               "Loading": {
                 "name": "Loading 加载",
                 "path": "/loading",
@@ -159,11 +124,6 @@
                 "name": "MessageBox 弹框",
                 "path": "/messageBox",
                 "demo": "/messageBox"
-              },
-              "PullRefresh": {
-                "name": "PullRefresh 下拉刷新",
-                "path": "/pullRefresh",
-                "demo": "/pullRefresh"
               },
               "Slider": {
                 "name": "Slider 滑块",
@@ -189,20 +149,10 @@
                 "path": "/collapse",
                 "demo": "/collapse"
               },
-              "Lazyload": {
-                "name": "Lazyload 图片懒加载",
-                "path": "/lazyload",
-                "demo": "/lazyload"
-              },
               "NoticeBar": {
                 "name": "NoticeBar 通知栏",
                 "path": "/noticeBar",
                 "demo": "/noticeBar"
-              },
-              "Progress": {
-                "name": "Progress 进度条",
-                "path": "/progress",
-                "demo": "/progress"
               },
               "Steps": {
                 "name": "Steps 步骤条",

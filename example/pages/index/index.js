@@ -15,6 +15,9 @@ Page({
           }, {
             id: 'icon',
             name: 'Icon 图标'
+          }, {
+            id: 'popup',
+            name: 'Popup 弹出层'
           }
         ]
       }, {
@@ -39,11 +42,17 @@ Page({
             id: 'checkbox',
             name: 'Checkbox 复选框'
           }, {
+            id: 'datetime-picker',
+            name: 'DatetimePicker 时间选择器'
+          }, {
             id: 'input',
             name: 'Input 输入框'
           }, {
             id: 'input-number',
             name: 'InputNumber 计数器'
+          }, {
+            id: 'picker',
+            name: 'Picker 选择器'
           }, {
             id: 'radio',
             name: 'Radio 单选框'
@@ -63,7 +72,10 @@ Page({
         name: '交互组件',
         open: false,
         pages: [
-          {
+          { 
+            id: 'action-sheet',
+            name: 'ActionSheet 上拉菜单'
+           }, {
             id: 'loading',
             name: 'Loading 加载指示器'
           }, {
@@ -85,6 +97,9 @@ Page({
           {
             id: 'collapse',
             name: 'Collapse 折叠面板'
+          }, { 
+            id: 'notice-bar',
+            name: 'NoticeBar 通知栏'
           }, {
             id: 'steps',
             name: 'Steps 步骤条'

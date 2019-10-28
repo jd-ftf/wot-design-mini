@@ -2,13 +2,14 @@
 
 Picker 组件为 popup 和 pickerView 的组合。
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Picker } from 'jm-design'
-
-Vue.use(Picker)
+```json
+{
+  "usingComponents": {
+    "jm-picker": "/jm-design/picker/index"
+  }
+}
 ```
 
 ### 基本用法

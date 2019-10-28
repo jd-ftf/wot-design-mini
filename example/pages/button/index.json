@@ -1,8 +1,7 @@
 {
   "navigationBarTitleText": "Button 按钮",
   "usingComponents": {
-    "demo-block": "/components/demo-block/index",
-    "jm-button": "/dist/button/index",
-    "jm-icon": "/dist/icon/index"
+    "demo-block": "../../components/demo-block/index",
+    "jm-button": "../../dist/button/index"
   }
 }

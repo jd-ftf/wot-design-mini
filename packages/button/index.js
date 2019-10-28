@@ -13,6 +13,7 @@ Component({
       type: String,
       value: 'medium'
     },
+    icon: String,
     openType: String,
     formType: String,
     hoverStopPropagation: {

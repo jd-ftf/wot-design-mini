@@ -8,7 +8,10 @@
 	send-message-img="{{sendMessageImg}}"
 	app-parameter="{{appParameter}}"
 	show-message-card="{{showMessageCard}}"
-	session-from="sessionFrom"
+	session-from="{{sessionFrom}}"
+	session-message-title="{{sessionMessageTitle}}"
+	session-message-path="{{sessionMessagePath}}"
+	session-message-img="{{sessionMessageImg}}"
 	lang="{{lang}}"
 	hover-stay-time="{{hoverStayTime}}"
 	hover-stop-propagation="{{hoverStopPropagation}}"
@@ -21,6 +24,7 @@
 	bindlaunchapp="bindLaunchApp"
 	bindopensetting="bindOpenSetting"
 >
+	<jm-icon jd:if="{{icon}}" class="jm-button__icon" name="{{icon}}" size="1.2em"></jm-icon>
 	<view class="jm-button__text">
 		<slot />
 	</view>

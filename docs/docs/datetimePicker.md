@@ -2,13 +2,14 @@
 
 为 Picker 组件的封装，在其内部构建好日期时间选项。
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { DatetimePicker } from 'jm-design'
-
-Vue.use(DatetimePicker)
+```json
+{
+  "usingComponents": {
+    "jm-datetime-picker": "/jm-design/datetimePicker/index"
+  }
+}
 ```
 
 ### 基本用法

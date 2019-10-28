@@ -1,12 +1,13 @@
 ## PullRefresh 下拉刷新
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { PullRefresh } from 'jm-design'
-
-Vue.use(PullRefresh)
+```json
+{
+  "usingComponents": {
+    "jm-pull-refresh": "/jm-design/pullRefresh/index"
+  }
+}
 ```
 
 ### 基本用法

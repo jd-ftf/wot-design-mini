@@ -1,6 +1,13 @@
 Component({
   properties: {
-    name: String,
+    name: {
+      type: String,
+      observer (val) {
+        this.setData({
+          isImageUrl: val.indexOf('/') > -1
+        })
+      }
+    },
     color: String,
     size: String
   }

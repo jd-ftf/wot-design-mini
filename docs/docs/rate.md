@@ -1,12 +1,13 @@
 ## Rate 评分
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Rate } from 'jm-design'
-
-Vue.use(Rate)
+```json
+{
+  "usingComponents": {
+    "jm-rate": "/jm-design/rate/index"
+  }
+}
 ```
 
 ### 基本用法

@@ -1,12 +1,13 @@
 ## Progress 下拉刷新
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Progress } from 'jm-design'
-
-Vue.use(Progress)
+```json
+{
+  "usingComponents": {
+    "jm-progress": "/jm-design/progress/index"
+  }
+}
 ```
 
 ### 基本用法

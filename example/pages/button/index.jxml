@@ -1,7 +1,7 @@
 <view>
   <demo-block title="基本用法 type">
     <jm-button>默认按钮</jm-button>
-    <jm-button type="primary">主要按钮</jm-button>
+    <jm-button type="primary" open-type="getUserInfo" getuserinfo="{{getuserinfo}}">主要按钮</jm-button>
     <jm-button type="success">成功按钮</jm-button>
     <jm-button type="info">信息按钮</jm-button>
     <jm-button type="warning">警告按钮</jm-button>
@@ -47,6 +47,14 @@
   <demo-block title="文字按钮 text">
     <jm-button type="text">按钮</jm-button>
     <jm-button type="text" disabled>按钮</jm-button>
+  </demo-block>
+  <demo-block title="图标按钮 icon">
+    <jm-button type="icon" icon="menu"></jm-button>
+    <jm-button type="icon" icon="menu" disabled></jm-button>
+  </demo-block>
+  <demo-block title="带图标的基本按钮">
+    <jm-button type="primary" icon="edit-outline">修改</jm-button>
+    <jm-button type="primary" icon="share">分享</jm-button>
   </demo-block>
   <demo-block title="吸顶按钮 suck" hor="{{0}}">
     <jm-button type="primary" suck>主要按钮</jm-button>

@@ -1,13 +1,14 @@
 ## Collapse 折叠面板
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Collapse, CollapseItem } from 'jm-design'
-
-Vue.use(Collapse)
-Vue.use(CollapseItem)
+```json
+{
+  "usingComponents": {
+    "jm-collapse": "/jm-design/collapse/index",
+    "jm-collapse-item": "/jm-design/collapseItem/index"
+  }
+}
 ```
 
 ### 基本使用

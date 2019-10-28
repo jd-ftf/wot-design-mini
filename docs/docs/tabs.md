@@ -1,13 +1,14 @@
 ## Tab 标签页
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Tab, Tabs } from 'jm-design'
-
-Vue.use(Tab)
-Vue.use(Tabs)
+```json
+{
+  "usingComponents": {
+    "jm-tab": "/jm-design/tab/index",
+    "jm-tabs": "/jm-design/tabs/index"
+  }
+}
 ```
 
 ### 基本用法

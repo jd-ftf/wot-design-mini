@@ -17,7 +17,8 @@ module.exports = {
         'fix',
         'docs',
         'config',
-        'demo'
+        'demo',
+        'merge'
       ].concat(fs.readdirSync('packages'))
     ]
   }
