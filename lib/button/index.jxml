@@ -1,0 +1,27 @@
+<button
+	hover-class="jm-button--active"
+	class="jm-button is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
+	open-type="{{ openType }}"
+	hover-start-time="{{hoverStartTime}}"
+	send-message-title="{{sendMessageTitle}}"
+	send-message-path="{{sendMessagePath}}"
+	send-message-img="{{sendMessageImg}}"
+	app-parameter="{{appParameter}}"
+	show-message-card="{{showMessageCard}}"
+	session-from="sessionFrom"
+	lang="{{lang}}"
+	hover-stay-time="{{hoverStayTime}}"
+	hover-stop-propagation="{{hoverStopPropagation}}"
+	form-type="{{formType}}"
+	bindtap="onClick"
+	bindgetuserinfo="bindGetUserInfo"
+	bindcontact="bindContact"
+	bindgetphonenumber="bindGetPhoneNumber"
+	binderror="bindError"
+	bindlaunchapp="bindLaunchApp"
+	bindopensetting="bindOpenSetting"
+>
+	<view class="jm-button__text">
+		<slot />
+	</view>
+</button>

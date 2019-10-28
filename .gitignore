@@ -1,7 +1,5 @@
 .DS_Store
 node_modules/
-/lib/
-/lib-wx/
 /example-wx/
 /example/dist/
 /docs/dist/
