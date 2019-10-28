@@ -31,15 +31,15 @@ Component({
     handleClick() {
       const { activeValue, inactiveValue,disabled } = this.data;
 
-        if (!disabled) {
-          const checked = this.data.checked === activeValue;
-          const value = checked ? inactiveValue : activeValue;
-          
-          this.setData({
-            checked:this.data.asyncChange ? this.data.checked : !this.data.checked 
-          });
-          this.triggerEvent('change', value);
-        }
+      if (!disabled) {
+        const checked = this.data.checked === activeValue;
+        const value = checked ? inactiveValue : activeValue;
+        
+        this.setData({
+          checked:this.data.asyncChange ? this.data.checked : !this.data.checked 
+        });
+        this.triggerEvent('change', value);
+      }
     },
   }
 });

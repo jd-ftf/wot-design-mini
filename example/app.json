@@ -11,17 +11,8 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "JM Design",
     "navigationBarTextStyle": "black"
-  },
-  "usingComponents": {
-    "demo-block": "/components/demo-block/index",
-    "jmd-button": "dist/button/index",
-    "jmd-counter": "dist/counter/index",
-    "jmd-switch": "dist/switch/index",
-    "jmd-notice-bar": "dist/noticeBar/index",
-    "jm-button": "dist/button/index",
-    "jm-icon": "dist/icon/index"
   },
   "sitemapLocation": "sitemap.json"
 }

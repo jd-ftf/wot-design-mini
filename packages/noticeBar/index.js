@@ -76,15 +76,14 @@ Component({
      * @param select 选择器 
      */
     getRect(select) {
-      const _this = this;
-      return new Promise((resolve,reject)=>{
-        _this.createSelectorQuery()
-            .select(select)
-            .boundingClientRect(rects => {
-                if(rects){
-                    resolve(Math.ceil(rects.width));
-                }
-        }).exec();
+      return new Promise((resolve) => {
+        this.createSelectorQuery()
+          .select(select)
+          .boundingClientRect(rects => {
+            if(rects){
+              resolve(Math.ceil(rects.width));
+            }
+          }).exec();
       })
     },
 
@@ -127,7 +126,7 @@ Component({
      * @param scrollWidth 
      */
     initAnimation(duration, timingFunction, delay, scrollWidth) {
-      let animation = wx.createAnimation({
+      let animation = jd.createAnimation({
         duration: duration,
         timingFunction: timingFunction,
         delay: delay
@@ -148,9 +147,9 @@ Component({
       },20);
     },
     closeNotice() {
-        this.setData({
-          show : false
-        })
+      this.setData({
+        show: false
+      })
     },
     onClick(event) {
       this.triggerEvent('click', event);

@@ -1,0 +1,6 @@
+<view class="icon-list">
+  <view jd:for="{{icons}}" class="icon-item">
+    <view><jm-icon name="{{item}}" size="22px" /></view>
+    <view class="icon-item-name">{{item}}</view>
+  </view>
+</view>

@@ -1,0 +1,173 @@
+{
+  "vue-components": {
+    "href": "//beta-jmw.jd.com/lib/jm-design/docs.html",
+    "name": "Vue组件"
+  },
+  "components": {
+    "name": "小程序",
+    "sideTabs": [
+      {
+        "Introduction": {
+          "name": "介绍",
+          "path": "/introduction",
+          "demo": "/"
+        },
+        "QuickUse": {
+          "name": "快速上手",
+          "path": "/quickUse",
+          "demo": "/"
+        }
+      }, {
+        "name": "组件",
+        "list": [
+          {
+            "name": "基础",
+            "list": {
+              "Badge": {
+                "name": "Badge 角标",
+                "path": "/badge",
+                "demo": "/badge"
+              },
+              "Button": {
+                "name": "Button 按钮",
+                "path": "/button",
+                "demo": "/button"
+              },
+              "Icon": {
+                "name": "Icon 图标",
+                "path": "/icon",
+                "demo": "/icon"
+              },
+              "popup": {
+                "name": "Popup 弹出层",
+                "path": "/popup",
+                "demo": "/popup"
+              }
+            }
+          }, {
+            "name": "导航",
+            "list": {
+              "Cell": {
+                "name": "Cell 单元格",
+                "path": "/cell",
+                "demo": "/cell"
+              },
+              "Tab": {
+                "name": "Tabs 标签页",
+                "path": "/tabs",
+                "demo": "/tabs"
+              }
+            }
+          }, {
+            "name": "表单",
+            "list": {
+              "Checkbox": {
+                "name": "Checkbox 复选框",
+                "path": "/checkbox",
+                "demo": "/checkbox"
+              },
+              "DatetimePicker": {
+                "name": "DatetimePicker 时间选择器",
+                "path": "/datetimePicker",
+                "demo": "/datetimePicker"
+              },
+              "Input": {
+                "name": "Input 输入框",
+                "path": "/input",
+                "demo": "/input"
+              },
+              "InputNumber": {
+                "name": "InputNumber 计数器",
+                "path": "/inputNumber",
+                "demo": "/inputNumber"
+              },
+              "picker": {
+                "name": "Picker 选择器",
+                "path": "/picker",
+                "demo": "/picker"
+              },
+              "Radio": {
+                "name": "Radio 单选框",
+                "path": "/radio",
+                "demo": "/radio"
+              },
+              "Rate": {
+                "name": "Rate 评分",
+                "path": "/rate",
+                "demo": "/rate"
+              },
+              "Search": {
+                "name": "Search 搜索框",
+                "path": "/search",
+                "demo": "/search"
+              },
+              "Switch": {
+                "name": "Switch 开关",
+                "path": "/switch",
+                "demo": "/switch"
+              }
+            }
+          }, {
+            "name": "交互",
+            "list": {
+              "ActionSheet": {
+                "name": "ActionSheet 上拉菜单",
+                "path": "/actionSheet",
+                "demo": "/actionSheet"
+              },
+              "Loading": {
+                "name": "Loading 加载",
+                "path": "/loading",
+                "demo": "/loading"
+              },
+              "MessageBox": {
+                "name": "MessageBox 弹框",
+                "path": "/messageBox",
+                "demo": "/messageBox"
+              },
+              "Slider": {
+                "name": "Slider 滑块",
+                "path": "/slider",
+                "demo": "/slider"
+              },
+              "Swipe": {
+                "name": "Swipe 轮播图",
+                "path": "/swipe",
+                "demo": "/swipe"
+              },
+              "Toast": {
+                "name": "Toast 轻提示",
+                "path": "/toast",
+                "demo": "/toast"
+              }
+            }
+          }, {
+            "name": "展示",
+            "list": {
+              "Collapse": {
+                "name": "Collapse 折叠面板",
+                "path": "/collapse",
+                "demo": "/collapse"
+              },
+              "NoticeBar": {
+                "name": "NoticeBar 通知栏",
+                "path": "/noticeBar",
+                "demo": "/noticeBar"
+              },
+              "Steps": {
+                "name": "Steps 步骤条",
+                "path": "/steps",
+                "demo": "/steps"
+              },
+              "Tag": {
+                "name": "Tag 标签",
+                "path": "/tag",
+                "demo": "/tag"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
