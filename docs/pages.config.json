@@ -1,7 +1,7 @@
 {
   "vue-components": {
     "href": "//beta-jmw.jd.com/lib/jm-design/docs.html",
-    "name": "H5组件库"
+    "name": "Vue组件"
   },
   "components": {
     "name": "组件",

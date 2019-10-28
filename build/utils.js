@@ -1,13 +1,13 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const isDev = process.env.NODE_ENV === 'development'
+const isProd = process.env.NODE_ENV === 'production'
 
 exports.cssLoader = (...loaders) => {
   const formatLoaders = []
   formatLoaders.push('vue-style-loader')
   
-  if (!isDev) {
+  if (isProd) {
     formatLoaders.push({
       loader: MiniCssExtractPlugin.loader,
       options: {
@@ -19,7 +19,7 @@ exports.cssLoader = (...loaders) => {
     formatLoaders.push({
       loader: loader,
       options: {
-        sourceMap: isDev
+        sourceMap: !isProd
       }
     })
   })
