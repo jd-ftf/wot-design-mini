@@ -1,12 +1,13 @@
 ## Toast 轻提示
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Toast } from 'jm-design'
-
-Vue.use(Toast)
+```json
+{
+  "usingComponents": {
+    "jm-toast": "/jm-design/toast/index"
+  }
+}
 ```
 
 ### 基本用法

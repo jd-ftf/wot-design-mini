@@ -1,13 +1,14 @@
 ## Steps 标签页
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Step, Steps } from 'jm-design'
-
-Vue.use(Step)
-Vue.use(Steps)
+```json
+{
+  "usingComponents": {
+    "jm-step": "/jm-design/step/index",
+    "jm-steps": "/jm-design/steps/index"
+  }
+}
 ```
 
 ### 基本用法

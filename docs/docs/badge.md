@@ -1,12 +1,13 @@
 ## Badge 标记
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Badge } from 'jm-design'
-
-Vue.use(Badge)
+```json
+{
+  "usingComponents": {
+    "jm-badge": "/jm-design/badge/index"
+  }
+}
 ```
 
 出现在按钮、图标旁的数字或状态标记。

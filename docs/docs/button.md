@@ -1,12 +1,13 @@
 ## Button 按钮
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Button } from 'jm-design'
-
-Vue.use(Button)
+```json
+{
+  "usingComponents": {
+    "jm-button": "/jm-design/button/index"
+  }
+}
 ```
 
 ### 基本用法

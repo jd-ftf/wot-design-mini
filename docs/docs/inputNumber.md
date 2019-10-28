@@ -1,12 +1,13 @@
 ## InputNumber 计数器
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { InputNumber } from 'jm-design'
-
-Vue.use(InputNumber)
+```json
+{
+  "usingComponents": {
+    "jm-input-number": "/jm-design/inputNumber/index"
+  }
+}
 ```
 
 ### 基本用法

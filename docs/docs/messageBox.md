@@ -4,13 +4,14 @@
 
 弹框支持使用JS直接弹出弹框，也支持组件引用的方式。
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { MessageBox } from 'jm-design'
-
-Vue.use(MessageBox)
+```json
+{
+  "usingComponents": {
+    "jm-message-box": "/jm-design/messageBox/index"
+  }
+}
 ```
 
 ### Alert 弹框

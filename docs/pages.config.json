@@ -4,7 +4,7 @@
     "name": "Vue组件"
   },
   "components": {
-    "name": "组件",
+    "name": "小程序",
     "sideTabs": [
       {
         "Introduction": {
@@ -12,24 +12,9 @@
           "path": "/introduction",
           "demo": "/"
         },
-        "Install": {
-          "name": "安装",
-          "path": "/install",
-          "demo": "/"
-        },
         "QuickUse": {
           "name": "快速上手",
           "path": "/quickUse",
-          "demo": "/"
-        },
-        "locale": {
-          "name": "国际化",
-          "path": "/locale",
-          "demo": "/"
-        },
-        "CustomTheme": {
-          "name": "自定义主题",
-          "path": "/customTheme",
           "demo": "/"
         }
       }, {

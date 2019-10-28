@@ -1,12 +1,13 @@
 ## Tag 标签
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Tag } from 'jm-design'
-
-Vue.use(Tag)
+```json
+{
+  "usingComponents": {
+    "jm-tag": "/jm-design/tag/index"
+  }
+}
 ```
 
 ### 基本用法

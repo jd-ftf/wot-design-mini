@@ -1,12 +1,13 @@
 ## InfiniteLoad 无限加载
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { InfiniteLoad } from 'jm-design'
-
-Vue.use(InfiniteLoad)
+```json
+{
+  "usingComponents": {
+    "jm-infinite-load": "/jm-design/infiniteLoad/index"
+  }
+}
 ```
 
 ### 基本用法

@@ -1,12 +1,13 @@
 ## Switch 开关
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Switch } from 'jm-design'
-
-Vue.use(Switch)
+```json
+{
+  "usingComponents": {
+    "jm-switch": "/jm-design/switch/index"
+  }
+}
 ```
 
 ### 基本用法

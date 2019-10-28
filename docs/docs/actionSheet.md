@@ -1,12 +1,13 @@
 ## ActionSheet 上拉菜单
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { ActionSheet } from 'jm-design'
-
-Vue.use(ActionSheet)
+```json
+{
+  "usingComponents": {
+    "jm-action-sheet": "/jm-design/actionSheet/index"
+  }
+}
 ```
 
 ### 基本用法
