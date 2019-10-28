@@ -90,7 +90,7 @@ const webpackConf = {
     }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      filename: isProd ? path.resolve(__dirname, '../docs/dist/docs.html') : 'index.html',
+      filename: isProd ? path.resolve(__dirname, '../docs/dist/index.html') : 'index.html',
       template: path.resolve(__dirname, '../docs/index.html'),
       favicon: path.resolve(__dirname, '../docs/favicon.ico')
     })
