@@ -14,7 +14,6 @@
             value="{{ value }}"
             disabled="{{ inputDisabled }}"
             wx:if="{{ mode === 'custom' }}"/>
-
     <view class="{{ utils.bem('counter',null,['plus'])}} {{ utils.bem('counter--plus',null,[{ disabled:plusDisabled }])}} plus-class"
           data-disabled="{{ plusDisabled }}"
           bind:tap="handlePlus"/>
