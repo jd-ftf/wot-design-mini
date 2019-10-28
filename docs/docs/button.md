@@ -78,7 +78,7 @@
 将 `type` 设置为 `icon`，同时设置 `icon` 属性，icon为图标的类名，可以直接使用 `Icon 图标` 章节中的图标类名。
 
 ```html
-<jm-button type="icon" icon="jm-icon-menu"></jm-button>
+<jm-button type="icon" icon="menu"></jm-button>
 ```
 
 ### 带图标的按钮
@@ -86,7 +86,7 @@
 设置 `icon` 属性，不需要设置 `type` 为 `icon`，即可以直接使用带图标的按钮。
 
 ```html
-<jm-button type="primary" icon="jm-icon-edit-outline"></jm-button>
+<jm-button type="primary" icon="edit-outline"></jm-button>
 ```
 
 ### 吸顶按钮
@@ -102,7 +102,7 @@
 设置 `block` 属性。
 
 ```html
-<jm-button type="primary" block>加载中</jm-button>
+<jm-button type="primary" block>主要按钮</jm-button>
 ```
 
 ### Attributes
@@ -118,4 +118,26 @@
 | size | 按钮尺寸 | string | 'small', 'medium', 'large' | 'medium' |
 | disabled | 禁用按钮 | boolean | - | false |
 | icon | 图标类名 | string | - | - |
-| nativeType | 原生type属性 | string | - | 'button' |
+| open-type | 微信开放能力 | string | - | - |
+| form-type | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 | string | 'submit' / 'reset' | - |
+| hover-stop-propagation | 指定是否阻止本节点的祖先节点出现点击态 | boolean | - | false |
+| lang | 指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文 | string | 'zh_CN' / 'zh_TW' | 'en' |
+| session-from | 会话来源，open-type="contact"时有效 | string | - | - |
+| session-message-title | 会话内消息卡片标题，open-type="contact"时有效 | string | - | 当前标题 |
+| session-message-path | 会话内消息卡片点击跳转小程序路径，open-type="contact"时有效 | string | - | 当前分享路径 |
+| send-message-img | 会话内消息卡片图片，open-type="contact"时有效 | string | - | 截图 |
+| hover-stay-time | 按住后多久出现点击态，单位毫秒 | number | - | 20 |
+| app-parameter | 打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效 | string | - | - |
+| show-message-card	| 是否显示会话内消息卡片，设置此参数为 true，用户进入客服会话会在右下角显示"可能要发送的小程序"提示，用户点击后可以快速发送小程序消息，open-type="contact"时有效 | boolean | - | false |
+
+### Checkbox Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| click | 点击事件 | - |
+| getuserinfo | 获取用户信息 | - |
+| contact | 客服消息回调，open-type="contact"时有效 | - |
+| getphonenumber | 获取用户手机号回调，open-type=getPhoneNumber时有效 | - |
+| error | 当使用开放能力时，发生错误的回调，open-type=launchApp时有效 | - |
+| launchapp | 打开 APP 成功的回调，open-type=launchApp时有效 | - |
+| opensetting | 在打开授权设置页后回调，open-type=openSetting时有效 | - |
