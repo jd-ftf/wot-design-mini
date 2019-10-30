@@ -193,10 +193,9 @@ exports.devwx = series(
 
 exports.buildwx = series(build, cleanTask(wxLib), parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxPackageCopy))
 
-const eslintTask = function () {
+exports.lint = function () {
   return src([`${packagesPath}/**/*.js`,`${packagesPath}/**/*.json`])
     .pipe(eslint())
     .pipe(eslint.format(require("eslint-friendly-formatter")))
     .pipe(eslint.failAfterError())
 }
-exports.lint = series(eslintTask)
