@@ -68,6 +68,13 @@
 					"pathName": "pages/icon/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -2,
+					"name": "pages/loading/index",
+					"pathName": "pages/loading/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

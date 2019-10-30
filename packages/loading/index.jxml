@@ -1,0 +1,24 @@
+<view class="jm-loading {{vertical ? 'jm-loading--vertical' : ''}}">
+  <view
+    class="jm-loading__wrapper custom-class"
+    style="width: {{ sizeWithUnit }}; height: {{ sizeWithUnit }}"
+  >
+    <view
+      class="jm-loading__spinner jm-loading__spinner--{{ type }}"
+      style="color: {{ color }};"
+    >
+      <view
+        wx:if="{{ type === 'spinner' }}"
+        wx:for="item in 12"
+        wx:key="index"
+        class="jm-loading__dot"
+      />
+    </view>
+  </view>
+  <view
+    style="font-size: {{textSizeWithUnit}};"
+    class="jm-loading__text {{vertical ? 'jm-loading__text--vertical' : ''}}"
+  >
+    <slot />
+  </view>
+</view>
