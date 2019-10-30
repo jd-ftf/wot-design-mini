@@ -1,5 +1,4 @@
 
-<wxs src="../wxs/utils.wxs" module="utils" />
 <view class="jm-counter hover-class">
     <view  class="{{ utils.bem('counter',null,['minus'])}} {{ utils.bem('counter--minus',null,[{ disabled:minusDisabled }])}}  minus-class"
            data-disabled="{{ minusDisabled }}"

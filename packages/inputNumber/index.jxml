@@ -1,0 +1,6 @@
+<view class="jm-input-number {{ disabled ? 'is-disabled' : '' }} {{ withoutInput ? 'is-without-input' : '' }}">
+  <view class="jm-input-number__action {{ minDisabled ? 'is-disabled' : '' }}" bindtap="sub">
+    <view class="jm-input-number__sub"></view>
+  </view>
+  <view jd:if="withoutInput"
+</view>

@@ -1,5 +1,3 @@
-<wxs src="../wxs/utils.wxs" module="utils" />
-
 <view 
     class="jm-notice-bar hover-class"
     wx:if="{{ show }}"
