@@ -102,7 +102,7 @@ npm run build:lint:fix
 
 5. 在 example/pages/button/index.json 中添加组件引用，即可在页面中使用该组件
 
-```json
+```json5
 {
   "usingComponents": {
     //引入小程序自定义组件库，即打包后开发的工具组件库
