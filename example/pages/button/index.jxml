@@ -1,7 +1,7 @@
 <view>
   <demo-block title="基本用法 type">
     <jm-button>默认按钮</jm-button>
-    <jm-button type="primary" open-type="getUserInfo" getuserinfo="{{getuserinfo}}">主要按钮</jm-button>
+    <jm-button type="primary" open-type="getUserInfo" bind:getuserinfo="handleGetuserinfo">主要按钮</jm-button>
     <jm-button type="success">成功按钮</jm-button>
     <jm-button type="info">信息按钮</jm-button>
     <jm-button type="warning">警告按钮</jm-button>

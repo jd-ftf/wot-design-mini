@@ -39,33 +39,32 @@ Component({
     hoverStayTime: 70
   },
   methods: {
-    onClick() {
+    handleClick() {
       if (!this.data.disabled && !this.data.loading) {
         this.triggerEvent("click");
       }
     },
-    bindGetUserInfo(event) {
-      console.log(event.detail)
+    handleGetuserinfo(event) {
       this.triggerEvent("getuserinfo", event.detail);
     },
 
-    bindContact(event) {
+    handleConcat(event) {
       this.triggerEvent("contact", event.detail);
     },
 
-    bindGetPhoneNumber(event) {
+    handleGetphonenumber(event) {
       this.triggerEvent("getphonenumber", event.detail);
     },
 
-    bindError(event) {
+    handleError(event) {
       this.triggerEvent("error", event.detail);
     },
 
-    bindLaunchApp(event) {
+    handleLaunchapp(event) {
       this.triggerEvent("launchapp", event.detail);
     },
 
-    bindOpenSetting(event) {
+    handleOpensetting(event) {
       this.triggerEvent("opensetting", event.detail);
     }
   }

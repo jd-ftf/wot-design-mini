@@ -12,20 +12,16 @@
 
 ### 基本用法
 
-`v-model` 为绑定值。
+设置初始 value，监听 change 事件。
 
 ```html
-<jm-input-number v-model="value" />
+<jm-input-number value="{{ 1 }}" bind:change="handleChange" />
 
-<script>
-export default {
-  data () {
-    return {
-      value1: 1
-    }
+Page({
+  handleChange (event) {
+    console.log(event.detail)
   }
-}
-</script>
+})
 ```
 
 ### 设置步长
@@ -33,7 +29,7 @@ export default {
 设置 `step` 步长。
 
 ```html
-<jm-input-number v-model="value" :step="2" />
+<jm-input-number value="{{ 1 }}" step="{{ 2 }}" />
 ```
 
 ### 设置最小最大值
@@ -41,7 +37,7 @@ export default {
 设置 `min` 最小值，`max` 最大值。`min` 默认为1。
 
 ```html
-<jm-input-number v-model="value" :min="3" :max="10" />
+<jm-input-number value="{{ 4 }}" min="{{ 3 }}" max="{{ 10 }}" />
 ```
 
 ### 禁用
@@ -49,7 +45,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<jm-input-number v-model="value" disabled />
+<jm-input-number value="{{ 2 }}" disabled />
 ```
 
 ### 无输入框
@@ -57,7 +53,7 @@ export default {
 设置 `without-input` ，不展示输入框。
 
 ```html
-<jm-input-number v-model="value" without-input />
+<jm-input-number value="{{ 2 }}" without-input />
 ```
 
 ### 设置小数精度
@@ -65,7 +61,7 @@ export default {
 设置 `precision` 属性，默认为0。
 
 ```html
-<jm-input-number v-model="value" :precision="2" :step="0.1" />
+<jm-input-number value="{{ 2 }}" precision="{{ 2 }}" step="{{ 0.1 }}" />
 ```
 
 ### 严格步数倍数
@@ -73,7 +69,7 @@ export default {
 设置 `step-strictly` 属性，强制输入框输入内容为 `step` 的倍数（当用户输入完成后触发change时，会更正输入框内容）。
 
 ```html
-<jm-input-number v-model="value" step-strictly :step="2" />
+<jm-input-number value="{{ 2 }}" step-strictly step="{{ 2 }}" />
 ```
 
 ### 修改输入框宽度
@@ -81,7 +77,7 @@ export default {
 设置 `input-width` 设置宽度，该值接受1个字符串，可以是表示尺寸的任何单位。
 
 ```html
-<jm-input-number v-model="value" input-width="70px" />
+<jm-input-number value="{{ 1 }}" input-width="70px" />
 ```
 
 ### Attributes
@@ -97,3 +93,13 @@ export default {
 | disabled | 禁用 | boolean | - | false |
 | without-input | 不显示输入框 | boolean | - | false |
 | input-width | 输入框宽度 | string | - | 36px |
+
+### Events
+
+### Checkbox Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| bind:change | 值修改事件 | 当前值 |
+| bind:focus | 输入框获取焦点事件 | - |
+| bind:blur | 输入框失去焦点事件 | 当前值 |

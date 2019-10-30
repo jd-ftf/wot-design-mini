@@ -1,5 +1,5 @@
 Page({
-  getuserinfo (obj) {
-    console.log(obj)
+  handleGetuserinfo (event) {
+    console.log(event)
   }
 });

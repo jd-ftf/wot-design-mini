@@ -48,8 +48,8 @@ Page({
             id: 'input',
             name: 'Input 输入框'
           }, {
-            id: 'counter',
-            name: 'Counter 计数器'
+            id: 'inputNumber',
+            name: 'InputNumber 计数器'
           }, {
             id: 'picker',
             name: 'Picker 选择器'
