@@ -83,5 +83,9 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run lint"
     }
-  }
+  },
+  "browserslist": [
+    "ios >= 8",
+    "android >= 4.4"
+  ]
 }
