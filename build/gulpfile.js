@@ -48,7 +48,7 @@ const createScssTask = function (srcPath, ext, base) {
   return function () {
     return src(srcPath, { base })
       .pipe(sass().on('error', sass.logError))
-      .pipe(postcss([autoprefixer(['ios >= 8', 'android >= 4.4'])]))
+      .pipe(postcss([autoprefixer()]))
       .pipe(cssnano({
         discardComments: { removeAll: true }
       }))

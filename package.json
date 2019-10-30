@@ -74,5 +74,9 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
-  }
+  },
+  "browserslist": [
+    "ios >= 8",
+    "android >= 4.4"
+  ]
 }
