@@ -1,7 +1,7 @@
 ## JM Design 小程序组件库
 ### 文档介绍
 
-   注意：京东小程序IDE目前功能暂不完善，此脚手架将京东小程序转换成微信小程序，通过微信小程序IDE进行调试。
+   京东小程序IDE目前功能暂不完善，此脚手架将京东小程序转换成微信小程序，通过微信小程序IDE进行调试。
 
 ### 目录机构
 ```
@@ -75,7 +75,16 @@ npm run dev:wx
 
 # 打包插件库（同时打包生成京东、微信小程序组件库）
 npm run build:wx
+
+# eslint自动格式化代码
+npm run build:lint:fix
+
 ```
+
+### 规范
+* commit时需要遵循 git flow，例如git commit -m "release(0.0.1): new version"。
+* commit时会自动运行eslint检测，不通过检测无法提交。可使用'npm run lint:fix'进行修复，部分错误需要手动修复。
+
 ### 组件库开发步骤
 
 1. 新建分支，分支名规范：姓名-组件名，例如xieyu-message
@@ -93,7 +102,7 @@ npm run build:wx
 
 5. 在 example/pages/button/index.json 中添加组件引用，即可在页面中使用该组件
 
-```json
+```json5
 {
   "usingComponents": {
     //引入小程序自定义组件库，即打包后开发的工具组件库

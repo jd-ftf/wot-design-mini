@@ -20,9 +20,11 @@
   ],
   "extends": [
     "eslint:recommended",
+    "standard",
     "plugin:json/recommended"
   ],
   "rules": {
+    "new-cap": "off",
     "indent": ["error",2]
   }
 }

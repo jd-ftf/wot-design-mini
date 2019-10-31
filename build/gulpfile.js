@@ -48,7 +48,7 @@ const createScssTask = function (srcPath, ext, base) {
   return function () {
     return src(srcPath, { base })
       .pipe(sass().on('error', sass.logError))
-      .pipe(postcss([autoprefixer(['ios >= 8', 'android >= 4.4'])]))
+      .pipe(postcss([autoprefixer()]))
       .pipe(cssnano({
         discardComments: { removeAll: true }
       }))
@@ -193,10 +193,9 @@ exports.devwx = series(
 
 exports.buildwx = series(build, cleanTask(wxLib), parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxPackageCopy))
 
-const eslintTask = function () {
+exports.lint = function () {
   return src([`${packagesPath}/**/*.js`,`${packagesPath}/**/*.json`])
     .pipe(eslint())
     .pipe(eslint.format(require("eslint-friendly-formatter")))
     .pipe(eslint.failAfterError())
 }
-exports.lint = series(eslintTask)

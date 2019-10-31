@@ -11,7 +11,7 @@ Component({
     },
     size: {
       type: String,
-      value: "medium"
+      value: 'medium'
     },
     icon: String,
     openType: String,
@@ -22,7 +22,7 @@ Component({
     },
     lang: {
       type: String,
-      value: "en"
+      value: 'en'
     },
     sessionFrom: String,
     sendMessageTitle: String,
@@ -39,33 +39,33 @@ Component({
     hoverStayTime: 70
   },
   methods: {
-    handleClick() {
+    handleClick () {
       if (!this.data.disabled && !this.data.loading) {
-        this.triggerEvent("click");
+        this.triggerEvent('click')
       }
     },
-    handleGetuserinfo(event) {
-      this.triggerEvent("getuserinfo", event.detail);
+    handleGetuserinfo (event) {
+      this.triggerEvent('getuserinfo', event.detail)
     },
 
-    handleConcat(event) {
-      this.triggerEvent("contact", event.detail);
+    handleConcat (event) {
+      this.triggerEvent('contact', event.detail)
     },
 
-    handleGetphonenumber(event) {
-      this.triggerEvent("getphonenumber", event.detail);
+    handleGetphonenumber (event) {
+      this.triggerEvent('getphonenumber', event.detail)
     },
 
-    handleError(event) {
-      this.triggerEvent("error", event.detail);
+    handleError (event) {
+      this.triggerEvent('error', event.detail)
     },
 
-    handleLaunchapp(event) {
-      this.triggerEvent("launchapp", event.detail);
+    handleLaunchapp (event) {
+      this.triggerEvent('launchapp', event.detail)
     },
 
-    handleOpensetting(event) {
-      this.triggerEvent("opensetting", event.detail);
+    handleOpensetting (event) {
+      this.triggerEvent('opensetting', event.detail)
     }
   }
-});
+})

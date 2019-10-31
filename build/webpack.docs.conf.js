@@ -44,7 +44,7 @@ const webpackConf = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        include: /node_modules/
       },
       {
         test: /\.css$/,
@@ -131,9 +131,9 @@ if (!isProd) {
       } else {
         process.env.PORT = port
         devWebpackConf.devServer.port = port
-  
+
         devWebpackConf.plugins.push(new FriendlyErrorsPlugin())
-  
+
         resolve(devWebpackConf)
       }
     })

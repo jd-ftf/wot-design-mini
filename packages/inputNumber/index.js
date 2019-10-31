@@ -77,28 +77,28 @@ Component({
     },
     changeStep (val, step) {
       val = Number(val)
-  
+
       if (isNaN(val)) {
         return this.data.min
       }
-  
+
       const precisionFactory = Math.pow(10, this.data.precision)
       return this.toPrecision((val * precisionFactory + step * precisionFactory) / precisionFactory)
     },
     sub () {
       if (this.data.minDisabled) return
-  
-      let newValue = this.changeStep(this.data.value, -this.data.step)
+
+      const newValue = this.changeStep(this.data.value, -this.data.step)
       this.triggerEvent('change', newValue)
     },
     add () {
       if (this.data.maxDisabled) return
-      
-      let newValue = this.changeStep(this.data.value, this.data.step)
+
+      const newValue = this.changeStep(this.data.value, this.data.step)
       this.triggerEvent('change', newValue)
     },
     handleInput (event) {
-      let value = event.detail.value || ''
+      const value = event.detail.value || ''
       this.triggerEvent('change', value)
     },
     handleFocus (event) {
@@ -111,19 +111,19 @@ Component({
     },
     formatValue (value) {
       value = Number(value)
-  
+
       if (isNaN(value)) {
         value = this.data.min
       }
-  
+
       if (this.data.stepStrictly) {
         value = this.toStrictlyStep(value)
       }
-  
+
       if (this.data.precision !== undefined) {
         value = value.toFixed(this.data.precision)
       }
-  
+
       return value
     }
   }

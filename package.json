@@ -10,13 +10,16 @@
     "build": "gulp build --env production --gulpfile build/gulpfile.js",
     "build:wx": "gulp buildwx --env production --gulpfile build/gulpfile.js",
     "build:docs": "rimraf docs/dist && cross-env NODE_ENV=production webpack --progress --config build/webpack.docs.conf.js",
-    "lint": "gulp lint --gulpfile build/gulpfile.js"
+    "lint": "gulp lint --gulpfile build/gulpfile.js",
+    "lint:fix": "eslint --fix --ext .js,.json packages"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@vue/babel-preset-app": "^4.0.5",
     "autoprefixer": "^9.7.0",
     "babel-loader": "^8.0.6",
@@ -24,8 +27,13 @@
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
     "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^4.2.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "gulp": "^4.0.2",
@@ -72,7 +80,12 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run lint"
     }
-  }
+  },
+  "browserslist": [
+    "ios >= 8",
+    "android >= 4.4"
+  ]
 }
