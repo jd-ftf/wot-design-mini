@@ -95,19 +95,10 @@ $-slider-disable-line-color: #e5f3ff !default;         // 禁用状态下进度�
 
 /* switch */
 $-switch-color-active: $-color-theme !default;
-$-switch-color-inactive: #fff !default;
-$-switch-color-border: #e5e5e5 !default;
 $-switch-color-active-shadow: rgba(0, 83, 162, 0.5) !default;
+$-switch-color-inactive: #fff !default;
 $-switch-color-inactive-shadow: rgba(0, 0, 0, 0.3) !default;
-$-switch-color-active-disabled:#d2d2d2;
-$-switch-color-inactive-disabled:#f2f2f2;
-$-switch-width: 48px !default;
-$-switch-height: 28px !default;
-$-switch-node-background-color: $-color-white !default;
-$-switch-active-box-shadow:  0 2px 4px 0 $-switch-color-active-shadow !default;
-$-switch-inactive-box-shadow:  0 2px 4px 0 $-switch-color-inactive-shadow !default;
-$-switch-background-color: $-color-white !default;
-$-switch-transition-duration: .3s !default;
+$-switch-color-border: #e5e5e5 !default;
 
 /* radio */
 $-radio-size: 16px !default;

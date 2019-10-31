@@ -2,28 +2,29 @@
 Page({
   data: {
     checked1: true,
-    checked2: true,
+    checked2: '京麦',
+    checked3: true,
+    checked4: true,
+    checked5: true
   },
-
-  onChange1({ detail }) {
+  handleChange1 ({ detail }) {
     this.setData({
-      checked1:detail
+      checked1: detail
     })
   },
-
-  asyncChange({ detail }) {
-    let _this = this;
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 10000
+  handleChange2 ({ detail }) {
+    this.setData({
+      checked2: detail
     })
-
-    setTimeout(function () {
-      wx.hideToast();
-      _this.setData({
-        checked2: detail
-      })
-    }, 1000)
+  },
+  handleChange3 ({ detail }) {
+    this.setData({
+      checked3: detail
+    })
+  },
+  handleChange4 ({ detail }) {
+    this.setData({
+      checked4: detail
+    })
   }
-});
+})
