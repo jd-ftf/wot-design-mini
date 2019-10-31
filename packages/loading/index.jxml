@@ -7,12 +7,14 @@
       class="jm-loading__spinner jm-loading__spinner--{{ type }}"
       style="color: {{ color }};"
     >
-      <view
-        wx:if="{{ type === 'spinner' }}"
-        wx:for="item in 12"
-        wx:key="index"
-        class="jm-loading__dot"
-      />
+      <block jd:if="{{ type === 'spinner' }}">
+        <view
+                jd:for="{{12}}"
+                jd:for-index="index"
+                jd:key="index"
+                class="jm-loading__dot"
+        />
+      </block>
     </view>
   </view>
   <view
