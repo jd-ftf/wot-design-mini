@@ -43,9 +43,7 @@ Component({
     inputWidth: String
   },
   attached () {
-    this.setData({
-      value: this.formatValue(this.data.value)
-    })
+    this.triggerEvent('change', this.formatValue(this.data.value))
   },
   methods: {
     toPrecision (value) {
@@ -75,9 +73,6 @@ Component({
       }
       if (value > this.data.max) value = this.toPrecision(this.data.max)
       if (value < this.data.min) value = this.toPrecision(this.data.min)
-      this.setData({
-        value: value
-      })
       this.triggerEvent('change', value)
     },
     changeStep (val, step) {
@@ -94,25 +89,16 @@ Component({
       if (this.data.minDisabled) return
   
       let newValue = this.changeStep(this.data.value, -this.data.step)
-      this.setData({
-        value: newValue
-      })
       this.triggerEvent('change', newValue)
     },
     add () {
       if (this.data.maxDisabled) return
       
       let newValue = this.changeStep(this.data.value, this.data.step)
-      this.setData({
-        value: newValue
-      })
       this.triggerEvent('change', newValue)
     },
     handleInput (event) {
       let value = event.detail.value || ''
-      this.setData({
-        value: value
-      })
       this.triggerEvent('change', value)
     },
     handleFocus (event) {
