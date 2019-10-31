@@ -12,14 +12,19 @@
 
 ### 基本用法
 
-设置初始 value，监听 change 事件。
+设置 `value` 属性，监听 `change` 事件。
 
 ```html
-<jm-input-number value="{{ 1 }}" bind:change="handleChange" />
+<jm-input-number value="{{ value }}" bind:change="handleChange" />
 
 Page({
-  handleChange (event) {
-    console.log(event.detail)
+  data: {
+    value: 1
+  },
+  handleChange ({ detail }) {
+    this.setData({
+      value: detail
+    })
   }
 })
 ```
@@ -29,7 +34,7 @@ Page({
 设置 `step` 步长。
 
 ```html
-<jm-input-number value="{{ 1 }}" step="{{ 2 }}" />
+<jm-input-number value="{{ value }}" bind:change="handleChange" step="{{ 2 }}" />
 ```
 
 ### 设置最小最大值
@@ -37,7 +42,7 @@ Page({
 设置 `min` 最小值，`max` 最大值。`min` 默认为1。
 
 ```html
-<jm-input-number value="{{ 4 }}" min="{{ 3 }}" max="{{ 10 }}" />
+<jm-input-number value="{{ value }}" bind:change="handleChange" min="{{ 3 }}" max="{{ 10 }}" />
 ```
 
 ### 禁用
@@ -45,7 +50,7 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<jm-input-number value="{{ 2 }}" disabled />
+<jm-input-number value="{{ value }}" bind:change="handleChange" disabled />
 ```
 
 ### 无输入框
@@ -53,7 +58,7 @@ Page({
 设置 `without-input` ，不展示输入框。
 
 ```html
-<jm-input-number value="{{ 2 }}" without-input />
+<jm-input-number value="{{ value }}" bind:change="handleChange" without-input />
 ```
 
 ### 设置小数精度
@@ -61,7 +66,7 @@ Page({
 设置 `precision` 属性，默认为0。
 
 ```html
-<jm-input-number value="{{ 2 }}" precision="{{ 2 }}" step="{{ 0.1 }}" />
+<jm-input-number value="{{ value }}" bind:change="handleChange" precision="{{ 2 }}" step="{{ 0.1 }}" />
 ```
 
 ### 严格步数倍数
@@ -69,7 +74,7 @@ Page({
 设置 `step-strictly` 属性，强制输入框输入内容为 `step` 的倍数（当用户输入完成后触发change时，会更正输入框内容）。
 
 ```html
-<jm-input-number value="{{ 2 }}" step-strictly step="{{ 2 }}" />
+<jm-input-number value="{{ value }}" bind:change="handleChange" step-strictly step="{{ 2 }}" />
 ```
 
 ### 修改输入框宽度
@@ -77,7 +82,7 @@ Page({
 设置 `input-width` 设置宽度，该值接受1个字符串，可以是表示尺寸的任何单位。
 
 ```html
-<jm-input-number value="{{ 1 }}" input-width="70px" />
+<jm-input-number value="{{ value }}" bind:change="handleChange" input-width="70px" />
 ```
 
 ### Attributes
