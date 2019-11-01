@@ -12,7 +12,10 @@
     "sourceType": "module"
   },
   "globals": {
-    "Component": true
+    "Component": true,
+    "Page": true,
+    "getCurrentPages": true,
+    "jd": true
   },
   "plugins": [
     "json"
