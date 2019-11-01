@@ -75,7 +75,16 @@
 					"pathName": "pages/loading/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -3,
+					"name": "pages/toast/index",
+					"pathName": "pages/toast/index",
+					"query": "",
+					"scene": null
 				}
+
+
 			]
 		}
 	}

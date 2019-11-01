@@ -1,0 +1,14 @@
+<jm-toast id="jm-toast"/>
+<demo-block title="基本用法">
+    <jm-button type="primary" bind:tap="showToast">toast</jm-button>
+</demo-block>
+<demo-block title="类型toast">
+    <jm-button type="primary" bind:tap="showSuccessToast">成功toast</jm-button>
+    <jm-button type="primary" bind:tap="showErrorToast">错误toast</jm-button>
+    <jm-button type="primary" bind:tap="showWarnToast">警告toast</jm-button>
+</demo-block>
+<demo-block title="提示位置">
+    <jm-button type="primary" bind:tap="showTopToast">顶部toast</jm-button>
+    <jm-button type="primary" bind:tap="showBottomToast">底部toast</jm-button>
+</demo-block>
+

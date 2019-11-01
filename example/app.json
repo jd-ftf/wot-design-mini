@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/button/index",
     "pages/icon/index",
-    "pages/loading/index"
+    "pages/loading/index",
+    "pages/toast/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
