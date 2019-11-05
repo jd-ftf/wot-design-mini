@@ -4,6 +4,7 @@
     "pages/button/index",
     "pages/icon/index",
     "pages/inputNumber/index",
+    "pages/noticeBar/index",
     "pages/switch/index"
   ],
   "window": {

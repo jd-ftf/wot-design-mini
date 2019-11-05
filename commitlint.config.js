@@ -20,6 +20,12 @@ module.exports = {
         'demo',
         'merge'
       ].concat(fs.readdirSync('packages'))
+    ],
+    'header-case': [2, 'always',
+      [
+        'lower-case',
+        'camel-case'
+      ]
     ]
   }
 }
