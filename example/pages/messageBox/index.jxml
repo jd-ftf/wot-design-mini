@@ -1,0 +1,29 @@
+<jm-message-box id="jm-message-box"></jm-message-box>
+<jm-message-box id="jm-message-box-slot" use-slot>
+    <view>
+        我是slot
+    </view>
+</jm-message-box>
+<demo-block title="alert类型的弹框">
+    <jm-button type="primary" bindtap="alert">alert</jm-button>
+</demo-block>
+
+<demo-block title="显示标题">
+    <jm-button type="primary" bindtap="alertWithTitle">alert</jm-button>
+</demo-block>
+
+<demo-block title="confirm类型的弹框">
+    <jm-button type="primary" bindtap="confirm">confirm</jm-button>
+</demo-block>
+
+<demo-block title="prompt类型的弹框，支持输入框输入和校验">
+    <jm-button type="primary" bindtap="prompt">prompt</jm-button>
+</demo-block>
+
+<demo-block title="当文案过长时，弹框的高度不再增加，而是将文案内容设置成滚动">
+    <jm-button type="primary" bindtap="alertWithLongChar">custom</jm-button>
+</demo-block>
+
+<demo-block title="通过slot插入其他组件内容">
+    <jm-button type="primary" bindtap="withSlot">slot</jm-button>
+</demo-block>

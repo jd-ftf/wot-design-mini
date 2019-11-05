@@ -1,0 +1,55 @@
+<view class="jm-message-box" jd:if="{{show}}">
+    <!--遮盖层-->
+    <view class="jm-message-box__modal-mask" bind:tap="toggleModal"></view>
+    <!--提示框-->
+    <view class="jm-message-box__container">
+        <!--内容部分-->
+        <view class="jm-message-box__body {{ !title ? 'is-no-title' : '' }} {{ type === 'prompt' ? 'is-prompt' : '' }}">
+            <!--公共title-->
+            <view jd:if="title" class="jm-message-box__title">
+                {{ title }}
+            </view>
+            <!--其它类型-->
+            <view class="jm-message-box__content">
+                <!--prompt类型-->
+                <block jd:if="{{type === 'prompt'}}">
+                    <!--输入框-->
+                    <view class="jm-message-box__input-container">
+                        <input
+                                value="{{inputValue}}"
+                                type="{{inputType}}"
+                                placeholder="{{ inputPlaceholder || '请输入' }}"
+                                placeholder-class="jm-message-box__input-placeholder"
+                                class="jm-message-box__input"
+                                bindinput="inputValChange"
+                        />
+                    </view>
+                    <!--错误提示-->
+                    <view jd:if="{{showErr}}" class="jm-message-box__input-error">
+                        输入的数据不合法
+                    </view>
+                </block>
+                <!--使用插槽-->
+                <slot jd:elif="{{useSlot}}"></slot>
+                <!--使用文本-->
+                <block jd:else>{{msg}}</block>
+            </view>
+        </view>
+        <!--action按钮组合-->
+        <view class="jm-message-box__actions">
+            <view type="button"
+                  jd:if="{{showCancelButton}}"
+                  class="jm-message-box__button jm-message-box__button--cancel"
+                  data-action="cancel"
+                  bind:tap="toggleModal">
+                {{ cancelButtonText || '取消'}}
+            </view>
+            <view type="button"
+                  class="jm-message-box__button jm-message-box__button--confirm"
+                  data-action="confirm"
+                  bind:tap="toggleModal">
+                {{ confirmButtonText || '确定'}}
+            </view>
+        </view>
+    </view>
+</view>

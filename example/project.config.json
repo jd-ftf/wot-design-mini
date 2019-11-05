@@ -82,6 +82,13 @@
 					"pathName": "pages/toast/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -4,
+					"name": "pages/messageBox/index",
+					"pathName": "pages/messageBox/index",
+					"query": "",
+					"scene": null
 				}
 
 

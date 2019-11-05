@@ -4,7 +4,8 @@
     "pages/button/index",
     "pages/icon/index",
     "pages/loading/index",
-    "pages/toast/index"
+    "pages/toast/index",
+    "pages/messageBox/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
