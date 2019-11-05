@@ -5,7 +5,10 @@
     "pages/icon/index",
     "pages/inputNumber/index",
     "pages/noticeBar/index",
-    "pages/switch/index"
+    "pages/switch/index",
+    "pages/loading/index",
+    "pages/toast/index",
+    "pages/messageBox/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

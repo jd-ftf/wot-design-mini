@@ -1,0 +1,12 @@
+<view
+        jd:if="{{show}}"
+        class="jm-toast jm-toast--{{position}} {{ (iconName ||iconClass) && 'jm-toast--with-icon' }}"
+>
+    <!--iconName优先级更高-->
+
+    <jm-loading jd:if="{{iconName === 'loading'}}" type="{{loadingType}}"/>
+    <jm-icon jd:elif="{{iconName}}" class="jm-toast__icon" name="{{iconName}}"/>
+    <jm-icon jd:elif="{{iconClass}}" class="jm-toast__icon" name="{{iconClass}}"/>
+    <!--文本-->
+    <view class="jm-toast__msg">{{ msg }}</view>
+</view>

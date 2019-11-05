@@ -13,6 +13,8 @@
   },
   "globals": {
     "Component": true,
+    "Page": true,
+    "getCurrentPages": true,
     "jd": true
   },
   "plugins": [

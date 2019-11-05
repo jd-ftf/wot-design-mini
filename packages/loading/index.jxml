@@ -1,0 +1,26 @@
+<view class="jm-loading {{vertical ? 'jm-loading--vertical' : ''}}">
+  <view
+    class="jm-loading__wrapper custom-class"
+    style="width: {{ sizeWithUnit }}; height: {{ sizeWithUnit }}"
+  >
+    <view
+      class="jm-loading__spinner jm-loading__spinner--{{ type }}"
+      style="color: {{ color }};"
+    >
+      <block jd:if="{{ type === 'spinner' }}">
+        <view
+                jd:for="{{12}}"
+                jd:for-index="index"
+                jd:key="index"
+                class="jm-loading__dot"
+        />
+      </block>
+    </view>
+  </view>
+  <view
+    style="font-size: {{textSizeWithUnit}};"
+    class="jm-loading__text {{vertical ? 'jm-loading__text--vertical' : ''}}"
+  >
+    <slot />
+  </view>
+</view>
