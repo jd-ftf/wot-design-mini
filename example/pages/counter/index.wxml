@@ -1,0 +1,38 @@
+<!--pages/counter/counter.wxml-->
+<demo-block title="基础用法">
+    <jmd-counter value="{{ 1 }}"/>
+</demo-block>
+<demo-block title="不可自定义 mode">
+    <jmd-counter value="{{ 1 }}" mode="no-custom" min="1"/>
+</demo-block>
+<demo-block title="禁用 disabled">
+    <jmd-counter mode="no-custom" disabled />
+</demo-block>
+<demo-block title="设置计数范围 min-max">
+    <jmd-counter
+                value="{{ 0 }}"
+                min="0"
+                max="5"/>
+</demo-block>
+<demo-block title="只弹起整数键盘 integer">
+    <jmd-counter
+                value="{{ 2 }}"
+                integer/>
+</demo-block>
+<demo-block title="步数设置 step">
+    <jmd-counter
+                value="{{ 0.2 }}"
+                step="0.1"/>
+</demo-block>
+<demo-block title="禁用 disabled">
+    <jmd-counter
+                disabled
+                value="{{ value }}"
+                bind:change="handleChange" />
+</demo-block>
+<demo-block title="异步调用 async-change">
+    <jmd-counter
+                async-change
+                value="{{ value1 }}"
+                bind:change="asyncChange" />
+</demo-block>

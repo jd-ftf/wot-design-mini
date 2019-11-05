@@ -1,6 +1,6 @@
-<view class="demo-block">
+<view class="demo-block {{ transparent ? '' : 'is-white' }}">
   <view class="demo-title">{{title}}</view>
-  <view class="demo-container" style="{{style}}">
+  <view class="demo-container" style="{{transparent ? '' : style}}">
     <slot />
   </view>
 </view>

@@ -28,7 +28,7 @@
 ```html
 <jm-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
-  :scrollable="false"
+  scrollable="{{ false }}"
 />
 ```
 
@@ -40,7 +40,7 @@
 <jm-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   wrapable
-  :scrollable="false"
+  scrollable="{{ false }}"
 />
 ```
 
@@ -87,12 +87,11 @@
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| click | 关闭按钮点击时 | 点击事件对象Event |
+| close | 关闭按钮点击时 | - |
 
 ### Slot
 
 | name      | 说明       |
 |------------- |----------- |
-| default | 通知栏文本 |
 | left-icon | 左侧图标 |
 | right-icon | 右侧图标 |

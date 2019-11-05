@@ -1,4 +1,5 @@
-const fs=require('fs')
+const fs = require('fs')
+
 module.exports = {
   extends: [
     '@commitlint/config-conventional'
@@ -20,6 +21,12 @@ module.exports = {
         'demo',
         'merge'
       ].concat(fs.readdirSync('packages'))
+    ],
+    'type-case': [2, 'always',
+      [
+        'lower-case',
+        'camel-case'
+      ]
     ]
   }
 }

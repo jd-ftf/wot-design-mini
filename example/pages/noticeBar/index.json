@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "NoticeBar 通知栏",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "jm-notice-bar": "../../dist/noticeBar/index"
+  }
+}

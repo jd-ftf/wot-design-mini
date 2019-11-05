@@ -16,13 +16,13 @@
 	hover-stay-time="{{hoverStayTime}}"
 	hover-stop-propagation="{{hoverStopPropagation}}"
 	form-type="{{formType}}"
-	bindtap="onClick"
-	bindgetuserinfo="bindGetUserInfo"
-	bindcontact="bindContact"
-	bindgetphonenumber="bindGetPhoneNumber"
-	binderror="bindError"
-	bindlaunchapp="bindLaunchApp"
-	bindopensetting="bindOpenSetting"
+	bindtap="handleClick"
+	bindgetuserinfo="handleGetuserinfo"
+	bindcontact="handleConcat"
+	bindgetphonenumber="handleGetphonenumber"
+	binderror="handleError"
+	bindlaunchapp="handleLaunchapp"
+	bindopensetting="handleOpensetting"
 >
 	<jm-icon jd:if="{{icon}}" class="jm-button__icon" name="{{icon}}" size="1.2em"></jm-icon>
 	<view class="jm-button__text">
