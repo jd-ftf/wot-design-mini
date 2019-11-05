@@ -12,7 +12,8 @@
     "sourceType": "module"
   },
   "globals": {
-    "Component": true
+    "Component": true,
+    "jd": true
   },
   "plugins": [
     "json"

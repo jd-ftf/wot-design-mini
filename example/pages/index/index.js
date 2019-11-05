@@ -42,13 +42,13 @@ Page({
             id: 'checkbox',
             name: 'Checkbox 复选框'
           }, {
-            id: 'datetime-picker',
+            id: 'datetimePicker',
             name: 'DatetimePicker 时间选择器'
           }, {
             id: 'input',
             name: 'Input 输入框'
           }, {
-            id: 'input-number',
+            id: 'inputNumber',
             name: 'InputNumber 计数器'
           }, {
             id: 'picker',
@@ -73,13 +73,13 @@ Page({
         open: false,
         pages: [
           { 
-            id: 'action-sheet',
+            id: 'actionSheet',
             name: 'ActionSheet 上拉菜单'
            }, {
             id: 'loading',
             name: 'Loading 加载指示器'
           }, {
-            id: 'message-box',
+            id: 'messageBox',
             name: 'MessageBox 弹框'
           }, {
             id: 'slider',
@@ -98,7 +98,7 @@ Page({
             id: 'collapse',
             name: 'Collapse 折叠面板'
           }, { 
-            id: 'notice-bar',
+            id: 'noticeBar',
             name: 'NoticeBar 通知栏'
           }, {
             id: 'steps',

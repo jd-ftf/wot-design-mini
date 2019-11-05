@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.0",
 	"appid": "wxfbbb01e6b81ce4e8",
-	"projectname": "example",
+	"projectname": "jmd-vapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -51,25 +51,6 @@
 		"game": {
 			"currentL": -1,
 			"list": []
-		},
-		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": 0,
-					"name": "pages/button/index",
-					"pathName": "pages/button/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/icon/index",
-					"pathName": "pages/icon/index",
-					"query": "",
-					"scene": null
-				}
-			]
 		}
 	}
 }

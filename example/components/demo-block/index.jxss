@@ -1,12 +1,13 @@
 .demo-block {
   margin: 15px 0;
   color: #666;
-  background: #fff;
   overflow: hidden;
+}
+.is-white {
+  background: #fff;
 }
 .demo-title {
   padding: 0 15px;
   margin: 10px 0;
-  background: #fff;
   font-size: 13px;
 }

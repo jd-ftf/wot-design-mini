@@ -12,20 +12,21 @@
 
 ### 基本用法
 
-`v-model` 为绑定值，默认为 boolean 类型。
+设置 `value` 值，监听 `change` 事件修改值。
 
 ```html
-<jm-switch v-model="value" />
+<jm-switch value="{{ checked }}" bind:change="handleChange" />
 
-<script>
-export default {
-  data () {
-    return {
-      value: true
-    }
+Page({
+  data: {
+    checked: true
+  },
+  handleChange ({ detail }) {
+    this.setData({
+      checked: detail
+    })
   }
-}
-</script>
+})
 ```
 
 ### 修改值
@@ -33,17 +34,7 @@ export default {
 通过 `active-value` 属性修改开关打开时的值，`inactive-value` 属性修改开关关闭时的值。
 
 ```html
-<jm-switch v-model="value" active-value="京麦" inactive-value="商家后台" />
-
-<script>
-export default {
-  data () {
-    return {
-      value: '京麦'
-    }
-  }
-}
-</script>
+<jm-switch value="{{ checked }}" active-value="京麦" inactive-value="商家后台" />
 ```
 
 ### 修改颜色
@@ -51,7 +42,7 @@ export default {
 通过 `active-color` 属性修改开关打开时的颜色，`inactive-color` 属性修改开关关闭时的颜色。
 
 ```html
-<jm-switch v-model="value" active-color="#13ce66" inactive-color="#f00" />
+<jm-switch value="{{ checked }}" active-color="#13ce66" inactive-color="#f00" />
 ```
 
 ### 修改大小
@@ -59,7 +50,7 @@ export default {
 设置 `size` 修改开关大小。
 
 ```html
-<jm-switch v-model="value" size="20px" />
+<jm-switch value="{{ checked }}" size="20px" />
 ```
 
 ### 禁用
@@ -77,3 +68,9 @@ export default {
 | active-color | 打开时的背景色 | string | - | '#0083ff' |
 | inactive-color | 关闭时的背景色，默认为白色，所以有灰色边框，如果设置了该值，则会自动去除灰色边框 | string | - | '#fff' |
 | size | 开关大小，可以为任何单位的字符串尺寸 | string | - | '28px' |
+
+### Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| bind:change | 值修改事件 | event.detail: 当前值 |
