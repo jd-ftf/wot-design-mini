@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "Toast 轻提示",
+  "navigationBarTitleText": "MessageBox 弹框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
     "jm-message-box": "../../dist/messageBox/index",
