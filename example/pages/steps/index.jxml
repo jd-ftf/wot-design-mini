@@ -1,0 +1,9 @@
+<view>
+  <demo-block title="基本用法">
+    <jm-steps :active="0">
+      <jm-step />
+      <jm-step />
+      <jm-step />
+    </jm-steps>
+  </demo-block>
+</view>
