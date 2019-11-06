@@ -1,0 +1,3 @@
+<view class="jm-steps {{ vertical ? 'is-vertical' : '' }}">
+  <slot />
+</view>
