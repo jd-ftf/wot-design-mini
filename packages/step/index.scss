@@ -3,12 +3,9 @@
 
 @include b(step) {
   position: relative;
+  display: inline-block;
+  vertical-align: top;
 
-  &:last-child {
-    .jm-step__line {
-      display: none;
-    }
-  }
   @include e(header) {
     position: relative;
     font-size: 0;
@@ -147,6 +144,8 @@
     }
   }
   @include when(vertical) {
+    display: block;
+
     .jm-step__header {
       position: absolute;
       left: 0;

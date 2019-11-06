@@ -3,6 +3,7 @@
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
     "jm-steps": "../../dist/steps/index",
-    "jm-step": "../../dist/step/index"
+    "jm-step": "../../dist/step/index",
+    "jm-button": "../../dist/button/index"
   }
 }

@@ -3,8 +3,6 @@
 @import '../icon/index.scss';
 
 @include b(steps) {
-  display: flex;
-  align-items: flex-start;
   font-size: 0;
 
   @include when(vertical) {
