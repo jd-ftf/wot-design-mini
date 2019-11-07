@@ -1,0 +1,26 @@
+##########################################################################
+# 1. 此为idea、vscode 编辑器配置文件。                                       #
+# 2. 配置此文件帮助大家更好地使用编辑器提供的功能进行 fix && lint code。           #                                                                  #
+##########################################################################
+
+# 告诉EditorConfig插件，这是根文件，不用继续往上查找
+root = true
+
+# 以下规则应用到所有文件
+[*]
+# 结尾换行符，可选"lf"、"cr"、"crlf"
+# CR：Carriage Return，对应ASCII中转义字符\r，表示回车
+# LF：Linefeed，对应ASCII中转义字符\n，表示换行
+# CRLF：Carriage Return & Linefeed，\r\n，表示回车并换行
+# win采用两个字符来进行换行，即CRLF；unix like采用单个字符LF来进行换行；
+end_of_line = lf
+# 在文件结尾始终新开一行
+insert_final_newline = false
+# 设置字符集
+charset = utf-8
+# 缩进风格
+indent_style = space
+# tab的表示的space个数
+tab_width = 2
+# 删除一行中的前后空格
+trim_trailing_whitespace = true
