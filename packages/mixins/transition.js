@@ -31,7 +31,8 @@ export default function () {
         type: null,
         value: 300
       },
-      name: String
+      name: String,
+      customStyle: String
     },
     data: {
       inited: false,

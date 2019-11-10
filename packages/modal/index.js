@@ -2,7 +2,12 @@ import VueComponent from '../common/component'
 
 VueComponent({
   props: {
-    show: Boolean,
+    show: {
+      type: Boolean,
+      observer (value) {
+        console.log(value)
+      }
+    },
     duration: {
       type: null,
       value: 300

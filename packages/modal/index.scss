@@ -1,7 +1,7 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
 
-@include b(overlay) {
+@include b(modal) {
   position: fixed;
   left: 0;
   top: 0;
