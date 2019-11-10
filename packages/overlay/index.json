@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponent": {
+    "jm-transition": "../transition/index"
+  }
+}

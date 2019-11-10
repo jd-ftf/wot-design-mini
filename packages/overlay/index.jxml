@@ -1,0 +1,7 @@
+<jm-transition
+  show="{{ show }}"
+  name="fade"
+  custom-class="jm-overlay"
+  duration="{{ duration }}"
+  bind:tap="handleClick"
+/>

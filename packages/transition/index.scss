@@ -1,0 +1,91 @@
+.jm-transition {
+  transition-timing-function: ease;
+}
+
+.jm-fade-enter-active,
+.jm-fade-leave-active {
+  transition-property: opacity;
+}
+
+.jm-fade-enter,
+.jm-fade-leave-to {
+  opacity: 0;
+}
+
+.jm-fade-up-enter-active,
+.jm-fade-up-leave-active,
+.jm-fade-down-enter-active,
+.jm-fade-down-leave-active,
+.jm-fade-left-enter-active,
+.jm-fade-left-leave-active,
+.jm-fade-right-enter-active,
+.jm-fade-right-enter-active {
+  transition-property: opacity, transform;
+}
+
+.jm-fade-up-enter,
+.jm-fade-up-leave-to {
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
+
+.jm-fade-down-enter,
+.jm-fade-down-leave-to {
+  transform: translate3d(0, -100%, 0);
+  opacity: 0;
+}
+
+.jm-fade-left-enter,
+.jm-fade-left-leave-to {
+  transform: translate3d(-100%, 0, 0);
+  opacity: 0;
+}
+
+.jm-fade-right-enter,
+.jm-fade-right-leave-to {
+  transform: translate3d(100%, 0, 0);
+  opacity: 0;
+}
+
+.jm-slide-up-enter-active,
+.jm-slide-up-leave-active,
+.jm-slide-down-enter-active,
+.jm-slide-down-leave-active,
+.jm-slide-left-enter-active,
+.jm-slide-left-leave-active,
+.jm-slide-right-enter-active,
+.jm-slide-right-enter-active {
+  transition-property: transform;
+}
+
+.jm-slide-up-enter,
+.jm-slide-up-leave-to {
+  transform: translate3d(0, 100%, 0);
+}
+
+.jm-slide-down-enter,
+.jm-slide-down-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+
+.jm-slide-left-enter,
+.jm-slide-left-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.jm-slide-right-enter,
+.jm-slide-right-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+
+.jm-zoom-in-enter-active,
+.jm-zoom-in-leave-active {
+  transition-property: opacity, transform;
+  transform-origin: center center;
+}
+
+.jm-zoom-in-enter,
+.jm-zoom-in-leave-to {
+  opacity: 0;
+  transform: scale(0.7);
+}

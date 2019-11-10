@@ -1,0 +1,12 @@
+button {
+  margin: 0 10px 10px 0;
+}
+.block {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0 0 -50px;
+  width: 100px;
+  height: 100px;
+  background: #0083ff;
+}

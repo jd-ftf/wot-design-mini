@@ -9,7 +9,8 @@
     "pages/loading/index",
     "pages/toast/index",
     "pages/messageBox/index",
-    "pages/steps/index"
+    "pages/steps/index",
+    "pages/transition/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
