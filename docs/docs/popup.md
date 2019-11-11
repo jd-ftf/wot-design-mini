@@ -58,3 +58,9 @@
 | bind:before-leave | 离开前触发 | - |
 | bind:leave | 离开时触发 | - |
 | bind:after-leave | 离开后触发| - |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |

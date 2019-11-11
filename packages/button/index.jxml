@@ -1,6 +1,6 @@
 <button
 	hover-class="jm-button--active"
-	class="jm-button is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
+	class="jm-button custom-class is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
 	open-type="{{ openType }}"
 	hover-start-time="{{hoverStartTime}}"
 	send-message-title="{{sendMessageTitle}}"

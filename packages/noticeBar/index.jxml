@@ -1,6 +1,6 @@
 <view
   jd:if="{{show}}"
-  class="jm-notice-bar {{ !wrapable && !scrollable ? 'jm-notice-bar--ellipse' : '' }} {{ wrapable && !scrollable ? 'jm-notice-bar--wrap' : '' }}"
+  class="jm-notice-bar custom-class {{ !wrapable && !scrollable ? 'jm-notice-bar--ellipse' : '' }} {{ wrapable && !scrollable ? 'jm-notice-bar--wrap' : '' }}"
   style="color: {{ color }}; background: {{ backgroundColor }};"
 >
   <jm-icon jd:if="{{ leftIcon }}" class="jm-notice-bar__left-icon" name="{{leftIcon}}" />
