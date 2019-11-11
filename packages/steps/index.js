@@ -1,5 +1,7 @@
-Component({
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     active: {
       type: Number,
       value: 0,

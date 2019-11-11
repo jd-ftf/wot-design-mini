@@ -1,7 +1,6 @@
-Component({
-  options: {
-    multipleSlots: true
-  },
+import VueComponent from '../common/component'
+
+VueComponent({
   data: {
     index: -1,
     styles: '',
@@ -12,7 +11,7 @@ Component({
     dot: false,
     childrenLength: 0
   },
-  properties: {
+  props: {
     title: String,
     description: String,
     icon: String,
