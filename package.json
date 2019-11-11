@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run dev:docs & gulp dev --env development --gulpfile build/gulpfile.js",
-    "dev:wx": "npm run dev:docs & gulp devwx --env development --gulpfile build/gulpfile.js",
+    "dev": "gulp dev --env development --gulpfile build/gulpfile.js",
+    "dev:wx": "gulp devwx --env development --gulpfile build/gulpfile.js",
     "dev:docs": "webpack-dev-server --progress --config build/webpack.docs.conf.js",
     "build": "gulp build --env production --gulpfile build/gulpfile.js",
     "build:wx": "gulp buildwx --env production --gulpfile build/gulpfile.js",

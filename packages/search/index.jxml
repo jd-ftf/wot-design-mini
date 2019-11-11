@@ -1,0 +1,40 @@
+<view class="jm-search {{ light ? 'is-light': ''}} {{ hideCancel ? 'is-without-cancel': '' }}">
+    <!--自定义label插槽-->
+    <slot jd:if="{{useLabelSlot}}" name="label"></slot>
+    <!--搜索框主体-->
+    <view class="jm-search__block">
+        <!--icon:search-->
+        <jm-icon name="search" class="jm-search__search-icon"></jm-icon>
+        <!--搜索框-->
+        <input
+                placeholder="{{ placeholder || '搜索' }}"
+                placeholder-class="jm-search__placeholder-txt {{ value ? 'hidden' : '' }}"
+                confirm-type="search"
+                value="{{value}}"
+                class="jm-search__input"
+                bindfocus="searchFocus"
+                bindinput="input"
+                bindblur="searchBlur"
+                bindconfirm="search"
+                disabled="{{disabled}}"
+                maxlength="{{maxlength}}"
+                focus="{{autofocus}}"
+        />
+        <!--icon:clear-->
+        <jm-icon
+                jd:if="{{value}}"
+                name="close-fill"
+                class="jm-search__clear"
+                bindtap="clearSearch"
+        />
+    </view>
+    <!--the button behind input,care for hideCancel without displaying-->
+    <block jd:if="{{!hideCancel}}">
+        <!--有插槽就不用默认的按钮了-->
+        <slot jd:if="{{useActionSlot}}" name="action"></slot>
+        <!--默认button-->
+        <view jd:else class="jm-search__cancel" bindtap="handleCancel">
+            {{ cancelTxt || '取消' }}
+        </view>
+    </block>
+</view>
