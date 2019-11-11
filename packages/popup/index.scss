@@ -1,0 +1,96 @@
+@import "./../common/abstracts/_mixin.scss";
+@import "./../common/abstracts/variable.scss";
+
+@include b(popup) {
+  position: fixed;
+  max-height: 100%;
+  overflow-y: auto;
+  background: #fff;
+
+  @include e(close) {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #666;
+    font-size: 24px;
+    transform: rotate(-45deg);
+  }
+  @include m(center) {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @include m(left) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @include m(right) {
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+  @include m(top) {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  @include m(bottom) {
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.jm-center-enter-active,
+.jm-center-leave-active {
+  transition-property: opacity;
+}
+
+.jm-center-enter,
+.jm-center-leave-to {
+  opacity: 0;
+}
+
+.jm-top-enter-active,
+.jm-top-leave-active,
+.jm-bottom-enter-active,
+.jm-bottom-leave-active,
+.jm-left-enter-active,
+.jm-left-leave-active,
+.jm-right-enter-active,
+.jm-right-enter-active {
+  transition-property: transform;
+}
+
+.jm-top-enter,
+.jm-top-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+
+.jm-bottom-enter,
+.jm-bottom-leave-to {
+  transform: translate3d(0, 100%, 0);
+}
+
+.jm-left-enter,
+.jm-left-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.jm-right-enter,
+.jm-right-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+
+.jm-zoom-in-enter-active,
+.jm-zoom-in-leave-active {
+  transition-property: opacity, transform;
+  transform-origin: center center;
+}
+
+.jm-zoom-in-enter,
+.jm-zoom-in-leave-to {
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+}
