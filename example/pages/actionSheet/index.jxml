@@ -11,30 +11,6 @@
   <demo-block title="标题">
     <jm-button type="primary" bind:click="showActions4">弹出菜单</jm-button>
   </demo-block>
-  <demo-block title="基本用法">
-      <jm-button type="primary" bind:click="showActions1">弹出菜单</jm-button>
-    </demo-block>
-    <demo-block title="选项状态">
-      <jm-button type="primary" bind:click="showActions2">弹出菜单</jm-button>
-    </demo-block>
-    <demo-block title="取消按钮">
-      <jm-button type="primary" bind:click="showActions3">弹出菜单</jm-button>
-    </demo-block>
-    <demo-block title="标题">
-      <jm-button type="primary" bind:click="showActions4">弹出菜单</jm-button>
-    </demo-block>
-    <demo-block title="基本用法">
-      <jm-button type="primary" bind:click="showActions1">弹出菜单</jm-button>
-    </demo-block>
-    <demo-block title="选项状态">
-      <jm-button type="primary" bind:click="showActions2">弹出菜单</jm-button>
-    </demo-block>
-    <demo-block title="取消按钮">
-      <jm-button type="primary" bind:click="showActions3">弹出菜单</jm-button>
-    </demo-block>
-    <demo-block title="标题">
-      <jm-button type="primary" bind:click="showActions4">弹出菜单</jm-button>
-    </demo-block>
 
   <jm-action-sheet
     show="{{ show }}"
