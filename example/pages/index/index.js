@@ -18,6 +18,9 @@ Page({
           }, {
             id: 'popup',
             name: 'Popup 弹出层'
+          }, {
+            id: 'transition',
+            name: 'Transition 动画'
           }
         ]
       }, {

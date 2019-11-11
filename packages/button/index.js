@@ -1,5 +1,7 @@
-Component({
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     plain: Boolean,
     disabled: Boolean,
     round: Boolean,
@@ -41,31 +43,31 @@ Component({
   methods: {
     handleClick () {
       if (!this.data.disabled && !this.data.loading) {
-        this.triggerEvent('click')
+        this.$emit('click')
       }
     },
     handleGetuserinfo (event) {
-      this.triggerEvent('getuserinfo', event.detail)
+      this.$emit('getuserinfo', event.detail)
     },
 
     handleConcat (event) {
-      this.triggerEvent('contact', event.detail)
+      this.$emit('contact', event.detail)
     },
 
     handleGetphonenumber (event) {
-      this.triggerEvent('getphonenumber', event.detail)
+      this.$emit('getphonenumber', event.detail)
     },
 
     handleError (event) {
-      this.triggerEvent('error', event.detail)
+      this.$emit('error', event.detail)
     },
 
     handleLaunchapp (event) {
-      this.triggerEvent('launchapp', event.detail)
+      this.$emit('launchapp', event.detail)
     },
 
     handleOpensetting (event) {
-      this.triggerEvent('opensetting', event.detail)
+      this.$emit('opensetting', event.detail)
     }
   }
 })

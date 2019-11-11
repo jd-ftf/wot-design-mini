@@ -1,0 +1,8 @@
+<jm-transition
+  show="{{ show }}"
+  name="fade"
+  custom-class="jm-modal"
+  duration="{{ duration }}"
+  custom-style="z-index: {{ zIndex }}"
+  bind:tap="handleClick"
+/>

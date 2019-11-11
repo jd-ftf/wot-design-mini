@@ -10,7 +10,10 @@
     "pages/toast/index",
     "pages/messageBox/index",
     "pages/search/index",
-    "pages/badge/index"
+    "pages/badge/index",
+    "pages/steps/index",
+    "pages/transition/index",
+    "pages/popup/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

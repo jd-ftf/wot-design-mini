@@ -1,0 +1,39 @@
+<view>
+  <demo-block title="Fade 动画">
+    <jm-button type="primary" bind:click="fade">fade</jm-button>
+    <jm-button type="primary" bind:click="fadeUp">fade-up</jm-button>
+    <jm-button type="primary" bind:click="fadeDown">fade-down</jm-button>
+    <jm-button type="primary" bind:click="fadeLeft">fade-left</jm-button>
+    <jm-button type="primary" bind:click="fadeRight">fade-right</jm-button>
+  </demo-block>
+  <demo-block title="Slide 动画">
+    <jm-button type="primary" bind:click="slideUp">slide-up</jm-button>
+    <jm-button type="primary" bind:click="slideDown">slide-down</jm-button>
+    <jm-button type="primary" bind:click="slideLeft">slide-left</jm-button>
+    <jm-button type="primary" bind:click="slideRight">slide-right</jm-button>
+  </demo-block>
+  <demo-block title="Zoom 动画">
+    <jm-button type="primary" bind:click="zoomIn">zoom-in</jm-button>
+  </demo-block>
+  <demo-block title="自定义动画">
+    <jm-button type="primary" bind:click="custom">custom</jm-button>
+  </demo-block>
+
+  <jm-transition
+    show="{{ show }}"
+    name="{{ name }}"
+    custom-class="block"
+  />
+
+  <jm-transition
+    show="{{ customShow }}"
+    duration="{{ { enter: 700, leave: 1000 } }}"
+    enter-class="custom-enter"
+    enter-active-class="custom-enter-active"
+    enter-to-class="custom-enter-to"
+    leave-class="custom-leave"
+    leave-active-class="custom-leave-active"
+    leave-to-class="custom-leave-to"
+    custom-class="block"
+  />
+</view>
