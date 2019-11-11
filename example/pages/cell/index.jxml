@@ -1,0 +1,56 @@
+<demo-block title="基本用法" transparent="#f4f4f4">
+    <jm-cell-group>
+        <jm-cell title="标题文字" value="内容"/>
+        <jm-cell title="标题文字" label="描述信息" value="内容"/>
+    </jm-cell-group>
+</demo-block>
+
+<demo-block title="图标" transparent="#f4f4f4">
+    <jm-cell-group>
+        <jm-cell title="标题文字" value="内容" icon="setting"/>
+        <jm-cell title="标题文字" value="内容" icon="collect"/>
+        <jm-cell
+                title="标题文字"
+                value="内容"
+                custom-icon-style="custom-icon-style"
+        >
+            <jm-icon slot="icon" name="play"/>
+        </jm-cell>
+    </jm-cell-group>
+</demo-block>
+
+<demo-block title="分组标题" transparent="#f4f4f4">
+    <jm-cell-group use-slot>
+        <view slot="title">交易管理</view>
+        <view slot="value" class="blueColor">
+            <jm-icon name="cart"/>
+            <span>订购</span>
+        </view>
+        <jm-cell title="标题文字" value="内容"/>
+        <jm-cell
+                title="标题文字"
+                value="内容"
+                custom-label-style="custom-label-style"
+        >
+            <text slot="label">描述信息</text>
+        </jm-cell>
+    </jm-cell-group>
+</demo-block>
+
+<demo-block title="页面跳转" transparent="#f4f4f4">
+    <jm-cell-group>
+        <jm-cell title="帮助与反馈" is-link/>
+        <jm-cell
+                is-link
+                to="/pages/button/index"
+                custom-value-style="custom-value-style"
+                custom-title-style="custom-title-style"
+        >
+            <view slot="title">
+                <text>标题文字</text>
+                <view class="end-time">25天后到期</view>
+            </view>
+            <text>内容</text>
+        </jm-cell>
+    </jm-cell-group>
+</demo-block>

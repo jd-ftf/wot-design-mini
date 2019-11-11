@@ -13,7 +13,8 @@
     "pages/badge/index",
     "pages/steps/index",
     "pages/transition/index",
-    "pages/popup/index"
+    "pages/popup/index",
+    "pages/cell/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
