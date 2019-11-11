@@ -10,51 +10,27 @@
 }
 
 @include b(loading) {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
 
-  @include e(wrapper) {
-    position: relative;
-    z-index: 0;
-    display: inline-block;
-    line-height: 0;
-  }
-
-  @include m(vertical) {
-    flex-direction: column;
+  @include e(circle) {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    font-size: 0;
+    animation: jm-rotate .8s linear infinite;
   }
 
   @include e(spinner) {
     position: relative;
-    z-index: -1;
-    display: inline-block;
-    box-sizing: border-box;
     width: 100%;
     height: 100%;
-    animation: jm-rotate .8s linear infinite;
-
-    @include m(spinner) {
-      animation-timing-function: steps(12);
-    }
-
-    @include m(circular) {
-      border: 1px solid transparent;
-      border-top-color: initial;
-      border-radius: 100%;
-    }
+    animation: jm-rotate .8s steps(12) infinite;
   }
 
-  @include e(text) {
-    margin-left: 8px;
-    color: #969799;
-
-    @include m(vertical) {
-      margin: 8px 0 0;
-    }
-  }
-
-  @include e(dot) {
+  @include e(spinner-dot) {
     position: absolute;
     top: 0;
     left: 0;

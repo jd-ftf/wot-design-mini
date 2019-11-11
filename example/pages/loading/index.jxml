@@ -1,27 +1,21 @@
-<demo-block title="type默认为 'circle' 类型">
-  <jm-loading custom-class="loading" />
-  <jm-loading custom-class="loading" type="spinner" />
+<demo-block title="基本用法">
+  <view class="flex">
+    <jm-loading custom-class="loading" />
+    <jm-loading custom-class="loading-padding" color="#fff" />
+  </view>
 </demo-block>
 
-<demo-block title="可以通过 color 修改指示器颜色">
-  <jm-loading custom-class="loading" color="#1989fa" />
-  <jm-loading custom-class="loading" type="spinner" color="#1989fa" />
+<demo-block title="修改类型">
+  <view class="flex">
+    <jm-loading custom-class="loading" type="spinner" />
+    <jm-loading custom-class="loading-padding" type="spinner" color="#fff" />
+  </view>
 </demo-block>
 
-<demo-block title="文案">
-  <jm-loading custom-class="loading">
-    加载中……
-  </jm-loading>
-</demo-block>
-
-<demo-block title="竖直排列" padding>
-  <jm-loading custom-class="loading" vertical>
-    加载中……
-  </jm-loading>
-</demo-block>
-
-<demo-block title="通过size修改loading大小">
-  <jm-loading custom-class="loading" size="30" />
-  <jm-loading custom-class="loading" size="40" />
-  <jm-loading custom-class="loading" size="50" />
+<demo-block title="修改指示器大小">
+  <view class="flex">
+    <jm-loading custom-class="loading" size="20px" />
+    <jm-loading custom-class="loading" size="30px" />
+    <jm-loading custom-class="loading" size="50px" />
+  </view>
 </demo-block>

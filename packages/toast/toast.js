@@ -4,11 +4,12 @@ const defaultOptions = {
   msg: '',
   duration: 2000,
   iconName: '',
-  loadingType: 'circular',
+  loadingType: 'circle',
   iconClass: '',
   position: 'middle',
   show: true,
-  selector: '#jm-toast'
+  selector: '#jm-toast',
+  zIndex: 100
 }
 // toast注册的队列，此处使用队列方便后续边界管理
 const queue = []
@@ -52,11 +53,11 @@ const Toast = (toastOptions) => {
   }
   // 开始渲染，并在 duration ms之后执行清除
   if (options.duration > 0) {
-    toast.setData(options)
     toast.timer = setTimeout(() => {
       toast.clear()
     }, options.duration)
   }
+  toast.setData(options)
   // 将toast放入队列
   queue.push(toast)
   // 返回toast实例
@@ -84,7 +85,8 @@ Toast.close = () => {
 }
 
 Toast.loading = createMethod({
-  iconName: 'loading'
+  iconName: 'loading',
+  duration: 0
 })
 Toast.success = createMethod({
   iconName: 'success',

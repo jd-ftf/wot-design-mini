@@ -57,7 +57,8 @@ this.$toast({
 |iconName   |	图标类型，选择 'success' 则 duration 自动设置为 1500 ms  |	string    |	'success', 'error', 'warning' |	—      |
 |iconClass  |	图标类目，自定义图标，可以使用 Icon 章节的那些图标类名，iconName 优先级更高  |	string   |	—	            | —   |
 |position   |	提示信息框的位置                      |	string   |	'top', 'middle', 'bottom'  |	'default'  |
-|single   	| 是否使用单例模式显示消息提示框          |	boolean   |	—            |	false     |
+|z-index   	| toast 层级          |	number   |	—            |	100     |
+
 
 ### Methods
 | 方法名称      | 说明       | 参数   |
