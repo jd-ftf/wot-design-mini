@@ -1,7 +1,8 @@
 Page({
   data: {
     show: false,
-    name: ''
+    name: '',
+    customShow: false
   },
   fade () {
     this.transition('fade')
@@ -32,6 +33,16 @@ Page({
   },
   zoomIn () {
     this.transition('zoom-in')
+  },
+  custom () {
+    this.setData({
+      customShow: true
+    })
+    setTimeout(() => {
+      this.setData({
+        customShow: false
+      })
+    }, 1200)
   },
   transition (name) {
     this.setData({
