@@ -1,0 +1,83 @@
+<demo-block title="展示消息数量value">
+    <view class="badge">
+        <jm-badge value="12">
+            <jm-button size="small">评论</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="3" bg-color="pink">
+            <jm-button size="small">回复</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="1" type="primary">
+            <jm-button size="small">评论</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="2" type="warning">
+            <jm-button size="small">回复</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="1" type="success">
+            <jm-button size="small">评论</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="2" type="info">
+            <jm-button size="small">回复</jm-button>
+        </jm-badge>
+    </view>
+</demo-block>
+
+<demo-block title="可定义消息最大值max">
+    <view class="badge">
+        <jm-badge value="200" max="99">
+            <jm-button size="small">评论</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="200" max="10">
+            <jm-button size="small">回复</jm-button>
+        </jm-badge>
+    </view>
+</demo-block>
+
+<demo-block title="可定义消息最大值max">
+    <view class="badge">
+        <jm-badge value="new">
+            <jm-button size="small">评论</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="hot">
+            <jm-button size="small">回复</jm-button>
+        </jm-badge>
+    </view>
+</demo-block>
+
+<demo-block title="可自己定制内容value，value 设置为字符串">
+    <view class="badge">
+        <jm-badge value="new">
+            <jm-button size="small">评论</jm-button>
+        </jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge value="hot">
+            <jm-button size="small">回复</jm-button>
+        </jm-badge>
+    </view>
+
+</demo-block>
+
+<demo-block title="小红点is-dot">
+    <view class="badge">
+        <jm-badge is-dot>数据查询</jm-badge>
+    </view>
+    <view class="badge">
+        <jm-badge is-dot>
+            <jm-button size="small">回复</jm-button>
+        </jm-badge>
+    </view>
+</demo-block>
