@@ -1,8 +1,7 @@
-Component({
-  options: {
-    multipleSlots: true
-  },
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     useSlot: {
       type: Boolean,
       value: false
@@ -26,10 +25,11 @@ Component({
       value: true
     },
     confirmButtonText: String,
-    cancelButtonText: String
+    cancelButtonText: String,
+    zIndex: Number
   },
   data: {
-    msg: String,
+    msg: '',
     type: 'alert',
     inputType: 'text',
     inputValue: '',
@@ -37,6 +37,7 @@ Component({
     inputPattern: '',
     inputValidate: '',
     showErr: false,
+    inputError: '',
     onConfirm: '',
     onCancel: ''
   },

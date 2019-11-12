@@ -1,4 +1,6 @@
-## Progress 下拉刷新
+## Progress 进度条
+
+<p style="color: #ff0000;">！！！该组件尚未开发，不可使用</p>
 
 ### 引入
 

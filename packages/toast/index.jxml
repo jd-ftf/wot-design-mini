@@ -2,7 +2,7 @@
   name="fade"
   show="{{ show }}"
   custom-class="jm-toast__container"
-  custom-style="z-index: 100;"
+  custom-style="z-index: {{ zIndex }};"
 >
   <view
     class="jm-toast jm-toast--{{position}} {{ (iconName || iconClass) ? 'jm-toast--with-icon' : '' }} {{ iconName === 'loading' && !msg ? 'jm-toast--loading' : '' }}"
