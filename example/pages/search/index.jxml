@@ -1,7 +1,7 @@
-<demo-block title="基本用法">
+<demo-block title="基本用法" transparent>
     <jm-search
-            placeholder="快来输入吧"
-            cancel-txt="点我"
+            placeholder="搜索"
+            cancel-txt="取消"
             bind:focus="focus"
             bind:blur="blur"
             bind:search="search"
@@ -11,17 +11,17 @@
     />
 </demo-block>
 
-<demo-block title="白色输入框">
+<demo-block title="白色输入框" transparent>
     <jm-search light/>
 </demo-block>
 
-<demo-block title="禁用且隐藏取消按钮">
+<demo-block title="禁用且隐藏取消按钮" transparent>
     <jm-search disabled hide-cancel/>
 </demo-block>
 
-<demo-block title="自定义">
+<demo-block title="自定义" transparent>
     <jm-search use-label-slot use-action-slot>
         <view slot="label" style="line-height: 14px;margin-right: 10px;">地点</view>
-        <view slot="action" style="padding: 5px;color: black;">别点我</view>
+        <view slot="action" style="padding: 5px 10px;color: #ff0000;">搜一搜</view>
     </jm-search>
 </demo-block>
