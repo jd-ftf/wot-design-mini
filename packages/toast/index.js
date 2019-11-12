@@ -1,9 +1,12 @@
 import VueComponent from '../common/component'
 
 VueComponent({
+  externalClasses: [
+    'custom-icon-class'
+  ],
   props: {
     iconName: String,
-    iconClass: String,
+    customIcon: Boolean,
     msg: String,
     position: String,
     show: Boolean,

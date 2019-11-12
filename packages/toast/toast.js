@@ -5,7 +5,7 @@ const defaultOptions = {
   duration: 2000,
   iconName: '',
   loadingType: 'circle',
-  iconClass: '',
+  customIcon: false,
   position: 'middle',
   show: true,
   selector: '#jm-toast',
