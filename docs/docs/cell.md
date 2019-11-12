@@ -156,6 +156,7 @@
 | label | 描述信息 | string | - | - |
 | is-link | 是否为跳转链接 | boolean | - | false |
 | to | 跳转地址 | string | - | - |
+| clickable | 开启点击反馈,is-link默认开启 | boolean | - | false |
 
 ### CellGroup Slot
 
