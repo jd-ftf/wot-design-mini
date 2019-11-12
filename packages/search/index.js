@@ -1,8 +1,7 @@
-Component({
-  options: {
-    multipleSlots: true
-  },
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     useActionSlot: {
       type: Boolean,
       value: false
@@ -27,7 +26,7 @@ Component({
     autofocus: Boolean
   },
   data: {
-    value: '111',
+    value: '',
     isFocus: false
   },
   methods: {

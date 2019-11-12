@@ -1,4 +1,4 @@
-<view class="jm-search {{ light ? 'is-light': ''}} {{ hideCancel ? 'is-without-cancel': '' }}">
+<view class="jm-search custom-class {{ light ? 'is-light': ''}} {{ hideCancel ? 'is-without-cancel': '' }}">
     <!--自定义label插槽-->
     <slot jd:if="{{useLabelSlot}}" name="label"></slot>
     <!--搜索框主体-->
