@@ -48,10 +48,6 @@
         color: #a7a7a7;
         font-size: 14px;
         vertical-align: middle;
-
-        @include when(hidden){
-            visibility: hidden;
-        }
     }
     @include e(clear) {
         margin-right: 12px;

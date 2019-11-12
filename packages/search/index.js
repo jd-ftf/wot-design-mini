@@ -37,7 +37,7 @@ Component({
      */
     input ({ detail: { value } }) {
       this.setData({ value })
-      this.triggerEvent('change', value)
+      this.triggerEvent('input', value)
     },
     /**
      * @description 点击清空icon的handle
