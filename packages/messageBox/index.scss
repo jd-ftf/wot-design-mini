@@ -2,25 +2,12 @@
 @import "../common/abstracts/_mixin.scss";
 
 @include b(message-box) {
-  @include e(modal-mask) {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+  border-radius: 8px;
+  overflow: hidden;
+
   @include e(container) {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
     width: 270px;
-    z-index: 1000;
-    border-radius: 8px;
     box-sizing: border-box;
-    overflow: hidden;
   }
   @include e(body) {
     background-color: #fff;

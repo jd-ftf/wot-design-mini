@@ -108,3 +108,9 @@ Page({
 | bind:change | 值修改事件 | event.detail: 当前值 |
 | bind:focus | 输入框获取焦点事件 | - |
 | bind:blur | 输入框失去焦点事件 | event.detail: 当前值 |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |

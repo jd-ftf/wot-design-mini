@@ -1,12 +1,15 @@
-Component({
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  externalClasses: [
+    'custom-icon-class'
+  ],
+  props: {
     iconName: String,
-    iconClass: String,
+    customIcon: Boolean,
     msg: String,
-    position: {
-      type: String,
-      default: 'middle'
-    },
-    show: Boolean
+    position: String,
+    show: Boolean,
+    zIndex: Number
   }
 })

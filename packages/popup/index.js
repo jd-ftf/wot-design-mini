@@ -24,7 +24,7 @@ VueComponent({
     },
     zIndex: {
       type: Number,
-      value: 1
+      value: 10
     }
   },
   methods: {

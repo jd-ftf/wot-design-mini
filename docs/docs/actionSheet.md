@@ -12,31 +12,39 @@
 
 ### 基本用法
 
-`v-model` 为绑定值，表示是否展示菜单。
+通过 `show` 属性设置显示隐藏，监听 `bind:close` 事件，隐藏菜单。
 
 ```html
-<jm-button type="primary" plain @click="show = true">弹出菜单</jm-button>
-<jm-action-sheet v-model="show" :actions="actions" />
+<jm-button type="primary" bind:click="showActions">弹出菜单</jm-button>
+<jm-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
+```
 
-<script>
-export default {
-  data () {
-    return {
-      show: false,
-      actions: [
-        {
-          name: '选项1'
-        }, {
-          name: '选项2'
-        }, {
-          name: '选项3',
-          subname: '描述信息'
-        }
-      ]
-    }
+```javascript
+page({
+  data: {
+    show: false,
+    actions: [
+      {
+        name: '选项1'
+      }, {
+        name: '选项2'
+      }, {
+        name: '选项3',
+        subname: '描述信息'
+      }
+    ]
+  },
+  showActions () {
+    this.setData({
+      show: true
+    })
+  },
+  close () {
+    this.setData({
+      show: false
+    })
   }
-}
-</script>
+})
 ```
 
 ### 选项状态
@@ -44,29 +52,37 @@ export default {
 可以设置 颜色、禁用、加载 等状态。
 
 ```html
-<jm-button type="primary" plain @click="show = true">弹出菜单</jm-button>
-<jm-action-sheet v-model="show" :actions="actions" />
+<jm-button type="primary" bind:click="showActions">弹出菜单</jm-button>
+<jm-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
+```
 
-<script>
-export default {
-  data () {
-    return {
-      show: false,
-      actions: [
-        {
-          name: '颜色',
-          color: '#0083ff'
-        }, {
-          name: '禁用',
-          disabled: true
-        }, {
-          loading: true
-        }
-      ]
-    }
+```javascript
+page({
+  data: {
+    show: false,
+    actions: [
+      {
+        name: '颜色',
+        color: '#0083ff'
+      }, {
+        name: '禁用',
+        disabled: true
+      }, {
+        loading: true
+      }
+    ]
+  },
+  showActions () {
+    this.setData({
+      show: true
+    })
+  },
+  close () {
+    this.setData({
+      show: false
+    })
   }
-}
-</script>
+})
 ```
 
 ### 取消按钮
@@ -74,7 +90,7 @@ export default {
 设置 `cancel-text` 取消按钮文案，展示取消按钮。
 
 ```html
-<jm-action-sheet v-model="show" :actions="actions" cancel-text="取消" />
+<jm-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" cancel-text="取消" />
 ```
 
 ### 标题
@@ -82,8 +98,8 @@ export default {
 设置 `title` 展示标题。
 
 ```html
-<jm-action-sheet v-model="show" title="标题">
-  <p style="padding: 15px 15px 150px 15px;">内容</p>
+<jm-action-sheet show="{{ show }}" title="标题" bind:close="close">
+  <view style="padding: 15px 15px 150px 15px;">内容</view>
 </jm-action-sheet>
 ```
 
@@ -91,14 +107,14 @@ export default {
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值，展示/关闭菜单 | boolean | - | - |
+| show | 设置菜单显示隐藏 | boolean | - | - |
 | actions | 菜单选项 | array | - | [] |
 | title | 标题 | string | - | - |
 | cancel-text | 取消按钮文案 | string | - | - |
 | close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
-| lock-scroll | 锁定背景滚动 | boolean | - | true |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 | duration | 动画持续时间 | number | - | 300(ms) |
+| z-index | 菜单层级 | number | - | 10 |
 
 ### Events
 

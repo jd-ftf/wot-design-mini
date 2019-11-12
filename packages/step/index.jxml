@@ -1,6 +1,6 @@
 <view
   jd:if="{{ currentStatus }}"
-  class="jm-step {{ currentStatus ? 'is-' + currentStatus : '' }} {{ canAlignCenter ? 'is-center' : '' }} {{ vertical ? 'is-vertical' : '' }}"
+  class="jm-step custom-class {{ currentStatus ? 'is-' + currentStatus : '' }} {{ canAlignCenter ? 'is-center' : '' }} {{ vertical ? 'is-vertical' : '' }}"
   style="{{ styles }}"
 >
   <view class="jm-step__header {{ dot ? 'is-dot' : '' }}">

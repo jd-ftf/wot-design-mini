@@ -16,7 +16,8 @@ const defaultOptions = {
   inputPattern: '',
   inputValidate: '',
   showErr: false,
-  selector: '#jm-message-box'
+  selector: '#jm-message-box',
+  zIndex: 99
 }
 // MessageBox注册的队列，此处使用队列方便后续边界管理
 /**

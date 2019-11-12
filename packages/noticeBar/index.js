@@ -1,7 +1,6 @@
-Component({
-  options: {
-    multipleSlots: true
-  },
+import VueComponent from '../common/component'
+
+VueComponent({
   data: {
     firstPlay: true,
     wrapWidth: 0,
@@ -10,7 +9,7 @@ Component({
     duration: 0,
     animation: ''
   },
-  properties: {
+  props: {
     text: {
       type: String,
       observer () {
@@ -42,7 +41,7 @@ Component({
       this.setData({
         show: false
       })
-      this.triggerEvent('close')
+      this.$emit('close')
     },
     getRect (select) {
       return new Promise(resolve => {

@@ -14,7 +14,8 @@
     "pages/steps/index",
     "pages/transition/index",
     "pages/popup/index",
-    "pages/cell/index"
+    "pages/cell/index",
+    "pages/actionSheet/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

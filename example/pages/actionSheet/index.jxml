@@ -1,0 +1,24 @@
+<view>
+  <demo-block title="基本用法">
+    <jm-button type="primary" bind:click="showActions1">弹出菜单</jm-button>
+  </demo-block>
+  <demo-block title="选项状态">
+    <jm-button type="primary" bind:click="showActions2">弹出菜单</jm-button>
+  </demo-block>
+  <demo-block title="取消按钮">
+    <jm-button type="primary" bind:click="showActions3">弹出菜单</jm-button>
+  </demo-block>
+  <demo-block title="标题">
+    <jm-button type="primary" bind:click="showActions4">弹出菜单</jm-button>
+  </demo-block>
+
+  <jm-action-sheet
+    show="{{ show }}"
+    actions="{{ actions }}"
+    cancel-text="{{ cancelText }}"
+    bind:close="close"
+  />
+  <jm-action-sheet show="{{ show2 }}" title="标题" bind:close="close2">
+    <view style="padding: 15px 15px 150px 15px;">内容</view>
+  </jm-action-sheet>
+</view>
