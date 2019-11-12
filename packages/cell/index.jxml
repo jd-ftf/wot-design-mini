@@ -9,7 +9,7 @@
             class="jm-cell__icon"
     >
     </jm-icon>
-    <view jd:else class="custom-icon-style">
+    <view jd:else class="custom-icon-class">
         <slot name="icon"/>
     </view>
 
@@ -17,7 +17,7 @@
         <view class="jm-cell__title">
             <!--title BEGIN-->
             <view jd:if="{{title}}">{{title}}</view>
-            <view jd:else class="custom-title-style">
+            <view jd:else class="custom-title-class">
                 <slot name="title"></slot>
             </view>
             <!--title END-->
@@ -26,7 +26,7 @@
             <view jd:if="{{label}}" class="jm-cell__label">
                 {{label}}
             </view>
-            <view jd:else class="custom-label-style">
+            <view jd:else class="custom-label-class">
                 <slot name="label"/>
             </view>
             <!--label END-->
@@ -38,7 +38,7 @@
             <view jd:if="{{value}}" class="jm-cell__value">
                 {{value}}
             </view>
-            <view jd:else class="jm-cell__value" class="custom-value-style">
+            <view jd:else class="jm-cell__value" class="custom-value-class">
                 <slot></slot>
             </view>
             <!--箭头-->

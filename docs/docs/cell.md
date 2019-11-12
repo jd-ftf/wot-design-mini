@@ -5,8 +5,8 @@
 ```json
 {
   "usingComponents": {
-    "jm-cell": "../../dist/cell/index",
-    "jm-cell-group": "../../dist/cellGroup/index"
+    "jm-cell": "/jm-design/cell/index",
+    "jm-cell-group": "/jm-design/cellGroup/index"
   }
 }
 ```
@@ -26,21 +26,21 @@
 
 ### 图标设置
 
-设置 `icon` 属性，可以为 Icon 章节中的图标，也可以通过 icon 的 slot 自定义图标位置。
+设置 `icon` 属性，值可以为 Icon 章节中的图标名，也可以通过 icon 的 slot 自定义图标位置。
 
-> 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中，可以通过`custom-icon-style`设置。如果使用 icon 属性且为 Icon 章节的字体图标，则宽度会自动一致且垂直居中。
+> 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。使用 icon 属性且为 Icon 章节的字体图标，则宽度会自动一致且垂直居中。如果使用插槽，可以通过`custom-icon-class`进行设置。
 
 ```html
 <jm-cell-group>
   <jm-cell title="标题文字" value="内容" icon="setting" />
   <jm-cell title="标题文字" value="内容" icon="collect" />
-  <jm-cell title="标题文字" value="内容" custom-icon-style="custom-icon-style">
+  <jm-cell title="标题文字" value="内容" custom-icon-class="custom-icon-class">
     <jm-icon slot="icon" name="play"/>
   </jm-cell>
 </jm-cell-group>
 
 <style>
-.custom-icon-style {
+.custom-icon-class {
     position: relative;
     min-width: 18px;
     height: 46px;
@@ -87,10 +87,10 @@
   </view>
   <jm-cell 
     is-link 
-    custom-icon-style="custom-icon-style"
-    custom-title-style="custom-title-style"
-    custom-label-style="custom-label-style"
-    custom-value-style="custom-value-style"
+    custom-icon-class="custom-icon-class"
+    custom-title-class="custom-title-class"
+    custom-label-class="custom-label-class"
+    custom-value-class="custom-value-class"
   >
     <jm-icon slot="icon" name="play"></jm-icon>
     <view slot="title">
@@ -106,7 +106,7 @@
 .blueColor {
     color: #0083ff;
 }
-.custom-icon-style {
+.custom-icon-class {
     position: relative;
     min-width: 18px;
     height: 46px;
@@ -114,17 +114,17 @@
     margin-right: 15px;
     font-size: 18px;
 }
-.custom-label-style {
+.custom-label-class {
     margin-top: 3px;
     font-size: 12px;
     color: #a7a7a7;
 }
-.custom-value-style {
+.custom-value-class {
     display: inline-block;
     font-size: 14px;
     vertical-align: middle;
 }
-.custom-title-style{}
+.custom-title-class{}
 .end-time{
     display: inline-block;
     margin-left: 8px;
@@ -180,10 +180,10 @@
 | 类名     | 说明                |
 |---------|---------------------|
 | custom-class | 根结点样式 |
-| custom-icon-style | icon使用slot时的自定义样式 |
-| custom-label-style | icon使用label时的自定义样式 |
-| custom-value-style | icon使用value时的自定义样式 |
-| custom-title-style | icon使用title时的自定义样式 |
+| custom-icon-class | icon使用slot时的自定义样式 |
+| custom-label-class | icon使用label时的自定义样式 |
+| custom-value-class | icon使用value时的自定义样式 |
+| custom-title-class | icon使用title时的自定义样式 |
 
 ### CellGroup外部样式类
 
