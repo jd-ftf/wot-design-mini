@@ -1,4 +1,4 @@
-<div class="jm-badge">
+<div class="jm-badge custom-class">
     <slot></slot>
     <view
             jd:if="{{!hidden && (content || content === 0 || isDot)}}"
