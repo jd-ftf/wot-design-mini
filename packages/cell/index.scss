@@ -66,4 +66,7 @@
   @include when(link) {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
   }
+  @include when(hover) {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
 }

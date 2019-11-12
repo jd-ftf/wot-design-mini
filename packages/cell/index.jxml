@@ -1,4 +1,7 @@
-<view class="jm-cell {{noHair?'is-no-hair':'' }}" bindtap="onClick">
+<view class="jm-cell {{noHair?'is-no-hair':'' }}"
+      hover-class="{{clickable?'is-hover':'none'}}"
+      hover-stay-time="70"
+      bindtap="onClick">
     <!--左侧icon部位-->
     <jm-icon
             jd:if="{{icon}}"
