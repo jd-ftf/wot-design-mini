@@ -10,7 +10,7 @@
     <!--iconName优先级更高-->
     <jm-loading jd:if="{{iconName === 'loading'}}" type="{{ loadingType }}" custom-class="{{ msg ? 'jm-toast__loading' : '' }}" />
     <jm-icon jd:elif="{{iconName}}" class="jm-toast__icon" name="{{iconName}}"/>
-    <view jd:elif="{{customIcon}}" class="jm-toast__icon custom-icon-class""/>
+    <view jd:elif="{{customIcon}}" class="jm-toast__icon custom-icon-class"/>
     <!--文本-->
     <view jd:if="{{ msg }}" class="jm-toast__msg">{{ msg }}</view>
   </view>
