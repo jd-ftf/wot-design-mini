@@ -14,7 +14,11 @@ Component({
     icon: String,
     label: String,
     isLabel: String,
-    isLink: String,
+    isLink: {
+      type: Boolean,
+      value: false,
+      observer: 'openClickAble'
+    },
     to: String,
     noHair: {
       type: Boolean,
@@ -41,6 +45,14 @@ Component({
     }
   },
   methods: {
+    /**
+     * @description 开启点击反馈
+     * @param {Boolean} clickAble - 触发订阅的实例本身
+     */
+    openClickAble (clickAble) {
+      if (!clickAble) return
+      this.setData({ clickable: true })
+    },
     /**
      * @description 从cellGroup获取此组件的索引
      * @return {Number} 此组件的索引

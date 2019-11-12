@@ -1,1 +1,5 @@
-Page({})
+Page({
+  onClick (e) {
+    console.log(e)
+  }
+})

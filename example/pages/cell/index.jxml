@@ -40,12 +40,13 @@
 
 <demo-block title="页面跳转" transparent="#f4f4f4">
     <jm-cell-group>
-        <jm-cell title="帮助与反馈" is-link/>
+        <jm-cell title="帮助与反馈" clickable bind:click="onClick"/>
         <jm-cell
                 is-link
                 to="/pages/button/index"
                 title="设置"
                 value="内容"
+                bind:click="onClick"
         >
         </jm-cell>
     </jm-cell-group>
