@@ -44,19 +44,6 @@
     </view>
 </demo-block>
 
-<demo-block title="可定义消息最大值max">
-    <view class="badge">
-        <jm-badge value="new">
-            <jm-button size="small">评论</jm-button>
-        </jm-badge>
-    </view>
-    <view class="badge">
-        <jm-badge value="hot">
-            <jm-button size="small">回复</jm-button>
-        </jm-badge>
-    </view>
-</demo-block>
-
 <demo-block title="可自己定制内容value，value 设置为字符串">
     <view class="badge">
         <jm-badge value="new">
