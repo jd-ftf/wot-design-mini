@@ -1,14 +1,13 @@
-Component({
-  options: {
-    multipleSlots: true
-  },
+import VueComponent from '../common/component'
+
+VueComponent({
   externalClasses: [
     'custom-icon-style',
     'custom-label-style',
     'custom-value-style',
     'custom-title-style'
   ],
-  properties: {
+  props: {
     title: String,
     value: String,
     icon: String,

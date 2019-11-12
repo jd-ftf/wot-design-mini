@@ -1,8 +1,7 @@
-Component({
-  options: {
-    multipleSlots: true
-  },
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     title: String,
     value: String,
     useSlot: {

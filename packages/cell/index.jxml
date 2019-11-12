@@ -1,4 +1,4 @@
-<view class="jm-cell {{noHair?'is-no-hair':'' }}"
+<view class="jm-cell custom-class {{noHair?'is-no-hair':'' }}"
       hover-class="{{clickable?'is-hover':'none'}}"
       hover-stay-time="70"
       bindtap="onClick">
