@@ -7,7 +7,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-message-box": "/jm-design/messageBox/index"
+    "jm-message-box": "/jm-design/messageBox/index.js"
   }
 }
 ```
@@ -15,13 +15,13 @@
 ### Alert 弹框
 
 alert 弹框只有确定按钮，用于强提醒。
-
+> 由于小程序限制，组件必须设置id,默认设置为`jm-message-box`，如需修改请在options中同时传入
 ```html
 <jm-message-box id="jm-message-box" />
 <jm-button type="primary" bind:click="alert">alert</jm-button>
 ```
 ```javascript
-import MessageBox from '../../dist/messageBox/messageBox'
+import MessageBox from '/jm-design/messageBox/messageBox.js'
 
 Page({
   alert () {
@@ -37,7 +37,7 @@ Page({
 <jm-button type="primary" bind:click="alert">alert</jm-button>
 ```
 ```javascript
-import MessageBox from '../../dist/messageBox/messageBox'
+import MessageBox from '/jm-design/messageBox/messageBox.js'
 
 Page({
   alert () {
@@ -56,7 +56,7 @@ Page({
 <jm-button type="primary" bind:click="alert">alert</jm-button>
 ```
 ```javascript
-import MessageBox from '../../dist/messageBox/messageBox'
+import MessageBox from '/jm-design/messageBox/messageBox.js'
 
 Page({
   alert () {
@@ -77,7 +77,7 @@ Page({
 <jm-button type="primary" bind:click="confirm">confirm</jm-button>
 ```
 ```javascript
-import MessageBox from '../../dist/messageBox/messageBox'
+import MessageBox from '/jm-design/messageBox/messageBox.js'
 
 Page({
   confirm () {
@@ -98,7 +98,7 @@ prompt 会展示一个输入框，并可以进行输入校验。
 <jm-button type="primary" bind:click="prompt">prompt</jm-button>
 ```
 ```javascript
-import MessageBox from '../../dist/messageBox/messageBox'
+import MessageBox from '/jm-design/messageBox/messageBox.js'
 
 Page({
   prompt () {
@@ -123,7 +123,7 @@ Page({
 <jm-button type="primary" bind:click="withSlot">slot</jm-button>
 ```
 ```javascript
-import MessageBox from '../../dist/messageBox/messageBox'
+import MessageBox from '/jm-design/messageBox/messageBox.js'
 
 Page({
   withSlot () {
@@ -136,12 +136,14 @@ Page({
 
 ---
 
-弹框在点击确定和取消按钮时，会触发回调函数callback，并传入action（'confirm'或'cancel')，你也可以使用 Promise，用 then 接收“确定”按钮事件，用 catch 接收“取消”按钮事件。
+弹框在点击确定和取消按钮时，会返回一个promise对象，用 then 接收“确定”按钮事件，用 catch 接收“取消”按钮事件。传入的action值为:'confirm'、'cancel'、'modal'。
 
-`MessageBox(options)` 在调用时，需传入 options 参数和 callback（可选） 回调函数，alert、confirm 和 prompt 都支持快捷调用：
+`MessageBox(msg)`在调用时直接传入字符串，`MessageBox(options)` 在调用时，需传入 options 参数。alert、confirm 和 prompt 都支持快捷调用：
 
 ```javascript
-MessageBox(options)
+MessageBox(msg)
+
+MessageBox(options) 
 
 MessageBox.alert(options)
 
@@ -155,17 +157,18 @@ MessageBox.prompt(options)
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | title      |	标题                        |	string    |	- |	- |
-| msg	    | 消息，支持html渲染                      |	string    |	-         |	- |
+| msg	    | 消息文案 |	string    |	-         |	- |
 | type      | 弹框类型                      | string    | 'alert', 'confirm', 'prompt'          | 'alert'   |
-| closeOnClickModal      | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为空    | boolean    | -          | true   |
+| closeOnClickModal      | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为'modal'  | boolean    | -          | true   |
 | inputType      | 当type为prompt时，输入框类型   | string    | -          | 'text'   |
 | inputValue      | 当type为prompt时，输入框初始值   | string / number    | -          | -   |
-| inputPlaceholder      | 当type为prompt时，输入框placeholder      | string    | -          | -   |
+| inputPlaceholder      | 当type为prompt时，输入框placeholder      | string    | -          | '请输入内容'   |
 | inputPattern      | 当type为prompt时，输入框正则校验，点击确定按钮时进行校验      | regex    | -          | -   |
 | inputValidate      | 当type为prompt时，输入框校验函数，点击确定按钮时进行校验      | function    | -          | -   |
+| inputError | 当type为prompt时，输入框检验不通过时的错误提示文案 | string | - | '输入的数据不合法' |
 | confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
 | cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
-| selector      | 组件的id     | string    | -          | '#jm-message-box' |
+| selector      | 组件的id     | string    | - | '#jm-message-box' |
 
 ### 外部样式类
 
