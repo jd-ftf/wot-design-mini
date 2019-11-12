@@ -1,5 +1,7 @@
-Component({
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     value: null,
     disabled: Boolean,
     activeValue: {
@@ -21,12 +23,12 @@ Component({
     switchValue () {
       if (this.data.disabled) return
 
-      this.triggerEvent('change', this.data.value === this.data.activeValue ? this.data.inactiveValue : this.data.activeValue)
+      this.$emit('change', this.data.value === this.data.activeValue ? this.data.inactiveValue : this.data.activeValue)
     }
   },
   attached () {
     if ([this.data.activeValue, this.data.inactiveValue].indexOf(this.data.value) === -1) {
-      this.triggerEvent('change', this.data.inactiveValue)
+      this.$emit('change', this.data.inactiveValue)
     }
   }
 })

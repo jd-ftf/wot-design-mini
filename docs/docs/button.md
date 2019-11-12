@@ -126,7 +126,6 @@
 | session-message-title | 会话内消息卡片标题，open-type="contact"时有效 | string | - | 当前标题 |
 | session-message-path | 会话内消息卡片点击跳转小程序路径，open-type="contact"时有效 | string | - | 当前分享路径 |
 | send-message-img | 会话内消息卡片图片，open-type="contact"时有效 | string | - | 截图 |
-| hover-stay-time | 按住后多久出现点击态，单位毫秒 | number | - | 20 |
 | app-parameter | 打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效 | string | - | - |
 | show-message-card	| 是否显示会话内消息卡片，设置此参数为 true，用户进入客服会话会在右下角显示"可能要发送的小程序"提示，用户点击后可以快速发送小程序消息，open-type="contact"时有效 | boolean | - | false |
 

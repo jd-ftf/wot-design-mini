@@ -43,7 +43,7 @@
 | closable | 关闭按钮 | boolean | - | false |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 | duration | 动画持续时间 | number / boolean | - | 300(ms) |
-| z-index | 设置层级 | number | - | 1 |
+| z-index | 设置层级 | number | - | 10 |
 | modal | 是否显示遮罩 | boolean | - | true |
 
 ### Events
@@ -58,3 +58,9 @@
 | bind:before-leave | 离开前触发 | - |
 | bind:leave | 离开时触发 | - |
 | bind:after-leave | 离开后触发| - |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |

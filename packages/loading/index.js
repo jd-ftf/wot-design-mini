@@ -1,39 +1,16 @@
-import { addUnit } from '../common/util'
+import VueComponent from '../common/component'
 
-Component({
-  properties: {
+VueComponent({
+  props: {
     size: {
-      type: String | Number,
-      observer: 'setSizeWithUnit'
+      type: String,
+      value: '32px'
     },
     type: {
       type: String,
-      value: 'circular'
+      value: 'circle'
     },
-    color: {
-      type: String,
-      value: '#c9c9c9'
-    },
-    textSize: {
-      type: String,
-      observer: 'setTextSizeWithUnit'
-    },
-    vertical: Boolean
-  },
-  data: {
-    sizeWithUnit: '30px',
-    textSizeWithUnit: '14px'
-  },
-  methods: {
-    setSizeWithUnit (size) {
-      this.setData({
-        sizeWithUnit: addUnit(size)
-      })
-    },
-    setTextSizeWithUnit (size) {
-      this.setData({
-        textSizeWithUnit: addUnit(size)
-      })
-    }
+    color: String,
+    customStyle: String
   }
 })

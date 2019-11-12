@@ -1,5 +1,7 @@
 ## Collapse 折叠面板
 
+<p style="color: #ff0000;">！！！该组件尚未开发，不可使用</p>
+
 ### 引入
 
 ```json

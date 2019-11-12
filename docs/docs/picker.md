@@ -1,5 +1,7 @@
 ## Picker 选择器视图
 
+<p style="color: #ff0000;">！！！该组件尚未开发，不可使用</p>
+
 Picker 组件为 popup 和 pickerView 的组合。
 
 ### 引入

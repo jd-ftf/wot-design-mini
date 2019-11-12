@@ -1,5 +1,5 @@
 <view
-  class="jm-switch {{ disabled ? 'is-disabled' : '' }} {{ value === activeValue ? 'is-checked' : '' }}"
+  class="jm-switch custom-class {{ disabled ? 'is-disabled' : '' }} {{ value === activeValue ? 'is-checked' : '' }}"
   style="font-size: {{ size }}; background: {{ value === activeValue ? activeColor : inactiveColor }}; border-color: {{ value === activeValue ? activeColor : inactiveColor }};"
   bindtap="switchValue"
 >

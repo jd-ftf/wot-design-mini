@@ -1,9 +1,11 @@
-Component({
+import VueComponent from '../common/component'
+
+VueComponent({
   data: {
     minDisabled: false,
     maxDisabled: false
   },
-  properties: {
+  props: {
     value: {
       type: null,
       observer (value) {
@@ -42,8 +44,8 @@ Component({
     withoutInput: Boolean,
     inputWidth: String
   },
-  attached () {
-    this.triggerEvent('change', this.formatValue(this.data.value))
+  created () {
+    this.$emit('change', this.formatValue(this.data.value))
   },
   methods: {
     toPrecision (value) {
@@ -73,7 +75,7 @@ Component({
       }
       if (value > this.data.max) value = this.toPrecision(this.data.max)
       if (value < this.data.min) value = this.toPrecision(this.data.min)
-      this.triggerEvent('change', value)
+      this.$emit('change', value)
     },
     changeStep (val, step) {
       val = Number(val)
@@ -89,25 +91,25 @@ Component({
       if (this.data.minDisabled) return
 
       const newValue = this.changeStep(this.data.value, -this.data.step)
-      this.triggerEvent('change', newValue)
+      this.$emit('change', newValue)
     },
     add () {
       if (this.data.maxDisabled) return
 
       const newValue = this.changeStep(this.data.value, this.data.step)
-      this.triggerEvent('change', newValue)
+      this.$emit('change', newValue)
     },
     handleInput (event) {
       const value = event.detail.value || ''
-      this.triggerEvent('change', value)
+      this.$emit('change', value)
     },
     handleFocus (event) {
-      this.triggerEvent('focus', event.detail)
+      this.$emit('focus', event.detail)
     },
     handleBlur () {
       const value = this.formatValue(this.data.value)
       this.setValue(value)
-      this.triggerEvent('blur', value)
+      this.$emit('blur', value)
     },
     formatValue (value) {
       value = Number(value)
