@@ -1,4 +1,4 @@
-<view class="jm-search {{ light ? 'is-light': ''}} {{ hideCancel ? 'is-without-cancel': '' }}">
+<view class="jm-search custom-class {{ light ? 'is-light': ''}} {{ hideCancel ? 'is-without-cancel': '' }}">
     <!--自定义label插槽-->
     <slot jd:if="{{useLabelSlot}}" name="label"></slot>
     <!--搜索框主体-->
@@ -8,7 +8,7 @@
         <!--搜索框-->
         <input
                 placeholder="{{ placeholder || '搜索' }}"
-                placeholder-class="jm-search__placeholder-txt {{ value ? 'hidden' : '' }}"
+                placeholder-class="jm-search__placeholder-txt"
                 confirm-type="search"
                 value="{{value}}"
                 class="jm-search__input"

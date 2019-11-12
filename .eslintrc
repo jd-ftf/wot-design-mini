@@ -28,6 +28,7 @@
   "rules": {
     "new-cap": "off",
     "indent": ["error",2],
-    "eol-last":["error","never"]
+    "eol-last":["error","never"],
+    "no-prototype-builtins": "off"
   }
 }

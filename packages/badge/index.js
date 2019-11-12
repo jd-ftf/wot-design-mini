@@ -1,8 +1,7 @@
-Component({
-  options: {
-    styleIsolation: 'apply-shared'
-  },
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     value: {
       type: String,
       value: null,

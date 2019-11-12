@@ -1,8 +1,7 @@
-Component({
-  options: {
-    multipleSlots: true
-  },
-  properties: {
+import VueComponent from '../common/component'
+
+VueComponent({
+  props: {
     useActionSlot: {
       type: Boolean,
       value: false
@@ -27,7 +26,7 @@ Component({
     autofocus: Boolean
   },
   data: {
-    value: '111',
+    value: '',
     isFocus: false
   },
   methods: {
@@ -37,7 +36,7 @@ Component({
      */
     input ({ detail: { value } }) {
       this.setData({ value })
-      this.triggerEvent('change', value)
+      this.triggerEvent('input', value)
     },
     /**
      * @description 点击清空icon的handle

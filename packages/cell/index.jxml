@@ -1,0 +1,49 @@
+<view class="jm-cell custom-class {{noHair?'is-no-hair':'' }}"
+      hover-class="{{clickable?'is-hover':'none'}}"
+      hover-stay-time="70"
+      bindtap="onClick">
+    <!--左侧icon部位-->
+    <jm-icon
+            jd:if="{{icon}}"
+            name="{{icon}}"
+            class="jm-cell__icon"
+    >
+    </jm-icon>
+    <view jd:else class="custom-icon-style">
+        <slot name="icon"/>
+    </view>
+
+    <view class="jm-cell__wrapper">
+        <view class="jm-cell__title">
+            <!--title BEGIN-->
+            <view jd:if="{{title}}">{{title}}</view>
+            <view jd:else class="custom-title-style">
+                <slot name="title"></slot>
+            </view>
+            <!--title END-->
+
+            <!--label BEGIN-->
+            <view jd:if="{{label}}" class="jm-cell__label">
+                {{label}}
+            </view>
+            <view jd:else class="custom-label-style">
+                <slot name="label"/>
+            </view>
+            <!--label END-->
+        </view>
+
+        <!--right content BEGIN-->
+        <view class="jm-cell__right">
+            <!--文案内容-->
+            <view jd:if="{{value}}" class="jm-cell__value">
+                {{value}}
+            </view>
+            <view jd:else class="jm-cell__value" class="custom-value-style">
+                <slot></slot>
+            </view>
+            <!--箭头-->
+            <jm-icon jd:if="{{isLink}}" class="jm-cell__arrow-right" name="arrow-right"/>
+        </view>
+        <!--right content END-->
+    </view>
+</view>
