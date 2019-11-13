@@ -7,7 +7,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-message-box": "/jm-design/messageBox/index.js"
+    "jm-message-box": "/jm-design/messageBox/index"
   }
 }
 ```
@@ -21,7 +21,7 @@ alert 弹框只有确定按钮，用于强提醒。
 <jm-button type="primary" bind:click="alert">alert</jm-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox.js'
+import MessageBox from '/jm-design/messageBox/messageBox'
 
 Page({
   alert () {
@@ -37,7 +37,7 @@ Page({
 <jm-button type="primary" bind:click="alert">alert</jm-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox.js'
+import MessageBox from '/jm-design/messageBox/messageBox'
 
 Page({
   alert () {
@@ -56,7 +56,7 @@ Page({
 <jm-button type="primary" bind:click="alert">alert</jm-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox.js'
+import MessageBox from '/jm-design/messageBox/messageBox'
 
 Page({
   alert () {
@@ -77,7 +77,7 @@ Page({
 <jm-button type="primary" bind:click="confirm">confirm</jm-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox.js'
+import MessageBox from '/jm-design/messageBox/messageBox'
 
 Page({
   confirm () {
@@ -98,7 +98,7 @@ prompt 会展示一个输入框，并可以进行输入校验。
 <jm-button type="primary" bind:click="prompt">prompt</jm-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox.js'
+import MessageBox from '/jm-design/messageBox/messageBox'
 
 Page({
   prompt () {
@@ -123,7 +123,7 @@ Page({
 <jm-button type="primary" bind:click="withSlot">slot</jm-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox.js'
+import MessageBox from '/jm-design/messageBox/messageBox'
 
 Page({
   withSlot () {
