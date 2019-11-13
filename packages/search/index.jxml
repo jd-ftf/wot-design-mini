@@ -10,10 +10,10 @@
                 placeholder="{{ placeholder || '搜索' }}"
                 placeholder-class="jm-search__placeholder-txt"
                 confirm-type="search"
-                value="{{value}}"
+                value="{{str}}"
                 class="jm-search__input"
                 bindfocus="searchFocus"
-                bindinput="input"
+                bindinput="inputValue"
                 bindblur="searchBlur"
                 bindconfirm="search"
                 disabled="{{disabled}}"
@@ -22,7 +22,7 @@
         />
         <!--icon:clear-->
         <jm-icon
-                jd:if="{{value}}"
+                jd:if="{{str}}"
                 name="close-fill"
                 class="jm-search__clear"
                 bindtap="clearSearch"

@@ -12,7 +12,7 @@
 
 ### 基本用法
 
-`focus`绑定聚焦事件、`input` 绑定输入事件，`blur`绑定失焦事件，`search` 绑定搜索事件，`cancel` 绑定取消事件，`clear` 绑定清空事件。
+`focus`绑定聚焦事件、`change` 绑定输入事件，`blur`绑定失焦事件，`search` 绑定搜索事件，`cancel` 绑定取消事件，`clear` 绑定清空事件。
 
 ```html
 <jm-search
@@ -21,7 +21,7 @@
   bind:search="search"
   bind:clear="clear"
   bind:cancel="cancel"
-  bind:input="input"
+  bind:change="change"
 />
 
 Page({
@@ -40,7 +40,7 @@ Page({
   cancel () {
     console.log('取消')
   },
-  input (e) {
+  change (e) {
     console.log('输入', e)
   }
 })
@@ -49,18 +49,18 @@ Page({
 
 ### 修改文案
 
-通过设置`init-value`来修改输入框文案
+通过设置`value`来修改输入框文案
 
 ```html
-<jm-search init-value="{{initValue}}"/>
+<jm-search value="{{value}}"/>
 
 Page({
   data: {
-    initValue: ''
+    value: ''
   },
   onReady () {
     setTimeout(() => {
-      this.setData({ initValue: '初始文案' })
+      this.setData({ value: '初始文案' })
     }, 1000)
   }
 })
@@ -116,15 +116,15 @@ Page({
 | hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |
 | disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
 | maxlength | 原生属性，设置最大长度 | string | - | - |
-| init-value | 输入框文案，单向数据绑定 | string | - | - |
+| value | 输入框文案，单向数据绑定 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| focus        | 监听输入框focus事件                    | -       |
-| blur         | 监听输入框blur事件                     | -       |
+| focus        | 监听输入框focus事件                    | Event，包含输入内容       |
+| blur         | 监听输入框blur事件                     | Event，包含输入内容       |
 | search       | 监听输入框搜索事件                      | Event，包含输入内容 |
-| clear        | 监听输入框清空按钮事件                   | -       |
-| cancel       | 监听输入框右侧文本点击事件               | -       |
-| input        | 监听输入框input事件                    | Event，包含输入内容 |
+| clear        | 监听输入框清空按钮事件                   | - |
+| cancel       | 监听输入框右侧文本点击事件               | Event，包含输入内容       |
+| change        | 监听输入框change事件                    | Event，包含输入内容 |

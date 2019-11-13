@@ -1,6 +1,6 @@
 <demo-block title="基本用法" transparent>
     <jm-search
-            init-value="{{initValue}}"
+            value="{{value}}"
             placeholder="搜索"
             cancel-txt="取消"
             bind:focus="focus"
@@ -8,7 +8,7 @@
             bind:search="search"
             bind:clear="clear"
             bind:cancel="cancel"
-            bind:input="input"
+            bind:change="change"
     />
 </demo-block>
 
