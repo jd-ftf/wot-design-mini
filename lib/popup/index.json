@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "jm-transition": "../transition/index",
+    "jm-modal": "../modal/index",
+    "jm-icon": "../icon/index"
+  }
+}

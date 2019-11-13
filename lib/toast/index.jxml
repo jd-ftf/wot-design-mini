@@ -1,0 +1,17 @@
+<jm-transition
+  name="fade"
+  show="{{ show }}"
+  custom-class="jm-toast__container"
+  custom-style="z-index: {{ zIndex }};"
+>
+  <view
+    class="jm-toast custom-class jm-toast--{{position}} {{ (iconName || customIcon) ? 'jm-toast--with-icon' : '' }} {{ iconName === 'loading' && !msg ? 'jm-toast--loading' : '' }}"
+  >
+    <!--iconName优先级更高-->
+    <jm-loading jd:if="{{iconName === 'loading'}}" type="{{ loadingType }}" custom-class="{{ msg ? 'jm-toast__loading' : '' }}" />
+    <jm-icon jd:elif="{{iconName}}" class="jm-toast__icon" name="{{iconName}}"/>
+    <view jd:elif="{{customIcon}}" class="jm-toast__icon custom-icon-class"/>
+    <!--文本-->
+    <view jd:if="{{ msg }}" class="jm-toast__msg">{{ msg }}</view>
+  </view>
+</jm-transition>

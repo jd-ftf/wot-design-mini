@@ -1,0 +1,56 @@
+<jm-popup
+  transition="zoom-in"
+  show="{{ show }}"
+  custom-class="jm-message-box"
+  bind:click-modal="toggleModal"
+  z-index="{{ zIndex }}"
+>
+  <view class="jm-message-box__container custom-class">
+    <!--内容部分-->
+    <view class="jm-message-box__body {{ !title ? 'is-no-title' : '' }} {{ type === 'prompt' ? 'is-prompt' : '' }}">
+      <!--公共title-->
+      <view wx:if="title" class="jm-message-box__title">
+        {{ title }}
+      </view>
+      <!--其它类型-->
+      <view class="jm-message-box__content">
+        <!--prompt类型-->
+        <block wx:if="{{type === 'prompt'}}">
+          <!--输入框-->
+          <view class="jm-message-box__input-container">
+          <input 
+            value="{{inputValue}}"
+            type="{{inputType}}"
+            placeholder="{{ inputPlaceholder || '请输入' }}"
+            placeholder-class="jm-message-box__input-placeholder" class="jm-message-box__input"
+            bindinput="inputValChange" />
+          </view>
+          <!--错误提示-->
+          <view wx:if="{{showErr}}" class="jm-message-box__input-error">
+            {{ inputError || '输入的数据不合法' }}
+          </view>
+        </block>
+        <!--使用插槽-->
+        <slot wx:elif="{{useSlot}}"></slot>
+        <!--使用文本-->
+        <block wx:else>{{msg}}</block>
+      </view>
+    </view>
+    <!--action按钮组合-->
+    <view class="jm-message-box__actions">
+      <view
+        wx:if="{{showCancelButton}}"
+        class="jm-message-box__button jm-message-box__button--cancel"
+        data-action="cancel"
+        bind:tap="toggleModal">
+        {{ cancelButtonText || '取消'}}
+      </view>
+      <view
+        class="jm-message-box__button jm-message-box__button--confirm"
+        data-action="confirm"
+        bind:tap="toggleModal">
+        {{ confirmButtonText || '确定'}}
+      </view>
+    </view>
+  </view>
+</jm-popup>
