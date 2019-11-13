@@ -1,6 +1,5 @@
 const through = require('through2')
-const gutil = require('gulp-util')
-const PluginError = gutil.PluginError
+const PluginError = require('plugin-error')
 
 const PLUGIN_NAME = 'gulp-replace'
 
@@ -17,7 +16,7 @@ module.exports = (replaceStr, str) => {
     }
 
     try {
-      let code = file.contents.toString().replace(new RegExp(replaceStr, 'g'), str)
+      const code = file.contents.toString().replace(new RegExp(replaceStr, 'g'), str)
       file.contents = Buffer.from(code)
     } catch (err) {
       throw new PluginError(PLUGIN_NAME, err.message)
