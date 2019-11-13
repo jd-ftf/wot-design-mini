@@ -1,6 +1,5 @@
 const through = require('through2')
-const gutil = require('gulp-util')
-const PluginError = gutil.PluginError
+const PluginError = require('plugin-error');
 const transform = require('@babel/core').transform
 
 const PLUGIN_NAME = 'gulp-replace'
@@ -19,7 +18,7 @@ module.exports = (replaceStr, str) => {
 
     try {
       let code = file.contents.toString()
-      let result = transform(code, {
+      const result = transform(code, {
         plugins: [function () {
           return {
             visitor: {

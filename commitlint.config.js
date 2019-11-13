@@ -27,6 +27,12 @@ module.exports = {
         'lower-case',
         'camel-case'
       ]
+    ],
+    'scope-case': [2, 'always',
+      [
+        'lower-case',
+        'camel-case'
+      ]
     ]
   }
 }

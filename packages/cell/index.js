@@ -77,7 +77,7 @@ VueComponent({
         jd[(this.data.replace ? 'navigateTo' : 'redirectTo')]({ url })
       }
       if (this.data.clickable) {
-        this.triggerEvent('click')
+        this.$emit('click')
       }
     }
   }

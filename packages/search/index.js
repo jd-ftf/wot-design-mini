@@ -13,7 +13,6 @@ VueComponent({
     placeholder: String,
     cancelTxt: String,
     light: Boolean,
-    placeholderLeft: Boolean,
     hideCancel: {
       type: Boolean,
       value: false
@@ -23,27 +22,45 @@ VueComponent({
       value: false
     },
     maxlength: String,
-    autofocus: Boolean
+    autofocus: Boolean,
+    value: {
+      type: String,
+      observer (s) {
+        this.setData({ str: s })
+      }
+    },
+    placeholderLeft: {
+      type: Boolean,
+      value: false
+    }
   },
   data: {
-    value: '',
-    isFocus: false
+    str: '',
+    showPlaceHolder: true
   },
   methods: {
+    closePlaceHolder () {
+      if (this.data.disabled) return
+      this.setData({
+        showPlaceHolder: false,
+        autofocus: true
+      })
+    },
     /**
      * @description input的input事件handle
      * @param value
      */
-    input ({ detail: { value } }) {
-      this.setData({ value })
-      this.triggerEvent('input', value)
+    inputValue ({ detail: { value } }) {
+      this.setData({ str: value })
+      this.$emit('change', value)
     },
     /**
      * @description 点击清空icon的handle
      */
     clearSearch () {
-      this.setData({ value: '' })
-      this.triggerEvent('clear')
+      this.setData({ str: '' })
+      this.$emit('change', '')
+      this.$emit('clear')
     },
     /**
      * @description 点击搜索按钮时的handle
@@ -51,32 +68,32 @@ VueComponent({
      */
     search ({ detail: { value } }) {
       // 组件触发search事件
-      this.triggerEvent('search', value)
+      this.$emit('search', value)
     },
     /**
      * @description 输入框聚焦时的handle
      */
     searchFocus () {
-      if (!this.disabled) {
-        this.setData({ isFocus: true })
-      }
       // 组件触发focus事件
-      this.triggerEvent('focus')
+      this.$emit('focus', this.data.str)
     },
     /**
      * @description 输入框失焦的handle
      */
     searchBlur () {
-      this.setData({ isFocus: false })
+      this.setData({
+        showPlaceHolder: true,
+        autofocus: false
+      })
       // 组件触发blur事件
-      this.triggerEvent('blur', this.data.value)
+      this.$emit('blur', this.data.str)
     },
     /**
      * @description 点击取消搜索按钮的handle
      */
     handleCancel () {
       // 组件触发cancel事件
-      this.triggerEvent('cancel')
+      this.$emit('cancel', this.data.str)
     }
   }
 })
