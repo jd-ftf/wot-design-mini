@@ -111,6 +111,7 @@ Page({
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | placeholder	    | 搜索框占位文本                  |	string    |	-         |	'搜索' |
+| placeholder-left  | placeholder居左边              | boolean    | -          | false   |
 | cancel-txt      | 搜索框右侧文本                   | string    | -          | '取消'   |
 | light           | 搜索框亮色（白色）                | boolean   | -          | false   |
 | hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |

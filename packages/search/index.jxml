@@ -3,6 +3,16 @@
     <slot jd:if="{{useLabelSlot}}" name="label"></slot>
     <!--搜索框主体-->
     <view class="jm-search__block">
+        <view
+                jd:if="{{!placeholderLeft}}"
+                hidden="{{str || !showPlaceHolder}}"
+                class="jm-search__placeholder"
+                class="jm-search__placeholder"
+                bindtap="closePlaceHolder"
+        >
+            <jm-icon name="search" class="jm-search__search-icon"></jm-icon>
+            <text>{{ placeholder || '搜索' }}</text>
+        </view>
         <!--icon:search-->
         <jm-icon name="search" class="jm-search__search-icon"></jm-icon>
         <!--搜索框-->

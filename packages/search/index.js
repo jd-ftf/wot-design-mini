@@ -13,7 +13,6 @@ VueComponent({
     placeholder: String,
     cancelTxt: String,
     light: Boolean,
-    placeholderLeft: Boolean,
     hideCancel: {
       type: Boolean,
       value: false
@@ -29,13 +28,24 @@ VueComponent({
       observer (s) {
         this.setData({ str: s })
       }
+    },
+    placeholderLeft: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
     str: '',
-    isFocus: false
+    showPlaceHolder: true
   },
   methods: {
+    closePlaceHolder () {
+      if (this.data.disabled) return
+      this.setData({
+        showPlaceHolder: false,
+        autofocus: true
+      })
+    },
     /**
      * @description input的input事件handle
      * @param value
@@ -63,9 +73,6 @@ VueComponent({
      * @description 输入框聚焦时的handle
      */
     searchFocus () {
-      if (!this.disabled) {
-        this.setData({ isFocus: true })
-      }
       // 组件触发focus事件
       this.$emit('focus', this.data.str)
     },
@@ -73,7 +80,10 @@ VueComponent({
      * @description 输入框失焦的handle
      */
     searchBlur () {
-      this.setData({ isFocus: false })
+      this.setData({
+        showPlaceHolder: true,
+        autofocus: false
+      })
       // 组件触发blur事件
       this.$emit('blur', this.data.str)
     },

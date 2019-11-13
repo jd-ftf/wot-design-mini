@@ -1,6 +1,6 @@
 Page({
   data: {
-    value: ''
+    value: '初始文案'
   },
   focus () {
     console.log('聚焦')
@@ -19,10 +19,5 @@ Page({
   },
   change (e) {
     console.log('输入', e)
-  },
-  onReady () {
-    setTimeout(() => {
-      this.setData({ value: '初始文案' })
-    }, 1000)
   }
 })

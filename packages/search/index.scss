@@ -2,74 +2,95 @@
 @import "./../common/abstracts/variable.scss";
 
 @include b(search) {
+  display: flex;
+  padding: 10px 0 10px 15px;
+  align-items: center;
+  background: #fff;
+
+  @include e(block) {
+    flex: 1;
+    background-color: #f4f4f4;
+    border-radius: 4px;
     display: flex;
-    padding: 10px 0 10px 15px;
+    flex-direction: row;
     align-items: center;
-    background: #fff;
+    position: relative;
+  }
 
-    @include e(block) {
-        flex: 1;
-        background-color: #f4f4f4;
-        border-radius: 4px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    @include e(input) {
-        flex: 1;
-        height: 28px;
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding:5px 0;
-        border: none;
-        line-height: 14px;
-        background: transparent;
-        font-size: 14px;
-        -webkit-appearance: none;
-        outline: none;
-        color: #333;
+  @include e(placeholder) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #f4f4f4;
+    line-height: 28px;
+    font-size: 14px;
+    color: #a7a7a7;
+    text-align: center;
+    vertical-align: middle;
+  }
 
-        @include lineEllipsis;
+  @include e(input) {
+    flex: 1;
+    height: 28px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 5px 0;
+    border: none;
+    line-height: 14px;
+    background: transparent;
+    font-size: 14px;
+    -webkit-appearance: none;
+    outline: none;
+    color: #333;
+    z-index: 1;
 
-    &::-webkit-search-cancel-button{
-         -webkit-appearance: none;
-     }
-    }
+    @include lineEllipsis;
 
-    @include e(search-icon) {
-        margin:0 8px 0 10px;
-        color: #c5c5c5;
-        vertical-align: middle;
-        font-size: 14px;
-        line-height: 14px;
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
     }
-    @include e(placeholder-txt) {
-        line-height: 28px;
-        color: #a7a7a7;
-        font-size: 14px;
-        vertical-align: middle;
-    }
-    @include e(clear) {
-        margin-right: 12px;
-        padding: 4px;
-        font-size: 14px;
-        color: #a7a7a7;
-    }
-    @include e(cancel) {
-        padding: 0 15px 0 10px;
-        height: 28px;
-        line-height: 28px;
-        font-size: 14px;
-        color: $-color-theme;
-    }
-    @include when(light) {
-        background: #f4f4f4;
+  }
 
-        .jm-search__block {
-            background: #fff;
-        }
+  @include e(search-icon) {
+    margin: 0 8px 0 10px;
+    color: #c5c5c5;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  @include e(placeholder-txt) {
+    line-height: 28px;
+    color: #a7a7a7;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  @include e(clear) {
+    margin-right: 12px;
+    padding: 4px;
+    font-size: 14px;
+    color: #a7a7a7;
+  }
+  @include e(cancel) {
+    padding: 0 15px 0 10px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    color: $-color-theme;
+  }
+  @include when(light) {
+    background: #f4f4f4;
+
+    .jm-search__block {
+      background: #fff;
     }
-    @include when(without-cancel) {
-        padding-right: 15px;
+    .jm-search__placeholder {
+        background: #fff;
     }
+  }
+  @include when(without-cancel) {
+    padding-right: 15px;
+  }
 }
