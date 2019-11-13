@@ -2,10 +2,10 @@ import VueComponent from '../common/component'
 
 VueComponent({
   externalClasses: [
-    'custom-icon-style',
-    'custom-label-style',
-    'custom-value-style',
-    'custom-title-style'
+    'custom-icon-class',
+    'custom-label-class',
+    'custom-value-class',
+    'custom-title-class'
   ],
   props: {
     title: String,
@@ -77,7 +77,7 @@ VueComponent({
         jd[(this.data.replace ? 'navigateTo' : 'redirectTo')]({ url })
       }
       if (this.data.clickable) {
-        this.triggerEvent('click')
+        this.$emit('click')
       }
     }
   }

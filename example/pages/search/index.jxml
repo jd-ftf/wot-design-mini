@@ -1,22 +1,28 @@
 <demo-block title="基本用法" transparent>
     <jm-search
+            value="{{value}}"
             placeholder="搜索"
             cancel-txt="取消"
+            placeholder-left
             bind:focus="focus"
             bind:blur="blur"
             bind:search="search"
             bind:clear="clear"
             bind:cancel="cancel"
-            bind:input="input"
+            bind:change="change"
     />
 </demo-block>
 
 <demo-block title="白色输入框" transparent>
-    <jm-search light/>
+    <jm-search  light/>
 </demo-block>
 
 <demo-block title="禁用且隐藏取消按钮" transparent>
-    <jm-search disabled hide-cancel/>
+    <jm-search placeholder-left disabled hide-cancel/>
+</demo-block>
+
+<demo-block title="自定义placeholder文案且居左" transparent>
+    <jm-search placeholder-left placeholder="请点击输入搜索内容"/>
 </demo-block>
 
 <demo-block title="自定义" transparent>

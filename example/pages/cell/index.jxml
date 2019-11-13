@@ -12,7 +12,7 @@
         <jm-cell
                 title="标题文字"
                 value="内容"
-                custom-icon-style="custom-icon-style"
+                custom-icon-class="custom-icon-class"
         >
             <jm-icon slot="icon" name="play"/>
         </jm-cell>
@@ -61,10 +61,10 @@
         </view>
         <jm-cell
                 is-link
-                custom-icon-style="custom-icon-style"
-                custom-title-style="custom-title-style"
-                custom-label-style="custom-label-style"
-                custom-value-style="custom-value-style"
+                custom-icon-class="custom-icon-class"
+                custom-title-class="custom-title-class"
+                custom-label-class="custom-label-class"
+                custom-value-class="custom-value-class"
         >
             <jm-icon slot="icon" name="play"></jm-icon>
             <view slot="title">

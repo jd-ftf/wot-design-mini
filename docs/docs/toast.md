@@ -20,7 +20,7 @@
 ```
 
 ```javascript
-import Toast from '../../dist/toast/toast.js'
+import Toast from '/jm-design/toast/toast.js'
 
 Page({
   showToast () {
@@ -53,6 +53,12 @@ Toast({
 })
 ```
 
+### 关闭提示
+
+```javascript
+Toast.close()
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -63,11 +69,11 @@ Toast({
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | msg        |	消息内容                             |	string   |	—           |	—       |
-| duration	  | 持续时间，单位 ms                     |	Number   |	—           |	2000 |
-| iconName   |	图标类型  |	string    |	'success', 'error', 'warning' |	—      |
-| customIcon  |	自定义图标，开启后可以通过 custom-icon-class 类名自定义图标 |	Boolean   |	—	            | false   |
-| position   |	提示信息框的位置                      |	string   |	'top', 'middle', 'bottom'  |	'default'  |
-| z-index   	| toast 层级          |	number   |	—            |	100     |
+| duration   | 持续时间，单位 ms，为0时表示不自动关闭     |	Number   |	—           |	2000 |
+| iconName   |	图标类型                             |	string    |	'success', 'error', 'warning' |	—      |
+| customIcon |	自定义图标，开启后可以通过 custom-icon-class 类名自定义图标 |	Boolean   |	—	            | false   |
+| position   |	提示信息框的位置                      |	string   |	'top', 'middle', 'bottom'  |	'middle'  |
+| zIndex  	 | toast 层级                           |	number   |	—            |	100     |
 
 ### Methods
 | 方法名称      | 说明       | 参数   |
