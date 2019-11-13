@@ -47,6 +47,26 @@ Page({
 
 ```
 
+### 修改文案
+
+通过设置`init-value`来修改输入框文案
+
+```html
+<jm-search init-value="{{initValue}}"/>
+
+Page({
+  data: {
+    initValue: ''
+  },
+  onReady () {
+    setTimeout(() => {
+      this.setData({ initValue: '初始文案' })
+    }, 1000)
+  }
+})
+
+```
+
 ### 浅色主题
 
 设置 `light` 属性，将组件背景色和输入框背景色反转。
@@ -96,6 +116,7 @@ Page({
 | hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |
 | disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
 | maxlength | 原生属性，设置最大长度 | string | - | - |
+| init-value | 输入框文案，单向数据绑定 | string | - | - |
 
 ### Events
 
