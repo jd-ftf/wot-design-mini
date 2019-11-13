@@ -59,6 +59,7 @@ VueComponent({
      */
     clearSearch () {
       this.setData({ str: '' })
+      this.$emit('change', '')
       this.$emit('clear')
     },
     /**
