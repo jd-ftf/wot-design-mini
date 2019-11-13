@@ -5,8 +5,8 @@ Page({
   blur () {
     console.log('失焦')
   },
-  search () {
-    console.log('搜索')
+  search (e) {
+    console.log('搜索', e)
   },
   clear () {
     console.log('重置')

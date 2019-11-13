@@ -19,30 +19,42 @@
 定义`value`属性，它接受`Number`或者`String`。
 
 ```html
-<jm-badge :value="12">
+<jm-badge value="12">
+  <jm-button size="small">评论</jm-button>
+</jm-badge>
+
+<jm-badge value="12px">
   <jm-button size="small">评论</jm-button>
 </jm-badge>
 ```
 
 ### 修改背景色
 
-设置 `type` 属性，也可以自定义背景色 `bg-color`。
+设置 `type` 属性，也可以自定义背景色 `bg-color`，也可以通过`custom-class`定义组件样式。
 
 ```html
-<jm-badge :value="3" bg-color="pink">
+<jm-badge custom-class="badge" value="3" bg-color="pink">
   <jm-button size="small">回复</jm-button>
 </jm-badge>
-<jm-badge :value="1" type="primary">
+<jm-badge custom-class="badge" value="1" type="primary">
   <jm-button size="small">评论</jm-button>
 </jm-badge>
-<jm-badge :value="2" type="warning">
+<jm-badge custom-class="badge" value="2" type="warning">
   <jm-button size="small">回复</jm-button>
 </jm-badge>
-<jm-badge :value="1" type="success">
+<jm-badge custom-class="badge" value="1" type="success">
   <jm-button size="small">评论</jm-button>
 </jm-badge>
-<jm-badge :value="2" type="info">
+<jm-badge custom-class="badge" value="2" type="info">
   <jm-button size="small">回复</jm-button>
+</jm-badge>
+
+<style>
+.badge {
+    margin: 0 30px 20px 0;
+    display: inline-block;
+}
+</style>
 ```
 
 ### 最大值
@@ -52,10 +64,10 @@
 由`max`属性定义，它接受一个`Number`，需要注意的是，只有当`value`为`Number`时，它才会生效。
 
 ```html
-<jm-badge :value="200" :max="99">
+<jm-badge value="200" max="99">
   <jm-button size="small">评论</jm-button>
 </jm-badge>
-<jm-badge :value="100" :max="10">
+<jm-badge value="100" max="10">
   <jm-button size="small">回复</jm-button>
 </jm-badge>
 ```
@@ -99,5 +111,11 @@
 | is-dot       | 小圆点           | boolean         |         —             |  false  |
 | hidden       | 隐藏 badge       | boolean         |         —             |  false  |
 | type         | 类型             | string          | primary / success / warning / danger / info |    —    |
-| bg-color    | 类型             | string          | 各种颜色的css写法 |    —    |
+| bg-color     | 类型             | string          | 各种颜色的css写法 |    —    |
 
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |

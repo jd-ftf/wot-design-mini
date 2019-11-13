@@ -2,7 +2,7 @@
     color: #0083ff;
 }
 
-.custom-icon-style {
+.custom-icon-class {
     position: relative;
     min-width: 18px;
     height: 46px;
@@ -11,18 +11,18 @@
     font-size: 18px;
 }
 
-.custom-label-style {
+.custom-label-class {
     margin-top: 3px;
     font-size: 12px;
     color: #a7a7a7;
 }
 
-.custom-value-style {
+.custom-value-class {
     display: inline-block;
     font-size: 14px;
     vertical-align: middle;
 }
-.custom-title-style{
+.custom-title-class{
 
 }
 
