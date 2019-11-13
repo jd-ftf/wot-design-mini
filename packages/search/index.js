@@ -23,7 +23,13 @@ VueComponent({
       value: false
     },
     maxlength: String,
-    autofocus: Boolean
+    autofocus: Boolean,
+    initValue: {
+      type: String,
+      observer (s) {
+        this.setData({ value: s })
+      }
+    }
   },
   data: {
     value: '',
@@ -36,14 +42,14 @@ VueComponent({
      */
     input ({ detail: { value } }) {
       this.setData({ value })
-      this.triggerEvent('input', value)
+      this.$emit('input', value)
     },
     /**
      * @description 点击清空icon的handle
      */
     clearSearch () {
       this.setData({ value: '' })
-      this.triggerEvent('clear')
+      this.$emit('clear')
     },
     /**
      * @description 点击搜索按钮时的handle
@@ -51,7 +57,7 @@ VueComponent({
      */
     search ({ detail: { value } }) {
       // 组件触发search事件
-      this.triggerEvent('search', value)
+      this.$emit('search', value)
     },
     /**
      * @description 输入框聚焦时的handle
@@ -61,7 +67,7 @@ VueComponent({
         this.setData({ isFocus: true })
       }
       // 组件触发focus事件
-      this.triggerEvent('focus')
+      this.$emit('focus')
     },
     /**
      * @description 输入框失焦的handle
@@ -69,14 +75,14 @@ VueComponent({
     searchBlur () {
       this.setData({ isFocus: false })
       // 组件触发blur事件
-      this.triggerEvent('blur', this.data.value)
+      this.$emit('blur', this.data.value)
     },
     /**
      * @description 点击取消搜索按钮的handle
      */
     handleCancel () {
       // 组件触发cancel事件
-      this.triggerEvent('cancel')
+      this.$emit('cancel')
     }
   }
 })
