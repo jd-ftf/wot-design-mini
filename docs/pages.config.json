@@ -126,11 +126,6 @@
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
               },
-              "loadmore": {
-                "name": "loadmore 加载更多",
-                "path": "/loadmore",
-                "demo": "/loadmore"
-              },
               "Loading": {
                 "name": "Loading 加载",
                 "path": "/loading",
@@ -164,6 +159,11 @@
                 "name": "Collapse 折叠面板",
                 "path": "/collapse",
                 "demo": "/collapse"
+              },
+              "Loadmore": {
+                "name": "Loadmore 加载更多",
+                "path": "/loadmore",
+                "demo": "/loadmore"
               },
               "NoticeBar": {
                 "name": "NoticeBar 通知栏",

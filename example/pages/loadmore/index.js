@@ -1,12 +1,12 @@
 Page({
   data: {
     state: 'loading',
-    num: 10,
-    max: 100
+    num: 0,
+    max: 60
   },
   onReachBottom () {
     const { num, max } = this.data
-    if (num === 50) {
+    if (num === 45) {
       this.setData({
         state: 'error'
       })
@@ -22,9 +22,12 @@ Page({
     const { num } = this.data
     setTimeout(() => {
       this.setData({
-        num: num + 10,
+        num: num + 15,
         state: 'loading'
       })
     }, 200)
+  },
+  onLoad () {
+    this.loadmore()
   }
 })
