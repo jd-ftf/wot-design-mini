@@ -49,6 +49,10 @@ VueComponent({
       }
 
       this.setData(data);
+    },
+
+    close() {
+      this.$emit('close');
     }
 
   },
