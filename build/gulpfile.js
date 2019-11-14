@@ -96,7 +96,7 @@ const createEsLintTask = function (srcPath, ext, base) {
   return function () {
     return src(srcPath, { base })
       .pipe(eslint())
-      .pipe(eslint.format(require('eslint-friendly-formatter')))
+      .pipe(eslint.format(require('eslint-formatter-friendly')))
   }
 }
 
@@ -115,10 +115,10 @@ const esLint = createEsLintTask([
 ], finalPath)
 
 const watchTask = function () {
-  return watch(`${packagesPath}/**`, parallel(esLint, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
+  return watch(`${packagesPath}/**`, parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy, esLint))
 }
 
-exports.dev = series(cleanTask(finalPath), parallel(watchTask, esLint, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
+exports.dev = series(cleanTask(finalPath), parallel(watchTask, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy, esLint))
 
 const build = series(cleanTask(finalPath), parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
 exports.build = build
@@ -167,8 +167,8 @@ const watchWx = function () {
   return watch(
     `${packagesPath}/**`,
     series(
-      parallel(esLint, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy),
-      parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxExampleCopy)
+      parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy),
+      parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxExampleCopy, esLint)
     )
   )
 }
@@ -181,7 +181,6 @@ exports.devwx = series(
   cleanTask(finalPath),
   cleanTask(wxExample),
   parallel(
-    esLint,
     sassToJxss,
     jsToJdJs,
     jxmlToJxml,
@@ -196,7 +195,8 @@ exports.devwx = series(
     wxExampleJsTask,
     wxExampleHtmlTask,
     wxExampleWxsTask,
-    wxExampleCopy
+    wxExampleCopy,
+    esLint
   ),
   parallel(
     watchWx,
