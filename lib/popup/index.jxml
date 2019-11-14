@@ -12,5 +12,5 @@
   bind:transitionend="onTransitionEnd"
 >
   <slot />
-  <jm-icon jd:if="{{ closable }}" class="jm-popup__close" name="add" />
+  <jm-icon jd:if="{{ closable }}" class="jm-popup__close" name="add" bind:tap="close" />
 </view>
