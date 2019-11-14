@@ -1,0 +1,10 @@
+<view class="container">
+  <view jd:for="{{num}}" jd:key="$this" class="list-item">
+    <image src="//beta-jmw.jd.com/lib/jm-design/static/img/dog.5f96d104.png" />
+    <view class="right">这是一条测试3</view>
+  </view>
+  <jm-loadmore
+    state="{{state}}"
+    bind:reload="loadmore"
+  />
+</view>

@@ -120,6 +120,11 @@
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
               },
+              "loadmore": {
+                "name": "loadmore 加载更多",
+                "path": "/loadmore",
+                "demo": "/loadmore"
+              },
               "Loading": {
                 "name": "Loading 加载",
                 "path": "/loading",

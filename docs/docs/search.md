@@ -23,7 +23,9 @@
   bind:cancel="cancel"
   bind:change="change"
 />
+```
 
+```javascript
 Page({
   focus () {
     console.log('聚焦')
@@ -44,7 +46,6 @@ Page({
     console.log('输入', e)
   }
 })
-
 ```
 
 ### 修改文案
@@ -53,7 +54,9 @@ Page({
 
 ```html
 <jm-search value="{{value}}"/>
+```
 
+```javascript
 Page({
   data: {
     value: ''
@@ -64,9 +67,7 @@ Page({
     }, 1000)
   }
 })
-
 ```
-
 ### 浅色主题
 
 设置 `light` 属性，将组件背景色和输入框背景色反转。

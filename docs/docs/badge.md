@@ -48,13 +48,13 @@
 <jm-badge custom-class="badge" value="2" type="info">
   <jm-button size="small">回复</jm-button>
 </jm-badge>
+```
 
-<style>
+```css
 .badge {
     margin: 0 30px 20px 0;
     display: inline-block;
 }
-</style>
 ```
 
 ### 最大值

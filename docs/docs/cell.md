@@ -38,8 +38,9 @@
     <jm-icon slot="icon" name="play"/>
   </jm-cell>
 </jm-cell-group>
+```
 
-<style>
+```css
 .custom-icon-class {
     position: relative;
     min-width: 18px;
@@ -48,9 +49,7 @@
     margin-right: 15px;
     font-size: 18px;
 }
-</style>
 ```
-
 ### 分组标题
 
 可以在 `cell-group` 上设置 `title` 和 `value` 属性。也可以使用 slot 插槽。
@@ -101,8 +100,9 @@
     <text>内容</text>
   </jm-cell>
 </jm-cell-group>
+```
 
-<style>
+```css
 .blueColor {
     color: #0083ff;
 }
@@ -133,7 +133,6 @@
     font-size: 10px;
     color: #faa21e;
 }
-</style>
 ```
 
 > 自定义内容如果超出了默认的46px高度，可能需要你自己通过绝对定位使其保持样式一致。
