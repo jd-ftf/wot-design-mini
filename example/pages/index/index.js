@@ -75,10 +75,13 @@ Page({
         name: '交互组件',
         open: false,
         pages: [
-          { 
+          {
             id: 'actionSheet',
             name: 'ActionSheet 上拉菜单'
-           }, {
+          }, {
+            id: 'infiniteLoad',
+            name: 'InfiniteLoad 无限加载'
+          }, {
             id: 'loading',
             name: 'Loading 加载指示器'
           }, {
@@ -100,7 +103,7 @@ Page({
           {
             id: 'collapse',
             name: 'Collapse 折叠面板'
-          }, { 
+          }, {
             id: 'noticeBar',
             name: 'NoticeBar 通知栏'
           }, {
@@ -116,7 +119,7 @@ Page({
   },
   kindToggle: function (e) {
     var id = e.currentTarget.id,
-      list = this.data.list;
+      list = this.data.list
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
         list[i].open = !list[i].open
@@ -126,6 +129,6 @@ Page({
     }
     this.setData({
       list: list
-    });
+    })
   }
-});
+})
