@@ -1,0 +1,8 @@
+<view class="jm-infinite-load custom-class" bindtap="reload">
+  <jm-icon
+    jd:if="{{state === 'loading'}}"
+    name="news"
+    size="20px"
+    class="jm-infinite-load__indicator"/>
+  <text class="jm-infinite-load__text">{{ showText }}</text>
+</view>
