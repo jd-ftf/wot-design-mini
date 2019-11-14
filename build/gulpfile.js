@@ -1,6 +1,6 @@
 const { src, dest, parallel, series } = require('gulp')
 const sass = require('gulp-sass')
-const eslint =require('gulp-eslint')
+const eslint = require('gulp-eslint')
 const rename = require('gulp-rename')
 const postcss = require('gulp-postcss')
 const cssnano = require('gulp-cssnano')
@@ -92,6 +92,14 @@ const createCopyTask = function (srcPath, toPath) {
   }
 }
 
+const createEsLintTask = function (srcPath, ext, base) {
+  return function () {
+    return src(srcPath, { base })
+      .pipe(eslint())
+      .pipe(eslint.format(require('eslint-formatter-friendly')))
+  }
+}
+
 const sassToJxss = createScssTask([scssDir], 'jxss')
 const jsToJdJs = createJsTask([`${packagesPath}/**/*.js`], finalPath)
 const jxmlToJxml = createHtmlTask([`${packagesPath}/**/*.jxml`], finalPath)
@@ -101,12 +109,16 @@ const packagesCopy = createCopyTask([
   `!${packagesPath}/**/*.js`,
   `!${packagesPath}/**/*.jxml`
 ], finalPath)
+const esLint = createEsLintTask([
+  `${packagesPath}/**/*.js`,
+  `${packagesPath}/**/*.json`
+], finalPath)
 
 const watchTask = function () {
-  return watch(`${packagesPath}/**`, parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
+  return watch(`${packagesPath}/**`, parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy, esLint))
 }
 
-exports.dev = series(cleanTask(finalPath), parallel(watchTask, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
+exports.dev = series(cleanTask(finalPath), parallel(watchTask, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy, esLint))
 
 const build = series(cleanTask(finalPath), parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
 exports.build = build
@@ -156,7 +168,7 @@ const watchWx = function () {
     `${packagesPath}/**`,
     series(
       parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy),
-      parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxExampleCopy)
+      parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxExampleCopy, esLint)
     )
   )
 }
@@ -183,7 +195,8 @@ exports.devwx = series(
     wxExampleJsTask,
     wxExampleHtmlTask,
     wxExampleWxsTask,
-    wxExampleCopy
+    wxExampleCopy,
+    esLint
   ),
   parallel(
     watchWx,
@@ -192,10 +205,3 @@ exports.devwx = series(
 )
 
 exports.buildwx = series(build, cleanTask(wxLib), parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxPackageCopy))
-
-exports.lint = function () {
-  return src([`${packagesPath}/**/*.js`,`${packagesPath}/**/*.json`])
-    .pipe(eslint())
-    .pipe(eslint.format(require("eslint-friendly-formatter")))
-    .pipe(eslint.failAfterError())
-}
