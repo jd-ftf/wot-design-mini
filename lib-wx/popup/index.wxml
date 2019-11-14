@@ -1,0 +1,16 @@
+<jm-modal
+  wx:if="{{ modal }}"
+  show="{{ show }}"
+  z-index="{{ zIndex }}"
+  duration="{{ duration }}"
+  bind:click="handleClickModal"
+/>
+<view
+  wx:if="{{ inited }}"
+  class="jm-popup jm-popup--{{ position }} custom-class {{ classes }}"
+  style="z-index: {{ zIndex }}; -webkit-transition-duration: {{ currentDuration }}ms; transition-duration: {{ currentDuration }}ms; {{ display ? '' : 'display: none;' }} {{ customStyle }}"
+  bind:transitionend="onTransitionEnd"
+>
+  <slot />
+  <jm-icon wx:if="{{ closable }}" class="jm-popup__close" name="add" />
+</view>

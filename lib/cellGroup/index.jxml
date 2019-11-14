@@ -1,0 +1,17 @@
+<view class="jm-cell-group custom-class">
+    <view jd:if="{{title || value || useSlot}}" class="jm-cell-group__title">
+        <!--左侧标题-->
+        <view class="jm-cell-group__left">
+            <text jd:if="{{title}}">{{ title }}</text>
+            <slot jd:else name="title"></slot>
+        </view>
+        <!--右侧标题-->
+        <view class="jm-cell-group__right">
+            <text jd:if="{{value}}">{{ value }}</text>
+            <slot jd:else name="value"></slot>
+        </view>
+    </view>
+    <view class="jm-cell-group__body">
+        <slot></slot>
+    </view>
+</view>

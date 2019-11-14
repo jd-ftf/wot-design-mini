@@ -1,0 +1,9 @@
+<view class="jm-loading custom-class" style="width: {{ size }}; height: {{ size }}; color: {{ color || '#c5c5c5' }}; {{ customStyle }}">
+  <view wx:if="{{ type === 'circle' }}" class="jm-loading__circle"></view>
+  <view wx:else class="jm-loading__spinner">
+    <view
+      wx:for="{{ 12 }}"
+      wx:key="{{ index }}"
+      class="jm-loading__spinner-dot"></view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<view class="jm-input-number custom-class {{ disabled ? 'is-disabled' : '' }} {{ withoutInput ? 'is-without-input' : '' }}">
+  <view class="jm-input-number__action {{ minDisabled ? 'is-disabled' : '' }}" bindtap="sub">
+    <view class="jm-input-number__sub"></view>
+  </view>
+  <view wx:if="{{!withoutInput}}" class="jm-input-number__inner">
+    <input
+      class="jm-input-number__input"
+      style="{{ inputWidth ? ('width: ' + inputWidth) : '' }}"
+      type="digit"
+      disabled="{{disabled}}"
+      value="{{value}}"
+      bindinput="handleInput"
+      bindfocus="handleFocus"
+      bindblur="handleBlur"
+    />
+    <view class="jm-input-number__input-border"></view>
+  </view>
+  <view class="jm-input-number__action {{ maxDisabled ? 'is-disabled' : '' }}" bindtap="add">
+    <view class="jm-input-number__add"></view>
+  </view>
+</view>

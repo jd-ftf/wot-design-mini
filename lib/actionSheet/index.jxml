@@ -1,0 +1,33 @@
+<jm-popup
+  custom-class="jm-action-sheet"
+  show="{{ show }}"
+  duration="{{ duration }}"
+  position="bottom"
+  close-on-click-modal="{{ closeOnClickModal }}"
+  bind:enter="handleOpen"
+  bind:close="close"
+  bind:after-enter="handleOpened"
+  bind:after-leave="handleClosed"
+  z-index="{{ zIndex }}"
+>
+  <view jd:if="{{ title }}" class="jm-action-sheet__header">
+    {{ title }}
+    <jm-icon custom-class="jm-action-sheet__close" name="add" bind:tap="close" />
+  </view>
+  <view>
+    <button
+      jd:for="{{ actions }}"
+      jd:key="{{ index }}"
+      class="jm-action-sheet__action {{ item.disabled ? 'jm-action-sheet__action--disabled' : '' }} {{ item.loading ? 'jm-action-sheet__action--loading' : '' }}"
+      style="color: {{ item.color }}"
+      data-index="{{ index }}"
+      bind:tap="select"
+    >
+      <jm-loading jd:if="{{ item.loading }}" size="20px" color="{{ item.color }}" />
+      <view jd:else class="jm-action-sheet__name">{{ item.name }}</view>
+      <view jd:if="{{ !item.loading && item.subname }}" class="jm-action-sheet__subname">{{ item.subname }}</view>
+    </button>
+  </view>
+  <slot />
+  <button jd:if="{{ cancelText }}" class="jm-action-sheet__cancel" bind:tap="handleCancel">{{ cancelText }}</button>
+</jm-popup>

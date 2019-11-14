@@ -18,9 +18,6 @@ Page({
       })
     }
   },
-  reload () {
-    this.loadmore()
-  },
   loadmore () {
     const { num } = this.data
     setTimeout(() => {
