@@ -1,22 +1,19 @@
-<demo-block title="基本用法">
-  <jm-infinite-load custom-class="infiniteLoad" state="loading"/>
+<view class="container">
+  <demo-block title="基本用法" transparent>
+    <jm-infinite-load custom-class="infiniteLoad" state="loading"/>
 
-  <jm-infinite-load custom-class="infiniteLoad" state="finished"/>
+    <jm-infinite-load custom-class="infiniteLoad" state="finished"/>
 
-  <jm-infinite-load custom-class="infiniteLoad" state="error"/>
-</demo-block>
-<demo-block title="自定义文案">
-  <jm-infinite-load custom-class="infiniteLoad" state="loading" loading-text="自定义加载文案" />
+    <jm-infinite-load
+      custom-class="infiniteLoad"
+      state="error"
+      bind:loadmore="loadmore"
+    />
+  </demo-block>
+  <demo-block title="自定义文案" transparent>
+    <jm-infinite-load custom-class="infiniteLoad" state="loading" loading-text="自定义加载文案"/>
 
-  <jm-infinite-load custom-class="infiniteLoad" state="finished" finished-text="自定义完成文案"/>
+    <jm-infinite-load custom-class="infiniteLoad" state="finished" finished-text="自定义完成文案"/>
+  </demo-block>
 
-  <jm-infinite-load custom-class="infiniteLoad" state="error" error-text="自定义错误文案"/>
-</demo-block>
-
-<demo-block title="加载错误点击继续加载">
-  <jm-infinite-load
-    custom-class="infiniteLoad"
-    state="error"
-    bind:loadmore="loadmore"
-  />
-</demo-block>
+</view>

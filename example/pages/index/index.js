@@ -80,7 +80,7 @@ Page({
             name: 'ActionSheet 上拉菜单'
           }, {
             id: 'infiniteLoad',
-            name: 'InfiniteLoad 无限加载'
+            name: 'InfiniteLoad 加载组件'
           }, {
             id: 'loading',
             name: 'Loading 加载指示器'

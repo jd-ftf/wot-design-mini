@@ -1,4 +1,4 @@
-## InfiniteLoad 无限加载
+## InfiniteLoad 加载组件
 
 ### 引入
 
