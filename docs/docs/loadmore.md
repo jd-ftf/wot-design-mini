@@ -16,13 +16,13 @@
 
 
 ```html
-  <jm-loadmore custom-class="loadmore" state="loading"/>
+<jm-loadmore custom-class="loadmore" state="loading"/>
 
-  <jm-loadmore custom-class="loadmore" state="finished"/>
+<jm-loadmore custom-class="loadmore" state="finished"/>
 
-  <jm-loadmore custom-class="loadmore" state="error"/>
-
+<jm-loadmore custom-class="loadmore" state="error"/>
 ```
+
 ```css
 .loadmore{
   background-color: #f4f4f4;
@@ -34,26 +34,24 @@
 
 通过设置`loading-text`、`finished-text`、`error-text`配合`state`展示不同状态时的文案
 
-
 ```html
-  <jm-loadmore custom-class="loadmore" state="loading" loading-text="自定义加载文案" />
+<jm-loadmore custom-class="loadmore" state="loading" loading-text="自定义加载文案" />
 
-  <jm-loadmore custom-class="loadmore" state="finished" finished-text="自定义完成文案"/>
+<jm-loadmore custom-class="loadmore" state="finished" finished-text="自定义完成文案"/>
 
-  <jm-loadmore custom-class="loadmore" state="error" error-text="自定义错误文案"/>
+<jm-loadmore custom-class="loadmore" state="error" error-text="自定义错误文案"/>
 ```
 
 ### 点击继续加载
 
 当state为error时，点击文案，组件会触发`loadmore`事件
 
-
 ```html
-  <jm-loadmore
-    custom-class="loadmore"
-    state="error"
-    bind:reload="loadmore"
-  />
+<jm-loadmore
+  custom-class="loadmore"
+  state="error"
+  bind:reload="loadmore"
+/>
 ```
 
 ### 应用实现
@@ -63,12 +61,12 @@
 ```html
 <view class="container">
   <view jd:for="{{num}}" jd:key="$this" class="list-item">
-    <cover-image src="//beta-jmw.jd.com/lib/jm-design/static/img/dog.5f96d104.png" />
+    <image src="//img10.360buyimg.com/jmadvertisement/jfs/t1/70325/36/14954/36690/5dcd3e3bEee5006e0/aed1ccf6d5ffc764.png" />
     <view class="right">这是一条测试3</view>
   </view>
   <jm-loadmore
     state="{{state}}"
-    bind:reload="reload"
+    bind:reload="loadmore"
   />
 </view>
 ```
@@ -93,9 +91,6 @@ Page({
         state: 'finished'
       })
     }
-  },
-  reload () {
-    this.loadmore()
   },
   loadmore () {
     const { num } = this.data
@@ -157,7 +152,7 @@ cover-image{
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| reload        | state为error加载错误时，触发reload事件  | -       |
+| reload        | state为error加载错误时，点击文案触发reload事件  | -       |
 
 ### 外部样式类
 

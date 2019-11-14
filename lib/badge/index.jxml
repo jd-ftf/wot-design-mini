@@ -1,0 +1,9 @@
+<div class="jm-badge custom-class">
+    <slot></slot>
+    <view
+            jd:if="{{!hidden && (content || content === 0 || isDot)}}"
+            class="jm-badge__content is-fixed {{type ? 'jm-badge__content--' + type : ''}} {{isDot?'is-dot':'' }}"
+            style="background-color: {{bgColor}}">
+        {{content}}
+    </view>
+</div>
