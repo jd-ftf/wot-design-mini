@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "InfiniteLoad 加载组件",
-  "usingComponents": {
-    "demo-block": "../../components/demo-block/index",
-    "jm-infinite-load": "../../dist/infiniteLoad/index"
-  }
-}

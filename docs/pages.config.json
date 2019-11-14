@@ -120,10 +120,10 @@
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
               },
-              "InfiniteLoad": {
-                "name": "InfiniteLoad 上拉菜单",
-                "path": "/infiniteLoad",
-                "demo": "/infiniteLoad"
+              "loadmore": {
+                "name": "loadmore 加载更多",
+                "path": "/loadmore",
+                "demo": "/loadmore"
               },
               "Loading": {
                 "name": "Loading 加载",

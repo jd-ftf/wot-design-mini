@@ -1,11 +1,11 @@
-## InfiniteLoad 加载组件
+## loadmore 加载更多
 
 ### 引入
 
 ```json
 {
   "usingComponents": {
-    "jm-infinite-load": "../../dist/infiniteLoad/index"
+    "jm-loadmore": "../../dist/loadmore/index"
   }
 }
 ```
@@ -16,14 +16,14 @@
 
 
 ```html
-  <jm-infinite-load custom-class="infiniteLoad" state="loading"/>
+  <jm-loadmore custom-class="loadmore" state="loading"/>
 
-  <jm-infinite-load custom-class="infiniteLoad" state="finished"/>
+  <jm-loadmore custom-class="loadmore" state="finished"/>
 
-  <jm-infinite-load custom-class="infiniteLoad" state="error"/>
+  <jm-loadmore custom-class="loadmore" state="error"/>
 
 <style>
-.infiniteLoad{
+.loadmore{
   background-color: #f4f4f4;
   margin: 20px 0;
 }
@@ -36,11 +36,11 @@
 
 
 ```html
-  <jm-infinite-load custom-class="infiniteLoad" state="loading" loading-text="自定义加载文案" />
+  <jm-loadmore custom-class="loadmore" state="loading" loading-text="自定义加载文案" />
 
-  <jm-infinite-load custom-class="infiniteLoad" state="finished" finished-text="自定义完成文案"/>
+  <jm-loadmore custom-class="loadmore" state="finished" finished-text="自定义完成文案"/>
 
-  <jm-infinite-load custom-class="infiniteLoad" state="error" error-text="自定义错误文案"/>
+  <jm-loadmore custom-class="loadmore" state="error" error-text="自定义错误文案"/>
 ```
 
 ### 点击继续加载
@@ -49,8 +49,8 @@
 
 
 ```html
-  <jm-infinite-load
-    custom-class="infiniteLoad"
+  <jm-loadmore
+    custom-class="loadmore"
     state="error"
     bind:loadmore="loadmore"
   />
@@ -68,7 +68,7 @@
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| loadmore        | 加载事件                    | -       |
+| reload        | 加载事件                    | -       |
 
 ### 外部样式类
 

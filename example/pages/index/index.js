@@ -79,8 +79,8 @@ Page({
             id: 'actionSheet',
             name: 'ActionSheet 上拉菜单'
           }, {
-            id: 'infiniteLoad',
-            name: 'InfiniteLoad 加载组件'
+            id: 'loadmore',
+            name: 'loadmore 加载更多'
           }, {
             id: 'loading',
             name: 'Loading 加载指示器'

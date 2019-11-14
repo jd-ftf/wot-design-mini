@@ -16,7 +16,7 @@
     "pages/popup/index",
     "pages/cell/index",
     "pages/actionSheet/index",
-    "pages/infiniteLoad/index"
+    "pages/loadmore/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

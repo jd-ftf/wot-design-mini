@@ -1,7 +1,0 @@
-.infiniteLoad{
-  margin: 20px 0;
-  background-color: #f4f4f4;
-}
-Page{
-  background-color: #fff;
-}

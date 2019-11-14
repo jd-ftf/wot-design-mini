@@ -36,7 +36,7 @@ VueComponent({
       this.setData({
         state: 'loading'
       })
-      this.$emit('loadmore')
+      this.$emit('reload')
     }
   }
 })
