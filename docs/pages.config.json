@@ -16,6 +16,12 @@
           "name": "快速上手",
           "path": "/quickUse",
           "demo": "/"
+        },
+        "Changelog": {
+          "name": "更新日志",
+          "type": "pages",
+          "path": "/changelog",
+          "demo": "/"
         }
       }, {
         "name": "组件",
