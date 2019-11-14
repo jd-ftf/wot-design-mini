@@ -61,8 +61,8 @@
 ```html
 <view class="container">
   <view jd:for="{{num}}" jd:key="$this" class="list-item">
-    <image src="//img10.360buyimg.com/jmadvertisement/jfs/t1/70325/36/14954/36690/5dcd3e3bEee5006e0/aed1ccf6d5ffc764.png" />
-    <view class="right">这是一条测试3</view>
+    <image src="https://img10.360buyimg.com/jmadvertisement/jfs/t1/70325/36/14954/36690/5dcd3e3bEee5006e0/aed1ccf6d5ffc764.png" />
+    <view class="right">这是一条测试{{index + 1}}</view>
   </view>
   <jm-loadmore
     state="{{state}}"
@@ -75,12 +75,12 @@
 Page({
   data: {
     state: 'loading',
-    num: 10,
-    max: 100
+    num: 0,
+    max: 60
   },
   onReachBottom () {
     const { num, max } = this.data
-    if (num === 50) {
+    if (num === 45) {
       this.setData({
         state: 'error'
       })
@@ -100,6 +100,9 @@ Page({
         state: 'loading'
       })
     }, 200)
+  },
+  onLoad () {
+    this.loadmore()
   }
 })
 ```
@@ -107,7 +110,6 @@ Page({
 ```css
 .list-item {
   position: relative;
-  width: 100vw;
   display: flex;
   padding: 10px 15px;
   background: #fff;
@@ -125,7 +127,7 @@ Page({
   background: #eee;
   transform: scaleY(.5);
 }
-cover-image{
+image{
   display: block;
   width: 120px;
   height: 78px;
@@ -135,9 +137,6 @@ cover-image{
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-}
-.container {
-  overflow-x: hidden;
 }
 ```
 ### Attributes
