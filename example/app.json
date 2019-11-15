@@ -16,7 +16,8 @@
     "pages/popup/index",
     "pages/cell/index",
     "pages/actionSheet/index",
-    "pages/loadmore/index"
+    "pages/loadmore/index",
+    "pages/rate/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

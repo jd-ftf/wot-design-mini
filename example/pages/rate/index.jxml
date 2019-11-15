@@ -1,0 +1,42 @@
+<demo-block title="基本用法">
+  <jm-rate value="{{5}}"/>
+</demo-block>
+
+<demo-block title="只读状态 readonly">
+  <jm-rate value="{{3}}" readonly/>
+</demo-block>
+
+<demo-block title="禁用状态 disabled、设置禁用颜色">
+  <view>
+    <jm-rate value="{{2}}" disabled/>
+  </view>
+  <view>
+    <jm-rate value="{{2}}" disabled disabled-color="rgb(197, 197, 197,0.5)"/>
+  </view>
+</demo-block>
+
+<demo-block title="修改选中颜色 active-color，支持平分和四舍五入">
+  <view>
+    <jm-rate value="{{3.5}}" active-color="#FFAE16"/>
+  </view>
+  <view>
+    <jm-rate value="{{4}}" active-color="yellow"/>
+  </view>
+</demo-block>
+
+<demo-block title="修改icon和选中颜色、active-icon、active-color">
+  <jm-rate
+    value="{{1}}"
+    icon="good"
+    active-icon="good"
+    active-color="#0083ff"
+  />
+</demo-block>
+
+<demo-block title="监听change，修改数量">
+  <jm-rate value="{{value}}" bind:change="changeValue"/>
+</demo-block>
+
+<demo-block title="修改size、space">
+  <jm-rate value="{{5}}" space="10px" size="30px"/>
+</demo-block>

@@ -1,7 +1,5 @@
 ## Rate 评分
 
-<p style="color: #ff0000;">！！！该组件尚未开发，不可使用</p>
-
 ### 引入
 
 ```json
@@ -14,20 +12,10 @@
 
 ### 基本用法
 
-`v-model` 为绑定值，设置分数。
+设置`value`分数，设置`num`总分数。
 
 ```html
-<jm-rate v-model="rate" />
-
-<script>
-export default {
-  data () {
-    return {
-      rate: 5
-    }
-  }
-}
-</script>
+<jm-rate value="{{5}}" num="{{6}}" />
 ```
 
 ### 只读
@@ -35,15 +23,15 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<jm-rate v-model="rate" readonly />
+<jm-rate value="{{3}}" readonly />
 ```
 
 ### 禁用
 
-设置 `disabled` 属性。
+设置 `disabled` 属性和`disabled-color`
 
 ```html
-<jm-rate v-model="rate" disabled />
+<jm-rate value="{{2}}" disabled />
 ```
 
 ### 修改颜色
@@ -51,7 +39,8 @@ export default {
 可以通过 `color` 属性修改未选中的颜色，`active-color` 修改选中的颜色。
 
 ```html
-<jm-rate v-model="rate" active-color="#FFAE16" />
+<jm-rate value="{{3}}" active-color="#FFAE16"/>
+<jm-rate value="{{2}}" disabled disabled-color="rgb(197, 197, 197,0.5)"/>
 ```
 
 ### 修改icon
@@ -59,13 +48,40 @@ export default {
 可以通过 `icon` 属性修改未选中的图标，`active-icon` 修改选中的图标。
 
 ```html
-<jm-rate v-model="rate" icon="jm-icon-good" active-icon="jm-icon-good" active-color="#0083ff" />
+<jm-rate value="{{3}}" icon="jm-icon-good" active-icon="jm-icon-good"/>
 ```
+
+### 修改大小、间隔
+
+可以通过 `size` 属性修改图标的大小，`space` 修改图标之间的间隔。
+
+```html
+<jm-rate value="{{3}}" size="30px" space="10px"/>
+```
+
+### 监听change事件
+
+可以通过监听 `change` 实现点击修改分值。
+
+```html
+  <jm-rate value="{{value}}" bind:change="changeValue"/>
+```
+```javascript
+Page({
+  data: {
+    value: 1
+  },
+  changeValue ({ detail }) {
+    this.setData({ value: detail })
+  }
+})
+```
+
 
 ### Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value / v-model      |	当前分数                |	number    |	—           |	—       |
+| value     |	当前分数                |	number    |	—           |	—       |
 | num	    | 评分最大值                      |	number    |	-         |	5 |
 | readonly      | 是否只读                  | boolean | - | false |
 | size   | 图标大小                  | string | - | '20px' |
@@ -76,3 +92,15 @@ export default {
 | active-icon    | 选中的图标类名                  | string | - | 'jm-icon-star-fill' |
 | disabled           | 是否禁用                  | boolean | - | false |
 | disabled-color    | 禁用的图标颜色                  | string | - | '#c5c5c5' |
+
+### Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| change       | 点击icon，修改分值事件              | Event，包含被点击icon的index  |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |
