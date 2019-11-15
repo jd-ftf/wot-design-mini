@@ -79,9 +79,6 @@ Page({
             id: 'actionSheet',
             name: 'ActionSheet 上拉菜单'
           }, {
-            id: 'loadmore',
-            name: 'loadmore 加载更多'
-          }, {
             id: 'loading',
             name: 'Loading 加载指示器'
           }, {
@@ -103,6 +100,9 @@ Page({
           {
             id: 'collapse',
             name: 'Collapse 折叠面板'
+          }, {
+            id: 'loadmore',
+            name: 'Loadmore 加载更多'
           }, {
             id: 'noticeBar',
             name: 'NoticeBar 通知栏'

@@ -1,6 +1,5 @@
 .list-item {
   position: relative;
-  width: 100vw;
   display: flex;
   padding: 10px 15px;
   background: #fff;
@@ -18,7 +17,7 @@
   background: #eee;
   transform: scaleY(.5);
 }
-cover-image{
+image{
   display: block;
   width: 120px;
   height: 78px;
@@ -29,6 +28,6 @@ cover-image{
   -ms-flex: 1;
   flex: 1;
 }
-.container {
+/* .container {
   overflow-x: hidden;
-}
+} */
