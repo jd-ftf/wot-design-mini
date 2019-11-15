@@ -1,6 +1,12 @@
 import MessageBox from '../../dist/messageBox/messageBox'
 
 Page({
+  data: {
+    value: 1
+  },
+  changeValue ({ detail }) {
+    this.setData({ value: detail })
+  },
   alert () {
     MessageBox.alert('提示文案')
   },
@@ -30,6 +36,7 @@ Page({
   },
   withSlot () {
     MessageBox({
+      title: '评分',
       selector: '#jm-message-box-slot'
     })
   }

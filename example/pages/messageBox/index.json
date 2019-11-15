@@ -3,6 +3,7 @@
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
     "jm-message-box": "../../dist/messageBox/index",
-    "jm-button": "../../dist/button/index"
+    "jm-button": "../../dist/button/index",
+    "jm-rate": "../../dist/rate/index"
   }
 }

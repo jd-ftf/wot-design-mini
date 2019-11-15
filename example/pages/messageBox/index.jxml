@@ -1,8 +1,10 @@
 <jm-message-box id="jm-message-box"></jm-message-box>
 <jm-message-box id="jm-message-box-slot" use-slot>
-  <view>
-    我是slot
-  </view>
+  <jm-rate
+    custom-class="custom-rate-class"
+    value="{{value}}"
+    bind:change="changeValue"
+  />
 </jm-message-box>
 <demo-block title="alert类型的弹框">
   <jm-button type="primary" bind:click="alert">alert</jm-button>
@@ -21,9 +23,9 @@
 </demo-block>
 
 <demo-block title="当文案过长时，弹框的高度不再增加，而是将文案内容设置成滚动">
-  <jm-button type="primary" bind:click="alertWithLongChar">custom</jm-button>
+  <jm-button type="primary" bind:click="alertWithLongChar">alert</jm-button>
 </demo-block>
 
 <demo-block title="通过slot插入其他组件内容">
-  <jm-button type="primary" bind:click="withSlot">slot</jm-button>
+  <jm-button type="primary" bind:click="withSlot">custom</jm-button>
 </demo-block>

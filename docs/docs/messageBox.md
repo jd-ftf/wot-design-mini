@@ -116,22 +116,37 @@ Page({
 
 ```html
 <jm-message-box id="jm-message-box-slot" use-slot>
-  <view>
-    我是slot
-  </view>
+  <jm-rate
+    custom-class="custom-rate-class"
+    value="{{value}}"
+    bind:change="changeValue"
+  />
 </jm-message-box>
-<jm-button type="primary" bind:click="withSlot">slot</jm-button>
 ```
 ```javascript
 import MessageBox from '/jm-design/messageBox/messageBox'
 
 Page({
+  data: {
+    value: 1
+  },
+  changeValue ({ detail }) {
+    this.setData({ value: detail })
+  },
   withSlot () {
     MessageBox({
+      title: '评分',
       selector: '#jm-message-box-slot'
     })
   }
 })
+```
+
+```css
+.custom-rate-class{
+  display: block;
+  height: 1.4rem;
+}
 ```
 
 ---
