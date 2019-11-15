@@ -28,6 +28,3 @@ image{
   -ms-flex: 1;
   flex: 1;
 }
-/* .container {
-  overflow-x: hidden;
-} */
