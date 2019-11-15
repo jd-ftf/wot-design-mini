@@ -145,7 +145,7 @@ Page({
 ```css
 .custom-rate-class{
   display: block;
-  height: 1.4rem;
+  height: 22px;
 }
 ```
 
