@@ -1,6 +1,6 @@
 module.exports = {
-  'packages/**/*': [
-    'cross-env EFF_ABSOLUTE_PATHS=true eslint --fix --format friendly --ext .js,.json packages',
+  'packages/**/*.(js|json)': [
+    'cross-env EFF_ABSOLUTE_PATHS=true eslint --fix --format friendly',
     'git add'
   ]
 }
