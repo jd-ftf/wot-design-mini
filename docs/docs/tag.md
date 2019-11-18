@@ -1,7 +1,5 @@
 ## Tag 标签
 
-<p style="color: #ff0000;">！！！该组件尚未开发，不可使用</p>
-
 ### 引入
 
 ```json
@@ -17,13 +15,17 @@
 设置 `type` 修改标签类型。
 
 ```html
-<jm-tag>标签</jm-tag>
-<jm-tag type="primary">标签</jm-tag>
-<jm-tag type="danger">标签</jm-tag>
-<jm-tag type="warning">标签</jm-tag>
-<jm-tag type="success">标签</jm-tag>
+<jm-tag custom-class="space">标签</jm-tag>
+<jm-tag custom-class="space" type="primary">标签</jm-tag>
+<jm-tag custom-class="space" type="danger">标签</jm-tag>
+<jm-tag custom-class="space" type="warning">标签</jm-tag>
+<jm-tag custom-class="space" type="success">标签</jm-tag>
 ```
-
+```css
+.space{
+  margin: 0 10px;
+}
+```
 ### 幽灵标签
 
 设置 `plain` 属性。
@@ -47,38 +49,71 @@
 设置 `color` 修改文字颜色，设置 `bg-color` 修改背景色和边框颜色。
 
 ```html
-<jm-tag color="#0083ff" bg-color="#d0e8ff">标签</jm-tag>
+  <jm-tag color="#0083ff" bg-color="#d0e8ff">标签</jm-tag>
+  <jm-tag color="#FAA21E" bg-color="#FAA21E" plain>标签</jm-tag>
 ```
 
 ### 设置图标
 
-设置 `icon` 左侧图标，也可以使用 'icon' 的 slot 插槽。
+设置 `icon` 左侧图标，也可以使用 'icon' 的 slot 插槽,此时要开启`use-icon-slot`。
 
 ```html
-<jm-tag icon="jm-icon-tickets">标签</jm-tag>
+<jm-tag custom-class="space" icon="tickets">标签</jm-tag>
+<jm-tag custom-class="space" use-icon-slot>
+  <text>插槽</text>
+  <jm-icon slot="icon" name="tickets"/>
+</jm-tag>
 ```
 
 ### 可关闭
 
 设置 `closable` 属性，允许标签关闭，关闭时会触发 `close` 事件。
-
 ```html
-<jm-tag v-if="isShow" closable @close="handleClose">标签</jm-tag>
+<jm-tag closable type="primary">标签</jm-tag>
+```
 
-<script>
-export default {
-  data () {
-    return {
-      isShow: true
-    }
+### 事件
+```html
+<jm-tag
+  jd:for="{{tags}}"
+  jd:key="$this"
+  jd:for-item="tag"
+  plain
+  closable
+  type="primary"
+  size="{{tag.size}}"
+  data-index="{{index}}"
+  bind:click="handleClick"
+  bind:close="handleClose"
+>
+  {{tag.value}}
+</jm-tag>
+```
+```javascript
+Page({
+  data: {
+    tags: [
+      {
+        plain: true,
+        closable: true,
+        type: 'primary',
+        size: 'small',
+        value: '标签一'
+      }
+    ]
   },
-  methods: {
-    handleClose () {
-      this.isShow = false
-    }
+  handleClick ({ currentTarget: { dataset: { index } } }) {
+    this.data.tags.splice(index, 1)
+    console.log('click:index' + index)
+  },
+  handleClose ({ currentTarget: { dataset: { index } } }) {
+    this.data.tags.splice(index, 1)
+    this.setData({
+      tags: this.data.tags
+    })
+    console.log('close:index' + index)
   }
-}
-</script>
+})
 ```
 
 ### Attributes
@@ -93,16 +128,25 @@ export default {
 | bg-color | 背景色和边框色 | String | - | - |
 | closable | 可关闭 | Boolean | - | false |
 | disable-transition | 禁用动画 | Boolean | - | false |
+| use-icon-slot | 开启图标插槽 | Boolean | - | false |
+
+
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| click | 标签点击时触发 | - |
-| clsoe | 点击关闭按钮时触发 | - |
+| click | 标签点击时触发 | Event |
+| close | 点击关闭按钮时触发 | Event |
 
 ### Slot
 
 | name      | 说明       |
 |------------- |----------- |
 | icon | 图标 |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |
