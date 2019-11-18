@@ -3,11 +3,11 @@
   style="{{(!plain && bgColor)?'background :'+bgColor+';':''}}{{bgColor?'border-color:'+bgColor:''}}"
   bindtap="handleClick"
 >
-  <view jd:if="{{useIconSlot}}" class="jm-tag__icon">
+  <view wx:if="{{useIconSlot}}" class="jm-tag__icon">
     <slot name="icon"/>
   </view>
   <jm-icon
-    jd:elif="{{icon}}"
+    wx:elif="{{icon}}"
     name="{{icon}}"
     custom-class="jm-tag__icon"
   />
@@ -15,7 +15,7 @@
     <slot/>
   </view>
   <jm-icon
-    jd:if="{{closable}}"
+    wx:if="{{closable}}"
     class="jm-tag__close"
     name="close-outline"
     catchtap="handleClose"/>

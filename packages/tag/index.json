@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-icon": "../icon/index",
-    "jm-transition": "../transition/index"
+    "jm-icon": "../icon/index"
   }
 }

@@ -25,14 +25,12 @@ Page({
     ]
   },
   handleClick ({ currentTarget: { dataset: { index } } }) {
-    this.data.tags.splice(index, 1)
     console.log('click:index' + index)
   },
-  handleClose ({ currentTarget: { dataset: { index } } }) {
-    this.data.tags.splice(index, 1)
+  handleClose ({ currentTarget: { dataset: { index: order } } }) {
     this.setData({
-      tags: this.data.tags
+      tags: this.data.tags.filter((value, index) => index !== order)
     })
-    console.log('close:index' + index)
+    console.log('close:index' + order)
   }
 })

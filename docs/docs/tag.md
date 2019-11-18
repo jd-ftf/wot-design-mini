@@ -103,15 +103,13 @@ Page({
     ]
   },
   handleClick ({ currentTarget: { dataset: { index } } }) {
-    this.data.tags.splice(index, 1)
     console.log('click:index' + index)
   },
-  handleClose ({ currentTarget: { dataset: { index } } }) {
-    this.data.tags.splice(index, 1)
+  handleClose ({ currentTarget: { dataset: { index: order } } }) {
     this.setData({
-      tags: this.data.tags
+      tags: this.data.tags.filter((value, index) => index !== order)
     })
-    console.log('close:index' + index)
+    console.log('close:index' + order)
   }
 })
 ```
@@ -127,7 +125,6 @@ Page({
 | color | 文字颜色 | String | - | - |
 | bg-color | 背景色和边框色 | String | - | - |
 | closable | 可关闭 | Boolean | - | false |
-| disable-transition | 禁用动画 | Boolean | - | false |
 | use-icon-slot | 开启图标插槽 | Boolean | - | false |
 
 
