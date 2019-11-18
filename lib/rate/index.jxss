@@ -1,0 +1,1 @@
+.jm-rate{display:inline-block;vertical-align:middle}.jm-rate__item{position:relative;display:inline-block}.jm-rate__item-star{display:inline-block;vertical-align:top}.jm-rate__item-star--active{position:absolute;left:0;top:0;overflow:hidden}
