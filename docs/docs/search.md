@@ -22,6 +22,7 @@
   bind:clear="clear"
   bind:cancel="cancel"
   bind:change="change"
+  maxlength="10"
 />
 ```
 
@@ -117,7 +118,7 @@ Page({
 | light           | 搜索框亮色（白色）                | boolean   | -          | false   |
 | hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |
 | disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
-| maxlength | 原生属性，设置最大长度 | string | - | - |
+| maxlength | 原生属性，设置最大长度。-1表示无限制 | string/number | - | -1 |
 | value | 输入框文案，单向数据绑定 | string | - | - |
 
 ### Events

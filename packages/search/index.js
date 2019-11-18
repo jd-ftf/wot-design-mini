@@ -21,7 +21,10 @@ VueComponent({
       type: Boolean,
       value: false
     },
-    maxlength: String,
+    maxlength: {
+      type: Number,
+      value: -1
+    },
     autofocus: Boolean,
     value: {
       type: String,
