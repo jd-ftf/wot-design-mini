@@ -1,0 +1,22 @@
+<view
+  class="jm-tag {{tagClass}} custom-class"
+  style="{{(!plain && bgColor)?'background :'+bgColor+';':''}}{{bgColor?'border-color:'+bgColor:''}}"
+  bindtap="handleClick"
+>
+  <view jd:if="{{useIconSlot}}" class="jm-tag__icon">
+    <slot name="icon"/>
+  </view>
+  <jm-icon
+    jd:elif="{{icon}}"
+    name="{{icon}}"
+    custom-class="jm-tag__icon"
+  />
+  <view class="jm-tag__text" style="{{color?'color:'+color:''}}">
+    <slot/>
+  </view>
+  <jm-icon
+    jd:if="{{closable}}"
+    class="jm-tag__close"
+    name="close-outline"
+    catchtap="handleClose"/>
+</view>
