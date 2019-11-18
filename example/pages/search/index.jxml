@@ -10,6 +10,7 @@
             bind:clear="clear"
             bind:cancel="cancel"
             bind:change="change"
+            maxlength="10"
     />
 </demo-block>
 
