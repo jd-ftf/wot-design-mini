@@ -26,7 +26,7 @@ VueComponent({
 
       observer(color) {
         const type = getType(color);
-        const canUse = ['string', 'array', 'function']; // 类型判断
+        const canUse = ['string', 'array']; // 类型判断
 
         if (canUse.indexOf(type) === -1) {
           throw Error(`The type of color in props must be one of ${canUse.join()}`);
@@ -65,7 +65,6 @@ VueComponent({
       showColor
     }) {
       if (this.timer) return;
-      setInterval(() => {}, 2000);
       this.timer = setInterval(() => {
         if (this.data.showPercent === showPercent) {
           clearInterval(this.timer);
