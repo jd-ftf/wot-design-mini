@@ -11,6 +11,6 @@
   style="z-index: {{ zIndex }}; -webkit-transition-duration: {{ currentDuration }}ms; transition-duration: {{ currentDuration }}ms; {{ display ? '' : 'display: none;' }} {{ customStyle }}"
   bind:transitionend="onTransitionEnd"
 >
-  <slot />
-  <jm-icon jd:if="{{ closable }}" class="jm-popup__close" name="add" bind:tap="close" />
+  <slot/>
+  <jm-icon jd:if="{{ closable }}" class="jm-popup__close" name="add" bind:tap="close"/>
 </view>
