@@ -18,7 +18,8 @@
     "pages/actionSheet/index",
     "pages/loadmore/index",
     "pages/rate/index",
-    "pages/tag/index"
+    "pages/tag/index",
+    "pages/progress/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

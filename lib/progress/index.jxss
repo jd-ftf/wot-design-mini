@@ -1,0 +1,1 @@
+.jm-progress{position:relative}.jm-progress.is-with-text{padding-top:26px}.jm-progress__label{position:absolute;-webkit-transform:translateX(-50%);transform:translateX(-50%);bottom:9px;color:#333;font-size:14px}

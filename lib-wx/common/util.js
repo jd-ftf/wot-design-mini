@@ -25,3 +25,17 @@ export function isObj(obj) {
   // Object.prototype.toString.call(obj).match(/\[object (\w+)\]/)[1].toLowerCase() === 'object'
   return typeof obj === 'object';
 }
+/**
+ * @description 获取目标原始类型
+ * @param target 任意类型
+ * @returns {string} type 数据类型
+ */
+
+export function getType(target) {
+  // 得到原生类型
+  const typeStr = Object.prototype.toString.call(target); // 拿到类型值
+
+  const type = typeStr.match(/\[object (\w+)\]/)[1]; // 类型值转小写并返回
+
+  return type.toLowerCase();
+}

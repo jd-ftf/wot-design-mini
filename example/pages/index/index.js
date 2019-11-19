@@ -112,6 +112,9 @@ Page({
           }, {
             id: 'tag',
             name: 'Tag 标签'
+          }, {
+            id: 'progress',
+            name: 'Progress 进度条'
           }
         ]
       }
