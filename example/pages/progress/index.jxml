@@ -1,0 +1,17 @@
+<demo-block title="基本用法">
+  <jm-progress percentage="30"/>
+</demo-block>
+
+<demo-block title="不显示进度文字">
+  <jm-progress percentage="60" hide-text/>
+</demo-block>
+
+<demo-block title="修改颜色">
+  <jm-progress percentage="80" color="#00c740"/>
+</demo-block>
+
+<demo-block title="颜色数组">
+  <jm-progress percentage="{{100}}" color="{{[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]}}"/>
+  <jm-progress percentage="{{percentage}}" color="{{colorObject}}"/>
+</demo-block>
+
