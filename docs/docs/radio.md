@@ -94,22 +94,6 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
     <jm-radio value="4">商家智能</jm-radio>
   </jm-radio-group>
 ```
-
-### Event
->radioGroup可以绑定`change`事件。当`点击radio`或`修改绑定值value`引起选中radio时，radioGroup会触发change事件。
-```html
- <jm-radio-group value="1" bind:change="change">
-    <jm-radio value="1">京麦</jm-radio>
-    <jm-radio value="2">商家后台</jm-radio>
-  </jm-radio-group>
-```
-```javascript
-Page({
-  change (event) {
-    console.log('Event:change. the selected value is ' + event.detail)
-  }
-})
-```
 ### RadioGroup Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
