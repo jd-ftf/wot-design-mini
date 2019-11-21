@@ -11,6 +11,7 @@ const pipeline = require('readable-stream').pipeline
 const path = require('path')
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
+const base64 = require('gulp-base64')
 const jsReplace = require('./plugins/gulp-js-replace')
 const strReplace = require('./plugins/gulp-replace')
 
@@ -48,6 +49,9 @@ const createScssTask = function (srcPath, ext, base) {
   return function () {
     return src(srcPath, { base })
       .pipe(sass().on('error', sass.logError))
+      .pipe(base64({
+        extensions: ['ttf']
+      }))
       .pipe(postcss([autoprefixer()]))
       .pipe(cssnano({
         discardComments: { removeAll: true }
