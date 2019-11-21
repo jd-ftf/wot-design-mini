@@ -91,13 +91,13 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<jm-search disabled />
+<jm-search disabled="{{true}}" />
 ```
 
 可以和 `hide-cancel` 结合使用，用于在本页只展示搜索框，当点击搜索框时，将页面路由切换进搜索页，在搜索页中再使用搜索功能。
 
 ```html
-<jm-search hide-cancel disabled />
+<jm-search hide-cancel disabled="{{true}}" />
 ```
 
 ### 自定义
