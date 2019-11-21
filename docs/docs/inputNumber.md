@@ -50,7 +50,7 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<jm-input-number value="{{ value }}" bind:change="handleChange" disabled />
+<jm-input-number value="{{ value }}" bind:change="handleChange" disabled="{{true}}" />
 ```
 
 ### 无输入框

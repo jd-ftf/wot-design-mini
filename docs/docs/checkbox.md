@@ -84,7 +84,7 @@ export default {
 可以在 `checkbox-group` 上面设置 `disabled`，禁用所有复选框，也可以在单个复选框上面设置 `disabled` 属性，禁用某个复选框。
 
 ```html
-<jm-checkbox-group v-model="value" disabled>
+<jm-checkbox-group v-model="value" disabled="{{true}}">
   <jm-checkbox value="jingmai">京麦</jm-checkbox>
   <jm-checkbox value="shop">商家后台</jm-checkbox>
 </jm-checkbox-group>

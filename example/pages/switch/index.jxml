@@ -13,6 +13,6 @@
     <jm-switch value="{{ checked4 }}" size="20px" bind:change="handleChange4" />
   </demo-block>
   <demo-block title="禁用">
-    <jm-switch value="{{ checked5 }}" disabled />
+    <jm-switch value="{{ checked5 }}" disabled="{{true}}" />
   </demo-block>
 </view>

@@ -8,12 +8,12 @@
     <jm-button type="error">危险按钮</jm-button>
   </demo-block>
   <demo-block title="禁用按钮 disabled">
-    <jm-button disabled>默认按钮</jm-button>
-    <jm-button type="primary" disabled>主要按钮</jm-button>
-    <jm-button type="success" disabled>成功按钮</jm-button>
-    <jm-button type="info" disabled>信息按钮</jm-button>
-    <jm-button type="warning" disabled>警告按钮</jm-button>
-    <jm-button type="error" disabled>危险按钮</jm-button>
+    <jm-button disabled="{{true}}">默认按钮</jm-button>
+    <jm-button type="primary" disabled="{{true}}">主要按钮</jm-button>
+    <jm-button type="success" disabled="{{true}}">成功按钮</jm-button>
+    <jm-button type="info" disabled="{{true}}">信息按钮</jm-button>
+    <jm-button type="warning" disabled="{{true}}">警告按钮</jm-button>
+    <jm-button type="error" disabled="{{true}}">危险按钮</jm-button>
   </demo-block>
   <demo-block title="幽灵按钮 plain">
     <jm-button plain>默认按钮</jm-button>
@@ -24,12 +24,12 @@
     <jm-button type="error" plain>危险按钮</jm-button>
   </demo-block>
   <demo-block title="幽灵按钮禁用">
-    <jm-button plain disabled>默认按钮</jm-button>
-    <jm-button type="primary" plain disabled>主要按钮</jm-button>
-    <jm-button type="success" plain disabled>成功按钮</jm-button>
-    <jm-button type="info" plain disabled>信息按钮</jm-button>
-    <jm-button type="warning" plain disabled>警告按钮</jm-button>
-    <jm-button type="error" plain disabled>危险按钮</jm-button>
+    <jm-button plain disabled="{{true}}">默认按钮</jm-button>
+    <jm-button type="primary" plain disabled="{{true}}">主要按钮</jm-button>
+    <jm-button type="success" plain disabled="{{true}}">成功按钮</jm-button>
+    <jm-button type="info" plain disabled="{{true}}">信息按钮</jm-button>
+    <jm-button type="warning" plain disabled="{{true}}">警告按钮</jm-button>
+    <jm-button type="error" plain disabled="{{true}}">危险按钮</jm-button>
   </demo-block>
   <demo-block title="圆角按钮 round">
     <jm-button round>默认按钮</jm-button>
@@ -46,11 +46,11 @@
   </demo-block>
   <demo-block title="文字按钮 text">
     <jm-button type="text">按钮</jm-button>
-    <jm-button type="text" disabled>按钮</jm-button>
+    <jm-button type="text" disabled="{{true}}">按钮</jm-button>
   </demo-block>
   <demo-block title="图标按钮 icon">
     <jm-button type="icon" icon="menu"></jm-button>
-    <jm-button type="icon" icon="menu" disabled></jm-button>
+    <jm-button type="icon" icon="menu" disabled="{{true}}"></jm-button>
   </demo-block>
   <demo-block title="带图标的基本按钮">
     <jm-button type="primary" icon="edit-outline">修改</jm-button>

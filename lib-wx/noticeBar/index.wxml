@@ -3,8 +3,8 @@
   class="jm-notice-bar custom-class {{ !wrapable && !scrollable ? 'jm-notice-bar--ellipse' : '' }} {{ wrapable && !scrollable ? 'jm-notice-bar--wrap' : '' }}"
   style="color: {{ color }}; background: {{ backgroundColor }};"
 >
-  <jm-icon wx:if="{{ leftIcon }}" class="jm-notice-bar__left-icon" name="{{leftIcon}}" />
-  <slot wx:else name="left-icon" />
+  <jm-icon wx:if="{{ leftIcon }}" class="jm-notice-bar__left-icon" name="{{leftIcon}}"/>
+  <slot wx:else name="left-icon"/>
   <view class="jm-notice-bar__wrap">
     <view
       class="jm-notice-bar__content"
@@ -14,6 +14,6 @@
       <text wx:if="{{ text }}">{{ text }}</text>
     </view>
   </view>
-  <jm-icon wx:if="{{ closable }}" class="jm-notice-bar__right-icon" name="close" bindtap="handleClose" />
-  <slot wx:else name="right-icon" />
+  <jm-icon wx:if="{{ closable }}" class="jm-notice-bar__right-icon" name="close" bindtap="handleClose"/>
+  <slot wx:else name="right-icon"/>
 </view>
