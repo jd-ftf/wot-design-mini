@@ -66,9 +66,10 @@ Page({
 ### 禁用
 
 可以在 `radio-group` 上面设置 `disabled`，禁用所有单选框，也可以在单个单选框上面设置 `disabled` 属性，禁用某个单选框。
+>注意阿凡达小程序不支持单键写法，必须写成键值对`disabled="{{true}}"`
 
 ```html
-<jm-radio-group value="1" disabled>
+<jm-radio-group value="1" disabled="{{true}}">
   <jm-radio value="1">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
 </jm-radio-group>
@@ -79,7 +80,7 @@ Page({
 radio设置的props优先级比radioGroup上设置的props优先级更高
 
 ```html
-  <jm-radio-group value="1" shape="button" disabled checked-color="#f00">
+  <jm-radio-group value="1" shape="button" disabled="{{true}}" checked-color="#f00">
     <jm-radio value="1" disabled="{{false}}" checked-color="#000" shape="circle">商家后台</jm-radio>
     <jm-radio value="2" disabled="{{false}}" shape="dot">商家前端</jm-radio>
     <jm-radio value="3" disabled="{{false}}">京麦</jm-radio>

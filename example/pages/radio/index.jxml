@@ -35,22 +35,22 @@
 </demo-block>
 
 <demo-block title="禁用 disabled">
-  <jm-radio-group value="{{1}}" disabled>
+  <jm-radio-group value="{{1}}" disabled="{{true}}">
     <jm-radio value="{{1}}">京麦</jm-radio>
     <jm-radio value="{{2}}">商家后台</jm-radio>
   </jm-radio-group>
-  <jm-radio-group value="{{1}}" disabled shape="dot">
+  <jm-radio-group value="{{1}}" disabled="{{true}}" shape="dot">
     <jm-radio value="{{1}}">京麦</jm-radio>
     <jm-radio value="{{2}}">商家后台</jm-radio>
   </jm-radio-group>
-  <jm-radio-group value="{{1}}" disabled shape="button">
+  <jm-radio-group value="{{1}}" disabled="{{true}}" shape="button">
     <jm-radio value="{{1}}">京麦</jm-radio>
     <jm-radio value="{{2}}">商家后台</jm-radio>
   </jm-radio-group>
 </demo-block>
 
 <demo-block title="radio的props比radioGroup的优先级高">
-  <jm-radio-group value="{{1}}" shape="button" disabled checked-color="#f00">
+  <jm-radio-group value="{{1}}" shape="button" disabled="{{true}}" checked-color="#f00">
     <jm-radio
       value="{{1}}"
       disabled="{{false}}"
