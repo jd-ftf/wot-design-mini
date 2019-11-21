@@ -5,14 +5,17 @@ VueComponent({
     '../radio/index': {
       type: 'child',
       linked (child) {
+        // 在建立relations时radioGroup保存radio实例中的value，注意value的唯一性。
+        const key = child.data.value
+        // 此radio绑定的value已经被radio占用
         this.children = this.children || new Map()
-        if (this.children.get(child.nodeName)) {
-          throw Error(`The radio's bound value: ${child.nodeName} has been used `)
+        if (this.children.get(key)) {
+          throw Error(`The radio's bound value: ${key} has been used `)
         }
-        this.children.set(child.nodeName, child)
+        this.children.set(key, child)
       },
       unlinked (child) {
-        this.children = this.children.delete(child.nodeName)
+        this.children && this.children.delete(child.data.value)
       }
     }
   },
@@ -26,6 +29,7 @@ VueComponent({
         }
         // prop初始化watch执行时，relations关系还没有建立，所以ready之后手动执行一下
         if (old !== null) {
+          // radioGroup绑定的value变化，，立即切换到此value对应的radio
           this.changeSelect(value)
         }
       }
@@ -56,59 +60,62 @@ VueComponent({
     }
   },
   data: {
-    // 当前选中的节点
+    // 当前选中的radio绑定的value
     select: null
   },
   methods: {
     /**
-     * @description 为child在map的key重命名
+     * @description 重命名radio在hash(保存所有radio实例)表中的key，key冲突抛出异常
      * @param newName
      * @param oldName
      */
     renameChild (newName, oldName) {
       if (!this.children || this.children.size === 0) return
-      // 此名已经被其它child占用，说用存在重复的value
+      // radio不允许绑定重复的value，否则就不是单选框了。此value已经被其它radio绑定。
       if (this.children.get(newName)) {
         throw Error(`The radio's bound value: ${newName} has been used `)
       }
-      // 重命名操作
+      // radio更换绑定的value，需要同步修改以value为key的radio实例哈希表
       const willRenameChild = this.children.get(oldName)
       if (!willRenameChild) return
       this.children.set(newName, willRenameChild)
       this.children.delete(oldName)
-      // 同步替换
+      // 如果此radio恰巧被radioGroup选中，则把保存选中value的select变量也同步赋值
       if (this.data.select === oldName) {
-        this.data.select = newName
+        this.setData({ select: newName })
       }
     },
     /**
-     * 修改select的节点
-     * @param value
+     * 修改选中的radio
+     * @param value - radio绑定的value
      */
     changeSelect (value) {
       if (
         !this.children ||
         this.children.size === 0 ||
-        value === this.data.select
+        value === null
       ) {
         return
       }
-      // 存在两种情况
-      // 1.切换选中的节点，关闭老节点的样式
-      // 2.初始化匹配group的value，为新节点设置样式
-      if (this.data.select) {
-        // 老节点关闭
+      if (this.data.select !== null && this.data.select !== this.data.value) {
+        // 已经被选中的radio的value和radioGroup的value不一致，则把此radio关闭
         this.children.get(this.data.select).setData({ isChecked: false })
-      }
-      // 新节点开启
-      const newChild = this.children.get(value)
-      // 有可能新节点不存在，这时候啥也不做
-      if (newChild) {
-        newChild.setData({ isChecked: true })
-        this.setData({ select: value })
-        this.$emit('change', value)
-      } else {
         this.setData({ select: null })
+      }
+      // 传入的value和radioGroup绑定的value一致
+      if (value === this.data.value) {
+        // 找到此value对应的radio对应的实例
+        const newChild = this.children.get(value)
+        // 如果radio实例存在,并且此radio没被选中,再去选中radio才有意义
+        if (newChild && value !== this.data.select) {
+          // 选中此实例
+          newChild.setData({ isChecked: true })
+          this.setData({ select: value })
+          // 如果不是第一次选中，触发change事件
+          if (this.inited) this.$emit('change', value)
+          // 只要选中过radio，inited值永久为true
+          this.inited = true
+        }
       }
     },
     /**
@@ -131,14 +138,14 @@ VueComponent({
     }
   },
   mounted () {
-    // 用radioGroup的props覆盖radio中props值为null的key
+    // 用radioGroup的props覆盖radio中props值为null的属性
     const { shape, checkedColor, disabled } = this.data
     this.updateAllChild({
       shape,
       checkedColor,
       disabled
     })
-    // ready时，如果 group绑定了value，对单选框进行一次匹配
+    // ready时，如果radioGroup绑定了value，尝试从radio哈希表中找出value和radioGroup相同的，并切换到对应的radio
     this.data.value && this.changeSelect(this.data.value)
   }
 })
