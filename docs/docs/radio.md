@@ -16,15 +16,22 @@
 `value` 为绑定值，为选中的 `jm-radio` 的 `value` 值。
 
 ```html
-<jm-radio-group value="{{radio}}">
-  <jm-radio value="1">单选框1</jm-radio>
-  <jm-radio value="2">单选框2</jm-radio>
-</jm-radio-group>
+<demo-block title="基本用法">
+  <jm-radio-group value="{{value}}" bind:change="change">
+    <jm-radio value="{{1}}">单选框1</jm-radio>
+    <jm-radio value="{{2}}">单选框2</jm-radio>
+  </jm-radio-group>
+  <view jd:if="{{selectValue}}">当前选中的值为:{{selectValue}}</view>
+</demo-block>
 ```
 ```javascript
 Page({
   data: {
-    radio: '1'
+    value: 1,
+    selectValue: null
+  },
+  change (event) {
+    this.setData({ selectValue: event.detail })
   }
 })
 ```
