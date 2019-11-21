@@ -1,29 +1,29 @@
 <button
-	hover-class="jm-button--active"
-	class="jm-button custom-class is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
-	open-type="{{ openType }}"
-	send-message-title="{{sendMessageTitle}}"
-	send-message-path="{{sendMessagePath}}"
-	send-message-img="{{sendMessageImg}}"
-	app-parameter="{{appParameter}}"
-	show-message-card="{{showMessageCard}}"
-	session-from="{{sessionFrom}}"
-	session-message-title="{{sessionMessageTitle}}"
-	session-message-path="{{sessionMessagePath}}"
-	session-message-img="{{sessionMessageImg}}"
-	lang="{{lang}}"
-	hover-stop-propagation="{{hoverStopPropagation}}"
-	form-type="{{formType}}"
-	bindtap="handleClick"
-	bindgetuserinfo="handleGetuserinfo"
-	bindcontact="handleConcat"
-	bindgetphonenumber="handleGetphonenumber"
-	binderror="handleError"
-	bindlaunchapp="handleLaunchapp"
-	bindopensetting="handleOpensetting"
+  hover-class="jm-button--active"
+  class="jm-button custom-class is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
+  open-type="{{ openType }}"
+  send-message-title="{{sendMessageTitle}}"
+  send-message-path="{{sendMessagePath}}"
+  send-message-img="{{sendMessageImg}}"
+  app-parameter="{{appParameter}}"
+  show-message-card="{{showMessageCard}}"
+  session-from="{{sessionFrom}}"
+  session-message-title="{{sessionMessageTitle}}"
+  session-message-path="{{sessionMessagePath}}"
+  session-message-img="{{sessionMessageImg}}"
+  lang="{{lang}}"
+  hover-stop-propagation="{{hoverStopPropagation}}"
+  form-type="{{formType}}"
+  bindtap="handleClick"
+  bindgetuserinfo="handleGetuserinfo"
+  bindcontact="handleConcat"
+  bindgetphonenumber="handleGetphonenumber"
+  binderror="handleError"
+  bindlaunchapp="handleLaunchapp"
+  bindopensetting="handleOpensetting"
 >
-	<jm-icon wx:if="{{icon}}" class="jm-button__icon" name="{{icon}}" size="1.2em"></jm-icon>
-	<view class="jm-button__text">
-		<slot />
-	</view>
+  <jm-icon wx:if="{{icon}}" class="jm-button__icon" name="{{icon}}" size="1.2em"></jm-icon>
+  <view class="jm-button__text">
+    <slot/>
+  </view>
 </button>
