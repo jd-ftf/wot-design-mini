@@ -26,7 +26,7 @@ VueComponent({
         // prop初始化watch执行时，relations关系还没有建立，所以ready之后手动执行一下
         if (old !== null) {
           // radioGroup绑定的value变化，，立即切换到此value对应的radio
-          this.changeSelect(value, old)
+          this.changeSelect(value)
         }
       }
     },
