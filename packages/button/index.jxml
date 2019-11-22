@@ -22,8 +22,7 @@
   bindlaunchapp="handleLaunchapp"
   bindopensetting="handleOpensetting"
 >
-  <!-- <jm-icon jd:if="{{icon}}" class="jm-button__icon" name="{{icon}}" size="1.2em"></jm-icon> -->
-  <view class="img"></view>
+  <jm-icon jd:if="{{icon}}" class="jm-button__icon" name="{{icon}}" size="1.2em"></jm-icon>
   <view class="jm-button__text">
     <slot/>
   </view>
