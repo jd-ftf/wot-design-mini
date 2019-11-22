@@ -163,9 +163,9 @@ export default {
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| change | 绑定值变化时触发 | 下标index, 标题名称name |
-| click | 点击标题时触发 | 下标index, 标题名称name |
-| disabled | 点击禁用的标题时触发| 下标index, 标题名称name |
+| bind:change | 绑定值变化时触发 | 下标index, 标题名称name |
+| bind:click | 点击标题时触发 | 下标index, 标题名称name |
+| bind:disabled | 点击禁用的标题时触发| 下标index, 标题名称name |
 
 ### Tab Attributes
 
