@@ -1,0 +1,3 @@
+<demo-block title="基本用法">
+  <jm-picker-view/>
+</demo-block>
