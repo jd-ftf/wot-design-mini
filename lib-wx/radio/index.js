@@ -1,10 +1,6 @@
 import VueComponent from '../common/component';
 VueComponent({
   props: {
-    isChecked: {
-      type: Boolean,
-      value: false
-    },
     value: {
       type: null,
 
