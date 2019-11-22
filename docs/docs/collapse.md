@@ -68,7 +68,7 @@ export default {
   <jm-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
   </jm-collapse-item>
-  <jm-collapse-item title="标签2" name="item2" disabled>
+  <jm-collapse-item title="标签2" name="item2" disabled="{{true}}">
     这是一条简单的示例文字。
   </jm-collapse-item>
   <jm-collapse-item title="标签3" name="item3">

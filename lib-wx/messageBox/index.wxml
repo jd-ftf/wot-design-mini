@@ -18,12 +18,12 @@
         <block wx:if="{{type === 'prompt'}}">
           <!--输入框-->
           <view class="jm-message-box__input-container">
-          <input 
-            value="{{inputValue}}"
-            type="{{inputType}}"
-            placeholder="{{ inputPlaceholder || '请输入' }}"
-            placeholder-class="jm-message-box__input-placeholder" class="jm-message-box__input"
-            bindinput="inputValChange" />
+            <input
+              value="{{inputValue}}"
+              type="{{inputType}}"
+              placeholder="{{ inputPlaceholder || '请输入' }}"
+              placeholder-class="jm-message-box__input-placeholder" class="jm-message-box__input"
+              bindinput="inputValChange"/>
           </view>
           <!--错误提示-->
           <view wx:if="{{showErr}}" class="jm-message-box__input-error">

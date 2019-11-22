@@ -1,0 +1,30 @@
+<view
+  class="jm-radio {{ isChecked ? 'is-checked' : '' }} {{shape !== 'circle' ? 'is-'+shape : '' }} {{ disabled ? 'is-disabled' : ''}} custom-class"
+  bindtap="handleClick"
+>
+  <!--形状为button时不展示-->
+  <view
+    jd:if="{{shape !== 'button' }}"
+    class="jm-radio__shape"
+    style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
+  >
+    <!--shape为circle的时候使用check-round图标-->
+    <jm-icon
+      jd:if="{{ shape === 'circle' }}"
+      name="check-round"
+      custom-class="jm-radio__check"
+    />
+    <!--否则使用dot-->
+    <view jd:else
+          class="jm-radio__check"
+          style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
+    />
+  </view>
+  <!--文案-->
+  <view
+    class="jm-radio__label"
+    style="{{(isChecked && shape === 'button' && !disabled ) ? 'color :' + checkedColor : '' }}"
+  >
+    <slot/>
+  </view>
+</view>

@@ -8,10 +8,10 @@
 
 <demo-block title="禁用状态 disabled、设置禁用颜色">
   <view>
-    <jm-rate value="{{2}}" disabled/>
+    <jm-rate value="{{2}}" disabled="{{true}}"/>
   </view>
   <view>
-    <jm-rate value="{{2}}" disabled disabled-color="rgb(197, 197, 197,0.5)"/>
+    <jm-rate value="{{2}}" disabled="{{true}}" disabled-color="rgb(197, 197, 197,0.5)"/>
   </view>
 </demo-block>
 

@@ -12,7 +12,7 @@
 >
   <view wx:if="{{ title }}" class="jm-action-sheet__header">
     {{ title }}
-    <jm-icon custom-class="jm-action-sheet__close" name="add" bind:tap="close" />
+    <jm-icon custom-class="jm-action-sheet__close" name="add" bind:tap="close"/>
   </view>
   <view>
     <button
@@ -23,11 +23,11 @@
       data-index="{{ index }}"
       bind:tap="select"
     >
-      <jm-loading wx:if="{{ item.loading }}" size="20px" color="{{ item.color }}" />
+      <jm-loading wx:if="{{ item.loading }}" size="20px" color="{{ item.color }}"/>
       <view wx:else class="jm-action-sheet__name">{{ item.name }}</view>
       <view wx:if="{{ !item.loading && item.subname }}" class="jm-action-sheet__subname">{{ item.subname }}</view>
     </button>
   </view>
-  <slot />
+  <slot/>
   <button wx:if="{{ cancelText }}" class="jm-action-sheet__cancel" bind:tap="handleCancel">{{ cancelText }}</button>
 </jm-popup>
