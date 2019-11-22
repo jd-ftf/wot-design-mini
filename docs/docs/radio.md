@@ -22,18 +22,16 @@
     <jm-radio value="{{1}}">单选框1</jm-radio>
     <jm-radio value="{{2}}">单选框2</jm-radio>
   </jm-radio-group>
-  <view jd:if="{{selectValue}}">当前选中的值为:{{selectValue}}</view>
+  <view>当前选中的值为:{{value}}</view>
 </demo-block>
 ```
 ```javascript
 Page({
   data: {
-    value: 1,
-    selectValue: null
+    value: 1
   },
   change (event) {
     this.setData({
-      selectValue: event.detail,
       value: event.detail
     })
   }
@@ -101,7 +99,7 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 ### RadioGroup Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 绑定值，单项数据流。会自动选中value对应的单选框 | string / number / boolean | - | - |
+| value | 绑定值，单向数据流。会自动选中value对应的单选框 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |

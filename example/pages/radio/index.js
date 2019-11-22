@@ -1,11 +1,9 @@
 Page({
   data: {
-    value: 1,
-    selectValue: null
+    value: 1
   },
   change (event) {
     this.setData({
-      selectValue: event.detail,
       value: event.detail
     })
   }

@@ -1,3 +1,4 @@
+<jm-toast id="jm-toast"/>
 <demo-block title="基本用法" transparent="#f4f4f4">
     <jm-cell-group>
         <jm-cell title="标题文字" value="内容"/>

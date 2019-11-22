@@ -3,7 +3,7 @@
     <jm-radio value="{{1}}">单选框1</jm-radio>
     <jm-radio value="{{2}}">单选框2</jm-radio>
   </jm-radio-group>
-  <view jd:if="{{selectValue}}">当前选中的值为:{{selectValue}}</view>
+  <view jd:if="{{value}}">当前选中的值为:{{value}}</view>
 </demo-block>
 
 <demo-block title="修改形状(在radioGroup上设置) shape 为 'dot'">
