@@ -76,8 +76,17 @@ npm run dev:wx
 # 打包插件库（同时打包生成京东、微信小程序组件库）
 npm run build:wx
 
+# 运行文档工程
+npm run dev:docs
+
+# 打包文档工程
+npm run build:docs
+
+# 自动生成 icon demo
+npm run build:icon
+
 # eslint自动格式化代码
-npm run build:lint:fix
+npm run fix
 
 ```
 
