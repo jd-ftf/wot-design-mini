@@ -80,9 +80,13 @@ VueComponent({
       if (!willRenameChild) return
       this.children.set(newName, willRenameChild)
       this.children.delete(oldName)
-      // 如果此radio恰巧被radioGroup选中，则把保存选中value的select变量也同步赋值
+      /**
+       * 如果此radio恰巧被radioGroup选中，那么他重命名相当于取消选择选中状态了。
+       * 此时把select置空,并将其关闭
+       */
       if (this.data.select === oldName) {
-        this.setData({ select: newName })
+        this.setData({ select: null })
+        willRenameChild.setData({ isChecked: false })
       }
     },
     /**
@@ -90,6 +94,7 @@ VueComponent({
      * @param value - radio绑定的value
      */
     changeSelect (value) {
+      // 没有radio子元素，不执行任何操作
       if (
         !this.children ||
         this.children.size === 0 ||
@@ -97,25 +102,24 @@ VueComponent({
       ) {
         return
       }
-      if (this.data.select !== null && this.data.select !== this.data.value) {
-        // 已经被选中的radio的value和radioGroup的value不一致，则把此radio关闭
+      // 选中新节点之前，关闭老节点
+      // 如果之前没有选中
+      if (
+        this.data.select !== null &&
+        this.data.select !== value
+      ) {
+        /**
+         * 如果之前存在选中的值，则把之前的关闭掉
+         * 已经被选中的select和即将被选中的radio的value不一致，则把以前radio关闭
+         */
         this.children.get(this.data.select).setData({ isChecked: false })
-        this.setData({ select: null })
       }
-      // 传入的value和radioGroup绑定的value一致
-      if (value === this.data.value) {
-        // 找到此value对应的radio对应的实例
-        const newChild = this.children.get(value)
-        // 如果radio实例存在,并且此radio没被选中,再去选中radio才有意义
-        if (newChild && value !== this.data.select) {
-          // 选中此实例
-          newChild.setData({ isChecked: true })
-          this.setData({ select: value })
-          // 如果不是第一次选中，触发change事件
-          if (this.inited) this.$emit('change', value)
-          // 只要选中过radio，inited值永久为true
-          this.inited = true
-        }
+      const newChild = this.children.get(value)
+      // 如果radio实例存在,并且此radio没被选中,再去选中radio才有意义
+      if (newChild && value !== this.data.select) {
+        // 选中此实例
+        newChild.setData({ isChecked: true })
+        this.setData({ select: value })
       }
     },
     /**
@@ -127,14 +131,23 @@ VueComponent({
       if (!data || keys.length === 0) return
 
       this.children && this.children.forEach(child => {
-        const will = {}
         keys.forEach(key => {
-          if (data[key] !== null && data[key] !== undefined && child.data[key] === null) {
-            will[key] = data[key]
+          if (
+            data[key] === null ||
+            data[key] === undefined ||
+            child.data[key] !== null
+          ) {
+            delete data[key]
           }
         })
-        child.setData(will)
+        child.setData(data)
       })
+    },
+    /**
+     * @description 处理radio子节点通知
+     */
+    handleClick (value) {
+      this.$emit('change', value)
     }
   },
   mounted () {
@@ -145,7 +158,5 @@ VueComponent({
       checkedColor,
       disabled
     })
-    // ready时，如果radioGroup绑定了value，尝试从radio哈希表中找出value和radioGroup相同的，并切换到对应的radio
-    this.data.value && this.changeSelect(this.data.value)
   }
 })

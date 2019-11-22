@@ -4,6 +4,9 @@ Page({
     selectValue: null
   },
   change (event) {
-    this.setData({ selectValue: event.detail })
+    this.setData({
+      selectValue: event.detail,
+      value: event.detail
+    })
   }
 })

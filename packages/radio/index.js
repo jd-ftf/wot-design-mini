@@ -9,11 +9,12 @@ VueComponent({
         if (value === null || value === undefined) {
           throw Error('value can\'t be null or undefined')
         }
-        // 当建立relations关系之后，radio的value改变
-        if (this.parent && old !== null) {
-          // 会rename此radio在radioGroup中的key
-          this.parent.renameChild(value, old)
-          // 会判断新value是否和radioGroup的value一致，一致就会被选中。
+        // 当建立relations关系之后，radio的value改变,以下内容才能执行
+        if (!this.parent || old === null) return
+        // 会rename此radio在radioGroup中的key
+        this.parent.renameChild(value, old)
+        // 会判断新value是否和radioGroup的value一致，一致就会调用radio的方法选中此节点。
+        if (value === this.parent.data.value) {
           this.parent.changeSelect(value)
         }
       }
@@ -52,16 +53,30 @@ VueComponent({
   },
   methods: {
     /**
-     * 点击子元素，触发父元素切换选中节点的方法
+     * 点击子元素，通知父元素触发change事件
      */
     handleClick () {
       const { value, disabled } = this.data
-      if (this.parent && value !== null && value !== undefined && !disabled) {
-        // click事件触发的选中，必定触发change事件
-        this.parent.inited = true
-        this.parent.setData({ value })
-        this.parent.changeSelect(value)
+      if (
+        !disabled &&
+        this.parent &&
+        value !== null &&
+        value !== undefined
+      ) {
+        this.parent.handleClick(value)
       }
+    }
+  },
+  mounted () {
+    /**
+     * relations在props之后才建立，所以初始化的时候props无法拿到relations的值，因此挂载后需要手动执行一下。
+     * 判断此节点是否可以被选中，可以的话通知radioGroup选中。
+     */
+    if (
+      this.parent &&
+      this.data.value === this.parent.data.value
+    ) {
+      this.parent.changeSelect(this.data.value)
     }
   }
 })
