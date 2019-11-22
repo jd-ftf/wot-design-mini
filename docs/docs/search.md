@@ -125,9 +125,9 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| focus        | 监听输入框focus事件                    | Event，包含输入内容       |
-| blur         | 监听输入框blur事件                     | Event，包含输入内容       |
-| search       | 监听输入框搜索事件                      | Event，包含输入内容 |
-| clear        | 监听输入框清空按钮事件                   | - |
-| cancel       | 监听输入框右侧文本点击事件               | Event，包含输入内容       |
-| change        | 监听输入框change事件                    | Event，包含输入内容 |
+| bind:focus        | 监听输入框focus事件                    | Event，包含输入内容       |
+| bind:blur         | 监听输入框blur事件                     | Event，包含输入内容       |
+| bind:search       | 监听输入框搜索事件                      | Event，包含输入内容 |
+| bind:clear        | 监听输入框清空按钮事件                   | - |
+| bind:cancel       | 监听输入框右侧文本点击事件               | Event，包含输入内容       |
+| bind:change        | 监听输入框change事件                    | Event，包含输入内容 |
