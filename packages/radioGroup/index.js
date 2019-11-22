@@ -5,17 +5,13 @@ VueComponent({
     '../radio/index': {
       type: 'child',
       linked (child) {
+        this.children = this.children || []
         // 在建立relations时radioGroup保存radio实例中的value，注意value的唯一性。
-        const key = child.data.value
-        // 此radio绑定的value已经被radio占用
-        this.children = this.children || new Map()
-        if (this.children.get(key)) {
-          throw Error(`The radio's bound value: ${key} has been used `)
-        }
-        this.children.set(key, child)
+        this.checkValue(child)
+        this.children.push(child)
       },
-      unlinked (child) {
-        this.children && this.children.delete(child.data.value)
+      unlinked (target) {
+        this.children = this.children.filter(child => child !== target)
       }
     }
   },
@@ -30,7 +26,7 @@ VueComponent({
         // prop初始化watch执行时，relations关系还没有建立，所以ready之后手动执行一下
         if (old !== null) {
           // radioGroup绑定的value变化，，立即切换到此value对应的radio
-          this.changeSelect(value)
+          this.changeSelect(value, old)
         }
       }
     },
@@ -59,39 +55,25 @@ VueComponent({
       }
     }
   },
-  data: {
-    // 当前选中的radio绑定的value
-    select: null
-  },
   methods: {
     /**
-     * @description 重命名radio在hash(保存所有radio实例)表中的key，key冲突抛出异常
-     * @param newName
-     * @param oldName
+     * @description 检测radio绑定的value是否已经被其他节点绑定
      */
-    renameChild (newName, oldName) {
-      if (!this.children || this.children.size === 0) return
-      // radio不允许绑定重复的value，否则就不是单选框了。此value已经被其它radio绑定。
-      if (this.children.get(newName)) {
-        throw Error(`The radio's bound value: ${newName} has been used `)
-      }
-      // radio更换绑定的value，需要同步修改以value为key的radio实例哈希表
-      const willRenameChild = this.children.get(oldName)
-      if (!willRenameChild) return
-      this.children.set(newName, willRenameChild)
-      this.children.delete(oldName)
-      /**
-       * 如果此radio恰巧被radioGroup选中，那么他重命名相当于取消选择选中状态了。
-       * 此时把select置空,并将其关闭
-       */
-      if (this.data.select === oldName) {
-        this.setData({ select: null })
-        willRenameChild.setData({ isChecked: false })
-      }
+    checkValue (child) {
+      this.children.forEach(node => {
+        const value = child.data.value
+        if (
+          node !== child &&
+          node.data.value === value
+        ) {
+          throw Error(`The radio's bound value: ${value} has been used `)
+        }
+      })
     },
     /**
      * 修改选中的radio
      * @param value - radio绑定的value
+     * @param old - 老节点，默认为已经被选中的节点
      */
     changeSelect (value) {
       // 没有radio子元素，不执行任何操作
@@ -102,25 +84,11 @@ VueComponent({
       ) {
         return
       }
-      // 选中新节点之前，关闭老节点
-      // 如果之前没有选中
-      if (
-        this.data.select !== null &&
-        this.data.select !== value
-      ) {
-        /**
-         * 如果之前存在选中的值，则把之前的关闭掉
-         * 已经被选中的select和即将被选中的radio的value不一致，则把以前radio关闭
-         */
-        this.children.get(this.data.select).setData({ isChecked: false })
-      }
-      const newChild = this.children.get(value)
-      // 如果radio实例存在,并且此radio没被选中,再去选中radio才有意义
-      if (newChild && value !== this.data.select) {
-        // 选中此实例
-        newChild.setData({ isChecked: true })
-        this.setData({ select: value })
-      }
+      this.children.forEach(child => {
+        child.setData({
+          isChecked: child.data.value === value
+        })
+      })
     },
     /**
      * @description 使用父元素的Props覆盖子元素Props中值为null的key
@@ -131,16 +99,17 @@ VueComponent({
       if (!data || keys.length === 0) return
 
       this.children && this.children.forEach(child => {
+        const will = {}
         keys.forEach(key => {
           if (
-            data[key] === null ||
-            data[key] === undefined ||
-            child.data[key] !== null
+            data[key] !== null &&
+            data[key] !== undefined &&
+            child.data[key] === null
           ) {
-            delete data[key]
+            will[key] = data[key]
           }
         })
-        child.setData(data)
+        child.setData(will)
       })
     },
     /**
