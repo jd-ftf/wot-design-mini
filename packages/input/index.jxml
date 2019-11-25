@@ -1,33 +1,74 @@
-<jm-popup
-  custom-class="jm-action-sheet"
-  show="{{ show }}"
-  duration="{{ duration }}"
-  position="bottom"
-  close-on-click-modal="{{ closeOnClickModal }}"
-  bind:enter="handleOpen"
-  bind:close="close"
-  bind:after-enter="handleOpened"
-  bind:after-leave="handleClosed"
-  z-index="{{ zIndex }}"
->
-  <view jd:if="{{ title }}" class="jm-action-sheet__header">
-    {{ title }}
-    <jm-icon custom-class="jm-action-sheet__close" name="add" bind:tap="close"/>
+<view class="jm-input custom-class {{ type === 'textarea' ? 'is-textarea' : '' }} {{ disabled ? 'is-disabled' : '' }}  ">
+  <!-- 文本域 -->
+	<view jd:if="{{ type === 'textarea' || (type === 'text' && autosize) }}">
+  	<view class="jm-input__textarea {{ type === 'text' && autosize ? 'is-text-auto' : '' }} {{ showWordCount ? 'is-show-limit' : '' }}">
+			<!-- ref="textarea" -->
+			<textarea
+        class="jm-input__textarea-inner {{ showClear ? 'is-suffix' : '' }}"
+        style="{{textareaStyle}}"
+        placeholder="{{placeholder}}"
+        value="{{ value }}"
+        disabled="{{ disabled }}"
+        readonly="{{ readonly }}"
+        minlength="{{ minlength }}"
+        maxlength="{{ maxlength }}"
+        rows="{{ rows }}"
+        autofocus="{{ autofocus }}"
+        bindinput="handleInput"
+        bindchange="handleChange"
+        bindfocus="handleFocus"
+        bindblur="handleBlur"
+			/>
+			<view class="jm-input__textarea-suffix">
+        <jm-icon jd:if="{{ showClear }}" class="jm-input__icon" name="close-outline" bindtap="clear"/>
+        <view jd:if="{{ showWordCount }}" class="jm-input__textarea-count">
+          <view class="jm-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">
+            {{ value.length }}
+          </view>
+          /{{ maxlength }}
+        </view>
+      </view>
+    </view>
   </view>
-  <view>
-    <button
-      jd:for="{{ actions }}"
-      jd:key="{{ index }}"
-      class="jm-action-sheet__action {{ item.disabled ? 'jm-action-sheet__action--disabled' : '' }} {{ item.loading ? 'jm-action-sheet__action--loading' : '' }}"
-      style="color: {{ item.color }}"
-      data-index="{{ index }}"
-      bind:tap="select"
-    >
-      <jm-loading jd:if="{{ item.loading }}" size="20px" color="{{ item.color }}"/>
-      <view jd:else class="jm-action-sheet__name">{{ item.name }}</view>
-      <view jd:if="{{ !item.loading && item.subname }}" class="jm-action-sheet__subname">{{ item.subname }}</view>
-    </button>
+  <!-- 输入域 -->
+  <!-- ref="input" -->
+  <view jd:else >
+    <view jd:if="{{ prefixIcon }}" class="jm-input__prefix">
+      <slot name="prefix"></slot>
+      <jm-icon jd:if="{{ prefixIcon }}" class="jm-input__icon" name="{{ prefixIcon }}"/>
+    </view>
+    <input 
+      class="jm-input__inner {{ suffixCount > 0 ? 'jm-input__inner--suffix-' + suffixCount : '' }} {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }}" 
+      type="{{ howPwdVisible ? (isPwdVisible ? 'text' : 'password') : type }}" 
+      value="{{ value }}" 
+      placeholder="{{ placeholder }}" 
+      readonly="{{ readonly }}" 
+      disabled="{{ disabled }}" 
+      minlength="{{ minlength ? minlength : '' }}" 
+      maxlength="{{ maxlength ? maxlength : '' }}" 
+      rows="{{ rows }}" 
+      autofocus="{{ autofocus }}" 
+      bindinput="handleInput"
+      bindfocus="handleFocus"
+      bindblur="handleBlur">
+    </input>
+    <view jd:if="{{ showClear || showPwdVisible || suffixIcon || showWordCount }}" class="jm-input__suffix">
+      <jm-icon jd:if="{{ showClear }}" class="jm-input__icon " name="close-outline"  bindtap="clear"/>
+      <jm-icon 
+        jd:if="{{ suffixIcon }}" 
+        class="jm-input__icon " 
+        name="{{ isPwdVisible ? 'jm-icon-view' : 'jm-icon-eye-close' }}"
+        bindtap="togglePwdVisible"/>
+      <view jd:if="{{ showWordCount }}" class="jm-input__count">
+        <view class="jm-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">
+          {{ value.length }}
+        </view>
+        /{{ maxlength }}
+      </view>
+      <slot name="suffix"></slot>
+        <jm-icon jd:if="{{ suffixIcon }}" class="jm-input__icon " name="{{ suffixIcon }}"/>
+      <!-- <i jd:if="{{ suffixIcon }}" class="jm-input__icon {{ suffixIcon }}"></i> -->
+    </view>
   </view>
-  <slot/>
-  <button jd:if="{{ cancelText }}" class="jm-action-sheet__cancel" bind:tap="handleCancel">{{ cancelText }}</button>
-</jm-popup>
+</view>
+

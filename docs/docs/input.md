@@ -14,10 +14,10 @@
 
 ### 基本用法
 
-`v-model` 为绑定值。
+`value` 为绑定值。
 
 ```html
-<jm-input v-model="input" placeholder="请输入用户名" />
+<jm-input value="{{ value }}" placeholder="请输入用户名" />
 
 <script>
 export default {

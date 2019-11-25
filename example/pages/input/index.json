@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Input",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "jm-input": "../../dist/input/index"
+  }
+}

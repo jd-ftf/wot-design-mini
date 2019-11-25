@@ -1,0 +1,14 @@
+<view>
+	<demo-block title="基本用法">
+		<jm-input value="{{ value1 }}" placeholder="请输入用户名" bind:change="handleChange1" />
+	</demo-block>
+	<demo-block title="清除">
+		<jm-input value="{{ value1 }}" placeholder="请输入用户名" bind:change="handleChange1" clearable />
+	</demo-block>
+	<demo-block title="禁用">
+		<jm-input value="{{ value1 }}" placeholder="请输入用户名" disabled />
+	</demo-block>
+	<demo-block title="只读">
+		<jm-input value="{{ value3 }}" readonly />
+	</demo-block>
+</view>
