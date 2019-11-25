@@ -1,3 +1,15 @@
 <demo-block title="基本用法">
-  <jm-picker-view/>
+  <jm-picker-view
+    value="{{value}}"
+    columns="{{columns}}"
+    bind:change="handleChange"
+  />
+</demo-block>
+<demo-block title="加载中">
+  <jm-picker-view
+    value="{{value}}"
+    columns="{{columns}}"
+    bind:change="handleChange"
+    loading
+  />
 </demo-block>
