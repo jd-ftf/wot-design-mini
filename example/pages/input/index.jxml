@@ -2,13 +2,22 @@
 	<demo-block title="基本用法">
 		<jm-input value="{{ value1 }}" placeholder="请输入用户名" bind:change="handleChange1" />
 	</demo-block>
-	<demo-block title="清除">
-		<jm-input value="{{ value1 }}" placeholder="请输入用户名" bind:change="handleChange1" clearable />
-	</demo-block>
 	<demo-block title="禁用">
-		<jm-input value="{{ value1 }}" placeholder="请输入用户名" disabled />
+		<jm-input value="{{ value2 }}" placeholder="请输入用户名" disabled />
 	</demo-block>
 	<demo-block title="只读">
 		<jm-input value="{{ value3 }}" readonly />
+	</demo-block>
+	<demo-block title="清空">
+		<jm-input value="{{ value4 }}" placeholder="请输入用户名" clearable />
+	</demo-block>
+	<demo-block title="密码框">
+		<jm-input value="{{ value5 }}" clearable show-password />
+	</demo-block>
+	<demo-block title="前后icon">
+		<jm-input value="" prefix-icon="person" suffix-icon="tickets" clearable/>
+	</demo-block>
+	<demo-block title="字数限制">
+		<jm-input value="{{ value5 }}" maxlength="20" show-word-limit />
 	</demo-block>
 </view>

@@ -13,7 +13,7 @@
         minlength="{{ minlength }}"
         maxlength="{{ maxlength }}"
         rows="{{ rows }}"
-        autofocus="{{ autofocus }}"
+        focus="{{ focused }}"
         bindinput="handleInput"
         bindchange="handleChange"
         bindfocus="handleFocus"
@@ -38,26 +38,44 @@
       <jm-icon jd:if="{{ prefixIcon }}" class="jm-input__icon" name="{{ prefixIcon }}"/>
     </view>
     <input 
+      jd:if="{{ showPassword && !isPwdVisible }}"
       class="jm-input__inner {{ suffixCount > 0 ? 'jm-input__inner--suffix-' + suffixCount : '' }} {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }}" 
-      type="{{ howPwdVisible ? (isPwdVisible ? 'text' : 'password') : type }}" 
+      type="password" 
+      password="{{ isPwdVisible }}"
       value="{{ value }}" 
       placeholder="{{ placeholder }}" 
       readonly="{{ readonly }}" 
       disabled="{{ disabled }}" 
-      minlength="{{ minlength ? minlength : '' }}" 
-      maxlength="{{ maxlength ? maxlength : '' }}" 
+      minlength="{{ minlength }}" 
+      maxlength="{{ maxlength }}" 
       rows="{{ rows }}" 
-      autofocus="{{ autofocus }}" 
+      focus="{{ focused }}" 
       bindinput="handleInput"
       bindfocus="handleFocus"
       bindblur="handleBlur">
     </input>
-    <view jd:if="{{ showClear || showPwdVisible || suffixIcon || showWordCount }}" class="jm-input__suffix">
+    <input 
+      jd:else
+      class="jm-input__inner {{ suffixCount > 0 ? 'jm-input__inner--suffix-' + suffixCount : '' }} {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }}" 
+      type="text" 
+      value="{{ value }}" 
+      placeholder="{{ placeholder }}" 
+      readonly="{{ readonly }}" 
+      disabled="{{ disabled }}" 
+      minlength="{{ minlength }}" 
+      maxlength="{{ maxlength }}" 
+      rows="{{ rows }}" 
+      focus="{{ focused }}" 
+      bindinput="handleInput"
+      bindfocus="handleFocus"
+      bindblur="handleBlur">
+    </input>
+    <view jd:if="{{ showClear || showPassword || suffixIcon || showWordCount }}" class="jm-input__suffix">
       <jm-icon jd:if="{{ showClear }}" class="jm-input__icon " name="close-outline"  bindtap="clear"/>
       <jm-icon 
-        jd:if="{{ suffixIcon }}" 
+        jd:if="{{ showPassword }}" 
         class="jm-input__icon " 
-        name="{{ isPwdVisible ? 'jm-icon-view' : 'jm-icon-eye-close' }}"
+        name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
         bindtap="togglePwdVisible"/>
       <view jd:if="{{ showWordCount }}" class="jm-input__count">
         <view class="jm-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">
@@ -66,8 +84,7 @@
         /{{ maxlength }}
       </view>
       <slot name="suffix"></slot>
-        <jm-icon jd:if="{{ suffixIcon }}" class="jm-input__icon " name="{{ suffixIcon }}"/>
-      <!-- <i jd:if="{{ suffixIcon }}" class="jm-input__icon {{ suffixIcon }}"></i> -->
+      <jm-icon jd:if="{{ suffixIcon }}" class="jm-input__icon " name="{{ suffixIcon }}"/>
     </view>
   </view>
 </view>

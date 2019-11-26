@@ -1,10 +1,10 @@
 Page({
   data: {
-    value1: 1,
-    value2: 1,
-    value3: '只读状态',
-    value4: 2,
-    value5: 2,
+    value1: '',
+    value2: '这是禁用状态',
+    value3: '这是只读状态',
+    value4: '支持清空',
+    value5: 'mima',
     value6: 2,
     value7: 2,
     value8: 1

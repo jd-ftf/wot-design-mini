@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/input/index",
     "pages/button/index",
     "pages/icon/index",
     "pages/inputNumber/index",

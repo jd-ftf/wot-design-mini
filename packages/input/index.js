@@ -2,11 +2,11 @@ import VueComponent from '../common/component'
 import calcTextareaHeight from './calcTextareaHeight'
 VueComponent({
   data: {
-    focused: false,
     isPwdVisible: false,
     textareaCalcStyle: {}
   },
   props: {
+    focused: Boolean,
     type: {
       type: String,
       value: 'text'
@@ -21,7 +21,6 @@ VueComponent({
         this.setData({
           showClear: !disabled && !readonly && clearable && value
         })
-        console.log(this.data.showClear)
       }
     },
     maxlength: {
@@ -29,14 +28,27 @@ VueComponent({
       value: '10000'
     },
     minlength: String,
-    showPassword: Boolean,
+    showPassword: {
+      type: Boolean,
+      observer () {
+        this.setData({
+          showPwdVisible: true
+        })
+      }
+    },
     disabled: {
       type: Boolean,
-      value: false
+      value: false,
+      observer () {
+        this._dataLock()
+      }
     },
     readonly: {
       type: Boolean,
-      value: false
+      value: false,
+      observer () {
+        this._dataLock()
+      }
     },
     prefixIcon: String,
     suffixIcon: String,
@@ -44,9 +56,6 @@ VueComponent({
       type: Boolean,
       value: false
     },
-    max: String,
-    min: String,
-    step: String,
     rows: {
       type: String,
       value: '3'
@@ -56,12 +65,11 @@ VueComponent({
       type: String,
       value: 'none'
     },
-    autofocus: Boolean,
+    focus: Boolean,
     showWordCount: {
       type: Boolean,
       value: false,
       observer () {
-        console.log('初始化')
         const { disabled, readonly, maxlength, showWordLimit } = this.data
         this.setData({
           showWordCount: !disabled && !readonly && maxlength && showWordLimit
@@ -70,13 +78,7 @@ VueComponent({
     },
     showPwdVisible: {
       type: Boolean,
-      value: false,
-      observer () {
-        const { disabled, readonly, showPassword } = this.data
-        this.setData({
-          showPwdVisible: !disabled && !readonly && showPassword
-        })
-      }
+      value: false
     },
     showClear: {
       type: Boolean,
@@ -106,12 +108,15 @@ VueComponent({
     }
   },
   created () {
-    this._initState()
   },
   methods: {
-    _initState () {
-      if (this.data.readonly) {
+    _dataLock () {
+      const { disabled, readonly } = this.data
+      if (disabled || readonly) {
         this.setData({
+          showWordCount: false,
+          showPwdVisible: false,
+          showClear: false,
           focused: false
         })
       }
@@ -129,23 +134,17 @@ VueComponent({
     },
     // 获取元素节点，触发当前节点的事件
     _getInput () {
-      // const input = this._getRect('.jm-input__inner')
-      // const textarea = this._getRect('.jm-input__textarea-inner')
-      // return input || textarea
-      return this._getRect('.jm-input__inner')
+      const input = this._getRect('.jm-input__inner')
+      const textarea = this._getRect('.jm-input__textarea-inner')
+      return input || textarea
     },
-    _togglePwdVisible () {
+    togglePwdVisible () {
+      // password属性设置false不生效，置空生效
       this.setData({
         isPwdVisible: !this.data.isPwdVisible
       })
     },
-    focus () {
-      console.log('focus')
-      // this._getInput().focus()
-      this._getInput()
-    },
     blur () {
-      console.log('blur')
       this.getInput().blur()
     },
     select () {
@@ -157,16 +156,20 @@ VueComponent({
       })
       this.$emit('input', '')
       this.$emit('clear')
-      this.focus()
+      this.setData({
+        focused: true
+      })
     },
     // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发change只触发blur
     handleBlur (event) {
-      console.log('"触发了失焦"', event.detail.value)
+      const { readonly, value, disabled } = this.data
+      const newVal = readonly || disabled ? value : event.detail.value
       this.setData({
-        focused: false
+        focused: false,
+        value: newVal
       })
-      this.$emit('change', event.detail.value)
-      this.$emit('blur', event.detail.value)
+      this.$emit('change', newVal)
+      this.$emit('blur', newVal)
     },
     handleFocus (event) {
       this.setData({
@@ -175,14 +178,22 @@ VueComponent({
       this.$emit('focus')
     },
     handleInput (event) {
-      const { disabled, readonly, clearable } = this.data
+      const { disabled, readonly, clearable, value } = this.data
       if (clearable && !disabled && !readonly) {
         this.setData({
           showClear: !!event.detail.value
         })
       }
+      // 当为readonly或者disable时不能输入，无法focus
+      if (disabled || readonly) {
+        this.setData({
+          focused: false,
+          value: value
+        })
+      }
       this.$emit('input', event.detail.value)
     },
+    // textarea重设高度
     resizeTextarea () {
       const { autosize, type } = this.data
       if (type === 'textarea' || (type === 'text' && autosize)) {
