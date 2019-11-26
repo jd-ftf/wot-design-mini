@@ -182,14 +182,33 @@ VueComponent({
     handleChange ({ detail: { value } }) {
       // 小程序bug，修改原生pickerView的columns，滑动触发change事件回传的数组长度为未改变columns之前的,并不会缩减
       value = value.slice(0, this.data.formatColumns.length)
+      // 保留选中前的
+      const origin = JSON.parse(JSON.stringify(this.data.selectedIndex))
+      // 开始应用最新的值
       value.forEach((row, col) => {
         this.selectWithIndex(col, row)
       })
-      value = this.data.selectedIndex
-      this.$emit('change', {
-        index: value.length === 1 ? value[0] : value,
-        target: this
-      })
+      const { selectedIndex, formatColumns } = this.data
+      // diff出变化的列
+      const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index])
+      if (diffCol === -1) return
+      // 获取变化的的行
+      const diffRow = selectedIndex[diffCol]
+      const picker = this
+      // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
+      value = selectedIndex.length === 1
+        ? formatColumns[0][selectedIndex[0]]
+        : this.getSelects()
+      // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
+      const index = selectedIndex.length === 1 ? diffRow : diffCol
+      this.$emit('change', { picker, value, index })
+    },
+    /**
+     * @description 获取所有列选中项，返回值为一个数组
+     */
+    getSelects () {
+      const { selectedIndex, formatColumns } = this.data
+      return selectedIndex.map((row, col) => formatColumns[col][row])
     },
     /**
      * @description 获取所有列选中项的文本，返回值为一个数组
