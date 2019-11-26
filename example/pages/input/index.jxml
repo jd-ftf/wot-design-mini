@@ -15,9 +15,14 @@
 		<jm-input value="{{ value5 }}" clearable show-password />
 	</demo-block>
 	<demo-block title="前后icon">
-		<jm-input value="" prefix-icon="person" suffix-icon="tickets" clearable/>
+		<jm-input value="" prefix-icon="person" suffix-icon="tickets" clearable />
 	</demo-block>
 	<demo-block title="字数限制">
 		<jm-input value="{{ value5 }}" maxlength="20" show-word-limit />
+	</demo-block>
+	<demo-block title="使用插槽">
+		<jm-input value="{{ value4 }}" placeholder="请输入用户名" clearable use-suffix-slot>
+			<text slot="suffix">插入</text>
+		</jm-input>
 	</demo-block>
 </view>

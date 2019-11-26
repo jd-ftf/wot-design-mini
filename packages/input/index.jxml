@@ -37,6 +37,7 @@
       <slot name="prefix"></slot>
       <jm-icon jd:if="{{ prefixIcon }}" class="jm-input__icon" name="{{ prefixIcon }}"/>
     </view>
+    <!-- 密码隐藏 -->
     <input 
       jd:if="{{ showPassword && !isPwdVisible }}"
       class="jm-input__inner {{ suffixCount > 0 ? 'jm-input__inner--suffix-' + suffixCount : '' }} {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }}" 
@@ -54,6 +55,7 @@
       bindfocus="handleFocus"
       bindblur="handleBlur">
     </input>
+    <!-- 密码不隐藏 -->
     <input 
       jd:else
       class="jm-input__inner {{ suffixCount > 0 ? 'jm-input__inner--suffix-' + suffixCount : '' }} {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }}" 
@@ -68,6 +70,7 @@
       focus="{{ focused }}" 
       bindinput="handleInput"
       bindfocus="handleFocus"
+      
       bindblur="handleBlur">
     </input>
     <view jd:if="{{ showClear || showPassword || suffixIcon || showWordCount }}" class="jm-input__suffix">
