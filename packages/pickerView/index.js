@@ -183,7 +183,7 @@ VueComponent({
       // 小程序bug，修改原生pickerView的columns，滑动触发change事件回传的数组长度为未改变columns之前的,并不会缩减
       value = value.slice(0, this.data.formatColumns.length)
       // 保留选中前的
-      const origin = JSON.parse(JSON.stringify(this.data.selectedIndex))
+      const origin = this.data.selectedIndex.slice(0)
       // 开始应用最新的值
       value.forEach((row, col) => {
         this.selectWithIndex(col, row)
@@ -201,7 +201,11 @@ VueComponent({
         : this.getSelects()
       // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
       const index = selectedIndex.length === 1 ? diffRow : diffCol
-      this.$emit('change', { picker, value, index })
+      this.$emit('change', {
+        picker,
+        value,
+        index
+      })
     },
     /**
      * @description 获取所有列选中项，返回值为一个数组
@@ -241,11 +245,13 @@ VueComponent({
      */
     setColumnData (columnIndex, data) {
       // 经过formatArray处理的数据会变成二维数组，一定要拍成一维的。
+      // ps 小程序基础库v2.9.3才可以用flat
       const formatColumns = this.data.formatColumns
-      formatColumns[columnIndex] = this.formatArray(data).flat(1)
+      formatColumns[columnIndex] = this.formatArray(data).reduce((acc, val) => acc.concat(val), [])
       this.setData({
         formatColumns: formatColumns
       })
+      this.selectWithIndex(columnIndex, 0)
     }
   },
   created () {
