@@ -24,13 +24,11 @@
         jd:for-index="rowIndex"
         jd:for-item="row"
         jd:key="$this"
-        class="jm-picker-view-column__item jm-picker-view-column__item--{{selectedIndex[colIndex] === rowIndex ?'active':'disabled'}}"
+        class="jm-picker-view-column__item {{row['disabled']?'jm-picker-view-column__item--disabled':''}} {{!row['disabled'] && selectedIndex[colIndex] === rowIndex ?'jm-picker-view-column__item--active':''}}"
         style="line-height: {{itemHeight}}px;"
       >
         {{row[labelKey]}}
       </view>
-
-      <!--    <view class="jm-picker-view-column__item jm-picker-view-column__item&#45;&#45;disabled">2</view>-->
     </picker-view-column>
   </picker-view>
 </view>

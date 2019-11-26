@@ -15,7 +15,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,.7),hsla(0,0%,100%,0)),linear-gradient(0deg,hsla(0,0%,100%,.7),hsla(0,0%,100%,0));
+    background-image: linear-gradient(180deg,hsla(0,0%,100%,.9),hsla(0,0%,100%,.5)),linear-gradient(0deg,hsla(0,0%,100%,.9),hsla(0,0%,100%,.5));
     background-position: top,bottom;
     background-size: 100% 99px;
     background-repeat: no-repeat;
@@ -60,9 +60,10 @@
     align-items: center;
     justify-content: center;
     z-index: 3;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
   }
 }
+
 @include b(picker-view-column) {
   flex: 1;
   font-size: $-picker-column-fs;
@@ -78,8 +79,4 @@
       color: $-picker-column-disabled-color;
     }
   }
-}
-
-.loading {
-  color: $-tag-primary-color !important;
 }
