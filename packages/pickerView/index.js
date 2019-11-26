@@ -186,6 +186,7 @@ VueComponent({
       const origin = this.data.selectedIndex.slice(0)
       // 开始应用最新的值
       value.forEach((row, col) => {
+        if (row === origin[col]) return
         this.selectWithIndex(col, row)
       })
       const { selectedIndex, formatColumns } = this.data
@@ -244,6 +245,13 @@ VueComponent({
      * @param {Array<原始值|Object>} 一维数组，元素仅限对象和原始值
      */
     setColumnData (columnIndex, data) {
+      /**
+       * @注意 以下为pickerView的坑
+       * 如果某一列(以下简称列)中有10个选项，而且当前选中第10项。
+       * 如果此时把此列的选项修改后还剩下3个，那么选中项会由第10项滑落到第3项，同时出发change事件
+       */
+      // 为了防止上述情况发生，修改数据前先将当前列选中0
+      this.selectWithIndex(columnIndex, 0)
       // 经过formatArray处理的数据会变成二维数组，一定要拍成一维的。
       // ps 小程序基础库v2.9.3才可以用flat
       const formatColumns = this.data.formatColumns
@@ -251,7 +259,6 @@ VueComponent({
       this.setData({
         formatColumns: formatColumns
       })
-      this.selectWithIndex(columnIndex, 0)
     }
   },
   created () {
