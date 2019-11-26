@@ -4,9 +4,9 @@
 
 @include b(picker-view) {
   position: relative;
+  background: #fff;
   @include e(columns) {
     display: flex;
-    background: #fff;
     overflow: hidden;
   }
   @include e(mask) {
