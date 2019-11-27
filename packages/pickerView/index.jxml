@@ -7,7 +7,7 @@
   </view>
   <picker-view
     mask-class="jm-picker-view__mask"
-    indicator-class="jm-picker-view-column__item--active"
+    indicator-class=""
     indicator-style="height: {{itemHeight}}px;"
     style="height: {{itemHeight * visibleItemCount}}px;"
     value="{{selectedIndex}}"
@@ -25,7 +25,7 @@
         jd:for-index="rowIndex"
         jd:for-item="row"
         jd:key="$this"
-        class="jm-picker-view-column__item {{row['disabled']?'jm-picker-view-column__item--disabled':''}}"
+        class="jm-picker-view-column__item {{row['disabled']?'jm-picker-view-column__item--disabled':''}} {{selectedIndex[colIndex] == rowIndex ? 'jm-picker-view-column__item--active' : ''}}"
         style="line-height: {{itemHeight}}px;"
       >
         {{row[labelKey]}}
