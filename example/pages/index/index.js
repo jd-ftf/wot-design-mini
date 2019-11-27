@@ -54,7 +54,7 @@ Page({
             id: 'inputNumber',
             name: 'InputNumber 计数器'
           }, {
-            id: 'pickerView',
+            id: 'picker',
             name: 'Picker 选择器'
           }, {
             id: 'pickerView',
