@@ -6,7 +6,8 @@ VueComponent({
     textareaCalcStyle: {}
   },
   props: {
-    focused: Boolean,
+    // focused: Boolean,
+    focus: Boolean,
     type: {
       type: String,
       value: 'text'
@@ -14,11 +15,11 @@ VueComponent({
     value: {
       type: null,
       observer (newVal) {
-        if (!this.data.value) {
-          this.setData({
-            showClear: false
-          })
-        }
+        const { disabled, readonly, clearable } = this.data
+        this.setData({
+          value: newVal,
+          showClear: clearable && !disabled && !readonly && newVal
+        })
       }
     },
     placeholder: String,
@@ -27,10 +28,10 @@ VueComponent({
       value: false
     },
     maxlength: {
-      type: String,
-      value: '10000'
+      type: Number,
+      value: Number.MAX_SAFE_INTEGER
     },
-    minlength: String,
+    minlength: Number,
     showPassword: Boolean,
     disabled: {
       type: Boolean,
@@ -40,14 +41,13 @@ VueComponent({
       type: Boolean,
       value: false
     },
-    prefixIcon: String,
+
     useSuffixSlot: {
       type: Boolean,
       value: false
     },
-    suffixIcon: {
-      type: String
-    },
+    prefixIcon: String,
+    suffixIcon: String,
     showWordLimit: {
       type: Boolean,
       value: false
@@ -61,7 +61,6 @@ VueComponent({
       type: String,
       value: 'none'
     },
-    focus: Boolean,
     showWordCount: {
       type: Boolean,
       value: false
@@ -78,12 +77,12 @@ VueComponent({
       type: Boolean,
       value: false,
       observer () {
-        const { textareaCalcStyle, resize } = this.data
-        this.setData({
-          textareaStyle: Object.assign({}, textareaCalcStyle, {
-            resize: resize
-          })
-        })
+        // const { textareaCalcStyle, rows } = this.data
+        // this.setData({
+        //   textareaStyle: Object.assign({}, textareaCalcStyle, {
+        //     height: 17 * rows + 'px'
+        //   })
+        // })
       }
     }
   },
@@ -91,55 +90,43 @@ VueComponent({
     this.initState()
   },
   methods: {
-    // 初始化数据
+    // 状态初始化
     initState () {
-      const { showPassword, suffixIcon, showWordCount, useSuffixSlot, disabled, readonly, value, clearable, maxlength, showWordLimit } = this.data
+      const { showPassword, suffixIcon, showWordCount, useSuffixSlot, disabled, readonly, value, clearable, maxlength, showWordLimit, rows } = this.data
       let count = 0
       clearable && count++
       showPassword && count++
-      //  this.$slots.suffix 微信小程序当前版本暂不支持 判断slot是否插入
       (suffixIcon || useSuffixSlot) && count++
       showWordCount && count++
       this.setData({
         suffixCount: count,
         showClear: !disabled && !readonly && clearable && value,
         showWordCount: !disabled && !readonly && maxlength && showWordLimit,
-        showPwdVisible: !disabled && !readonly && showPassword
+        showPwdVisible: !disabled && !readonly && showPassword,
+        textareaStyle: 17 * rows + 'px'
       })
     },
-    _dataLock () {
-      const { disabled, readonly } = this.data
-      if (disabled || readonly) {
-        this.setData({
-          showWordCount: false,
-          showPwdVisible: false,
-          showClear: false,
-          focused: false
-        })
-      }
-    },
-    _getRect (select) {
+    getRect (select) {
       return new Promise(resolve => {
         this.createSelectorQuery()
           .select(select)
           .boundingClientRect(rect => {
             if (rect) {
+              console.log(rect)
               resolve(rect)
             }
           }).exec()
       })
     },
     // 获取元素节点，触发当前节点的事件
-    _getInput () {
-      const input = this._getRect('.jm-input__inner')
-      const textarea = this._getRect('.jm-input__textarea-inner')
+    getInput () {
+      const input = this.getRect('.jm-input__inner')
+      const textarea = this.getRect('.jm-input__textarea-inner')
       return input || textarea
     },
     togglePwdVisible () {
       // password属性设置false不生效，置空生效
-      this.setData({
-        isPwdVisible: !this.data.isPwdVisible
-      })
+      this.setData({ isPwdVisible: !this.data.isPwdVisible })
     },
     blur () {
       this.getInput().blur()
@@ -148,45 +135,27 @@ VueComponent({
       this.getInput().select()
     },
     clear () {
-      this.setData({
-        value: ''
-      })
-      this.$emit('input', '')
+      this.setData({ value: '' })
+      this.$emit('change', '')
       this.$emit('clear')
-      this.setData({
-        focused: true
-      })
+      this.setData({ focus: false })
     },
-    // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发change只触发blur
-    handleBlur (event) {
-      const { readonly, value, disabled } = this.data
-      const newVal = readonly || disabled ? value : event.detail.value
-      this.setData({
-        focused: false,
-        value: newVal
-      })
-      this.$emit('change', newVal)
-      this.$emit('blur', newVal)
+    /**
+     * 失去焦点时会先后触发change、blur，未输入内容但失焦不触发change只触发blur
+     */
+    handleBlur () {
+      this.setData({ focus: false })
+      this.$emit('change', this.data.value)
+      this.$emit('blur', this.data.value)
     },
-    handleFocus (event) {
-      this.setData({
-        focused: true
-      })
+    handleFocus () {
+      this.setData({ focus: true })
       this.$emit('focus')
     },
-    handleInput (event) {
-      const newVal = event.detail.value
-      const { disabled, readonly, clearable } = this.data
-
-      if (clearable && !disabled && !readonly) {
-        this.setData({
-          showClear: !!event.detail.value
-        })
-      }
-      this.setData({
-        value: newVal
-      })
-      this.$emit('input', newVal)
+    handleInput ({ detail: { value } }) {
+      this.setData({ value: value })
+      this.$emit('input', this.data.value)
+      this.$emit('change', this.data.value)
     },
     // textarea重设高度
     resizeTextarea () {

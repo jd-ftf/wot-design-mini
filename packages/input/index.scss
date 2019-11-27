@@ -134,7 +134,7 @@
     color: $-color-title;
     overflow: auto;
     outline: none;
-    // box-sizing: border-box;
+    box-sizing: border-box;
     border: none;
 
     &::-webkit-input-placeholder {
@@ -149,7 +149,7 @@
     right: 14px;
     top: 17px;
     bottom: 0;
-    z-index: 1;
+    z-index: 5;
   }
   @include e(textarea-icon) {
     margin-left: 8px;
@@ -173,10 +173,15 @@
       color: $-color-aid-red;
     }
   }
+  @include m(rows-3){
+    height: 51px;
+  }
   .jm-input__textarea-count,
-  .jm-input__textarea-count-current,
   .jm-input__count,
   .jm-input__count-current{
-    display: inline;
+    display: inline-block;
   }
+  // .jm-input__textarea-inner--rows-3{
+  //   height: 51px;
+  // }
 }

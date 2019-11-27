@@ -5,12 +5,13 @@ Page({
     value3: '这是只读状态',
     value4: '支持清空',
     value5: 'mima',
-    value6: 2,
-    value7: 2,
-    value8: 1
+    value6: '',
+    value7: '',
+    value8: '',
+    value9: ''
   },
   handleChange1({ detail }) {
-    console.log('引用部分：', detail)
+    console.log('触发实例中的change', detail)
     this.setData({
       value1: detail
     })

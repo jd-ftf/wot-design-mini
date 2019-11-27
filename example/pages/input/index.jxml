@@ -2,27 +2,36 @@
 	<demo-block title="基本用法">
 		<jm-input value="{{ value1 }}" placeholder="请输入用户名" bind:change="handleChange1" />
 	</demo-block>
-	<demo-block title="禁用">
+	<demo-block title="禁用状态">
 		<jm-input value="{{ value2 }}" placeholder="请输入用户名" disabled />
 	</demo-block>
-	<demo-block title="只读">
+	<demo-block title="只读状态">
 		<jm-input value="{{ value3 }}" readonly />
 	</demo-block>
-	<demo-block title="清空">
+	<demo-block title="清空按钮">
 		<jm-input value="{{ value4 }}" placeholder="请输入用户名" clearable />
 	</demo-block>
 	<demo-block title="密码框">
 		<jm-input value="{{ value5 }}" clearable show-password />
 	</demo-block>
-	<demo-block title="前后icon">
-		<jm-input value="" prefix-icon="person" suffix-icon="tickets" clearable />
+	<demo-block title="设置前后Icon">
+		<jm-input value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable />
 	</demo-block>
-	<demo-block title="字数限制">
-		<jm-input value="{{ value5 }}" maxlength="20" show-word-limit />
-	</demo-block>
-	<demo-block title="使用插槽">
-		<jm-input value="{{ value4 }}" placeholder="请输入用户名" clearable use-suffix-slot>
+	<demo-block title="设置 prefix/suffix 的slot">
+		<jm-input value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable use-suffix-slot>
 			<text slot="suffix">插入</text>
 		</jm-input>
+	</demo-block>
+	<demo-block title="字数限制">
+		<jm-input value="{{ value7 }}" maxlength="20" show-word-limit />
+	</demo-block>
+	<demo-block title="textarea">
+		<jm-input type="textarea" value="{{ value8 }}" placeholder="请填写评价..." />
+	</demo-block>
+	<demo-block title="textarea 清空按钮 和 字数限制">
+		<jm-input type="textarea" bind:change="handleChange1" value="{{ value8 }}" placeholder="请填写评价..." :rows="6" maxlength="120" clearable show-word-limit />
+	</demo-block>
+	<demo-block title="type 为 text 且设置 autosize">
+		<jm-input value="{{ value9 }}" autosize clearable />
 	</demo-block>
 </view>

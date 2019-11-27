@@ -4,28 +4,24 @@
   	<view class="jm-input__textarea {{ type === 'text' && autosize ? 'is-text-auto' : '' }} {{ showWordCount ? 'is-show-limit' : '' }}">
 			<!-- ref="textarea" -->
 			<textarea
-        class="jm-input__textarea-inner {{ showClear ? 'is-suffix' : '' }}"
-        style="{{textareaStyle}}"
-        placeholder="{{placeholder}}"
-        value="{{ value }}"
-        disabled="{{ disabled }}"
-        readonly="{{ readonly }}"
-        minlength="{{ minlength }}"
-        maxlength="{{ maxlength }}"
-        rows="{{ rows }}"
-        focus="{{ focused }}"
+        class="jm-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} {{ rows > 0 ? 'jm-input__textarea-inner--rows-' + rows : '' }} "
+        style="height: 51px "
+        value="{{ value }}" 
+        placeholder="{{ placeholder }}" 
+        readonly="{{ readonly }}" 
+        disabled="{{ disabled }}" 
+        minlength="{{ minlength }}" 
+        maxlength="{{ maxlength }}" 
+        rows="{{ rows }}" 
+        focus="{{ focus }}" 
         bindinput="handleInput"
-        bindchange="handleChange"
         bindfocus="handleFocus"
         bindblur="handleBlur"
 			/>
 			<view class="jm-input__textarea-suffix">
-        <jm-icon jd:if="{{ showClear }}" class="jm-input__icon" name="close-outline" bindtap="clear"/>
+        <jm-icon jd:if="{{ showClear }}" class="jm-input__icon" name="close-outline" catchtap="clear"/>
         <view jd:if="{{ showWordCount }}" class="jm-input__textarea-count">
-          <view class="jm-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">
-            {{ value.length }}
-          </view>
-          /{{ maxlength }}
+          <text class="jm-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
         </view>
       </view>
     </view>
@@ -49,11 +45,11 @@
       disabled="{{ disabled }}" 
       minlength="{{ minlength }}" 
       maxlength="{{ maxlength }}" 
-      rows="{{ rows }}" 
-      focus="{{ focused }}" 
+      focus="{{ focus }}" 
       bindinput="handleInput"
       bindfocus="handleFocus"
-      bindblur="handleBlur">
+      bindblur="handleBlur"
+    >
     </input>
     <!-- 密码不隐藏 -->
     <input 
@@ -66,25 +62,22 @@
       disabled="{{ disabled }}" 
       minlength="{{ minlength }}" 
       maxlength="{{ maxlength }}" 
-      rows="{{ rows }}" 
-      focus="{{ focused }}" 
+      focus="{{ focus }}" 
       bindinput="handleInput"
       bindfocus="handleFocus"
-      
-      bindblur="handleBlur">
+      bindblur="handleBlur"
+    >
     </input>
     <view jd:if="{{ showClear || showPassword || suffixIcon || showWordCount }}" class="jm-input__suffix">
-      <jm-icon jd:if="{{ showClear }}" class="jm-input__icon " name="close-outline"  bindtap="clear"/>
+      <jm-icon jd:if="{{ showClear }}" class="jm-input__icon " name="close-outline"  catchtap="clear"/>
       <jm-icon 
         jd:if="{{ showPassword }}" 
         class="jm-input__icon " 
         name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
-        bindtap="togglePwdVisible"/>
+        bindtap="togglePwdVisible"
+      />
       <view jd:if="{{ showWordCount }}" class="jm-input__count">
-        <view class="jm-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">
-          {{ value.length }}
-        </view>
-        /{{ maxlength }}
+        <text class="jm-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
       </view>
       <slot name="suffix"></slot>
       <jm-icon jd:if="{{ suffixIcon }}" class="jm-input__icon " name="{{ suffixIcon }}"/>
