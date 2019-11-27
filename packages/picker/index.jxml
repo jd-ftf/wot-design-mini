@@ -1,0 +1,50 @@
+<view class="jm-picker jm-field">
+  <!--文案-->
+  <view
+    class="jm-picker__field {{disabled ? 'jm-picker__field--disabled' : '' }}"
+    bindtap="showPopup"
+  >
+    <view class="jm-picker__label">{{ label }}</view>
+    <view class="jm-picker__value">
+      {{ showValue ? showValue : placeholder }}
+    </view>
+    <jm-icon
+      jd:if="{{!disabled && !readonly}}"
+      custom-class="jm-picker__arrow"
+      name="arrow-right"
+    />
+  </view>
+  <!--弹出层-->
+  <jm-popup
+    show="{{ popupShow }}"
+    position="bottom"
+    bind:click-modal="onCancel"
+  >
+
+    <!--toolBar-->
+    <view class="jm-picker__toolbar">
+      <!--取消按钮-->
+      <view class="jm-picker__action jm-picker__action--cancel" bindtap="onCancel">
+        {{ cancelButtonText }}
+      </view>
+      <!--标题-->
+      <view jd:if="{{title}}" class="jm-picker__title">{{ title }}</view>
+      <!--确定按钮-->
+      <view class="jm-picker__action" bindtap="onConfirm">
+        {{ confirmButtonText }}
+      </view>
+    </view>
+    <!--pickerView-->
+    <jm-picker-view
+      id="{{pickerId}}"
+      value="{{value}}"
+      columns="{{columns}}"
+      loading="{{loading}}"
+      visible-item-count="{{visibleItemCount}}"
+      item-height="{{itemHeight}}"
+      value-key="{{valueKey}}"
+      label-key="{{labelKey}}"
+      bind:change="handleChange"
+    />
+  </jm-popup>
+</view>

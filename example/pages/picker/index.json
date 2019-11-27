@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "pickerView 选择器视图",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "jm-picker": "../../dist/picker/index"
+  }
+}
