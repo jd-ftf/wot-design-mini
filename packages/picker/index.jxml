@@ -18,7 +18,7 @@
   <jm-popup
     show="{{ popupShow }}"
     position="bottom"
-    bind:click-modal="onCancel"
+    bind:close="onCancel"
   >
 
     <!--toolBar-->
