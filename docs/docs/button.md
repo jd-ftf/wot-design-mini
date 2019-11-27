@@ -28,7 +28,7 @@
 设置 `disabled` 属性。
 
 ```html
-<jm-button disabled>默认按钮</jm-button>
+<jm-button disabled="{{true}}">默认按钮</jm-button>
 ```
 
 ### 幽灵按钮

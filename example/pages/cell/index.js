@@ -1,5 +1,6 @@
+import Toast from '../../dist/toast/toast'
 Page({
-  onClick (e) {
-    console.log(e)
+  onClick (event) {
+    Toast('点击')
   }
 })

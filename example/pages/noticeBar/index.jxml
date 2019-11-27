@@ -2,7 +2,7 @@
   <demo-block title="基本用法" transparent>
     <jm-notice-bar
       text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
-      left-icon="news"
+      left-icon="bell"
     />
   </demo-block>
   <demo-block title="禁止滚动" transparent>
@@ -27,7 +27,7 @@
   <demo-block title="自定义颜色" transparent>
     <jm-notice-bar
       text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
-      left-icon="news"
+      left-icon="bell"
       closable
       color="#0083ff"
       background-color="#d9ebfd"

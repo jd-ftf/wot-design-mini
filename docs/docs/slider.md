@@ -75,7 +75,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<jm-slider v-model="value" disabled />
+<jm-slider v-model="value" disabled="{{true}}" />
 ```
 
 ### Attributes

@@ -57,6 +57,9 @@ Page({
             id: 'picker',
             name: 'Picker 选择器'
           }, {
+            id: 'pickerView',
+            name: 'PickerView 选择器视图'
+          }, {
             id: 'radio',
             name: 'Radio 单选框'
           }, {

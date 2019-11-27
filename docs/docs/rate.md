@@ -31,7 +31,7 @@
 设置 `disabled` 属性和`disabled-color`
 
 ```html
-<jm-rate value="{{2}}" disabled />
+<jm-rate value="{{2}}" disabled="{{true}}" />
 ```
 
 ### 修改颜色
@@ -40,7 +40,7 @@
 
 ```html
 <jm-rate value="{{3}}" active-color="#FFAE16"/>
-<jm-rate value="{{2}}" disabled disabled-color="rgb(197, 197, 197,0.5)"/>
+<jm-rate value="{{2}}" disabled="{{true}}" disabled-color="rgb(197, 197, 197,0.5)"/>
 ```
 
 ### 修改icon
@@ -97,7 +97,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| change       | 点击icon，修改分值事件              | Event，包含被点击icon的index  |
+| bind:change       | 点击icon，修改分值事件              | Event，包含被点击icon的index  |
 
 ### 外部样式类
 

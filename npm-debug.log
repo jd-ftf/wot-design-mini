@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/.bin/npm',
+1 verbose cli   '--userconfig=/Users/houxinchao/.jnpmrc',
+1 verbose cli   '--disturl=https://npm.taobao.org/mirrors/node',
+1 verbose cli   '--registry=http://registry.m.jd.com',
+1 verbose cli   'run',
+1 verbose cli   'install' ]
+2 info using npm@3.10.10
+3 info using node@v10.16.1
+4 verbose stack Error: missing script: install
+4 verbose stack     at run (/Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/lib/run-script.js:151:19)
+4 verbose stack     at /Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/lib/run-script.js:61:5
+4 verbose stack     at /Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/node_modules/read-package-json/read-json.js:356:5
+4 verbose stack     at checkBinReferences_ (/Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/node_modules/read-package-json/read-json.js:320:45)
+4 verbose stack     at final (/Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/node_modules/read-package-json/read-json.js:354:3)
+4 verbose stack     at then (/Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/node_modules/read-package-json/read-json.js:124:5)
+4 verbose stack     at /Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/node_modules/read-package-json/read-json.js:311:12
+4 verbose stack     at /Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:53:3)
+5 verbose cwd /Users/houxinchao/hxc-project/wxProject/jmd-vapp/jmd-vapp
+6 error Darwin 18.7.0
+7 error argv "/usr/local/bin/node" "/Users/houxinchao/.npm-global/lib/node_modules/@jd/jnpm/node_modules/.bin/npm" "--userconfig=/Users/houxinchao/.jnpmrc" "--disturl=https://npm.taobao.org/mirrors/node" "--registry=http://registry.m.jd.com" "run" "install"
+8 error node v10.16.1
+9 error npm  v3.10.10
+10 error missing script: install
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]

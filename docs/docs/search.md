@@ -91,13 +91,13 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<jm-search disabled />
+<jm-search disabled="{{true}}" />
 ```
 
 可以和 `hide-cancel` 结合使用，用于在本页只展示搜索框，当点击搜索框时，将页面路由切换进搜索页，在搜索页中再使用搜索功能。
 
 ```html
-<jm-search hide-cancel disabled />
+<jm-search hide-cancel disabled="{{true}}" />
 ```
 
 ### 自定义
@@ -125,9 +125,9 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| focus        | 监听输入框focus事件                    | Event，包含输入内容       |
-| blur         | 监听输入框blur事件                     | Event，包含输入内容       |
-| search       | 监听输入框搜索事件                      | Event，包含输入内容 |
-| clear        | 监听输入框清空按钮事件                   | - |
-| cancel       | 监听输入框右侧文本点击事件               | Event，包含输入内容       |
-| change        | 监听输入框change事件                    | Event，包含输入内容 |
+| bind:focus        | 监听输入框focus事件                    | Event，包含输入内容       |
+| bind:blur         | 监听输入框blur事件                     | Event，包含输入内容       |
+| bind:search       | 监听输入框搜索事件                      | Event，包含输入内容 |
+| bind:clear        | 监听输入框清空按钮事件                   | - |
+| bind:cancel       | 监听输入框右侧文本点击事件               | Event，包含输入内容       |
+| bind:change        | 监听输入框change事件                    | Event，包含输入内容 |

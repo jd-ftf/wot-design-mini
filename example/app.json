@@ -19,7 +19,9 @@
     "pages/loadmore/index",
     "pages/rate/index",
     "pages/tag/index",
-    "pages/progress/index"
+    "pages/progress/index",
+    "pages/radio/index",
+    "pages/pickerView/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

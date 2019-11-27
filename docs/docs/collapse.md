@@ -68,7 +68,7 @@ export default {
   <jm-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
   </jm-collapse-item>
-  <jm-collapse-item title="标签2" name="item2" disabled>
+  <jm-collapse-item title="标签2" name="item2" disabled="{{true}}">
     这是一条简单的示例文字。
   </jm-collapse-item>
   <jm-collapse-item title="标签3" name="item3">
@@ -100,7 +100,7 @@ Collapse 可以单独使用，通过设置 `viewmore` 属性，将其转化为�
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| change | 绑定值变化时触发 | value |
+| bind:change | 绑定值变化时触发 | value |
 
 ### Collapse Slot
 

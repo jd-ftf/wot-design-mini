@@ -65,12 +65,37 @@
 </jm-cell-group>
 ```
 
-### 页面跳转
+### 点击反馈
 
-通过设置 `is-link` 属性显示导航箭头和点击态，设置 `to` 属性，指定跳转地址。`to` 属性是普通链接。
+> 通过设置 `clickable` 开启点击反馈，之后可以监听`click`事件。  
 
 ```html
-<jm-cell title="帮助与反馈" is-link to="/pages/button/index" />
+<jm-toast id="jm-toast"/>
+<jm-cell 
+  bind:click="onClick"
+  title="帮助与反馈" 
+/>
+```
+```javascript
+import Toast from '../../dist/toast/toast'
+Page({
+  onClick (event) {
+    Toast('点击')
+  }
+})
+```
+
+### 页面跳转
+
+通过设置 `is-link` 属性显示导航箭头和点击态，设置 `to` 属性，指定跳转地址。`to` 属性是普通链接。  
+`is-link`会默认开启`clickable`。
+
+```html
+<jm-toast id="jm-toast"/>
+<jm-cell 
+  title="帮助与反馈" 
+  is-link to="/pages/button/index"
+/>
 ```
 
 ### 自定义内容
@@ -159,7 +184,7 @@
 
 ### CellGroup Slot
 
-> CellGroup必须首先开启`use-slot`,插槽才生效
+> CellGroup必须首先开启`use-slot`,插槽才生效。使用插槽时请通过外部自定义样式类来控制样式。
 
 | name      | 说明       |
 |------------- |----------- |
@@ -180,9 +205,9 @@
 |---------|---------------------|
 | custom-class | 根结点样式 |
 | custom-icon-class | icon使用slot时的自定义样式 |
-| custom-label-class | icon使用label时的自定义样式 |
-| custom-value-class | icon使用value时的自定义样式 |
-| custom-title-class | icon使用title时的自定义样式 |
+| custom-label-class | label使用slot时的自定义样式 |
+| custom-value-class | value使用slot时的自定义样式 |
+| custom-title-class | title使用slot时的自定义样式 |
 
 ### CellGroup外部样式类
 
