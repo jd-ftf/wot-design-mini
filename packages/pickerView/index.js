@@ -79,7 +79,7 @@ VueComponent({
       value = value instanceof Array ? value : [value]
       value = value.slice(0, this.data.formatColumns.length)
       value.forEach((target, col) => {
-        let row = this.data.formatColumns[col].findIndex(({ value }) => value === target)
+        let row = this.data.formatColumns[col].findIndex(row => row[this.data.valueKey] === target)
         row = row === -1 ? 0 : row
         this.selectWithIndex(col, row)
       })
@@ -216,7 +216,14 @@ VueComponent({
       return selectedIndex.map((row, col) => formatColumns[col][row])
     },
     /**
-     * @description 获取所有列选中项的文本，返回值为一个数组
+     * @description 获取所有列选中项的value，返回值为一个数组
+     */
+    getValues () {
+      const { selectedIndex, formatColumns, valueKey } = this.data
+      return selectedIndex.map((row, col) => formatColumns[col][row][valueKey])
+    },
+    /**
+     * @description 获取所有列选中项的label，返回值为一个数组
      * @return {Array} 每列选中的label
      */
     getLabels () {
