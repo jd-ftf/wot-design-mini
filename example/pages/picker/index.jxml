@@ -13,8 +13,14 @@
     label="多级联动"
     value="{{value5}}"
     columns="{{columns5}}"
-    placeholder="{{placeholder}}"
     bind:change="handleChange"
+  />
+
+  <jm-picker
+    label="分隔符"
+    value="{{value6}}"
+    columns="{{columns6}}"
+    display-format="/"
     bind:confirm="handleConfirm"
   />
 </demo-block>

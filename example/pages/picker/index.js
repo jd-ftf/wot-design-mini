@@ -64,7 +64,11 @@ Page({
       district[district[district[0][0].value][0].value]
     ],
 
-    placeholder: ''
+    value6: ['中南大学', '软件工程'],
+    columns6: [
+      ['中山大学', '中南大学', '华南理工大学'],
+      ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学']
+    ]
   },
 
   handleChange ({ detail: { picker: pickerView, value, index: columnIndex } }) {
@@ -76,9 +80,7 @@ Page({
       pickerView.setColumnData(2, district[item.value])
     }
   },
-  handleConfirm ({ detail }) {
-    this.setData({
-      placeholder: detail.map(({ label }) => label).join('-')
-    })
+  handleConfirm ({ detail: { value, resolve } }) {
+    resolve(value.map(({ label }) => label).join('-'))
   }
 })
