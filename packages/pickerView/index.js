@@ -48,6 +48,16 @@ VueComponent({
     labelKey: {
       type: String,
       value: 'label'
+    },
+    // 多级联动
+    columnChange: {
+      type: null,
+      value: (value) => value,
+      observer (fn) {
+        if (getType(fn) !== 'function') {
+          throw Error('The type of columnChange must be Function')
+        }
+      }
     }
   },
   data: {
@@ -202,6 +212,8 @@ VueComponent({
         : this.getSelects()
       // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
       const index = selectedIndex.length === 1 ? diffRow : diffCol
+      // 执行多级联动
+      this.data.columnChange(picker, value, index)
       this.$emit('change', {
         picker,
         value,

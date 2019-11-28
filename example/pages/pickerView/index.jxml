@@ -15,5 +15,9 @@
 </demo-block>
 
 <demo-block title='多级联动，数值: [ "110000", "110100", "110101" ]' transparent>
-  <jm-picker-view value="{{value5}}" columns="{{columns5}}" bind:change="handleChange"/>
+  <jm-picker-view
+    value="{{value5}}"
+    columns="{{columns5}}"
+    column-change="{{onChangeDistrict}}"
+  />
 </demo-block>

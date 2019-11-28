@@ -39,17 +39,18 @@ Page({
       district[0],
       district[district[0][0].value],
       district[district[district[0][0].value][0].value]
-    ]
-  },
-  handleChange ({ detail: { picker: pickerView, value, index: columnIndex } }) {
-    const item = value[columnIndex]
-    if (columnIndex === 0) {
-      pickerView.setColumnData(1, district[item.value])
-      pickerView.setColumnData(2, district[district[item.value][0].value])
-      return
-    }
-    if (columnIndex === 1) {
-      pickerView.setColumnData(2, district[item.value])
+    ],
+
+    onChangeDistrict (pickerView, value, columnIndex) {
+      const item = value[columnIndex]
+      if (columnIndex === 0) {
+        pickerView.setColumnData(1, district[item.value])
+        pickerView.setColumnData(2, district[district[item.value][0].value])
+        return
+      }
+      if (columnIndex === 1) {
+        pickerView.setColumnData(2, district[item.value])
+      }
     }
   }
 })
