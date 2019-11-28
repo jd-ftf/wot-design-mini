@@ -68,4 +68,11 @@ Component({
   }
 })
 ```
+### properties
 
+####  disabled
+properties传值时不支持 `disabled`单键值，必须写成
+```
+<view disabled="{{true}}"></view>
+
+```
