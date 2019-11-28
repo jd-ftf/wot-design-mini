@@ -1,22 +1,37 @@
 <view class="jm-input custom-class {{ type === 'textarea' ? 'is-textarea' : '' }} {{ disabled ? 'is-disabled' : '' }}  ">
+  <cover-view jd:if="{{ readonly }}" class="jm-input__disk"></cover-view>
   <!-- 文本域 -->
 	<view jd:if="{{ type === 'textarea' || (type === 'text' && autosize) }}">
+    <view jd:if="{{ autosize }}" class="jm-input__wrap"><view class="jm-input__wrap-content">{{ value }}</view></view>
   	<view class="jm-input__textarea {{ type === 'text' && autosize ? 'is-text-auto' : '' }} {{ showWordCount ? 'is-show-limit' : '' }}">
 			<!-- ref="textarea" -->
 			<textarea
         class="jm-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} {{ rows > 0 ? 'jm-input__textarea-inner--rows-' + rows : '' }} "
-        style="height: 51px "
+        style="{{ textareaStyle }};"
         value="{{ value }}" 
         placeholder="{{ placeholder }}" 
-        readonly="{{ readonly }}" 
         disabled="{{ disabled }}" 
         minlength="{{ minlength }}" 
         maxlength="{{ maxlength }}" 
-        rows="{{ rows }}" 
         focus="{{ focus }}" 
+        placeholder-style="{{ placeholderStyle }}"
+        placeholder-class="{{ placeholderClass }}"
+        auto-focus="{{ autofocus }}"
+        auto-height="{{ autoHeight }}"
+        cursor-spacing="{{ cursorSpacing }}"
+        fixed="{{ fixed }}"
+        cursor="{{ cursor }}"
+        show-confirm-bar="{{ showConfirmBar }}"
+        selection-start="{{ selectionStart }}"
+        selection-end="{{ selectionEnd }}"
+        adjust-position="{{ adjustPosition }}"
+        hold-keyboard="{{ holdKeyboard }}"
         bindinput="handleInput"
         bindfocus="handleFocus"
         bindblur="handleBlur"
+        bindlinechange="handleLineChange"
+        bindconfirm="handleConfirm"
+        bindkeyboardheightchange="handleKeyboardheightchange"
 			/>
 			<view class="jm-input__textarea-suffix">
         <jm-icon jd:if="{{ showClear }}" class="jm-input__icon" name="close-outline" catchtap="clear"/>
@@ -41,7 +56,6 @@
       password="{{ isPwdVisible }}"
       value="{{ value }}" 
       placeholder="{{ placeholder }}" 
-      readonly="{{ readonly }}" 
       disabled="{{ disabled }}" 
       minlength="{{ minlength }}" 
       maxlength="{{ maxlength }}" 
@@ -80,7 +94,7 @@
         <text class="jm-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
       </view>
       <slot name="suffix"></slot>
-      <jm-icon jd:if="{{ suffixIcon }}" class="jm-input__icon " name="{{ suffixIcon }}"/>
+      <jm-icon jd:if="{{ suffixIcon && !useSuffixSlot}}" class="jm-input__icon " name="{{ suffixIcon }}"/>
     </view>
   </view>
 </view>

@@ -1,12 +1,27 @@
 import VueComponent from '../common/component'
-import calcTextareaHeight from './calcTextareaHeight'
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
 VueComponent({
   data: {
-    isPwdVisible: false,
-    textareaCalcStyle: {}
+    isPwdVisible: false
   },
   props: {
-    // focused: Boolean,
+    // textarea原生属性
+    placeholderStyle: String,
+    placeholderClass: String,
+    autofocus: Boolean,
+    autoHeight: Boolean,
+    fixed: Boolean,
+    cursorSpacing: Number,
+    cursor: Number,
+    showConfirmBar: Boolean,
+    selectionStart: Number,
+    selectionEnd: Number,
+    adjustPosition: Boolean,
+    holdKeyboard: Boolean,
+    // input原生属性
+
     focus: Boolean,
     type: {
       type: String,
@@ -20,6 +35,7 @@ VueComponent({
           value: newVal,
           showClear: clearable && !disabled && !readonly && newVal
         })
+        this.resizeTextarea()
       }
     },
     placeholder: String,
@@ -41,7 +57,6 @@ VueComponent({
       type: Boolean,
       value: false
     },
-
     useSuffixSlot: {
       type: Boolean,
       value: false
@@ -51,15 +66,6 @@ VueComponent({
     showWordLimit: {
       type: Boolean,
       value: false
-    },
-    rows: {
-      type: String,
-      value: '3'
-    },
-    autosize: null,
-    resize: {
-      type: String,
-      value: 'none'
     },
     showWordCount: {
       type: Boolean,
@@ -73,26 +79,27 @@ VueComponent({
       type: String
     },
     suffixCount: Number,
-    textareaStyle: {
-      type: Boolean,
-      value: false,
-      observer () {
-        // const { textareaCalcStyle, rows } = this.data
-        // this.setData({
-        //   textareaStyle: Object.assign({}, textareaCalcStyle, {
-        //     height: 17 * rows + 'px'
-        //   })
-        // })
-      }
-    }
+    autosize: null,
+    resize: {
+      type: String,
+      value: 'none'
+    },
+    rows: {
+      type: String,
+      value: '3'
+    },
+    textareaStyle: String
   },
   created () {
     this.initState()
   },
+  mounted () {
+    this.data.autosize && this.resizeTextarea()
+  },
   methods: {
     // 状态初始化
     initState () {
-      const { showPassword, suffixIcon, showWordCount, useSuffixSlot, disabled, readonly, value, clearable, maxlength, showWordLimit, rows } = this.data
+      const { showPassword, suffixIcon, showWordCount, useSuffixSlot, disabled, readonly, value, clearable, maxlength, showWordLimit } = this.data
       let count = 0
       clearable && count++
       showPassword && count++
@@ -102,9 +109,9 @@ VueComponent({
         suffixCount: count,
         showClear: !disabled && !readonly && clearable && value,
         showWordCount: !disabled && !readonly && maxlength && showWordLimit,
-        showPwdVisible: !disabled && !readonly && showPassword,
-        textareaStyle: 17 * rows + 'px'
+        showPwdVisible: !disabled && !readonly && showPassword
       })
+      this.resizeTextarea()
     },
     getRect (select) {
       return new Promise(resolve => {
@@ -112,17 +119,10 @@ VueComponent({
           .select(select)
           .boundingClientRect(rect => {
             if (rect) {
-              console.log(rect)
               resolve(rect)
             }
           }).exec()
       })
-    },
-    // 获取元素节点，触发当前节点的事件
-    getInput () {
-      const input = this.getRect('.jm-input__inner')
-      const textarea = this.getRect('.jm-input__textarea-inner')
-      return input || textarea
     },
     togglePwdVisible () {
       // password属性设置false不生效，置空生效
@@ -157,26 +157,50 @@ VueComponent({
       this.$emit('input', this.data.value)
       this.$emit('change', this.data.value)
     },
+    handleKeyboardheightchange (event) {
+      this.$emit('keyboardheightchange', event)
+    },
+    handleConfirm (event) {
+      this.$emit('confirm', event)
+    },
+    handleLineChange (event) {
+      this.$emit('linechange', event)
+    },
     // textarea重设高度
     resizeTextarea () {
-      const { autosize, type } = this.data
+      const { autosize, type, rows, value } = this.data
+      const { minRows, maxRows } = isObject(autosize) ? autosize : { minRows: '', maxRows: '' }
+      // 如果是文本域状态 或 input自适应高度
       if (type === 'textarea' || (type === 'text' && autosize)) {
         if (!autosize) {
-          this.textareaCalcStyle = {
-            minHeight: calcTextareaHeight(this.getInput()).minHeight
-          }
-          return
+          this.setData({ textareaStyle: 'height:' + 17 * rows + 'px' })
+        } else {
+          // 如有最小最大限制，那么是自适应的，但自适应受限制
+          // 文本域情况下直接设置
+          Promise.all([
+            this.getRect('.jm-input__wrap'),
+            this.getRect('.jm-input__wrap-content')
+          ]).then(rects => {
+            const [wrapRect, contentRect] = rects
+            if (!wrapRect || !contentRect) return
+            const wrapWidth = wrapRect.width
+            const contentWidth = contentRect.width
+            const currentRows = Math.ceil(contentWidth / wrapWidth)
+            let newRows
+            if (minRows || maxRows) {
+              if (!value) {
+                newRows = minRows || rows
+              } else {
+                newRows = currentRows || minRows
+                newRows = minRows ? (newRows < minRows ? minRows : newRows) : newRows
+                newRows = maxRows ? (newRows > maxRows ? maxRows : newRows) : newRows
+              }
+            } else {
+              newRows = currentRows ? Math.max(rows, currentRows) : rows
+            }
+            this.setData({ textareaStyle: 'height:' + 17 * newRows + 'px' })
+          })
         }
-        let minRows, maxRows
-        if (typeof autosize === 'object') {
-          minRows = autosize.minRows
-          maxRows = autosize.maxRows
-        }
-        this.textareaCalcStyle = calcTextareaHeight(
-          this.getInput(),
-          minRows,
-          maxRows
-        )
       }
     }
   }

@@ -29,9 +29,12 @@
 		<jm-input type="textarea" value="{{ value8 }}" placeholder="请填写评价..." />
 	</demo-block>
 	<demo-block title="textarea 清空按钮 和 字数限制">
-		<jm-input type="textarea" bind:change="handleChange1" value="{{ value8 }}" placeholder="请填写评价..." :rows="6" maxlength="120" clearable show-word-limit />
+		<jm-input type="textarea" bind:change="handleChange1" value="{{ value8 }}" placeholder="请填写评价..." rows="6" maxlength="120" clearable show-word-limit />
 	</demo-block>
 	<demo-block title="type 为 text 且设置 autosize">
-		<jm-input value="{{ value9 }}" autosize clearable />
+		<jm-input value="{{ value9 }}" autosize clearable bind:change="handleChange1" rows="1"/>
+	</demo-block>
+	<demo-block title="rows">
+		<jm-input value="{{ value9 }}" autosize="{{ size }}" clearable bind:change="handleChange1"/>
 	</demo-block>
 </view>

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "Input",
+  "navigationBarTitleText": "Input 输入框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
     "jm-input": "../../dist/input/index"

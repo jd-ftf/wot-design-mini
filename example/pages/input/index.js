@@ -8,10 +8,10 @@ Page({
     value6: '',
     value7: '',
     value8: '',
-    value9: ''
+    value9: '',
+    size:{ minRows: 2, maxRows: 6 }
   },
   handleChange1({ detail }) {
-    console.log('触发实例中的change', detail)
     this.setData({
       value1: detail
     })

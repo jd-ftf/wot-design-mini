@@ -77,7 +77,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 5;
+    z-index: 2;
   }
   @include e(icon) {
     margin-left: 8px;
@@ -111,7 +111,8 @@
 
   @include e(textarea) {
     position: relative;
-    padding: 17px 14px;
+    // padding: 17px 14px;
+    padding: 17px 14px 17px 0;
     font-size: 0;
     
     @include when(show-limit) {
@@ -121,7 +122,7 @@
       padding: 10px 0;
 
       .jm-input__textarea-suffix {
-        top: 10px;
+        top: 5px;
         right: 0;
       }
     }
@@ -149,7 +150,7 @@
     right: 14px;
     top: 17px;
     bottom: 0;
-    z-index: 5;
+    z-index: 2;
   }
   @include e(textarea-icon) {
     margin-left: 8px;
@@ -173,15 +174,32 @@
       color: $-color-aid-red;
     }
   }
-  @include m(rows-3){
-    height: 51px;
+  @include e(textarea-textflow) {
+    width: 100%;
+    height: 17px;
   }
   .jm-input__textarea-count,
   .jm-input__count,
   .jm-input__count-current{
     display: inline-block;
   }
-  // .jm-input__textarea-inner--rows-3{
-  //   height: 51px;
-  // }
+  @include e(wrap){
+    visibility: hidden;
+    width: 100%;
+    height: 17px;
+    position: absolute;
+    font-size: 14px;  
+    padding: 17px 14px 17px 0;
+    &-content{
+      position: absolute;
+      white-space: nowrap;
+    }
+  }
+  @include e(disk){
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;   
+  }
 }
