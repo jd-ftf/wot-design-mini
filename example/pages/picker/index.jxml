@@ -21,7 +21,6 @@
     value="{{value6}}"
     columns="{{columns6}}"
     display-format="/"
-    bind:confirm="handleConfirm"
   />
 </demo-block>
 
