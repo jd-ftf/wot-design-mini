@@ -97,6 +97,11 @@
                 "path": "/picker",
                 "demo": "/picker"
               },
+              "pickerView": {
+                "name": "PickerView 选择器视图",
+                "path": "/pickerView",
+                "demo": "/pickerView"
+              },
               "Radio": {
                 "name": "Radio 单选框",
                 "path": "/radio",
