@@ -68,19 +68,24 @@ Page({
     columns6: [
       ['中山大学', '中南大学', '华南理工大学'],
       ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学']
-    ]
-  },
+    ],
 
-  handleChange ({ detail: { picker: pickerView, value, index: columnIndex } }) {
-    const item = value[columnIndex]
-    if (columnIndex === 0) {
-      pickerView.setColumnData(1, district[item.value])
-      pickerView.setColumnData(2, district[district[item.value][0].value])
-    } else if (columnIndex === 1) {
-      pickerView.setColumnData(2, district[item.value])
+    onChangeDistrict (pickerView, value, columnIndex) {
+      const item = value[columnIndex]
+      if (columnIndex === 0) {
+        pickerView.setColumnData(1, district[item.value])
+        pickerView.setColumnData(2, district[district[item.value][0].value])
+        return
+      }
+      if (columnIndex === 1) {
+        pickerView.setColumnData(2, district[item.value])
+      }
+    },
+
+    displayFormat (items) {
+      return items.map(item => {
+        return item.label
+      }).join('-')
     }
-  },
-  handleConfirm ({ detail: { value, resolve } }) {
-    resolve(value.map(({ label }) => label).join('-'))
   }
 })

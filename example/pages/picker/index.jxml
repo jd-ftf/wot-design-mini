@@ -13,14 +13,14 @@
     label="多级联动"
     value="{{value5}}"
     columns="{{columns5}}"
-    bind:change="handleChange"
+    column-change="{{onChangeDistrict}}"
   />
 
   <jm-picker
     label="分隔符"
     value="{{value6}}"
     columns="{{columns6}}"
-    display-format="/"
+    display-format="{{displayFormat}}"
   />
 </demo-block>
 

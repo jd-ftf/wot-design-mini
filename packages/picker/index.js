@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import { getType } from '../common/util'
 
 VueComponent({
   props: {
@@ -32,6 +33,18 @@ VueComponent({
       type: String,
       value: '完成'
     },
+    // 外部展示格式化函数
+    displayFormat: {
+      type: null,
+      value (items) {
+        return items.map(item => item[this.labelKey]).toString()
+      },
+      observer (fn) {
+        if (getType(fn) !== 'function') {
+          throw Error('The type of displayFormat must be Function')
+        }
+      }
+    },
     /* 参考pickerView组件 */
     value: null,
     columns: Array,
@@ -55,9 +68,14 @@ VueComponent({
       type: String,
       value: 'label'
     },
-    displayFormat: {
-      type: String,
-      value: ','
+    columnChange: {
+      type: null,
+      value: (value) => value,
+      observer (fn) {
+        if (getType(fn) !== 'function') {
+          throw Error('The type of columnChange must be Function')
+        }
+      }
     }
   },
   data: {
@@ -90,27 +108,23 @@ VueComponent({
     onConfirm () {
       const selects = this.picker.getSelects()
       this.setData({ popupShow: false })
-      const resolve = this.setShowValue.bind(this)
-      resolve(
-        selects.map(item => item[this.data.labelKey]).join(this.data.displayFormat) ||
-        this.data.placeholder
-      )
-      // 把setShowValue透传给调用者，优先展示调用者传入的参数
-      this.$emit('confirm', {
-        value: selects,
-        resolve
-      })
+      this.setShowValue(selects)
+      this.$emit('confirm', selects)
     },
+    /**
+     * @description 初始change事件
+     * @param event
+     */
     handleChange (event) {
       this.$emit('change', event.detail)
     },
     /**
      * @description 设置展示值
-     * @param {String} str
+     * @param {Array<String>} items
      */
-    setShowValue (str) {
+    setShowValue (items) {
       this.setData({
-        showValue: str
+        showValue: this.data.displayFormat(items)
       })
     }
   },
@@ -118,8 +132,6 @@ VueComponent({
     // pickerView挂载到全局
     this.picker = this.selectComponent(`#${this.data.pickerId}`)
     // 获取初始选中项,并展示初始选中文案
-    const pickerValue = this.picker.getLabels().join(this.data.displayFormat) ||
-      this.data.placeholder
-    this.setShowValue(pickerValue)
+    this.setShowValue(this.picker.getSelects())
   }
 })

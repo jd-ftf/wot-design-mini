@@ -44,6 +44,7 @@
       item-height="{{itemHeight}}"
       value-key="{{valueKey}}"
       label-key="{{labelKey}}"
+      column-change="{{columnChange}}"
       bind:change="handleChange"
     />
   </jm-popup>
