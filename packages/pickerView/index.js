@@ -199,7 +199,7 @@ VueComponent({
         if (row === origin[col]) return
         this.selectWithIndex(col, row)
       })
-      const { selectedIndex, formatColumns } = this.data
+      const { selectedIndex } = this.data
       // diff出变化的列
       const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index])
       if (diffCol === -1) return
@@ -208,12 +208,12 @@ VueComponent({
       const picker = this
       // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
       value = selectedIndex.length === 1
-        ? formatColumns[0][selectedIndex[0]]
-        : this.getSelects()
+        ? this.getValues()[0]
+        : this.getValues()
       // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
       const index = selectedIndex.length === 1 ? diffRow : diffCol
       // 执行多级联动
-      this.data.columnChange(picker, value, index)
+      this.data.columnChange(picker, this.getSelects(), index)
       this.$emit('change', {
         picker,
         value,
