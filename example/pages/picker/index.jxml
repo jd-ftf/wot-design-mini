@@ -22,5 +22,8 @@
     columns="{{columns6}}"
     display-format="{{displayFormat}}"
   />
+
+  <jm-picker label="标题" columns="{{columns7}}" title="文案标题"/>
+
 </demo-block>
 

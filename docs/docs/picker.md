@@ -52,6 +52,13 @@ Page({
 <jm-picker columns="{{columns}}" label="只读" value="{{value}}" readonly />
 ```
 
+### 文案标题
+
+设置 `title` 属性。
+
+```html
+<jm-picker label="标题" columns="{{columns7}}" title="文案标题"/>
+```
 ### 加载中
 
 设置 `loading` 属性。

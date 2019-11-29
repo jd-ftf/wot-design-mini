@@ -70,6 +70,8 @@ Page({
       ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学']
     ],
 
+    columns7: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+
     onChangeDistrict (pickerView, value, columnIndex) {
       const item = value[columnIndex]
       if (columnIndex === 0) {
