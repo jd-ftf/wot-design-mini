@@ -1,16 +1,5 @@
 import VueComponent from '../common/component'
-import { getType, defaultFunction } from '../common/util'
-
-/**
- * @description 默认的外部格式化函数
- * @param items
- * @return {*}
- */
-const displayFormat = function (items) {
-  // 在props中，this被指向了全局data
-  const labelKey = this.labelKey ? this.labelKey : this.data.labelKey
-  return items.map(item => item[labelKey]).toString()
-}
+import { getType, defaultDisplayFormat, defaultFunction } from '../common/util'
 
 VueComponent({
   props: {
@@ -152,7 +141,7 @@ VueComponent({
   created () {
     // 为picker的displayFormat设置默认值
     this.setData({
-      displayFormat: this.data.displayFormat || displayFormat.bind(this)
+      displayFormat: (this.data.displayFormat || defaultDisplayFormat).bind(this)
     })
     // JM小程序无法透传function类型的props，此处手动透传
     this.picker.setData({
