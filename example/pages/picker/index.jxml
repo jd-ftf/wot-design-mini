@@ -1,11 +1,11 @@
-<demo-block title="基本用法" transparent>
+<demo-block transparent>
   <jm-picker label="单列选项" columns="{{columns0}}"/>
 
   <jm-picker label="禁用" disabled="{{true}}" value="{{value1}}" columns="{{columns1}}"/>
 
   <jm-picker label="只读" readonly value="{{value2}}" columns="{{columns2}}"/>
 
-  <jm-picker label="loading" loading columns="{{columns3}}"/>
+  <jm-picker label="loading" loading="{{true}}" columns="{{columns3}}"/>
 
   <jm-picker label="多列" value="{{value4}}" columns="{{columns4}}"/>
 
@@ -22,5 +22,8 @@
     columns="{{columns6}}"
     display-format="{{displayFormat}}"
   />
+
+  <jm-picker label="标题" columns="{{columns7}}" title="文案标题"/>
+
 </demo-block>
 

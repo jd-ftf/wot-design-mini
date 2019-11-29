@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType } from '../common/util'
+import { getType, defaultDisplayFormat, defaultFunction } from '../common/util'
 
 VueComponent({
   props: {
@@ -36,9 +36,6 @@ VueComponent({
     // 外部展示格式化函数
     displayFormat: {
       type: null,
-      value (items) {
-        return items.map(item => item[this.labelKey]).toString()
-      },
       observer (fn) {
         if (getType(fn) !== 'function') {
           throw Error('The type of displayFormat must be Function')
@@ -70,10 +67,13 @@ VueComponent({
     },
     columnChange: {
       type: null,
-      value: (value) => value,
       observer (fn) {
         if (getType(fn) !== 'function') {
           throw Error('The type of columnChange must be Function')
+        }
+        // 外部props更新，手动透传保持同步
+        if (this.picker) {
+          this.picker.setData({ columnChange: this.data.columnChange })
         }
       }
     }
@@ -123,14 +123,30 @@ VueComponent({
      * @param {Array<String>} items
      */
     setShowValue (items) {
+      // 兼容JM客户端写法
+      // this.setData({
+      //   showValue: this.data.displayFormat
+      //     ? this.data.displayFormat(items)
+      //     : displayFormat.call(this, items)
+      // })
       this.setData({
         showValue: this.data.displayFormat(items)
       })
     }
   },
-  created () {
+  beforeCreate () {
     // pickerView挂载到全局
     this.picker = this.selectComponent(`#${this.data.pickerId}`)
+  },
+  created () {
+    // 为picker的displayFormat设置默认值
+    this.setData({
+      displayFormat: (this.data.displayFormat || defaultDisplayFormat).bind(this)
+    })
+    // JM小程序无法透传function类型的props，此处手动透传
+    this.picker.setData({
+      columnChange: this.data.columnChange || defaultFunction
+    })
     // 获取初始选中项,并展示初始选中文案
     this.setShowValue(this.picker.getSelects())
   }

@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType } from '../common/util'
+import { getType, defaultFunction } from '../common/util'
 
 VueComponent({
   props: {
@@ -52,7 +52,6 @@ VueComponent({
     // 多级联动
     columnChange: {
       type: null,
-      value: (value) => value,
       observer (fn) {
         if (getType(fn) !== 'function') {
           throw Error('The type of columnChange must be Function')
@@ -281,6 +280,9 @@ VueComponent({
     }
   },
   created () {
+    this.setData({
+      columnChange: this.data.columnChange || defaultFunction
+    })
     // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
     if (
       !this.data.value &&
