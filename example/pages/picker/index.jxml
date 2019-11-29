@@ -1,4 +1,4 @@
-<demo-block title="基本用法" transparent>
+<demo-block transparent>
   <jm-picker label="单列选项" columns="{{columns0}}"/>
 
   <jm-picker label="禁用" disabled="{{true}}" value="{{value1}}" columns="{{columns1}}"/>
