@@ -48,6 +48,16 @@ VueComponent({
     labelKey: {
       type: String,
       value: 'label'
+    },
+    // 多级联动
+    columnChange: {
+      type: null,
+      value: (value) => value,
+      observer (fn) {
+        if (getType(fn) !== 'function') {
+          throw Error('The type of columnChange must be Function')
+        }
+      }
     }
   },
   data: {
@@ -79,7 +89,7 @@ VueComponent({
       value = value instanceof Array ? value : [value]
       value = value.slice(0, this.data.formatColumns.length)
       value.forEach((target, col) => {
-        let row = this.data.formatColumns[col].findIndex(({ value }) => value === target)
+        let row = this.data.formatColumns[col].findIndex(row => row[this.data.valueKey] === target)
         row = row === -1 ? 0 : row
         this.selectWithIndex(col, row)
       })
@@ -189,7 +199,7 @@ VueComponent({
         if (row === origin[col]) return
         this.selectWithIndex(col, row)
       })
-      const { selectedIndex, formatColumns } = this.data
+      const { selectedIndex } = this.data
       // diff出变化的列
       const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index])
       if (diffCol === -1) return
@@ -198,10 +208,12 @@ VueComponent({
       const picker = this
       // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
       value = selectedIndex.length === 1
-        ? formatColumns[0][selectedIndex[0]]
-        : this.getSelects()
+        ? this.getValues()[0]
+        : this.getValues()
       // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
       const index = selectedIndex.length === 1 ? diffRow : diffCol
+      // 执行多级联动
+      this.data.columnChange(picker, this.getSelects(), index)
       this.$emit('change', {
         picker,
         value,
@@ -216,7 +228,14 @@ VueComponent({
       return selectedIndex.map((row, col) => formatColumns[col][row])
     },
     /**
-     * @description 获取所有列选中项的文本，返回值为一个数组
+     * @description 获取所有列选中项的value，返回值为一个数组
+     */
+    getValues () {
+      const { selectedIndex, formatColumns, valueKey } = this.data
+      return selectedIndex.map((row, col) => formatColumns[col][row][valueKey])
+    },
+    /**
+     * @description 获取所有列选中项的label，返回值为一个数组
      * @return {Array} 每列选中的label
      */
     getLabels () {

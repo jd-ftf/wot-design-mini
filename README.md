@@ -7,6 +7,7 @@
 ```
 .__
 ├── READMD.md
+├── ISSUE.md                         // 用于记录开发时遇到的一些坑
 ├── build
 │   ├── gulpfile.js                  // 使用gulp构建组件
 │   ├── md-loader
@@ -41,7 +42,7 @@ gulp、webpack
 #### 使用京东小程序开发者工具开发，[点击下载](http://doc.jd.com/ares/alldoc/JDmp/download/IDE下载.html)。
 
   1. 运行 `npm run dev` 命令，构建京东小程序组件。
-  
+
   2. 在京东小程序开发者工具中导入项目，项目地址选择 example 文件夹。
 
   3. 在京东小程序开发者工具上预览效果。
@@ -51,7 +52,7 @@ gulp、webpack
 #### 使用微信开发者工具开发
 
   1. 运行 `npm run dev:wx` 命令，构建微信小程序组件。
-  
+
   2. 在微信小程序开发者工具中导入项目，项目地址选择 example-wx 文件夹。
 
   3. 在微信小程序开发者工具上预览效果。
@@ -98,14 +99,14 @@ npm run fix
 
 1. 新建分支，分支名规范：姓名-组件名，例如xieyu-message
 
-2. 参照[小程序原生框架](https://developers.weixin.qq.com/miniprogram/dev/component/)进行封装，封装为[自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/) 
+2. 参照[小程序原生框架](https://developers.weixin.qq.com/miniprogram/dev/component/)进行封装，封装为[自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
 
-3. 组件库packages下新建以组件命名的目录，例如开发radio组件则建立packages/radio。之后在packages/radio分别新建：  
+3. 组件库packages下新建以组件命名的目录，例如开发radio组件则建立packages/radio。之后在packages/radio分别新建：
 
-  + index.js  
-  + index.scss(构建时自动转成scss)  
-  + index.json  
-  + index.jxml  
+  + index.js
+  + index.scss(构建时自动转成scss)
+  + index.json
+  + index.jxml
 
 4. 小程序项目example开发：pages下新建目录如button,在目录中新建index.js，index.json，index.jxml，index.jxss。
 
