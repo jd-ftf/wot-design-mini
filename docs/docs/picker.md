@@ -57,7 +57,7 @@ Page({
 设置 `loading` 属性。
 
 ```html
-<jm-picker-view columns="{{columns}}" loading />
+<jm-picker-view columns="{{columns}}" loading="{{true}}" />
 ```
 
 ### 多列
