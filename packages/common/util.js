@@ -39,3 +39,10 @@ export function getType (target) {
   // 类型值转小写并返回
   return type.toLowerCase()
 }
+
+/**
+ * @description 默认函数占位符
+ * @param value
+ * @return value
+ */
+export const defaultFunction = value => value

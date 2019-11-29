@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType } from '../common/util'
+import { getType, defaultFunction } from '../common/util'
 
 /**
  * @description 默认的外部格式化函数
@@ -11,12 +11,6 @@ const displayFormat = function (items) {
   const labelKey = this.labelKey ? this.labelKey : this.data.labelKey
   return items.map(item => item[labelKey]).toString()
 }
-/**
- * @description 默认函数占位符
- * @param value
- * @return value
- */
-const defaultFunction = value => value
 
 VueComponent({
   props: {

@@ -1,12 +1,5 @@
 import VueComponent from '../common/component'
-import { getType } from '../common/util'
-
-/**
- * @description 默认函数占位符
- * @param value
- * @return value
- */
-const defaultFunction = value => value
+import { getType, defaultFunction } from '../common/util'
 
 VueComponent({
   props: {
