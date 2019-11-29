@@ -14,6 +14,13 @@
     background: $-color-border;
     transform: scaleY(0.5);
   }
+  @include e(block){
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+  }
   @include when(textarea) {
     &::after {
       display: none;
@@ -26,8 +33,7 @@
     }
   }
   @include e(inner) {
-    display: block;
-    width: 100%;
+    flex: 1;
     padding: 10px 0;
     font-size: 14px;
     color: $-color-title;
@@ -35,49 +41,17 @@
     outline: none;
     border: none;
     height: 40px;
+    line-height: 14px;
+    padding: 10px 0;
 
     &::-webkit-input-placeholder {
       color: $-color-tip;
     }
-    @include m(prefix) {
-      padding-left: 24px;
-    }
-    @include m(suffix-1) {
-      padding-right: 24px;
-
-      &.jm-input__inner--count {
-        padding-right: 36px;
-      }
-    }
-    @include m(suffix-2) {
-      padding-right: 48px;
-
-      &.jm-input__inner--count {
-        padding-right: 66px;
-      }
-    }
-    @include m(suffix-3) {
-      padding-right: 72px;
-
-      &.jm-input__inner--count {
-        padding-right: 94px;
-      }
-    }
-    @include m(suffix-4) {
-      padding-right: 122px;
-    }
   }
-  @include e(prefix) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-  @include e(suffix) {
-    position: absolute;
-    right: 0;
-    top: 0;
+  @include e(icon-wrap) {
     z-index: 2;
+    margin: 0 8px 0 10px;
+    vertical-align: middle;
   }
   @include e(icon) {
     margin-left: 8px;
@@ -91,6 +65,7 @@
     &:first-child {
       margin-left: 0;
     }
+    
   }
   @include e(count) {
     margin-left: 8px;
@@ -111,9 +86,9 @@
 
   @include e(textarea) {
     position: relative;
-    // padding: 17px 14px;
-    padding: 17px 14px 17px 0;
+    padding: 10px 0;
     font-size: 0;
+    display: flex;
     
     @include when(show-limit) {
       padding-bottom: 25px;
@@ -122,18 +97,17 @@
       padding: 10px 0;
 
       .jm-input__textarea-suffix {
-        top: 5px;
+        top: 0;
         right: 0;
       }
     }
   }
   @include e(textarea-inner) {
-    width: 100%;
+    flex: 1;
     padding: 0;
     font-size: 14px;
     line-height: 17px;
     color: $-color-title;
-    overflow: auto;
     outline: none;
     box-sizing: border-box;
     border: none;
@@ -147,8 +121,8 @@
   }
   @include e(textarea-suffix) {
     position: absolute;
-    right: 14px;
-    top: 17px;
+    right: 0;
+    top: 0;
     bottom: 0;
     z-index: 2;
   }
@@ -200,6 +174,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;   
+    z-index: 3;   
   }
 }

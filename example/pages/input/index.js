@@ -1,4 +1,7 @@
 Page({
+  options: {
+    multipleSlots: true
+  },
   data: {
     value1: '',
     value2: '这是禁用状态',
@@ -7,9 +10,19 @@ Page({
     value5: 'mima',
     value6: '',
     value7: '',
-    value8: '',
+    value8: 'textarea内容',
     value9: '',
     size:{ minRows: 2, maxRows: 6 }
+  },
+  handleInput(e) {
+    console.log('页面input：', e)
+    var value = e.detail.value
+    var pos = e.detail.cursor
+    
+    // return value.replace(/11/g, '2')
+    this.setData({
+      value1: value.replace(/11/g, '2')
+    })
   },
   handleChange1({ detail }) {
     this.setData({

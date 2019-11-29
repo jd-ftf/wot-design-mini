@@ -3,30 +3,85 @@ function isObject (obj) {
   return obj !== null && typeof obj === 'object'
 }
 VueComponent({
+  externalClasses: [
+    'custom-suffix-class',
+    'custom-prefix-class',
+    'custom-textarea-class',
+    'custom-input-class'
+  ],
   data: {
     isPwdVisible: false
   },
   props: {
-    // textarea原生属性
+    // 原生属性
+    placeholder: String,
     placeholderStyle: String,
     placeholderClass: String,
-    autofocus: Boolean,
-    autoHeight: Boolean,
-    fixed: Boolean,
-    cursorSpacing: Number,
-    cursor: Number,
-    showConfirmBar: Boolean,
-    selectionStart: Number,
-    selectionEnd: Number,
-    adjustPosition: Boolean,
-    holdKeyboard: Boolean,
-    // input原生属性
-
-    focus: Boolean,
+    autofocus: {
+      type: Boolean,
+      value: false
+    },
+    autoHeight: {
+      type: Boolean,
+      value: false
+    },
+    fixed: {
+      type: Boolean,
+      value: false
+    },
+    cursorSpacing: {
+      type: Number,
+      value: 0
+    },
+    cursor: {
+      type: Number,
+      value: -1
+    },
+    showConfirmBar: {
+      type: Boolean,
+      value: true
+    },
+    selectionStart: {
+      type: Number,
+      value: -1
+    },
+    selectionEnd: {
+      type: Number,
+      value: -1
+    },
+    adjustPosition: {
+      type: Boolean,
+      value: true
+    },
+    holdKeyboard: {
+      type: Boolean,
+      value: false
+    },
+    confirmType: {
+      type: String,
+      value: 'done'
+    },
+    confirmHold: {
+      type: Boolean,
+      value: false
+    },
+    focus: {
+      type: Boolean,
+      value: false
+    },
     type: {
       type: String,
       value: 'text'
     },
+    maxlength: {
+      type: Number,
+      value: -1
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    // 原生属性结束
     value: {
       type: null,
       observer (newVal) {
@@ -38,18 +93,13 @@ VueComponent({
         this.resizeTextarea()
       }
     },
-    placeholder: String,
+    minlength: Number,
+    showPassword: Boolean,
     clearable: {
       type: Boolean,
       value: false
     },
-    maxlength: {
-      type: Number,
-      value: Number.MAX_SAFE_INTEGER
-    },
-    minlength: Number,
-    showPassword: Boolean,
-    disabled: {
+    showClear: {
       type: Boolean,
       value: false
     },
@@ -58,6 +108,10 @@ VueComponent({
       value: false
     },
     useSuffixSlot: {
+      type: Boolean,
+      value: false
+    },
+    usePrefixSlot: {
       type: Boolean,
       value: false
     },
@@ -71,13 +125,7 @@ VueComponent({
       type: Boolean,
       value: false
     },
-    showClear: {
-      type: Boolean,
-      value: false
-    },
-    suffix: {
-      type: String
-    },
+    suffix: String,
     suffixCount: Number,
     autosize: null,
     resize: {
@@ -99,14 +147,8 @@ VueComponent({
   methods: {
     // 状态初始化
     initState () {
-      const { showPassword, suffixIcon, showWordCount, useSuffixSlot, disabled, readonly, value, clearable, maxlength, showWordLimit } = this.data
-      let count = 0
-      clearable && count++
-      showPassword && count++
-      (suffixIcon || useSuffixSlot) && count++
-      showWordCount && count++
+      const { showPassword, disabled, readonly, value, clearable, maxlength, showWordLimit } = this.data
       this.setData({
-        suffixCount: count,
         showClear: !disabled && !readonly && clearable && value,
         showWordCount: !disabled && !readonly && maxlength && showWordLimit,
         showPwdVisible: !disabled && !readonly && showPassword
@@ -128,42 +170,37 @@ VueComponent({
       // password属性设置false不生效，置空生效
       this.setData({ isPwdVisible: !this.data.isPwdVisible })
     },
-    blur () {
-      this.getInput().blur()
-    },
-    select () {
-      this.getInput().select()
-    },
     clear () {
       this.setData({ value: '' })
       this.$emit('change', '')
       this.$emit('clear')
       this.setData({ focus: false })
     },
-    /**
-     * 失去焦点时会先后触发change、blur，未输入内容但失焦不触发change只触发blur
-     */
+    // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发 change 只触发 blur
     handleBlur () {
       this.setData({ focus: false })
       this.$emit('change', this.data.value)
       this.$emit('blur', this.data.value)
     },
-    handleFocus () {
-      this.setData({ focus: true })
-      this.$emit('focus')
+    handleFocus (event) {
+      // this.setData({ focus: true })
+      this.$emit('focus', event)
     },
-    handleInput ({ detail: { value } }) {
-      this.setData({ value: value })
-      this.$emit('input', this.data.value)
-      this.$emit('change', this.data.value)
+    handleInput ({ detail }) {
+      this.setData({ value: detail.value })
+      this.$emit('input', detail)
+      this.$emit('change', detail.value)
     },
     handleKeyboardheightchange (event) {
+      console.log('键盘高度改变')
       this.$emit('keyboardheightchange', event)
     },
     handleConfirm (event) {
+      console.log('点击完成')
       this.$emit('confirm', event)
     },
     handleLineChange (event) {
+      console.log('行改变事件')
       this.$emit('linechange', event)
     },
     // textarea重设高度

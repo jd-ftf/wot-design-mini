@@ -1,6 +1,6 @@
 <view>
 	<demo-block title="基本用法">
-		<jm-input value="{{ value1 }}" placeholder="请输入用户名" bind:change="handleChange1" />
+		<jm-input value="{{ value1 }}" placeholder="请输入用户名" bind:change="handleChange1" bind:input="handleInput" />
 	</demo-block>
 	<demo-block title="禁用状态">
 		<jm-input value="{{ value2 }}" placeholder="请输入用户名" disabled />
@@ -18,8 +18,9 @@
 		<jm-input value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable />
 	</demo-block>
 	<demo-block title="设置 prefix/suffix 的slot">
-		<jm-input value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable use-suffix-slot>
-			<text slot="suffix">插入</text>
+		<jm-input value="{{ value6 }}" clearable use-suffix-slot use-prefix-slot custom-suffix-class="suffix-slot">
+			<view slot="prefix">1</view>
+			<view slot="suffix">2</view>
 		</jm-input>
 	</demo-block>
 	<demo-block title="字数限制">
@@ -32,9 +33,21 @@
 		<jm-input type="textarea" bind:change="handleChange1" value="{{ value8 }}" placeholder="请填写评价..." rows="6" maxlength="120" clearable show-word-limit />
 	</demo-block>
 	<demo-block title="type 为 text 且设置 autosize">
-		<jm-input value="{{ value9 }}" autosize clearable bind:change="handleChange1" rows="1"/>
+		<jm-input value="{{ value9 }}" autosize clearable bind:change="handleChange1" rows="1" />
 	</demo-block>
-	<demo-block title="rows">
-		<jm-input value="{{ value9 }}" autosize="{{ size }}" clearable bind:change="handleChange1"/>
+	<demo-block title="rows最大最小行数限制">
+		<jm-input type="textarea" value="{{ value9 }}" autosize="{{ size }}" clearable bind:change="handleChange1" placeholder="请填写评价..." />
+	</demo-block>
+	<demo-block title="原生">
+		<jm-input type="textarea" value="{{ value9 }}" auto-height />
+	</demo-block>
+	<demo-block>
+		<textarea name="" id="" cols="1" rows="10"></textarea>
+	</demo-block>
+	<demo-block>
+		<jm-input value="{{value1}}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
+	</demo-block>
+	<demo-block>
+		<input type="text"></input>
 	</demo-block>
 </view>

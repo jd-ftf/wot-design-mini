@@ -15,19 +15,16 @@
 ### 基本用法
 
 `value` 为绑定值。
+```javascript
+page({
+  data: {
+    value:'',
+  }
+})
+```
 
 ```html
 <jm-input value="{{ value }}" placeholder="请输入用户名" />
-
-<script>
-export default {
-  data () {
-    return {
-      input: ''
-    }
-  }
-}
-</script>
 ```
 
 ### 禁用
@@ -94,9 +91,16 @@ export default {
 ```
 
 ### 输入框高度边界设置
+```javascript
+page({
+  data: {
+    size:{ minRows: 2, maxRows: 6 }
+  }
+})
+```
 
 ```html
-<jm-input value="{{ value9 }}" autosize="{{ size }}" clearable />
+<jm-input value="{{ value }}" autosize="{{ size }}" clearable />
 ```
 ### 普通输入框高度自增加
 
@@ -108,7 +112,7 @@ export default {
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| type | 类型 | string | text, textarea, number, email | text |
+| type | 类型 | string | text, textarea, number, digit, idcard | text |
 | value   |	绑定值                        |	string / number     | -   |	-  |
 | placeholder	    | 占位文本                  |	string    |	-         |	'搜索' |
 | clearable | 显示清空按钮 | boolean | - | false |
@@ -119,38 +123,43 @@ export default {
 | prefixIcon | 前置图标，京麦icon中的图标类名 | string | - | - |
 | suffixIcon | 后置图标，京麦icon中的图标类名 | string | - | - |
 | showWordLimit | 显示字数限制，需要同时设置 maxlength | boolean | - | false |
-| placeholderStyle | textarea原生属性，指定 placeholder 的样式，目前仅支持color,font-size和font-weight | string | - | - |
+| confirm-type | 设置键盘右下角按钮的文字，仅在type='text'时生效 | string | done, go, next, search, send | done |
+| placeholderStyle | 原生属性，指定 placeholder 的样式，目前仅支持color,font-size和font-weight | string | - | - |
 | placeholderClass | textarea指定 placeholder 的样式类 | string | - | textarea-placeholder |
-| focus | textarea原生属性，获取焦点 | boolean | - | false |
-| autofocus | textarea原生属性，自动聚焦，拉起键盘 | boolean | - | false |
-| cursorSpacing | textarea原生属性，指定光标与键盘的距离。取textarea距离底部的距离和cursor-spacing指定的距离的最小值作为光标与键盘的距离 | number | - | 0 |
+| focus | 原生属性，获取焦点 | boolean | - | false |
+| autofocus | 原生属性，自动聚焦，拉起键盘 | boolean | - | false |
+| cursorSpacing | 原生属性，指定光标与键盘的距离。取textarea距离底部的距离和cursor-spacing指定的距离的最小值作为光标与键盘的距离 | number | - | 0 |
 | fixed | textarea原生属性，如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true | boolean | - | false |
-| cursor | textarea原生属性，指定focus时的光标位置 | number | - | -1 |
-| showConfirmBar | textarea原生属性，是否显示键盘上方带有”完成“按钮那一栏 | boolean | - | true |
-| selectionStart | textarea原生属性，光标起始位置，自动聚集时有效，需与selection-end搭配使用 | number | - | -1 |
-| selectionEnd | textarea原生属性，光标结束位置，自动聚集时有效，需与selection-start搭配使用 | number | - | -1 |
-| adjustPosition | textarea原生属性，键盘弹起时，是否自动上推页面 | boolean | - | true |
-| holdKeyboard | textarea原生属性，focus时，点击页面的时候不收起键盘 | boolean | - | false |
+| cursor | 原生属性，指定focus时的光标位置 | number | - | -1 |
+| showConfirmBar | 原生属性，是否显示键盘上方带有”完成“按钮那一栏 | boolean | - | true |
+| selectionStart | 原生属性，光标起始位置，自动聚集时有效，需与selection-end搭配使用 | number | - | -1 |
+| selectionEnd | 原生属性，光标结束位置，自动聚集时有效，需与selection-start搭配使用 | number | - | -1 |
+| adjustPosition | 原生属性，键盘弹起时，是否自动上推页面 | boolean | - | true |
+| holdKeyboard | 原生属性，focus时，点击页面的时候不收起键盘 | boolean | - | false |
 | autoHeight | textarea原生属性，textarea 行数自适应，组件中建议使用autosize属性替代该属性 | string | - | '3' |
 | autosize | 是否高度自适应，可以设置为对象，如 { minRows: 2, maxRows: 6 } | boolean / object | - | - |
-| resize | 是否允许用户缩放 | string | 'none', 'both', 'horizontal', 'vertical' | 'none' |
 | autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | false |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:focus        | 监听输入框focus事件                    | -       |
-| bind:blur         | 监听输入框blur事件                     | -       |
-| bind:change       | 监听输入框修改事件                      | 搜索输入框文本       |
+| bind:input        | 监听输入框focus事件                    | event.detail = {value, cursor, keyCode}       |
+| bind:focus        | 监听输入框focus事件                    | event.detail = { value, height }       |
+| bind:blur         | 监听输入框blur事件                     | 搜索输入框文本value       |
+| bind:change       | 监听输入框修改事件                      | 搜索输入框文本value       |
 | bind:clear        | 监听输入框清空按钮事件                   | -       |
-| bind:linechange        | 监听输入框行数变化                   | -       |
-| bind:confirm        | 点击完成时， 触发 confirm 事件                   | -       |
-| bind:keyboardheightchange        | 监听键盘高度发生变化                   | -       |
-### Methods
+| bind:linechange        | 监听输入框行数变化(仅限textarea)                   | event.detail = {height: 0, heightRpx: 0, lineCount: 0}       |
+| bind:confirm        | 点击完成时， 触发 confirm 事件                   | event.detail = {value: value}       |
+| bind:keyboardheightchange        | 监听键盘高度发生变化                   | event.detail = {height: height, duration: duration}       |
+### input外部样式类
 
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| focus      | 使输入框获得焦点 | —  |
-| blur    | 使输入框失去焦点 | -  |
-| select | 使输入框内容被选中 | - |
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |
+| custom-textarea-class | textarea外部自定义样式 |
+| custom-input-class | input外部自定义样式 |
+| custom-prefix-class | input框头部icon使用slot时的自定义样式 |
+| custom-suffix-class | input框尾部icon使用slot时的自定义样式 |
+
+**注意：组件内插槽样式不生效，因此使用插槽时需注意添加外部样式类**
