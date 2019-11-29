@@ -5,7 +5,7 @@
 
   <jm-picker label="只读" readonly value="{{value2}}" columns="{{columns2}}"/>
 
-  <jm-picker label="loading" loading columns="{{columns3}}"/>
+  <jm-picker label="loading" loading="{{true}}" columns="{{columns3}}"/>
 
   <jm-picker label="多列" value="{{value4}}" columns="{{columns4}}"/>
 

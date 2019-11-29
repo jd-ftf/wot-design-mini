@@ -1,6 +1,23 @@
 import VueComponent from '../common/component'
 import { getType } from '../common/util'
 
+/**
+ * @description 默认的外部格式化函数
+ * @param items
+ * @return {*}
+ */
+const displayFormat = function (items) {
+  // 在props中，this被指向了全局data
+  const labelKey = this.labelKey ? this.labelKey : this.data.labelKey
+  return items.map(item => item[labelKey]).toString()
+}
+/**
+ * @description 默认函数占位符
+ * @param value
+ * @return value
+ */
+const defaultFunction = value => value
+
 VueComponent({
   props: {
     // 选择器左侧文案
@@ -36,9 +53,6 @@ VueComponent({
     // 外部展示格式化函数
     displayFormat: {
       type: null,
-      value (items) {
-        return items.map(item => item[this.labelKey]).toString()
-      },
       observer (fn) {
         if (getType(fn) !== 'function') {
           throw Error('The type of displayFormat must be Function')
@@ -70,10 +84,13 @@ VueComponent({
     },
     columnChange: {
       type: null,
-      value: (value) => value,
       observer (fn) {
         if (getType(fn) !== 'function') {
           throw Error('The type of columnChange must be Function')
+        }
+        // 外部props更新，手动透传保持同步
+        if (this.picker) {
+          this.picker.setData({ columnChange: this.data.columnChange })
         }
       }
     }
@@ -123,14 +140,30 @@ VueComponent({
      * @param {Array<String>} items
      */
     setShowValue (items) {
+      // 兼容JM客户端写法
+      // this.setData({
+      //   showValue: this.data.displayFormat
+      //     ? this.data.displayFormat(items)
+      //     : displayFormat.call(this, items)
+      // })
       this.setData({
         showValue: this.data.displayFormat(items)
       })
     }
   },
-  created () {
+  beforeCreate () {
     // pickerView挂载到全局
     this.picker = this.selectComponent(`#${this.data.pickerId}`)
+  },
+  created () {
+    // 为picker的displayFormat设置默认值
+    this.setData({
+      displayFormat: this.data.displayFormat || displayFormat.bind(this)
+    })
+    // JM小程序无法透传function类型的props，此处手动透传
+    this.picker.setData({
+      columnChange: this.data.columnChange || defaultFunction
+    })
     // 获取初始选中项,并展示初始选中文案
     this.setShowValue(this.picker.getSelects())
   }
