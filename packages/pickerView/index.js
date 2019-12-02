@@ -261,15 +261,16 @@ VueComponent({
      * @description 获取某一列的选项
      * @param {Number} columnIndex 列的下标
      * @param {Array<原始值|Object>} 一维数组，元素仅限对象和原始值
+     * @param {Number} jumpTo 更换列数据后停留的地点
      */
-    setColumnData (columnIndex, data) {
+    setColumnData (columnIndex, data, jumpTo = 0) {
       /**
        * @注意 以下为pickerView的坑
        * 如果某一列(以下简称列)中有10个选项，而且当前选中第10项。
        * 如果此时把此列的选项修改后还剩下3个，那么选中项会由第10项滑落到第3项，同时出发change事件
        */
       // 为了防止上述情况发生，修改数据前先将当前列选中0
-      this.selectWithIndex(columnIndex, 0)
+      this.selectWithIndex(columnIndex, jumpTo)
       // 经过formatArray处理的数据会变成二维数组，一定要拍成一维的。
       // ps 小程序基础库v2.9.3才可以用flat
       const formatColumns = this.data.formatColumns
