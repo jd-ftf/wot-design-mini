@@ -42,11 +42,11 @@ export function getType (target) {
 /**
  * @description 默认的外部格式化函数 - picker组件
  * @param items
+ * @param labelKey
  * @return {*}
  */
-export const defaultDisplayFormat = function (items) {
+export const defaultDisplayFormat = function (items, { labelKey = 'value' }) {
   // 在props中，this被指向了全局data
-  const labelKey = this.labelKey ? this.labelKey : this.data.labelKey
   return items.map(item => item[labelKey]).toString()
 }
 /**
@@ -55,3 +55,9 @@ export const defaultDisplayFormat = function (items) {
  * @return value
  */
 export const defaultFunction = value => value
+/**
+ * @description 是否不为空
+ * @param value
+ * @return {Boolean}
+ */
+export const isDef = value => value !== undefined && value !== null

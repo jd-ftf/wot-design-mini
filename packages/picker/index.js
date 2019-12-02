@@ -123,14 +123,9 @@ VueComponent({
      * @param {Array<String>} items
      */
     setShowValue (items) {
-      // 兼容JM客户端写法
-      // this.setData({
-      //   showValue: this.data.displayFormat
-      //     ? this.data.displayFormat(items)
-      //     : displayFormat.call(this, items)
-      // })
+      const { valueKey, labelKey } = this.data
       this.setData({
-        showValue: this.data.displayFormat(items)
+        showValue: this.data.displayFormat(items, { valueKey, labelKey })
       })
     }
   },
@@ -141,7 +136,7 @@ VueComponent({
   created () {
     // 为picker的displayFormat设置默认值
     this.setData({
-      displayFormat: (this.data.displayFormat || defaultDisplayFormat).bind(this)
+      displayFormat: this.data.displayFormat || defaultDisplayFormat
     })
     // JM小程序无法透传function类型的props，此处手动透传
     this.picker.setData({
