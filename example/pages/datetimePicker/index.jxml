@@ -1,0 +1,12 @@
+<demo-block>
+  <jm-datetime-picker
+    value="{{value}}"
+    formatter="{{formatter}}"
+  />
+</demo-block>
+<!--<jm-datetime-picker-->
+<!--  value="{{value}}"-->
+<!--  formatter="{{formatter}}"-->
+<!--  filter="{{filter}}"-->
+<!--  display-format="{{displayFormat}}"-->
+<!--/>-->

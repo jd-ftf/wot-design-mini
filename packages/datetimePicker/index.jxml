@@ -1,0 +1,7 @@
+<jm-picker
+  id="jm-picker"
+  label="选择日期"
+  value="{{pickerValue}}"
+  columns="{{columns}}"
+  bind:change="onChange"
+/>
