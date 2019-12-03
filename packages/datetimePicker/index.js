@@ -33,6 +33,7 @@ VueComponent({
         }
       }
     },
+    label: String,
     // 时间选择器的类型
     type: {
       type: String,

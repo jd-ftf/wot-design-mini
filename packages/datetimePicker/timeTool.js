@@ -64,6 +64,10 @@ export const defaultFilter = (type, values) => values
  */
 export const defaultDisplayFormat = function (items) {
   if (items.length === 0) return ''
+  // 如果使用了自定义的的formatter，defaultDisplayFormat无效
+  if (String(this.data.formatter) !== String(defaultFormatter)) {
+    return this.pickerView.getLabels().join('')
+  }
   switch (this.data.type) {
   case 'date':
     return `${items[0].label}-${items[1].label}-${items[2].label}`
