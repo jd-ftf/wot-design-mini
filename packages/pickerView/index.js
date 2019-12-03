@@ -67,10 +67,17 @@ VueComponent({
   },
   methods: {
     /**
-     * @description 根据传入的value，寻找对应的索引，并传递给原生选择器
+     * @description 根据传入的value，寻找对应的索引，并传递给原生选择器。
+     * 会保证formatColumns先设置，之后会修改selectedIndex。
      * @param {String|Number|Boolean|Array<String|Number|Boolean|Array<any>>}value
      */
     selectWithValue (value) {
+      if (
+        !this.data.value ||
+        this.data.columns.length === 0
+      ) {
+        return
+      }
       const valueType = getType(value)
       const type = ['string', 'number', 'boolean', 'array']
       if (type.indexOf(valueType) === -1) throw Error(`value must be one of ${type.toString()}`)
@@ -91,6 +98,12 @@ VueComponent({
         let row = this.data.formatColumns[col].findIndex(row => row[this.data.valueKey] === target)
         row = row === -1 ? 0 : row
         this.selectWithIndex(col, row)
+      })
+      /** 根据formatColumns的长度去除selectWithIndex无用的部分。
+       * 始终保持value、selectWithIndex、formatColumns长度一致
+       */
+      this.setData({
+        selectedIndex: this.data.selectedIndex.slice(0, value.length)
       })
     },
     /**
