@@ -40,6 +40,13 @@ VueComponent({
         if (getType(fn) !== 'function') {
           throw Error('The type of displayFormat must be Function')
         }
+        if (
+          this.picker &&
+          this.picker.data.selectedIndex &&
+          this.picker.data.selectedIndex.length !== 0
+        ) {
+          this.setShowValue(this.picker.getSelects())
+        }
       }
     },
     /* 参考pickerView组件 */
