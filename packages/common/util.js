@@ -1,3 +1,5 @@
+import debounce from './lodash/debounce'
+
 /**
  * @description 对num自动填充px
  * @param {Number} num
@@ -39,6 +41,7 @@ export function getType (target) {
   // 类型值转小写并返回
   return type.toLowerCase()
 }
+
 /**
  * @description 默认的外部格式化函数 - picker组件
  * @param items
@@ -61,3 +64,5 @@ export const defaultFunction = value => value
  * @return {Boolean}
  */
 export const isDef = value => value !== undefined && value !== null
+
+export { debounce }
