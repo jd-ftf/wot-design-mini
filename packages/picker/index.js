@@ -142,12 +142,12 @@ VueComponent({
   },
   created () {
     // 为picker的displayFormat设置默认值
-    this.setData({
-      displayFormat: this.data.displayFormat || defaultDisplayFormat
+    this.data.displayFormat || this.setData({
+      displayFormat: defaultDisplayFormat
     })
     // JM小程序无法透传function类型的props，此处手动透传
-    this.picker.setData({
-      columnChange: this.data.columnChange || defaultFunction
+    this.data.columnChange || this.picker.setData({
+      columnChange: defaultFunction
     })
     // 获取初始选中项,并展示初始选中文案
     this.setShowValue(this.picker.getSelects())

@@ -11,54 +11,11 @@ import {
   padZero,
   times,
   getTrueValue,
-  getMonthEndDay
+  getMonthEndDay,
+  defaultFormatter,
+  defaultFilter,
+  defaultDisplayFormat
 } from './timeTool'
-
-/**
- * @description 所有选项的展示文案
- * @param {'date'|'year-month'|'time'|'datetime'} type
- * @param {String} value
- * @return {String} value
- */
-const defaultFormatter = (type, value) => value
-/**
- * @description 默认的过滤选项
- * @param {'date'|'year-month'|'time'|'datetime'} type
- * @param {Array<{value,label}>} values
- * @return {Array<{value, label}>} 过滤后的values
- */
-const defaultFilter = (type, values) => values
-/**
- * @description 自定义选中后展示文案的格式化函数
- * @param {Array<{value,label}>} items 所有选中项
- * @return {String} 展示的文案
- */
-// const defaultDisplayFormat = function (items) {
-//   if (items.length === 0) return ''
-//   switch (this.data.type) {
-//   case 'date':
-//     return `${items[0].label}年${items[1].label}月${items[2].label}日`
-//   case 'year-month':
-//     return `${items[0].label}年${items[1].label}月`
-//   case 'time':
-//     return `${items[0].label}:${items[1].label}`
-//   case 'datetime':
-//     return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
-//   }
-// }
-const defaultDisplayFormat = function (items) {
-  if (items.length === 0) return ''
-  switch (this.data.type) {
-  case 'date':
-    return `${items[0].label}-${items[1].label}-${items[2].label}`
-  case 'year-month':
-    return `${items[0].label}-${items[1].label}`
-  case 'time':
-    return `${items[0].label}:${items[1].label}`
-  case 'datetime':
-    return `${items[0].label}-${items[1].label}-${items[2].label} ${items[3].label}:${items[4].label}`
-  }
-}
 
 VueComponent({
   props: {
@@ -97,11 +54,9 @@ VueComponent({
           throw Error('The type of displayFormat must be Function')
         }
         // 每次变化需要重置picker的displayFormat
-        if (this.picker) {
-          this.picker.setData({
-            displayFormat: fn
-          })
-        }
+        this.picker && this.picker.setData({
+          displayFormat: fn
+        })
         this.updateValue()
       }
     },
@@ -171,7 +126,7 @@ VueComponent({
   },
   methods: {
     /**
-     * @description observer触发重计算
+     * @description observer触发选项重计算，防抖50秒
      */
     updateValue: debounce(function () {
       // 只有等created hook初始化数据之后，observer才能执行此操作
@@ -186,22 +141,22 @@ VueComponent({
       }
     }, 50),
     /**
-     * @description 使用formatter更新columns
+     * @description 使用formatter格式化getOriginColumns的结果
+     * @return {Array<Array<Number>>} 用于传入picker的columns
      */
     updateColumns () {
       const { formatter = defaultFormatter } = this.data
       return this.getOriginColumns().map(column => {
         return column.values.map(value => formatter(column.type, value))
       })
-
-      // return this.setData({ columns: results })
     },
     /**
-     * @description 计算展示所有的列
+     * @description 根据getRanges得到的范围计算所有的列的数据
+     * @return {{values: any[], type: String}[]} 年
      */
     getOriginColumns () {
       const { filter } = this.data
-      const results = this.getRanges().map(({ type, range }) => {
+      return this.getRanges().map(({ type, range }) => {
         let values = times(range[1] - range[0] + 1, index => {
           let value = range[0] + index
           value = type === 'year' ? `${value}` : padZero(value)
@@ -217,8 +172,6 @@ VueComponent({
           values
         }
       })
-
-      return results
     },
     /**
      * @description 根据时间戳生成年月日时分的边界范围
@@ -308,13 +261,12 @@ VueComponent({
       }
 
       // date type
-      value = Math.max(value, data.minDate)
-      value = Math.min(value, data.maxDate)
+      value = Math.min(Math.max(value, data.minDate), data.maxDate)
 
       return value
     },
     /**
-     * @description 根据时间戳，计算type对应的值的范围
+     * @description 根据时间戳，计算所有选项的范围
      * @param {'min'|'max'} type 类型
      * @param {Number} innerValue 时间戳
      */
@@ -394,8 +346,7 @@ VueComponent({
       })
     },
     /**
-     * @description 多级联动，修正时间
-     * @param picker
+     * @description 选中项改变，多级联动
      */
     columnChange (picker) {
       const { type } = this.data
@@ -406,6 +357,7 @@ VueComponent({
       ) {
         return
       }
+      /** 重新计算年月日时分秒，修正时间。 */
       const values = picker.getLabels()
       const year = getTrueValue(values[0])
       const month = getTrueValue(values[1])
@@ -422,14 +374,19 @@ VueComponent({
         minute = getTrueValue(values[4])
       }
       const value = new Date(year, month - 1, date, hour, minute)
+      /** 根据计算选中项的时间戳，重新计算所有的选项列表 */
+      // 更新选中时间戳
       const innerValue = this.correctValue(value)
-      // 更新选中时间戳，重新生成对应的数据源
+      // 根据innerValue获取最新的时间表，重新生成对应的数据源
       this.setData({ innerValue })
+      const newColumns = this.updateColumns().slice(0, 3)
       // 深拷贝联动之前的选中项
       const selectedIndex = picker.data.selectedIndex.slice(0)
-      // 获取最新的时间表
-      const newColumns = this.updateColumns().slice(0, 3)
-      // 更新列表
+      /**
+       * 选中年会修改对应的年份的月数，和月份对应的日期。
+       * 选中月，会修改月份对应的日数
+       */
+
       newColumns.forEach((columns, index) => {
         const nextColumnIndex = index + 1
         const nextColumnData = newColumns[nextColumnIndex]

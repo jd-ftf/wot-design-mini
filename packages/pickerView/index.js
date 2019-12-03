@@ -294,8 +294,8 @@ VueComponent({
     }
   },
   created () {
-    this.setData({
-      columnChange: this.data.columnChange || defaultFunction
+    this.data.columnChange || this.setData({
+      columnChange: defaultFunction
     })
     // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
     if (
