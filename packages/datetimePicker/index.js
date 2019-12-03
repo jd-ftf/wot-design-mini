@@ -1,4 +1,7 @@
 import VueComponent from '../common/component'
+import pickerProps from '../picker/props'
+import pickerViewProps from '../pickerView/props'
+
 import {
   getType,
   debounce
@@ -19,6 +22,8 @@ import {
 
 VueComponent({
   props: {
+    ...pickerProps,
+    ...pickerViewProps,
     // 选中项，当 type 为 time 时，类型为字符串，否则为 时间戳
     value: {
       type: null,
@@ -33,7 +38,6 @@ VueComponent({
         }
       }
     },
-    label: String,
     // 时间选择器的类型
     type: {
       type: String,

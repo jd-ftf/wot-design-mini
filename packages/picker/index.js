@@ -1,38 +1,11 @@
 import VueComponent from '../common/component'
 import { getType, defaultDisplayFormat, defaultFunction } from '../common/util'
+import selfProps from './props'
+import pickerViewProps from '../pickerView/props'
 
 VueComponent({
   props: {
-    // 选择器左侧文案
-    label: String,
-    // 选择器占位符
-    placeholder: {
-      type: String,
-      value: '请选择'
-    },
-    // 禁用
-    disabled: {
-      type: Boolean,
-      value: false
-    },
-    // 只读
-    readonly: {
-      type: Boolean,
-      value: false
-    },
-    /* popup */
-    // 弹出层标题
-    title: String,
-    // 取消按钮文案
-    cancelButtonText: {
-      type: String,
-      value: '取消'
-    },
-    // 确认按钮文案
-    confirmButtonText: {
-      type: String,
-      value: '完成'
-    },
+    ...selfProps,
     // 外部展示格式化函数
     displayFormat: {
       type: null,
@@ -52,26 +25,7 @@ VueComponent({
     /* 参考pickerView组件 */
     value: null,
     columns: Array,
-    loading: {
-      type: Boolean,
-      value: false
-    },
-    visibleItemCount: {
-      type: Number,
-      value: 7
-    },
-    itemHeight: {
-      type: Number,
-      value: 33
-    },
-    valueKey: {
-      type: String,
-      value: 'value'
-    },
-    labelKey: {
-      type: String,
-      value: 'label'
-    },
+    ...pickerViewProps,
     columnChange: {
       type: null,
       observer (fn) {
