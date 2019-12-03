@@ -1,45 +1,44 @@
-<view class="jm-input custom-class {{ type === 'textarea' ? 'is-textarea' : '' }} {{ disabled ? 'is-disabled' : '' }}  ">
-  <!-- readonly遮罩 -->
-  <cover-view jd:if="{{ readonly }}" class="jm-input__disk"></cover-view>
+<view class="jm-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ disabled ? 'is-disabled' : '' }} custom-class">
   <!-- 文本域 -->
-	<view jd:if="{{ type === 'textarea' || (type === 'text' && autosize) }}">
-    <!-- 等量计算换行 -->
-    <view jd:if="{{ autosize }}" class="jm-input__wrap"><view class="jm-input__wrap-content">{{ value }}</view></view>
-  	<view class="jm-input__textarea {{ type === 'text' && autosize ? 'is-text-auto' : '' }} {{ showWordCount ? 'is-show-limit' : '' }}">
-			<textarea
-        class="jm-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} {{ rows > 0 ? 'jm-input__textarea-inner--rows-' + rows : '' }} custom-textarea-class"
-        style="{{ textareaStyle }}"
-        value="{{ value }}" 
-        placeholder="{{ placeholder }}" 
-        disabled="{{ disabled }}" 
-        minlength="{{ minlength }}" 
-        maxlength="{{ maxlength }}" 
-        focus="{{ focus }}" 
-        placeholder-style="{{ placeholderStyle }}"
-        placeholder-class="{{ placeholderClass }}"
-        auto-focus="{{ autofocus }}"
-        auto-height="{{ autoHeight }}"
-        cursor-spacing="{{ cursorSpacing }}"
-        fixed="{{ fixed }}"
-        cursor="{{ cursor }}"
-        show-confirm-bar="{{ showConfirmBar }}"
-        selection-start="{{ selectionStart }}"
-        selection-end="{{ selectionEnd }}"
-        adjust-position="{{ adjustPosition }}"
-        hold-keyboard="{{ holdKeyboard }}"
-        bindinput="handleInput"
-        bindfocus="handleFocus"
-        bindblur="handleBlur"
-        bindlinechange="handleLineChange"
-        bindconfirm="handleConfirm"
-        bindkeyboardheightchange="handleKeyboardheightchange"
-			/>
-			<view class="jm-input__textarea-suffix">
-        <jm-icon jd:if="{{ showClear }}" class="jm-input__icon" name="close-outline" catchtap="clear"/>
-        <view jd:if="{{ showWordCount }}" class="jm-input__textarea-count">
-          <text class="jm-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
+	<view jd:if="{{ type === 'textarea' }}">
+  	<view class="jm-input__textarea {{ showWordCount ? 'is-show-limit' : '' }}">
+      <!-- readonly -->
+    	<view jd:if="{{ readonly }}" class="jm-input__textarea-inner">{{ value }}</view>
+      <block jd:else>
+        <textarea
+          class="jm-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} custom-textarea-class"
+          value="{{ value }}" 
+          placeholder="{{ placeholder }}" 
+          disabled="{{ disabled }}" 
+          minlength="{{ minlength }}" 
+          maxlength="{{ maxlength }}" 
+          focus="{{ focus }}" 
+          placeholder-style="{{ placeholderStyle }}"
+          placeholder-class="{{ placeholderClass }}"
+          auto-focus="{{ autofocus }}"
+          auto-height="{{ autoHeight }}"
+          cursor-spacing="{{ cursorSpacing }}"
+          fixed="{{ fixed }}"
+          cursor="{{ cursor }}"
+          show-confirm-barb="{{ showConfirmBar }}"
+          selection-start="{{ selectionStart }}"
+          selection-end="{{ selectionEnd }}"
+          adjust-position="{{ adjustPosition }}"
+          hold-keyboard="{{ holdKeyboard }}"
+          bindinput="handleInput"
+          bindfocus="handleFocus"
+          bindblur="handleBlur"
+          bindconfirm="handleConfirm"
+          bindlinechange="handleLineChange"
+          bindkeyboardheightchange="handleKeyboardheightchange"
+        />
+        <view class="jm-input__textarea-suffix">
+          <jm-icon jd:if="{{ showClear }}" class="jm-input__icon" name="close-outline" catchtap="clear"/>
+          <view jd:if="{{ showWordCount }}" class="jm-input__textarea-count">
+            <text class="jm-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
+          </view>
         </view>
-      </view>
+      </block>
     </view>
   </view>
   <!-- 输入域 -->
@@ -50,82 +49,85 @@
         <slot name="prefix"></slot>
       </view>
     </view>
+    <!-- readonly -->
+    <view jd:if="{{ readonly }}" class="jm-input__inner jm-input__readonly">{{ value }}</view>
     <!-- 密码隐藏 -->
-    <input 
-      jd:if="{{ showPassword && !isPwdVisible }}"
-      class="jm-input__inner {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }} custom-input-class" 
-      type="password" 
-      password="{{ isPwdVisible }}"
-      value="{{ value }}" 
-      placeholder="{{ placeholder }}" 
-      disabled="{{ disabled }}" 
-      minlength="{{ minlength }}" 
-      maxlength="{{ maxlength }}" 
-      focus="{{ focus }}" 
-      auto-focus="{{ autofocus }}"
-      confirm-type="{{ confirmType }}"
-      confirm-hold="{{ confirmHold }}"
-      cursor="{{ cursor }}"
-      cursor-spacing="{{ cursorSpacing }}"
-      placeholder-style="{{ placeholderStyle }}"
-      selection-start="{{ selectionStart }}"
-      selection-end="{{ selectionEnd }}"
-      adjust-position="{{ adjustPosition }}"
-      hold-keyboard="{{ holdKeyboard }}"
-      placeholder-class="{{ placeholderClass }}"
-      bindinput="handleInput"
-      bindfocus="handleFocus"
-      bindblur="handleBlur"
-      bindconfirm="handleConfirm"
-      bindkeyboardheightchange="handleKeyboardheightchange"
-    >
-    </input>
-    <!-- 密码不隐藏 -->
-    <input 
-      jd:else
-      class="jm-input__inner {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }} custom-input-class" 
-      type="text" 
-      value="{{ value }}" 
-      placeholder="{{ placeholder }}" 
-      readonly="{{ readonly }}" 
-      disabled="{{ disabled }}" 
-      minlength="{{ minlength }}" 
-      maxlength="{{ maxlength }}" 
-      focus="{{ focus }}" 
-      auto-focus="{{ autofocus }}"
-      confirm-type="{{ confirmType }}"
-      confirm-hold="{{ confirmHold }}"
-      cursor="{{ cursor }}"
-      cursor-spacing="{{ cursorSpacing }}"
-      placeholder-style="{{ placeholderStyle }}"
-      selection-start="{{ selectionStart }}"
-      selection-end="{{ selectionEnd }}"
-      adjust-position="{{ adjustPosition }}"
-      hold-keyboard="{{ holdKeyboard }}"
-      placeholder-class="{{ placeholderClass }}"
-      bindinput="handleInput"
-      bindfocus="handleFocus"
-      bindblur="handleBlur"
-      bindconfirm="handleConfirm"
-      bindkeyboardheightchange="handleKeyboardheightchange"
-    >
-    </input>
-    <view jd:if="{{ showClear || showPassword || suffixIcon || showWordCount || useSuffixSlot }}" class="jm-input__icon-wrap">
-      <jm-icon jd:if="{{ showClear }}" class="jm-input__icon " name="close-outline"  catchtap="clear"/>
-      <jm-icon 
-        jd:if="{{ showPassword }}" 
-        class="jm-input__icon " 
-        name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
-        bindtap="togglePwdVisible"
-      />
-      <view jd:if="{{ showWordCount }}" class="jm-input__count">
-        <text class="jm-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
+    <block jd:else>
+      <input 
+        jd:if="{{ showPassword && !isPwdVisible }}"
+        class="jm-input__inner {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }} custom-input-class" 
+        type="password" 
+        password="{{ isPwdVisible }}"
+        value="{{ value }}" 
+        placeholder="{{ placeholder }}" 
+        readonly="{{ readonly }}" 
+        disabled="{{ disabled }}" 
+        minlength="{{ minlength }}" 
+        maxlength="{{ maxlength }}" 
+        focus="{{ focus }}" 
+        confirm-type="{{ confirmType }}"
+        confirm-hold="{{ confirmHold }}"
+        cursor="{{ cursor }}"
+        cursor-spacing="{{ cursorSpacing }}"
+        placeholder-style="{{ placeholderStyle }}"
+        selection-start="{{ selectionStart }}"
+        selection-end="{{ selectionEnd }}"
+        adjust-position="{{ adjustPosition }}"
+        hold-keyboard="{{ holdKeyboard }}"
+        placeholder-class="{{ placeholderClass }}"
+        bindinput="handleInput"
+        bindfocus="handleFocus"
+        bindblur="handleBlur"
+        bindconfirm="handleConfirm"
+        bindkeyboardheightchange="handleKeyboardheightchange"
+      >
+      </input>
+      <!-- 密码不隐藏 -->
+      <input 
+        jd:else
+        class="jm-input__inner {{ prefixIcon ? 'jm-input__inner--prefix' : '' }} {{ showWordCount ? 'jm-input__inner--count' : '' }} custom-input-class" 
+        type="text" 
+        value="{{ value }}" 
+        placeholder="{{ placeholder }}" 
+        readonly="{{ readonly }}" 
+        disabled="{{ disabled }}" 
+        minlength="{{ minlength }}" 
+        maxlength="{{ maxlength }}" 
+        focus="{{ focus }}" 
+        confirm-type="{{ confirmType }}"
+        confirm-hold="{{ confirmHold }}"
+        cursor="{{ cursor }}"
+        cursor-spacing="{{ cursorSpacing }}"
+        placeholder-style="{{ placeholderStyle }}"
+        selection-start="{{ selectionStart }}"
+        selection-end="{{ selectionEnd }}"
+        adjust-position="{{ adjustPosition }}"
+        hold-keyboard="{{ holdKeyboard }}"
+        placeholder-class="{{ placeholderClass }}"
+        bindinput="handleInput"
+        bindfocus="handleFocus"
+        bindblur="handleBlur"
+        bindconfirm="handleConfirm"
+        bindkeyboardheightchange="handleKeyboardheightchange"
+      >
+      </input>
+      <view jd:if="{{ showClear || showPassword || suffixIcon || showWordCount || useSuffixSlot }}" class="jm-input__icon-wrap">
+        <jm-icon jd:if="{{ showClear }}" class="jm-input__icon " name="close-outline"  bindtap="clear"/>
+        <jm-icon 
+          jd:if="{{ showPassword }}" 
+          class="jm-input__icon " 
+          name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
+          bindtap="togglePwdVisible"
+        />
+        <view jd:if="{{ showWordCount }}" class="jm-input__count">
+          <view class="jm-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">{{ value.length }}</view>/{{ maxlength }}
+        </view>
+        <jm-icon jd:if="{{ suffixIcon }}" class="jm-input__icon " name="{{ suffixIcon }}"/>
+        <view jd:else class="custom-suffix-class">
+          <slot name="suffix"></slot>
+        </view>
       </view>
-      <jm-icon jd:if="{{ suffixIcon }}" class="jm-input__icon " name="{{ suffixIcon }}"/>
-      <view jd:else class="custom-suffix-class">
-        <slot name="suffix"></slot>
-      </view>
-    </view>
+    </block>
   </view>
 </view>
 

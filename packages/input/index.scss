@@ -106,11 +106,12 @@
     flex: 1;
     padding: 0;
     font-size: 14px;
-    line-height: 17px;
+    // line-height: 17px;
     color: $-color-title;
     outline: none;
     box-sizing: border-box;
     border: none;
+    word-break: break-word;
 
     &::-webkit-input-placeholder {
       color: $-color-tip;
@@ -148,32 +149,17 @@
       color: $-color-aid-red;
     }
   }
-  @include e(textarea-textflow) {
-    width: 100%;
-    height: 17px;
-  }
   .jm-input__textarea-count,
   .jm-input__count,
   .jm-input__count-current{
     display: inline-block;
   }
-  @include e(wrap){
-    visibility: hidden;
-    width: 100%;
-    height: 17px;
-    position: absolute;
-    font-size: 14px;  
-    padding: 17px 14px 17px 0;
-    &-content{
-      position: absolute;
-      white-space: nowrap;
-    }
+  @include e(readonly){
+    line-height: 20px;  
   }
-  @include e(disk){
+  @include e(textarea-map){
     position: absolute;
-    left: 0;
     width: 100%;
     height: 100%;
-    z-index: 3;   
   }
 }

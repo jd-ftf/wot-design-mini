@@ -15,16 +15,22 @@
 ### 基本用法
 
 `value` 为绑定值。
+`bindChange`为绑定change事件。
+**微信小程序非双向绑定，需要手动赋值到当前页面。**
 ```javascript
 page({
   data: {
-    value:'',
+    value: '',
+  },
+  handleChange ({ detail }) {
+    this.setData({
+      value: detail
+    })
   }
 })
 ```
-
 ```html
-<jm-input value="{{ value }}" placeholder="请输入用户名" />
+<jm-input value="{{ value }}" placeholder="请输入用户名" bind:change="handleChange"/>
 ```
 
 ### 禁用
@@ -32,7 +38,7 @@ page({
 设置 `disabled` 属性。
 
 ```html
-<jm-input value="input" disabled />
+<jm-input value="input" disabled="{{ true }}" />
 ```
 
 ### 只读
@@ -40,7 +46,7 @@ page({
 设置 `readonly` 属性。
 
 ```html
-<jm-input value="{{ value }}" readonly />
+<jm-input value="{{ value }}" readonly="{{ true }}" />
 ```
 
 ### 清空按钮
@@ -48,7 +54,7 @@ page({
 设置 `clearable` 属性。
 
 ```html
-<jm-input value="{{ value }}" clearable />
+<jm-input value="{{ value }}" clearable bind:change="handleChange"/>
 ```
 
 ### 密码输入框
@@ -56,7 +62,7 @@ page({
 设置 `show-password` 属性。
 
 ```html
-<jm-input value="{{ value }}" clearable show-password />
+<jm-input value="{{ value }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange"/>
 ```
 
 ### 前后icon
@@ -64,48 +70,47 @@ page({
 设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
 
 ```html
-<jm-input value="{{ value }}" prefix-icon="jm-icon-person" suffix-icon="jm-icon-tickets" />
+<jm-input value="{{ value }}" prefix-icon="jm-icon-person" suffix-icon="jm-icon-tickets" bind:change="handleChange"/>
 ```
 
+```html
+		<jm-input value="{{ value }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange">
+			<view slot="prefix">1</view>
+			<view slot="suffix">2</view>
+		</jm-input>
+```
+```css
+    // 插槽样式
+    .suffix-slot{
+      display: inline-block;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+```
 ### 限制字数输入
 
 设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
 
 ```html
-<jm-input value="{{ value }}" maxlength="20" show-word-limit />
+<jm-input value="{{ value }}" maxlength="20" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
-
 ### 文本域
 
 设置 `type` 为 'textarea`。
 
 ```html
-<jm-input type="textarea" value="{{ value }}" placeholder="请填写评价..." />
+<jm-input type="textarea" value="{{ value }}" placeholder="请填写评价..." bind:change="handleChange"/>
 ```
 
-设置清空，字数限制，设置 `rows` 行数。也可以设置 `autosize` ，使文本域高度自动增加。`autosize`默认显示`3`行
+设置清空，字数限制。
 
 ```html
-<jm-input type="textarea" value="{{ value }}" placeholder="请填写评价..." rows="6" maxlength="120" clearable show-word-limit />
-
+<jm-input type="textarea" value="{{ value }}" placeholder="请填写评价..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
-
-### 输入框高度边界设置
-```javascript
-page({
-  data: {
-    size:{ minRows: 2, maxRows: 6 }
-  }
-})
-```
+也可以设置`auto-height`使高度自增加。
 
 ```html
-<jm-input value="{{ value }}" autosize="{{ size }}" clearable />
-```
-### 普通输入框高度自增加
-
-```html
-<jm-input value="{{ value }}" autosize rows="1"/>
+<jm-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
 ```
 
 ### Attributes
@@ -136,9 +141,8 @@ page({
 | selectionEnd | 原生属性，光标结束位置，自动聚集时有效，需与selection-start搭配使用 | number | - | -1 |
 | adjustPosition | 原生属性，键盘弹起时，是否自动上推页面 | boolean | - | true |
 | holdKeyboard | 原生属性，focus时，点击页面的时候不收起键盘 | boolean | - | false |
-| autoHeight | textarea原生属性，textarea 行数自适应，组件中建议使用autosize属性替代该属性 | string | - | '3' |
-| autosize | 是否高度自适应，可以设置为对象，如 { minRows: 2, maxRows: 6 } | boolean / object | - | - |
-| autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | false |
+| autoHeight | textarea原生属性，textarea 行数自适应，从1行开始显示 | string | - | '3' |
+
 
 ### Events
 
