@@ -1,6 +1,7 @@
 import VueComponent from '../common/component'
 import {
-  getType
+  getType,
+  debounce
 } from '../common/util'
 
 import {
@@ -13,37 +14,69 @@ import {
   getMonthEndDay
 } from './timeTool'
 
+/**
+ * @description 所有选项的展示文案
+ * @param {'date'|'year-month'|'time'|'datetime'} type
+ * @param {String} value
+ * @return {String} value
+ */
 const defaultFormatter = (type, value) => value
-const defaultFilter = (type, value) => value
+/**
+ * @description 默认的过滤选项
+ * @param {'date'|'year-month'|'time'|'datetime'} type
+ * @param {Array<{value,label}>} values
+ * @return {Array<{value, label}>} 过滤后的values
+ */
+const defaultFilter = (type, values) => values
+/**
+ * @description 自定义选中后展示文案的格式化函数
+ * @param {Array<{value,label}>} items 所有选中项
+ * @return {String} 展示的文案
+ */
+// const defaultDisplayFormat = function (items) {
+//   if (items.length === 0) return ''
+//   switch (this.data.type) {
+//   case 'date':
+//     return `${items[0].label}年${items[1].label}月${items[2].label}日`
+//   case 'year-month':
+//     return `${items[0].label}年${items[1].label}月`
+//   case 'time':
+//     return `${items[0].label}:${items[1].label}`
+//   case 'datetime':
+//     return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
+//   }
+// }
 const defaultDisplayFormat = function (items) {
   if (items.length === 0) return ''
   switch (this.data.type) {
   case 'date':
-    return `${items[0].label}年${items[1].label}月${items[2].label}日`
+    return `${items[0].label}-${items[1].label}-${items[2].label}`
   case 'year-month':
-    return `${items[0].label}年${items[1].label}月`
+    return `${items[0].label}-${items[1].label}`
   case 'time':
     return `${items[0].label}:${items[1].label}`
   case 'datetime':
-    return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
+    return `${items[0].label}-${items[1].label}-${items[2].label} ${items[3].label}:${items[4].label}`
   }
 }
 
 VueComponent({
   props: {
-    // 选中项，当 type 为 time 时，类型为字符串，否则为 Date
+    // 选中项，当 type 为 time 时，类型为字符串，否则为 时间戳
     value: {
       type: null,
       observer (value) {
+        // 每次value更新时都需要刷新整个列表
         this.updateValue()
         if (!value && this.picker) {
+          // 如果传入的value为空，会启用默认时间戳代替value，此时需要手动把picker的选中文案置空
           this.picker.setData({
             showValue: ''
           })
         }
       }
     },
-    // 选择器类型
+    // 时间选择器的类型
     type: {
       type: String,
       value: 'datetime',
@@ -52,6 +85,7 @@ VueComponent({
         if (type.indexOf(target) === -1) {
           throw Error(`type must be one of ${type}`)
         }
+        // 每次type更新时都需要刷新整个列表
         this.updateValue()
       }
     },
@@ -62,11 +96,13 @@ VueComponent({
         if (getType(fn) !== 'function') {
           throw Error('The type of displayFormat must be Function')
         }
+        // 每次变化需要重置picker的displayFormat
         if (this.picker) {
           this.picker.setData({
             displayFormat: fn
           })
         }
+        this.updateValue()
       }
     },
     // 自定义过滤选项的函数，返回列的选项数组
@@ -76,6 +112,7 @@ VueComponent({
         if (getType(fn) !== 'function') {
           throw Error('The type of filter must be Function')
         }
+        this.updateValue()
       }
     },
     // 自定义弹出层选项文案的格式化函数，返回一个字符串
@@ -85,6 +122,7 @@ VueComponent({
         if (getType(fn) !== 'function') {
           throw Error('The type of formatter must be Function')
         }
+        this.updateValue()
       }
     },
     // 最小日期 20(x-10)年1月1日
@@ -128,13 +166,14 @@ VueComponent({
     pickerId: 'jm-picker',
     innerValue: null,
     columns: [],
-    pickerValue: null
+    pickerValue: null,
+    created: false
   },
   methods: {
     /**
      * @description observer触发重计算
      */
-    updateValue () {
+    updateValue: debounce(function () {
       // 只有等created hook初始化数据之后，observer才能执行此操作
       if (!this.data.created) return
       const { data } = this
@@ -145,7 +184,7 @@ VueComponent({
       } else {
         this.setData({ columns: this.updateColumns() })
       }
-    },
+    }, 50),
     /**
      * @description 使用formatter更新columns
      */
@@ -276,9 +315,8 @@ VueComponent({
     },
     /**
      * @description 根据时间戳，计算type对应的值的范围
-     * @param {'date'|'year-month'| 'time'|'datetime'} type 类型
-     * @param {Number} innerValue 时间
-     * @return {{[p: string]: number}}
+     * @param {'min'|'max'} type 类型
+     * @param {Number} innerValue 时间戳
      */
     getBoundary (type, innerValue) {
       const value = new Date(innerValue)
@@ -364,7 +402,7 @@ VueComponent({
       // time 和 year-mouth 无需联动
       if (
         type === 'time' ||
-        type === 'year-mouth'
+        type === 'year-month'
       ) {
         return
       }
@@ -406,14 +444,22 @@ VueComponent({
         )
       })
     },
+    /** picker触发change事件，同步修改pickerValue */
     onChange ({ detail: { picker } }) {
       // 更新pickerView的value
       const value = picker.getLabels()
       this.setData({
         pickerValue: value instanceof Array ? value : [value]
       })
+    },
+    /** picker触发confirm事件，同步触发confirm事件 */
+    onConfirm ({ detail }) {
+      this.$emit('confirm', detail)
+    },
+    /** picker触发cancel事件，同步触发cancel事件 */
+    onCancel () {
+      this.$emit('cancel')
     }
-
   },
   beforeCreate () {
     // picker、pickerView挂载到全局
@@ -421,25 +467,27 @@ VueComponent({
     this.pickerView = this.picker.picker
   },
   created () {
-    // 初始化时兼容JM客户端props传入function
+    // 小程序基础库v1.9.91无法初始化时兼容JM客户端props传入function
     const { displayFormat, filter, formatter } = this.data
     this.setData({
       filter: filter || defaultFilter,
       formatter: formatter || defaultFormatter
     })
-    // 外部展示直接挂载到picker
+    /**
+     * 外部展示直接挂载到picker
+     * 多级联动挂载到picker上，通过picker自动挂载到pickerView
+     */
     this.picker.setData({
-      displayFormat: displayFormat || defaultDisplayFormat.bind(this)
-    })
-  },
-  mounted () {
-    // 多级联动直接挂载到pickerView
-    this.pickerView.setData({
+      displayFormat: (displayFormat || defaultDisplayFormat).bind(this),
       columnChange: this.columnChange.bind(this)
     })
-    // 初始化数据
+    // 初始化完毕，打开observer触发render的开关
+    this.setData({ created: true })
+    // 手动进行一次render
     const innerValue = this.correctValue(this.data.value)
     this.updateColumnValue(innerValue)
+  },
+  mounted () {
     // 如果传入的值是空值，直接把picker的showValue置空
     if (!this.data.value) {
       this.picker.setData({
