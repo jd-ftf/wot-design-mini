@@ -1,39 +1,38 @@
-## Picker 选择器视图
-
-Picker 组件为 popup 和 pickerView 的组合。
+## PickerView 选择器视图
 
 ### 引入
 
 ```json
 {
   "usingComponents": {
-    "jm-picker": "/jm-design/picker/index"
+    "jm-picker": "/jm-design/pickerView/index"
   }
 }
 ```
-
 ### 基本用法
 
-`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。
+单列选择器，给 `columns` 传入一个数值数组，设置 `value` 绑定值。选项可以为字符串，也可以为对象，如果为对象则默认取 `label` 属性为选项内容进行渲染，`value` 获取的值为 `value` 属性的值，如果 `value` 属性不存在，则取 `label` 的值。
 
 ```html
-<jm-picker columns="{{columns1}}" label="单列选项" value="{{value}}" />
+<jm-picker-view columns="{{columns}}" value="{{value}}" bind:change="onChange" />
 ```
 ```javascript
 Page({
   data: {
     columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
     value: ''
+  },
+  onChange (picker, value, index) {
+    Toast(`当前选中项: ${value}, 下标: ${index}`)
   }
 })
 ```
+### 禁用选项
 
-### 禁用
-
-设置 `disabled` 属性。
+选项可以为对象，设置 `disabled` 属性。
 
 ```html
-<jm-picker columns="{{columns}}" label="禁用" value="{{value}}" disabled="{{true}}" />
+<jm-picker-view columns="{{columns}}" value="{{value}}" disabled="{{true}}" />
 ```
 ```javascript
 Page({
@@ -44,21 +43,6 @@ Page({
 })
 ```
 
-### 只读
-
-设置 `readonly` 属性。
-
-```html
-<jm-picker columns="{{columns}}" label="只读" value="{{value}}" readonly />
-```
-
-### 文案标题
-
-设置 `title` 属性。
-
-```html
-<jm-picker label="标题" columns="{{columns7}}" title="文案标题"/>
-```
 ### 加载中
 
 设置 `loading` 属性。
@@ -66,13 +50,12 @@ Page({
 ```html
 <jm-picker-view columns="{{columns}}" loading="{{true}}" />
 ```
-
 ### 多列
 
 `columns` 属性设置为二维数组，`value` 为数组。
 
 ```html
-<jm-picker columns="{{columns}}" label="多列" value="{{value}}" />
+<jm-picker-view columns="{{columns}}" value="{{value}}" />
 ```
 ```javascript
 Page({
@@ -91,13 +74,7 @@ Page({
 传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
 
 ```html
-<jm-picker
-  columns="{{columns}}"
-  label="多列联动"
-  value="{{value}}"
-  column-change="{{onChangeDistrict}}"
-  display-format="{{displayFormat}}"
- />
+<jm-picker-view columns="{{columns}}" value="{{value}}" column-change="{{onChangeDistrict}}" />
 ```
 
 ```javascript
@@ -128,16 +105,11 @@ Page({
       if (columnIndex === 1) {
         pickerView.setColumnData(2, district[item.value])
       }
-    },
-
-    displayFormat (items) {
-      return items.map(item => {
-        return item.label
-      }).join('-')
     }
   }
 })
 ```
+
 
 ### Attributes
 
@@ -150,24 +122,23 @@ Page({
 | item-height | 选项高度 | number | - | 33 |
 | value-key | 选项对象中，value对应的 key | string | - | 'label' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
-| title | 弹出层标题 | string | - | - |
-| cancel-button-text | 取消按钮文案 | string | - | '取消' |
-| confirm-button-text | 确认按钮文案 | string | - | '完成' |
-| label | 选择器左侧文案 | string | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' |
-| disabled | 禁用 | boolean | - | fasle |
-| readonly | 只读 | boolean | - | false |
-| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:confirm | 点击右侧按钮触发 | - |
-| bind:cancel | 点击左侧按钮触发 | - |
 | bind:change | 选项值修改时触发 | 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
 
+### Methods
+
+| 方法名称      | 说明       | 参数   |
+|------------- |----------- |---------  |
+| getLabels | 获取所有列选中项的文本，返回值为一个数组
+| getColumnIndex | 获取某一列的选中项下标 | columnIndex |
+| getColumnData | 获取某一列的选项 | columnIndex |
+| setColumnData | 设置某一列的选项 | columnIndex, values |
 
 ### 外部样式类
 
