@@ -6,7 +6,7 @@
   <jm-icon
     wx:if="{{icon}}"
     name="{{icon}}"
-    class="jm-cell__icon"
+    class="jm-cell__icon custom-icon-class"
   >
   </jm-icon>
   <view wx:else class="custom-icon-class">
@@ -16,18 +16,16 @@
   <view class="jm-cell__wrapper">
     <view class="jm-cell__title">
       <!--title BEGIN-->
-      <view wx:if="{{title}}">{{title}}</view>
-      <view wx:else class="custom-title-class">
-        <slot name="title"></slot>
+      <view class="custom-title-class">
+        <block wx:if="{{title}}">{{title}}</block>
+        <slot wx:else name="title"></slot>
       </view>
       <!--title END-->
 
       <!--label BEGIN-->
-      <view wx:if="{{label}}" class="jm-cell__label">
-        {{label}}
-      </view>
-      <view wx:else class="custom-label-class">
-        <slot name="label"/>
+      <view  class="jm-cell__label custom-label-class">
+        <block wx:if="{{label}}">{{label}}</block>
+        <slot wx:else name="label"/>
       </view>
       <!--label END-->
     </view>
@@ -35,11 +33,9 @@
     <!--right content BEGIN-->
     <view class="jm-cell__right">
       <!--文案内容-->
-      <view wx:if="{{value}}" class="jm-cell__value">
-        {{value}}
-      </view>
-      <view wx:else class="jm-cell__value" class="custom-value-class">
-        <slot></slot>
+      <view class="jm-cell__value custom-value-class">
+        <block wx:if="{{value}}">{{value}}</block>
+        <slot wx:else></slot>
       </view>
       <!--箭头-->
       <jm-icon wx:if="{{isLink}}" class="jm-cell__arrow-right" name="arrow-right"/>
