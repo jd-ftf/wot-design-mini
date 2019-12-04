@@ -23,7 +23,8 @@
     "pages/radio/index",
     "pages/picker/index",
     "pages/pickerView/index",
-    "pages/datetimePicker/index"
+    "pages/datetimePicker/index",
+    "pages/tabs/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

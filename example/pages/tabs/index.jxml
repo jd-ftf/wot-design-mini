@@ -1,0 +1,12 @@
+<demo-block>
+  <jm-tabs value="{{tab}}">
+    <jm-tab
+      jd:for="{{4}}"
+      jd:key="$this"
+      jd:for-item="item"
+      title="{{ '标签' + item}}"
+    >
+      内容{{ item }}
+    </jm-tab>
+  </jm-tabs>
+</demo-block>
