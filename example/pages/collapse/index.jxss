@@ -1,0 +1,10 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.suffix-slot{
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
