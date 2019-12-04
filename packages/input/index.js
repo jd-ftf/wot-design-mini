@@ -150,10 +150,10 @@ VueComponent({
       this.setData({ value: '', focus: false })
       this.$emit('clear')
       this.$emit('change', '')
-      this.$emit('blur', '')
     },
     // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发 change 只触发 blur
     handleBlur () {
+      this.setData({ focus: false })
       this.$emit('change', this.data.value)
       this.$emit('blur', this.data.value)
     },
