@@ -1,38 +1,11 @@
 import VueComponent from '../common/component'
 import { getType, defaultDisplayFormat, defaultFunction } from '../common/util'
+import selfProps from './props'
+import pickerViewProps from '../pickerView/props'
 
 VueComponent({
   props: {
-    // 选择器左侧文案
-    label: String,
-    // 选择器占位符
-    placeholder: {
-      type: String,
-      value: '请选择'
-    },
-    // 禁用
-    disabled: {
-      type: Boolean,
-      value: false
-    },
-    // 只读
-    readonly: {
-      type: Boolean,
-      value: false
-    },
-    /* popup */
-    // 弹出层标题
-    title: String,
-    // 取消按钮文案
-    cancelButtonText: {
-      type: String,
-      value: '取消'
-    },
-    // 确认按钮文案
-    confirmButtonText: {
-      type: String,
-      value: '完成'
-    },
+    ...selfProps,
     // 外部展示格式化函数
     displayFormat: {
       type: null,
@@ -40,31 +13,19 @@ VueComponent({
         if (getType(fn) !== 'function') {
           throw Error('The type of displayFormat must be Function')
         }
+        if (
+          this.picker &&
+          this.picker.data.selectedIndex &&
+          this.picker.data.selectedIndex.length !== 0
+        ) {
+          this.setShowValue(this.picker.getSelects())
+        }
       }
     },
     /* 参考pickerView组件 */
     value: null,
     columns: Array,
-    loading: {
-      type: Boolean,
-      value: false
-    },
-    visibleItemCount: {
-      type: Number,
-      value: 7
-    },
-    itemHeight: {
-      type: Number,
-      value: 33
-    },
-    valueKey: {
-      type: String,
-      value: 'value'
-    },
-    labelKey: {
-      type: String,
-      value: 'label'
-    },
+    ...pickerViewProps,
     columnChange: {
       type: null,
       observer (fn) {
@@ -123,14 +84,9 @@ VueComponent({
      * @param {Array<String>} items
      */
     setShowValue (items) {
-      // 兼容JM客户端写法
-      // this.setData({
-      //   showValue: this.data.displayFormat
-      //     ? this.data.displayFormat(items)
-      //     : displayFormat.call(this, items)
-      // })
+      const { valueKey, labelKey } = this.data
       this.setData({
-        showValue: this.data.displayFormat(items)
+        showValue: this.data.displayFormat(items, { valueKey, labelKey })
       })
     }
   },
@@ -140,12 +96,12 @@ VueComponent({
   },
   created () {
     // 为picker的displayFormat设置默认值
-    this.setData({
-      displayFormat: (this.data.displayFormat || defaultDisplayFormat).bind(this)
+    this.data.displayFormat || this.setData({
+      displayFormat: defaultDisplayFormat
     })
     // JM小程序无法透传function类型的props，此处手动透传
-    this.picker.setData({
-      columnChange: this.data.columnChange || defaultFunction
+    this.data.columnChange || this.picker.setData({
+      columnChange: defaultFunction
     })
     // 获取初始选中项,并展示初始选中文案
     this.setShowValue(this.picker.getSelects())
