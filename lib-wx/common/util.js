@@ -1,8 +1,10 @@
+import debounce from './lodash/debounce';
 /**
  * @description 对num自动填充px
  * @param {Number} num
  * @return {string} num+px
  */
+
 export function addUnit(num) {
   return Number.isNaN(Number(num)) ? num : `${num}px`;
 }
@@ -39,3 +41,31 @@ export function getType(target) {
 
   return type.toLowerCase();
 }
+/**
+ * @description 默认的外部格式化函数 - picker组件
+ * @param items
+ * @param labelKey
+ * @return {*}
+ */
+
+export const defaultDisplayFormat = function (items, {
+  labelKey = 'value'
+}) {
+  // 在props中，this被指向了全局data
+  return items.map(item => item[labelKey]).toString();
+};
+/**
+ * @description 默认函数占位符 - pickerView组件
+ * @param value
+ * @return value
+ */
+
+export const defaultFunction = value => value;
+/**
+ * @description 是否不为空
+ * @param value
+ * @return {Boolean}
+ */
+
+export const isDef = value => value !== undefined && value !== null;
+export { debounce };
