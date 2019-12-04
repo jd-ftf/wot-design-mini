@@ -39,3 +39,19 @@ export function getType (target) {
   // 类型值转小写并返回
   return type.toLowerCase()
 }
+/**
+ * @description 默认的外部格式化函数 - picker组件
+ * @param items
+ * @return {*}
+ */
+export const defaultDisplayFormat = function (items) {
+  // 在props中，this被指向了全局data
+  const labelKey = this.labelKey ? this.labelKey : this.data.labelKey
+  return items.map(item => item[labelKey]).toString()
+}
+/**
+ * @description 默认函数占位符 - pickerView组件
+ * @param value
+ * @return value
+ */
+export const defaultFunction = value => value

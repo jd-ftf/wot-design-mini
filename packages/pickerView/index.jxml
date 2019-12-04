@@ -1,5 +1,35 @@
-<picker-view>
-  <picker-view-column>
-
-  </picker-view-column>
-</picker-view>
+<view class="jm-picker-view">
+  <view
+    class="jm-picker-view__loading"
+    jd:if="{{loading}}"
+  >
+    <jm-loading color="#0083FF" size="33px"/>
+  </view>
+  <picker-view
+    mask-class="jm-picker-view__mask"
+    indicator-class=""
+    indicator-style="height: {{itemHeight}}px;"
+    style="height: {{itemHeight * visibleItemCount}}px;"
+    value="{{selectedIndex}}"
+    bindchange="handleChange"
+  >
+    <picker-view-column
+      jd:for="{{formatColumns}}"
+      jd:for-index="colIndex"
+      jd:for-item="col"
+      jd:key="$this"
+      class="jm-picker-view-column"
+    >
+      <view
+        jd:for="{{col}}"
+        jd:for-index="rowIndex"
+        jd:for-item="row"
+        jd:key="$this"
+        class="jm-picker-view-column__item {{row['disabled']?'jm-picker-view-column__item--disabled':''}} {{selectedIndex[colIndex] == rowIndex ? 'jm-picker-view-column__item--active' : ''}}"
+        style="line-height: {{itemHeight}}px;"
+      >
+        {{row[labelKey]}}
+      </view>
+    </picker-view-column>
+  </picker-view>
+</view>
