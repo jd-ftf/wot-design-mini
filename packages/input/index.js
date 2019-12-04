@@ -84,6 +84,10 @@ VueComponent({
       type: null,
       observer (newVal) {
         const { disabled, readonly, clearable } = this.data
+        // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
+        if (newVal === null || newVal === undefined) {
+          throw Error('value can\'t be null or undefined')
+        }
         this.setData({
           value: newVal,
           showClear: clearable && !disabled && !readonly && newVal
@@ -148,7 +152,9 @@ VueComponent({
       this.setData({ isPwdVisible: !this.data.isPwdVisible })
     },
     clear () {
-      this.setData({ value: '', focus: false })
+      setTimeout(() => {
+        this.setData({ value: '' })
+      }, 50)
       this.$emit('clear')
       this.$emit('change', '')
     },
@@ -159,9 +165,9 @@ VueComponent({
       this.$emit('blur', this.data.value)
     },
     handleFocus (event) {
-      // this.setData({ focus: true })
       this.$emit('focus', event)
     },
+    // input事件需要传入
     handleInput ({ detail }) {
       this.setData({ value: detail.value })
       this.$emit('input', detail)

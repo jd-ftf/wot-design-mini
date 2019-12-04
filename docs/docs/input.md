@@ -1,7 +1,5 @@
 ## Input 输入框
 
-<p style="color: #ff0000;">！！！该组件尚未开发，不可使用</p>
-
 ### 引入
 
 ```json
@@ -30,7 +28,22 @@ page({
 })
 ```
 ```html
-<jm-input value="{{ value }}" placeholder="请输入用户名" bind:change="handleChange"/>
+<jm-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
+```
+### input事件使用示例
+组件自定义，input事件无法直接return赋值，因此也需要手动赋值。
+```javascript
+page({
+  handleInput({ detail }) {
+    var value = detail.value
+    this.setData({
+      value: value.replace(/11/g, '2')
+    })
+  },
+})
+```
+```html
+<jm-input value="{{ value }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
 ```
 
 ### 禁用
@@ -99,13 +112,13 @@ page({
 设置 `type` 为 'textarea`。
 
 ```html
-<jm-input type="textarea" value="{{ value }}" placeholder="请填写评价..." bind:change="handleChange"/>
+<jm-input type="textarea" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
 ```
 
 设置清空，字数限制。
 
 ```html
-<jm-input type="textarea" value="{{ value }}" placeholder="请填写评价..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
+<jm-input type="textarea" value="{{ value }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
 也可以设置`auto-height`使高度自增加。
 
@@ -119,7 +132,7 @@ page({
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | type | 类型 | string | text, textarea, number, digit, idcard | text |
 | value   |	绑定值                        |	string / number     | -   |	-  |
-| placeholder	    | 占位文本                  |	string    |	-         |	'搜索' |
+| placeholder	    | 占位文本                  |	string    |	-         |	'请输入...' |
 | clearable | 显示清空按钮 | boolean | - | false |
 | maxlength | 原生属性，最大长度 | string | - | - |
 | showPassword | 显示为密码框 | boolean | - | false |
@@ -141,7 +154,7 @@ page({
 | selectionEnd | 原生属性，光标结束位置，自动聚集时有效，需与selection-start搭配使用 | number | - | -1 |
 | adjustPosition | 原生属性，键盘弹起时，是否自动上推页面 | boolean | - | true |
 | holdKeyboard | 原生属性，focus时，点击页面的时候不收起键盘 | boolean | - | false |
-| autoHeight | textarea原生属性，textarea 行数自适应，从1行开始显示 | string | - | '3' |
+| autoHeight | textarea原生属性，textarea 行数自适应，从1行开始显示 | string | - | - |
 
 
 ### Events
