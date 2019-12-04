@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+
 VueComponent({
   externalClasses: [
     'custom-suffix-class',
