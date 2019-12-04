@@ -153,7 +153,6 @@ page({
 | selectionStart | 原生属性，光标起始位置，自动聚集时有效，需与selection-end搭配使用 | number | - | -1 |
 | selectionEnd | 原生属性，光标结束位置，自动聚集时有效，需与selection-start搭配使用 | number | - | -1 |
 | adjustPosition | 原生属性，键盘弹起时，是否自动上推页面 | boolean | - | true |
-| holdKeyboard | 原生属性，focus时，点击页面的时候不收起键盘 | boolean | - | false |
 | autoHeight | textarea原生属性，textarea 行数自适应，从1行开始显示 | string | - | - |
 
 
@@ -168,7 +167,7 @@ page({
 | bind:clear        | 监听输入框清空按钮事件                   | -       |
 | bind:linechange        | 监听输入框行数变化(仅限textarea)                   | event.detail = {height: 0, heightRpx: 0, lineCount: 0}       |
 | bind:confirm        | 点击完成时， 触发 confirm 事件                   | event.detail = {value: value}       |
-| bind:keyboardheightchange        | 监听键盘高度发生变化                   | event.detail = {height: height, duration: duration}       |
+
 ### input外部样式类
 
 | 类名     | 说明                |

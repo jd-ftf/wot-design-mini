@@ -154,9 +154,9 @@ VueComponent({
     clear () {
       setTimeout(() => {
         this.setData({ value: '' })
-      }, 50)
-      this.$emit('clear')
-      this.$emit('change', '')
+        this.$emit('clear')
+        this.$emit('change', '')
+      }, 30)
     },
     // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发 change 只触发 blur
     handleBlur () {
