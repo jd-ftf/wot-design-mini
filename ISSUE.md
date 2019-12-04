@@ -28,7 +28,11 @@
 |--------------|---------------------- |
 | Array.prototype.flat | v2.9.3 |
 
-
+### textarea
+1. 没有rows属性
+2. textarea在真机上无法被遮挡
+  解决办法：用`cover-view` 标签 代替 `view`
+  原因： `textarea`是原生组件无法被遮盖，层级是最高的，[官网链接](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)
 ## BUG
 
 ### vConsole
@@ -75,6 +79,10 @@ Component({
   }
 })
 ```
+<<<<<<< HEAD
+### input
+* input获取焦点闪烁
+=======
 ### properties
 
 ####  disabled
@@ -93,3 +101,4 @@ properties传值时不支持 `loading`单键值，必须写成
 #### Function
 
 * props的type设置为null，并且传入了function，那么在debugger模式console.log会显示null，但实际上是一个function。
+>>>>>>> master
