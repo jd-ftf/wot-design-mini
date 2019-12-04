@@ -1,0 +1,34 @@
+<demo-block>
+  <jm-datetime-picker
+    label="日期选择"
+    value="{{value1}}"
+  />
+  <jm-datetime-picker
+    label="年月日"
+    type="date"
+  />
+  <jm-datetime-picker
+    value="{{value2}}"
+    label="年月"
+    type="year-month"
+  />
+  <jm-datetime-picker
+    label="时分"
+    type="time"
+    value="{{value3}}"
+  />
+  <jm-datetime-picker
+    label="展示格式"
+    value="{{value4}}"
+    display-format="{{displayFormat}}"
+  />
+  <jm-datetime-picker
+    label="内部格式"
+    value="{{value5}}"
+    formatter="{{formatter}}"
+  />
+  <jm-datetime-picker
+    label="过滤选项"
+    filter="{{filter}}"
+  />
+</demo-block>
