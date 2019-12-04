@@ -21,7 +21,9 @@
     "pages/tag/index",
     "pages/progress/index",
     "pages/radio/index",
-    "pages/pickerView/index"
+    "pages/picker/index",
+    "pages/pickerView/index",
+    "pages/datetimePicker/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

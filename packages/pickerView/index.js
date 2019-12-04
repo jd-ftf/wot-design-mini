@@ -1,5 +1,6 @@
 import VueComponent from '../common/component'
-import { getType } from '../common/util'
+import { getType, defaultFunction } from '../common/util'
+import selfProps from './props'
 
 VueComponent({
   props: {
@@ -27,27 +28,15 @@ VueComponent({
         this.selectWithValue(this.data.value)
       }
     },
-    // 加载中
-    loading: Boolean,
-    // 展示的行数
-    visibleItemCount: {
-      type: Number,
-      value: 7
-    },
-    // 选项高度
-    itemHeight: {
-      type: Number,
-      value: 33
-    },
-    // 选项对象中，value对应的 key
-    valueKey: {
-      type: String,
-      value: 'value'
-    },
-    // 选项对象中，展示的文本对应的 key
-    labelKey: {
-      type: String,
-      value: 'label'
+    ...selfProps,
+    // 多级联动
+    columnChange: {
+      type: null,
+      observer (fn) {
+        if (getType(fn) !== 'function') {
+          throw Error('The type of columnChange must be Function')
+        }
+      }
     }
   },
   data: {
@@ -58,10 +47,17 @@ VueComponent({
   },
   methods: {
     /**
-     * @description 根据传入的value，寻找对应的索引，并传递给原生选择器
+     * @description 根据传入的value，寻找对应的索引，并传递给原生选择器。
+     * 会保证formatColumns先设置，之后会修改selectedIndex。
      * @param {String|Number|Boolean|Array<String|Number|Boolean|Array<any>>}value
      */
     selectWithValue (value) {
+      if (
+        !this.data.value ||
+        this.data.columns.length === 0
+      ) {
+        return
+      }
       const valueType = getType(value)
       const type = ['string', 'number', 'boolean', 'array']
       if (type.indexOf(valueType) === -1) throw Error(`value must be one of ${type.toString()}`)
@@ -79,9 +75,15 @@ VueComponent({
       value = value instanceof Array ? value : [value]
       value = value.slice(0, this.data.formatColumns.length)
       value.forEach((target, col) => {
-        let row = this.data.formatColumns[col].findIndex(({ value }) => value === target)
+        let row = this.data.formatColumns[col].findIndex(row => row[this.data.valueKey] === target)
         row = row === -1 ? 0 : row
         this.selectWithIndex(col, row)
+      })
+      /** 根据formatColumns的长度去除selectWithIndex无用的部分。
+       * 始终保持value、selectWithIndex、formatColumns长度一致
+       */
+      this.setData({
+        selectedIndex: this.data.selectedIndex.slice(0, value.length)
       })
     },
     /**
@@ -189,7 +191,7 @@ VueComponent({
         if (row === origin[col]) return
         this.selectWithIndex(col, row)
       })
-      const { selectedIndex, formatColumns } = this.data
+      const { selectedIndex } = this.data
       // diff出变化的列
       const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index])
       if (diffCol === -1) return
@@ -198,10 +200,12 @@ VueComponent({
       const picker = this
       // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
       value = selectedIndex.length === 1
-        ? formatColumns[0][selectedIndex[0]]
-        : this.getSelects()
+        ? this.getValues()[0]
+        : this.getValues()
       // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
       const index = selectedIndex.length === 1 ? diffRow : diffCol
+      // 执行多级联动
+      this.data.columnChange(picker, this.getSelects(), index)
       this.$emit('change', {
         picker,
         value,
@@ -216,7 +220,14 @@ VueComponent({
       return selectedIndex.map((row, col) => formatColumns[col][row])
     },
     /**
-     * @description 获取所有列选中项的文本，返回值为一个数组
+     * @description 获取所有列选中项的value，返回值为一个数组
+     */
+    getValues () {
+      const { selectedIndex, formatColumns, valueKey } = this.data
+      return selectedIndex.map((row, col) => formatColumns[col][row][valueKey])
+    },
+    /**
+     * @description 获取所有列选中项的label，返回值为一个数组
      * @return {Array} 每列选中的label
      */
     getLabels () {
@@ -243,15 +254,16 @@ VueComponent({
      * @description 获取某一列的选项
      * @param {Number} columnIndex 列的下标
      * @param {Array<原始值|Object>} 一维数组，元素仅限对象和原始值
+     * @param {Number} jumpTo 更换列数据后停留的地点
      */
-    setColumnData (columnIndex, data) {
+    setColumnData (columnIndex, data, jumpTo = 0) {
       /**
        * @注意 以下为pickerView的坑
        * 如果某一列(以下简称列)中有10个选项，而且当前选中第10项。
        * 如果此时把此列的选项修改后还剩下3个，那么选中项会由第10项滑落到第3项，同时出发change事件
        */
       // 为了防止上述情况发生，修改数据前先将当前列选中0
-      this.selectWithIndex(columnIndex, 0)
+      this.selectWithIndex(columnIndex, jumpTo)
       // 经过formatArray处理的数据会变成二维数组，一定要拍成一维的。
       // ps 小程序基础库v2.9.3才可以用flat
       const formatColumns = this.data.formatColumns
@@ -262,6 +274,9 @@ VueComponent({
     }
   },
   created () {
+    this.data.columnChange || this.setData({
+      columnChange: defaultFunction
+    })
     // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
     if (
       !this.data.value &&

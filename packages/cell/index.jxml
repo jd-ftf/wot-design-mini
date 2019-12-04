@@ -6,7 +6,7 @@
   <jm-icon
     jd:if="{{icon}}"
     name="{{icon}}"
-    class="jm-cell__icon"
+    class="jm-cell__icon custom-icon-class"
   >
   </jm-icon>
   <view jd:else class="custom-icon-class">
@@ -16,18 +16,16 @@
   <view class="jm-cell__wrapper">
     <view class="jm-cell__title">
       <!--title BEGIN-->
-      <view jd:if="{{title}}">{{title}}</view>
-      <view jd:else class="custom-title-class">
-        <slot name="title"></slot>
+      <view class="custom-title-class">
+        <block jd:if="{{title}}">{{title}}</block>
+        <slot jd:else name="title"></slot>
       </view>
       <!--title END-->
 
       <!--label BEGIN-->
-      <view jd:if="{{label}}" class="jm-cell__label">
-        {{label}}
-      </view>
-      <view jd:else class="custom-label-class">
-        <slot name="label"/>
+      <view  class="jm-cell__label custom-label-class">
+        <block jd:if="{{label}}">{{label}}</block>
+        <slot jd:else name="label"/>
       </view>
       <!--label END-->
     </view>
@@ -35,11 +33,9 @@
     <!--right content BEGIN-->
     <view class="jm-cell__right">
       <!--文案内容-->
-      <view jd:if="{{value}}" class="jm-cell__value">
-        {{value}}
-      </view>
-      <view jd:else class="jm-cell__value" class="custom-value-class">
-        <slot></slot>
+      <view class="jm-cell__value custom-value-class">
+        <block jd:if="{{value}}">{{value}}</block>
+        <slot jd:else></slot>
       </view>
       <!--箭头-->
       <jm-icon jd:if="{{isLink}}" class="jm-cell__arrow-right" name="arrow-right"/>

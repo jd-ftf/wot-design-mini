@@ -10,6 +10,13 @@
 * `∅`小程序的内部私有属性禁止使用，有可能会变。
 * `∅`小程序在初始化的时候，会把properties按照代码顺序放入栈中，所以properties的observer在初始化时会倒序执行，针对此特性需要做好边界处理。
 
+### Function
+
+* 设置props的value为function在JM读不到
+* 设置props的value为function时,function的this始终被强制绑定为全局data
+* 父组件无法将自己的function类型的props透传给子组件
+* props如果要接收function，把function写在data里，type设置为null
+
 ### pickerView组件
 
 * 如果某一列(以下简称列)中有10个选项，而且列当前选中第10项。如果此时把列的选项个数修改后还剩下3个，那么选中项会由第10项滑落到第3项，同时出发change事件。
@@ -68,4 +75,21 @@ Component({
   }
 })
 ```
+### properties
 
+####  disabled
+properties传值时不支持 `disabled`单键值，必须写成
+```
+<view disabled="{{true}}"></view>
+
+```
+
+####  loading
+properties传值时不支持 `loading`单键值，必须写成
+```
+<view loading="{{true}}"></view>
+
+```
+#### Function
+
+* props的type设置为null，并且传入了function，那么在debugger模式console.log会显示null，但实际上是一个function。

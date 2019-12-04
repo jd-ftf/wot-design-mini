@@ -1,5 +1,3 @@
-import Toast from '../../dist/toast/toast'
-
 const district = {
   0: [{
     label: '北京',
@@ -43,24 +41,14 @@ const district = {
 }
 Page({
   data: {
-    value1: '选项1',
+    columns0: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+
+    value1: '选项3',
     columns1: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
 
-    value2: '选项1',
-    columns2: [
-      { label: '选项1' },
-      { label: '选项2' },
-      {
-        label: '选项3',
-        disabled: true
-      },
-      { label: '选项4' },
-      { label: '选项5' },
-      { label: '选项6' },
-      { label: '选项7' }
-    ],
+    value2: '选项4',
+    columns2: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
 
-    value3: '选项1',
     columns3: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
 
     value4: ['中南大学', '软件工程'],
@@ -76,6 +64,14 @@ Page({
       district[district[district[0][0].value][0].value]
     ],
 
+    value6: ['中南大学', '软件工程'],
+    columns6: [
+      ['中山大学', '中南大学', '华南理工大学'],
+      ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学']
+    ],
+
+    columns7: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+
     onChangeDistrict (pickerView, value, columnIndex) {
       const item = value[columnIndex]
       if (columnIndex === 0) {
@@ -86,15 +82,12 @@ Page({
       if (columnIndex === 1) {
         pickerView.setColumnData(2, district[item.value])
       }
+    },
+
+    displayFormat (items) {
+      return items.map(item => {
+        return item.label
+      }).join('-')
     }
-  },
-  onChange ({
-    currentTarget: { dataset },
-    detail: { picker, value, index }
-  }) {
-    if (dataset.index === 1) {
-      Toast(`当前选中项: ${value}, 下标: ${index}`)
-    }
-    this.setData({ [`value${dataset.index}`]: value })
   }
 })
