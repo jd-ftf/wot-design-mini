@@ -48,6 +48,9 @@ Page({
             id: 'datetimePicker',
             name: 'DatetimePicker 时间选择器'
           }, {
+            id: 'datetimePickerView',
+            name: 'DatetimePickerView 时间选择器视图'
+          }, {
             id: 'input',
             name: 'Input 输入框'
           }, {
