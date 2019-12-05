@@ -5,6 +5,9 @@ import datetimePickerView, { defaultDisplayFormat } from '../mixins/datetimePick
 import { getType } from '../common/util'
 
 VueComponent({
+  /**
+   * 注意，datetimePickerView和datetimePicker有公共逻辑，抽离成/mixins/datetimePickerView，通过mixins options注入
+   */
   mixins: [datetimePickerView()],
   props: {
     ...pickerProps,
