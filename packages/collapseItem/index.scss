@@ -1,14 +1,6 @@
 @import '../common/abstracts/variable';
 @import '../common/abstracts/mixin';
-// @import './icon.scss';
-
 @include b(collapse-item) {
-  &:first-child {
-    .jm-collapse-item__header::after {
-      display: none;
-    }
-  }
-
   @include e(header) {
     position: relative;
     display: flex;
@@ -55,5 +47,8 @@
     .jm-collapse-item__arrow {
       color: $-collapse-disabled-color;
     }
+  }
+  .jm-collapse-item__header-first::after{
+    display: none;
   }
 }

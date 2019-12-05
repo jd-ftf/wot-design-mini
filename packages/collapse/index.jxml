@@ -1,17 +1,23 @@
-<view class="jm-collapse" class="{{viewmore? 'is-viewmore':''}}">
-	<block jd:if="{{ !viewmore }}">
+<view class="jm-collapse {{ viewmore ? 'is-viewmore' : '' }}" >
+	<!-- 普通或手风琴 -->
+	<block jd:if="{{ !viewmore }}" class="test">
 		<slot></slot>
 	</block>
+	<!-- 查看更多模式 -->
 	<view jd:else>
-		<view class="jm-collapse__content {{ !value?'is-retract':'' }} " style="">
+		<view class="jm-collapse__content {{ !value ? 'is-retract' : '' }} " style="-webkit-line-clamp: {{ contentLineNum }}; -webkit-box-orient: vertical">
 			<slot></slot>
 		</view>
-		<view class="jm-collapse__more" bindtap="switchValue(!value)">
-			<slot name="more">
-				<span class="jm-collapse__more-txt">测试显示</span>
-				<jm-icon name="" class="jm-collapse__arrow jm-icon-arrow-down {{ value?'is-retract':'' }}"></jm-icon>
-			</slot>
+		<view class="jm-collapse__more" bindtap="switchValue">
+			<!-- 自定义展开按钮 -->
+			<block jd:if="{{ useMoreSlot }}">
+				<slot name="more"></slot>
+			</block>
+			<!-- 显示展开或折叠按钮 -->
+			<block jd:else>
+				<span class="jm-collapse__more-txt">{{ !value ? '展开' : '折叠' }}</span>
+				<jm-icon name="arrow-down" class="jm-collapse-item__arrow jm-icon-arrow-down {{ isExpand ? 'is-retract' : '' }}"></jm-icon>
+			</block>
 		</view>
 	</view>
 </view>
-<!-- {{ t(!value ? 'jmd.collapse.expand' : 'jmd.collapse.retract') }} -->

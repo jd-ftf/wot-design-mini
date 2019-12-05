@@ -1,14 +1,9 @@
-<view class="jm-collapse-item" class="{{ disabled?'is-disabled':'' }}">
-	<view class="jm-collapse-item__header" bindtap="toggle">
-		<view>
-			<text class="jm-collapse-item__title">{{ title }}</text>
-		</view>
-		<view>
- 			<jm-icon name="arrow" class="jm-collapse-item__arrow jm-icon-arrow-down" class="{{ isExpand?'is-retract':'' }}" ></jm-icon>
-      <jm-icon name="arrow-down" class="jm-collapse-item__arrow jm-icon-arrow-down" class="{{ isExpand?'is-retract':'' }}" ></jm-icon>
-    </view>
+<view class="jm-collapse-item {{ disabled ? 'is-disabled' : '' }} " >
+	<view class="jm-collapse-item__header {{ firstItem ? 'jm-collapse-item__header-first' : '' }}" bindtap="toggle">
+		<text class="jm-collapse-item__title">{{ title }}</text>
+		<jm-icon name="arrow-down" class="jm-collapse-item__arrow jm-icon-arrow-down {{ isExpand ? 'is-retract' : '' }}"></jm-icon>
 	</view>
-	<view jd:id="{{ show }}" class="jm-collapse-item__wrapper"  style="height: {{ height + 'px' }} " bindtransitionend="onTransitionend">
+	<view jd:if="{{ show }}" class="jm-collapse-item__wrapper" style="height: {{ height + 'px' }} " bindtransitionend="onTransitionend">
 		<view class="jm-collapse-item__body">
 			<slot></slot>
 		</view>
