@@ -1,0 +1,10 @@
+<demo-block>
+  <jm-tabs value="{{2}}">
+    <jm-tab name="{{1}}" title="标签1">
+      内容1
+    </jm-tab>
+    <jm-tab name="{{2}}" title="标签2">
+      内容2
+    </jm-tab>
+  </jm-tabs>
+</demo-block>

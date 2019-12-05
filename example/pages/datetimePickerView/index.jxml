@@ -1,0 +1,49 @@
+<jm-toast id="jm-toast"/>
+
+<demo-block title="日期选择" transparent>
+  <jm-datetime-picker-view
+    value="{{value1}}"
+    bind:change="onChange"
+  />
+</demo-block>
+
+<demo-block title="年月日" transparent>
+  <jm-datetime-picker-view
+    type="date"
+    value="{{value2}}"
+    bind:change="onChange"
+  />
+</demo-block>
+
+<demo-block title="年月" transparent>
+  <jm-datetime-picker-view
+    type="year-month"
+    value="{{value3}}"
+    bind:change="onChange"
+  />
+</demo-block>
+
+<demo-block title="时分" transparent>
+  <jm-datetime-picker-view
+    type="time"
+    value="{{value4}}"
+    bind:change="onChange"
+  />
+</demo-block>
+
+<demo-block title="内部格式" transparent>
+  <jm-datetime-picker-view
+    value="{{value5}}"
+    formatter="{{formatter}}"
+    bind:change="onChange"
+  />
+</demo-block>
+
+<demo-block title="过滤选项" transparent>
+  <jm-datetime-picker-view
+    value="{{value6}}"
+    filter="{{filter}}"
+    bind:change="onChange"
+  />
+</demo-block>
+
