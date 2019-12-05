@@ -1,0 +1,11 @@
+<jm-picker-view
+  id="{{pickerId}}"
+  value="{{pickerValue}}"
+  columns="{{columns}}"
+  cancel-button-text="{{cancelButtonText}}"
+  confirm-button-text="{{confirmButtonText}}"
+  loading="{{loading}}"
+  visible-item-count="{{visibleItemCount}}"
+  item-height="{{itemHeight}}"
+  bind:change="onChange"
+/>
