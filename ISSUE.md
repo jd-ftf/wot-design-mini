@@ -10,6 +10,36 @@
 * `∅`小程序的内部私有属性禁止使用，有可能会变。
 * `∅`小程序在初始化的时候，会把properties按照代码顺序放入栈中，所以properties的observer在初始化时会倒序执行，针对此特性需要做好边界处理。
 
+### 原生API
+
+#### 自定义组件
+
+* 可以通过自定义组件实力上的`this.selectComponent(arg:String)`选中引用的组件，注意`selectComponent`可选中的范围如下示例
+在A组件中使用B组件，B组件中使用C组件，此时在A组件中无法直接`this.selectComponent(C)`，可以`this.selectComponent(B).selectComponent(C)`来选中C组件。
+
+### properties
+
+#### Array
+
+* 在基础库v1.9.91版本时，以下情况`observer`中拿到的value为''(空字符串)
+```html
+<view value=""></view>
+```
+
+```javascript
+Page({
+  props: {
+    value: {
+      type: [Number, String],
+      value: 0,
+      observer (value) {
+
+      }
+    }
+  }
+})
+```
+
 ### Function
 
 * 设置props的value为function在JM读不到
@@ -80,6 +110,9 @@ Component({
 })
 ```
 
+### input
+* input获取焦点闪烁
+
 ### properties
 
 ####  disabled
@@ -96,5 +129,6 @@ properties传值时不支持 `loading`单键值，必须写成
 
 ```
 #### Function
+
 
 * props的type设置为null，并且传入了function，那么在debugger模式console.log会显示null，但实际上是一个function。

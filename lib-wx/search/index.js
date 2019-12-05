@@ -72,11 +72,14 @@ VueComponent({
      * @description 点击清空icon的handle
      */
     clearSearch() {
-      this.setData({
-        str: ''
-      });
-      this.$emit('change', '');
-      this.$emit('clear');
+      setTimeout(() => {
+        // 延迟清空，避免在输入时会触发change，但清除在change之前，导致之前change的值重新被set上去
+        this.setData({
+          str: ''
+        });
+        this.$emit('change', '');
+        this.$emit('clear');
+      }, 30);
     },
 
     /**

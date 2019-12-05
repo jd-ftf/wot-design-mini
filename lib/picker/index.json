@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "jm-picker-view": "../pickerView/index",
+    "jm-popup": "../popup/index",
+    "jm-icon": "../icon/index"
+  }
+}

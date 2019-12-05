@@ -93,7 +93,7 @@ VueComponent({
      */
     changeSelect(value) {
       // 没有radio子元素，不执行任何操作
-      if (!this.children || this.children.size === 0 || value === null) {
+      if (!this.children || this.children.length === 0 || value === null) {
         return;
       }
 
