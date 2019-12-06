@@ -1,10 +1,10 @@
 import VueComponent from '../common/component'
 VueComponent({
   externalClasses: [
-    'custom-suffix-class',
-    'custom-prefix-class',
-    'custom-textarea-class',
-    'custom-input-class'
+    'custom-collapse-class',
+    'custom-more-slot-class',
+    'custom-more-txt-class',
+    'custom-more-icon-class'
   ],
   props: {
     // [String, Array, Boolean]
@@ -17,12 +17,10 @@ VueComponent({
         }
       }
     },
-    // 手风琴模式
     accordion: {
       type: Boolean,
       value: false
     },
-    // 查看更多
     viewmore: {
       type: Boolean,
       value: false

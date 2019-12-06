@@ -1,39 +1,28 @@
 import VueComponent from '../common/component'
 VueComponent({
+  externalClasses: [
+    'custom-collapse-class',
+    'custom-more-slot-class',
+    'custom-more-txt-class',
+    'custom-more-icon-class'
+  ],
   data: {
-    scrollHeight: 0,
     height: '',
     show: false,
-    name: ''
+    name: '',
+    firstItem: false
   },
   props: {
     title: String,
-    firstItem: Boolean,
     disabled: Boolean,
+    name: String,
     // 开关
     isExpand: {
       type: Boolean,
       observer () {
-        const { isExpand } = this.data
-        // this.getRect('.jm-collapse-item__wrapper').then((rect) => {
-        //   this.setData({ scrollHeight: rect.height })
-
-        // })
-        // console.log(this.data.scrollHeight)
-        if (isExpand) {
-          this.setData({ height: 0, show: true })
-          setTimeout(() => {
-            this.setData({ height: 44 })
-          }, 30)
-        } else {
-          this.setData({ height: 44 })
-          setTimeout(() => {
-            this.setData({ height: 0 })
-          }, 30)
-        }
+        this.scrollHeight('.jm-collapse-item__body')
       }
-    },
-    name: String
+    }
   },
   relations: {
     '../collapse/index': {
@@ -73,6 +62,20 @@ VueComponent({
             }
           }).exec()
       })
+    },
+    async scrollHeight (select) {
+      const { height } = await this.getRect(select)
+      if (this.data.isExpand) {
+        this.setData({ height: 0, show: true })
+        setTimeout(() => {
+          this.setData({ height: height + 'px' })
+        }, 30)
+      } else {
+        this.setData({ height: height + 'px' })
+        setTimeout(() => {
+          this.setData({ height: 0 })
+        }, 30)
+      }
     },
     stateControl (key, value) {
       this.setData({ [key]: value })

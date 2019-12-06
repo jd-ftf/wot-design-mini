@@ -1,16 +1,16 @@
 <view>
 	<demo-block title="基础用法" >
 		<jm-collapse value="{{ value1 }}" bind:change="handleChange1">
-        <jm-collapse-item title="标签1" name="item1">
-          这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签2" name="item2">
-          这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签3" name="item3">
-          这是一条简单的示例文字。
-        </jm-collapse-item>
-      </jm-collapse>
+			<jm-collapse-item title="标签1" name="item1">
+			这是一条简单的示例文字。
+			</jm-collapse-item>
+			<jm-collapse-item title="标签2" name="item2">
+			这是一条简单的示例文字。
+			</jm-collapse-item>
+			<jm-collapse-item title="标签3" name="item3">
+			这是一条简单的示例文字。
+			</jm-collapse-item>
+		</jm-collapse>
 	</demo-block>
 	<demo-block title="手风琴">
 		<jm-collapse value="{{ value2  }}" accordion="{{ true }}" bindchange="handleChange2">
@@ -41,6 +41,12 @@
 	<demo-block title="查看更多">
 		<jm-collapse viewmore="{{ true }}" value="{{ value4 }}" bind:change="handleChange4"> 
 			这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+		</jm-collapse>
+	</demo-block>
+	<demo-block title="查看更多-具名插槽">
+		<jm-collapse viewmore="{{ true }}" value="{{ value5 }}" bind:change="handleChange5" use-more-slot="{{ true }}" custom-more-slot-class="more-slot"> 
+			具名插槽：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+			<view slot="more">显示全部</view>
 		</jm-collapse>
 	</demo-block>
 </view>

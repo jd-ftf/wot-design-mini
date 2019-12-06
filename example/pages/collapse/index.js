@@ -3,13 +3,11 @@ Page({
     multipleSlots: true
   },
   data: {
-    value1: ["item1"],
+    value1: [],
     value2: "item1",
     value3: ["item1"],
-    value4: false
-  },
-  handleInput({ detail }) {
-    
+    value4: false,
+    value5: false
   },
   handleChange1({ detail }) {
     this.setData({ value1: detail })
@@ -22,5 +20,8 @@ Page({
   },
   handleChange4({ detail }) {
     this.setData({ value4: detail })
+  },
+  handleChange5({ detail }) {
+    this.setData({ value5: detail })
   }
 });
