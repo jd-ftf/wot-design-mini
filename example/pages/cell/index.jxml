@@ -64,7 +64,6 @@
                 is-link
                 custom-icon-class="custom-icon-class"
                 custom-title-class="custom-title-class"
-                custom-label-class="custom-label-class"
                 custom-value-class="custom-value-class"
         >
             <jm-icon slot="icon" name="play"></jm-icon>
@@ -72,7 +71,7 @@
                 <text>标题文字</text>
                 <view class="end-time">25天后到期</view>
             </view>
-            <text slot="label">描述信息</text>
+            <text slot="label" class="custom-label">描述信息</text>
             <text>内容</text>
         </jm-cell>
     </jm-cell-group>
