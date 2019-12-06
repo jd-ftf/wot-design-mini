@@ -79,7 +79,7 @@ VueComponent({
       const url = this.data.to;
 
       if (url && this.data.isLink) {
-        wx[this.data.replace ? 'navigateTo' : 'redirectTo']({
+        wx[this.data.replace ? 'redirectTo' : 'navigateTo']({
           url
         });
       }
