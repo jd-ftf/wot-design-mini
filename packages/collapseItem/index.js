@@ -1,11 +1,6 @@
 import VueComponent from '../common/component'
 VueComponent({
-  externalClasses: [
-    'custom-collapse-class',
-    'custom-more-slot-class',
-    'custom-more-txt-class',
-    'custom-more-icon-class'
-  ],
+  externalClasses: ['custom-class'],
   data: {
     height: '',
     show: false,

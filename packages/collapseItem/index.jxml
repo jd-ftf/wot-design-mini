@@ -1,4 +1,4 @@
-<view class="jm-collapse-item {{ disabled ? 'is-disabled' : '' }} custom-collapse-item-class" >
+<view class="jm-collapse-item {{ disabled ? 'is-disabled' : '' }} custom-class" >
 	<view class="jm-collapse-item__header {{ firstItem ? 'jm-collapse-item__header-first' : '' }} " bindtap="toggle">
 		<text class="jm-collapse-item__title">{{ title }}</text>
 		<jm-icon name="arrow-down" class="jm-collapse-item__arrow jm-icon-arrow-down {{ isExpand ? 'is-retract' : '' }}"></jm-icon>
