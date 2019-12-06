@@ -5,6 +5,6 @@
     <view
       jd:for="{{ 12 }}"
       jd:key="{{ index }}"
-      class="jm-loading__spinner-dot"></view>
+      class="jm-loading__spinner-dot jm-loading__spinner-dot-{{ index }}"></view>
   </view>
 </view>
