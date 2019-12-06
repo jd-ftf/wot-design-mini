@@ -46,12 +46,11 @@
       border-radius: 40%;
       content: " ";
     }
-
-    @for $i from 1 through 12 {
-      &:nth-of-type(#{$i}) {
-        transform: rotate(#{$i*30}deg);
-        opacity: #{1-($i - 1)*.0625};
-      }
+  }
+  @for $i from 1 through 12 {
+    .jm-loading__spinner-dot-#{$i - 1} {
+      transform: rotate(#{$i*30}deg);
+      opacity: #{1-($i - 1)*.0625};
     }
   }
 }
