@@ -130,3 +130,20 @@ properties传值时不支持 `loading`单键值，必须写成
 #### Function
 
 * props的type设置为null，并且传入了function，那么在debugger模式console.log会显示null，但实际上是一个function。
+
+### CSS
+
+#### 非法选择器
+
+在基础库v1.9.91版本下，当使用小程序不支持的CSS选择器时，整个GUI进程会崩掉，如下如所示。
+```css
+::-webkit-scrollbar {
+  width:0;
+  height:0;
+  color:transparent;
+}
+```
+以上代码会在控制台异常抛出错误，此BUG预计在基础库v2.7.3版本修复
+```
+Some selectors are not allowed in component wxss, including tag name selectors, ID selectors, and attribute selectors.
+```
