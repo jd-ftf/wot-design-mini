@@ -102,7 +102,6 @@ VueComponent({
       } else if (viewmore) {
         name = !value
       }
-      console.log('主动修改value： ', name)
       this.$emit('input', name)
       this.$emit('change', name)
     }
