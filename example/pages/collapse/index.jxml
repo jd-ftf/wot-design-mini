@@ -1,7 +1,8 @@
 <view>
+<button bindtap="click">点击</button>
 	<demo-block title="基础用法" >
 		<jm-collapse value="{{ value1 }}" bind:change="handleChange1">
-			<jm-collapse-item title="标签1" name="item1">
+			<jm-collapse-item title="标签1" name="{{ name }}">
 			这是一条简单的示例文字。
 			</jm-collapse-item>
 			<jm-collapse-item title="标签2" name="item2">
@@ -13,7 +14,7 @@
 		</jm-collapse>
 	</demo-block>
 	<demo-block title="手风琴">
-		<jm-collapse value="{{ value2  }}" accordion="{{ true }}" bindchange="handleChange2">
+		<jm-collapse value="{{ value2  }}" accordion="{{ accordion }}" bindchange="handleChange2">
 			<jm-collapse-item title="标签1" name="item1">
 			这是一条简单的示例文字。
 			</jm-collapse-item>

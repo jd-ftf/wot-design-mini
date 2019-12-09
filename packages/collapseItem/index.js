@@ -4,13 +4,21 @@ VueComponent({
   data: {
     height: '',
     show: false,
-    name: '',
     firstItem: false
   },
   props: {
     title: String,
     disabled: Boolean,
-    name: String,
+    name: {
+      type: String,
+      observer (newVal) {
+        const condition = this.parent && this.parent.checkRepeat(this.parent.children, newVal, 'name')
+        // 比较数组中是否存在重复数据
+        if (condition > -1) {
+          throw Error('Name attribute cannot be defined repeatedly')
+        }
+      }
+    },
     // 开关
     isExpand: {
       type: Boolean,
@@ -47,6 +55,9 @@ VueComponent({
     })
   },
   methods: {
+    stateControl (key, value) {
+      this.setData({ [key]: value })
+    },
     getRect (select) {
       return new Promise(resolve => {
         this.createSelectorQuery()
@@ -72,9 +83,6 @@ VueComponent({
         }, 30)
       }
     },
-    stateControl (key, value) {
-      this.setData({ [key]: value })
-    },
     toggle () {
       const { disabled, name, isExpand } = this.data
       const { accordion } = this.parent.data
@@ -87,7 +95,7 @@ VueComponent({
       } else {
         this.setData({ isExpand: !isExpand })
       }
-      // 调用父组件方法switchValue 当前选中的是什么，判断当前是否处于选中状态
+      // 调用父组件方法 switchValue 当前选中的是什么，判断当前是否处于选中状态
       this.parent.switchValue(name, !isExpand)
     },
     onTransitionend (event) {
