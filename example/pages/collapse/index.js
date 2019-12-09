@@ -11,11 +11,6 @@ Page({
     accordion: true,
     name: 'item1'
   },
-  click () {
-    this.setData({
-      value1: ['item2', 'item1']
-    })
-  },
   handleChange1 ({ detail }) {
     this.setData({ value1: detail })
   },

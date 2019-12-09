@@ -1,5 +1,4 @@
 <view>
-<button bindtap="click">点击</button>
 	<demo-block title="基础用法" >
 		<jm-collapse value="{{ value1 }}" bind:change="handleChange1">
 			<jm-collapse-item title="标签1" name="{{ name }}">

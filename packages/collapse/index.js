@@ -21,7 +21,7 @@ VueComponent({
           throw Error('value must be Array')
         }
         // 外部修改 value 滚动
-        if (newVal !== oldVal && !viewmore && this.children) {
+        if (!viewmore && this.children) {
           this.children.forEach((item) => {
             const { name } = item.data
             const condition = newVal === name || newVal.indexOf(name) > -1
