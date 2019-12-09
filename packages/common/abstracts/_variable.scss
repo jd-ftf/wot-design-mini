@@ -144,6 +144,8 @@ $-cell-value-color: $-color-text !default;
 $-tabs-nav-height: 40px !default;
 $-tabs-nav-active-color: $-color-theme !default;
 $-tabs-nav-line-height: 3px !default;
+$-tabs-nav-placeholder: 15px !default;
+$-tabs-nav-underline-bottom: $-tabs-nav-placeholder +1;
 
 /* badge */
 $-badge-fill:  $-color-aid-red !default;

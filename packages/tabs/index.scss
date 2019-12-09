@@ -19,7 +19,7 @@
     position: relative;
     display: flex;
     user-select: none;
-    padding-bottom: 15px;
+    padding-bottom: $-tabs-nav-placeholder;
   }
   @include e(nav-item) {
     flex: 1;
@@ -40,7 +40,7 @@
   }
   @include e(line) {
     position: absolute;
-    bottom: 15px;
+    bottom: $-tabs-nav-underline-bottom;
     left: 0;
     height: $-tabs-nav-line-height;
     background: $-tabs-nav-active-color;
