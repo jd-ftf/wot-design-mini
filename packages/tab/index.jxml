@@ -1,0 +1,6 @@
+<view
+  class="jm-tab"
+  style="{{ width ? 'width:' + width + 'px;' : '' }}"
+>
+  <slot/>
+</view>

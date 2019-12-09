@@ -1,10 +1,17 @@
-<demo-block>
-  <jm-tabs value="{{2}}">
-    <jm-tab name="{{1}}" title="标签1">
-      内容1
-    </jm-tab>
-    <jm-tab name="{{2}}" title="标签2">
-      内容2
-    </jm-tab>
-  </jm-tabs>
-</demo-block>
+<jm-tabs value="4" swipeable="{{true}}" animated="{{true}}">
+  <jm-tab name="1" title="标签1">内容1</jm-tab>
+  <jm-tab name="2" title="标签2">内容2</jm-tab>
+  <jm-tab name="3" title="标签3">内容3</jm-tab>
+  <jm-tab name="4" title="标签4">
+    <view style="padding: 20px;">
+      内容4
+    </view>
+  </jm-tab>
+  <jm-tab name="5" title="标签5">内容5</jm-tab>
+  <jm-tab name="6" title="标签6">内容6</jm-tab>
+  <jm-tab name="7" title="标签7">内容7</jm-tab>
+  <jm-tab name="8" title="标签8">内容8</jm-tab>
+  <jm-tab name="9" title="标签9">内容9</jm-tab>
+  <jm-tab name="10" title="标签10">内容10</jm-tab>
+  <jm-tab name="11" title="标签11">内容11</jm-tab>
+</jm-tabs>

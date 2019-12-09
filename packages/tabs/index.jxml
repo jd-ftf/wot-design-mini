@@ -1,0 +1,85 @@
+<view
+  class="jm-tabs {{slidableNum < items.length ? 'is-slide' :''}} {{mapNum < items.length && mapNum !== 0 ? 'is-map' :''}}">
+  <!--头部导航容器-->
+  <view class="jm-tabs__nav">
+    <scroll-view
+      class="jm-tabs__nav--wrap"
+      scroll-x="{{slidableNum < items.length}}"
+      scroll-with-animation="{{true}}"
+      scroll-left="{{scrollLeft}}"
+    >
+      <view
+        class="jm-tabs__nav-container"
+        bindtap="handleSelect"
+      >
+        <!--nav列表-->
+        <view
+          jd:for="{{items}}"
+          jd:key="$this"
+          jd:for-index="index"
+          jd:for-item="item"
+          data-index="{{index}}"
+          class="jm-tabs__nav-item {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
+          style="{{ activeIndex === index ? (color ? 'color:'+color :'') : (inactiveColor ? 'color:'+inactiveColor :'') }}"
+        >
+          {{item.title}}
+        </view>
+        <!--下划线-->
+        <view class="jm-tabs__line" style="{{lineStyle}}"></view>
+      </view>
+
+    </scroll-view>
+
+  </view>
+
+  <!--标签页-->
+  <view
+    class="jm-tabs__container"
+    bind:touchstart="onTouchStart"
+    bind:touchmove="onTouchMove"
+    bind:touchend="onTouchEnd"
+    bind:touchcancel="onTouchEnd"
+  >
+    <view class="jm-tabs__body" style="{{bodyStyle}}">
+      <slot/>
+    </view>
+  </view>
+
+  <!--map表-->
+  <view class="jm-tabs__map" jd:if="{{mapNum < items.length && mapNum !== 0}}">
+    <view class="jm-tabs__map-btn" bindtap="toggleMap">
+      <view class="jm-tabs__map-arrow {{ animating ? 'is-open' :''}}">
+        <jm-icon name="arrow-down"/>
+      </view>
+    </view>
+    <view
+      class="jm-tabs__map-header"
+      style="{{ mapShow ? '' : 'display:none' }}  {{animating ? 'opacity:1' : '' }}"
+    >
+      全部
+    </view>
+    <view
+      class="jm-tabs__map-body {{ animating ? 'is-open' :''}}"
+      style="{{ mapShow ? '' : 'display:none' }}"
+      bindtap="handleSelect"
+    >
+      <view
+        jd:for="{{items}}"
+        jd:key="$this"
+        jd:for-index="index"
+        jd:for-item="item"
+        data-index="{{index}}"
+        class="jm-tabs__map-nav-item {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
+        style="{{ activeIndex === index ? 'color:' + inactiveColor :'' }}"
+      >
+        {{item.title}}
+      </view>
+    </view>
+  </view>
+  <!--map表的阴影浮层-->
+  <view
+    class="jm-tabs__mask"
+    style="{{ mapShow ? '' : 'display:none' }} {{animating ? 'opacity:1' : '' }}"
+  >
+  </view>
+</view>
