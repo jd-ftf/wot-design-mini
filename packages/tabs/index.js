@@ -248,7 +248,7 @@ VueComponent({
       this.setData({ activeIndex: value })
 
       this.updateLineStyle(init === false)
-      this.setActiveTab(init === false, init === true)
+      this.setActiveTab(init === false && this.data.animated, init === true)
       this.scrollIntoView()
     },
     /**
