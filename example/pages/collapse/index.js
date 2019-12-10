@@ -3,7 +3,7 @@ Page({
     multipleSlots: true
   },
   data: {
-    value1: [],
+    value1: ['item1'],
     value2: 'item1',
     value3: ['item1'],
     value4: false,

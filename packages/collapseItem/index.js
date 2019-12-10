@@ -38,10 +38,6 @@ VueComponent({
       }
     }
   },
-  created () {
-    // 初始化show，isExpand 控制 show 的显示与隐藏
-    this.setData({ show: this.data.isExpand })
-  },
   mounted () {
     const { isExpand, name } = this.data
     const { accordion, value } = this.parent.data

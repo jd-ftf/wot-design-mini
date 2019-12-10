@@ -43,6 +43,11 @@
 			这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
 		</jm-collapse>
 	</demo-block>
+	<demo-block title="查看更多-行数显示设置">
+		<jm-collapse viewmore="{{ true }}" value="{{ value4 }}" bind:change="handleChange4" line-num="3"> 
+			行数显示设置：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+		</jm-collapse>
+	</demo-block>
 	<demo-block title="查看更多-具名插槽">
 		<jm-collapse viewmore="{{ true }}" value="{{ value5 }}" bind:change="handleChange5" use-more-slot="{{ true }}" custom-more-slot-class="more-slot"> 
 			具名插槽：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
