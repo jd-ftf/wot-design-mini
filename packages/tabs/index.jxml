@@ -8,7 +8,7 @@
     <view class="jm-tabs__nav--wrap">
       <scroll-view
         scroll-x="{{slidableNum < items.length}}"
-        scroll-with-animation="{{animated}}"
+        scroll-with-animation="{{true}}"
         scroll-left="{{scrollLeft}}"
       >
         <view
