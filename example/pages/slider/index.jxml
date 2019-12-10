@@ -1,0 +1,18 @@
+<demo-block title="基础用法">
+	<jm-slider value="{{ value1 }}" />
+</demo-block>
+<demo-block title="指定选择范围">
+	<jm-slider value="{{ value2 }}" min-value="{{ 4 }}" max-value="{{ 677 }}" />
+</demo-block>
+<demo-block title="禁用">
+	<jm-slider value="{{ value3 }}" hide-label="{{ true }}" />
+</demo-block>
+<demo-block title="指定步长">
+	<jm-slider value="{{ value4 }}" hide-min-max="{{ true }}" />
+</demo-block>
+<demo-block title="禁用状态">
+	<jm-slider value="{{ value5 }}" disabled="{{ true }}" />
+</demo-block>
+<demo-block title="双向滑块">
+	<jm-slider value="{{ value6 }}" />
+</demo-block>
