@@ -1,5 +1,12 @@
 <view style="height: 1400px;background: red"></view>
-<jm-tabs value="4" swipeable="{{true}}" animated="{{true}}" lazy-render="{{true}}">
+<jm-tabs
+  value="4"
+  swipeable="{{true}}"
+  animated="{{true}}"
+  lazy-render="{{true}}"
+  sticky="{{true}}"
+  offset-top="{{40}}"
+>
   <jm-tab name="1" title="标签1">内容1</jm-tab>
   <jm-tab name="2" title="标签2">内容2</jm-tab>
   <jm-tab name="3" title="标签3">内容3</jm-tab>

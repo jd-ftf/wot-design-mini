@@ -315,54 +315,86 @@ VueComponent({
      * @description 监听page，模拟粘性布局
      */
     observerContentScroll () {
-      this.createIntersectionObserver().disconnect()
-      this.createIntersectionObserver()
-        .relativeToViewport({ top: -40 })
-        .observe('.jm-tabs', (res) => {
-          if (res.boundingClientRect.top > 0) return
-          let navStyle = ''
-          if (res.intersectionRatio > 0) {
-            console.log('脱离底部，吸顶')
-            navStyle = `
-              position:fixed;
-              top: 0;
-              z-index: 1;
-            `
-          } else {
-            navStyle = `
+      const { sticky, offsetTop } = this.data
+      if (!sticky) return
+      const { windowHeight } = jd.getSystemInfoSync()
+      this.getRect('.jm-tabs__nav').then(
+        ({ height: navHeight }) => {
+          this.createIntersectionObserver().disconnect()
+          this.createIntersectionObserver()
+            .relativeToViewport({ top: -(navHeight + offsetTop) })
+            .observe('.jm-tabs', (res) => {
+              if (res.boundingClientRect.top > offsetTop) return
+              let navStyle = ''
+              if (res.intersectionRatio > 0) {
+                /**
+                 * 方向：手指向上滑动，文档向下走
+                 * 相交区域：container的border-bottom 与 viewport的border-top 之间的量
+                 * targetNum：relativeToViewport传入的option的top值
+                 * 过渡阶段：相交区域<targetNum  -> 相交区域=targetNum -> 相交区域<targetNum
+                 * 物理意义：手指再向上滑动，相交区域就要大于targetNum了
+                 * 脱离底部，开始吸顶
+                 */
+                navStyle = `
+                  position:fixed;
+                  top: ${offsetTop}px;
+                  z-index: 1;
+                `
+              } else {
+                /**
+                 * 方向：手指向下滑动，文档向上走
+                 * 相交区域：container的border-bottom 与 viewport的border-top 之间的量
+                 * targetNum：relativeToViewport传入的option的top值
+                 * 过渡阶段：相交区域>targetNum  -> 相交区域=targetNum -> 相交区域<targetNum
+                 * 物理意义：手指再向下滑动targetNum，container的border-bottom就要驶出viewport了，相交区域就要小于targetNum了
+                 * 吸顶结束，固定在底部
+                 */
+                navStyle = `
               position: absolute;
               bottom: 0;
               z-index: 1;
             `
-            console.log('吸顶脱离，固定到底部，跟随文档')
-          }
-          this.setData({ navStyle })
-        })
-      this.createIntersectionObserver()
-        .relativeToViewport({
-          bottom: -(jd.getSystemInfoSync().windowHeight - 1)
-        })
-        .observe('.jm-tabs', (res) => {
-          if (res.boundingClientRect.bottom < 40) return
-          let navStyle = ''
-          if (res.intersectionRatio > 0) {
-            // 向上滑，头部border离开viewport
-            console.log('吸顶')
-            navStyle = `
-              position:fixed;
-              top: 0;
-              z-index: 1;
-            `
-          } else {
-            // 向下滑，头部border进入viewport
-            console.log('归位置')
-            navStyle = `
-              position:absolute;
-              top: 0;
-              z-index: 1;
-            `
-          }
-          this.setData({ navStyle })
+              }
+              this.setData({ navStyle })
+            })
+          this.createIntersectionObserver()
+            .relativeToViewport({
+              bottom: -(windowHeight - 1 - offsetTop)
+            })
+            .observe('.jm-tabs', (res) => {
+              if (res.boundingClientRect.bottom < navHeight) return
+              let navStyle = ''
+              if (res.intersectionRatio > 0) {
+                /**
+                 * 方向：手指向下滑动，文档向上走
+                 * 相交区域：container的border-top 与 viewport的border-bottom 之间的量
+                 * targetNum：relativeToViewport传入的option的bottom值
+                 * 过渡阶段：相交区域<targetNum  -> 相交区域=targetNum -> 相交区域>targetNum。相交区域扩增
+                 * 物理意义：手指再向下滑动，container的border-top就要驶出viewport了，相交区域就要超过targetNum了
+                 * 状态：由正常布局变为吸顶状态
+                 */
+                navStyle = `
+                  position:fixed;
+                  top: ${offsetTop}px;
+                  z-index: 1;
+                `
+              } else {
+                /**
+                 * 方向：手指向上滑动，文档向下走
+                 * 相交区域：container的border-top 与 viewport的border-bottom 之间的量
+                 * targetNum：relativeToViewport传入的option的bottom值
+                 * 过渡阶段：相交区域>targetNum  -> 相交区域=targetNum -> 相交区域<targetNum
+                 * 物理意义：手指再向上滑动，相交区域就要小于targetNum了
+                 * 状态：由吸顶状态变为正常布局
+                 */
+                navStyle = `
+                  position:absolute;
+                  top: 0;
+                  z-index: 1;
+                `
+              }
+              this.setData({ navStyle })
+            })
         })
     }
   },
