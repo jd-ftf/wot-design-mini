@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType, checkNumRange, checkPixelRange } from '../common/util'
+import { getType, checkNumRange } from '../common/util'
 import touch from '../mixins/touch'
 
 VueComponent({
@@ -32,6 +32,7 @@ VueComponent({
         if (getType(value) === 'number' && value < 0) {
           throw Error('tabs\'s value cannot be less than zero')
         }
+        this.setActive(value)
       }
     },
     // 标签数超过阈值可滑动
@@ -51,12 +52,25 @@ VueComponent({
     // 标题未选中时的颜色
     inactiveColor: String,
     // 粘性布局
-    sticky: Boolean,
+    sticky: {
+      type: Boolean,
+      value: false,
+      observer (value) {
+        if (value) {
+          this.observerContentScroll()
+        } else {
+          this.createIntersectionObserver().disconnect()
+        }
+      }
+    },
     // 粘性布局吸顶位置
     offsetTop: {
       type: Number,
       value: 0,
-      observer: checkNumRange
+      observer (value) {
+        checkNumRange(value)
+        this.observerContentScroll()
+      }
     },
     // 开启切换动画
     animated: Boolean,
@@ -67,13 +81,19 @@ VueComponent({
     // 底部条宽度，单位像素
     lineWidth: {
       type: Number,
-      observer: checkPixelRange
+      observer (value) {
+        checkNumRange(value)
+        this.updateLineStyle()
+      }
     },
     // 底部条高度，单位像素
     lineHeight: {
       type: Number,
       value: 3,
-      observer: checkPixelRange
+      observer (value) {
+        checkNumRange(value)
+        this.updateLineStyle()
+      }
     }
   },
   data: {
@@ -124,6 +144,7 @@ VueComponent({
      * @param {Boolean} animation 是否伴随动画
      */
     updateLineStyle (animation = true) {
+      if (!this.inited) return
       const { color, activeIndex, lineWidth, lineHeight, slidableNum, items } = this.data
       this.getRect('.jm-tabs__nav-item', true).then(
         (rects) => {
@@ -142,6 +163,7 @@ VueComponent({
             transform: translateX(${left}px);
             ${transition}
           `
+          // 防止重复绘制
           this.data.lineStyle !== lineStyle && this.setData({ lineStyle })
         })
     },
@@ -150,7 +172,11 @@ VueComponent({
      * @param {Boolean} animation -是否开启动画。default:true
      * @param {Boolean} initBody -是否初始化所有tab。default:false
      */
-    setActiveTab (animation = true, initBody = false) {
+    setActiveTab (
+      animation = this.data.animated,
+      initBody = false
+    ) {
+      if (!this.inited) return
       const { activeIndex, items, lazyRender } = this.data
       this.getRect('.jm-tabs__body').then(
         (rect) => {
@@ -186,14 +212,20 @@ VueComponent({
                   painted: true
                 })
           })
+
+          this.$emit('change', {
+            index: activeIndex,
+            name: items[activeIndex].name
+          })
         }
       )
     },
     /**
      * @description 修改选中的tab Index
      * @param {String |Number } value - radio绑定的value或者tab索引，默认值0
+     * @param {Boolean } init - 是否伴随初始化操作
      */
-    setActive (value = 0) {
+    setActive (value = 0, init = false) {
       const { items } = this.data
       // 没有tab子元素，不执行任何操作
       if (items.length === 0) return
@@ -211,15 +243,20 @@ VueComponent({
         const index = items.findIndex(item => item.name === value)
         value = (index === -1) ? 0 : index
       }
+      // 被禁用，不执行任何操作
+      if (items[value].disabled) return
       this.setData({ activeIndex: value })
-      return value
+
+      this.updateLineStyle(init === false)
+      this.setActiveTab(init === false, init === true)
+      this.scrollIntoView()
     },
     /**
      * @description scroll-view滑动到active的tab_nav
      */
     scrollIntoView () {
+      if (!this.inited) return
       const { activeIndex } = this.data
-
       Promise.all([
         this.getRect('.jm-tabs__nav-item', true),
         this.getRect('.jm-tabs__nav-container')
@@ -242,12 +279,19 @@ VueComponent({
     handleSelect ({ target: { dataset: { index } } }) {
       if (index === undefined) return
       const { name, disabled } = this.data.items[index]
-      if (disabled || index === this.data.activeIndex) return
+      if (disabled || index === this.data.activeIndex) {
+        this.$emit('disabled', {
+          index,
+          name
+        })
+        return
+      }
       this.data.mapShow && this.toggleMap()
       this.setActive(name)
-      this.updateLineStyle()
-      this.setActiveTab()
-      this.scrollIntoView()
+      this.$emit('click', {
+        index,
+        name
+      })
     },
     /**
      * @description touch handle
@@ -258,37 +302,9 @@ VueComponent({
 
       this.touchStart(event)
     },
-    onTouchMove (event, animation = false) {
+    onTouchMove (event) {
       if (!this.data.swipeable) return
       this.touchMove(event)
-      // 手势动画，性能堪忧
-      if (!animation) return
-      const { bodyStyle, activeIndex, items } = this.data
-      if (this.direction !== 'horizontal' ||
-        activeIndex === 0 ||
-        activeIndex === items.length - 1
-      ) {
-        return
-      }
-      this.getRect('.jm-tabs__body').then(
-        (rect) => {
-          const { width } = rect
-          const newStyle = bodyStyle
-            .split(';')
-            .map(item => item.trim())
-            .filter(item => !!item)
-            .map(item => {
-              if (item.includes('left:')) {
-                const temp = item.split(':')
-                temp[1] = (-1 * activeIndex * width / items.length) + parseInt(this.deltaX.toFixed(2))
-                return temp.join(':') + 'px'
-              }
-              return item
-            })
-            .join(';')
-          this.setData({ bodyStyle: newStyle })
-        }
-      )
     },
     onTouchEnd () {
       if (!this.data.swipeable) return
@@ -298,23 +314,17 @@ VueComponent({
       if (direction === 'horizontal' && offsetX >= minSwipeDistance) {
         if (deltaX > 0 && activeIndex !== 0) {
           this.setActive(activeIndex - 1)
-          this.updateLineStyle()
-          this.setActiveTab()
-          this.scrollIntoView()
         } else if (deltaX < 0 && activeIndex !== items.length - 1) {
           this.setActive(activeIndex + 1)
-          this.updateLineStyle()
-          this.setActiveTab()
-          this.scrollIntoView()
+          this.setActive(activeIndex + 1)
         }
-      } else if (direction === 'horizontal') {
-        this.setActiveTab(activeIndex)
       }
     },
     /**
      * @description 监听page，模拟粘性布局
      */
     observerContentScroll () {
+      if (!this.inited) return
       const { sticky, offsetTop } = this.data
       if (!sticky) return
       const { windowHeight } = jd.getSystemInfoSync()
@@ -399,10 +409,8 @@ VueComponent({
     }
   },
   mounted () {
-    this.setActive(this.data.value)
-    this.updateLineStyle(false)
-    this.setActiveTab(false, true)
-    this.scrollIntoView()
+    this.inited = true
+    this.setActive(this.data.value, true)
     this.observerContentScroll()
   },
   destroy () {
