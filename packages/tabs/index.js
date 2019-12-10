@@ -279,7 +279,7 @@ VueComponent({
     handleSelect ({ target: { dataset: { index } } }) {
       if (index === undefined) return
       const { name, disabled } = this.data.items[index]
-      if (disabled || index === this.data.activeIndex) {
+      if (disabled) {
         this.$emit('disabled', {
           index,
           name
@@ -287,7 +287,7 @@ VueComponent({
         return
       }
       this.data.mapShow && this.toggleMap()
-      this.setActive(name)
+      this.setActive(index)
       this.$emit('click', {
         index,
         name

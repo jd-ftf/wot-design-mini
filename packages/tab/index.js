@@ -48,6 +48,13 @@ VueComponent({
      */
     checkName (self) {
       const { name: myName } = this.data
+      if (
+        myName === undefined ||
+        myName === null ||
+        myName === ''
+      ) {
+        return
+      }
       this.parent && this.parent.children.forEach(node => {
         if (
           node !== self &&
@@ -56,15 +63,6 @@ VueComponent({
           throw Error(`The tab's bound value: ${myName} has been used`)
         }
       })
-    }
-  },
-  created () {
-    // 创建时主动检测一下是否设置了name、title
-    if (!this.data.name) {
-      throw Error('name must be set')
-    }
-    if (!this.data.title) {
-      throw Error('title must be set')
     }
   }
 })
