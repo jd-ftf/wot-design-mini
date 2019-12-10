@@ -109,6 +109,7 @@ Component({
   }
 })
 ```
+
 ### input
 * input获取焦点闪烁
 
@@ -130,6 +131,7 @@ properties传值时不支持 `loading`单键值，必须写成
 #### Function
 
 * props的type设置为null，并且传入了function，那么在debugger模式console.log会显示null，但实际上是一个function。
+
 
 ### CSS
 
