@@ -76,7 +76,9 @@ VueComponent({
     // 标签页偏移量
     bodyStyle: '',
     // scroll-view偏移量
-    scrollLeft: 0
+    scrollLeft: 0,
+    // nav wrap的样式
+    navStyle: 'position: absolute;top: 0;'
   },
   methods: {
     /**
@@ -137,7 +139,7 @@ VueComponent({
      * @param {Boolean} initBody -是否初始化所有tab。default:false
      */
     setActiveTab (animation = true, initBody = false) {
-      const { activeIndex, items } = this.data
+      const { activeIndex, items, lazyRender } = this.data
       this.getRect('.jm-tabs__body').then(
         (rect) => {
           const { width } = rect
@@ -154,11 +156,23 @@ VueComponent({
 
           this.setData({ bodyStyle })
 
+          // 懒渲染
+          lazyRender &&
+          !items[activeIndex].painted &&
+          this.children[activeIndex].setData({ painted: true })
+
+          // 初始化时会依次设置child的宽度
           initBody &&
           this.children &&
           this.children.length > 0 &&
           this.children.forEach((child) => {
-            child.setData({ width })
+            child.setData(
+              lazyRender
+                ? { width }
+                : {
+                  width,
+                  painted: true
+                })
           })
         }
       )
@@ -215,8 +229,9 @@ VueComponent({
      */
     handleSelect ({ target: { dataset: { index } } }) {
       if (index === undefined) return
-      const { name, disabled, activeIndex } = this.data.items[index]
-      if (disabled || index === activeIndex) return
+      const { name, disabled } = this.data.items[index]
+      if (disabled || index === this.data.activeIndex) return
+      this.data.mapShow && this.toggleMap()
       this.setActive(name)
       this.updateLineStyle()
       this.setActiveTab()
@@ -231,9 +246,37 @@ VueComponent({
 
       this.touchStart(event)
     },
-    onTouchMove (event) {
+    onTouchMove (event, animation = false) {
       if (!this.data.swipeable) return
       this.touchMove(event)
+      // 手势动画，性能堪忧
+      if (!animation) return
+      const { bodyStyle, activeIndex, items } = this.data
+      if (this.direction !== 'horizontal' ||
+        activeIndex === 0 ||
+        activeIndex === items.length - 1
+      ) {
+        return
+      }
+      this.getRect('.jm-tabs__body').then(
+        (rect) => {
+          const { width } = rect
+          const newStyle = bodyStyle
+            .split(';')
+            .map(item => item.trim())
+            .filter(item => !!item)
+            .map(item => {
+              if (item.includes('left:')) {
+                const temp = item.split(':')
+                temp[1] = (-1 * activeIndex * width / items.length) + parseInt(this.deltaX.toFixed(2))
+                return temp.join(':') + 'px'
+              }
+              return item
+            })
+            .join(';')
+          this.setData({ bodyStyle: newStyle })
+        }
+      )
     },
     onTouchEnd () {
       if (!this.data.swipeable) return
@@ -252,7 +295,63 @@ VueComponent({
           this.setActiveTab()
           this.scrollIntoView()
         }
+      } else if (direction === 'horizontal') {
+        this.setActiveTab(activeIndex)
       }
+    },
+    /**
+     * @description 监听page，模拟粘性布局
+     */
+    observerContentScroll () {
+      this.createIntersectionObserver().disconnect()
+      this.createIntersectionObserver()
+        .relativeToViewport({ top: -40 })
+        .observe('.jm-tabs', (res) => {
+          if (res.boundingClientRect.top > 0) return
+          let navStyle = ''
+          if (res.intersectionRatio > 0) {
+            console.log('脱离底部，吸顶')
+            navStyle = `
+              position:fixed;
+              top: 0;
+              z-index: 1;
+            `
+          } else {
+            navStyle = `
+              position: absolute;
+              bottom: 0;
+              z-index: 1;
+            `
+            console.log('吸顶脱离，固定到底部，跟随文档')
+          }
+          this.setData({ navStyle })
+        })
+      this.createIntersectionObserver()
+        .relativeToViewport({
+          bottom: -(jd.getSystemInfoSync().windowHeight - 1)
+        })
+        .observe('.jm-tabs', (res) => {
+          if (res.boundingClientRect.bottom < 40) return
+          let navStyle = ''
+          if (res.intersectionRatio > 0) {
+            // 向上滑，头部border离开viewport
+            console.log('吸顶')
+            navStyle = `
+              position:fixed;
+              top: 0;
+              z-index: 1;
+            `
+          } else {
+            // 向下滑，头部border进入viewport
+            console.log('归位置')
+            navStyle = `
+              position:absolute;
+              top: 0;
+              z-index: 1;
+            `
+          }
+          this.setData({ navStyle })
+        })
     }
   },
   mounted () {
@@ -260,5 +359,6 @@ VueComponent({
     this.updateLineStyle(false)
     this.setActiveTab(false, true)
     this.scrollIntoView()
+    this.observerContentScroll()
   }
 })

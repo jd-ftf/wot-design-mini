@@ -6,6 +6,7 @@ VueComponent({
       type: 'parent',
       linked (target) {
         this.parent = target
+        // 和tabs建立关系式，主动检测一下自己的name和别的tab的name是否冲突
         this.checkName(this)
       },
       unlinked () {
@@ -21,24 +22,28 @@ VueComponent({
         if (!name) {
           throw Error('name must be set !')
         }
-        // 当建立relations关系之后，name改变,以下内容才能执行
+        // 当tab与tabs建立relations关系之后，tab的name改变,需要检测一下与其他tab的name是否冲突
         if (!this.parent || old === null) return
-        // 检查自己绑定的值是否和其它radio冲突
         this.checkName(this)
       }
     },
-    // tab的命名
+    // tab的label
     title: String,
-    // 是否禁用
+    // tab禁用，无法点击
     disabled: Boolean
   },
   data: {
-    // 2.禁用active的功能，使用translate和width控制展示的tab
-    width: ''
+    /**
+     * tab的宽度要等于tabs提供`jm-tab__body`的宽度
+     * 由于tab是以slot的方式插入tabs，又因为插槽/组件样式隔离，所以tab的width必须要由tabs来设置
+     */
+    width: '',
+    // 初始状态tab不会渲染，必须通过tabs来设置painted使tab渲染
+    painted: false
   },
   methods: {
     /**
-     * @description 检测tab绑定的name是否已经被其他节点绑定
+     * @description 检测tab绑定的name是否和其它tab的name冲突
      * @param {Object} self 自身
      */
     checkName (self) {
@@ -54,8 +59,12 @@ VueComponent({
     }
   },
   created () {
+    // 创建时主动检测一下是否设置了name、title
     if (!this.data.name) {
       throw Error('name must be set')
+    }
+    if (!this.data.title) {
+      throw Error('title must be set')
     }
   }
 })
