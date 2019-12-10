@@ -20,6 +20,7 @@ VueComponent({
     }
   },
   props: {
+    // 绑定值
     value: {
       type: [Number, String],
       value: 0,
@@ -33,31 +34,42 @@ VueComponent({
         }
       }
     },
+    // 标签数超过阈值可滑动
     slidableNum: {
       type: Number,
       value: 6,
       observer: checkNumRange
     },
+    // 标签数超过阈值显示导航地图
     mapNum: {
       type: Number,
       value: 10,
       observer: checkNumRange
     },
+    // 标题选中时的颜色
     color: String,
+    // 标题未选中时的颜色
     inactiveColor: String,
+    // 粘性布局
     sticky: Boolean,
+    // 粘性布局吸顶位置
     offsetTop: {
       type: Number,
       value: 0,
       observer: checkNumRange
     },
+    // 开启切换动画
     animated: Boolean,
+    // 开启手势滑动
     swipeable: Boolean,
+    // 懒渲染标签页
     lazyRender: Boolean,
+    // 底部条宽度，单位像素
     lineWidth: {
       type: Number,
       observer: checkPixelRange
     },
+    // 底部条高度，单位像素
     lineHeight: {
       type: Number,
       value: 3,
@@ -360,5 +372,8 @@ VueComponent({
     this.setActiveTab(false, true)
     this.scrollIntoView()
     this.observerContentScroll()
+  },
+  destroy () {
+    this.createIntersectionObserver().disconnect()
   }
 })
