@@ -4,22 +4,33 @@
 @include b(tabs) {
   position: relative;
   background: #fff;
-
+  padding-top: $-tabs-nav-height;
   @include e(nav) {
-    position: relative;
+    left: 0;
+    right: 0;
     height: $-tabs-nav-height;
-    overflow: hidden;
-    background: #fff;
-
-    @include halfPixelBorder;
+    background-color: #fff;
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: -1px;
+      transform: scaleY(0.5);
+      background: $-color-line;
+    }
+    @include m(wrap) {
+      height: 100%;
+      overflow: hidden;
+    }
   }
   @include e(nav-container) {
     position: relative;
     display: flex;
-    box-sizing: content-box;
-    padding-bottom: 15px;
-    overflow: hidden;
     user-select: none;
+    padding-bottom: $-tabs-nav-placeholder;
   }
   @include e(nav-item) {
     flex: 1;
@@ -40,20 +51,18 @@
   }
   @include e(line) {
     position: absolute;
-    bottom: 15px;
+    bottom: $-tabs-nav-placeholder;
     left: 0;
     height: $-tabs-nav-line-height;
     background: $-tabs-nav-active-color;
     z-index: 1;
   }
   @include e(container) {
-    position: relative;
     overflow: hidden;
   }
   @include e(body) {
+    position: relative;
     display: flex;
-    width: 100%;
-    height: 100%;
   }
   @include e(map) {
     position: absolute;
@@ -154,19 +163,14 @@
     opacity: 0;
     transition: opacity .3s;
   }
-
   @include when(slide) {
-    .jm-tabs__nav-container {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
     .jm-tabs__nav-item {
       flex: 0 0 auto;
       padding: 0 17px;
     }
   }
   @include when(map) {
-    .jm-tabs__nav {
+    .jm-tabs__nav--wrap{
       padding-right: 40px;
     }
   }

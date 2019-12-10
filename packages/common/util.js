@@ -66,3 +66,24 @@ export const defaultFunction = value => value
 export const isDef = value => value !== undefined && value !== null
 
 export { debounce }
+
+/**
+ * @description 防止数字小于零
+ * @param {Number} num
+ * @param {String} label 标签
+ */
+export const checkNumRange = (num, label = 'value') => {
+  if (num < 0) {
+    throw Error(`${label} shouldn't be less than zero`)
+  }
+}
+/**
+ * @description 防止pixel无意义
+ * @param {Number} num
+ * @param {String} label 标签
+ */
+export const checkPixelRange = (num, label = 'value') => {
+  if (num <= 0) {
+    throw Error(`${label} should be greater than zero`)
+  }
+}

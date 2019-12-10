@@ -3,6 +3,7 @@
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
     "jm-tabs": "../../dist/tabs/index",
-    "jm-tab": "../../dist/tab/index"
+    "jm-tab": "../../dist/tab/index",
+    "jm-toast": "../../dist/toast/index"
   }
 }
