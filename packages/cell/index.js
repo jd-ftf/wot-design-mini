@@ -74,7 +74,7 @@ VueComponent({
     onClick () {
       const url = this.data.to
       if (url && this.data.isLink) {
-        jd[(this.data.replace ? 'navigateTo' : 'redirectTo')]({ url })
+        jd[(this.data.replace ? 'redirectTo' : 'navigateTo')]({ url })
       }
       if (this.data.clickable) {
         this.$emit('click')

@@ -23,10 +23,10 @@
       <!--title END-->
 
       <!--label BEGIN-->
-      <view  class="jm-cell__label custom-label-class">
-        <block wx:if="{{label}}">{{label}}</block>
-        <slot wx:else name="label"/>
+      <view wx:if="{{label}}" class="jm-cell__label custom-label-class">
+        <block>{{label}}</block>
       </view>
+      <slot wx:else name="label"/>
       <!--label END-->
     </view>
 

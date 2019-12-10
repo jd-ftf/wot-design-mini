@@ -67,13 +67,13 @@
 
 ### 点击反馈
 
-> 通过设置 `clickable` 开启点击反馈，之后可以监听`click`事件。  
+> 通过设置 `clickable` 开启点击反馈，之后可以监听`click`事件。
 
 ```html
 <jm-toast id="jm-toast"/>
-<jm-cell 
+<jm-cell
   bind:click="onClick"
-  title="帮助与反馈" 
+  title="帮助与反馈"
 />
 ```
 ```javascript
@@ -87,13 +87,13 @@ Page({
 
 ### 页面跳转
 
-通过设置 `is-link` 属性显示导航箭头和点击态，设置 `to` 属性，指定跳转地址。`to` 属性是普通链接。  
+通过设置 `is-link` 属性显示导航箭头和点击态，设置 `to` 属性，指定跳转地址。`to` 属性是普通链接。
 `is-link`会默认开启`clickable`。
 
 ```html
 <jm-toast id="jm-toast"/>
-<jm-cell 
-  title="帮助与反馈" 
+<jm-cell
+  title="帮助与反馈"
   is-link to="/pages/button/index"
 />
 ```
@@ -109,8 +109,8 @@ Page({
     <jm-icon name="cart"/>
     <span>订购</span>
   </view>
-  <jm-cell 
-    is-link 
+  <jm-cell
+    is-link
     custom-icon-class="custom-icon-class"
     custom-title-class="custom-title-class"
     custom-label-class="custom-label-class"
@@ -181,6 +181,8 @@ Page({
 | is-link | 是否为跳转链接 | boolean | - | false |
 | to | 跳转地址 | string | - | - |
 | clickable | 开启点击反馈,is-link默认开启 | boolean | - | false |
+| replace | 跳转时是否替换栈顶页面 | boolean | - | false |
+
 
 ### CellGroup Slot
 

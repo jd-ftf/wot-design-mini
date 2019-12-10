@@ -23,10 +23,10 @@
       <!--title END-->
 
       <!--label BEGIN-->
-      <view  class="jm-cell__label custom-label-class">
-        <block jd:if="{{label}}">{{label}}</block>
-        <slot jd:else name="label"/>
+      <view jd:if="{{label}}" class="jm-cell__label custom-label-class">
+        <block>{{label}}</block>
       </view>
+      <slot jd:else name="label"/>
       <!--label END-->
     </view>
 
