@@ -11,3 +11,4 @@ node_modules/
 *.njsproj
 *.sln
 dist/
+npm-debug.log
