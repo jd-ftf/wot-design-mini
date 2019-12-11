@@ -1,6 +1,6 @@
   <view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} ">
     <view class="jm-slider__label-min" jd:if="{{ !hideMinMax }}">
-      {{ minValue }}
+      {{ min }}
     </view>
     <!--  ref="axle" -->
     <view
@@ -9,19 +9,19 @@
       bind:touchend="slidingEnd"
       bind:touchcancel="slidingEnd"
       catch:touchmove="sliding">
-      <!-- ref="container" -->
+      <button jd:if="{{ disabled }}">显示</button>
+      <!-- 左边的圆点 -->
       <view
         jd:if="{{ !disabled }}"
         class="jm-slider__handle-container"
         style="left: {{ handlePosition[0] - handleRadius + 'px' }}">
         <view class="jm-slider__handle"></view>
-        <view
-          class="jm-slider__label-cur"
-          jd:if="{{ !hideLabel }}">
+        <view class="jm-slider__label-cur" jd:if="{{ !hideLabel }}">
           {{ value }}
         </view>
       </view>
-      <view
+      <!-- 右边的圆点 -->
+      <!-- <view
         jd:if="{{ !disabled }}"
         style="left: {{ handlePosition[1] - handleRadius + 'px' }}"
         class="jm-slider__handle-container">
@@ -31,15 +31,16 @@
           jd:if="{{ !hideLabel }}">
           {{ value }}
         </view>
-      </view>
+      </view> -->
+      <!-- 激活线 -->
       <view
         class="jm-slider__progress-bar"
-        style="width: {{ Math.abs(handlePosition[0] - handlePosition[1]) + 'px'}}; left: {{ Math.min(handlePosition[0], handlePosition[1]) + 'px'}}">
+        style="width: {{ activeLineWidth + 'px'}}; left: {{ activeLineLeft + 'px'}}">
       </view>
     </view>
     <view
       class="jm-slider__label-max"
       jd:if="{{ !hideMinMax }}">
-      {{ maxValue }}
+      {{ max }}
     </view>
   </view>

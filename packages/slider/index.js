@@ -8,7 +8,11 @@ VueComponent({
   ],
   data: {
     handleRadius: 0,
-    axleWidth: 0
+    axleWidth: 0,
+    activeLineWidth: 0,
+    activeLineLeft: 0,
+    firstBallX: 0,
+    secondBallX: 0
   },
   props: {
     hideMinMax: Boolean,
@@ -17,11 +21,11 @@ VueComponent({
       type: Boolean,
       value: false
     },
-    maxValue: {
+    max: {
       type: Number,
       value: 100
     },
-    minValue: {
+    min: {
       type: Number,
       value: 0
     },
@@ -29,6 +33,12 @@ VueComponent({
       type: null,
       value: 0,
       observer () {
+        const { value } = this.data
+        this.setData({
+          handlePosition: typeof value === 'number'
+            ? [this.value2Pos(value), 0]
+            : [this.value2Pos(value[0]), this.value2Pos(value[1])]
+        })
       }
     },
     step: {
@@ -37,35 +47,22 @@ VueComponent({
     },
     handlePosition: {
       type: Array,
-      observer () {
-        console.log('应当更改')
+      value: [0, 0],
+      observer (newValue) {
+        this.setData({
+          activeLineWidth: newValue[0] - newValue[1],
+          activeLineLeft: Math.min(newValue[0], newValue[1])
+        })
       }
     }
   },
   created () {
-    const { value } = this.data
-    this.setData({
-      handlePosition: typeof value === 'number'
-        ? [this.value2Pos(value), 0]
-        : [this.value2Pos(value[0]), this.value2Pos(value[1])]
-    })
-    console.log('handle: ', value, this.data.handlePosition)
-  },
-  mounted () {
-    Promise.all([
-      this.getRect('.jm-slider__handle-container'),
-      this.getRect('.jm-slider__axle')
-    ]).then(rects => {
-      console.log('created: ', rects)
-      const [container, axle] = rects
-      if (!container || !axle || !container.width || !axle.width) return
-      this.setData({
-        axleWidth: axle.width,
-        handleRadius: container.clientWidth / 2
-      })
-    })
+    this.initState()
   },
   methods: {
+    checkType (value) {
+      return Object.prototype.toString.call(value).slice(8, -1)
+    },
     getRect (select) {
       return new Promise(resolve => {
         this.createSelectorQuery()
@@ -77,45 +74,54 @@ VueComponent({
           }).exec()
       })
     },
+    initState () {
+      const { value } = this.data
+      Promise.all([
+        this.getRect('.jm-slider__handle-container'),
+        this.getRect('.jm-slider__axle')
+      ]).then(rects => {
+        const [container, axle] = rects
+        if (!container || !axle || !container.width || !axle.width) return
+        this.setData({
+          axleWidth: axle.width,
+          handleRadius: container.width / 2
+        }, () => {
+          this.setData({
+            handlePosition: this.checkType(value) === 'Array'
+              ? [this.value2Pos(value[0]), this.value2Pos(value[1])]
+              : [this.value2Pos(value), 0]
+          })
+        })
+      })
+    },
     // 开始拖动事件
-    slidingStart () {
+    slidingStart (event) {
       if (!this.data.disabled) {
-        console.log('开始拖动')
         this.$emit('slidingstart', this.data.value)
       }
     },
     // 拖动事件
-    // TODO this：需要获取元素节点值
     sliding (event) {
-      if (!this.disabled) {
-        console.log('拖动中', event.changedTouches[0].clientX)
-        this.setData({
+      const touchX = event.touches[0].clientX
+      const { value } = this.data
+      let newValue
+      if (!this.data.disabled) {
+        this.getRect('.jm-slider__axle').then(rect => {
+          // 线条左端点距离屏幕长度
+          const axleX = rect.left
+          const currentPos = touchX - axleX
 
+          if (this.checkType(value) === 'Number') {
+            newValue = this.pos2Value(currentPos)
+          } else {
+            const deltaLeft = Math.abs(currentPos - this.value2Pos(value[0]))
+            const deltaRight = Math.abs(currentPos - this.value2Pos(value[1]))
+            const currentValue = this.pos2Value(currentPos)
+            newValue = deltaLeft < deltaRight ? [currentValue, value[1]] : [value[0], currentValue]
+          }
+          this.$emit('sliding', newValue)
+          this.$emit('input', newValue)
         })
-        // const touchX = event.changedTouches[0].clientX
-        // this.getRect('.jm-slider__axle').then(rect => {
-        //   console.log('offset获取：', rect.left)
-        //   const axleX = rect.left
-        //   const currentPos = touchX - axleX
-
-        //   if (typeof this.data.value === 'number') {
-        //     const value = this.pos2Value(currentPos)
-        //     this.$emit('sliding', value)
-        //     this.$emit('input', value)
-        //   } else {
-        //     const deltaLeft = Math.abs(currentPos - this.value2Pos(this.data.value[0]))
-        //     const deltaRight = Math.abs(currentPos - this.value2Pos(this.data.value[1]))
-
-        //     const value = this.pos2Value(currentPos)
-        //     const currentValue = deltaLeft < deltaRight
-        //       ? [value, this.data.value[1]]
-        //       : [this.data.value[0], value]
-        //     console.log(currentValue)
-        //     this.$emit('sliding', currentValue)
-        //     this.$emit('input', currentValue)
-        //   }
-        // })
-        // const axleX = event.currentTarget.offsetLeft
       }
     },
     // 结束拖动事件
@@ -126,24 +132,25 @@ VueComponent({
     },
     // 如果value超出限定值则设定为限定值
     fixValue (value) {
-      const { minValue, maxValue } = this.data
-      value < minValue && (value = minValue)
-      value > maxValue && (value = maxValue)
+      const { min, max } = this.data
+      value < min && (value = min)
+      value > max && (value = max)
       return value
     },
     // 将pos转化为value
     pos2Value (pos) {
-      const { axleWidth, maxValue, minValue, step } = this.data
+      const { axleWidth, max, min, step } = this.data
       const percent = pos / axleWidth
-      const value = percent * (maxValue - minValue) + minValue
-      const res = minValue + Math.floor((value - minValue) / step) * step
+      const value = percent * (max - min) + min
+      const res = min + Math.floor((value - min) / step) * step
       return this.fixValue(res)
     },
     // 将value转化为pos
     value2Pos (value) {
-      const { minValue, maxValue, axleWidth } = this.data
+      const { min, max, axleWidth } = this.data
       const fixedValue = this.fixValue(value)
-      const percent = (fixedValue - minValue) / (maxValue - minValue)
+      // 移动距离的宽度比例
+      const percent = (fixedValue - min) / (max - min)
       return percent * axleWidth
     }
   }
