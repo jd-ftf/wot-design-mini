@@ -1,0 +1,11 @@
+<view
+  class="jm-tab"
+  style="{{ width ? 'width:' + width + 'px;' : '' }}"
+>
+  <view
+    jd:if="{{painted}}"
+    class="jm-tab__body"
+  >
+    <slot/>
+  </view>
+</view>
