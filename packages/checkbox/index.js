@@ -112,7 +112,7 @@ VueComponent({
     if (this.parent) {
       // 组合使用走这个逻辑
       return this.parent.reset()
-    } else if (typeof value !== 'boolean') {
+    } else if (typeof this.data.value !== 'boolean') {
       // 非组合使用走这个逻辑
       throw Error('checkbox\'s value must be boolean without Group')
     }
