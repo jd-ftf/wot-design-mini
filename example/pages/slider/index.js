@@ -29,6 +29,6 @@ Page({
     this.setData({ value5: detail })
   },
   handleChange6({ detail }) {
-     this.setData({ value6: detail })
+    this.setData({ value6: detail })
   }
 })

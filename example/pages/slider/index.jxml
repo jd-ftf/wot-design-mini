@@ -2,7 +2,7 @@
 	<jm-slider value="{{ value1 }}" bind:touchmove="handleChange1"/>
 </demo-block>
 <demo-block title="指定选择范围">
-	<jm-slider value="{{ value2 }}" min="{{ 4 }}" max="{{ 10000 }}"  bind:touchmove="handleChange2"/>
+	<jm-slider value="{{ value2 }}" min="{{ 4 }}" max="{{ 1000 }}"  bind:touchmove="handleChange2"/>
 </demo-block>
 <demo-block title="指定步长">
 	<jm-slider value="{{ value4 }}" hide-min-max="{{ true }}" step="{{ 10 }}" bind:touchmove="handleChange4"/>

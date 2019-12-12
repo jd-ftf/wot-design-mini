@@ -59,7 +59,6 @@ VueComponent({
           this.setData({ value: oldValue })
           throw Error('value must be dyadic array Or Number')
         }
-        console.log(newValue)
         this.setData({
           value: this.fixValue(newValue),
           showRight: this.checkType(newValue) === 'Array'
@@ -78,7 +77,7 @@ VueComponent({
       }
     }
   },
-  created () {
+  mounted () {
     this.initState()
   },
   methods: {
