@@ -4,13 +4,13 @@
     </view>
     <!--  ref="axle" -->
     <view
+      bind:touchstart="handleTouchStart"
+      bind:touchend="handleTouchEnd"
+      bind:touchcancel="handleTouchEnd"
+      catch:touchmove="handleTouchMove"
       class="jm-slider__axle {{ !hideMinMax ? 'jm-slider__axle--has-min-max' : '' }}">
       <!-- 左边的圆点 -->
       <view
-        bind:touchstart="handleTouchStart"
-        bind:touchend="handleTouchEnd"
-        bind:touchcancel="handleTouchEnd"
-        catch:touchmove="handleTouchMove"
         class="jm-slider__handle-container"
         style="left: {{ handlePosition[0] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}">
         <view class="jm-slider__handle"></view>
@@ -20,10 +20,6 @@
       </view>
       <!-- 右边的圆点 -->
       <view
-        bind:touchstart="handleTouchStart"
-        bind:touchend="handleTouchEnd"
-        bind:touchcancel="handleTouchEnd"
-        catch:touchmove="handleTouchMove"
         jd:if="{{ showRight }}"
         style="left: {{ handlePosition[1] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
         class="jm-slider__handle-container">

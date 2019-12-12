@@ -51,20 +51,14 @@ VueComponent({
       observer (newValue, oldValue) {
         // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
         if (newValue === null || newValue === undefined) {
+          this.setData({ value: oldValue })
           throw Error('value can\'t be null or undefined')
         }
-        const handlePosition = this.checkType(newValue) === 'Number'
-          ? [this.value2Pos(newValue), 0]
-          : [this.value2Pos(newValue[0]), this.value2Pos(newValue[1])]
         this.setData({
           value: this.fixValue(newValue),
-          showRight: this.checkType(newValue) === 'Array',
-          handlePosition
+          showRight: this.checkType(newValue) === 'Array'
         })
-        this.setData({
-          activeLineWidth: Math.abs(handlePosition[0] - handlePosition[1]),
-          activeLineLeft: Math.min(handlePosition[0], handlePosition[1])
-        })
+        this.sliderControl()
       }
     },
     step: {
@@ -96,27 +90,29 @@ VueComponent({
           }).exec()
       })
     },
-    valueControl (oldValue) {
+    sliderControl () {
+      const { value } = this.data
+      const handlePosition = this.checkType(value) === 'Number'
+        ? [this.value2Pos(value), 0]
+        : [this.value2Pos(value[0]), this.value2Pos(value[1])]
+      this.setData({
+        handlePosition,
+        activeLineWidth: Math.abs(handlePosition[0] - handlePosition[1]),
+        activeLineLeft: Math.min(handlePosition[0], handlePosition[1])
+      })
     },
     initState () {
-      const { value } = this.data
       Promise.all([
         this.getRect('.jm-slider__handle-container'),
         this.getRect('.jm-slider__axle')
       ]).then(rects => {
         const [container, axle] = rects
         if (!container || !axle || !container.width || !axle.width) return
-        this.data.axleWidth = axle.width
-        this.data.handleRadius = container.width / 2
         this.setData({
-          handlePosition: this.checkType(value) === 'Array'
-            ? [this.value2Pos(value[0]), this.value2Pos(value[1])]
-            : [this.value2Pos(value), 0]
+          axleWidth: axle.width,
+          handleRadius: container.width / 2
         })
-        this.setData({
-          activeLineWidth: Math.abs(this.data.handlePosition[0] - this.data.handlePosition[1]),
-          activeLineLeft: Math.min(this.data.handlePosition[0], this.data.handlePosition[1])
-        })
+        this.sliderControl()
       })
     },
     // 开始拖动事件
@@ -150,6 +146,7 @@ VueComponent({
     },
     // 结束拖动事件
     handleTouchEnd () {
+      console.log('结束拖动', this.data.handlePosition[0], this.data.handleRadius)
       this.setData({ isTouch: false })
       if (!this.data.disabled) {
         this.$emit('touchend', this.data.value)
