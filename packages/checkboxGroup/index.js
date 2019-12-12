@@ -26,7 +26,7 @@ VueComponent({
         if (value.length < this.data.min) {
           throw Error('checkboxGroup\'s bound value\'s length can\'t be less than min')
         }
-        if (this.data.max !== 0 && value > this.data.max) {
+        if (this.data.max !== 0 && value.length > this.data.max) {
           throw Error('checkboxGroup\'s bound value\'s length can\'t be large than max')
         }
         // 每次value变化都会触发重新匹配选中项
