@@ -84,3 +84,19 @@ page({
 | max      | 最大值        | number | - | 100 |
 | min       | 最小值  | number | - | 0 |
 | step           | 步进值        | number | - | 1 |
+
+### Slider Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| bind:touchstart | 开始移动时触发 | value |
+| bind:touchmove | 移动滑块时触发 | value |
+| bind:touchend | 移动结束时触发 | value |
+
+### Slider 外部样式类
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |
+| custom-min-class | 最小值自定义样式 |
+| custom-max-class | 最大值自定义样式 |
+

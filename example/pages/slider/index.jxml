@@ -1,4 +1,3 @@
-<button bindtap="test">测试</button>
 <demo-block title="基础用法">
 	<jm-slider value="{{ value1 }}" bind:touchmove="handleChange1"/>
 </demo-block>

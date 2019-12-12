@@ -1,7 +1,8 @@
 import VueComponent from '../common/component'
 VueComponent({
   externalClasses: [
-    'custom-suffix-class'
+    'custom-min-class',
+    'custom-max-class'
   ],
   data: {
     handleRadius: 0,
@@ -48,14 +49,17 @@ VueComponent({
       type: null,
       value: 0,
       observer (newValue, oldValue) {
-        const condition = this.checkType(newValue) === 'Array'
         // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
         if (newValue === null || newValue === undefined) {
           this.setData({ value: oldValue })
           throw Error('value can\'t be null or undefined')
-        } else if (condition && newValue.length !== 2) {
+        } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
           throw Error('value must be dyadic array')
+        } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
+          this.setData({ value: oldValue })
+          throw Error('value must be dyadic array Or Number')
         }
+        console.log(newValue)
         this.setData({
           value: this.fixValue(newValue),
           showRight: this.checkType(newValue) === 'Array'
@@ -86,9 +90,7 @@ VueComponent({
         this.createSelectorQuery()
           .select(select)
           .boundingClientRect(rect => {
-            if (rect) {
-              resolve(rect)
-            }
+            rect && resolve(rect)
           }).exec()
       })
     },
@@ -118,8 +120,7 @@ VueComponent({
       })
     },
     // 开始拖动事件
-    handleTouchStart (event) {
-      if (this.isTouch) return
+    handleTouchStart () {
       if (!this.data.disabled) this.$emit('touchstart', this.data.value)
     },
     // 拖动事件
@@ -135,6 +136,7 @@ VueComponent({
           if (this.checkType(value) === 'Number') {
             newValue = this.pos2Value(currentPos)
           } else {
+            // 在这个地方把数据限制死
             const deltaLeft = Math.abs(currentPos - this.value2Pos(value[0]))
             const deltaRight = Math.abs(currentPos - this.value2Pos(value[1]))
             const currentValue = this.pos2Value(currentPos)

@@ -1,5 +1,5 @@
 <view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} custom-class">
-  <view class="jm-slider__label-min" jd:if="{{ !hideMinMax }}">
+  <view class="jm-slider__label-min custom-min-class" jd:if="{{ !hideMinMax }}">
   {{ min }}
   </view>
   <view
@@ -36,7 +36,7 @@
     </view>
   </view>
   <view
-    class="jm-slider__label-max"
+    class="jm-slider__label-max custom-max-class"
     jd:if="{{ !hideMinMax }}">
     {{ max }}
   </view>
