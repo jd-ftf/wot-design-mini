@@ -96,8 +96,15 @@ VueComponent({
        */
       const temp = this.parent.data.value.slice(0)
       if (isChecked) {
+        if (this.parent.data.value.length === this.parent.data.min) return
         temp.splice(temp.indexOf(value), 1)
       } else {
+        if (
+          this.parent.data.max !== 0 &&
+          this.parent.data.value.length === this.parent.data.max
+        ) {
+          return
+        }
         temp.push(value)
       }
       this.parent.setData({ value: temp })

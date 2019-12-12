@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import { checkNumRange } from '../common/util'
 
 VueComponent({
   relations: {
@@ -21,6 +22,12 @@ VueComponent({
         // 传入的value数组中包括重复的元素，这种情况非法。
         if (new Set(value).size !== value.length) {
           throw Error('checkboxGroup\'s bound value includes same value')
+        }
+        if (value.length < this.data.min) {
+          throw Error('checkboxGroup\'s bound value\'s length can\'t be less than min')
+        }
+        if (this.data.max !== 0 && value > this.data.max) {
+          throw Error('checkboxGroup\'s bound value\'s length can\'t be large than max')
         }
         // 每次value变化都会触发重新匹配选中项
         this.children && this.children.length > 0 && this.reset()
@@ -47,6 +54,20 @@ VueComponent({
       value: false,
       observer (value) {
         this.updateAllChild({ disabled: value })
+      }
+    },
+    min: {
+      type: Number,
+      value: 0,
+      observer (value) {
+        checkNumRange(value, 'min')
+      }
+    },
+    max: {
+      type: Number,
+      value: 0,
+      observer (value) {
+        checkNumRange(value, 'max')
       }
     }
   },
