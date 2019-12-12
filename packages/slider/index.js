@@ -1,18 +1,16 @@
 import VueComponent from '../common/component'
 VueComponent({
   externalClasses: [
-    'custom-suffix-class',
-    'custom-prefix-class',
-    'custom-textarea-class',
-    'custom-input-class'
+    'custom-suffix-class'
   ],
   data: {
     handleRadius: 0,
+    showRight: false,
     axleWidth: 0,
     activeLineWidth: 0,
     activeLineLeft: 0,
-    firstBallX: 0,
-    secondBallX: 0
+    handlePosition: [0, 0],
+    isTouch: false
   },
   props: {
     hideMinMax: Boolean,
@@ -23,36 +21,60 @@ VueComponent({
     },
     max: {
       type: Number,
-      value: 100
+      value: 100,
+      observer (newValue) {
+        if (newValue < 0) {
+          this.setData({ max: 100 })
+          throw Error('max value must be greater than 0')
+        } else if (newValue <= this.data.min) {
+          this.setData({ max: 100 })
+          throw Error('max value must be greater than min value')
+        }
+      }
     },
     min: {
       type: Number,
-      value: 0
+      value: 0,
+      observer (newValue) {
+        if (newValue < 0) {
+          this.setData({ min: 0 })
+          throw Error('min value must be greater than 0')
+        } else if (newValue >= this.data.max) {
+          this.setData({ min: 0 })
+          throw Error('min value must be less than max value')
+        }
+      }
     },
     value: {
       type: null,
       value: 0,
-      observer () {
-        const { value } = this.data
+      observer (newValue, oldValue) {
+        // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
+        if (newValue === null || newValue === undefined) {
+          throw Error('value can\'t be null or undefined')
+        }
+        const handlePosition = this.checkType(newValue) === 'Number'
+          ? [this.value2Pos(newValue), 0]
+          : [this.value2Pos(newValue[0]), this.value2Pos(newValue[1])]
         this.setData({
-          handlePosition: typeof value === 'number'
-            ? [this.value2Pos(value), 0]
-            : [this.value2Pos(value[0]), this.value2Pos(value[1])]
+          value: this.fixValue(newValue),
+          showRight: this.checkType(newValue) === 'Array',
+          handlePosition
+        })
+        this.setData({
+          activeLineWidth: Math.abs(handlePosition[0] - handlePosition[1]),
+          activeLineLeft: Math.min(handlePosition[0], handlePosition[1])
         })
       }
     },
     step: {
       type: Number,
-      value: 1
-    },
-    handlePosition: {
-      type: Array,
-      value: [0, 0],
+      value: 1,
       observer (newValue) {
-        this.setData({
-          activeLineWidth: newValue[0] - newValue[1],
-          activeLineLeft: Math.min(newValue[0], newValue[1])
-        })
+        if (newValue <= 0) {
+          this.setData({ step: 1 })
+          throw Error('step must be greater than 0')
+        }
       }
     }
   },
@@ -74,6 +96,8 @@ VueComponent({
           }).exec()
       })
     },
+    valueControl (oldValue) {
+    },
     initState () {
       const { value } = this.data
       Promise.all([
@@ -82,26 +106,27 @@ VueComponent({
       ]).then(rects => {
         const [container, axle] = rects
         if (!container || !axle || !container.width || !axle.width) return
+        this.data.axleWidth = axle.width
+        this.data.handleRadius = container.width / 2
         this.setData({
-          axleWidth: axle.width,
-          handleRadius: container.width / 2
-        }, () => {
-          this.setData({
-            handlePosition: this.checkType(value) === 'Array'
-              ? [this.value2Pos(value[0]), this.value2Pos(value[1])]
-              : [this.value2Pos(value), 0]
-          })
+          handlePosition: this.checkType(value) === 'Array'
+            ? [this.value2Pos(value[0]), this.value2Pos(value[1])]
+            : [this.value2Pos(value), 0]
+        })
+        this.setData({
+          activeLineWidth: Math.abs(this.data.handlePosition[0] - this.data.handlePosition[1]),
+          activeLineLeft: Math.min(this.data.handlePosition[0], this.data.handlePosition[1])
         })
       })
     },
     // 开始拖动事件
-    slidingStart (event) {
-      if (!this.data.disabled) {
-        this.$emit('slidingstart', this.data.value)
-      }
+    handleTouchStart (event) {
+      this.setData({ isTouch: true })
+      if (this.data.isTouch) return
+      if (!this.data.disabled) this.$emit('touchstart', this.data.value)
     },
     // 拖动事件
-    sliding (event) {
+    handleTouchMove (event) {
       const touchX = event.touches[0].clientX
       const { value } = this.data
       let newValue
@@ -110,7 +135,6 @@ VueComponent({
           // 线条左端点距离屏幕长度
           const axleX = rect.left
           const currentPos = touchX - axleX
-
           if (this.checkType(value) === 'Number') {
             newValue = this.pos2Value(currentPos)
           } else {
@@ -119,15 +143,16 @@ VueComponent({
             const currentValue = this.pos2Value(currentPos)
             newValue = deltaLeft < deltaRight ? [currentValue, value[1]] : [value[0], currentValue]
           }
-          this.$emit('sliding', newValue)
+          this.$emit('touchmove', newValue)
           this.$emit('input', newValue)
         })
       }
     },
     // 结束拖动事件
-    slidingEnd () {
+    handleTouchEnd () {
+      this.setData({ isTouch: false })
       if (!this.data.disabled) {
-        this.$emit('slidingend', this.data.value)
+        this.$emit('touchend', this.data.value)
       }
     },
     // 如果value超出限定值则设定为限定值

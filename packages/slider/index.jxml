@@ -1,37 +1,39 @@
-  <view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} ">
+  <view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} custom-class">
     <view class="jm-slider__label-min" jd:if="{{ !hideMinMax }}">
       {{ min }}
     </view>
     <!--  ref="axle" -->
     <view
-      class="jm-slider__axle {{ !hideMinMax ? 'jm-slider__axle--has-min-max' : '' }}"
-      bind:touchstart="slidingStart"
-      bind:touchend="slidingEnd"
-      bind:touchcancel="slidingEnd"
-      catch:touchmove="sliding">
-      <button jd:if="{{ disabled }}">显示</button>
+      class="jm-slider__axle {{ !hideMinMax ? 'jm-slider__axle--has-min-max' : '' }}">
       <!-- 左边的圆点 -->
       <view
-        jd:if="{{ !disabled }}"
+        bind:touchstart="handleTouchStart"
+        bind:touchend="handleTouchEnd"
+        bind:touchcancel="handleTouchEnd"
+        catch:touchmove="handleTouchMove"
         class="jm-slider__handle-container"
-        style="left: {{ handlePosition[0] - handleRadius + 'px' }}">
+        style="left: {{ handlePosition[0] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}">
         <view class="jm-slider__handle"></view>
         <view class="jm-slider__label-cur" jd:if="{{ !hideLabel }}">
-          {{ value }}
+          {{ showRight ? value[0] : value }}
         </view>
       </view>
       <!-- 右边的圆点 -->
-      <!-- <view
-        jd:if="{{ !disabled }}"
-        style="left: {{ handlePosition[1] - handleRadius + 'px' }}"
+      <view
+        bind:touchstart="handleTouchStart"
+        bind:touchend="handleTouchEnd"
+        bind:touchcancel="handleTouchEnd"
+        catch:touchmove="handleTouchMove"
+        jd:if="{{ showRight }}"
+        style="left: {{ handlePosition[1] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
         class="jm-slider__handle-container">
         <view class="jm-slider__handle"></view>
         <view
           class="jm-slider__label-cur"
           jd:if="{{ !hideLabel }}">
-          {{ value }}
+          {{ showRight ? value[1] : '' }}
         </view>
-      </view> -->
+      </view>
       <!-- 激活线 -->
       <view
         class="jm-slider__progress-bar"
