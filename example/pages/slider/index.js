@@ -13,6 +13,9 @@ Page({
     value6: [20, 40],
     value7: 0
   },
+  test() {
+    this.setData({value6:[-1,0]  })
+  },
   handleChange1({ detail }) {
     this.setData({ value1: detail })
   },

@@ -48,11 +48,12 @@ VueComponent({
       type: null,
       value: 0,
       observer (newValue, oldValue) {
+        const condition = this.checkType(newValue) === 'Array'
         // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
         if (newValue === null || newValue === undefined) {
           this.setData({ value: oldValue })
           throw Error('value can\'t be null or undefined')
-        } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
+        } else if (condition && newValue.length !== 2) {
           throw Error('value must be dyadic array')
         }
         this.setData({
@@ -118,7 +119,7 @@ VueComponent({
     },
     // 开始拖动事件
     handleTouchStart (event) {
-      if (this.data.isTouch) return
+      if (this.isTouch) return
       if (!this.data.disabled) this.$emit('touchstart', this.data.value)
     },
     // 拖动事件
@@ -153,8 +154,13 @@ VueComponent({
     // 如果value超出限定值则设定为限定值
     fixValue (value) {
       const { min, max } = this.data
-      value < min && (value = min)
-      value > max && (value = max)
+      if (this.checkType(value) !== 'Array') {
+        value < min && (value = min)
+        value > max && (value = max)
+      } else {
+        value[0] < min && (value[0] = min)
+        value[1] > max && (value[1] = max)
+      }
       return value
     },
     // 将pos转化为value
