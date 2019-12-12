@@ -1,0 +1,3 @@
+<view class="jm-checkbox-group custom-class">
+  <slot/>
+</view>
