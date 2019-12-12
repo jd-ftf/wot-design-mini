@@ -9,8 +9,7 @@ VueComponent({
     axleWidth: 0,
     activeLineWidth: 0,
     activeLineLeft: 0,
-    handlePosition: [0, 0],
-    isTouch: false
+    handlePosition: [0, 0]
   },
   props: {
     hideMinMax: Boolean,
