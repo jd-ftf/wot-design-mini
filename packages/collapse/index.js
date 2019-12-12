@@ -23,9 +23,11 @@ VueComponent({
         // 外部修改 value 滚动
         if (!viewmore && this.children) {
           this.children.forEach((item) => {
-            const { name } = item.data
+            const { name, isExpand } = item.data
             const condition = newVal === name || newVal.indexOf(name) > -1
+            if (isExpand === condition) return
             item.stateControl('isExpand', condition)
+            item.scrollHeight('.jm-collapse-item__body')
           })
         }
       }
