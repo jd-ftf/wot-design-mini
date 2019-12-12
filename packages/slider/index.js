@@ -120,7 +120,7 @@ VueComponent({
     },
     // 开始拖动事件
     handleTouchStart () {
-      if (!this.data.disabled) this.$emit('drag-start', this.data.value)
+      if (!this.data.disabled) this.$emit('dragstart', this.data.value)
     },
     // 拖动事件
     handleTouchMove (event) {
@@ -141,14 +141,14 @@ VueComponent({
             const currentValue = this.pos2Value(currentPos)
             newValue = deltaLeft < deltaRight ? [currentValue, value[1]] : [value[0], currentValue]
           }
-          this.$emit('drag-move', newValue)
+          this.$emit('dragmove', newValue)
         })
       }
     },
     // 结束拖动事件
     handleTouchEnd () {
       if (!this.data.disabled) {
-        this.$emit('drag-end', this.data.value)
+        this.$emit('dragend', this.data.value)
       }
     },
     // 如果value超出限定值则设定为限定值
