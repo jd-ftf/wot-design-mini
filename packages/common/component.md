@@ -45,8 +45,8 @@ VueComponent({
 |-------------------------|----------- |
 | properties              | 类型vue的props。 |
 | data                    | 类型vue的data。 |
-| created                 | 在组件实例刚刚被创建时执行，此时可以拿到data，但是拿不到props，不能调用setData。 |
-| properties:observer     | 如果实例初始化时给properties传值，会触发observer，先于created执行 |
+| created                 | 在组件实例刚刚被创建时执行，此时可以拿到data，但是拿不到props的最新值，只能拿到默认值，不能调用setData，可以操作设置this。 |
+| properties:observer     | 如果实例初始化时给properties传值，会触发observer，先于attached执行 |
 | attached                | 在组件实例进入页面节点树时执行，可以调用setData。 |
 | relations               | DOM build，父组件建立连接，双方可以在此hook互相操作对方。 |
 | ready                   | DOM painted。 |
