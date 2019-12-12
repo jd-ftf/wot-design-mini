@@ -18,7 +18,17 @@
 `value` 为绑定值，是否选中，单独使用时值为 `boolean` 类型。
 
 ```html
-<jm-checkbox value="{{true}}">单选框1</jm-checkbox>
+<jm-checkbox value="{{value}}" bind:change="handleChange">单选框1</jm-checkbox>
+```
+```javascript
+Page({
+  data: {
+    value: true
+  },
+  handleChange (event) {
+    this.setData({value: event.detail})
+  }
+})
 ```
 
 ### 修改图标形状
@@ -35,7 +45,23 @@
 设置 `checked-color` 属性。
 
 ```html
-<jm-checkbox value="{{true}}" checked-color="#f00">京麦</jm-checkbox>
+<jm-checkbox
+   value="{{value}}"
+   checked-color="#f00"
+   bind:change="handleChange"
+>
+  京麦
+</jm-checkbox>
+```
+```javascript
+Page({
+  data: {
+    value: true
+  },
+  handleChange (event) {
+    this.setData({value: event.detail})
+  }
+})
 ```
 
 ### 修改选中和非选中的值
@@ -65,34 +91,62 @@ Page({
 `value` 为数组，单个复选框的值通过 `value` 进行设置。
 
 ```html
-<jm-checkbox-group value="{{['jingmai']}}">
+<jm-checkbox-group value="{{value}}"  bind:change="handleChange">
   <jm-checkbox value="jingmai">京麦</jm-checkbox>
   <jm-checkbox value="shop">商家后台</jm-checkbox>
 </jm-checkbox-group>
 ```
-
+```javascript
+Page({
+  data: {
+    value: ['jingmai']
+  },
+  handleChange (event) {
+    this.setData({value: event.detail})
+  }
+})
+```
 ### 禁用
 
 可以在 `checkbox-group` 上面设置 `disabled`，禁用所有复选框，也可以在单个复选框上面设置 `disabled` 属性，禁用某个复选框。
 
 ```html
-<jm-checkbox-group value="{{['jingmai']}}" disabled="{{true}}">
+<jm-checkbox-group value="{{value}}" disabled="{{true}}" bind:change="handleChange">
   <jm-checkbox value="jingmai">京麦</jm-checkbox>
   <jm-checkbox value="shop">商家后台</jm-checkbox>
 </jm-checkbox-group>
 ```
-
+```javascript
+Page({
+  data: {
+    value: ['jingmai']
+  },
+  handleChange (event) {
+    this.setData({value: event.detail})
+  }
+})
+```
 ### 设置选中数量的上限和下限
 
 `min` 属性设置最小选中的数量，`max` 属性设置最大选中的数量。如果要默认设置某个选项固定被选中，则给该复选框设置 disabled，且 `v-model` 中有该选项的值。
 
 ```html
-<jm-checkbox-group value="{{['jd']}}" min="{{1}}" max="{{3}}">
+<jm-checkbox-group value="{{value}}" min="{{1}}" max="{{3}}" bind:change="handleChange">
   <jm-checkbox value="jd">京东</jm-checkbox>
   <jm-checkbox value="jingmai">京麦</jm-checkbox>
   <jm-checkbox value="shop">商家后台</jm-checkbox>
   <jm-checkbox value="market">营销中心</jm-checkbox>
 </jm-checkbox-group>
+```
+```javascript
+Page({
+  data: {
+    value: ['jd']
+  },
+  handleChange (event) {
+    this.setData({value: event.detail})
+  }
+})
 ```
 
 ### CheckboxGroup Attributes
