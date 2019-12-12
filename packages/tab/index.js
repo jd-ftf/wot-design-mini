@@ -1,5 +1,4 @@
 import VueComponent from '../common/component'
-import { debounce } from '../common/util'
 
 VueComponent({
   relations: {
@@ -19,14 +18,14 @@ VueComponent({
     // 唯一标识符
     name: {
       type: String,
-      observer (name, old) {
+      observer (name) {
         if (!name) {
           throw Error('name must be set !')
         }
         // 当tab与tabs建立relations关系之后，tab的name改变,需要检测一下与其他tab的name是否冲突
         if (this.parent) {
           this.checkName(this)
-          this.reSelect()
+          this.parent.setActive(this.parent.data.value)
         }
       }
     },
@@ -66,10 +65,6 @@ VueComponent({
           throw Error(`The tab's bound value: ${myName} has been used`)
         }
       })
-    },
-
-    reSelect: debounce(function () {
-      this.parent.setActive(this.parent.data.value)
-    }, 50)
+    }
   }
 })
