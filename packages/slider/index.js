@@ -25,10 +25,10 @@ VueComponent({
       observer (newValue) {
         if (newValue < 0) {
           this.setData({ max: 100 })
-          throw Error('max value must be greater than 0')
+          console.warn('max value must be greater than 0')
         } else if (newValue <= this.data.min) {
           this.setData({ max: 100 })
-          throw Error('max value must be greater than min value')
+          console.warn('max value must be greater than min value')
         }
       }
     },
@@ -38,10 +38,10 @@ VueComponent({
       observer (newValue) {
         if (newValue < 0) {
           this.setData({ min: 0 })
-          throw Error('min value must be greater than 0')
+          console.warn('min value must be greater than 0')
         } else if (newValue >= this.data.max) {
           this.setData({ min: 0 })
-          throw Error('min value must be less than max value')
+          console.warn('min value must be less than max value')
         }
       }
     },
@@ -52,12 +52,12 @@ VueComponent({
         // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
         if (newValue === null || newValue === undefined) {
           this.setData({ value: oldValue })
-          throw Error('value can\'t be null or undefined')
+          console.warn('value can\'t be null or undefined')
         } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
           throw Error('value must be dyadic array')
         } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
           this.setData({ value: oldValue })
-          throw Error('value must be dyadic array Or Number')
+          console.warn('value must be dyadic array Or Number')
         }
         this.setData({
           value: this.fixValue(newValue),
@@ -72,7 +72,7 @@ VueComponent({
       observer (newValue) {
         if (newValue <= 0) {
           this.setData({ step: 1 })
-          throw Error('step must be greater than 0')
+          console.warn('step must be greater than 0')
         }
       }
     }
@@ -120,7 +120,7 @@ VueComponent({
     },
     // 开始拖动事件
     handleTouchStart () {
-      if (!this.data.disabled) this.$emit('touchstart', this.data.value)
+      if (!this.data.disabled) this.$emit('drag-start', this.data.value)
     },
     // 拖动事件
     handleTouchMove (event) {
@@ -141,15 +141,14 @@ VueComponent({
             const currentValue = this.pos2Value(currentPos)
             newValue = deltaLeft < deltaRight ? [currentValue, value[1]] : [value[0], currentValue]
           }
-          this.$emit('touchmove', newValue)
-          this.$emit('input', newValue)
+          this.$emit('drag-move', newValue)
         })
       }
     },
     // 结束拖动事件
     handleTouchEnd () {
       if (!this.data.disabled) {
-        this.$emit('touchend', this.data.value)
+        this.$emit('drag-end', this.data.value)
       }
     },
     // 如果value超出限定值则设定为限定值

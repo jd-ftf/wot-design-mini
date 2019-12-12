@@ -1,15 +1,15 @@
 <demo-block title="基础用法">
-	<jm-slider value="{{ value1 }}" bind:touchmove="handleChange1"/>
+	<jm-slider value="{{ value1 }}" bind:drag-move="handleChange1"/>
 </demo-block>
 <demo-block title="指定选择范围">
-	<jm-slider value="{{ value2 }}" min="{{ 4 }}" max="{{ 1000 }}"  bind:touchmove="handleChange2"/>
+	<jm-slider value="{{ value2 }}" min="{{ 4 }}" max="{{ 1000 }}"  bind:drag-move="handleChange2"/>
 </demo-block>
 <demo-block title="指定步长">
-	<jm-slider value="{{ value4 }}" hide-min-max="{{ true }}" step="{{ 10 }}" bind:touchmove="handleChange4"/>
+	<jm-slider value="{{ value4 }}" hide-min-max="{{ true }}" step="{{ 10 }}" bind:drag-move="handleChange4"/>
 </demo-block>
 <demo-block title="禁用状态">
-	<jm-slider value="{{ value5 }}" disabled="{{ true }}" bind:touchmove="handleChange5"/>
+	<jm-slider value="{{ value5 }}" disabled="{{ true }}" bind:drag-move="handleChange5"/>
 </demo-block>
 <demo-block title="双向滑块">
-	<jm-slider value="{{ value6 }}"  bind:touchmove="handleChange6"/>
+	<jm-slider value="{{ value6 }}"  bind:drag-move="handleChange6"/>
 </demo-block>
