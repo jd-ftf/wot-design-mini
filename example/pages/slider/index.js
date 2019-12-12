@@ -14,7 +14,7 @@ Page({
     value7: 0
   },
   click() {
-    this.setData({ value2: -1 })
+    this.setData({ value6: [20, 30] })
   },
   handleChange1({ detail }) {
     this.setData({ value1: detail })

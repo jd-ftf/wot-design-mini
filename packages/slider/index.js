@@ -53,6 +53,8 @@ VueComponent({
         if (newValue === null || newValue === undefined) {
           this.setData({ value: oldValue })
           throw Error('value can\'t be null or undefined')
+        } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
+          throw Error('value must be dyadic array')
         }
         this.setData({
           value: this.fixValue(newValue),
@@ -117,7 +119,6 @@ VueComponent({
     },
     // 开始拖动事件
     handleTouchStart (event) {
-      this.setData({ isTouch: true })
       if (this.data.isTouch) return
       if (!this.data.disabled) this.$emit('touchstart', this.data.value)
     },
@@ -146,8 +147,6 @@ VueComponent({
     },
     // 结束拖动事件
     handleTouchEnd () {
-      console.log('结束拖动', this.data.handlePosition[0], this.data.handleRadius)
-      this.setData({ isTouch: false })
       if (!this.data.disabled) {
         this.$emit('touchend', this.data.value)
       }

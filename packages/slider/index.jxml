@@ -1,44 +1,43 @@
-  <view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} custom-class">
-    <view class="jm-slider__label-min" jd:if="{{ !hideMinMax }}">
-      {{ min }}
-    </view>
-    <!--  ref="axle" -->
+<view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} custom-class">
+  <view class="jm-slider__label-min" jd:if="{{ !hideMinMax }}">
+  {{ min }}
+  </view>
+  <view
+    bind:touchstart="handleTouchStart"
+    bind:touchend="handleTouchEnd"
+    bind:touchcancel="handleTouchEnd"
+    catch:touchmove="handleTouchMove"
+    class="jm-slider__axle {{ !hideMinMax ? 'jm-slider__axle--has-min-max' : '' }}">
+    <!-- 左边的圆点 -->
     <view
-      bind:touchstart="handleTouchStart"
-      bind:touchend="handleTouchEnd"
-      bind:touchcancel="handleTouchEnd"
-      catch:touchmove="handleTouchMove"
-      class="jm-slider__axle {{ !hideMinMax ? 'jm-slider__axle--has-min-max' : '' }}">
-      <!-- 左边的圆点 -->
-      <view
-        class="jm-slider__handle-container"
-        style="left: {{ handlePosition[0] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}">
-        <view class="jm-slider__handle"></view>
-        <view class="jm-slider__label-cur" jd:if="{{ !hideLabel }}">
-          {{ showRight ? value[0] : value }}
-        </view>
-      </view>
-      <!-- 右边的圆点 -->
-      <view
-        jd:if="{{ showRight }}"
-        style="left: {{ handlePosition[1] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
-        class="jm-slider__handle-container">
-        <view class="jm-slider__handle"></view>
-        <view
-          class="jm-slider__label-cur"
-          jd:if="{{ !hideLabel }}">
-          {{ showRight ? value[1] : '' }}
-        </view>
-      </view>
-      <!-- 激活线 -->
-      <view
-        class="jm-slider__progress-bar"
-        style="width: {{ activeLineWidth + 'px'}}; left: {{ activeLineLeft + 'px'}}">
+      class="jm-slider__handle-container"
+      style="left: {{ handlePosition[0] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}">
+      <view class="jm-slider__handle"></view>
+      <view class="jm-slider__label-cur" jd:if="{{ !hideLabel }}">
+      {{ showRight ? value[0] : value }}
       </view>
     </view>
+    <!-- 右边的圆点 -->
     <view
-      class="jm-slider__label-max"
-      jd:if="{{ !hideMinMax }}">
-      {{ max }}
+      jd:if="{{ showRight }}"
+      style="left: {{ handlePosition[1] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
+      class="jm-slider__handle-container">
+      <view class="jm-slider__handle"></view>
+      <view
+        class="jm-slider__label-cur"
+        jd:if="{{ !hideLabel }}">
+        {{ showRight ? value[1] : '' }}
+      </view>
+    </view>
+    <!-- 激活线 -->
+    <view
+      class="jm-slider__progress-bar"
+      style="width: {{ activeLineWidth + 'px'}}; left: {{ activeLineLeft + 'px'}}">
     </view>
   </view>
+  <view
+    class="jm-slider__label-max"
+    jd:if="{{ !hideMinMax }}">
+    {{ max }}
+  </view>
+</view>
