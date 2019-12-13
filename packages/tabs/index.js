@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType, checkNumRange } from '../common/util'
+import { getType, checkNumRange, debounce } from '../common/util'
 import touch from '../mixins/touch'
 
 VueComponent({
@@ -32,7 +32,7 @@ VueComponent({
         if (getType(value) === 'number' && value < 0) {
           throw Error('tabs\'s value cannot be less than zero')
         }
-        this.setActive(value)
+        this.setActive && this.setActive(value)
       }
     },
     // 标签数超过阈值可滑动
@@ -221,37 +221,6 @@ VueComponent({
       )
     },
     /**
-     * @description 修改选中的tab Index
-     * @param {String |Number } value - radio绑定的value或者tab索引，默认值0
-     * @param {Boolean } init - 是否伴随初始化操作
-     */
-    setActive (value = 0, init = false) {
-      const { items } = this.data
-      // 没有tab子元素，不执行任何操作
-      if (items.length === 0) return
-
-      // name代表的索引超过了items的边界，自动用0兜底
-      if (
-        getType(value) === 'number' &&
-        value >= items.length
-      ) {
-        console.warn('the type of tabs\' value is Number shouldn\'t be less than its children')
-        value = 0
-      }
-      // 如果是字符串直接匹配，匹配不到用0兜底
-      if (getType(value) === 'string') {
-        const index = items.findIndex(item => item.name === value)
-        value = (index === -1) ? 0 : index
-      }
-      // 被禁用，不执行任何操作
-      if (items[value].disabled) return
-      this.setData({ activeIndex: value })
-
-      this.updateLineStyle(init === false)
-      this.setActiveTab(init === false && this.data.animated, init === true)
-      this.scrollIntoView()
-    },
-    /**
      * @description scroll-view滑动到active的tab_nav
      */
     scrollIntoView () {
@@ -407,6 +376,39 @@ VueComponent({
             })
         })
     }
+  },
+  beforeCreate () {
+    /**
+     * @description 修改选中的tab Index
+     * @param {String |Number } value - radio绑定的value或者tab索引，默认值0
+     * @param {Boolean } init - 是否伴随初始化操作
+     */
+    this.setActive = debounce(function (value = 0, init = false) {
+      const { items } = this.data
+      // 没有tab子元素，不执行任何操作
+      if (items.length === 0) return
+
+      // name代表的索引超过了items的边界，自动用0兜底
+      if (
+        getType(value) === 'number' &&
+        value >= items.length
+      ) {
+        console.warn('the type of tabs\' value is Number shouldn\'t be less than its children')
+        value = 0
+      }
+      // 如果是字符串直接匹配，匹配不到用0兜底
+      if (getType(value) === 'string') {
+        const index = items.findIndex(item => item.name === value)
+        value = (index === -1) ? 0 : index
+      }
+      // 被禁用，不执行任何操作
+      if (items[value].disabled) return
+      this.setData({ activeIndex: value })
+
+      this.updateLineStyle(init === false)
+      this.setActiveTab(init === false && this.data.animated, init === true)
+      this.scrollIntoView()
+    }, 100)
   },
   mounted () {
     this.inited = true

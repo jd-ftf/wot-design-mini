@@ -28,7 +28,8 @@
     "pages/pickerView/index",
     "pages/datetimePicker/index",
     "pages/datetimePickerView/index",
-    "pages/tabs/index"
+    "pages/tabs/index",
+    "pages/checkbox/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
