@@ -4,12 +4,12 @@
 <demo-block title="指定选择范围">
 	<jm-slider value="{{ value2 }}" min="{{ 4 }}" max="{{ 1000 }}"  bind:dragmove="handleChange2"/>
 </demo-block>
-<demo-block title="指定步长">
+<!-- <demo-block title="指定步长">
 	<jm-slider value="{{ value4 }}" hide-min-max="{{ true }}" step="{{ 10 }}" bind:dragmove="handleChange4"/>
-</demo-block>
-<demo-block title="禁用状态">
+</demo-block> -->
+<!-- <demo-block title="禁用状态">
 	<jm-slider value="{{ value5 }}" disabled="{{ true }}" bind:dragmove="handleChange5"/>
-</demo-block>
-<demo-block title="双向滑块">
+</demo-block> -->
+<!-- <demo-block title="双向滑块">
 	<jm-slider value="{{ value6 }}"  bind:dragmove="handleChange6"/>
-</demo-block>
+</demo-block> -->
