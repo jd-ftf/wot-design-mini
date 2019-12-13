@@ -3,6 +3,7 @@ import { getType, defaultDisplayFormat, defaultFunction } from '../common/util';
 import selfProps from './props';
 import pickerViewProps from '../pickerView/props';
 VueComponent({
+  externalClasses: ['custom-view-class'],
   props: { ...selfProps,
     // 外部展示格式化函数
     displayFormat: {

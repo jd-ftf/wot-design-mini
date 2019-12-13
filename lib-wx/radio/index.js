@@ -75,6 +75,9 @@ VueComponent({
 
       if (!disabled && this.parent && value !== null && value !== undefined) {
         this.parent.handleClick(value);
+        this.parent.setData({
+          value
+        });
       }
     }
 

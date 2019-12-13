@@ -1,4 +1,4 @@
-<view class="jm-picker jm-field">
+<view class="jm-picker jm-field custom-class">
   <!--文案-->
   <view
     class="jm-picker__field {{disabled ? 'jm-picker__field--disabled' : '' }}"
@@ -36,6 +36,7 @@
     </view>
     <!--pickerView-->
     <jm-picker-view
+      custom-class="custom-view-class"
       id="{{pickerId}}"
       value="{{value}}"
       columns="{{columns}}"

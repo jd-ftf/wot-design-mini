@@ -124,13 +124,6 @@ Page({
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
 
-
-### Events
-
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 选项值修改时触发 | 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
-
 ### Methods
 
 | 方法名称      | 说明       | 参数   |
@@ -139,6 +132,12 @@ Page({
 | getColumnIndex | 获取某一列的选中项下标 | columnIndex |
 | getColumnData | 获取某一列的选项 | columnIndex |
 | setColumnData | 设置某一列的选项 | columnIndex, values |
+
+### Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| bind:change | 选项值修改时触发 | 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
 
 ### 外部样式类
 

@@ -148,6 +148,13 @@ Page({
 | lazy-render | 懒渲染标签页 | boolean | - | false |
 | line-width | 底部条宽度，单位像素 | number | - | auto |
 | line-height | 底部条高度，单位像素 | number | - | 3 |
+### Tab Attributes
+
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
+|---------- |------------------------------------ |---------- |------------- |-------- |
+| name | 标签页名称 | string | - | - |
+| title | 标题 | string | - | - |
+| disabled | 禁用 | boolean | - | false |
 
 ### Tabs Events
 
@@ -157,10 +164,3 @@ Page({
 | bind:click | 点击标题时触发 | 下标index, 标题名称name |
 | bind:disabled | 点击禁用的标题时触发| 下标index, 标题名称name |
 
-### Tab Attributes
-
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| name | 标签页名称 | string | - | - |
-| title | 标题 | string | - | - |
-| disabled | 禁用 | boolean | - | false |
