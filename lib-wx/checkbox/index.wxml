@@ -1,0 +1,35 @@
+<view
+  class="jm-checkbox {{isChecked ? 'is-checked' : ''}} {{shape === 'button' ? 'is-button' : ''}} {{disabled ? 'is-disabled' : ''}} custom-class"
+  bindtap="toggle"
+>
+  <!--shape为button时只保留jm-checkbox__label-->
+  <view
+    wx:if="{{shape !== 'button' }}"
+    class="jm-checkbox__shape {{shape === 'square' ? 'is-square' : ''}}"
+    style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
+  >
+    <jm-icon
+      custom-class="jm-checkbox__check"
+      name="check-round"
+    />
+  </view>
+  <!--文字-->
+  <view
+    class="jm-checkbox__label"
+    style="{{isChecked && shape === 'button' && !disabled ? ('color:' + checkedColor) : ''}}"
+  >
+    <!--button选中时展示的icon-->
+    <jm-icon
+      wx:if="{{shape === 'button' && isChecked}}"
+      custom-class="jm-checkbox__btn-check"
+      name="check"
+    />
+    <!--文案-->
+    <view class="jm-checkbox__txt">
+      <slot></slot>
+    </view>
+  </view>
+  <view>
+    {{shape === 'circle' || shape === 'square' ? 'check-round' : '' }}
+  </view>
+</view>

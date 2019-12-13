@@ -1,9 +1,9 @@
 import basic from '../mixins/basic';
 /**
- * @description 依照map映射表转换key名
+ * @description map是key/value对，把source中的key属性重命名为value放入target
  * @param source 源
  * @param target 新
- * @param map -映射表
+ * @param map - 属性映射表
  */
 
 function mapKeys(source, target, map) {
@@ -14,7 +14,7 @@ function mapKeys(source, target, map) {
   });
 }
 /**
- * @description 将mixins和source中的属性组合在一起
+ * @description 已知keys中key，把source的[[key]]指向的object合并到target的[[key]]指向的object
  * @param source 源
  * @param target 目标
  * @param {Array<prop>} keys
@@ -28,22 +28,19 @@ function mergeData(source, target, keys) {
         ...target[key]
       };
     }
-  }); // keys.forEach(key => {
-  //   if (!source.hasOwnProperty(key)) return
-  //   target[key] = Object.assign({}, source[key], target[key])
-  // })
+  });
 }
 /**
- * @description 京东小程序暂时不支持behaviors，因此手动实现生命周期mixin
+ * @description 在mergeLifeCycle hook执行时，先执行mixin的hook，再执行自定义组件的hook
  * @param {Array<hook>} source 自定义的mixins
  * @param {Option} target 目标配置
- * @param {Array<String>} lifeCycles
+ * @param {Array<String>} lifeCycles mixin的哪些hook需要混入先执行
  */
 
 
 function mergeLifeCycle(source, target, lifeCycles) {
   lifeCycles.forEach(key => {
-    // key=created
+    // key为hook名，如created、ready
     const handlers = []; // 为每一个类型的hook建立一个dep队列，并将source中的所有此类型的hook按顺序放入dep
 
     source.forEach(mixinOptions => {
@@ -52,9 +49,9 @@ function mergeLifeCycle(source, target, lifeCycles) {
 
     target[key] && handlers.push(target[key]); // 重写实例的hook，hook被调用时依次执行队列中的此类型hook
 
-    handlers.length && (target[key] = function () {
+    handlers.length && (target[key] = function (...arg) {
       handlers.forEach(handler => {
-        handler.call(this);
+        handler.call(this, ...arg);
       });
     });
   });

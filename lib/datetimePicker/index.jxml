@@ -1,4 +1,6 @@
 <jm-picker
+  custom-class="custom-class"
+  custom-view-class="custom-view-class"
   id="jm-picker"
   label="{{label}}"
   placeholder="{{placeholder}}"

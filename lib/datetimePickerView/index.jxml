@@ -1,4 +1,5 @@
 <jm-picker-view
+  custom-class="custom-class"
   id="{{pickerId}}"
   value="{{pickerValue}}"
   columns="{{columns}}"

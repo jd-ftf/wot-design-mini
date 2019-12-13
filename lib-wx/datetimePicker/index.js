@@ -6,6 +6,7 @@ VueComponent({
   /**
    * 注意，datetimePickerView和datetimePicker有公共逻辑，抽离成/mixins/datetimePickerView，通过mixins options注入
    */
+  externalClasses: ['custom-view-class'],
   mixins: [datetimePickerView()],
   props: { ...pickerProps,
     // 选中项，当 type 为 time 时，类型为字符串，否则为 时间戳
