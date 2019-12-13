@@ -93,7 +93,7 @@ page({
 		</jm-input>
 ```
 ```css
-    // 插槽样式
+    /* 插槽样式 */
     .suffix-slot{
       display: inline-block;
       margin-left: 8px;
@@ -155,7 +155,6 @@ page({
 | adjustPosition | 原生属性，键盘弹起时，是否自动上推页面 | boolean | - | true |
 | autoHeight | textarea原生属性，textarea 行数自适应，从1行开始显示 | string | - | - |
 
-
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
@@ -168,7 +167,7 @@ page({
 | bind:linechange        | 监听输入框行数变化(仅限textarea)                   | event.detail = {height: 0, heightRpx: 0, lineCount: 0}       |
 | bind:confirm        | 点击完成时， 触发 confirm 事件                   | event.detail = {value: value}       |
 
-### input外部样式类
+### 外部样式类
 
 | 类名     | 说明                |
 |---------|---------------------|
@@ -177,5 +176,3 @@ page({
 | custom-input-class | input外部自定义样式 |
 | custom-prefix-class | input框头部icon使用slot时的自定义样式 |
 | custom-suffix-class | input框尾部icon使用slot时的自定义样式 |
-
-**注意：组件内插槽样式不生效，因此使用插槽时需注意添加外部样式类**

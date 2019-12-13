@@ -94,12 +94,18 @@ Collapse 查看更多的模式下，可以使用插槽定义自己想要的折�
 }
 ```
 ```html
-<jm-collapse viewmore value="{{ value }}" bind:change="handleChange4" use-more-slot custom-more-slot-class="more-slot"> 
+<jm-collapse viewmore value="{{ value }}" bind:change="handleChange4" use-more-slot custom-more-slot-class="more-slot">
   具名插槽：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
   <view slot="more">显示全部</view>
 </jm-collapse>
 ```
+### CollapseItem Attributes
 
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
+|---------- |------------------------------------ |---------- |------------- |-------- |
+| name | 折叠栏的标识符 | string | - | - |
+| title | 折叠栏的标题 | string | - | - |
+| disabled | 禁用折叠栏 | boolean | - | false |
 ### Collapse Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -120,23 +126,15 @@ Collapse 查看更多的模式下，可以使用插槽定义自己想要的折�
 
 | name      | 说明       |
 |------------- |----------- |
-| more | 查看更多，便于开发者自定义查看更多类型的展开收起样式 |
+| more | 查看更多，便于开发者自定义查看更多类型的展开收起样式 |ss
 
-### CollapseItem Attributes
-
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| name | 折叠栏的标识符 | string | - | - |
-| title | 折叠栏的标题 | string | - | - |
-| disabled | 禁用折叠栏 | boolean | - | false |
-### Collapse外部样式类
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | collapse根结点样式 |
-| custom-more-slot-class | 查看更多模式下的插槽外部自定义样式 |
-
-### CollapseItem外部样式类
+### CollapseItem 外部样式类
 | 类名     | 说明                |
 |---------|---------------------|
 | custom-class | collapseItem根结点样式 |
 **注意：组件内插槽样式不生效，因此使用插槽时需注意添加外部样式类**
+### Collapse 外部样式类
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | collapse根结点样式 |
+| custom-more-slot-class | 查看更多模式下的插槽外部自定义样式 |

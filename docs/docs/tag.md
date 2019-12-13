@@ -136,7 +136,7 @@ Page({
 | bind:click | 标签点击时触发 | Event |
 | bind:close | 点击关闭按钮时触发 | Event |
 
-### Slot
+### Slots
 
 | name      | 说明       |
 |------------- |----------- |

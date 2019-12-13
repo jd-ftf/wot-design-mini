@@ -162,14 +162,6 @@ Page({
 
 > 自定义内容如果超出了默认的46px高度，可能需要你自己通过绝对定位使其保持样式一致。
 
-### CellGroup Attributes
-
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 分组标题 | string | - | - |
-| value | 分组右侧内容 | string | - | - |
-| use-slot | 分组启用插槽 | boolean | - | false |
-
 ### Cell Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -182,8 +174,27 @@ Page({
 | to | 跳转地址 | string | - | - |
 | clickable | 开启点击反馈,is-link默认开启 | boolean | - | false |
 | replace | 跳转时是否替换栈顶页面 | boolean | - | false |
+### CellGroup Attributes
 
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
+|---------- |------------------------------------ |---------- |------------- |-------- |
+| title | 分组标题 | string | - | - |
+| value | 分组右侧内容 | string | - | - |
+| use-slot | 分组启用插槽 | boolean | - | false |
 
+### CellGroup Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| bind:click | 当 clickable 为 true 时点击单元格触发 | - |
+
+### Cell Slot
+| name      | 说明       |
+|------------- |----------- |
+| title | 标题 |
+| default | 右侧内容，使用时不需要设置slot="default" |
+| icon | 图标 |
+| label | 描述信息 |
 ### CellGroup Slot
 
 > CellGroup必须首先开启`use-slot`,插槽才生效。使用插槽时请通过外部自定义样式类来控制样式。
@@ -193,15 +204,7 @@ Page({
 | title | 分组标题 |
 | value | 分组右侧内容 |
 
-### Cell Slot
-| name      | 说明       |
-|------------- |----------- |
-| title | 标题 |
-| default | 右侧内容，使用时不需要设置slot="default" |
-| icon | 图标 |
-| label | 描述信息 |
-
-### Cell外部样式类
+### Cell 外部样式类
 
 | 类名     | 说明                |
 |---------|---------------------|
@@ -210,15 +213,9 @@ Page({
 | custom-label-class | label使用slot时的自定义样式 |
 | custom-value-class | value使用slot时的自定义样式 |
 | custom-title-class | title使用slot时的自定义样式 |
-
-### CellGroup外部样式类
+### CellGroup 外部样式类
 
 | 类名     | 说明                |
 |---------|---------------------|
 | custom-class | 根结点样式 |
 
-### Events
-
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:click | 当 clickable 为 true 时点击单元格触发 | - |

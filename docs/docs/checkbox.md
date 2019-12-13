@@ -148,7 +148,15 @@ Page({
   }
 })
 ```
-
+### Checkbox Attributes
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
+|---------- |------------------------------------ |---------- |------------- |-------- |
+| value | 单选框选中时的值 | string / number / boolean | - | - |
+| shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
+| checked-color | 选中的颜色 | string | - | '#0083ff' |
+| disabled | 禁用 | boolean | - | false |
+| true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | true |
+| false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | false |
 ### CheckboxGroup Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -159,41 +167,30 @@ Page({
 | min | 最小选中的数量 | number | - | 0 |
 | max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 |
 
-### CheckboxGroup Events
-
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | 更新后的值,类型Array |
-
-### Checkbox Attributes
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 单选框选中时的值 | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
-| disabled | 禁用 | boolean | - | false |
-| true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | true |
-| false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | false |
-
-### Checkbox Events
-
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | true-value、false-value |
-
 ### Checkbox Methods
 
 | 方法名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
 | toggle | 切换当前选中状态,同时触发change事件 | - |
 
-### Checkbox外部样式类
+### Checkbox Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| bind:change | 绑定值变化时触发 | true-value、false-value |
+### CheckboxGroup Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| bind:change | 绑定值变化时触发 | 更新后的值,类型Array |
+
+
+### Checkbox 外部样式类
 
 | 类名     | 说明                 |
 |---------|---------------------|
 | custom-class | 根结点样式 |
-
-### CheckboxGroup外部样式类
+### CheckboxGroup 外部样式类
 
 | 类名     | 说明                |
 |---------|---------------------|
