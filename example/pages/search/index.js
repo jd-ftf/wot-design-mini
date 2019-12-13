@@ -1,6 +1,7 @@
 Page({
   data: {
-    value: '初始文案'
+    value1: '',
+    value2: '初始文案'
   },
   focus () {
     console.log('聚焦')

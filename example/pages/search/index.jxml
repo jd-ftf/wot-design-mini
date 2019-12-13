@@ -1,34 +1,30 @@
 <demo-block title="基本用法" transparent>
-    <jm-search
-            value="{{value}}"
-            placeholder="搜索"
-            cancel-txt="取消"
-            placeholder-left
-            bind:focus="focus"
-            bind:blur="blur"
-            bind:search="search"
-            bind:clear="clear"
-            bind:cancel="cancel"
-            bind:change="change"
-            maxlength="10"
-    />
+  <jm-search value="{{value1}}"/>
 </demo-block>
 
 <demo-block title="白色输入框" transparent>
-    <jm-search  light/>
+  <jm-search light/>
+</demo-block>
+
+<demo-block title="搜索占位符居左" transparent>
+  <jm-search placeholder-left/>
 </demo-block>
 
 <demo-block title="禁用且隐藏取消按钮" transparent>
-    <jm-search placeholder-left disabled hide-cancel/>
-</demo-block>
-
-<demo-block title="自定义placeholder文案且居左" transparent>
-    <jm-search placeholder-left placeholder="请点击输入搜索内容"/>
+  <jm-search disabled hide-cancel/>
 </demo-block>
 
 <demo-block title="自定义" transparent>
-    <jm-search use-label-slot use-action-slot>
-        <view slot="label" style="line-height: 14px;margin-right: 10px;">地点</view>
-        <view slot="action" style="padding: 5px 10px;color: #ff0000;">搜一搜</view>
-    </jm-search>
+  <jm-search placeholder="请输入订单号/订单名称"/>
+</demo-block>
+
+<demo-block title="插槽" transparent>
+  <jm-search use-label-slot use-action-slot>
+    <view slot="label" style="line-height: 14px;margin-right: 10px;">左侧</view>
+    <view slot="action" style="padding: 5px 10px;color: #ff0000;">右侧</view>
+  </jm-search>
+</demo-block>
+
+<demo-block title="最大长度" transparent>
+  <jm-search value="{{value2}}" maxlength="0"/>
 </demo-block>
