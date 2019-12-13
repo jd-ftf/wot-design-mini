@@ -1,5 +1,5 @@
 <view
-  class="jm-tabs {{slidableNum < items.length ? 'is-slide' :''}} {{mapNum < items.length && mapNum !== 0 ? 'is-map' :''}}">
+  class="jm-tabs custom-class {{slidableNum < items.length ? 'is-slide' :''}} {{mapNum < items.length && mapNum !== 0 ? 'is-map' :''}}">
   <!--头部导航容器-->
   <view
     class="jm-tabs__nav"

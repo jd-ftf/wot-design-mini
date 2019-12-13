@@ -1,3 +1,3 @@
-<view class="custom-class">
+<view class="jm-radio-group custom-class">
   <slot/>
 </view>

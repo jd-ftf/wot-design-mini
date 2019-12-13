@@ -1,5 +1,5 @@
 <view
-  class="jm-tab"
+  class="jm-tab custom-class"
   style="{{ width ? 'width:' + width + 'px;' : '' }}"
 >
   <view
