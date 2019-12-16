@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType } from '../common/util'
+import { getType, checkNumRange } from '../common/util'
 
 VueComponent({
   props: {
@@ -20,7 +20,7 @@ VueComponent({
     },
     color: {
       type: null,
-      value: '#0084ff',
+      value: ['#0084ff'],
       observer (color) {
         const type = getType(color)
         const canUse = ['string', 'array']
@@ -29,45 +29,50 @@ VueComponent({
           throw Error(`The type of color in props must be one of ${canUse.join()}`)
         }
         if (type === 'string') {
-          // color为字符串直接使用
-          this.setData({
-            showColor: color,
-            noArrayColor: true
-          })
-        } else if (type === 'array') {
-          // color数组，需要手动更换颜色
-          this.setData({
-            noArrayColor: false
-          })
-          this.controlProgress()
+          return this.setData({ color: [color] })
         }
+        this.controlProgress()
       }
+    },
+    duration: {
+      type: Number,
+      value: 30,
+      observer: checkNumRange
     }
   },
   data: {
+    // 进度条展示的颜色
     showColor: '',
+    // 进度条展示的进度
     showPercent: 0,
-    noArrayColor: true
+    // newPercent - oldPercent 的绝对值
+    changeCount: 0
   },
   methods: {
     /**
      * @description jd小程序不兼容activeend事件,此处手动模拟
-     * @param showPercent
-     * @param showColor
+     * @param {Number} targetPercent 目标值
+     * @param {String} showColor 目标颜色
      */
-    update ({ showPercent, showColor }) {
+    update (targetPercent, showColor) {
+      // 需要等上一个定时器跑完
       if (this.timer) return
-      this.timer = setInterval(() => {
-        if (this.data.showPercent === showPercent) {
-          clearInterval(this.timer)
-          delete this.timer
-          this.controlProgress()
-        }
+      const { showPercent: nowPercent, duration } = this.data
+      // transition-duration的优先更高
+      this.setData({
+        changeCount: Math.abs(targetPercent - nowPercent)
+      })
+      setTimeout(() => {
         this.setData({
-          showPercent: this.data.showPercent + 1,
+          showPercent: targetPercent,
           showColor
         })
-      }, 30)
+        this.timer = setTimeout(() => {
+          clearTimeout(this.timer)
+          delete this.timer
+          this.controlProgress()
+        }, this.data.changeCount * duration)
+      }, 50)
     },
 
     /**
@@ -75,8 +80,6 @@ VueComponent({
      */
     controlProgress () {
       const {
-        // prop中传入的color是否为colorArray类型
-        noArrayColor,
         // 当前百分比
         showPercent,
         // 目标百分比
@@ -85,7 +88,7 @@ VueComponent({
         color: colorArray
       } = this.data
       // 锁
-      if (noArrayColor || showPercent === percentage || !percentage) return
+      if (showPercent === percentage || !percentage) return
       /**
        * 数组边界安全判断
        */
@@ -120,10 +123,7 @@ VueComponent({
         // 减小不加动画，找到第一个比target大的锚点，取锚点颜色并设置target值
         ? partList.some(part => {
           if (percentage <= part.percentage) {
-            this.update({
-              showPercent: percentage,
-              showColor: part.color
-            })
+            this.update(percentage, part.color)
             return true
           }
         })
@@ -131,27 +131,12 @@ VueComponent({
         : partList.some((part, index) => {
           if (showPercent < part.percentage && part.percentage <= percentage) {
             // 找到第一个比now大的点，如果这个点比target小或等，就把这个点设置为下一个即将展示的点
-            this.update({
-              showPercent: part.percentage,
-              showColor: part.color
-            })
+            this.update(part.percentage, part.color)
             return true
           } else if (index === partList.length - 1) {
-            this.update({
-              showPercent: percentage,
-              showColor: part.color
-            })
+            this.update(percentage, part.color)
           }
         })
-    }
-  },
-
-  mounted () {
-    if (this.data.noArrayColor) {
-      this.setData({
-        showColor: this.data.color,
-        showPercent: this.data.percentage
-      })
     }
   }
 })

@@ -79,7 +79,7 @@ Page({
 | percentage | 进度数值，最大值100 | number | - | 0 |
 | hide-text | 隐藏进度文字 | boolean | - | false |
 | color | 进度条颜色 | string / array | - | '#0083ff' |
-
+| duration | 进度增加1%所需毫秒数 | number | - | 30 |
 
 ### 外部样式类
 
