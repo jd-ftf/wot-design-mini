@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import touch from '../mixins/touch'
 // VueComponent({
 //   externalClasses: [
 //     'custom-min-class',
@@ -181,10 +182,14 @@ import VueComponent from '../common/component'
 //     }
 //   }
 // })
-
 VueComponent({
   data: {
+    showRight: false,
+    rightBarPercent: 0,
+    leftBarPercent: 0,
+    rightSlider: {}
   },
+  mixins: [touch()],
   props: {
     hideMinMax: Boolean,
     hideLabel: Boolean,
@@ -198,11 +203,11 @@ VueComponent({
     },
     activeColor: {
       type: String,
-      value: '#1989fa'
+      value: ''
     },
     barStyle: {
       type: String,
-      value: 'width:50%;height:6px'
+      value: 'width: 50%; height: 6px'
     },
     max: {
       type: Number,
@@ -217,10 +222,16 @@ VueComponent({
       value: 1
     },
     value: {
-      type: Number,
+      type: null,
       value: 0,
-      observer (newValue) {
-        this.updateValue(newValue)
+      observer (newValue, oldValue) {
+        if (this.checkType(newValue) === 'Array') {
+          console.log(newValue)
+          this.leftBarSlider(newValue[0])
+          this.rightBarSlider(newValue[1])
+        } else {
+          newValue !== oldValue && this.leftBarSlider(newValue)
+        }
       }
     },
     barHeight: {
@@ -229,114 +240,128 @@ VueComponent({
     }
   },
   mounted () {
-    // Promise.all([
-    //   this.getRect('.jm-slider__bar-wrapper'),
-    //   this.getRect('.jm-slider')
-    // ]).then(rects => {
-    //   const [container, axle] = rects
-    //   if (!container || !axle || !container.width || !axle.width) return
-    // })
-    this.getRect('.jm-slider__bar-wrapper').then(rect => {
+    this.setData({ showRight: this.checkType(this.data.value) === 'Array' })
+    this.getRect('.jm-slider').then(rect => {
       if (!rect || !rect.width) return
-      // 进度条总长度
-      this.barWidth = rect.width
-      // 单元距离百分
+      // trackWidth: 轨道全长
+      this.trackWidth = rect.width
+      // trackLeft: 轨道距离左侧的距离
+      this.trackLeft = rect.left
     })
-    this.updateValue(this.data.value)
   },
   methods: {
-    // 将pos转化为value
-    pos2Value (pos) {
-      const { axleWidth, max, min, step } = this.data
-      const percent = pos / axleWidth
-      const value = percent * (max - min) + min
-      const res = min + Math.floor((value - min) / step) * step
-      return res
+    onClick (event) {
+      this.pos2Value(event.detail.x)
+      if (this.data.disabled) return
+      console.log()
+      // 做一个点击时移动的效果，需要考虑双点的 slider 情况
+      // 当前位置坐标 - 轨道左侧顶端位置 / 轨道宽度
+      // 此时 value 值为小数，因此需要对 value 进行一个校验取整操作
+      // this.leftBarSlider(this.pos2Value(event.detail.x))
     },
-    // 将value转化为pos
-    value2Pos (value) {
-      const { min, max } = this.data
-      // 单元距离百分比
-      const percent = (value - min) / (max - min)
-      return percent * this.barWidth
+    onTouchStart (event) {
+      const { disabled, value } = this.data
+      if (disabled) return
+      this.touchStart(event)
+      this.startValue = this.checkType(value) !== 'Array'
+        ? this.format(value)
+        : this.format(value[0])
     },
-    startDataSet (event) {
-      const touch = event.touches[0]
-      // 垂直？ 水平
-      this.direction = ''
-      this.deltaX = 0
-      this.offsetX = 0
-      // 元素当前位置
-      this.startX = touch.clientX
+    onTouchMove (event) {
+      const { disabled, max, min } = this.data
+      if (disabled) return
+      this.touchMove(event)
+      // 移动间距 this.deltaX 就是向左(-)向右(+)
+      const diff = this.deltaX / this.trackWidth * (max - min)
+      this.newValue = this.startValue + diff
+      this.leftBarSlider(this.newValue)
     },
-    moveDataSet (event) {
-      const touch = event.touches[0]
-      // 滚轮的初始位置
-      this.deltaX = touch.clientX - this.startX
-      this.offsetX = Math.abs(this.deltaX)
+    onTouchEnd () {
+      if (this.data.disabled) return
+      console.log()
     },
-    getRect (select) {
-      return new Promise(resolve => {
-        this.createSelectorQuery()
-          .select(select)
-          .boundingClientRect(rect => {
-            rect && resolve(rect)
-          }).exec()
-      })
+    // 右边滑轮
+    onTouchStartRight (event) {
+      const { disabled, rightBarPercent } = this.data
+      if (disabled) return
+      this.touchStart.call(this.data.rightSlider, event)
+      this.data.rightSlider.startValue = this.format(rightBarPercent)
+    },
+    onTouchMoveRight (event) {
+      if (this.data.disabled) return
+      this.touchMove.call(this.data.rightSlider, event)
+      const { max, min } = this.data
+      const { rightSlider } = this.data
+      // 移动间距 this.deltaX 就是向左向右
+      const diff = rightSlider.deltaX / this.trackWidth * (max - min)
+      rightSlider.newValue = this.format(rightSlider.startValue + diff)
+      this.rightBarSlider(rightSlider.newValue)
+    },
+    onTouchEndRight () {
+      if (this.data.disabled) return
+      console.log()
     },
     format (value) {
       const { max, min, step } = this.data
       return Math.round(Math.max(min, Math.min(value, max)) / step) * step
     },
     /**
-     * 更新渲染数据
-     * @param {Number} value 传入的要显示数据
-     * @param {Boolean} end
-     * @param {Boolean} drag
+     * 控制蓝条
+     * @param {Numbe，Array} value 值
+     * @param {Boolean} left true左，false右
      */
-    updateValue (value, end, drag) {
-      value = this.format(value)
+    styleControl (value, left) {
+      // const { leftBarPercent, rightBarPercent } = this.data
+      // const leftP = leftBarPercent < rightBarPercent ? leftBarPercent : rightBarPercent
+      // value = leftBarPercent < rightBarPercent
+      //   ? [this.newValue, this.data.rightSlider.newValue]
+      //   : [this.data.rightSlider.newValue, this.newValue]
+      // const barStyle = `width: ${this.data.leftBarPercent}%; height: ${this.data.barHeight}; left: ${leftP}%`
+    },
+    rightBarSlider (value) {
+      const { min, max } = this.data
+      const rightBarPercent = this.format((value - min) / (max - min) * 100)
+      // const barStyle = `width: ${percent}%; height: ${this.data.barHeight}; left: ${rightBarPercent}%`
       this.setData({
-        value,
-        barStyle: `width: ${value}%; height: ${this.data.barHeight};`
+        rightBarPercent: this.format(rightBarPercent)
       })
-      if (drag) {
-        this.$emit('drag', { value })
+      this.styleControl(value, false)
+    },
+    /**
+     * 更新渲染数据，对 value 进行校验取整
+     * @param {Number} value 传入的要显示数据
+     * @param {Boolean} end 结束滑动标志
+     * @param {Boolean} drag 滑动中标志
+     * @param {Number} double 是否是双滑块 1:左滑块 2:右滑块
+     */
+    leftBarSlider (value, end, drag) {
+      const { min, max } = this.data
+      value = this.format(value)
+      // 把 value 转换成百分比
+      const percent = this.format((value - min) / (max - min) * 100)
+      if (!this.data.showRight) {
+        this.setData({
+          value,
+          leftBarPercent: this.format(percent),
+          barStyle: `width: ${percent}%; height: ${this.data.barHeight};`
+        })
+      } else {
+        this.setData({
+          leftBarPercent: this.format(percent)
+        })
+        this.styleControl(value, true)
       }
-
-      if (end) {
-        this.$emit('change', value)
-      }
     },
-    onClick (event) {
-      if (this.data.disabled) return
-      // 做一个点击时移动的效果，需要考虑双点的 slider 情况
-      this.getRect('.jm-slider').then(rect => {
-        if (!rect || !rect.width) return
-        const value = (event.detail.x - rect.left) / rect.width * 100
-        this.updateValue(value, true)
-      })
+    // 将pos转化为value
+    pos2Value (pos) {
+      const { max, min, step } = this.data
+      const percent = pos / this.trackWidth
+      const value = percent * (max - min) + min
+      const res = min + Math.floor((value - min) / step) * step
+      return res
     },
-    onTouchStart (event) {
-      if (this.data.disabled) return
-      this.startDataSet(event)
-      // startValue 初始 value 值
-      this.startValue = this.format(this.data.value)
-    },
-    onTouchMove (event) {
-      if (this.data.disabled) return
-      this.moveDataSet(event)
-      this.getRect('.jm-slider').then(rect => {
-        if (!rect || !rect.width) return
-        const diff = this.deltaX / rect.width * 100
-        // newValue 移动后的新值
-        this.newValue = this.startValue + diff
-        this.updateValue(this.newValue, false, true)
-      })
-    },
-    onTouchEnd () {
-      if (this.data.disabled) return
-      this.updateValue(this.newValue, true)
+    checkType (value) {
+      return Object.prototype.toString.call(value).slice(8, -1)
     }
   }
 })

@@ -38,7 +38,7 @@
     {{ max }}
   </view>
 </view> -->
-<view class="jm-slider">
+<view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} custom-class">
   <view 
     class="jm-slider__label-min custom-min-class" 
     jd:if="{{ !hideMinMax }}">
@@ -51,18 +51,34 @@
     <view
       class="jm-slider__bar"
       style="{{ barStyle }}; {{ activeColor ? 'background:' + activeColor : '' }}">
-      <view 
+    </view>
+    <!-- 左边 -->
+      <view
         class="jm-slider__button-wrapper" 
+        style="left: {{ leftBarPercent - 10 + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
         bind:touchstart="onTouchStart" 
         catch:touchmove="onTouchMove" 
         bind:touchend="onTouchEnd" 
         bind:touchcancel="onTouchEnd">
         <view class="jm-slider__label" jd:if="{{ !hideLabel }}">
-          {{ value }}
+          {{ showRight ? leftBarPercent : value }}
         </view>
         <view class="jm-slider__button" /> 
       </view>
-    </view>
+      <!-- 右边 -->
+      <view
+        jd:if="{{ showRight }}"
+        class="jm-slider__button-wrapper" 
+        style="left: {{ rightBarPercent - 10 + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
+        bind:touchstart="onTouchStartRight" 
+        catch:touchmove="onTouchMoveRight" 
+        bind:touchend="onTouchEndRight" 
+        bind:touchcancel="onTouchEndRight">
+        <view class="jm-slider__label" jd:if="{{ !hideLabel }}">
+         {{ showRight ? rightBarPercent: '' }}
+        </view>
+        <view class="jm-slider__button" /> 
+      </view>
   </view>
   <view 
     class="jm-slider__label-max custom-max-class" 
