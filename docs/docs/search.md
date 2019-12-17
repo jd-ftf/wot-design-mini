@@ -124,12 +124,12 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:focus        | 输入框聚焦事件                    | 输入框内容 |
-| bind:blur         | 监听输入框失焦事件                     | 输入框内容 |
-| bind:search       | 监听输入框搜索事件                      | 输入框内容 |
+| bind:focus        | 输入框聚焦事件                    | event.detail = 输入框内容 |
+| bind:blur         | 监听输入框失焦事件                     | event.detail = 输入框内容 |
+| bind:search       | 监听输入框搜索事件                      | event.detail = 输入框内容 |
 | bind:clear        | 监听输入框清空按钮事件                   | - |
-| bind:cancel       | 监听输入框右侧文本点击事件               | 输入框内容 |
-| bind:change       | 监听输入框内容变化事件                   | 输入框内容 |
+| bind:cancel       | 监听输入框右侧文本点击事件               | event.detail = 输入框内容 |
+| bind:change       | 监听输入框内容变化事件                   | event.detail = 输入框内容 |
 
 ### Slots
 

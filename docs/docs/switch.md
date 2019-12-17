@@ -61,7 +61,7 @@ Page({
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model   |	绑定值 |	boolean / string / number | - |	-  |
+| value   |	绑定值 |	boolean / string / number | - |	-  |
 | disabled | 禁用 | boolean | - | false |
 | active-value | 打开时的值 | boolean / string / number | - | true |
 | inactive-value | 关闭时的值 | boolean / string / number | - | false |
@@ -73,7 +73,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 值修改事件 | event.detail: 当前值 |
+| bind:change | 值修改事件 | event.detail = value的当前值 |
 
 ### 外部样式类
 

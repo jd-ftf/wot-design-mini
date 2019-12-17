@@ -12,7 +12,7 @@
 
 ### 基本用法
 
-设置 `value` 属性，监听 `change` 事件。
+通过监听 `change` 事件获取`value`变化后的值。
 
 ```html
 <jm-input-number value="{{ value }}" bind:change="handleChange" />
@@ -31,7 +31,7 @@ Page({
 
 ### 设置步长
 
-设置 `step` 步长。
+设置 `step` 步长，即每次value变化的绝对值。
 
 ```html
 <jm-input-number value="{{ value }}" bind:change="handleChange" step="{{ 2 }}" />
@@ -89,7 +89,7 @@ Page({
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值 | number / string | - | - |
+| value | 绑定值 | number / string | - | - |
 | min | 最小值 | number | - | 1 |
 | max | 最大值 | number | - | Infinity |
 | step | 步数 | number | - | 1 |
@@ -103,9 +103,9 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 值修改事件 | event.detail: 当前值 |
+| bind:change | 值修改事件 | event.detail = value,value为当前值 |
 | bind:focus | 输入框获取焦点事件 | - |
-| bind:blur | 输入框失去焦点事件 | event.detail: 当前值 |
+| bind:blur | 输入框失去焦点事件 | event.detail = value,value为当前值 |
 
 ### 外部样式类
 
