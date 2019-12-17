@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-transition": "../transition/index"
+    "be-transition": "../transition/index"
   }
 }

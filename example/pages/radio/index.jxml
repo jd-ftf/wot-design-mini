@@ -1,80 +1,80 @@
 <demo-block title="基本用法">
-  <jm-radio-group
+  <be-radio-group
     data-index="{{0}}"
     value="{{value0}}"
     bind:change="change"
   >
-    <jm-radio value="{{value}}">单选框1</jm-radio>
-    <jm-radio value="{{2}}">单选框2</jm-radio>
-  </jm-radio-group>
+    <be-radio value="{{value}}">单选框1</be-radio>
+    <be-radio value="{{2}}">单选框2</be-radio>
+  </be-radio-group>
   <view>当前选中的值为:{{value0}}</view>
 </demo-block>
 
 
 <demo-block title="修改形状(在radioGroup上设置) shape 为 'dot'">
-  <jm-radio-group
+  <be-radio-group
     shape="dot"
     data-index="{{1}}"
     value="{{value1}}"
     bind:change="change"
   >
-    <jm-radio value="{{1}}">京麦</jm-radio>
-    <jm-radio value="{{2}}">商家后台</jm-radio>
-  </jm-radio-group>
+    <be-radio value="{{1}}">京麦</be-radio>
+    <be-radio value="{{2}}">商家后台</be-radio>
+  </be-radio-group>
 </demo-block>
 
 
 <demo-block title="修改形状(在radioGroup上设置) shape 为 'button'">
-  <jm-radio-group
+  <be-radio-group
     shape="button"
     data-index="{{2}}"
     value="{{value2}}"
     bind:change="change"
   >
-    <jm-radio value="{{1}}">京麦</jm-radio>
-    <jm-radio value="{{2}}">商家后台</jm-radio>
-  </jm-radio-group>
+    <be-radio value="{{1}}">京麦</be-radio>
+    <be-radio value="{{2}}">商家后台</be-radio>
+  </be-radio-group>
 </demo-block>
 
 <demo-block title="修改单个形状(在radio上设置) shape 为 'dot'">
-  <jm-radio-group
+  <be-radio-group
     data-index="{{3}}"
     value="{{value3}}"
     bind:change="change"
   >
-    <jm-radio value="{{1}}" shape="dot">京麦</jm-radio>
-    <jm-radio value="{{2}}">商家后台</jm-radio>
-  </jm-radio-group>
+    <be-radio value="{{1}}" shape="dot">京麦</be-radio>
+    <be-radio value="{{2}}">商家后台</be-radio>
+  </be-radio-group>
 </demo-block>
 
 <demo-block title="修改选中颜色 checked-color">
-  <jm-radio-group
+  <be-radio-group
     data-index="{{4}}"
     value="{{value4}}"
     bind:change="change"
   >
-    <jm-radio value="{{1}}" checked-color="#f00">京麦</jm-radio>
-    <jm-radio value="{{2}}" checked-color="#f00">商家后台</jm-radio>
-  </jm-radio-group>
+    <be-radio value="{{1}}" checked-color="#f00">京麦</be-radio>
+    <be-radio value="{{2}}" checked-color="#f00">商家后台</be-radio>
+  </be-radio-group>
 </demo-block>
 
 <demo-block title="禁用 disabled">
-  <jm-radio-group value="{{1}}" disabled="{{true}}">
-    <jm-radio value="{{1}}">京麦</jm-radio>
-    <jm-radio value="{{2}}">商家后台</jm-radio>
-  </jm-radio-group>
-  <jm-radio-group value="{{1}}" disabled="{{true}}" shape="dot">
-    <jm-radio value="{{1}}">京麦</jm-radio>
-    <jm-radio value="{{2}}">商家后台</jm-radio>
-  </jm-radio-group>
-  <jm-radio-group value="{{1}}" disabled="{{true}}" shape="button">
-    <jm-radio value="{{1}}">京麦</jm-radio>
-    <jm-radio value="{{2}}">商家后台</jm-radio>
-  </jm-radio-group>
+  <be-radio-group value="{{1}}" disabled="{{true}}">
+    <be-radio value="{{1}}">京麦</be-radio>
+    <be-radio value="{{2}}">商家后台</be-radio>
+  </be-radio-group>
+  <be-radio-group value="{{1}}" disabled="{{true}}" shape="dot">
+    <be-radio value="{{1}}">京麦</be-radio>
+    <be-radio value="{{2}}">商家后台</be-radio>
+  </be-radio-group>
+  <be-radio-group value="{{1}}" disabled="{{true}}" shape="button">
+    <be-radio value="{{1}}">京麦</be-radio>
+    <be-radio value="{{2}}">商家后台</be-radio>
+  </be-radio-group>
 </demo-block>
 
 <demo-block title="radio的props比radioGroup的优先级高">
-  <jm-radio-group
+  <be-radio-group
     hape="button"
     disabled="{{true}}"
     checked-color="#f00"
@@ -82,29 +82,29 @@
     value="{{value5}}"
     bind:change="change"
   >
-    <jm-radio
+    <be-radio
       value="{{1}}"
       disabled="{{false}}"
       checked-color="#000"
       shape="circle"
     >商家后台
-    </jm-radio>
-    <jm-radio
+    </be-radio>
+    <be-radio
       value="{{2}}"
       disabled="{{false}}"
       shape="dot"
     >
       商家前端
-    </jm-radio>
-    <jm-radio
+    </be-radio>
+    <be-radio
       value="{{3}}"
       disabled="{{false}}"
     >京麦
-    </jm-radio>
-    <jm-radio
+    </be-radio>
+    <be-radio
       value="{{4}}"
     >
       商家智能
-    </jm-radio>
-  </jm-radio-group>
+    </be-radio>
+  </be-radio-group>
 </demo-block>

@@ -13,7 +13,7 @@ VueComponent({
   },
   data: {
     // pickerView的id选择器
-    pickerId: 'jm-picker-view'
+    pickerId: 'be-picker-view'
   },
   methods: {
     /** pickerView触发change事件，同步修改pickerValue */

@@ -1,4 +1,4 @@
-<jm-picker-view
+<be-picker-view
   custom-class="custom-class"
   id="{{pickerId}}"
   value="{{pickerValue}}"

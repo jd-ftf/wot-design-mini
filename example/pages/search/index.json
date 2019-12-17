@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Search 搜索",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-search": "../../dist/search/index",
-    "jm-button": "../../dist/button/index"
+    "be-search": "../../dist/search/index",
+    "be-button": "../../dist/button/index"
   }
 }

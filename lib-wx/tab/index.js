@@ -41,7 +41,7 @@ VueComponent({
   },
   data: {
     /**
-     * tab的宽度要等于tabs提供`jm-tab__body`的宽度
+     * tab的宽度要等于tabs提供`be-tab__body`的宽度
      * 由于tab是以slot的方式插入tabs，又因为插槽/组件样式隔离，所以tab的width必须要由tabs来设置
      */
     width: '',

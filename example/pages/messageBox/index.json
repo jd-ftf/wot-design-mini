@@ -2,8 +2,8 @@
   "navigationBarTitleText": "MessageBox 弹框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-message-box": "../../dist/messageBox/index",
-    "jm-button": "../../dist/button/index",
-    "jm-rate": "../../dist/rate/index"
+    "be-message-box": "../../dist/messageBox/index",
+    "be-button": "../../dist/button/index",
+    "be-rate": "../../dist/rate/index"
   }
 }

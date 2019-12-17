@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-icon": "/jm-design/icon/index"
+    "be-icon": "/bee-design/icon/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 通过 `name` 属性设置使用哪个图标。
 
 ```html
-<jm-icon name="add-circle" />
+<be-icon name="add-circle" />
 ```
 
 ### 图标颜色
@@ -23,7 +23,7 @@
 设置 `color` 属性。
 
 ```html
-<jm-icon name="add-circle" color="#0083ff" />
+<be-icon name="add-circle" color="#0083ff" />
 ```
 
 ### 图标大小
@@ -31,7 +31,7 @@
 设置 `size` 属性。
 
 ```html
-<jm-icon name="add-circle" size="20px" />
+<be-icon name="add-circle" size="20px" />
 ```
 
 ### Attributes

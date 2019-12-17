@@ -1,28 +1,28 @@
 <view
-  class="jm-radio {{ isChecked ? 'is-checked' : '' }} {{shape !== 'circle' ? 'is-'+shape : '' }} {{ disabled ? 'is-disabled' : ''}} custom-class"
+  class="be-radio {{ isChecked ? 'is-checked' : '' }} {{shape !== 'circle' ? 'is-'+shape : '' }} {{ disabled ? 'is-disabled' : ''}} custom-class"
   bindtap="handleClick"
 >
   <!--形状为button时不展示-->
   <view
     wx:if="{{shape !== 'button' }}"
-    class="jm-radio__shape"
+    class="be-radio__shape"
     style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
   >
     <!--shape为circle的时候使用check-round图标-->
-    <jm-icon
+    <be-icon
       wx:if="{{ shape === 'circle' }}"
       name="check-round"
-      custom-class="jm-radio__check"
+      custom-class="be-radio__check"
     />
     <!--否则使用dot-->
     <view wx:else
-          class="jm-radio__check"
+          class="be-radio__check"
           style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
     />
   </view>
   <!--文案-->
   <view
-    class="jm-radio__label"
+    class="be-radio__label"
     style="{{(isChecked && shape === 'button' && !disabled ) ? 'color :' + checkedColor : '' }}"
   >
     <slot/>

@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Loading } from 'jm-design'
+import { Loading } from 'bee-design'
 
 Vue.use(Loading)
 ```
@@ -14,7 +14,7 @@ Vue.use(Loading)
 默认为 `circle` 类型的加载指示器。
 
 ```html
-<jm-loading />
+<be-loading />
 ```
 
 ### 修改类型
@@ -22,7 +22,7 @@ Vue.use(Loading)
 通过 `type` 修改指示器的类型，可选值为 'spinner' 和 'circle'，默认为 'circle'。
 
 ```html
-<jm-loading type="spinner" />
+<be-loading type="spinner" />
 ```
 
 ### 修改指示器大小
@@ -30,9 +30,9 @@ Vue.use(Loading)
 通过 `size` 属性设置指示器的大小，默认为 '32px' 大小。
 
 ```html
-<jm-loading size="20px" />
-<jm-loading size="30px" />
-<jm-loading size="50px" />
+<be-loading size="20px" />
+<be-loading size="30px" />
+<be-loading size="50px" />
 ```
 
 ### Attributes

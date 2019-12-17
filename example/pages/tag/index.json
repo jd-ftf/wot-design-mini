@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Tag 标签",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-tag": "../../dist/tag/index",
-    "jm-icon": "../../dist/icon/index"
+    "be-tag": "../../dist/tag/index",
+    "be-icon": "../../dist/icon/index"
   }
 }

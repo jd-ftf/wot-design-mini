@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-transition": "../transition/index",
-    "jm-modal": "../modal/index",
-    "jm-icon": "../icon/index"
+    "be-transition": "../transition/index",
+    "be-modal": "../modal/index",
+    "be-icon": "../icon/index"
   }
 }

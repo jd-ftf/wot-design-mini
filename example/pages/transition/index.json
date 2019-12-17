@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Transition 动画",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-button": "../../dist/button/index",
-    "jm-transition": "../../dist/transition/index"
+    "be-button": "../../dist/button/index",
+    "be-transition": "../../dist/transition/index"
   }
 }

@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-loadmore": "../../dist/loadmore/index"
+    "be-loadmore": "../../dist/loadmore/index"
   }
 }
 ```
@@ -16,11 +16,11 @@
 
 
 ```html
-<jm-loadmore custom-class="loadmore" state="loading"/>
+<be-loadmore custom-class="loadmore" state="loading"/>
 
-<jm-loadmore custom-class="loadmore" state="finished"/>
+<be-loadmore custom-class="loadmore" state="finished"/>
 
-<jm-loadmore custom-class="loadmore" state="error"/>
+<be-loadmore custom-class="loadmore" state="error"/>
 ```
 
 ```css
@@ -35,11 +35,11 @@
 通过设置`loading-text`、`finished-text`、`error-text`配合`state`展示不同状态时的文案
 
 ```html
-<jm-loadmore custom-class="loadmore" state="loading" loading-text="自定义加载文案" />
+<be-loadmore custom-class="loadmore" state="loading" loading-text="自定义加载文案" />
 
-<jm-loadmore custom-class="loadmore" state="finished" finished-text="自定义完成文案"/>
+<be-loadmore custom-class="loadmore" state="finished" finished-text="自定义完成文案"/>
 
-<jm-loadmore custom-class="loadmore" state="error" error-text="自定义错误文案"/>
+<be-loadmore custom-class="loadmore" state="error" error-text="自定义错误文案"/>
 ```
 
 ### 点击继续加载
@@ -47,7 +47,7 @@
 当state为error时，点击文案，组件会触发`loadmore`事件
 
 ```html
-<jm-loadmore
+<be-loadmore
   custom-class="loadmore"
   state="error"
   bind:reload="loadmore"
@@ -64,7 +64,7 @@
     <image src="https://img10.360buyimg.com/jmadvertisement/jfs/t1/70325/36/14954/36690/5dcd3e3bEee5006e0/aed1ccf6d5ffc764.png" />
     <view class="right">这是一条测试{{index + 1}}</view>
   </view>
-  <jm-loadmore
+  <be-loadmore
     state="{{state}}"
     bind:reload="loadmore"
   />

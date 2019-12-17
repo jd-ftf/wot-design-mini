@@ -2,6 +2,6 @@
   "navigationBarTitleText": "picker 选择器",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-picker": "../../dist/picker/index"
+    "be-picker": "../../dist/picker/index"
   }
 }

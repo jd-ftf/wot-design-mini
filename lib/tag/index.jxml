@@ -1,22 +1,22 @@
 <view
-  class="jm-tag {{tagClass}} custom-class"
+  class="be-tag {{tagClass}} custom-class"
   style="{{(!plain && bgColor)?'background :'+bgColor+';':''}}{{bgColor?'border-color:'+bgColor:''}}"
   bindtap="handleClick"
 >
-  <view jd:if="{{useIconSlot}}" class="jm-tag__icon">
+  <view jd:if="{{useIconSlot}}" class="be-tag__icon">
     <slot name="icon"/>
   </view>
-  <jm-icon
+  <be-icon
     jd:elif="{{icon}}"
     name="{{icon}}"
-    custom-class="jm-tag__icon"
+    custom-class="be-tag__icon"
   />
-  <view class="jm-tag__text" style="{{color?'color:'+color:''}}">
+  <view class="be-tag__text" style="{{color?'color:'+color:''}}">
     <slot/>
   </view>
-  <jm-icon
+  <be-icon
     jd:if="{{closable}}"
-    class="jm-tag__close"
+    class="be-tag__close"
     name="close-outline"
     catchtap="handleClose"/>
 </view>

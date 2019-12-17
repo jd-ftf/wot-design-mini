@@ -146,7 +146,7 @@ VueComponent({
     updateLineStyle (animation = true) {
       if (!this.inited) return
       const { color, activeIndex, lineWidth, lineHeight, slidableNum, items } = this.data
-      this.getRect('.jm-tabs__nav-item', true).then(
+      this.getRect('.be-tabs__nav-item', true).then(
         (rects) => {
           const rect = rects[activeIndex]
           const width = lineWidth || (slidableNum < items.length ? rect.width : (rect.width - 14))
@@ -178,7 +178,7 @@ VueComponent({
     ) {
       if (!this.inited) return
       const { activeIndex, items, lazyRender } = this.data
-      this.getRect('.jm-tabs__body').then(
+      this.getRect('.be-tabs__body').then(
         (rect) => {
           const { width } = rect
           const transition = animation ? 'transition: left 0.3s;' : ''
@@ -227,8 +227,8 @@ VueComponent({
       if (!this.inited) return
       const { activeIndex } = this.data
       Promise.all([
-        this.getRect('.jm-tabs__nav-item', true),
-        this.getRect('.jm-tabs__nav-container')
+        this.getRect('.be-tabs__nav-item', true),
+        this.getRect('.be-tabs__nav-container')
       ]).then(
         ([navItemsRects, navRect]) => {
           // 选中元素
@@ -297,12 +297,12 @@ VueComponent({
       const { sticky, offsetTop } = this.data
       if (!sticky) return
       const { windowHeight } = jd.getSystemInfoSync()
-      this.getRect('.jm-tabs__nav').then(
+      this.getRect('.be-tabs__nav').then(
         ({ height: navHeight }) => {
           this.createIntersectionObserver().disconnect()
           this.createIntersectionObserver()
             .relativeToViewport({ top: -(navHeight + offsetTop) })
-            .observe('.jm-tabs', (res) => {
+            .observe('.be-tabs', (res) => {
               if (res.boundingClientRect.top > offsetTop) return
               let navStyle = ''
               if (res.intersectionRatio > 0) {
@@ -340,7 +340,7 @@ VueComponent({
             .relativeToViewport({
               bottom: -(windowHeight - 1 - offsetTop)
             })
-            .observe('.jm-tabs', (res) => {
+            .observe('.be-tabs', (res) => {
               if (res.boundingClientRect.bottom < navHeight) return
               let navStyle = ''
               if (res.intersectionRatio > 0) {

@@ -13,14 +13,14 @@ JMDesign 使用 BEM 格式进行 CSS 类名的定义，大部分的样式只有�
 ```scss
 $-color-theme: #474a4f;
 
-@import "~@jd/jm-design/src/style/index.scss";
+@import "~@jd/bee-design/src/style/index.scss";
 ```
 
 然后在 main.js 中引入：
 
 ```javascript
 import Vue from 'vue'
-import JMDesign from 'jm-design'
+import JMDesign from 'bee-design'
 import './customStyle.scss'
 
 Vue.use(JMDesign)
@@ -40,14 +40,14 @@ CDN 引入要自定义样式，目前的方式是将 JMDesign 的项目源码 cl
 $-color-theme: #474a4f;
 
 /* 只引入自己用到的组件的样式文件 */
-@import "~jm-design/src/style/components/button.scss";
+@import "~bee-design/src/style/components/button.scss";
 ```
 
 然后在 main.js 中引入：
 
 ```javascript
 import Vue from 'vue'
-import { Button } from 'jm-design'
+import { Button } from 'bee-design'
 import './customStyle.scss'
 
 Vue.use(Button)

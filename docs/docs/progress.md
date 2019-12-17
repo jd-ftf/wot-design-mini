@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-progress": "/jm-design/progress/index"
+    "be-progress": "/bee-design/progress/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 设置百分比 `percentage`。
 
 ```html
-<jm-progress percentage="30" />
+<be-progress percentage="30" />
 ```
 
 ### 隐藏进度文字
@@ -23,7 +23,7 @@
 设置 `hide-text` 隐藏进度文字。
 
 ```html
-<jm-progress percentage="60" hide-text>
+<be-progress percentage="60" hide-text>
 ```
 
 ### 修改颜色
@@ -31,19 +31,19 @@
 设置 `color` 修改进度条颜色。
 
 ```html
-<jm-progress percentage="80" color="#00c740">
+<be-progress percentage="80" color="#00c740">
 ```
 
 `color` 也可以设置为数组或者函数。数组如果只传入颜色，则自动计算每个颜色的进度边界。函数需要返回一个颜色值。
 
 ```html
-<jm-progress percentage="100" color="{{[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]}}" />
+<be-progress percentage="100" color="{{[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]}}" />
 ```
 
 数组也可以设置为以下格式：
 
 ```html
-  <jm-progress percentage="{{percentage}}" color="{{colorObject}}"/>
+  <be-progress percentage="{{percentage}}" color="{{colorObject}}"/>
 ```
 
 ```javascript

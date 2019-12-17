@@ -20,6 +20,6 @@ code {
   color: #0083ff;
   -webkit-font-smoothing: initial;
 }
-.demo .jm-button {
+.demo .be-button {
   margin: 10px 0;
 }

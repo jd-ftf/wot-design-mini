@@ -1,8 +1,7 @@
 {
-  "name": "jm-design-vapp",
+  "name": "bee-design-mini",
   "version": "0.8.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A ui component library for mini program",
   "scripts": {
     "dev": "npm run build:icon && cross-env EFF_ABSOLUTE_PATHS=true gulp dev --env development --gulpfile build/gulpfile.js",
     "dev:wx": "npm run build:icon && cross-env EFF_ABSOLUTE_PATHS=true gulp devwx --env development --gulpfile build/gulpfile.js",
@@ -14,8 +13,14 @@
     "fix": "cross-env EFF_ABSOLUTE_PATHS=true eslint --fix --format friendly --ext .js,.json packages",
     "tag": "node build/build-tag.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "bee",
+    "design",
+    "bee-design",
+    "bee-design-mini",
+    "jd",
+    "wechat"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -81,9 +86,5 @@
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2",
     "webpack-serve": "^3.2.0"
-  },
-  "browserslist": [
-    "ios >= 8",
-    "android >= 4.4"
-  ]
+  }
 }

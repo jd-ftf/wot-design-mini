@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "Icon 图标",
   "usingComponents": {
-    "jm-icon": "../../dist/icon/index"
+    "be-icon": "../../dist/icon/index"
   }
 }

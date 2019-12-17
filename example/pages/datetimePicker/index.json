@@ -2,6 +2,6 @@
   "navigationBarTitleText": "DatetimePicker 时间选择器",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-datetime-picker": "../../dist/datetimePicker/index"
+    "be-datetime-picker": "../../dist/datetimePicker/index"
   }
 }

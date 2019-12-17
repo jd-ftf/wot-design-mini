@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-loading": "../loading/index"
+    "be-loading": "../loading/index"
   }
 }

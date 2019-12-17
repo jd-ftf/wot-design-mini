@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Slider 滑块",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-slider": "../../dist/slider/index"
+    "be-slider": "../../dist/slider/index"
   }
 }

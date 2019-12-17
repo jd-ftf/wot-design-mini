@@ -1,21 +1,21 @@
-<jm-transition
+<be-transition
   name="fade"
   show="{{ show }}"
-  custom-class="jm-toast__container"
+  custom-class="be-toast__container"
   custom-style="z-index: {{ zIndex }};"
 >
   <view
-    class="jm-toast custom-class jm-toast--{{position}} {{ (iconName || customIcon) ? 'jm-toast--with-icon' : '' }} {{ iconName === 'loading' && !msg ? 'jm-toast--loading' : '' }}"
+    class="be-toast custom-class be-toast--{{position}} {{ (iconName || customIcon) ? 'be-toast--with-icon' : '' }} {{ iconName === 'loading' && !msg ? 'be-toast--loading' : '' }}"
   >
     <!--iconName优先级更高-->
-    <jm-loading
+    <be-loading
       wx:if="{{iconName === 'loading'}}"
       type="{{ loadingType }}"
-      custom-class="{{ msg ? 'jm-toast__loading' : '' }}"
+      custom-class="{{ msg ? 'be-toast__loading' : '' }}"
     />
-    <jm-icon wx:elif="{{iconName}}" class="jm-toast__icon" name="{{iconName}}"/>
-    <view wx:elif="{{customIcon}}" class="jm-toast__icon custom-icon-class"/>
+    <be-icon wx:elif="{{iconName}}" class="be-toast__icon" name="{{iconName}}"/>
+    <view wx:elif="{{customIcon}}" class="be-toast__icon custom-icon-class"/>
     <!--文本-->
-    <view wx:if="{{ msg }}" class="jm-toast__msg">{{ msg }}</view>
+    <view wx:if="{{ msg }}" class="be-toast__msg">{{ msg }}</view>
   </view>
-</jm-transition>
+</be-transition>

@@ -7,7 +7,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-slider": "/jm-design/slider/index"
+    "be-slider": "/bee-design/slider/index"
   }
 }
 ```
@@ -16,7 +16,7 @@
 
 `value` 为绑定值。如果为 number 类型则显示一个滑块，如果为 array 类型则显示两个滑块。
 ```html
-<jm-slider value="{{ value }}" bind:drag-move="handleChange"/>
+<be-slider value="{{ value }}" bind:drag-move="handleChange"/>
 ```
 ```javascript
 page({
@@ -33,7 +33,7 @@ page({
 ### 双滑块
 双滑块模式下 `value` 为 `二元数组` 类型
 ```html
-<jm-slider value="{{ value }}" bind:drag-move="handleChange"/>
+<be-slider value="{{ value }}" bind:drag-move="handleChange"/>
 ```
 ```javascript
 page({
@@ -52,7 +52,7 @@ page({
 设置 `min` 最小值，`min` 最大值。
 
 ```html
-<jm-slider value="{{ value }}" min="{{ 4 }}" max="{{ 10000 }}"  bind:drag-move="handleChange"/>
+<be-slider value="{{ value }}" min="{{ 4 }}" max="{{ 10000 }}"  bind:drag-move="handleChange"/>
 ```
 
 ### 隐藏文案
@@ -60,13 +60,13 @@ page({
 设置 `hide-label` 隐藏滑块当前值。
 
 ```html
-<jm-slider value="{{ value }}" hide-label bind:drag-move="handleChange"/>
+<be-slider value="{{ value }}" hide-label bind:drag-move="handleChange"/>
 ```
 
 设置 `hide-min-max` 隐藏最大最小值。
 
 ```html
-<jm-slider value="{{ value }}" hide-min-max bind:drag-move="handleChange"/>
+<be-slider value="{{ value }}" hide-min-max bind:drag-move="handleChange"/>
 ```
 
 ### 禁用
@@ -74,7 +74,7 @@ page({
 设置 `disabled` 属性。
 
 ```html
-<jm-slider value="{{ value }}" disabled bind:drag-move="handleChange"/>
+<be-slider value="{{ value }}" disabled bind:drag-move="handleChange"/>
 ```
 
 ### Attributes

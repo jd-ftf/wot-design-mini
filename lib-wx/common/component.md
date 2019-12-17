@@ -29,7 +29,7 @@ VueComponent({
 * 使用VueComponent组件时，会自动添加custom-class类，外部可以通过此类修改组件内部的样式。
 ```html
 <view>
-  <jm-button custom-class="custom">确定</jm-button>
+  <be-button custom-class="custom">确定</be-button>
 </view>
 ```
 ```css

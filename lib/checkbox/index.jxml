@@ -1,31 +1,31 @@
 <view
-  class="jm-checkbox {{isChecked ? 'is-checked' : ''}} {{shape === 'button' ? 'is-button' : ''}} {{disabled ? 'is-disabled' : ''}} custom-class"
+  class="be-checkbox {{isChecked ? 'is-checked' : ''}} {{shape === 'button' ? 'is-button' : ''}} {{disabled ? 'is-disabled' : ''}} custom-class"
   bindtap="toggle"
 >
-  <!--shape为button时只保留jm-checkbox__label-->
+  <!--shape为button时只保留be-checkbox__label-->
   <view
     jd:if="{{shape !== 'button' }}"
-    class="jm-checkbox__shape {{shape === 'square' ? 'is-square' : ''}}"
+    class="be-checkbox__shape {{shape === 'square' ? 'is-square' : ''}}"
     style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
   >
-    <jm-icon
-      custom-class="jm-checkbox__check"
+    <be-icon
+      custom-class="be-checkbox__check"
       name="check-round"
     />
   </view>
   <!--文字-->
   <view
-    class="jm-checkbox__label"
+    class="be-checkbox__label"
     style="{{isChecked && shape === 'button' && !disabled ? ('color:' + checkedColor) : ''}}"
   >
     <!--button选中时展示的icon-->
-    <jm-icon
+    <be-icon
       jd:if="{{shape === 'button' && isChecked}}"
-      custom-class="jm-checkbox__btn-check"
+      custom-class="be-checkbox__btn-check"
       name="check"
     />
     <!--文案-->
-    <view class="jm-checkbox__txt">
+    <view class="be-checkbox__txt">
       <slot></slot>
     </view>
   </view>

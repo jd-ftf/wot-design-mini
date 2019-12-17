@@ -128,7 +128,7 @@ VueComponent({
     },
 
     initState() {
-      Promise.all([this.getRect('.jm-slider__handle-container'), this.getRect('.jm-slider__axle')]).then(rects => {
+      Promise.all([this.getRect('.be-slider__handle-container'), this.getRect('.be-slider__axle')]).then(rects => {
         const [container, axle] = rects;
         if (!container || !axle || !container.width || !axle.width) return;
         this.setData({
@@ -153,7 +153,7 @@ VueComponent({
       let newValue;
 
       if (!this.data.disabled) {
-        this.getRect('.jm-slider__axle').then(rect => {
+        this.getRect('.be-slider__axle').then(rect => {
           // 线条左端点距离屏幕长度
           const axleX = rect.left;
           const currentPos = touchX - axleX;
