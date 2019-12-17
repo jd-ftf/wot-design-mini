@@ -1,5 +1,5 @@
-<view class="be-slider {{ !hideLabel ? 'be-slider--has-label' : '' }} {{ disabled ? 'be-slider--disabled' : '' }} custom-class">
-  <view class="be-slider__label-min custom-min-class" jd:if="{{ !hideMinMax }}">
+<!-- <view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} custom-class">
+  <view class="jm-slider__label-min custom-min-class" jd:if="{{ !hideMinMax }}">
   {{ min }}
   </view>
   <view
@@ -7,33 +7,78 @@
     bind:touchend="handleTouchEnd"
     bind:touchcancel="handleTouchEnd"
     catch:touchmove="handleTouchMove"
-    class="be-slider__axle {{ !hideMinMax ? 'be-slider__axle--has-min-max' : '' }}">
-    <!-- 左边的圆点 -->
+    class="jm-slider__axle {{ !hideMinMax ? 'jm-slider__axle--has-min-max' : '' }}">
     <view
-      class="be-slider__handle-container"
+      class="jm-slider__handle-container"
       style="left: {{ handlePosition[0] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}">
-      <view class="be-slider__handle"></view>
-      <view class="be-slider__label-cur" jd:if="{{ !hideLabel }}">
+      <view class="jm-slider__handle"></view>
+      <view class="jm-slider__label-cur" jd:if="{{ !hideLabel }}">
       {{ showRight ? value[0] : value }}
       </view>
     </view>
-    <!-- 右边的圆点 -->
     <view
       jd:if="{{ showRight }}"
       style="left: {{ handlePosition[1] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
-      class="be-slider__handle-container">
-      <view class="be-slider__handle"></view>
+      class="jm-slider__handle-container">
+      <view class="jm-slider__handle"></view>
       <view
-        class="be-slider__label-cur"
+        class="jm-slider__label-cur"
         jd:if="{{ !hideLabel }}">
         {{ showRight ? value[1] : '' }}
       </view>
     </view>
-    <!-- 激活线 -->
     <view
-      class="be-slider__progress-bar"
+      class="jm-slider__progress-bar"
       style="width: {{ activeLineWidth + 'px'}}; left: {{ activeLineLeft + 'px'}}">
     </view>
+  </view>
+  <view
+    class="jm-slider__label-max custom-max-class"
+    jd:if="{{ !hideMinMax }}">
+    {{ max }}
+  </view>
+</view> -->
+<view class="be-slider {{ !hideLabel ? 'be-slider--has-label' : '' }} {{ disabled ? 'be-slider--disabled' : '' }} custom-class">
+  <view
+    class="be-slider__label-min custom-min-class"
+    jd:if="{{ !hideMinMax }}">
+    {{ min }}
+  </view>
+  <view
+    class="be-slider__bar-wrapper {{ disabled ? 'disabled' : '' }} custom-class"
+    style="{{ inactiveColor ? 'background:' + inactiveColor : '' }}"
+    bind:tap="onClick">
+    <view
+      class="be-slider__bar"
+      style="{{ barStyle }}; {{ activeColor ? 'background:' + activeColor : '' }}">
+    </view>
+    <!-- 左边 -->
+      <view
+        class="be-slider__button-wrapper"
+        style="left: {{ leftBarPercent - 10 + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
+        bind:touchstart="onTouchStart"
+        catch:touchmove="onTouchMove"
+        bind:touchend="onTouchEnd"
+        bind:touchcancel="onTouchEnd">
+        <view class="be-slider__label" jd:if="{{ !hideLabel }}">
+          {{ showRight ? leftBarPercent : value }}
+        </view>
+        <view class="be-slider__button" />
+      </view>
+      <!-- 右边 -->
+      <view
+        jd:if="{{ showRight }}"
+        class="be-slider__button-wrapper"
+        style="left: {{ rightBarPercent - 10 + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
+        bind:touchstart="onTouchStartRight"
+        catch:touchmove="onTouchMoveRight"
+        bind:touchend="onTouchEndRight"
+        bind:touchcancel="onTouchEndRight">
+        <view class="be-slider__label" jd:if="{{ !hideLabel }}">
+         {{ showRight ? rightBarPercent: '' }}
+        </view>
+        <view class="be-slider__button" />
+      </view>
   </view>
   <view
     class="be-slider__label-max custom-max-class"
