@@ -1,11 +1,11 @@
 <view
-  class="jm-input-number custom-class {{ disabled ? 'is-disabled' : '' }} {{ withoutInput ? 'is-without-input' : '' }}">
-  <view class="jm-input-number__action {{ minDisabled ? 'is-disabled' : '' }}" bindtap="sub">
-    <view class="jm-input-number__sub"></view>
+  class="be-input-number custom-class {{ disabled ? 'is-disabled' : '' }} {{ withoutInput ? 'is-without-input' : '' }}">
+  <view class="be-input-number__action {{ minDisabled ? 'is-disabled' : '' }}" bindtap="sub">
+    <view class="be-input-number__sub"></view>
   </view>
-  <view wx:if="{{!withoutInput}}" class="jm-input-number__inner">
+  <view wx:if="{{!withoutInput}}" class="be-input-number__inner">
     <input
-      class="jm-input-number__input"
+      class="be-input-number__input"
       style="{{ inputWidth ? ('width: ' + inputWidth) : '' }}"
       type="digit"
       disabled="{{disabled}}"
@@ -14,9 +14,9 @@
       bindfocus="handleFocus"
       bindblur="handleBlur"
     />
-    <view class="jm-input-number__input-border"></view>
+    <view class="be-input-number__input-border"></view>
   </view>
-  <view class="jm-input-number__action {{ maxDisabled ? 'is-disabled' : '' }}" bindtap="add">
-    <view class="jm-input-number__add"></view>
+  <view class="be-input-number__action {{ maxDisabled ? 'is-disabled' : '' }}" bindtap="add">
+    <view class="be-input-number__add"></view>
   </view>
 </view>

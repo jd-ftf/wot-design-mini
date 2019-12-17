@@ -7,8 +7,8 @@
 ```json
 {
   "usingComponents": {
-    "jm-checkbox": "/jm-design/checkbox/index",
-    "jm-checkbox-group": "/jm-design/checkboxGroup/index"
+    "be-checkbox": "/bee-design/checkbox/index",
+    "be-checkbox-group": "/bee-design/checkboxGroup/index"
   }
 }
 ```
@@ -18,7 +18,7 @@
 `value` 为绑定值，是否选中，单独使用时值为 `boolean` 类型。
 
 ```html
-<jm-checkbox value="{{value}}" bind:change="handleChange">单选框1</jm-checkbox>
+<be-checkbox value="{{value}}" bind:change="handleChange">单选框1</be-checkbox>
 ```
 ```javascript
 Page({
@@ -36,8 +36,8 @@ Page({
 修改 `shape` 属性，可选值为 'circle'、'square'、'button'，默认为 'circle'。
 
 ```html
-<jm-checkbox value="{{true}}" shape="square">京麦</jm-checkbox>
-<jm-checkbox value="{{true}}" shape="button">京麦</jm-checkbox>
+<be-checkbox value="{{true}}" shape="square">京麦</be-checkbox>
+<be-checkbox value="{{true}}" shape="button">京麦</be-checkbox>
 ```
 
 ### 修改选中的颜色
@@ -45,13 +45,13 @@ Page({
 设置 `checked-color` 属性。
 
 ```html
-<jm-checkbox
+<be-checkbox
    value="{{value}}"
    checked-color="#f00"
    bind:change="handleChange"
 >
   京麦
-</jm-checkbox>
+</be-checkbox>
 ```
 ```javascript
 Page({
@@ -69,14 +69,14 @@ Page({
 设置 `true-value` 和 `false-value` 修改选中值和非选中值。如果不设置，`change`事件的参数 默认为 `true` 和 `false` 切换。
 
 ```html
-<jm-checkbox
+<be-checkbox
   value="{{true}}"
   true-value="京麦"
   false-value="商家后台"
   bind:change="handleChange"
 >
   复选框
-</jm-checkbox>
+</be-checkbox>
 ```
 ```javascript
 Page({
@@ -91,10 +91,10 @@ Page({
 `value` 为数组，单个复选框的值通过 `value` 进行设置。
 
 ```html
-<jm-checkbox-group value="{{value}}"  bind:change="handleChange">
-  <jm-checkbox value="jingmai">京麦</jm-checkbox>
-  <jm-checkbox value="shop">商家后台</jm-checkbox>
-</jm-checkbox-group>
+<be-checkbox-group value="{{value}}"  bind:change="handleChange">
+  <be-checkbox value="jingmai">京麦</be-checkbox>
+  <be-checkbox value="shop">商家后台</be-checkbox>
+</be-checkbox-group>
 ```
 ```javascript
 Page({
@@ -111,10 +111,10 @@ Page({
 可以在 `checkbox-group` 上面设置 `disabled`，禁用所有复选框，也可以在单个复选框上面设置 `disabled` 属性，禁用某个复选框。
 
 ```html
-<jm-checkbox-group value="{{value}}" disabled="{{true}}" bind:change="handleChange">
-  <jm-checkbox value="jingmai">京麦</jm-checkbox>
-  <jm-checkbox value="shop">商家后台</jm-checkbox>
-</jm-checkbox-group>
+<be-checkbox-group value="{{value}}" disabled="{{true}}" bind:change="handleChange">
+  <be-checkbox value="jingmai">京麦</be-checkbox>
+  <be-checkbox value="shop">商家后台</be-checkbox>
+</be-checkbox-group>
 ```
 ```javascript
 Page({
@@ -131,12 +131,12 @@ Page({
 `min` 属性设置最小选中的数量，`max` 属性设置最大选中的数量。如果要默认设置某个选项固定被选中，则给该复选框设置 disabled，且 `v-model` 中有该选项的值。
 
 ```html
-<jm-checkbox-group value="{{value}}" min="{{1}}" max="{{3}}" bind:change="handleChange">
-  <jm-checkbox value="jd">京东</jm-checkbox>
-  <jm-checkbox value="jingmai">京麦</jm-checkbox>
-  <jm-checkbox value="shop">商家后台</jm-checkbox>
-  <jm-checkbox value="market">营销中心</jm-checkbox>
-</jm-checkbox-group>
+<be-checkbox-group value="{{value}}" min="{{1}}" max="{{3}}" bind:change="handleChange">
+  <be-checkbox value="jd">京东</be-checkbox>
+  <be-checkbox value="jingmai">京麦</be-checkbox>
+  <be-checkbox value="shop">商家后台</be-checkbox>
+  <be-checkbox value="market">营销中心</be-checkbox>
+</be-checkbox-group>
 ```
 ```javascript
 Page({

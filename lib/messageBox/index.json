@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-popup": "../popup/index"
+    "be-popup": "../popup/index"
   }
 }

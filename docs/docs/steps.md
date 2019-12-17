@@ -5,8 +5,8 @@
 ```json
 {
   "usingComponents": {
-    "jm-step": "/jm-design/step/index",
-    "jm-steps": "/jm-design/steps/index"
+    "be-step": "/bee-design/step/index",
+    "be-steps": "/bee-design/steps/index"
   }
 }
 ```
@@ -16,11 +16,11 @@
 `active` 为步骤进度，为 number 类型，步骤的下标。
 
 ```html
-<jm-steps active="{{ 0 }}">
-  <jm-step />
-  <jm-step />
-  <jm-step />
-</jm-steps>
+<be-steps active="{{ 0 }}">
+  <be-step />
+  <be-step />
+  <be-step />
+</be-steps>
 ```
 
 ### 水平居中
@@ -28,11 +28,11 @@
 设置 `align-center` 水平居中，只对横向步骤条有效。
 
 ```html
-<jm-steps active="{{ 0 }}" align-center>
-  <jm-step />
-  <jm-step />
-  <jm-step />
-</jm-steps>
+<be-steps active="{{ 0 }}" align-center>
+  <be-step />
+  <be-step />
+  <be-step />
+</be-steps>
 ```
 
 ### 设置标题和描述信息
@@ -40,11 +40,11 @@
 可以通过 `title` 和 `description` 设置步骤的标题和描述信息。如果不设置标题，则会使用默认的文案。
 
 ```html
-<jm-steps active="{{ 0 }}" align-center>
-  <jm-step title="步骤1" description="注册1个账号" />
-  <jm-step title="步骤2" description="登录账号并绑定手机" />
-  <jm-step title="步骤3" description="完善个人信息" />
-</jm-steps>
+<be-steps active="{{ 0 }}" align-center>
+  <be-step title="步骤1" description="注册1个账号" />
+  <be-step title="步骤2" description="登录账号并绑定手机" />
+  <be-step title="步骤3" description="完善个人信息" />
+</be-steps>
 ```
 
 ### 修改图标
@@ -52,11 +52,11 @@
 可以通过 `icon` 属性设置步骤的图标，传入图标的名称，也可以通过 `icon` 的 slot 插槽自定义图标，使用插槽需要设置 `icon-slot` 为 `true`。
 
 ```html
-<jm-steps active="{{ 1 }}" align-center>
-  <jm-step icon="invite" />
-  <jm-step icon="link" />
-  <jm-step icon="clock" />
-</jm-steps>
+<be-steps active="{{ 1 }}" align-center>
+  <be-step icon="invite" />
+  <be-step icon="link" />
+  <be-step icon="clock" />
+</be-steps>
 ```
 
 ### 竖向步骤条
@@ -64,11 +64,11 @@
 设置 `vertical` 属性。
 
 ```html
-<jm-steps active="{{ 1 }}" vertical>
-  <jm-step description="注册1个账号" />
-  <jm-step description="登录账号并绑定手机" />
-  <jm-step description="完善个人信息" />
-</jm-steps>
+<be-steps active="{{ 1 }}" vertical>
+  <be-step description="注册1个账号" />
+  <be-step description="登录账号并绑定手机" />
+  <be-step description="完善个人信息" />
+</be-steps>
 ```
 
 ### 点状步骤
@@ -76,11 +76,11 @@
 设置 `dot` 属性。
 
 ```html
-<jm-steps active="{{ 1 }}" vertical dot>
-  <jm-step description="注册1个账号" />
-  <jm-step description="登录账号并绑定手机" />
-  <jm-step description="完善个人信息" />
-</jm-steps>
+<be-steps active="{{ 1 }}" vertical dot>
+  <be-step description="注册1个账号" />
+  <be-step description="登录账号并绑定手机" />
+  <be-step description="完善个人信息" />
+</be-steps>
 ```
 
 ### 修改状态
@@ -88,11 +88,11 @@
 设置 `status`，支持 'finished'（完成）、'process'（进行中）、'error'（失败） 三种状态。
 
 ```html
-<jm-steps active="{{ 1 }}" align-center>
-  <jm-step title="绑定手机" status="error" />
-  <jm-step title="重新绑定手机" />
-  <jm-step title="步骤3" />
-</jm-steps>
+<be-steps active="{{ 1 }}" align-center>
+  <be-step title="绑定手机" status="error" />
+  <be-step title="重新绑定手机" />
+  <be-step title="步骤3" />
+</be-steps>
 ```
 
 ### Steps Attributes

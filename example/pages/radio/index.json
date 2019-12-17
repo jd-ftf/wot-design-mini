@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Radio 单选框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-radio": "../../dist/radio/index",
-    "jm-radio-group": "../../dist/radioGroup/index"
+    "be-radio": "../../dist/radio/index",
+    "be-radio-group": "../../dist/radioGroup/index"
   }
 }

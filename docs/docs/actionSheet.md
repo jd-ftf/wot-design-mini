@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-action-sheet": "/jm-design/actionSheet/index"
+    "be-action-sheet": "/bee-design/actionSheet/index"
   }
 }
 ```
@@ -15,8 +15,8 @@
 通过 `show` 属性设置显示隐藏，监听 `bind:close` 事件，隐藏菜单。
 
 ```html
-<jm-button type="primary" bind:click="showActions">弹出菜单</jm-button>
-<jm-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
+<be-button type="primary" bind:click="showActions">弹出菜单</be-button>
+<be-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
 ```
 
 ```javascript
@@ -52,8 +52,8 @@ page({
 可以设置 颜色、禁用、加载 等状态。
 
 ```html
-<jm-button type="primary" bind:click="showActions">弹出菜单</jm-button>
-<jm-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
+<be-button type="primary" bind:click="showActions">弹出菜单</be-button>
+<be-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
 ```
 
 ```javascript
@@ -90,7 +90,7 @@ page({
 设置 `cancel-text` 取消按钮文案，展示取消按钮。
 
 ```html
-<jm-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" cancel-text="取消" />
+<be-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" cancel-text="取消" />
 ```
 
 ### 标题
@@ -98,9 +98,9 @@ page({
 设置 `title` 展示标题。
 
 ```html
-<jm-action-sheet show="{{ show }}" title="标题" bind:close="close">
+<be-action-sheet show="{{ show }}" title="标题" bind:close="close">
   <view style="padding: 15px 15px 150px 15px;">内容</view>
-</jm-action-sheet>
+</be-action-sheet>
 ```
 
 ### Attributes
@@ -112,7 +112,7 @@ page({
 | title | 标题 | string | - | - |
 | cancel-text | 取消按钮文案 | string | - | - |
 | close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
 | duration | 动画持续时间 | number | - | 300(ms) |
 | z-index | 菜单层级 | number | - | 10 |
 

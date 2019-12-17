@@ -1,41 +1,41 @@
-<view class="jm-picker jm-field custom-class">
+<view class="be-picker be-field custom-class">
   <!--文案-->
   <view
-    class="jm-picker__field {{disabled ? 'jm-picker__field--disabled' : '' }}"
+    class="be-picker__field {{disabled ? 'be-picker__field--disabled' : '' }}"
     bindtap="showPopup"
   >
-    <view class="jm-picker__label">{{ label }}</view>
-    <view class="jm-picker__value">
+    <view class="be-picker__label">{{ label }}</view>
+    <view class="be-picker__value">
       {{ showValue ? showValue : placeholder }}
     </view>
-    <jm-icon
+    <be-icon
       jd:if="{{!disabled && !readonly}}"
-      custom-class="jm-picker__arrow"
+      custom-class="be-picker__arrow"
       name="arrow-right"
     />
   </view>
   <!--弹出层-->
-  <jm-popup
+  <be-popup
     show="{{ popupShow }}"
     position="bottom"
     bind:close="onCancel"
   >
 
     <!--toolBar-->
-    <view class="jm-picker__toolbar">
+    <view class="be-picker__toolbar">
       <!--取消按钮-->
-      <view class="jm-picker__action jm-picker__action--cancel" bindtap="onCancel">
+      <view class="be-picker__action be-picker__action--cancel" bindtap="onCancel">
         {{ cancelButtonText }}
       </view>
       <!--标题-->
-      <view jd:if="{{title}}" class="jm-picker__title">{{ title }}</view>
+      <view jd:if="{{title}}" class="be-picker__title">{{ title }}</view>
       <!--确定按钮-->
-      <view class="jm-picker__action" bindtap="onConfirm">
+      <view class="be-picker__action" bindtap="onConfirm">
         {{ confirmButtonText }}
       </view>
     </view>
     <!--pickerView-->
-    <jm-picker-view
+    <be-picker-view
       custom-class="custom-view-class"
       id="{{pickerId}}"
       value="{{value}}"
@@ -47,5 +47,5 @@
       label-key="{{labelKey}}"
       bind:change="handleChange"
     />
-  </jm-popup>
+  </be-popup>
 </view>

@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-icon": "../icon/index",
-    "jm-loading": "../loading/index",
-    "jm-popup": "../popup/index"
+    "be-icon": "../icon/index",
+    "be-loading": "../loading/index",
+    "be-popup": "../popup/index"
   }
 }

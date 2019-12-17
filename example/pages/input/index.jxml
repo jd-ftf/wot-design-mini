@@ -1,41 +1,41 @@
 <view>
 	<demo-block title="基本用法">
-		<jm-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange" />
+		<be-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange" />
 	</demo-block>
 	<demo-block title="input方法示例">
-		<jm-input value="{{ value1 }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
+		<be-input value="{{ value1 }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
 	</demo-block>
 	<demo-block title="禁用状态">
-		<jm-input type="text" value="{{ value2 }}" placeholder="请输入..." disabled="true" />
+		<be-input type="text" value="{{ value2 }}" placeholder="请输入..." disabled="true" />
 	</demo-block>
 	<demo-block title="只读状态">
-		<jm-input type="text" value="{{ value3 }}" readonly="{{ true }}" />
+		<be-input type="text" value="{{ value3 }}" readonly="{{ true }}" />
 	</demo-block>
 	<demo-block title="清空按钮">
-		<jm-input type="text" value="{{ value4 }}" placeholder="请输入..." clearable="{{ true }}" bind:change="handleChange1" />
+		<be-input type="text" value="{{ value4 }}" placeholder="请输入..." clearable="{{ true }}" bind:change="handleChange1" />
 	</demo-block>
 	<demo-block title="密码框">
-		<jm-input type="text" value="{{ value5 }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange2" />
+		<be-input type="text" value="{{ value5 }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange2" />
 	</demo-block>
 	<demo-block title="设置前后Icon">
-		<jm-input type="text" value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable="{{ true }}" bind:change="handleChange3" />
+		<be-input type="text" value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable="{{ true }}" bind:change="handleChange3" />
 	</demo-block>
 	<demo-block title="设置 prefix/suffix 的slot">
-		<jm-input type="text" value="{{ value6 }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange3">
+		<be-input type="text" value="{{ value6 }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange3">
 			<view slot="prefix">1</view>
 			<view slot="suffix">2</view>
-		</jm-input>
+		</be-input>
 	</demo-block>
 	<demo-block title="字数限制">
-		<jm-input type="text" value="{{ value7 }}" maxlength="20" show-word-limit="{{ true }}" />
+		<be-input type="text" value="{{ value7 }}" maxlength="20" show-word-limit="{{ true }}" />
 	</demo-block>
 	<demo-block title="textarea">
-		<jm-input type="textarea" value="{{ value8 }}" placeholder="请输入..." />
+		<be-input type="textarea" value="{{ value8 }}" placeholder="请输入..." />
 	</demo-block>
 	<demo-block title="textarea 清空按钮 和 字数限制">
-		<jm-input type="textarea" value="{{ value9 }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" />
+		<be-input type="textarea" value="{{ value9 }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" />
 	</demo-block>
 	<demo-block title="textarea 高度自适应">
-		<jm-input type="textarea" value="" auto-height='true' placeholder="请输入..."></jm-input>
+		<be-input type="textarea" value="" auto-height='true' placeholder="请输入..."></be-input>
 	</demo-block>
 </view>

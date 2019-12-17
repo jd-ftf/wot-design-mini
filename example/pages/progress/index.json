@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Progress 进度条",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-progress": "../../dist/progress/index"
+    "be-progress": "../../dist/progress/index"
   }
 }

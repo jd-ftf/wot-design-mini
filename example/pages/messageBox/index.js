@@ -37,7 +37,7 @@ Page({
   withSlot () {
     MessageBox({
       title: '评分',
-      selector: '#jm-message-box-slot'
+      selector: '#be-message-box-slot'
     })
   }
 })

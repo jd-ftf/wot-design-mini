@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Rate 评分",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-rate": "../../dist/rate/index"
+    "be-rate": "../../dist/rate/index"
   }
 }

@@ -2,6 +2,6 @@
   "navigationBarTitleText": "InputNumber 计数器",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-input-number": "../../dist/inputNumber/index"
+    "be-input-number": "../../dist/inputNumber/index"
   }
 }

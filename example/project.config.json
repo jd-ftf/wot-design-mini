@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.0",
 	"appid": "wxfbbb01e6b81ce4e8",
-	"projectname": "jmd-vapp",
+	"projectname": "be-vapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

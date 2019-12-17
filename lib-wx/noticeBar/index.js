@@ -63,7 +63,7 @@ VueComponent({
     },
 
     scroll() {
-      Promise.all([this.getRect('.jm-notice-bar__wrap'), this.getRect('.jm-notice-bar__content')]).then(rects => {
+      Promise.all([this.getRect('.be-notice-bar__wrap'), this.getRect('.be-notice-bar__content')]).then(rects => {
         const [wrapRect, contentRect] = rects;
         if (!wrapRect || !contentRect || !wrapRect.width || !contentRect.width) return;
         const wrapWidth = wrapRect.width;

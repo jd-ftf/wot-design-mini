@@ -7,7 +7,7 @@ Picker 组件为 popup 和 pickerView 的组合。
 ```json
 {
   "usingComponents": {
-    "jm-picker": "/jm-design/picker/index"
+    "be-picker": "/bee-design/picker/index"
   }
 }
 ```
@@ -17,7 +17,7 @@ Picker 组件为 popup 和 pickerView 的组合。
 `columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。
 
 ```html
-<jm-picker columns="{{columns1}}" label="单列选项" value="{{value}}" />
+<be-picker columns="{{columns1}}" label="单列选项" value="{{value}}" />
 ```
 ```javascript
 Page({
@@ -33,7 +33,7 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<jm-picker columns="{{columns}}" label="禁用" value="{{value}}" disabled="{{true}}" />
+<be-picker columns="{{columns}}" label="禁用" value="{{value}}" disabled="{{true}}" />
 ```
 ```javascript
 Page({
@@ -49,7 +49,7 @@ Page({
 设置 `readonly` 属性。
 
 ```html
-<jm-picker columns="{{columns}}" label="只读" value="{{value}}" readonly />
+<be-picker columns="{{columns}}" label="只读" value="{{value}}" readonly />
 ```
 
 ### 文案标题
@@ -57,14 +57,14 @@ Page({
 设置 `title` 属性。
 
 ```html
-<jm-picker label="标题" columns="{{columns7}}" title="文案标题"/>
+<be-picker label="标题" columns="{{columns7}}" title="文案标题"/>
 ```
 ### 加载中
 
 设置 `loading` 属性。
 
 ```html
-<jm-picker-view columns="{{columns}}" loading="{{true}}" />
+<be-picker-view columns="{{columns}}" loading="{{true}}" />
 ```
 
 ### 多列
@@ -72,7 +72,7 @@ Page({
 `columns` 属性设置为二维数组，`value` 为数组。
 
 ```html
-<jm-picker columns="{{columns}}" label="多列" value="{{value}}" />
+<be-picker columns="{{columns}}" label="多列" value="{{value}}" />
 ```
 ```javascript
 Page({
@@ -91,7 +91,7 @@ Page({
 传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
 
 ```html
-<jm-picker
+<be-picker
   columns="{{columns}}"
   label="多列联动"
   value="{{value}}"

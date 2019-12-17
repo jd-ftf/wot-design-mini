@@ -1,18 +1,18 @@
 <view
-  class="jm-tabs custom-class {{slidableNum < items.length ? 'is-slide' :''}} {{mapNum < items.length && mapNum !== 0 ? 'is-map' :''}}">
+  class="be-tabs custom-class {{slidableNum < items.length ? 'is-slide' :''}} {{mapNum < items.length && mapNum !== 0 ? 'is-map' :''}}">
   <!--头部导航容器-->
   <view
-    class="jm-tabs__nav"
+    class="be-tabs__nav"
     style="{{ navStyle ? navStyle : ''}}"
   >
-    <view class="jm-tabs__nav--wrap">
+    <view class="be-tabs__nav--wrap">
       <scroll-view
         scroll-x="{{slidableNum < items.length}}"
         scroll-with-animation="{{true}}"
         scroll-left="{{scrollLeft}}"
       >
         <view
-          class="jm-tabs__nav-container"
+          class="be-tabs__nav-container"
           bindtap="handleSelect"
         >
           <!--nav列表-->
@@ -22,35 +22,35 @@
             wx:for-index="index"
             wx:for-item="item"
             data-index="{{index}}"
-            class="jm-tabs__nav-item {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
+            class="be-tabs__nav-item {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
             style="{{ activeIndex === index ? (color ? 'color:'+color :'') : (inactiveColor ? 'color:'+inactiveColor :'') }}"
           >
             {{item.title}}
           </view>
           <!--下划线-->
-          <view class="jm-tabs__line" style="{{lineStyle}}"></view>
+          <view class="be-tabs__line" style="{{lineStyle}}"></view>
         </view>
 
       </scroll-view>
     </view>
     <!--map表-->
     <view
-      class="jm-tabs__map"
+      class="be-tabs__map"
       wx:if="{{mapNum < items.length && mapNum !== 0}}"
     >
-      <view class="jm-tabs__map-btn" bindtap="toggleMap">
-        <view class="jm-tabs__map-arrow {{ animating ? 'is-open' :''}}">
-          <jm-icon name="arrow-down"/>
+      <view class="be-tabs__map-btn" bindtap="toggleMap">
+        <view class="be-tabs__map-arrow {{ animating ? 'is-open' :''}}">
+          <be-icon name="arrow-down"/>
         </view>
       </view>
       <view
-        class="jm-tabs__map-header"
+        class="be-tabs__map-header"
         style="{{ mapShow ? '' : 'display:none' }}  {{animating ? 'opacity:1' : '' }}"
       >
         全部
       </view>
       <view
-        class="jm-tabs__map-body {{ animating ? 'is-open' :''}}"
+        class="be-tabs__map-body {{ animating ? 'is-open' :''}}"
         style="{{ mapShow ? '' : 'display:none' }}"
         bindtap="handleSelect"
       >
@@ -60,7 +60,7 @@
           wx:for-index="index"
           wx:for-item="item"
           data-index="{{index}}"
-          class="jm-tabs__map-nav-item {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
+          class="be-tabs__map-nav-item {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
           style="{{ activeIndex === index ? (color ? 'color:' + color + ';border-color:' + color :'') : (inactiveColor ? 'color:'+inactiveColor :'') }}"
         >
           {{item.title}}
@@ -72,13 +72,13 @@
 
   <!--标签页-->
   <view
-    class="jm-tabs__container"
+    class="be-tabs__container"
     bind:touchstart="onTouchStart"
     bind:touchmove="onTouchMove"
     bind:touchend="onTouchEnd"
     bind:touchcancel="onTouchEnd"
   >
-    <view class="jm-tabs__body" style="{{bodyStyle}}">
+    <view class="be-tabs__body" style="{{bodyStyle}}">
       <slot/>
     </view>
   </view>
@@ -86,7 +86,7 @@
 
   <!--map表的阴影浮层-->
   <view
-    class="jm-tabs__mask"
+    class="be-tabs__mask"
     style="{{ mapShow ? '' : 'display:none' }} {{animating ? 'opacity:1' : '' }}"
     bindtap="toggleMap"
   >

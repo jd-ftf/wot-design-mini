@@ -3,24 +3,24 @@
   <view class="page__hd">
     <view class="page__title">
       <view class="logo"></view>
-      <view class="inline">JM Design</view>
+      <view class="inline">Bee Design Mini</view>
     </view>
-    <view class="page__desc">该组件库根据京麦APP设计规范进行开发，旨在给开发者提供统一的页面风格。</view>
+    <view class="page__desc">基于小程序开发的移动端组件库，旨在给开发者提供统一的页面风格。</view>
   </view>
   <view class="page__bd page__bd_spacing">
     <block jd:for="{{list}}" jd:key="{{ item.id }}">
       <view class="kind-list__item">
-        <view id="{{item.id}}" class="jmd-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}"
+        <view id="{{item.id}}" class="be-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}"
           bindtap="kindToggle">
-          <view class="jmd-flex__item title">{{item.name}}</view>
+          <view class="be-flex__item title">{{item.name}}</view>
           <image class="kind-list__img" src="../images/icon_nav_{{item.id}}.png"></image>
         </view>
         <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-          <view class="jmd-cells {{item.open ? 'jmd-cells_show' : ''}}">
+          <view class="be-cells {{item.open ? 'be-cells_show' : ''}}">
             <block jd:for="{{item.pages}}" jd:for-item="page" jd:key="{{ page.id }}">
-              <navigator url="../{{page.id}}/index" class="jmd-cell jmd-flex jmd-cell_access">
-                <view class="jmd-flex__item page-name">{{page.name}}</view>
-                <view class="jmd-cell__ft jmd-tool-right-line-angle"></view>
+              <navigator url="../{{page.id}}/index" class="be-cell be-flex be-cell_access">
+                <view class="be-flex__item page-name">{{page.name}}</view>
+                <view class="be-cell__ft be-tool-right-line-angle"></view>
               </navigator>
             </block>
           </view>

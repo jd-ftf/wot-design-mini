@@ -27,7 +27,7 @@
     }
   }
   @include when(disabled) {
-    .jm-input__inner, .jm-input__textarea-inner {
+    .be-input__inner, .be-input__textarea-inner {
       color: $-color-tip;
       background: transparent;
     }
@@ -65,7 +65,7 @@
     &:first-child {
       margin-left: 0;
     }
-    
+
   }
   @include e(count) {
     margin-left: 8px;
@@ -89,14 +89,14 @@
     padding: 10px 0;
     font-size: 0;
     display: flex;
-    
+
     @include when(show-limit) {
       padding-bottom: 25px;
     }
     @include when(text-auto) {
       padding: 10px 0;
 
-      .jm-input__textarea-suffix {
+      .be-input__textarea-suffix {
         top: 0;
         right: 0;
       }
@@ -149,13 +149,13 @@
       color: $-color-aid-red;
     }
   }
-  .jm-input__textarea-count,
-  .jm-input__count,
-  .jm-input__count-current{
+  .be-input__textarea-count,
+  .be-input__count,
+  .be-input__count-current{
     display: inline-block;
   }
   @include e(readonly){
-    line-height: 20px;  
+    line-height: 20px;
   }
   @include e(textarea-map){
     position: absolute;

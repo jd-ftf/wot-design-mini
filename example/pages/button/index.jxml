@@ -1,76 +1,76 @@
 <view>
   <demo-block title="基本用法 type">
-    <jm-button>默认按钮</jm-button>
-    <jm-button type="primary" open-type="getUserInfo" bind:getuserinfo="handleGetuserinfo">主要按钮</jm-button>
-    <jm-button type="success">成功按钮</jm-button>
-    <jm-button type="info">信息按钮</jm-button>
-    <jm-button type="warning">警告按钮</jm-button>
-    <jm-button type="error">危险按钮</jm-button>
+    <be-button>默认按钮</be-button>
+    <be-button type="primary" open-type="getUserInfo" bind:getuserinfo="handleGetuserinfo">主要按钮</be-button>
+    <be-button type="success">成功按钮</be-button>
+    <be-button type="info">信息按钮</be-button>
+    <be-button type="warning">警告按钮</be-button>
+    <be-button type="error">危险按钮</be-button>
   </demo-block>
   <demo-block title="禁用按钮 disabled">
-    <jm-button disabled="{{true}}">默认按钮</jm-button>
-    <jm-button type="primary" disabled="{{true}}">主要按钮</jm-button>
-    <jm-button type="success" disabled="{{true}}">成功按钮</jm-button>
-    <jm-button type="info" disabled="{{true}}">信息按钮</jm-button>
-    <jm-button type="warning" disabled="{{true}}">警告按钮</jm-button>
-    <jm-button type="error" disabled="{{true}}">危险按钮</jm-button>
+    <be-button disabled="{{true}}">默认按钮</be-button>
+    <be-button type="primary" disabled="{{true}}">主要按钮</be-button>
+    <be-button type="success" disabled="{{true}}">成功按钮</be-button>
+    <be-button type="info" disabled="{{true}}">信息按钮</be-button>
+    <be-button type="warning" disabled="{{true}}">警告按钮</be-button>
+    <be-button type="error" disabled="{{true}}">危险按钮</be-button>
   </demo-block>
   <demo-block title="幽灵按钮 plain">
-    <jm-button plain>默认按钮</jm-button>
-    <jm-button type="primary" plain>主要按钮</jm-button>
-    <jm-button type="success" plain>成功按钮</jm-button>
-    <jm-button type="info" plain>信息按钮</jm-button>
-    <jm-button type="warning" plain>警告按钮</jm-button>
-    <jm-button type="error" plain>危险按钮</jm-button>
+    <be-button plain>默认按钮</be-button>
+    <be-button type="primary" plain>主要按钮</be-button>
+    <be-button type="success" plain>成功按钮</be-button>
+    <be-button type="info" plain>信息按钮</be-button>
+    <be-button type="warning" plain>警告按钮</be-button>
+    <be-button type="error" plain>危险按钮</be-button>
   </demo-block>
   <demo-block title="幽灵按钮禁用">
-    <jm-button plain disabled="{{true}}">默认按钮</jm-button>
-    <jm-button type="primary" plain disabled="{{true}}">主要按钮</jm-button>
-    <jm-button type="success" plain disabled="{{true}}">成功按钮</jm-button>
-    <jm-button type="info" plain disabled="{{true}}">信息按钮</jm-button>
-    <jm-button type="warning" plain disabled="{{true}}">警告按钮</jm-button>
-    <jm-button type="error" plain disabled="{{true}}">危险按钮</jm-button>
+    <be-button plain disabled="{{true}}">默认按钮</be-button>
+    <be-button type="primary" plain disabled="{{true}}">主要按钮</be-button>
+    <be-button type="success" plain disabled="{{true}}">成功按钮</be-button>
+    <be-button type="info" plain disabled="{{true}}">信息按钮</be-button>
+    <be-button type="warning" plain disabled="{{true}}">警告按钮</be-button>
+    <be-button type="error" plain disabled="{{true}}">危险按钮</be-button>
   </demo-block>
   <demo-block title="圆角按钮 round">
-    <jm-button round>默认按钮</jm-button>
-    <jm-button type="primary" round>主要按钮</jm-button>
-    <jm-button type="success" round>成功按钮</jm-button>
-    <jm-button type="info" round>信息按钮</jm-button>
-    <jm-button type="warning" round>警告按钮</jm-button>
-    <jm-button type="error" round>危险按钮</jm-button>
+    <be-button round>默认按钮</be-button>
+    <be-button type="primary" round>主要按钮</be-button>
+    <be-button type="success" round>成功按钮</be-button>
+    <be-button type="info" round>信息按钮</be-button>
+    <be-button type="warning" round>警告按钮</be-button>
+    <be-button type="error" round>危险按钮</be-button>
   </demo-block>
   <demo-block title="按钮尺寸 size">
-    <jm-button type="primary" size="large">大型按钮</jm-button>
-    <jm-button type="primary" size="medium">普通按钮</jm-button>
-    <jm-button type="primary" size="small">小型按钮</jm-button>
+    <be-button type="primary" size="large">大型按钮</be-button>
+    <be-button type="primary" size="medium">普通按钮</be-button>
+    <be-button type="primary" size="small">小型按钮</be-button>
   </demo-block>
   <demo-block title="文字按钮 text">
-    <jm-button type="text">按钮</jm-button>
-    <jm-button type="text" disabled="{{true}}">按钮</jm-button>
+    <be-button type="text">按钮</be-button>
+    <be-button type="text" disabled="{{true}}">按钮</be-button>
   </demo-block>
   <demo-block title="图标按钮 icon">
-    <jm-button type="icon" icon="menu"></jm-button>
-    <jm-button type="icon" icon="menu" disabled="{{true}}"></jm-button>
+    <be-button type="icon" icon="menu"></be-button>
+    <be-button type="icon" icon="menu" disabled="{{true}}"></be-button>
   </demo-block>
   <demo-block title="带图标的基本按钮">
-    <jm-button type="primary" icon="edit-outline">修改</jm-button>
-    <jm-button type="primary" icon="share">分享</jm-button>
+    <be-button type="primary" icon="edit-outline">修改</be-button>
+    <be-button type="primary" icon="share">分享</be-button>
   </demo-block>
   <demo-block title="吸顶按钮 suck" hor="{{0}}">
-    <jm-button type="primary" suck>主要按钮</jm-button>
-    <jm-button type="success" suck>成功按钮</jm-button>
-    <jm-button type="info" suck>信息按钮</jm-button>
-    <jm-button type="warning" suck>警告按钮</jm-button>
-    <jm-button type="error" suck>危险按钮</jm-button>
+    <be-button type="primary" suck>主要按钮</be-button>
+    <be-button type="success" suck>成功按钮</be-button>
+    <be-button type="info" suck>信息按钮</be-button>
+    <be-button type="warning" suck>警告按钮</be-button>
+    <be-button type="error" suck>危险按钮</be-button>
   </demo-block>
   <demo-block title="plain的吸顶按钮" hor="{{0}}">
-    <jm-button type="primary" suck plain>主要按钮</jm-button>
+    <be-button type="primary" suck plain>主要按钮</be-button>
   </demo-block>
   <demo-block title="块状按钮，宽度100% block">
-    <jm-button type="primary" block size="large">主要按钮</jm-button>
-    <jm-button type="success" block size="large">成功按钮</jm-button>
-    <jm-button type="info" block size="large">信息按钮</jm-button>
-    <jm-button type="warning" block size="large">警告按钮</jm-button>
-    <jm-button type="error" block size="large">危险按钮</jm-button>
+    <be-button type="primary" block size="large">主要按钮</be-button>
+    <be-button type="success" block size="large">成功按钮</be-button>
+    <be-button type="info" block size="large">信息按钮</be-button>
+    <be-button type="warning" block size="large">警告按钮</be-button>
+    <be-button type="error" block size="large">危险按钮</be-button>
   </demo-block>
 </view>

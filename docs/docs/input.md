@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-input": "/jm-design/input/index"
+    "be-input": "/bee-design/input/index"
   }
 }
 ```
@@ -28,7 +28,7 @@ page({
 })
 ```
 ```html
-<jm-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
+<be-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
 ```
 ### input事件使用示例
 组件自定义，input事件无法直接return赋值，因此也需要手动赋值。
@@ -43,7 +43,7 @@ page({
 })
 ```
 ```html
-<jm-input value="{{ value }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
+<be-input value="{{ value }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
 ```
 
 ### 禁用
@@ -51,7 +51,7 @@ page({
 设置 `disabled` 属性。
 
 ```html
-<jm-input value="input" disabled="{{ true }}" />
+<be-input value="input" disabled="{{ true }}" />
 ```
 
 ### 只读
@@ -59,7 +59,7 @@ page({
 设置 `readonly` 属性。
 
 ```html
-<jm-input value="{{ value }}" readonly="{{ true }}" />
+<be-input value="{{ value }}" readonly="{{ true }}" />
 ```
 
 ### 清空按钮
@@ -67,7 +67,7 @@ page({
 设置 `clearable` 属性。
 
 ```html
-<jm-input value="{{ value }}" clearable bind:change="handleChange"/>
+<be-input value="{{ value }}" clearable bind:change="handleChange"/>
 ```
 
 ### 密码输入框
@@ -75,7 +75,7 @@ page({
 设置 `show-password` 属性。
 
 ```html
-<jm-input value="{{ value }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange"/>
+<be-input value="{{ value }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange"/>
 ```
 
 ### 前后icon
@@ -83,14 +83,14 @@ page({
 设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
 
 ```html
-<jm-input value="{{ value }}" prefix-icon="jm-icon-person" suffix-icon="jm-icon-tickets" bind:change="handleChange"/>
+<be-input value="{{ value }}" prefix-icon="be-icon-person" suffix-icon="be-icon-tickets" bind:change="handleChange"/>
 ```
 
 ```html
-		<jm-input value="{{ value }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange">
+		<be-input value="{{ value }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange">
 			<view slot="prefix">1</view>
 			<view slot="suffix">2</view>
-		</jm-input>
+		</be-input>
 ```
 ```css
     /* 插槽样式 */
@@ -105,25 +105,25 @@ page({
 设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
 
 ```html
-<jm-input value="{{ value }}" maxlength="20" show-word-limit="{{ true }}" bind:change="handleChange"/>
+<be-input value="{{ value }}" maxlength="20" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
 ### 文本域
 
 设置 `type` 为 'textarea`。
 
 ```html
-<jm-input type="textarea" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
+<be-input type="textarea" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
 ```
 
 设置清空，字数限制。
 
 ```html
-<jm-input type="textarea" value="{{ value }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
+<be-input type="textarea" value="{{ value }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
 也可以设置`auto-height`使高度自增加。
 
 ```html
-<jm-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
+<be-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
 ```
 
 ### Attributes
@@ -138,8 +138,8 @@ page({
 | showPassword | 显示为密码框 | boolean | - | false |
 | disabled | 原生属性，禁用 | boolean | - | false |
 | readonly | 只读 | boolean | - | false |
-| prefixIcon | 前置图标，京麦icon中的图标类名 | string | - | - |
-| suffixIcon | 后置图标，京麦icon中的图标类名 | string | - | - |
+| prefixIcon | 前置图标，icon组件中的图标类名 | string | - | - |
+| suffixIcon | 后置图标，icon组件中的图标类名 | string | - | - |
 | showWordLimit | 显示字数限制，需要同时设置 maxlength | boolean | - | false |
 | confirm-type | 设置键盘右下角按钮的文字，仅在type='text'时生效 | string | done, go, next, search, send | done |
 | placeholderStyle | 原生属性，指定 placeholder 的样式，目前仅支持color,font-size和font-weight | string | - | - |

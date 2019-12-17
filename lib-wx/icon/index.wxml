@@ -1,4 +1,4 @@
-<view class="jm-icon custom-class {{isImageUrl ? 'jm-icon--image' : ('jm-icon-' + name)}}"
+<view class="be-icon custom-class {{isImageUrl ? 'be-icon--image' : ('be-icon-' + name)}}"
       style="color: {{color}}; font-size: {{size}}">
-  <image wx:if="{{isImageUrl}}" class="jm-icon__image" src="{{name}}"></image>
+  <image wx:if="{{isImageUrl}}" class="be-icon__image" src="{{name}}"></image>
 </view>

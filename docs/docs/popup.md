@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-popup": "/jm-design/popup/index"
+    "be-popup": "/bee-design/popup/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 通过 `show` 属性设置显示隐藏，监听 `bind:close` 事件修改 `show`。
 
 ```html
-<jm-popup show="{{ show }}" custom-style="padding: 30px 40px;" bind:close="handleClose">内容</jm-popup>
+<be-popup show="{{ show }}" custom-style="padding: 30px 40px;" bind:close="handleClose">内容</be-popup>
 ```
 
 ### 弹出位置
@@ -23,7 +23,7 @@
 设置 `position`，默认为 'center'，可选值 'top', 'right', 'bottom', 'left'。
 
 ```html
-<jm-popup show="{{ show }}" position="top" custom-style="height: 200px;" bind:close="handleClose"></jm-popup>
+<be-popup show="{{ show }}" position="top" custom-style="height: 200px;" bind:close="handleClose"></be-popup>
 ```
 
 ### 关闭按钮
@@ -31,7 +31,7 @@
 设置 `closable` 属性。
 
 ```html
-<jm-popup show="{{ show }}" position="bottom" closable custom-style="height: 200px;" bind:close="handleClose"></jm-popup>
+<be-popup show="{{ show }}" position="bottom" closable custom-style="height: 200px;" bind:close="handleClose"></be-popup>
 ```
 
 ### Attributes
@@ -41,7 +41,7 @@
 | show | 弹出层是否显示 | boolean | - | - |
 | position | 弹出位置 | string | 'center', 'top', 'right', 'bottom', 'left' | 'center' |
 | closable | 关闭按钮 | boolean | - | false |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
 | duration | 动画持续时间 | number / boolean | - | 300(ms) |
 | z-index | 设置层级 | number | - | 10 |
 | modal | 是否显示遮罩 | boolean | - | true |

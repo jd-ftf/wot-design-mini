@@ -1,31 +1,31 @@
-<jm-message-box id="jm-message-box"></jm-message-box>
-<jm-message-box id="jm-message-box-slot" use-slot>
-  <jm-rate
+<be-message-box id="be-message-box"></be-message-box>
+<be-message-box id="be-message-box-slot" use-slot>
+  <be-rate
     custom-class="custom-rate-class"
     value="{{value}}"
     bind:change="changeValue"
   />
-</jm-message-box>
+</be-message-box>
 <demo-block title="alert类型的弹框">
-  <jm-button type="primary" bind:click="alert">alert</jm-button>
+  <be-button type="primary" bind:click="alert">alert</be-button>
 </demo-block>
 
 <demo-block title="显示标题">
-  <jm-button type="primary" bind:click="alertWithTitle">alert</jm-button>
+  <be-button type="primary" bind:click="alertWithTitle">alert</be-button>
 </demo-block>
 
 <demo-block title="confirm类型的弹框">
-  <jm-button type="primary" bind:click="confirm">confirm</jm-button>
+  <be-button type="primary" bind:click="confirm">confirm</be-button>
 </demo-block>
 
 <demo-block title="prompt类型的弹框，支持输入框输入和校验">
-  <jm-button type="primary" bind:click="prompt">prompt</jm-button>
+  <be-button type="primary" bind:click="prompt">prompt</be-button>
 </demo-block>
 
 <demo-block title="当文案过长时，弹框的高度不再增加，而是将文案内容设置成滚动">
-  <jm-button type="primary" bind:click="alertWithLongChar">alert</jm-button>
+  <be-button type="primary" bind:click="alertWithLongChar">alert</be-button>
 </demo-block>
 
 <demo-block title="通过slot插入其他组件内容">
-  <jm-button type="primary" bind:click="withSlot">custom</jm-button>
+  <be-button type="primary" bind:click="withSlot">custom</be-button>
 </demo-block>

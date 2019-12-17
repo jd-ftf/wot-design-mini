@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-tag": "/jm-design/tag/index"
+    "be-tag": "/bee-design/tag/index"
   }
 }
 ```
@@ -15,11 +15,11 @@
 设置 `type` 修改标签类型。
 
 ```html
-<jm-tag custom-class="space">标签</jm-tag>
-<jm-tag custom-class="space" type="primary">标签</jm-tag>
-<jm-tag custom-class="space" type="danger">标签</jm-tag>
-<jm-tag custom-class="space" type="warning">标签</jm-tag>
-<jm-tag custom-class="space" type="success">标签</jm-tag>
+<be-tag custom-class="space">标签</be-tag>
+<be-tag custom-class="space" type="primary">标签</be-tag>
+<be-tag custom-class="space" type="danger">标签</be-tag>
+<be-tag custom-class="space" type="warning">标签</be-tag>
+<be-tag custom-class="space" type="success">标签</be-tag>
 ```
 ```css
 .space{
@@ -31,7 +31,7 @@
 设置 `plain` 属性。
 
 ```html
-<jm-tag plain>标签</jm-tag>
+<be-tag plain>标签</be-tag>
 ```
 
 ### 标签大小
@@ -39,9 +39,9 @@
 设置 `size` 属性，默认为 'medium' 大小，可选值 'small', 'large'。
 
 ```html
-<jm-tag size="small">标签</jm-tag>
-<jm-tag>标签</jm-tag>
-<jm-tag size="large">标签</jm-tag>
+<be-tag size="small">标签</be-tag>
+<be-tag>标签</be-tag>
+<be-tag size="large">标签</be-tag>
 ```
 
 ### 自定义颜色
@@ -49,8 +49,8 @@
 设置 `color` 修改文字颜色，设置 `bg-color` 修改背景色和边框颜色。
 
 ```html
-  <jm-tag color="#0083ff" bg-color="#d0e8ff">标签</jm-tag>
-  <jm-tag color="#FAA21E" bg-color="#FAA21E" plain>标签</jm-tag>
+  <be-tag color="#0083ff" bg-color="#d0e8ff">标签</be-tag>
+  <be-tag color="#FAA21E" bg-color="#FAA21E" plain>标签</be-tag>
 ```
 
 ### 设置图标
@@ -58,23 +58,23 @@
 设置 `icon` 左侧图标，也可以使用 'icon' 的 slot 插槽,此时要开启`use-icon-slot`。
 
 ```html
-<jm-tag custom-class="space" icon="tickets">标签</jm-tag>
-<jm-tag custom-class="space" use-icon-slot>
+<be-tag custom-class="space" icon="tickets">标签</be-tag>
+<be-tag custom-class="space" use-icon-slot>
   <text>插槽</text>
-  <jm-icon slot="icon" name="tickets"/>
-</jm-tag>
+  <be-icon slot="icon" name="tickets"/>
+</be-tag>
 ```
 
 ### 可关闭
 
 设置 `closable` 属性，允许标签关闭，关闭时会触发 `close` 事件。
 ```html
-<jm-tag closable type="primary">标签</jm-tag>
+<be-tag closable type="primary">标签</be-tag>
 ```
 
 ### 事件
 ```html
-<jm-tag
+<be-tag
   jd:for="{{tags}}"
   jd:key="$this"
   jd:for-item="tag"
@@ -87,7 +87,7 @@
   bind:close="handleClose"
 >
   {{tag.value}}
-</jm-tag>
+</be-tag>
 ```
 ```javascript
 Page({

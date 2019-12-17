@@ -1,18 +1,18 @@
 <view>
   <demo-block title="基本用法">
-    <jm-switch value="{{ checked1 }}" bind:change="handleChange1" />
+    <be-switch value="{{ checked1 }}" bind:change="handleChange1" />
   </demo-block>
   <demo-block title="修改值 active-value 、 inactive-value">
     <view style="margin-bottom: 10px;">{{ checked2 }}</view>
-    <jm-switch value="{{ checked2 }}" active-value="京麦" inactive-value="商家后台" bind:change="handleChange2" />
+    <be-switch value="{{ checked2 }}" active-value="京麦" inactive-value="商家后台" bind:change="handleChange2" />
   </demo-block>
   <demo-block title="自定义颜色 active-color 、 inactive-color">
-    <jm-switch value="{{ checked3 }}" active-color="#13ce66"  inactive-color="#f00" bind:change="handleChange3" />
+    <be-switch value="{{ checked3 }}" active-color="#13ce66"  inactive-color="#f00" bind:change="handleChange3" />
   </demo-block>
   <demo-block title="修改大小">
-    <jm-switch value="{{ checked4 }}" size="20px" bind:change="handleChange4" />
+    <be-switch value="{{ checked4 }}" size="20px" bind:change="handleChange4" />
   </demo-block>
   <demo-block title="禁用">
-    <jm-switch value="{{ checked5 }}" disabled="{{true}}" />
+    <be-switch value="{{ checked5 }}" disabled="{{true}}" />
   </demo-block>
 </view>

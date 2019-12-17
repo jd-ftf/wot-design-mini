@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Loading 加载",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-loading": "../../dist/loading/index"
+    "be-loading": "../../dist/loading/index"
   }
 }

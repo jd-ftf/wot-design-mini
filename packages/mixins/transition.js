@@ -11,10 +11,10 @@ const getClassNames = name => {
   }
 
   return {
-    enter: `jm-${name}-enter jm-${name}-enter-active`,
-    'enter-to': `jm-${name}-enter-to jm-${name}-enter-active`,
-    leave: `jm-${name}-leave jm-${name}-leave-active`,
-    'leave-to': `jm-${name}-leave-to jm-${name}-leave-active`
+    enter: `be-${name}-enter be-${name}-enter-active`,
+    'enter-to': `be-${name}-enter-to be-${name}-enter-active`,
+    leave: `be-${name}-leave be-${name}-leave-active`,
+    'leave-to': `be-${name}-leave-to be-${name}-leave-active`
   }
 }
 

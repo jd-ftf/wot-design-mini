@@ -3,7 +3,7 @@
     <side-bar parentKey="components"></side-bar>
     <div class="tab-content">
       <div class="content-flex" ref="demoBlock">
-        <div class="jm-markdown">
+        <div class="be-markdown">
           <router-view></router-view>
           <page-controller></page-controller>
         </div>
@@ -93,7 +93,7 @@ export default {
   .content-flex {
     position: relative;
   }
-  .jm-markdown {
+  .be-markdown {
     margin-right: 395px;
   }
   .markdown-content {

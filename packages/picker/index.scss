@@ -19,7 +19,7 @@
     }
 
     @include m(disabled) {
-      .jm-picker__value {
+      .be-picker__value {
         color: $-picker-column-disabled-color;
       }
     }
