@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Popup 弹出层",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-button": "../../dist/button/index",
-    "jm-popup": "../../dist/popup/index"
+    "be-button": "../../dist/button/index",
+    "be-popup": "../../dist/popup/index"
   }
 }

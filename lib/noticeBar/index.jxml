@@ -1,19 +1,19 @@
 <view
   jd:if="{{show}}"
-  class="jm-notice-bar custom-class {{ !wrapable && !scrollable ? 'jm-notice-bar--ellipse' : '' }} {{ wrapable && !scrollable ? 'jm-notice-bar--wrap' : '' }}"
+  class="be-notice-bar custom-class {{ !wrapable && !scrollable ? 'be-notice-bar--ellipse' : '' }} {{ wrapable && !scrollable ? 'be-notice-bar--wrap' : '' }}"
   style="color: {{ color }}; background: {{ backgroundColor }};"
 >
-  <jm-icon jd:if="{{ leftIcon }}" class="jm-notice-bar__left-icon" name="{{leftIcon}}"/>
+  <be-icon jd:if="{{ leftIcon }}" class="be-notice-bar__left-icon" name="{{leftIcon}}"/>
   <slot jd:else name="left-icon"/>
-  <view class="jm-notice-bar__wrap">
+  <view class="be-notice-bar__wrap">
     <view
-      class="jm-notice-bar__content"
+      class="be-notice-bar__content"
       animation="{{ animation }}"
       bindtransitionend="animationEnd"
     >
       <text jd:if="{{ text }}">{{ text }}</text>
     </view>
   </view>
-  <jm-icon jd:if="{{ closable }}" class="jm-notice-bar__right-icon" name="close" bindtap="handleClose"/>
+  <be-icon jd:if="{{ closable }}" class="be-notice-bar__right-icon" name="close" bindtap="handleClose"/>
   <slot jd:else name="right-icon"/>
 </view>

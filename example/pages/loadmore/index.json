@@ -2,6 +2,6 @@
   "navigationBarTitleText": "loadmore 加载组件",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-loadmore": "../../dist/loadmore/index"
+    "be-loadmore": "../../dist/loadmore/index"
   }
 }

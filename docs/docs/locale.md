@@ -1,6 +1,6 @@
 ## 国际化
 
-JM Design 默认使用中文语言。
+Bee Design Mini 默认使用中文语言。
 
 ### 使用其他语言
 
@@ -8,8 +8,8 @@ JM Design 默认使用中文语言。
 
 ```javascript
 import Vue from 'vue'
-import JMDesign from 'jm-design'
-import enUS from 'jm-design/lib/locale/lang/en-US'
+import JMDesign from 'bee-design'
+import enUS from 'bee-design/lib/locale/lang/en-US'
 
 Vue.use(JMDesign, {
   locale: enUS
@@ -20,9 +20,9 @@ Vue.use(JMDesign, {
 
 ```javascript
 import Vue from 'vue'
-import { MessageBox, InfiniteLoad } from 'jm-design'
-import locale from 'jm-design/lib/locale'
-import enUS from 'jm-design/lib/locale/lang/en-US'
+import { MessageBox, InfiniteLoad } from 'bee-design'
+import locale from 'bee-design/lib/locale'
+import enUS from 'bee-design/lib/locale/lang/en-US'
 
 Vue.use(MessageBox)
 Vue.use(InfiniteLoad)
@@ -35,7 +35,7 @@ locale.use(enUS)
 ```javascript
 import Vue from 'vue'
 import App from './App'
-import JMDesign from 'jm-design'
+import JMDesign from 'bee-design'
 import VueI18n from 'vue-i18n'
 import zhCN from '@/locale/lang/zh-CN'
 import enUS from '@/locale/lang/en-US'

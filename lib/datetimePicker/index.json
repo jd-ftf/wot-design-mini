@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-picker": "../picker/index"
+    "be-picker": "../picker/index"
   }
 }

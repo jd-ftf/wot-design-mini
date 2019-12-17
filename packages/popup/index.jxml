@@ -1,4 +1,4 @@
-<jm-modal
+<be-modal
   jd:if="{{ modal }}"
   show="{{ show }}"
   z-index="{{ zIndex }}"
@@ -7,10 +7,10 @@
 />
 <view
   jd:if="{{ inited }}"
-  class="jm-popup jm-popup--{{ position }} custom-class {{ classes }}"
+  class="be-popup be-popup--{{ position }} custom-class {{ classes }}"
   style="z-index: {{ zIndex }}; -webkit-transition-duration: {{ currentDuration }}ms; transition-duration: {{ currentDuration }}ms; {{ display ? '' : 'display: none;' }} {{ customStyle }}"
   bind:transitionend="onTransitionEnd"
 >
   <slot/>
-  <jm-icon jd:if="{{ closable }}" class="jm-popup__close" name="add" bind:tap="close"/>
+  <be-icon jd:if="{{ closable }}" class="be-popup__close" name="add" bind:tap="close"/>
 </view>

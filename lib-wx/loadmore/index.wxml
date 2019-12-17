@@ -1,8 +1,8 @@
-<view class="jm-loadmore custom-class" bindtap="reload">
-  <jm-icon
+<view class="be-loadmore custom-class" bindtap="reload">
+  <be-icon
     wx:if="{{state === 'loading'}}"
     name="news"
     size="20px"
-    class="jm-loadmore__indicator"/>
-  <text class="jm-loadmore__text">{{ showText }}</text>
+    class="be-loadmore__indicator"/>
+  <text class="be-loadmore__text">{{ showText }}</text>
 </view>

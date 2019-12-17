@@ -179,7 +179,7 @@ VueComponent({
         slidableNum,
         items
       } = this.data;
-      this.getRect('.jm-tabs__nav-item', true).then(rects => {
+      this.getRect('.be-tabs__nav-item', true).then(rects => {
         const rect = rects[activeIndex];
         const width = lineWidth || (slidableNum < items.length ? rect.width : rect.width - 14);
         let left = rects.slice(0, activeIndex).reduce((prev, curr) => prev + curr.width, 0);
@@ -211,7 +211,7 @@ VueComponent({
         items,
         lazyRender
       } = this.data;
-      this.getRect('.jm-tabs__body').then(rect => {
+      this.getRect('.be-tabs__body').then(rect => {
         const {
           width
         } = rect;
@@ -254,7 +254,7 @@ VueComponent({
       const {
         activeIndex
       } = this.data;
-      Promise.all([this.getRect('.jm-tabs__nav-item', true), this.getRect('.jm-tabs__nav-container')]).then(([navItemsRects, navRect]) => {
+      Promise.all([this.getRect('.be-tabs__nav-item', true), this.getRect('.be-tabs__nav-container')]).then(([navItemsRects, navRect]) => {
         // 选中元素
         const selectItem = navItemsRects[activeIndex]; // 选中元素之前的节点的宽度总和
 
@@ -350,13 +350,13 @@ VueComponent({
       const {
         windowHeight
       } = wx.getSystemInfoSync();
-      this.getRect('.jm-tabs__nav').then(({
+      this.getRect('.be-tabs__nav').then(({
         height: navHeight
       }) => {
         this.createIntersectionObserver().disconnect();
         this.createIntersectionObserver().relativeToViewport({
           top: -(navHeight + offsetTop)
-        }).observe('.jm-tabs', res => {
+        }).observe('.be-tabs', res => {
           if (res.boundingClientRect.top > offsetTop) return;
           let navStyle = '';
 
@@ -396,7 +396,7 @@ VueComponent({
         });
         this.createIntersectionObserver().relativeToViewport({
           bottom: -(windowHeight - 1 - offsetTop)
-        }).observe('.jm-tabs', res => {
+        }).observe('.be-tabs', res => {
           if (res.boundingClientRect.bottom < navHeight) return;
           let navStyle = '';
 

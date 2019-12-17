@@ -1,10 +1,10 @@
-<view class="jm-loading custom-class"
+<view class="be-loading custom-class"
       style="width: {{ size }}; height: {{ size }}; color: {{ color || '#c5c5c5' }}; {{ customStyle }}">
-  <view wx:if="{{ type === 'circle' }}" class="jm-loading__circle"></view>
-  <view wx:else class="jm-loading__spinner">
+  <view wx:if="{{ type === 'circle' }}" class="be-loading__circle"></view>
+  <view wx:else class="be-loading__spinner">
     <view
       wx:for="{{ 12 }}"
       wx:key="{{ index }}"
-      class="jm-loading__spinner-dot jm-loading__spinner-dot-{{ index }}"></view>
+      class="be-loading__spinner-dot be-loading__spinner-dot-{{ index }}"></view>
   </view>
 </view>

@@ -1,10 +1,10 @@
 <view
-  class="jm-tab custom-class"
+  class="be-tab custom-class"
   style="{{ width ? 'width:' + width + 'px;' : '' }}"
 >
   <view
     wx:if="{{painted}}"
-    class="jm-tab__body"
+    class="be-tab__body"
   >
     <slot/>
   </view>

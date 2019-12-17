@@ -1,16 +1,16 @@
-<jm-toast id="jm-toast"/>
+<be-toast id="be-toast"/>
 <demo-block title="基本用法">
-  <jm-button type="primary" bind:click="showToast">toast</jm-button>
+  <be-button type="primary" bind:click="showToast">toast</be-button>
 </demo-block>
 <demo-block title="类型toast">
-  <jm-button type="primary" bind:click="showSuccessToast">成功toast</jm-button>
-  <jm-button type="primary" bind:click="showErrorToast">错误toast</jm-button>
-  <jm-button type="primary" bind:click="showWarnToast">警告toast</jm-button>
+  <be-button type="primary" bind:click="showSuccessToast">成功toast</be-button>
+  <be-button type="primary" bind:click="showErrorToast">错误toast</be-button>
+  <be-button type="primary" bind:click="showWarnToast">警告toast</be-button>
 </demo-block>
 <demo-block title="提示位置">
-  <jm-button type="primary" bind:click="showTopToast">顶部toast</jm-button>
-  <jm-button type="primary" bind:click="showBottomToast">底部toast</jm-button>
+  <be-button type="primary" bind:click="showTopToast">顶部toast</be-button>
+  <be-button type="primary" bind:click="showBottomToast">底部toast</be-button>
 </demo-block>
 <demo-block title="Loading">
-  <jm-button type="primary" bind:click="showLoadingToast">Loading加载</jm-button>
+  <be-button type="primary" bind:click="showLoadingToast">Loading加载</be-button>
 </demo-block>

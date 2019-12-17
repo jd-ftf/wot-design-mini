@@ -1,14 +1,12 @@
-<view class="jm-progress {{ hideText ? '' : 'is-with-text' }} custom-class">
+<view class="be-progress {{ hideText ? '' : 'is-with-text' }} custom-class">
   <!--文案-->
-  <view wx:if="{{!hideText}}" class="jm-progress__label" style="left: {{percentage}}%">{{ percentage }}%</view>
+  <view wx:if="{{!hideText}}" class="be-progress__label" style="left: {{percentage}}%">{{ percentage }}%</view>
   <!--进度条-->
-  <progress
-    class="jm-progress__outer"
-    percent="{{showPercent}}"
-    activeColor="{{showColor}}"
-    backgroundColor="#e5e5e5"
-    stroke-width="3"
-    active="{{true}}"
-    active-mode="forwards"
-  />
+  <view class="be-progress__outer">
+    <view
+      class="be-progress__inner"
+      style="background:{{showColor}}; width:{{showPercent}}%;transition-duration:{{changeCount * duration * 0.001}}s;"
+    >
+    </view>
+  </view>
 </view>

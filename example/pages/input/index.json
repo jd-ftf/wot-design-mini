@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Input 输入框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-input": "../../dist/input/index",
-    "jm-icon": "../../dist/icon/index"
+    "be-input": "../../dist/input/index",
+    "be-icon": "../../dist/icon/index"
   }
 }

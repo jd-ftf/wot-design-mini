@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-picker": "/jm-design/pickerView/index"
+    "be-picker": "/bee-design/pickerView/index"
   }
 }
 ```
@@ -14,7 +14,7 @@
 单列选择器，给 `columns` 传入一个数值数组，设置 `value` 绑定值。选项可以为字符串，也可以为对象，如果为对象则默认取 `label` 属性为选项内容进行渲染，`value` 获取的值为 `value` 属性的值，如果 `value` 属性不存在，则取 `label` 的值。
 
 ```html
-<jm-picker-view columns="{{columns}}" value="{{value}}" bind:change="onChange" />
+<be-picker-view columns="{{columns}}" value="{{value}}" bind:change="onChange" />
 ```
 ```javascript
 Page({
@@ -32,7 +32,7 @@ Page({
 选项可以为对象，设置 `disabled` 属性。
 
 ```html
-<jm-picker-view columns="{{columns}}" value="{{value}}" disabled="{{true}}" />
+<be-picker-view columns="{{columns}}" value="{{value}}" disabled="{{true}}" />
 ```
 ```javascript
 Page({
@@ -48,14 +48,14 @@ Page({
 设置 `loading` 属性。
 
 ```html
-<jm-picker-view columns="{{columns}}" loading="{{true}}" />
+<be-picker-view columns="{{columns}}" loading="{{true}}" />
 ```
 ### 多列
 
 `columns` 属性设置为二维数组，`value` 为数组。
 
 ```html
-<jm-picker-view columns="{{columns}}" value="{{value}}" />
+<be-picker-view columns="{{columns}}" value="{{value}}" />
 ```
 ```javascript
 Page({
@@ -74,7 +74,7 @@ Page({
 传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
 
 ```html
-<jm-picker-view columns="{{columns}}" value="{{value}}" column-change="{{onChangeDistrict}}" />
+<be-picker-view columns="{{columns}}" value="{{value}}" column-change="{{onChangeDistrict}}" />
 ```
 
 ```javascript

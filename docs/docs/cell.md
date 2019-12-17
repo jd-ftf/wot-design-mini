@@ -5,8 +5,8 @@
 ```json
 {
   "usingComponents": {
-    "jm-cell": "/jm-design/cell/index",
-    "jm-cell-group": "/jm-design/cellGroup/index"
+    "be-cell": "/bee-design/cell/index",
+    "be-cell-group": "/bee-design/cellGroup/index"
   }
 }
 ```
@@ -16,12 +16,12 @@
 `Cell` 可以单独使用，也可以和 `CellGroup` 组合使用。
 
 ```html
-<jm-cell title="标题文字" value="内容" />
+<be-cell title="标题文字" value="内容" />
 
-<jm-cell-group>
-  <jm-cell title="标题文字" value="内容" />
-  <jm-cell title="标题文字" label="描述信息" value="内容" />
-</jm-cell-group>
+<be-cell-group>
+  <be-cell title="标题文字" value="内容" />
+  <be-cell title="标题文字" label="描述信息" value="内容" />
+</be-cell-group>
 ```
 
 ### 图标设置
@@ -31,13 +31,13 @@
 > 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。使用 icon 属性且为 Icon 章节的字体图标，则宽度会自动一致且垂直居中。如果使用插槽，可以通过`custom-icon-class`进行设置。
 
 ```html
-<jm-cell-group>
-  <jm-cell title="标题文字" value="内容" icon="setting" />
-  <jm-cell title="标题文字" value="内容" icon="collect" />
-  <jm-cell title="标题文字" value="内容" custom-icon-class="custom-icon-class">
-    <jm-icon slot="icon" name="play"/>
-  </jm-cell>
-</jm-cell-group>
+<be-cell-group>
+  <be-cell title="标题文字" value="内容" icon="setting" />
+  <be-cell title="标题文字" value="内容" icon="collect" />
+  <be-cell title="标题文字" value="内容" custom-icon-class="custom-icon-class">
+    <be-icon slot="icon" name="play"/>
+  </be-cell>
+</be-cell-group>
 ```
 
 ```css
@@ -55,14 +55,14 @@
 可以在 `cell-group` 上设置 `title` 和 `value` 属性。也可以使用 slot 插槽。
 
 ```html
-<jm-cell-group use-slot title="交易管理">
+<be-cell-group use-slot title="交易管理">
   <view slot="value" class="blueColor">
-    <jm-icon name="cart"/>
+    <be-icon name="cart"/>
       <span>订购</span>
   </view>
-  <jm-cell title="标题文字" value="内容" />
-  <jm-cell title="标题文字" label="描述信息" value="内容" />
-</jm-cell-group>
+  <be-cell title="标题文字" value="内容" />
+  <be-cell title="标题文字" label="描述信息" value="内容" />
+</be-cell-group>
 ```
 
 ### 点击反馈
@@ -70,8 +70,8 @@
 > 通过设置 `clickable` 开启点击反馈，之后可以监听`click`事件。
 
 ```html
-<jm-toast id="jm-toast"/>
-<jm-cell
+<be-toast id="be-toast"/>
+<be-cell
   bind:click="onClick"
   title="帮助与反馈"
 />
@@ -91,8 +91,8 @@ Page({
 `is-link`会默认开启`clickable`。
 
 ```html
-<jm-toast id="jm-toast"/>
-<jm-cell
+<be-toast id="be-toast"/>
+<be-cell
   title="帮助与反馈"
   is-link to="/pages/button/index"
 />
@@ -103,28 +103,28 @@ Page({
 `cell` 提供了 `icon`、`title`、`label`和默认value的插槽。
 
 ```html
-<jm-cell-group use-slot>
+<be-cell-group use-slot>
   <view slot="title">交易管理</view>
   <view slot="value" class="blueColor">
-    <jm-icon name="cart"/>
+    <be-icon name="cart"/>
     <span>订购</span>
   </view>
-  <jm-cell
+  <be-cell
     is-link
     custom-icon-class="custom-icon-class"
     custom-title-class="custom-title-class"
     custom-label-class="custom-label-class"
     custom-value-class="custom-value-class"
   >
-    <jm-icon slot="icon" name="play"></jm-icon>
+    <be-icon slot="icon" name="play"></be-icon>
     <view slot="title">
       <text>标题文字</text>
       <view class="end-time">25天后到期</view>
     </view>
     <text slot="label">描述信息</text>
     <text>内容</text>
-  </jm-cell>
-</jm-cell-group>
+  </be-cell>
+</be-cell-group>
 ```
 
 ```css

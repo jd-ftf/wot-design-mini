@@ -8,7 +8,7 @@ const defaultOptions = {
   customIcon: false,
   position: 'middle',
   show: true,
-  selector: '#jm-toast',
+  selector: '#be-toast',
   zIndex: 100
 }; // toast注册的队列，此处使用队列方便后续边界管理
 
@@ -40,7 +40,7 @@ const Toast = toastOptions => {
   const toast = getContext().selectComponent(options.selector); // 错误提示
 
   if (!toast) {
-    const selector = toastOptions.selector ? toastOptions.selector : 'jm-toast';
+    const selector = toastOptions.selector ? toastOptions.selector : 'be-toast';
     console.warn(`未找到 ${selector} 节点，请确认 selector 是否正确`);
     return;
   } // 删除无用字段

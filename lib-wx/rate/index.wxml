@@ -1,27 +1,27 @@
-<view class="jm-rate custom-class">
+<view class="be-rate custom-class">
   <view
     wx:for="{{rateList}}"
     wx:key="{{index}}"
     data-index="{{index}}"
     style="margin : {{'0 ' + space}}"
-    class="jm-rate__item"
+    class="be-rate__item"
     bindtap="changeRate"
   >
     <view
-      class="jm-rate__item-star"
+      class="be-rate__item-star"
       style="width: {{size}}; height: {{size}}"
     >
-      <jm-icon
+      <be-icon
         name="{{icon}}"
         color="{{disabled ? disabledColor : color}}"
         size="{{size}}"
       />
     </view>
     <view
-      class="jm-rate__item-star jm-rate__item-star--active"
+      class="be-rate__item-star be-rate__item-star--active"
       style="width: {{item}}; height: {{size}}"
     >
-      <jm-icon
+      <be-icon
         name="{{activeIcon}}"
         color="{{disabled ? disabledColor : activeColor}}"
         size="{{size}}"

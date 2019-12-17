@@ -83,10 +83,10 @@
   @include when(light) {
     background: #f4f4f4;
 
-    .jm-search__block {
+    .be-search__block {
       background: #fff;
     }
-    .jm-search__placeholder {
+    .be-search__placeholder {
         background: #fff;
     }
   }

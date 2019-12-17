@@ -2,10 +2,10 @@
   "navigationBarTitleText": "Cell 单元格",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-icon": "../../dist/icon/index",
-    "jm-button": "../../dist/button/index",
-    "jm-cell": "../../dist/cell/index",
-    "jm-cell-group": "../../dist/cellGroup/index",
-    "jm-toast": "../../dist/toast/index"
+    "be-icon": "../../dist/icon/index",
+    "be-button": "../../dist/button/index",
+    "be-cell": "../../dist/cell/index",
+    "be-cell-group": "../../dist/cellGroup/index",
+    "be-toast": "../../dist/toast/index"
   }
 }

@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Checkbox 复选框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-checkbox": "../../dist/checkbox/index",
-    "jm-checkbox-group": "../../dist/checkboxGroup/index"
+    "be-checkbox": "../../dist/checkbox/index",
+    "be-checkbox-group": "../../dist/checkboxGroup/index"
   }
 }

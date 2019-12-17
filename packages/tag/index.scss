@@ -55,10 +55,10 @@
   }
 
   @include when(small) {
-    .jm-tag__text {
+    .be-tag__text {
       font-size: $-tag-small-font-size;
     }
-    .jm-tag__close {
+    .be-tag__close {
       transform: translateY(1px);
       margin-left: 4px;
       font-size: $-tag-font-size;
@@ -67,7 +67,7 @@
   @include when(large) {
     padding: $-tag-large-padding;
 
-    .jm-tag__close {
+    .be-tag__close {
       margin-left: 18px;
     }
   }

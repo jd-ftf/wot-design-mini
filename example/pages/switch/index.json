@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Switch 开关",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "jm-switch": "../../dist/switch/index"
+    "be-switch": "../../dist/switch/index"
   }
 }

@@ -1,5 +1,5 @@
-<view class="jm-slider {{ !hideLabel ? 'jm-slider--has-label' : '' }} {{ disabled ? 'jm-slider--disabled' : '' }} custom-class">
-  <view class="jm-slider__label-min custom-min-class" wx:if="{{ !hideMinMax }}">
+<view class="be-slider {{ !hideLabel ? 'be-slider--has-label' : '' }} {{ disabled ? 'be-slider--disabled' : '' }} custom-class">
+  <view class="be-slider__label-min custom-min-class" wx:if="{{ !hideMinMax }}">
   {{ min }}
   </view>
   <view
@@ -7,13 +7,13 @@
     bind:touchend="handleTouchEnd"
     bind:touchcancel="handleTouchEnd"
     catch:touchmove="handleTouchMove"
-    class="jm-slider__axle {{ !hideMinMax ? 'jm-slider__axle--has-min-max' : '' }}">
+    class="be-slider__axle {{ !hideMinMax ? 'be-slider__axle--has-min-max' : '' }}">
     <!-- 左边的圆点 -->
     <view
-      class="jm-slider__handle-container"
+      class="be-slider__handle-container"
       style="left: {{ handlePosition[0] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}">
-      <view class="jm-slider__handle"></view>
-      <view class="jm-slider__label-cur" wx:if="{{ !hideLabel }}">
+      <view class="be-slider__handle"></view>
+      <view class="be-slider__label-cur" wx:if="{{ !hideLabel }}">
       {{ showRight ? value[0] : value }}
       </view>
     </view>
@@ -21,22 +21,22 @@
     <view
       wx:if="{{ showRight }}"
       style="left: {{ handlePosition[1] - handleRadius + 'px' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
-      class="jm-slider__handle-container">
-      <view class="jm-slider__handle"></view>
+      class="be-slider__handle-container">
+      <view class="be-slider__handle"></view>
       <view
-        class="jm-slider__label-cur"
+        class="be-slider__label-cur"
         wx:if="{{ !hideLabel }}">
         {{ showRight ? value[1] : '' }}
       </view>
     </view>
     <!-- 激活线 -->
     <view
-      class="jm-slider__progress-bar"
+      class="be-slider__progress-bar"
       style="width: {{ activeLineWidth + 'px'}}; left: {{ activeLineLeft + 'px'}}">
     </view>
   </view>
   <view
-    class="jm-slider__label-max custom-max-class"
+    class="be-slider__label-max custom-max-class"
     wx:if="{{ !hideMinMax }}">
     {{ max }}
   </view>

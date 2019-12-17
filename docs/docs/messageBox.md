@@ -7,7 +7,7 @@
 ```json
 {
   "usingComponents": {
-    "jm-message-box": "/jm-design/messageBox/index"
+    "be-message-box": "/bee-design/messageBox/index"
   }
 }
 ```
@@ -15,13 +15,13 @@
 ### Alert 弹框
 
 alert 弹框只有确定按钮，用于强提醒。
-> 由于小程序限制，组件必须设置id,默认设置为`jm-message-box`，如需修改请在options中同时传入
+> 由于小程序限制，组件必须设置id,默认设置为`be-message-box`，如需修改请在options中同时传入
 ```html
-<jm-message-box id="jm-message-box" />
-<jm-button type="primary" bind:click="alert">alert</jm-button>
+<be-message-box id="be-message-box" />
+<be-button type="primary" bind:click="alert">alert</be-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox'
+import MessageBox from '/bee-design/messageBox/messageBox'
 
 Page({
   alert () {
@@ -33,11 +33,11 @@ Page({
 显示标题的 alert 弹框。
 
 ```html
-<jm-message-box id="jm-message-box" />
-<jm-button type="primary" bind:click="alert">alert</jm-button>
+<be-message-box id="be-message-box" />
+<be-button type="primary" bind:click="alert">alert</be-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox'
+import MessageBox from '/bee-design/messageBox/messageBox'
 
 Page({
   alert () {
@@ -52,11 +52,11 @@ Page({
 如果内容文案过长，弹框高度不再增加，而是展示滚动条。
 
 ```html
-<jm-message-box id="jm-message-box" />
-<jm-button type="primary" bind:click="alert">alert</jm-button>
+<be-message-box id="be-message-box" />
+<be-button type="primary" bind:click="alert">alert</be-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox'
+import MessageBox from '/bee-design/messageBox/messageBox'
 
 Page({
   alert () {
@@ -73,11 +73,11 @@ Page({
 用于提示用户操作。
 
 ```html
-<jm-message-box id="jm-message-box" />
-<jm-button type="primary" bind:click="confirm">confirm</jm-button>
+<be-message-box id="be-message-box" />
+<be-button type="primary" bind:click="confirm">confirm</be-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox'
+import MessageBox from '/bee-design/messageBox/messageBox'
 
 Page({
   confirm () {
@@ -94,11 +94,11 @@ Page({
 prompt 会展示一个输入框，并可以进行输入校验。
 
 ```html
-<jm-message-box id="jm-message-box" />
-<jm-button type="primary" bind:click="prompt">prompt</jm-button>
+<be-message-box id="be-message-box" />
+<be-button type="primary" bind:click="prompt">prompt</be-button>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox'
+import MessageBox from '/bee-design/messageBox/messageBox'
 
 Page({
   prompt () {
@@ -115,16 +115,16 @@ Page({
 如果提供的弹框内容不满足需求，可以使用插槽自定义弹框内容。
 
 ```html
-<jm-message-box id="jm-message-box-slot" use-slot>
-  <jm-rate
+<be-message-box id="be-message-box-slot" use-slot>
+  <be-rate
     custom-class="custom-rate-class"
     value="{{value}}"
     bind:change="changeValue"
   />
-</jm-message-box>
+</be-message-box>
 ```
 ```javascript
-import MessageBox from '/jm-design/messageBox/messageBox'
+import MessageBox from '/bee-design/messageBox/messageBox'
 
 Page({
   data: {
@@ -136,7 +136,7 @@ Page({
   withSlot () {
     MessageBox({
       title: '评分',
-      selector: '#jm-message-box-slot'
+      selector: '#be-message-box-slot'
     })
   }
 })
@@ -158,7 +158,7 @@ Page({
 ```javascript
 MessageBox(msg)
 
-MessageBox(options) 
+MessageBox(options)
 
 MessageBox.alert(options)
 
@@ -183,7 +183,7 @@ MessageBox.prompt(options)
 | inputError | 当type为prompt时，输入框检验不通过时的错误提示文案 | string | - | '输入的数据不合法' |
 | confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
 | cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
-| selector      | 组件的id     | string    | - | '#jm-message-box' |
+| selector      | 组件的id     | string    | - | '#be-message-box' |
 
 ### 外部样式类
 

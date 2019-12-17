@@ -5,29 +5,29 @@
 ```json
 {
   "usingComponents": {
-    "jm-transition": "/jm-design/transition/index"
+    "be-transition": "/bee-design/transition/index"
   }
 }
 ```
 
 ### 基本用法
 
-将元素包裹在 `jm-transition` 标签中，并设置 `show` 来切换显隐，设置 `name` 选择动画。
+将元素包裹在 `be-transition` 标签中，并设置 `show` 来切换显隐，设置 `name` 选择动画。
 
 ```html
-<jm-transition show="{{ show }}" name="fade">
+<be-transition show="{{ show }}" name="fade">
   内容
-</jm-transition>
+</be-transition>
 ```
 
 ### 动画类型
 
-`jm-transition` 内置了常用的动画，如 `fade`、`slide`、`zoom-in` 等。
+`be-transition` 内置了常用的动画，如 `fade`、`slide`、`zoom-in` 等。
 
 ```html
-<jm-transition show="{{ show }}" name="slide">
+<be-transition show="{{ show }}" name="slide">
   内容
-</jm-transition>
+</be-transition>
 ```
 
 ### 动画时间
@@ -43,7 +43,7 @@
 在动画离开时，会给标签设置 `leave-class` 和 `leave-active-class` 样式，在下一帧切换为 `leave-to-class` 和 `leave-active-class` 样式，因此离开动画是从 `leave-class` 样式切换为 `leave-to-class` 样式状态，`leave-active-class` 设置 `transition` 相关属性。
 
 ```html
-<jm-transition
+<be-transition
   show="{{ customShow }}"
   duration="{{ { enter: 700, leave: 1000 } }}"
   enter-class="custom-enter"

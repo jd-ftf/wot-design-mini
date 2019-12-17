@@ -1,20 +1,20 @@
-<view class="jm-cell custom-class {{noHair?'is-no-hair':'' }}"
+<view class="be-cell custom-class {{noHair?'is-no-hair':'' }}"
       hover-class="{{clickable?'is-hover':'none'}}"
       hover-stay-time="70"
       bindtap="onClick">
   <!--左侧icon部位-->
-  <jm-icon
+  <be-icon
     jd:if="{{icon}}"
     name="{{icon}}"
-    class="jm-cell__icon custom-icon-class"
+    class="be-cell__icon custom-icon-class"
   >
-  </jm-icon>
+  </be-icon>
   <view jd:else class="custom-icon-class">
     <slot name="icon"/>
   </view>
 
-  <view class="jm-cell__wrapper">
-    <view class="jm-cell__title">
+  <view class="be-cell__wrapper">
+    <view class="be-cell__title">
       <!--title BEGIN-->
       <view class="custom-title-class">
         <block jd:if="{{title}}">{{title}}</block>
@@ -23,7 +23,7 @@
       <!--title END-->
 
       <!--label BEGIN-->
-      <view jd:if="{{label}}" class="jm-cell__label custom-label-class">
+      <view jd:if="{{label}}" class="be-cell__label custom-label-class">
         <block>{{label}}</block>
       </view>
       <slot jd:else name="label"/>
@@ -31,14 +31,14 @@
     </view>
 
     <!--right content BEGIN-->
-    <view class="jm-cell__right">
+    <view class="be-cell__right">
       <!--文案内容-->
-      <view class="jm-cell__value custom-value-class">
+      <view class="be-cell__value custom-value-class">
         <block jd:if="{{value}}">{{value}}</block>
         <slot jd:else></slot>
       </view>
       <!--箭头-->
-      <jm-icon jd:if="{{isLink}}" class="jm-cell__arrow-right" name="arrow-right"/>
+      <be-icon jd:if="{{isLink}}" class="be-cell__arrow-right" name="arrow-right"/>
     </view>
     <!--right content END-->
   </view>

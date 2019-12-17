@@ -1,23 +1,23 @@
 ## 快速上手
 
-本节介绍如何在小程序中使用 `JM Design`
+本节介绍如何在小程序中使用 `Bee Design Mini`
 
 ### 下载组件库项目
 
 通过 git 拉取 git 项目：
 
 ```bash
-git clone git@git.jd.com:pop-FE/jmd-vapp.git
+git clone git@git.jd.com:pop-FE/be-vapp.git
 ```
 
-将项目中的 `lib` 文件夹复制到你的小程序工程中，重新命名为 `jm-design` ，如下结构：
+将项目中的 `lib` 文件夹复制到你的小程序工程中，重新命名为 `bee-design` ，如下结构：
 
 ```html
 .
 ├── app.js
 ├── app.json
 ├── app.wxss
-├── jm-design								 jm-design 组件库
+├── bee-design								 bee-design 组件库
 |   └── button						   button组件
 |       ├── index.js
 |       ├── index.json
@@ -33,7 +33,7 @@ git clone git@git.jd.com:pop-FE/jmd-vapp.git
 ```json
 {
   "usingComponents": {
-    "jm-button": "/jm-design/button/index"
+    "be-button": "/bee-design/button/index"
   }
 }
 ```
@@ -42,6 +42,6 @@ git clone git@git.jd.com:pop-FE/jmd-vapp.git
 
 ```html
 <view>
-  <jm-button>按钮</jm-button>
+  <be-button>按钮</be-button>
 </view>
 ```

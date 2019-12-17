@@ -100,16 +100,16 @@
       transform: rotate(-90deg);
     }
   }
-  
+
   @include when(disabled) {
-    .jm-input-number__input {
+    .be-input-number__input {
       color: $-inputNumber-disabled-color;
       background: $-inputNumber-disabled-input-bg;
       z-index: inherit;
     }
   }
   @include when(without-input) {
-    .jm-input-number__action:last-child::after {
+    .be-input-number__action:last-child::after {
       border-left: none;
     }
   }

@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "jm-picker-view": "../pickerView/index"
+    "be-picker-view": "../pickerView/index"
   }
 }

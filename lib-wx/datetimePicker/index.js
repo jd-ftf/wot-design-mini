@@ -45,7 +45,7 @@ VueComponent({
     }
   },
   data: {
-    pickerId: 'jm-picker'
+    pickerId: 'be-picker'
   },
   methods: {
     onChange({
@@ -75,7 +75,7 @@ VueComponent({
   },
 
   beforeCreate() {
-    // this.picker是jm-picker，this.picker.picker是jm-picker-view
+    // this.picker是be-picker，this.picker.picker是be-picker-view
     this.pickerView = this.picker.picker;
   },
 
