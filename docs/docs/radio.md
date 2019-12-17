@@ -99,7 +99,7 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 ### RadioGroup Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 绑定值，单向数据流。会自动选中value对应的单选框 | string / number / boolean | - | - |
+| value | 会自动选中value对应的单选框 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
@@ -108,7 +108,7 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | 选中值 |
+| bind:change | 绑定值变化时触发 | event.detail = 选中的radio的value  |
 
 ### Radio Attributes
 

@@ -177,12 +177,12 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | true-value、false-value |
+| bind:change | 绑定值变化时触发 | event.detail = true-value、false-value（true-value的值默认为true、false-value的值默认为false） |
 ### CheckboxGroup Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | 更新后的值,类型Array |
+| bind:change | 绑定值变化时触发 | event.detail = Array<number \| value>,复选框设置value时统一返回选中的value，否则返回节点下标 |
 
 
 ### Checkbox 外部样式类
