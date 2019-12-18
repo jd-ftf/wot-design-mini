@@ -1,193 +1,23 @@
+/* eslint-disable no-useless-return */
 import VueComponent from '../common/component'
 import touch from '../mixins/touch'
-// VueComponent({
-//   externalClasses: [
-//     'custom-min-class',
-//     'custom-max-class'
-//   ],
-//   data: {
-//     handleRadius: 0,
-//     showRight: false,
-//     axleWidth: 0,
-//     activeLineWidth: 0,
-//     activeLineLeft: 0,
-//     handlePosition: [0, 0]
-//   },
-//   props: {
-//     hideMinMax: Boolean,
-//     hideLabel: Boolean,
-//     disabled: {
-//       type: Boolean,
-//       value: false
-//     },
-//     max: {
-//       type: Number,
-//       value: 100,
-//       observer (newValue) {
-//         if (newValue < 0) {
-//           this.setData({ max: 100 })
-//           console.warn('max value must be greater than 0')
-//         } else if (newValue <= this.data.min) {
-//           this.setData({ max: 100 })
-//           console.warn('max value must be greater than min value')
-//         }
-//       }
-//     },
-//     min: {
-//       type: Number,
-//       value: 0,
-//       observer (newValue) {
-//         if (newValue < 0) {
-//           this.setData({ min: 0 })
-//           console.warn('min value must be greater than 0')
-//         } else if (newValue >= this.data.max) {
-//           this.setData({ min: 0 })
-//           console.warn('min value must be less than max value')
-//         }
-//       }
-//     },
-//     value: {
-//       type: null,
-//       value: 0,
-//       observer (newValue, oldValue) {
-//         // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
-//         if (newValue === null || newValue === undefined) {
-//           this.setData({ value: oldValue })
-//           console.warn('value can\'t be null or undefined')
-//         } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
-//           throw Error('value must be dyadic array')
-//         } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
-//           this.setData({ value: oldValue })
-//           console.warn('value must be dyadic array Or Number')
-//         }
-//         this.setData({
-//           value: this.fixValue(newValue),
-//           showRight: this.checkType(newValue) === 'Array'
-//         })
-//         this.sliderControl()
-//       }
-//     },
-//     step: {
-//       type: Number,
-//       value: 1,
-//       observer (newValue) {
-//         if (newValue <= 0) {
-//           this.setData({ step: 1 })
-//           console.warn('step must be greater than 0')
-//         }
-//       }
-//     }
-//   },
-//   mounted () {
-//     this.initState()
-//   },
-//   methods: {
-//     checkType (value) {
-//       return Object.prototype.toString.call(value).slice(8, -1)
-//     },
-//     getRect (select) {
-//       return new Promise(resolve => {
-//         this.createSelectorQuery()
-//           .select(select)
-//           .boundingClientRect(rect => {
-//             rect && resolve(rect)
-//           }).exec()
-//       })
-//     },
-//     sliderControl () {
-//       const { value } = this.data
-//       const handlePosition = this.checkType(value) === 'Number'
-//         ? [this.value2Pos(value), 0]
-//         : [this.value2Pos(value[0]), this.value2Pos(value[1])]
-//       this.setData({
-//         handlePosition,
-//         activeLineWidth: Math.abs(handlePosition[0] - handlePosition[1]),
-//         activeLineLeft: Math.min(handlePosition[0], handlePosition[1])
-//       })
-//     },
-//     initState () {
-//       Promise.all([
-//         this.getRect('.jm-slider__handle-container'),
-//         this.getRect('.jm-slider__axle')
-//       ]).then(rects => {
-//         const [container, axle] = rects
-//         if (!container || !axle || !container.width || !axle.width) return
-//         this.setData({
-//           axleWidth: axle.width,
-//           handleRadius: container.width / 2
-//         })
-//         this.sliderControl()
-//       })
-//     },
-//     // 开始拖动事件
-//     handleTouchStart () {
-//       if (!this.data.disabled) this.$emit('dragstart', this.data.value)
-//     },
-//     // 拖动事件
-//     handleTouchMove (event) {
-//       const touchX = event.touches[0].clientX
-//       const { value } = this.data
-//       let newValue
-//       if (!this.data.disabled) {
-//         this.getRect('.jm-slider__axle').then(rect => {
-//           // 线条左端点距离屏幕长度
-//           const axleX = rect.left
-//           const currentPos = touchX - axleX
-//           if (this.checkType(value) === 'Number') {
-//             newValue = this.pos2Value(currentPos)
-//           } else {
-//             // 在这个地方把数据限制死
-//             const deltaLeft = Math.abs(currentPos - this.value2Pos(value[0]))
-//             const deltaRight = Math.abs(currentPos - this.value2Pos(value[1]))
-//             const currentValue = this.pos2Value(currentPos)
-//             newValue = deltaLeft < deltaRight ? [currentValue, value[1]] : [value[0], currentValue]
-//           }
-//           this.$emit('dragmove', newValue)
-//         })
-//       }
-//     },
-//     // 结束拖动事件
-//     handleTouchEnd () {
-//       if (!this.data.disabled) {
-//         this.$emit('dragend', this.data.value)
-//       }
-//     },
-//     // 如果value超出限定值则设定为限定值
-//     fixValue (value) {
-//       const { min, max } = this.data
-//       if (this.checkType(value) !== 'Array') {
-//         value < min && (value = min)
-//         value > max && (value = max)
-//       } else {
-//         value[0] < min && (value[0] = min)
-//         value[1] > max && (value[1] = max)
-//       }
-//       return value
-//     },
-//     // 将pos转化为value
-//     pos2Value (pos) {
-//       const { axleWidth, max, min, step } = this.data
-//       const percent = pos / axleWidth
-//       const value = percent * (max - min) + min
-//       const res = min + Math.floor((value - min) / step) * step
-//       return this.fixValue(res)
-//     },
-//     // 将value转化为pos
-//     value2Pos (value) {
-//       const { min, max, axleWidth } = this.data
-//       const fixedValue = this.fixValue(value)
-//       // 移动距离的宽度比例
-//       const percent = (fixedValue - min) / (max - min)
-//       return percent * axleWidth
-//     }
-//   }
-// })
+
+const $selector = '.be-slider'
+// 存放右滑轮中的所有属性
+const rightSlider = {}
 VueComponent({
+  externalClasses: [
+    'custom-min-class',
+    'custom-max-class'
+  ],
   data: {
     showRight: false,
+    barStyle: 'width: 50%; height: 6px',
+    barHeight: '6px',
+    leftNewValue: 0,
+    rightNewValue: 0,
     rightBarPercent: 0,
-    leftBarPercent: 0,
-    rightSlider: {}
+    leftBarPercent: 0
   },
   mixins: [touch()],
   props: {
@@ -205,43 +35,78 @@ VueComponent({
       type: String,
       value: ''
     },
-    barStyle: {
-      type: String,
-      value: 'width: 50%; height: 6px'
-    },
     max: {
       type: Number,
-      value: 100
+      value: 100,
+      observer (newValue) {
+        if (newValue < 0) {
+          this.setData({ max: 100 })
+          console.warn('max value must be greater than 0')
+        } else if (newValue <= this.data.min) {
+          this.setData({ max: 100 })
+          console.warn('max value must be greater than min value')
+        }
+      }
     },
     min: {
       type: Number,
-      value: 0
+      value: 0,
+      observer (newValue) {
+        if (newValue < 0) {
+          this.setData({ min: 0 })
+          console.warn('min value must be greater than 0')
+        } else if (newValue >= this.data.max) {
+          this.setData({ min: 0 })
+          console.warn('min value must be less than max value')
+        }
+      }
     },
     step: {
       type: Number,
-      value: 1
+      value: 1,
+      observer (newValue) {
+        if (newValue <= 0) {
+          this.setData({ step: 1 })
+          console.warn('step must be greater than 0')
+        }
+      }
     },
     value: {
       type: null,
       value: 0,
       observer (newValue, oldValue) {
+        // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
+        if (newValue === null || newValue === undefined) {
+          this.setData({ value: oldValue })
+          console.warn('value can\'t be null or undefined')
+        } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
+          throw Error('value must be dyadic array')
+        } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
+          this.setData({ value: oldValue })
+          console.warn('value must be dyadic array Or Number')
+        }
+        this.currentValue = newValue
+        // 动态传值后修改
         if (this.checkType(newValue) === 'Array') {
-          console.log(newValue)
-          this.leftBarSlider(newValue[0])
-          this.rightBarSlider(newValue[1])
+          if (this.equar(newValue, oldValue)) return
+          this.setData({ showRight: true })
+          const { leftBarPercent, rightBarPercent } = this.data
+          if (leftBarPercent < rightBarPercent) {
+            this.leftBarSlider(newValue[0])
+            this.rightBarSlider(newValue[1])
+          } else {
+            this.leftBarSlider(newValue[1])
+            this.rightBarSlider(newValue[0])
+          }
         } else {
-          newValue !== oldValue && this.leftBarSlider(newValue)
+          if (newValue === oldValue) return
+          this.leftBarSlider(newValue)
         }
       }
-    },
-    barHeight: {
-      type: String,
-      value: '6px'
     }
   },
   mounted () {
-    this.setData({ showRight: this.checkType(this.data.value) === 'Array' })
-    this.getRect('.be-slider').then(rect => {
+    this.getRect($selector).then(rect => {
       if (!rect || !rect.width) return
       // trackWidth: 轨道全长
       this.trackWidth = rect.width
@@ -250,22 +115,14 @@ VueComponent({
     })
   },
   methods: {
-    onClick (event) {
-      this.pos2Value(event.detail.x)
-      if (this.data.disabled) return
-      console.log()
-      // 做一个点击时移动的效果，需要考虑双点的 slider 情况
-      // 当前位置坐标 - 轨道左侧顶端位置 / 轨道宽度
-      // 此时 value 值为小数，因此需要对 value 进行一个校验取整操作
-      // this.leftBarSlider(this.pos2Value(event.detail.x))
-    },
     onTouchStart (event) {
-      const { disabled, value } = this.data
+      const { disabled, leftBarPercent, value, rightBarPercent } = this.data
       if (disabled) return
       this.touchStart(event)
       this.startValue = this.checkType(value) !== 'Array'
         ? this.format(value)
-        : this.format(value[0])
+        : (leftBarPercent < rightBarPercent ? this.format(value[0]) : this.format(value[1]))
+      this.$emit('dragstart', this.currentValue)
     },
     onTouchMove (event) {
       const { disabled, max, min } = this.data
@@ -274,83 +131,92 @@ VueComponent({
       // 移动间距 this.deltaX 就是向左(-)向右(+)
       const diff = this.deltaX / this.trackWidth * (max - min)
       this.newValue = this.startValue + diff
+      // 左滑轮滑动控制
       this.leftBarSlider(this.newValue)
+      this.$emit('dragmove', this.currentValue)
     },
     onTouchEnd () {
       if (this.data.disabled) return
-      console.log()
+      this.$emit('dragend', this.currentValue)
     },
-    // 右边滑轮
+    // 右边滑轮滑动状态监听
     onTouchStartRight (event) {
-      const { disabled, rightBarPercent } = this.data
-      if (disabled) return
-      this.touchStart.call(this.data.rightSlider, event)
-      this.data.rightSlider.startValue = this.format(rightBarPercent)
+      if (this.data.disabled) return
+      const { leftBarPercent, rightBarPercent, value } = this.data
+      // 右滑轮移动时数据绑定
+      this.touchStart.call(rightSlider, event)
+      // 记录开始数据值
+      rightSlider.startValue = leftBarPercent < rightBarPercent ? this.format(value[1]) : this.format(value[0])
+      this.$emit('dragstart', this.currentValue)
     },
     onTouchMoveRight (event) {
       if (this.data.disabled) return
-      this.touchMove.call(this.data.rightSlider, event)
       const { max, min } = this.data
-      const { rightSlider } = this.data
+      this.touchMove.call(rightSlider, event)
       // 移动间距 this.deltaX 就是向左向右
       const diff = rightSlider.deltaX / this.trackWidth * (max - min)
       rightSlider.newValue = this.format(rightSlider.startValue + diff)
+      // 右滑轮滑动控制
       this.rightBarSlider(rightSlider.newValue)
+      this.$emit('dragmove', this.currentValue)
     },
     onTouchEndRight () {
       if (this.data.disabled) return
-      console.log()
-    },
-    format (value) {
-      const { max, min, step } = this.data
-      return Math.round(Math.max(min, Math.min(value, max)) / step) * step
+      this.$emit('dragend', this.currentValue)
     },
     /**
-     * 控制蓝条
-     * @param {Numbe，Array} value 值
-     * @param {Boolean} left true左，false右
+     * 控制右侧滑轮滑动， value校验
+     * @param {Number} value 当前滑轮绑定值
      */
-    styleControl (value, left) {
-      // const { leftBarPercent, rightBarPercent } = this.data
-      // const leftP = leftBarPercent < rightBarPercent ? leftBarPercent : rightBarPercent
-      // value = leftBarPercent < rightBarPercent
-      //   ? [this.newValue, this.data.rightSlider.newValue]
-      //   : [this.data.rightSlider.newValue, this.newValue]
-      // const barStyle = `width: ${this.data.leftBarPercent}%; height: ${this.data.barHeight}; left: ${leftP}%`
-    },
     rightBarSlider (value) {
       const { min, max } = this.data
-      const rightBarPercent = this.format((value - min) / (max - min) * 100)
-      // const barStyle = `width: ${percent}%; height: ${this.data.barHeight}; left: ${rightBarPercent}%`
+      value = this.format(value)
+      const rightBarPercent = (value - min) / (max - min) * 100
       this.setData({
+        rightNewValue: value,
         rightBarPercent: this.format(rightBarPercent)
       })
-      this.styleControl(value, false)
+      this.styleControl()
     },
     /**
-     * 更新渲染数据，对 value 进行校验取整
-     * @param {Number} value 传入的要显示数据
-     * @param {Boolean} end 结束滑动标志
-     * @param {Boolean} drag 滑动中标志
-     * @param {Number} double 是否是双滑块 1:左滑块 2:右滑块
+     * 控制左滑轮滑动，更新渲染数据，对 value 进行校验取整
+     * @param {Number} value 当前滑轮绑定值
      */
-    leftBarSlider (value, end, drag) {
-      const { min, max } = this.data
+    leftBarSlider (value) {
+      const { min, max, showRight } = this.data
       value = this.format(value)
       // 把 value 转换成百分比
       const percent = this.format((value - min) / (max - min) * 100)
-      if (!this.data.showRight) {
+      if (!showRight) {
         this.setData({
           value,
+          leftNewValue: value,
           leftBarPercent: this.format(percent),
           barStyle: `width: ${percent}%; height: ${this.data.barHeight};`
         })
       } else {
         this.setData({
+          leftNewValue: value,
           leftBarPercent: this.format(percent)
         })
-        this.styleControl(value, true)
+        this.styleControl()
       }
+    },
+    // 样式控制
+    styleControl () {
+      const { leftNewValue, rightNewValue } = this.data
+      if (!leftNewValue || !rightNewValue) return
+      const { leftBarPercent, rightBarPercent } = this.data
+      // 左右滑轮距离左边最短为当前激活条所处位置
+      const barLeft = leftBarPercent < rightBarPercent
+        ? [leftBarPercent, rightBarPercent]
+        : [rightBarPercent, leftBarPercent]
+      // 通过左右滑轮的间距控制 激活条宽度 barLeft[1] - barLeft[0]
+      const barStyle = `width: ${barLeft[1] - barLeft[0]}%; height: ${this.data.barHeight}; left: ${barLeft[0]}%`
+      this.currentValue = leftNewValue < rightNewValue
+        ? [leftNewValue, rightNewValue]
+        : [rightNewValue, leftNewValue]
+      this.setData({ barStyle })
     },
     // 将pos转化为value
     pos2Value (pos) {
@@ -362,6 +228,17 @@ VueComponent({
     },
     checkType (value) {
       return Object.prototype.toString.call(value).slice(8, -1)
+    },
+    equar (arr1, arr2) {
+      let i = 0
+      arr1.forEach((item, index) => {
+        item === arr2[index] && i++
+      })
+      return (i === 2)
+    },
+    format (value) {
+      const { max, min, step } = this.data
+      return Math.round(Math.max(min, Math.min(value, max)) / step) * step
     }
   }
 })
