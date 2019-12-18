@@ -27,7 +27,7 @@
     position: relative;
     border-radius: 999px;
     background-color: #e5e5e5;
-    margin: 20px 30px;
+    margin: 20px 21px;
   }
   @include e(bar) {
     position: relative;
@@ -42,6 +42,9 @@
     top: 0;
     -webkit-transform: translate3d(50%,-50%, 0);
     transform: translate3d(50%,-50%, 0);
+  }
+  @include e(has-label)  {
+    padding-top: $-slider-handle-radius;
   }
   @include e(button) {
     height: $-slider-handle-radius * 2;
