@@ -1,4 +1,6 @@
 import VueComponent from '../common/component'
+
+const $body = '.wd-collapse-item__body'
 VueComponent({
   externalClasses: ['custom-class'],
   data: {
@@ -47,21 +49,10 @@ VueComponent({
         show: isExpand,
         isExpand: accordion ? value === name : value.indexOf(name) > -1
       })
-      this.scrollHeight('.wd-collapse-item__body')
+      this.scrollHeight($body)
     },
     stateControl (key, value) {
       this.setData({ [key]: value })
-    },
-    getRect (select) {
-      return new Promise(resolve => {
-        this.createSelectorQuery()
-          .select(select)
-          .boundingClientRect(rect => {
-            if (rect) {
-              resolve(rect)
-            }
-          }).exec()
-      })
     },
     async scrollHeight (select) {
       const { height } = await this.getRect(select)
@@ -85,11 +76,11 @@ VueComponent({
       if (accordion) {
         this.parent.children.forEach(item => {
           item.stateControl('isExpand', item.data.name === name)
-          item.scrollHeight('.wd-collapse-item__body')
+          item.scrollHeight($body)
         })
       } else {
         this.setData({ isExpand: !isExpand })
-        this.scrollHeight('.wd-collapse-item__body')
+        this.scrollHeight($body)
       }
       // 调用父组件方法 switchValue 当前选中的是什么，判断当前是否处于选中状态
       this.parent.switchValue(name, !isExpand)
