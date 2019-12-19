@@ -1,5 +1,5 @@
 {
-  "name": "bee-design-mini",
+  "name": "wot-design-mini",
   "version": "0.8.0",
   "description": "A ui component library for mini program",
   "scripts": {
@@ -14,10 +14,10 @@
     "tag": "node build/build-tag.js"
   },
   "keywords": [
-    "bee",
+    "wot",
     "design",
-    "bee-design",
-    "bee-design-mini",
+    "wot-design",
+    "wot-design-mini",
     "jd",
     "wechat"
   ],

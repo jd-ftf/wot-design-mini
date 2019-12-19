@@ -1,11 +1,11 @@
 <view
-  class="be-input-number custom-class {{ disabled ? 'is-disabled' : '' }} {{ withoutInput ? 'is-without-input' : '' }}">
-  <view class="be-input-number__action {{ minDisabled ? 'is-disabled' : '' }}" bindtap="sub">
-    <view class="be-input-number__sub"></view>
+  class="wd-input-number custom-class {{ disabled ? 'is-disabled' : '' }} {{ withoutInput ? 'is-without-input' : '' }}">
+  <view class="wd-input-number__action {{ minDisabled ? 'is-disabled' : '' }}" bindtap="sub">
+    <view class="wd-input-number__sub"></view>
   </view>
-  <view jd:if="{{!withoutInput}}" class="be-input-number__inner">
+  <view jd:if="{{!withoutInput}}" class="wd-input-number__inner">
     <input
-      class="be-input-number__input"
+      class="wd-input-number__input"
       style="{{ inputWidth ? ('width: ' + inputWidth) : '' }}"
       type="digit"
       disabled="{{disabled}}"
@@ -14,9 +14,9 @@
       bindfocus="handleFocus"
       bindblur="handleBlur"
     />
-    <view class="be-input-number__input-border"></view>
+    <view class="wd-input-number__input-border"></view>
   </view>
-  <view class="be-input-number__action {{ maxDisabled ? 'is-disabled' : '' }}" bindtap="add">
-    <view class="be-input-number__add"></view>
+  <view class="wd-input-number__action {{ maxDisabled ? 'is-disabled' : '' }}" bindtap="add">
+    <view class="wd-input-number__add"></view>
   </view>
 </view>

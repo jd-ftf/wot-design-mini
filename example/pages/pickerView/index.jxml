@@ -1,6 +1,6 @@
-<be-toast id="be-toast"/>
+<wd-toast id="wd-toast"/>
 <demo-block title="基本用法，数值: {{value1}}" transparent>
-  <be-picker-view
+  <wd-picker-view
     value="{{value1}}"
     columns="{{columns1}}"
     data-index="{{1}}"
@@ -9,7 +9,7 @@
 </demo-block>
 
 <demo-block title="禁用选项，数值: {{value2}}" transparent>
-  <be-picker-view
+  <wd-picker-view
     value="{{value2}}"
     columns="{{columns2}}"
     data-index="{{2}}"
@@ -18,7 +18,7 @@
 </demo-block>
 
 <demo-block title="加载中，数值: {{value3}}" transparent>
-  <be-picker-view
+  <wd-picker-view
     value="{{value3}}"
     columns="{{columns3}}"
     data-index="{{3}}"
@@ -28,7 +28,7 @@
 </demo-block>
 
 <demo-block title='多列，数值: [{{value4}}]' transparent>
-  <be-picker-view
+  <wd-picker-view
     value="{{value4}}"
     columns="{{columns4}}"
     data-index="{{4}}"
@@ -37,7 +37,7 @@
 </demo-block>
 
 <demo-block title='多级联动，数值: [{{value5}}]' transparent>
-  <be-picker-view
+  <wd-picker-view
     value="{{value5}}"
     columns="{{columns5}}"
     column-change="{{onChangeDistrict}}"

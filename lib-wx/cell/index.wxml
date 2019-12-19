@@ -1,20 +1,20 @@
-<view class="be-cell custom-class {{noHair?'is-no-hair':'' }}"
+<view class="wd-cell custom-class {{noHair?'is-no-hair':'' }}"
       hover-class="{{clickable?'is-hover':'none'}}"
       hover-stay-time="70"
       bindtap="onClick">
   <!--左侧icon部位-->
-  <be-icon
+  <wd-icon
     wx:if="{{icon}}"
     name="{{icon}}"
-    class="be-cell__icon custom-icon-class"
+    class="wd-cell__icon custom-icon-class"
   >
-  </be-icon>
+  </wd-icon>
   <view wx:else class="custom-icon-class">
     <slot name="icon"/>
   </view>
 
-  <view class="be-cell__wrapper">
-    <view class="be-cell__title">
+  <view class="wd-cell__wrapper">
+    <view class="wd-cell__title">
       <!--title BEGIN-->
       <view class="custom-title-class">
         <block wx:if="{{title}}">{{title}}</block>
@@ -23,7 +23,7 @@
       <!--title END-->
 
       <!--label BEGIN-->
-      <view wx:if="{{label}}" class="be-cell__label custom-label-class">
+      <view wx:if="{{label}}" class="wd-cell__label custom-label-class">
         <block>{{label}}</block>
       </view>
       <slot wx:else name="label"/>
@@ -31,14 +31,14 @@
     </view>
 
     <!--right content BEGIN-->
-    <view class="be-cell__right">
+    <view class="wd-cell__right">
       <!--文案内容-->
-      <view class="be-cell__value custom-value-class">
+      <view class="wd-cell__value custom-value-class">
         <block wx:if="{{value}}">{{value}}</block>
         <slot wx:else></slot>
       </view>
       <!--箭头-->
-      <be-icon wx:if="{{isLink}}" class="be-cell__arrow-right" name="arrow-right"/>
+      <wd-icon wx:if="{{isLink}}" class="wd-cell__arrow-right" name="arrow-right"/>
     </view>
     <!--right content END-->
   </view>

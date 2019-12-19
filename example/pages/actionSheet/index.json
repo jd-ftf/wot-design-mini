@@ -2,7 +2,7 @@
   "navigationBarTitleText": "ActionSheet 上拉菜单",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-action-sheet": "../../dist/actionSheet/index",
-    "be-button": "../../dist/button/index"
+    "wd-action-sheet": "../../dist/actionSheet/index",
+    "wd-button": "../../dist/button/index"
   }
 }

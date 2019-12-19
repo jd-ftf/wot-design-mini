@@ -1,27 +1,27 @@
-<view class="be-search custom-class {{ light ? 'is-light': ''}} {{ hideCancel ? 'is-without-cancel': '' }}" custom-class>
+<view class="wd-search custom-class {{ light ? 'is-light': ''}} {{ hideCancel ? 'is-without-cancel': '' }}" custom-class>
   <!--自定义label插槽-->
   <slot jd:if="{{useLabelSlot}}" name="label"></slot>
   <!--搜索框主体-->
-  <view class="be-search__block">
+  <view class="wd-search__block">
     <view
       jd:if="{{!placeholderLeft}}"
       hidden="{{str || !showPlaceHolder}}"
-      class="be-search__placeholder"
-      class="be-search__placeholder"
+      class="wd-search__placeholder"
+      class="wd-search__placeholder"
       bindtap="closePlaceHolder"
     >
-      <be-icon name="search" class="be-search__search-icon"></be-icon>
+      <wd-icon name="search" class="wd-search__search-icon"></wd-icon>
       <text>{{ placeholder || '搜索' }}</text>
     </view>
     <!--icon:search-->
-    <be-icon name="search" class="be-search__search-icon"></be-icon>
+    <wd-icon name="search" class="wd-search__search-icon"></wd-icon>
     <!--搜索框-->
     <input
       placeholder="{{ placeholder || '搜索' }}"
-      placeholder-class="be-search__placeholder-txt"
+      placeholder-class="wd-search__placeholder-txt"
       confirm-type="search"
       value="{{str}}"
-      class="be-search__input"
+      class="wd-search__input"
       bindfocus="searchFocus"
       bindinput="inputValue"
       bindblur="searchBlur"
@@ -31,10 +31,10 @@
       focus="{{autofocus}}"
     />
     <!--icon:clear-->
-    <be-icon
+    <wd-icon
       jd:if="{{str}}"
       name="close-fill"
-      class="be-search__clear"
+      class="wd-search__clear"
       bindtap="clearSearch"
     />
   </view>
@@ -43,7 +43,7 @@
     <!--有插槽就不用默认的按钮了-->
     <slot jd:if="{{useActionSlot}}" name="action"></slot>
     <!--默认button-->
-    <view jd:else class="be-search__cancel" bindtap="handleCancel">
+    <view jd:else class="wd-search__cancel" bindtap="handleCancel">
       {{ cancelTxt || '取消' }}
     </view>
   </block>

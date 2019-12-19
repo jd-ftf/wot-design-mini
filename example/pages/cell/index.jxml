@@ -1,78 +1,78 @@
-<be-toast id="be-toast"/>
+<wd-toast id="wd-toast"/>
 <demo-block title="基本用法" transparent="#f4f4f4">
-    <be-cell-group>
-        <be-cell title="标题文字" value="内容"/>
-        <be-cell title="标题文字" label="描述信息" value="内容"/>
-    </be-cell-group>
+    <wd-cell-group>
+        <wd-cell title="标题文字" value="内容"/>
+        <wd-cell title="标题文字" label="描述信息" value="内容"/>
+    </wd-cell-group>
 </demo-block>
 
 <demo-block title="图标" transparent="#f4f4f4">
-    <be-cell-group>
-        <be-cell title="标题文字" value="内容" icon="setting"/>
-        <be-cell title="标题文字" value="内容" icon="collect"/>
-        <be-cell
+    <wd-cell-group>
+        <wd-cell title="标题文字" value="内容" icon="setting"/>
+        <wd-cell title="标题文字" value="内容" icon="collect"/>
+        <wd-cell
                 title="标题文字"
                 value="内容"
                 custom-icon-class="custom-icon-class"
         >
-            <be-icon slot="icon" name="play"/>
-        </be-cell>
-    </be-cell-group>
+            <wd-icon slot="icon" name="play"/>
+        </wd-cell>
+    </wd-cell-group>
 </demo-block>
 
 <demo-block title="分组标题" transparent="#f4f4f4">
-    <be-cell-group
+    <wd-cell-group
             use-slot
             title="交易管理"
     >
         <view slot="value" class="blueColor">
-            <be-icon name="cart"/>
+            <wd-icon name="cart"/>
             <span>订购</span>
         </view>
-        <be-cell title="标题文字" value="内容"/>
-        <be-cell
+        <wd-cell title="标题文字" value="内容"/>
+        <wd-cell
                 title="标题文字"
                 label="描述信息"
                 value="内容"
         >
-        </be-cell>
-    </be-cell-group>
+        </wd-cell>
+    </wd-cell-group>
 </demo-block>
 
 <demo-block title="页面跳转" transparent="#f4f4f4">
-    <be-cell-group>
-        <be-cell title="帮助与反馈" clickable bind:click="onClick"/>
-        <be-cell
+    <wd-cell-group>
+        <wd-cell title="帮助与反馈" clickable bind:click="onClick"/>
+        <wd-cell
                 is-link
                 to="/pages/button/index"
                 title="设置"
                 value="内容"
                 bind:click="onClick"
         >
-        </be-cell>
-    </be-cell-group>
+        </wd-cell>
+    </wd-cell-group>
 </demo-block>
 
 <demo-block title="自定义slot" transparent="#f4f4f4">
-    <be-cell-group use-slot>
+    <wd-cell-group use-slot>
         <view slot="title">交易管理</view>
         <view slot="value" class="blueColor">
-            <be-icon name="cart"/>
+            <wd-icon name="cart"/>
             <span>订购</span>
         </view>
-        <be-cell
+        <wd-cell
                 is-link
                 custom-icon-class="custom-icon-class"
                 custom-title-class="custom-title-class"
                 custom-value-class="custom-value-class"
         >
-            <be-icon slot="icon" name="play"></be-icon>
+            <wd-icon slot="icon" name="play"></wd-icon>
             <view slot="title">
                 <text>标题文字</text>
                 <view class="end-time">25天后到期</view>
             </view>
             <text slot="label" class="custom-label">描述信息</text>
             <text>内容</text>
-        </be-cell>
-    </be-cell-group>
+        </wd-cell>
+    </wd-cell-group>
 </demo-block>

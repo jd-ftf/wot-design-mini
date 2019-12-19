@@ -164,13 +164,13 @@
     transition: opacity .3s;
   }
   @include when(slide) {
-    .be-tabs__nav-item {
+    .wd-tabs__nav-item {
       flex: 0 0 auto;
       padding: 0 17px;
     }
   }
   @include when(map) {
-    .be-tabs__nav--wrap{
+    .wd-tabs__nav--wrap{
       padding-right: 40px;
     }
   }

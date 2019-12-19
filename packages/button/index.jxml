@@ -1,6 +1,6 @@
 <button
-  hover-class="be-button--active"
-  class="be-button custom-class is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
+  hover-class="wd-button--active"
+  class="wd-button custom-class is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
   open-type="{{ openType }}"
   send-message-title="{{sendMessageTitle}}"
   send-message-path="{{sendMessagePath}}"
@@ -22,8 +22,8 @@
   bindlaunchapp="handleLaunchapp"
   bindopensetting="handleOpensetting"
 >
-  <be-icon jd:if="{{icon}}" class="be-button__icon" name="{{icon}}" size="1.2em"></be-icon>
-  <view class="be-button__text">
+  <wd-icon jd:if="{{icon}}" class="wd-button__icon" name="{{icon}}" size="1.2em"></wd-icon>
+  <view class="wd-button__text">
     <slot/>
   </view>
 </button>

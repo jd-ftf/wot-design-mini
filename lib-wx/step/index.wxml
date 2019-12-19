@@ -1,33 +1,33 @@
 <view
   wx:if="{{ currentStatus }}"
-  class="be-step custom-class {{ currentStatus ? 'is-' + currentStatus : '' }} {{ canAlignCenter ? 'is-center' : '' }} {{ vertical ? 'is-vertical' : '' }}"
+  class="wd-step custom-class {{ currentStatus ? 'is-' + currentStatus : '' }} {{ canAlignCenter ? 'is-center' : '' }} {{ vertical ? 'is-vertical' : '' }}"
   style="{{ styles }}"
 >
-  <view class="be-step__header {{ dot ? 'is-dot' : '' }}">
-    <view class="be-step__icon {{ dot ? 'is-dot' : (!!icon || iconSlot ? 'is-icon' : 'is-text') }}">
-      <view wx:if="{{ dot }}" class="be-step__dot"></view>
+  <view class="wd-step__header {{ dot ? 'is-dot' : '' }}">
+    <view class="wd-step__icon {{ dot ? 'is-dot' : (!!icon || iconSlot ? 'is-icon' : 'is-text') }}">
+      <view wx:if="{{ dot }}" class="wd-step__dot"></view>
       <slot wx:elif="{{ iconSlot }}" name="icon"/>
-      <be-icon wx:elif="{{ icon }}" class="be-step__icon-inner" name="{{ icon }}"/>
+      <wd-icon wx:elif="{{ icon }}" class="wd-step__icon-inner" name="{{ icon }}"/>
       <view
         wx:elif="{{ currentStatus !== 'finished' && currentStatus !== 'error' }}"
-        class="be-step__icon-outer"
+        class="wd-step__icon-outer"
       >
         {{ index + 1 }}
       </view>
-      <be-icon
+      <wd-icon
         wx:else
-        class="be-step__icon-inner"
+        class="wd-step__icon-inner"
         name="{{ currentStatus === 'finished' ? 'success' : 'close' }}"
       />
     </view>
-    <view wx:if="{{ index < childrenLength - 1 }}" class="be-step__line"></view>
+    <view wx:if="{{ index < childrenLength - 1 }}" class="wd-step__line"></view>
   </view>
-  <view class="be-step__content">
-    <view class="be-step__title {{ descriptionSlot || description ? 'is-description' : '' }}">
+  <view class="wd-step__content">
+    <view class="wd-step__title {{ descriptionSlot || description ? 'is-description' : '' }}">
       <slot wx:if="{{ titleSlot }}" name="title"/>
       <text wx:else>{{ currentTitle }}</text>
     </view>
-    <view wx:if="{{ descriptionSlot || description }}" class="be-step__description">
+    <view wx:if="{{ descriptionSlot || description }}" class="wd-step__description">
       <slot wx:if="{{ descriptionSlot }}"/>
       <text wx:else>{{ description }}</text>
     </view>

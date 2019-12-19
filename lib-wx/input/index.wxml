@@ -1,12 +1,12 @@
-<view class="be-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ disabled ? 'is-disabled' : '' }} custom-class">
+<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ disabled ? 'is-disabled' : '' }} custom-class">
   <!-- 文本域 -->
 	<view wx:if="{{ type === 'textarea' }}">
-  	<view class="be-input__textarea {{ showWordCount ? 'is-show-limit' : '' }}">
+  	<view class="wd-input__textarea {{ showWordCount ? 'is-show-limit' : '' }}">
       <!-- readonly -->
-    	<view wx:if="{{ readonly }}" class="be-input__textarea-inner">{{ value }}</view>
+    	<view wx:if="{{ readonly }}" class="wd-input__textarea-inner">{{ value }}</view>
       <block wx:else>
         <textarea
-          class="be-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} custom-textarea-class"
+          class="wd-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} custom-textarea-class"
           value="{{ value }}"
           placeholder="{{ placeholder }}"
           disabled="{{ disabled }}"
@@ -32,30 +32,30 @@
           bindlinechange="handleLineChange"
           bindkeyboardheightchange="handleKeyboardheightchange"
         />
-        <view class="be-input__textarea-suffix">
-          <be-icon wx:if="{{ showClear }}" class="be-input__icon" name="close-outline" catchtap="clear"/>
-          <view wx:if="{{ showWordCount }}" class="be-input__textarea-count">
-            <text class="be-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
+        <view class="wd-input__textarea-suffix">
+          <wd-icon wx:if="{{ showClear }}" class="wd-input__icon" name="close-outline" catchtap="clear"/>
+          <view wx:if="{{ showWordCount }}" class="wd-input__textarea-count">
+            <text class="wd-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
           </view>
         </view>
       </block>
     </view>
   </view>
   <!-- 输入域 -->
-  <view wx:else class="be-input__block">
-    <view wx:if="{{ prefixIcon || usePrefixSlot }}" class="be-input__icon-wrap">
-      <be-icon wx:if="{{ prefixIcon }}" class="be-input__icon" name="{{ prefixIcon }}"/>
+  <view wx:else class="wd-input__block">
+    <view wx:if="{{ prefixIcon || usePrefixSlot }}" class="wd-input__icon-wrap">
+      <wd-icon wx:if="{{ prefixIcon }}" class="wd-input__icon" name="{{ prefixIcon }}"/>
       <view wx:else class="custom-prefix-class">
         <slot name="prefix"></slot>
       </view>
     </view>
     <!-- readonly -->
-    <view wx:if="{{ readonly }}" class="be-input__inner be-input__readonly">{{ value }}</view>
+    <view wx:if="{{ readonly }}" class="wd-input__inner wd-input__readonly">{{ value }}</view>
     <!-- 密码隐藏 -->
     <block wx:else>
       <input
         wx:if="{{ showPassword && !isPwdVisible }}"
-        class="be-input__inner {{ prefixIcon ? 'be-input__inner--prefix' : '' }} {{ showWordCount ? 'be-input__inner--count' : '' }} custom-input-class"
+        class="wd-input__inner {{ prefixIcon ? 'wd-input__inner--prefix' : '' }} {{ showWordCount ? 'wd-input__inner--count' : '' }} custom-input-class"
         type="password"
         password="{{ isPwdVisible }}"
         value="{{ value }}"
@@ -85,7 +85,7 @@
       <!-- 密码不隐藏 -->
       <input
         wx:else
-        class="be-input__inner {{ prefixIcon ? 'be-input__inner--prefix' : '' }} {{ showWordCount ? 'be-input__inner--count' : '' }} custom-input-class"
+        class="wd-input__inner {{ prefixIcon ? 'wd-input__inner--prefix' : '' }} {{ showWordCount ? 'wd-input__inner--count' : '' }} custom-input-class"
         type="text"
         value="{{ value }}"
         placeholder="{{ placeholder }}"
@@ -111,18 +111,18 @@
         bindkeyboardheightchange="handleKeyboardheightchange"
       >
       </input>
-      <view wx:if="{{ showClear || showPassword || suffixIcon || showWordCount || useSuffixSlot }}" class="be-input__icon-wrap">
-        <be-icon wx:if="{{ showClear }}" class="be-input__icon " name="close-outline"  bindtap="clear"/>
-        <be-icon
+      <view wx:if="{{ showClear || showPassword || suffixIcon || showWordCount || useSuffixSlot }}" class="wd-input__icon-wrap">
+        <wd-icon wx:if="{{ showClear }}" class="wd-input__icon " name="close-outline"  bindtap="clear"/>
+        <wd-icon
           wx:if="{{ showPassword }}"
-          class="be-input__icon "
+          class="wd-input__icon "
           name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
           bindtap="togglePwdVisible"
         />
-        <view wx:if="{{ showWordCount }}" class="be-input__count">
-          <view class="be-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">{{ value.length }}</view>/{{ maxlength }}
+        <view wx:if="{{ showWordCount }}" class="wd-input__count">
+          <view class="wd-input__count-current {{  value.length > maxlength ?  'is-error' : '' }}">{{ value.length }}</view>/{{ maxlength }}
         </view>
-        <be-icon wx:if="{{ suffixIcon }}" class="be-input__icon " name="{{ suffixIcon }}"/>
+        <wd-icon wx:if="{{ suffixIcon }}" class="wd-input__icon " name="{{ suffixIcon }}"/>
         <view wx:else class="custom-suffix-class">
           <slot name="suffix"></slot>
         </view>

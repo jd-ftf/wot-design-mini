@@ -1,18 +1,18 @@
 <view>
   <demo-block title="基本用法">
-    <be-switch value="{{ checked1 }}" bind:change="handleChange1" />
+    <wd-switch value="{{ checked1 }}" bind:change="handleChange1" />
   </demo-block>
   <demo-block title="修改值 active-value 、 inactive-value">
     <view style="margin-bottom: 10px;">{{ checked2 }}</view>
-    <be-switch value="{{ checked2 }}" active-value="京麦" inactive-value="商家后台" bind:change="handleChange2" />
+    <wd-switch value="{{ checked2 }}" active-value="京麦" inactive-value="商家后台" bind:change="handleChange2" />
   </demo-block>
   <demo-block title="自定义颜色 active-color 、 inactive-color">
-    <be-switch value="{{ checked3 }}" active-color="#13ce66"  inactive-color="#f00" bind:change="handleChange3" />
+    <wd-switch value="{{ checked3 }}" active-color="#13ce66"  inactive-color="#f00" bind:change="handleChange3" />
   </demo-block>
   <demo-block title="修改大小">
-    <be-switch value="{{ checked4 }}" size="20px" bind:change="handleChange4" />
+    <wd-switch value="{{ checked4 }}" size="20px" bind:change="handleChange4" />
   </demo-block>
   <demo-block title="禁用">
-    <be-switch value="{{ checked5 }}" disabled="{{true}}" />
+    <wd-switch value="{{ checked5 }}" disabled="{{true}}" />
   </demo-block>
 </view>

@@ -2,7 +2,7 @@
   "navigationBarTitleText": "pickerView 选择器视图",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-picker-view": "../../dist/pickerView/index",
-    "be-toast": "../../dist/toast/index"
+    "wd-picker-view": "../../dist/pickerView/index",
+    "wd-toast": "../../dist/toast/index"
   }
 }

@@ -2,7 +2,7 @@
 import VueComponent from '../common/component'
 import touch from '../mixins/touch'
 
-const $selector = '.be-slider'
+const $selector = '.wd-slider'
 // 存放右滑轮中的所有属性
 const rightSlider = {}
 VueComponent({

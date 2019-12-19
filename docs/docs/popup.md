@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-popup": "/bee-design/popup/index"
+    "wd-popup": "/wot-design/popup/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 通过 `show` 属性设置显示隐藏，监听 `bind:close` 事件修改 `show`。
 
 ```html
-<be-popup show="{{ show }}" custom-style="padding: 30px 40px;" bind:close="handleClose">内容</be-popup>
+<wd-popup show="{{ show }}" custom-style="padding: 30px 40px;" bind:close="handleClose">内容</wd-popup>
 ```
 
 ### 弹出位置
@@ -23,7 +23,7 @@
 设置 `position`，默认为 'center'，可选值 'top', 'right', 'bottom', 'left'。
 
 ```html
-<be-popup show="{{ show }}" position="top" custom-style="height: 200px;" bind:close="handleClose"></be-popup>
+<wd-popup show="{{ show }}" position="top" custom-style="height: 200px;" bind:close="handleClose"></wd-popup>
 ```
 
 ### 关闭按钮
@@ -31,7 +31,7 @@
 设置 `closable` 属性。
 
 ```html
-<be-popup show="{{ show }}" position="bottom" closable custom-style="height: 200px;" bind:close="handleClose"></be-popup>
+<wd-popup show="{{ show }}" position="bottom" closable custom-style="height: 200px;" bind:close="handleClose"></wd-popup>
 ```
 
 ### Attributes

@@ -42,7 +42,7 @@ VueComponent({
     }
   },
   data: {
-    pickerId: 'be-picker'
+    pickerId: 'wd-picker'
   },
   methods: {
     onChange ({ detail: { picker } }) {
@@ -62,7 +62,7 @@ VueComponent({
     }
   },
   beforeCreate () {
-    // this.picker是be-picker，this.picker.picker是be-picker-view
+    // this.picker是wd-picker，this.picker.picker是wd-picker-view
     this.pickerView = this.picker.picker
   },
   created () {

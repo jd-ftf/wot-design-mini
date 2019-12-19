@@ -1,10 +1,10 @@
-<view class="be-collapse-item {{ disabled ? 'is-disabled' : '' }} custom-class" >
-	<view class="be-collapse-item__header {{ firstItem ? 'be-collapse-item__header-first' : '' }} " bindtap="toggle">
-		<text class="be-collapse-item__title">{{ title }}</text>
-		<be-icon name="arrow-down" class="be-collapse-item__arrow {{ isExpand ? 'is-retract' : '' }}"></be-icon>
+<view class="wd-collapse-item {{ disabled ? 'is-disabled' : '' }} custom-class" >
+	<view class="wd-collapse-item__header {{ firstItem ? 'wd-collapse-item__header-first' : '' }} " bindtap="toggle">
+		<text class="wd-collapse-item__title">{{ title }}</text>
+		<wd-icon name="arrow-down" class="wd-collapse-item__arrow {{ isExpand ? 'is-retract' : '' }}"></wd-icon>
 	</view>
-	<view class="be-collapse-item__wrapper" style="height: {{ height }}; position: {{ show ? 'relative' : 'absolute' }}; visibility: {{ show ? 'show' :'hidden' }}" bindtransitionend="onTransitionend">
-		<view class="be-collapse-item__body">
+	<view class="wd-collapse-item__wrapper" style="height: {{ height }}; position: {{ show ? 'relative' : 'absolute' }}; visibility: {{ show ? 'show' :'hidden' }}" bindtransitionend="onTransitionend">
+		<view class="wd-collapse-item__body">
 			<slot></slot>
 		</view>
 	</view>

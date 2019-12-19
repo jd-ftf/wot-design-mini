@@ -65,7 +65,7 @@
     color: #c5c5c5;
   }
   @include when(no-hair){
-    .be-cell__wrapper::after {
+    .wd-cell__wrapper::after {
       display: none;
     }
   }

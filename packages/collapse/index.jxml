@@ -1,22 +1,22 @@
-<view class="be-collapse {{ viewmore ? 'is-viewmore' : '' }} custom-class" >
+<view class="wd-collapse {{ viewmore ? 'is-viewmore' : '' }} custom-class" >
 	<!-- 普通或手风琴 -->
 	<block jd:if="{{ !viewmore }}">
 		<slot></slot>
 	</block>
 	<!-- 查看更多模式 -->
 	<view jd:else>
-		<view class="be-collapse__content {{ !value ? 'is-retract' : '' }} " style="-webkit-line-clamp: {{ contentLineNum }}; -webkit-box-orient: vertical">
+		<view class="wd-collapse__content {{ !value ? 'is-retract' : '' }} " style="-webkit-line-clamp: {{ contentLineNum }}; -webkit-box-orient: vertical">
 			<slot></slot>
 		</view>
-		<view class="be-collapse__more" bindtap="switchValue">
+		<view class="wd-collapse__more" bindtap="switchValue">
 			<!-- 自定义展开按钮 -->
 			<view jd:if="{{ useMoreSlot }}" class="custom-more-slot-class">
 				<slot name="more"></slot>
 			</view>
 			<!-- 显示展开或折叠按钮 -->
 			<block jd:else>
-				<span class="be-collapse__more-txt ">{{ !value ? '展开' : '折叠' }}</span>
-				<be-icon name="arrow-down" class="be-collapse-item__arrow be-icon-arrow-down {{ isExpand ? 'is-retract' : '' }} "></be-icon>
+				<span class="wd-collapse__more-txt ">{{ !value ? '展开' : '折叠' }}</span>
+				<wd-icon name="arrow-down" class="wd-collapse-item__arrow wd-icon-arrow-down {{ isExpand ? 'is-retract' : '' }} "></wd-icon>
 			</block>
 		</view>
 	</view>

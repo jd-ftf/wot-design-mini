@@ -49,7 +49,7 @@ VueComponent({
   },
 
   created() {
-    this.$emit('change', this.formatValue(this.data.value));
+    this.dispatchChangeEvent(this.formatValue(this.data.value));
   },
 
   methods: {
@@ -87,7 +87,7 @@ VueComponent({
 
       if (value > this.data.max) value = this.toPrecision(this.data.max);
       if (value < this.data.min) value = this.toPrecision(this.data.min);
-      this.$emit('change', value);
+      this.dispatchChangeEvent(value);
     },
 
     changeStep(val, step) {
@@ -104,18 +104,18 @@ VueComponent({
     sub() {
       if (this.data.minDisabled) return;
       const newValue = this.changeStep(this.data.value, -this.data.step);
-      this.$emit('change', newValue);
+      this.dispatchChangeEvent(newValue);
     },
 
     add() {
       if (this.data.maxDisabled) return;
       const newValue = this.changeStep(this.data.value, this.data.step);
-      this.$emit('change', newValue);
+      this.dispatchChangeEvent(newValue);
     },
 
     handleInput(event) {
       const value = event.detail.value || '';
-      this.$emit('change', value);
+      this.dispatchChangeEvent(value);
     },
 
     handleFocus(event) {
@@ -126,6 +126,13 @@ VueComponent({
       const value = this.formatValue(this.data.value);
       this.setValue(value);
       this.$emit('blur', value);
+    },
+
+    dispatchChangeEvent(value) {
+      this.setData({
+        value
+      });
+      this.$emit('change', value);
     },
 
     formatValue(value) {

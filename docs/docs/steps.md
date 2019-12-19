@@ -5,8 +5,8 @@
 ```json
 {
   "usingComponents": {
-    "be-step": "/bee-design/step/index",
-    "be-steps": "/bee-design/steps/index"
+    "wd-step": "/wot-design/step/index",
+    "wd-steps": "/wot-design/steps/index"
   }
 }
 ```
@@ -16,11 +16,11 @@
 `active` 为步骤进度，为 number 类型，步骤的下标。
 
 ```html
-<be-steps active="{{ 0 }}">
-  <be-step />
-  <be-step />
-  <be-step />
-</be-steps>
+<wd-steps active="{{ 0 }}">
+  <wd-step />
+  <wd-step />
+  <wd-step />
+</wd-steps>
 ```
 
 ### 水平居中
@@ -28,11 +28,11 @@
 设置 `align-center` 水平居中，只对横向步骤条有效。
 
 ```html
-<be-steps active="{{ 0 }}" align-center>
-  <be-step />
-  <be-step />
-  <be-step />
-</be-steps>
+<wd-steps active="{{ 0 }}" align-center>
+  <wd-step />
+  <wd-step />
+  <wd-step />
+</wd-steps>
 ```
 
 ### 设置标题和描述信息
@@ -40,11 +40,11 @@
 可以通过 `title` 和 `description` 设置步骤的标题和描述信息。如果不设置标题，则会使用默认的文案。
 
 ```html
-<be-steps active="{{ 0 }}" align-center>
-  <be-step title="步骤1" description="注册1个账号" />
-  <be-step title="步骤2" description="登录账号并绑定手机" />
-  <be-step title="步骤3" description="完善个人信息" />
-</be-steps>
+<wd-steps active="{{ 0 }}" align-center>
+  <wd-step title="步骤1" description="注册1个账号" />
+  <wd-step title="步骤2" description="登录账号并绑定手机" />
+  <wd-step title="步骤3" description="完善个人信息" />
+</wd-steps>
 ```
 
 ### 修改图标
@@ -52,11 +52,11 @@
 可以通过 `icon` 属性设置步骤的图标，传入图标的名称，也可以通过 `icon` 的 slot 插槽自定义图标，使用插槽需要设置 `icon-slot` 为 `true`。
 
 ```html
-<be-steps active="{{ 1 }}" align-center>
-  <be-step icon="invite" />
-  <be-step icon="link" />
-  <be-step icon="clock" />
-</be-steps>
+<wd-steps active="{{ 1 }}" align-center>
+  <wd-step icon="invite" />
+  <wd-step icon="link" />
+  <wd-step icon="clock" />
+</wd-steps>
 ```
 
 ### 竖向步骤条
@@ -64,11 +64,11 @@
 设置 `vertical` 属性。
 
 ```html
-<be-steps active="{{ 1 }}" vertical>
-  <be-step description="注册1个账号" />
-  <be-step description="登录账号并绑定手机" />
-  <be-step description="完善个人信息" />
-</be-steps>
+<wd-steps active="{{ 1 }}" vertical>
+  <wd-step description="注册1个账号" />
+  <wd-step description="登录账号并绑定手机" />
+  <wd-step description="完善个人信息" />
+</wd-steps>
 ```
 
 ### 点状步骤
@@ -76,11 +76,11 @@
 设置 `dot` 属性。
 
 ```html
-<be-steps active="{{ 1 }}" vertical dot>
-  <be-step description="注册1个账号" />
-  <be-step description="登录账号并绑定手机" />
-  <be-step description="完善个人信息" />
-</be-steps>
+<wd-steps active="{{ 1 }}" vertical dot>
+  <wd-step description="注册1个账号" />
+  <wd-step description="登录账号并绑定手机" />
+  <wd-step description="完善个人信息" />
+</wd-steps>
 ```
 
 ### 修改状态
@@ -88,11 +88,11 @@
 设置 `status`，支持 'finished'（完成）、'process'（进行中）、'error'（失败） 三种状态。
 
 ```html
-<be-steps active="{{ 1 }}" align-center>
-  <be-step title="绑定手机" status="error" />
-  <be-step title="重新绑定手机" />
-  <be-step title="步骤3" />
-</be-steps>
+<wd-steps active="{{ 1 }}" align-center>
+  <wd-step title="绑定手机" status="error" />
+  <wd-step title="重新绑定手机" />
+  <wd-step title="步骤3" />
+</wd-steps>
 ```
 
 ### Steps Attributes

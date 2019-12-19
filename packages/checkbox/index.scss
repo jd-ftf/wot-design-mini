@@ -63,12 +63,12 @@
     transition: opacity .2s;
   }
   @include when(checked) {
-    .be-checkbox__shape {
+    .wd-checkbox__shape {
       color: $-checkbox-color-checked;
       background: currentColor;
       border-color: currentColor;
     }
-    .be-checkbox__check {
+    .wd-checkbox__check {
       opacity: 1;
     }
   }
@@ -80,14 +80,14 @@
     //&:last-child {
     //  margin-right: 0;
     //}
-    .be-checkbox__shape {
+    .wd-checkbox__shape {
       width: 0;
       height: 0;
       overflow: hidden;
       opacity: 0;
       border: none;
     }
-    .be-checkbox__label {
+    .wd-checkbox__label {
       margin-left: 0;
       padding: 4px 28px;
       border: 1px solid $-checkbox-color-border;
@@ -95,7 +95,7 @@
       transition: color .2s, border .2s;
     }
     @include when(checked) {
-      .be-checkbox__label {
+      .wd-checkbox__label {
         padding-left: 16px;
         padding-right: 16px;
         color: $-checkbox-color-checked;
@@ -104,22 +104,22 @@
     }
   }
   @include when(disabled) {
-    .be-checkbox__shape {
+    .wd-checkbox__shape {
       border-color: $-checkbox-color-disabled-label;
     }
-    .be-checkbox__label {
+    .wd-checkbox__label {
       color: $-checkbox-color-disabled-label;
     }
     @include when(checked) {
-      .be-checkbox__shape {
+      .wd-checkbox__shape {
         color: $-checkbox-color-disabled-label;
       }
-      .be-checkbox__label {
+      .wd-checkbox__label {
         color: $-checkbox-color-disabled-label;
       }
     }
     @include when(button) {
-      .be-checkbox__label {
+      .wd-checkbox__label {
         border-color: $-checkbox-color-disabled;
       }
     }

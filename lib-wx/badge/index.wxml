@@ -1,8 +1,8 @@
-<div class="be-badge custom-class">
+<div class="wd-badge custom-class">
   <slot></slot>
   <view
     wx:if="{{!hidden && (content || content === 0 || isDot)}}"
-    class="be-badge__content is-fixed {{type ? 'be-badge__content--' + type : ''}} {{isDot?'is-dot':'' }}"
+    class="wd-badge__content is-fixed {{type ? 'wd-badge__content--' + type : ''}} {{isDot?'is-dot':'' }}"
     style="background-color: {{bgColor}}">
     {{content}}
   </view>

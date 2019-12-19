@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "be-picker-view": "../pickerView/index"
+    "wd-picker-view": "../pickerView/index"
   }
 }

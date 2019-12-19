@@ -1,31 +1,31 @@
 <view>
   <demo-block title="Fade 动画">
-    <be-button type="primary" bind:click="fade">fade</be-button>
-    <be-button type="primary" bind:click="fadeUp">fade-up</be-button>
-    <be-button type="primary" bind:click="fadeDown">fade-down</be-button>
-    <be-button type="primary" bind:click="fadeLeft">fade-left</be-button>
-    <be-button type="primary" bind:click="fadeRight">fade-right</be-button>
+    <wd-button type="primary" bind:click="fade">fade</wd-button>
+    <wd-button type="primary" bind:click="fadeUp">fade-up</wd-button>
+    <wd-button type="primary" bind:click="fadeDown">fade-down</wd-button>
+    <wd-button type="primary" bind:click="fadeLeft">fade-left</wd-button>
+    <wd-button type="primary" bind:click="fadeRight">fade-right</wd-button>
   </demo-block>
   <demo-block title="Slide 动画">
-    <be-button type="primary" bind:click="slideUp">slide-up</be-button>
-    <be-button type="primary" bind:click="slideDown">slide-down</be-button>
-    <be-button type="primary" bind:click="slideLeft">slide-left</be-button>
-    <be-button type="primary" bind:click="slideRight">slide-right</be-button>
+    <wd-button type="primary" bind:click="slideUp">slide-up</wd-button>
+    <wd-button type="primary" bind:click="slideDown">slide-down</wd-button>
+    <wd-button type="primary" bind:click="slideLeft">slide-left</wd-button>
+    <wd-button type="primary" bind:click="slideRight">slide-right</wd-button>
   </demo-block>
   <demo-block title="Zoom 动画">
-    <be-button type="primary" bind:click="zoomIn">zoom-in</be-button>
+    <wd-button type="primary" bind:click="zoomIn">zoom-in</wd-button>
   </demo-block>
   <demo-block title="自定义动画">
-    <be-button type="primary" bind:click="custom">custom</be-button>
+    <wd-button type="primary" bind:click="custom">custom</wd-button>
   </demo-block>
 
-  <be-transition
+  <wd-transition
     show="{{ show }}"
     name="{{ name }}"
     custom-class="block"
   />
 
-  <be-transition
+  <wd-transition
     show="{{ customShow }}"
     duration="{{ { enter: 700, leave: 1000 } }}"
     enter-class="custom-enter"

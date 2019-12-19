@@ -1,4 +1,4 @@
-<be-modal
+<wd-modal
   jd:if="{{ modal }}"
   show="{{ show }}"
   z-index="{{ zIndex }}"
@@ -7,10 +7,10 @@
 />
 <view
   jd:if="{{ inited }}"
-  class="be-popup be-popup--{{ position }} custom-class {{ classes }}"
+  class="wd-popup wd-popup--{{ position }} custom-class {{ classes }}"
   style="z-index: {{ zIndex }}; -webkit-transition-duration: {{ currentDuration }}ms; transition-duration: {{ currentDuration }}ms; {{ display ? '' : 'display: none;' }} {{ customStyle }}"
   bind:transitionend="onTransitionEnd"
 >
   <slot/>
-  <be-icon jd:if="{{ closable }}" class="be-popup__close" name="add" bind:tap="close"/>
+  <wd-icon jd:if="{{ closable }}" class="wd-popup__close" name="add" bind:tap="close"/>
 </view>

@@ -44,7 +44,7 @@ VueComponent({
     // 弹出层是否显示
     popupShow: false,
     // pickerView选择器
-    pickerId: 'be-picker-view',
+    pickerId: 'wd-picker-view',
     // 选定后展示的选中项
     showValue: ''
   },

@@ -1,45 +1,45 @@
 <demo-block title="展示消息数量value">
-    <be-badge custom-class="badge" value="12">
-        <be-button size="small">评论</be-button>
-    </be-badge>
-    <be-badge custom-class="badge" value="3" bg-color="pink">
-        <be-button size="small">回复</be-button>
-    </be-badge>
-    <be-badge custom-class="badge" value="1" type="primary">
-        <be-button size="small">评论</be-button>
-    </be-badge>
-    <be-badge custom-class="badge" value="2" type="warning">
-        <be-button size="small">回复</be-button>
-    </be-badge>
-    <be-badge custom-class="badge" value="1" type="success">
-        <be-button size="small">评论</be-button>
-    </be-badge>
-    <be-badge custom-class="badge" value="2" type="info">
-        <be-button size="small">回复</be-button>
-    </be-badge>
+    <wd-badge custom-class="badge" value="12">
+        <wd-button size="small">评论</wd-button>
+    </wd-badge>
+    <wd-badge custom-class="badge" value="3" bg-color="pink">
+        <wd-button size="small">回复</wd-button>
+    </wd-badge>
+    <wd-badge custom-class="badge" value="1" type="primary">
+        <wd-button size="small">评论</wd-button>
+    </wd-badge>
+    <wd-badge custom-class="badge" value="2" type="warning">
+        <wd-button size="small">回复</wd-button>
+    </wd-badge>
+    <wd-badge custom-class="badge" value="1" type="success">
+        <wd-button size="small">评论</wd-button>
+    </wd-badge>
+    <wd-badge custom-class="badge" value="2" type="info">
+        <wd-button size="small">回复</wd-button>
+    </wd-badge>
 </demo-block>
 
 <demo-block title="可定义消息最大值max">
-    <be-badge custom-class="badge" value="200" max="99">
-        <be-button size="small">评论</be-button>
-    </be-badge>
-    <be-badge custom-class="badge" value="200" max="10">
-        <be-button size="small">回复</be-button>
-    </be-badge>
+    <wd-badge custom-class="badge" value="200" max="99">
+        <wd-button size="small">评论</wd-button>
+    </wd-badge>
+    <wd-badge custom-class="badge" value="200" max="10">
+        <wd-button size="small">回复</wd-button>
+    </wd-badge>
 </demo-block>
 
 <demo-block title="可自己定制内容value，value 设置为字符串">
-    <be-badge custom-class="badge" value="new">
-        <be-button size="small">评论</be-button>
-    </be-badge>
-    <be-badge custom-class="badge" value="hot" custom-class="badge">
-        <be-button size="small">回复</be-button>
-    </be-badge>
+    <wd-badge custom-class="badge" value="new">
+        <wd-button size="small">评论</wd-button>
+    </wd-badge>
+    <wd-badge custom-class="badge" value="hot" custom-class="badge">
+        <wd-button size="small">回复</wd-button>
+    </wd-badge>
 </demo-block>
 
 <demo-block title="小红点is-dot">
-    <be-badge custom-class="badge" is-dot>数据查询</be-badge>
-    <be-badge custom-class="badge" is-dot>
-        <be-button size="small">回复</be-button>
-    </be-badge>
+    <wd-badge custom-class="badge" is-dot>数据查询</wd-badge>
+    <wd-badge custom-class="badge" is-dot>
+        <wd-button size="small">回复</wd-button>
+    </wd-badge>
 </demo-block>

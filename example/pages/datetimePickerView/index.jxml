@@ -1,14 +1,14 @@
-<be-toast id="be-toast"/>
+<wd-toast id="wd-toast"/>
 
 <demo-block title="日期选择" transparent>
-  <be-datetime-picker-view
+  <wd-datetime-picker-view
     value="{{value1}}"
     bind:change="onChange"
   />
 </demo-block>
 
 <demo-block title="年月日" transparent>
-  <be-datetime-picker-view
+  <wd-datetime-picker-view
     type="date"
     value="{{value2}}"
     bind:change="onChange"
@@ -16,7 +16,7 @@
 </demo-block>
 
 <demo-block title="年月" transparent>
-  <be-datetime-picker-view
+  <wd-datetime-picker-view
     type="year-month"
     value="{{value3}}"
     bind:change="onChange"
@@ -24,7 +24,7 @@
 </demo-block>
 
 <demo-block title="时分" transparent>
-  <be-datetime-picker-view
+  <wd-datetime-picker-view
     type="time"
     value="{{value4}}"
     bind:change="onChange"
@@ -32,7 +32,7 @@
 </demo-block>
 
 <demo-block title="内部格式" transparent>
-  <be-datetime-picker-view
+  <wd-datetime-picker-view
     value="{{value5}}"
     formatter="{{formatter}}"
     bind:change="onChange"
@@ -40,7 +40,7 @@
 </demo-block>
 
 <demo-block title="过滤选项" transparent>
-  <be-datetime-picker-view
+  <wd-datetime-picker-view
     value="{{value6}}"
     filter="{{filter}}"
     bind:change="onChange"

@@ -41,14 +41,14 @@
   }
 
   @include when(disabled) {
-    .be-collapse-item__title {
+    .wd-collapse-item__title {
       color: $-collapse-disabled-color;
     }
-    .be-collapse-item__arrow {
+    .wd-collapse-item__arrow {
       color: $-collapse-disabled-color;
     }
   }
-  .be-collapse-item__header-first::after{
+  .wd-collapse-item__header-first::after{
     display: none;
   }
 }

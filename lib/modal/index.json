@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "be-transition": "../transition/index"
+    "wd-transition": "../transition/index"
   }
 }

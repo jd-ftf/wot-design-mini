@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "be-picker-view": "../pickerView/index",
-    "be-popup": "../popup/index",
-    "be-icon": "../icon/index"
+    "wd-picker-view": "../pickerView/index",
+    "wd-popup": "../popup/index",
+    "wd-icon": "../icon/index"
   }
 }

@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "be-icon": "../icon/index"
+    "wd-icon": "../icon/index"
   }
 }

@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-switch": "/bee-design/switch/index"
+    "wd-switch": "/wot-design/switch/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 设置 `value` 值，监听 `change` 事件修改值。
 
 ```html
-<be-switch value="{{ checked }}" bind:change="handleChange" />
+<wd-switch value="{{ checked }}" bind:change="handleChange" />
 
 Page({
   data: {
@@ -34,7 +34,7 @@ Page({
 通过 `active-value` 属性修改开关打开时的值，`inactive-value` 属性修改开关关闭时的值。
 
 ```html
-<be-switch value="{{ checked }}" active-value="京麦" inactive-value="商家后台" />
+<wd-switch value="{{ checked }}" active-value="京麦" inactive-value="商家后台" />
 ```
 
 ### 修改颜色
@@ -42,7 +42,7 @@ Page({
 通过 `active-color` 属性修改开关打开时的颜色，`inactive-color` 属性修改开关关闭时的颜色。
 
 ```html
-<be-switch value="{{ checked }}" active-color="#13ce66" inactive-color="#f00" />
+<wd-switch value="{{ checked }}" active-color="#13ce66" inactive-color="#f00" />
 ```
 
 ### 修改大小
@@ -50,7 +50,7 @@ Page({
 设置 `size` 修改开关大小。
 
 ```html
-<be-switch value="{{ checked }}" size="20px" />
+<wd-switch value="{{ checked }}" size="20px" />
 ```
 
 ### 禁用

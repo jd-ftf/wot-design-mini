@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Switch 开关",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-switch": "../../dist/switch/index"
+    "wd-switch": "../../dist/switch/index"
   }
 }

@@ -83,10 +83,10 @@
   @include when(light) {
     background: #f4f4f4;
 
-    .be-search__block {
+    .wd-search__block {
       background: #fff;
     }
-    .be-search__placeholder {
+    .wd-search__placeholder {
         background: #fff;
     }
   }

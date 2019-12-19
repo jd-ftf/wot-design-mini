@@ -1,8 +1,8 @@
-<view class="be-loadmore custom-class" bindtap="reload">
-  <be-icon
+<view class="wd-loadmore custom-class" bindtap="reload">
+  <wd-icon
     jd:if="{{state === 'loading'}}"
     name="news"
     size="20px"
-    class="be-loadmore__indicator"/>
-  <text class="be-loadmore__text">{{ showText }}</text>
+    class="wd-loadmore__indicator"/>
+  <text class="wd-loadmore__text">{{ showText }}</text>
 </view>

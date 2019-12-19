@@ -1,27 +1,27 @@
-<view class="be-rate custom-class">
+<view class="wd-rate custom-class">
   <view
     wx:for="{{rateList}}"
     wx:key="{{index}}"
     data-index="{{index}}"
     style="margin : {{'0 ' + space}}"
-    class="be-rate__item"
+    class="wd-rate__item"
     bindtap="changeRate"
   >
     <view
-      class="be-rate__item-star"
+      class="wd-rate__item-star"
       style="width: {{size}}; height: {{size}}"
     >
-      <be-icon
+      <wd-icon
         name="{{icon}}"
         color="{{disabled ? disabledColor : color}}"
         size="{{size}}"
       />
     </view>
     <view
-      class="be-rate__item-star be-rate__item-star--active"
+      class="wd-rate__item-star wd-rate__item-star--active"
       style="width: {{item}}; height: {{size}}"
     >
-      <be-icon
+      <wd-icon
         name="{{activeIcon}}"
         color="{{disabled ? disabledColor : activeColor}}"
         size="{{size}}"

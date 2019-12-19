@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "be-picker": "../picker/index"
+    "wd-picker": "../picker/index"
   }
 }

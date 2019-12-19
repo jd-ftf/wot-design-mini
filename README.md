@@ -1,4 +1,4 @@
-## Bee Design Mini 小程序组件库
+## Wot Design Mini 小程序组件库
 ### 文档介绍
 
 * 京东小程序IDE目前功能暂不完善，此脚手架将京东小程序转换成微信小程序，通过微信小程序IDE进行调试。
@@ -117,7 +117,7 @@ npm run fix
 {
   "usingComponents": {
     //引入小程序自定义组件库，即打包后开发的工具组件库
-    "be-button": "/dist/button/index"
+    "wd-button": "/dist/button/index"
   }
 }
 ```

@@ -1,21 +1,21 @@
 <demo-block title="基本用法">
   <view class="flex">
-    <be-loading custom-class="loading" />
-    <be-loading custom-class="loading-padding" color="#fff" />
+    <wd-loading custom-class="loading" />
+    <wd-loading custom-class="loading-padding" color="#fff" />
   </view>
 </demo-block>
 
 <demo-block title="修改类型">
   <view class="flex">
-    <be-loading custom-class="loading" type="spinner" />
-    <be-loading custom-class="loading-padding" type="spinner" color="#fff" />
+    <wd-loading custom-class="loading" type="spinner" />
+    <wd-loading custom-class="loading-padding" type="spinner" color="#fff" />
   </view>
 </demo-block>
 
 <demo-block title="修改指示器大小">
   <view class="flex">
-    <be-loading custom-class="loading" size="20px" />
-    <be-loading custom-class="loading" size="30px" />
-    <be-loading custom-class="loading" size="50px" />
+    <wd-loading custom-class="loading" size="20px" />
+    <wd-loading custom-class="loading" size="30px" />
+    <wd-loading custom-class="loading" size="50px" />
   </view>
 </demo-block>

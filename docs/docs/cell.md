@@ -5,8 +5,8 @@
 ```json
 {
   "usingComponents": {
-    "be-cell": "/bee-design/cell/index",
-    "be-cell-group": "/bee-design/cellGroup/index"
+    "wd-cell": "/wot-design/cell/index",
+    "wd-cell-group": "/wot-design/cellGroup/index"
   }
 }
 ```
@@ -16,12 +16,12 @@
 `Cell` 可以单独使用，也可以和 `CellGroup` 组合使用。
 
 ```html
-<be-cell title="标题文字" value="内容" />
+<wd-cell title="标题文字" value="内容" />
 
-<be-cell-group>
-  <be-cell title="标题文字" value="内容" />
-  <be-cell title="标题文字" label="描述信息" value="内容" />
-</be-cell-group>
+<wd-cell-group>
+  <wd-cell title="标题文字" value="内容" />
+  <wd-cell title="标题文字" label="描述信息" value="内容" />
+</wd-cell-group>
 ```
 
 ### 图标设置
@@ -31,13 +31,13 @@
 > 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。使用 icon 属性且为 Icon 章节的字体图标，则宽度会自动一致且垂直居中。如果使用插槽，可以通过`custom-icon-class`进行设置。
 
 ```html
-<be-cell-group>
-  <be-cell title="标题文字" value="内容" icon="setting" />
-  <be-cell title="标题文字" value="内容" icon="collect" />
-  <be-cell title="标题文字" value="内容" custom-icon-class="custom-icon-class">
-    <be-icon slot="icon" name="play"/>
-  </be-cell>
-</be-cell-group>
+<wd-cell-group>
+  <wd-cell title="标题文字" value="内容" icon="setting" />
+  <wd-cell title="标题文字" value="内容" icon="collect" />
+  <wd-cell title="标题文字" value="内容" custom-icon-class="custom-icon-class">
+    <wd-icon slot="icon" name="play"/>
+  </wd-cell>
+</wd-cell-group>
 ```
 
 ```css
@@ -55,14 +55,14 @@
 可以在 `cell-group` 上设置 `title` 和 `value` 属性。也可以使用 slot 插槽。
 
 ```html
-<be-cell-group use-slot title="交易管理">
+<wd-cell-group use-slot title="交易管理">
   <view slot="value" class="blueColor">
-    <be-icon name="cart"/>
+    <wd-icon name="cart"/>
       <span>订购</span>
   </view>
-  <be-cell title="标题文字" value="内容" />
-  <be-cell title="标题文字" label="描述信息" value="内容" />
-</be-cell-group>
+  <wd-cell title="标题文字" value="内容" />
+  <wd-cell title="标题文字" label="描述信息" value="内容" />
+</wd-cell-group>
 ```
 
 ### 点击反馈
@@ -70,8 +70,8 @@
 > 通过设置 `clickable` 开启点击反馈，之后可以监听`click`事件。
 
 ```html
-<be-toast id="be-toast"/>
-<be-cell
+<wd-toast id="wd-toast"/>
+<wd-cell
   bind:click="onClick"
   title="帮助与反馈"
 />
@@ -91,8 +91,8 @@ Page({
 `is-link`会默认开启`clickable`。
 
 ```html
-<be-toast id="be-toast"/>
-<be-cell
+<wd-toast id="wd-toast"/>
+<wd-cell
   title="帮助与反馈"
   is-link to="/pages/button/index"
 />
@@ -103,28 +103,28 @@ Page({
 `cell` 提供了 `icon`、`title`、`label`和默认value的插槽。
 
 ```html
-<be-cell-group use-slot>
+<wd-cell-group use-slot>
   <view slot="title">交易管理</view>
   <view slot="value" class="blueColor">
-    <be-icon name="cart"/>
+    <wd-icon name="cart"/>
     <span>订购</span>
   </view>
-  <be-cell
+  <wd-cell
     is-link
     custom-icon-class="custom-icon-class"
     custom-title-class="custom-title-class"
     custom-label-class="custom-label-class"
     custom-value-class="custom-value-class"
   >
-    <be-icon slot="icon" name="play"></be-icon>
+    <wd-icon slot="icon" name="play"></wd-icon>
     <view slot="title">
       <text>标题文字</text>
       <view class="end-time">25天后到期</view>
     </view>
     <text slot="label">描述信息</text>
     <text>内容</text>
-  </be-cell>
-</be-cell-group>
+  </wd-cell>
+</wd-cell-group>
 ```
 
 ```css

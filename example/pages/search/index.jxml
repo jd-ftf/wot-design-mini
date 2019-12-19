@@ -1,30 +1,30 @@
 <demo-block title="基本用法" transparent>
-  <be-search value="{{value1}}"/>
+  <wd-search value="{{value1}}"/>
 </demo-block>
 
 <demo-block title="白色输入框" transparent>
-  <be-search light/>
+  <wd-search light/>
 </demo-block>
 
 <demo-block title="搜索占位符居左" transparent>
-  <be-search placeholder-left/>
+  <wd-search placeholder-left/>
 </demo-block>
 
 <demo-block title="禁用且隐藏取消按钮" transparent>
-  <be-search disabled hide-cancel/>
+  <wd-search disabled hide-cancel/>
 </demo-block>
 
 <demo-block title="自定义" transparent>
-  <be-search placeholder="请输入订单号/订单名称"/>
+  <wd-search placeholder="请输入订单号/订单名称"/>
 </demo-block>
 
 <demo-block title="插槽" transparent>
-  <be-search use-label-slot use-action-slot>
+  <wd-search use-label-slot use-action-slot>
     <view slot="label" style="line-height: 14px;margin-right: 10px;">左侧</view>
     <view slot="action" style="padding: 5px 10px;color: #ff0000;">右侧</view>
-  </be-search>
+  </wd-search>
 </demo-block>
 
 <demo-block title="最大长度" transparent>
-  <be-search value="{{value2}}" maxlength="0"/>
+  <wd-search value="{{value2}}" maxlength="0"/>
 </demo-block>

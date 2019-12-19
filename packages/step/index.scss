@@ -11,7 +11,7 @@
     font-size: 0;
 
     @include when(dot) {
-      .be-step__line {
+      .wd-step__line {
         margin-top: -1px;
       }
     }
@@ -82,31 +82,31 @@
     padding: 0 2px 4px;
   }
   @include when(finished) {
-    .be-step__icon-inner {
+    .wd-step__icon-inner {
       color: $-steps-finished-color;
     }
-    .be-step__title {
+    .wd-step__title {
       color: $-steps-finished-color;
     }
-    .be-step__dot {
+    .wd-step__dot {
       background: $-steps-finished-color;
     }
   }
   @include when(process) {
-    .be-step__icon.is-icon {
-      .be-step__icon-inner {
+    .wd-step__icon.is-icon {
+      .wd-step__icon-inner {
         color: $-steps-finished-color;
       }
     }
-    .be-step__icon-outer {
+    .wd-step__icon-outer {
       color: #fff;
       background: $-steps-finished-color;
       border-color: $-steps-finished-color;
     }
-    .be-step__title {
+    .wd-step__title {
       color: $-steps-finished-color;
     }
-    .be-step__icon {
+    .wd-step__icon {
       border-color: $-steps-finished-color;
 
       &.is-dot {
@@ -123,22 +123,22 @@
         }
       }
     }
-    .be-step__dot {
+    .wd-step__dot {
       background: $-steps-finished-color;
     }
   }
   @include when(error) {
-    .be-step__icon-inner, .be-step__title {
+    .wd-step__icon-inner, .wd-step__title {
       color: $-steps-error-color;
     }
-    .be-step__dot {
+    .wd-step__dot {
       background: $-steps-error-color;
     }
   }
   @include when(center) {
     text-align: center;
 
-    .be-step__line {
+    .wd-step__line {
       left: 50%;
       right: -50%;
     }
@@ -146,7 +146,7 @@
   @include when(vertical) {
     display: block;
 
-    .be-step__header {
+    .wd-step__header {
       position: absolute;
       left: 0;
       top: 0;
@@ -155,24 +155,24 @@
       &.is-dot {
         top: 6px;
 
-        .be-step__line {
+        .wd-step__line {
           margin-left: -1px;
           margin-top: 0;
         }
       }
     }
-    .be-step__content {
+    .wd-step__content {
       margin-left: 30px;
       margin-top: 0;
       min-height: 56px;
     }
-    .be-step__line {
+    .wd-step__line {
       top: 0;
       left: 50%;
       width: 1px;
       height: 100%;
     }
-    .be-step__icon.is-dot {
+    .wd-step__icon.is-dot {
       margin-left: 0;
       margin-top: -1px;
     }

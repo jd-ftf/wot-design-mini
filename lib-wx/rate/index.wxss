@@ -1,1 +1,1 @@
-.be-rate{display:inline-block;vertical-align:middle}.be-rate__item{position:relative;display:inline-block}.be-rate__item-star{display:inline-block;vertical-align:top}.be-rate__item-star--active{position:absolute;left:0;top:0;overflow:hidden}
+.wd-rate{display:inline-block;vertical-align:middle}.wd-rate__item{position:relative;display:inline-block}.wd-rate__item-star{display:inline-block;vertical-align:top}.wd-rate__item-star--active{position:absolute;left:0;top:0;overflow:hidden}

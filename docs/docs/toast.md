@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-toast": "/bee-design/toast/index"
+    "wd-toast": "/wot-design/toast/index"
   }
 }
 ```
@@ -15,12 +15,12 @@
 需要在页面中引入该组件，作为挂载点。
 
 ```html
-<be-toast id="be-toast"/>
-<be-button type="primary" bind:click="showToast">toast</be-button>
+<wd-toast id="wd-toast"/>
+<wd-button type="primary" bind:click="showToast">toast</wd-button>
 ```
 
 ```javascript
-import Toast from '/bee-design/toast/toast.js'
+import Toast from '/wot-design/toast/toast.js'
 
 Page({
   showToast () {

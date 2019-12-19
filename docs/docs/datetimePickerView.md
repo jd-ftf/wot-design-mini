@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-datetime-picker-view-view": "/bee-design/datetimePickerView/index"
+    "wd-datetime-picker-view-view": "/wot-design/datetimePickerView/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 `value` 设置绑定值，默认为 'datetime' 类型，展示年月日时分，绑定值为 `时间戳` 类型，如果为 'time' 类型，绑定值为字符串。
 
 ```html
-<be-datetime-picker-view value="{{value}}" label="日期选择" />
+<wd-datetime-picker-view value="{{value}}" label="日期选择" />
 ```
 ```javascript
 Page({
@@ -30,7 +30,7 @@ Page({
 'date' 类型只展示年月日。
 
 ```html
-<be-datetime-picker-view type="date" value="{{value}}" label="年月日" />
+<wd-datetime-picker-view type="date" value="{{value}}" label="年月日" />
 ```
 ```javascript
 Page({
@@ -44,7 +44,7 @@ Page({
 'year-month' 类型只展示年月。
 
 ```html
-<be-datetime-picker-view type="year-month" value="{{value}}" label="年月" />
+<wd-datetime-picker-view type="year-month" value="{{value}}" label="年月" />
 ```
 ```javascript
 Page({
@@ -59,7 +59,7 @@ Page({
 'time' 类型只展示时分。
 
 ```html
-<be-datetime-picker-view type="time" value="{{value}}" label="时分" />
+<wd-datetime-picker-view type="time" value="{{value}}" label="时分" />
 ```
 ```javascript
 Page({
@@ -76,7 +76,7 @@ Page({
 使用自定义`formatter`会关闭内置的默认`display-format`函数。
 
 ```html
-<be-datetime-picker-view value="{{value}}" label="内部格式" formatter="{{formatter}}" />
+<wd-datetime-picker-view value="{{value}}" label="内部格式" formatter="{{formatter}}" />
 ```
 ```javascript
 Page({
@@ -107,7 +107,7 @@ Page({
 给 `filter` 属性传入一个函数，接收 `type` 和 `values` 值，返回列的选项列表。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`values` 为 number数组。
 > 自定义函数必须写在data中
 ```html
-<be-datetime-picker-view value="{{value}}" label="过滤选项" filter="{{filter}}" />
+<wd-datetime-picker-view value="{{value}}" label="过滤选项" filter="{{filter}}" />
 ```
 ```javascript
 Page({

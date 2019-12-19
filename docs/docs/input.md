@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-input": "/bee-design/input/index"
+    "wd-input": "/wot-design/input/index"
   }
 }
 ```
@@ -28,7 +28,7 @@ page({
 })
 ```
 ```html
-<be-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
+<wd-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
 ```
 ### input事件使用示例
 组件自定义，input事件无法直接return赋值，因此也需要手动赋值。
@@ -43,7 +43,7 @@ page({
 })
 ```
 ```html
-<be-input value="{{ value }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
+<wd-input value="{{ value }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
 ```
 
 ### 禁用
@@ -51,7 +51,7 @@ page({
 设置 `disabled` 属性。
 
 ```html
-<be-input value="input" disabled="{{ true }}" />
+<wd-input value="input" disabled="{{ true }}" />
 ```
 
 ### 只读
@@ -59,7 +59,7 @@ page({
 设置 `readonly` 属性。
 
 ```html
-<be-input value="{{ value }}" readonly="{{ true }}" />
+<wd-input value="{{ value }}" readonly="{{ true }}" />
 ```
 
 ### 清空按钮
@@ -67,7 +67,7 @@ page({
 设置 `clearable` 属性。
 
 ```html
-<be-input value="{{ value }}" clearable bind:change="handleChange"/>
+<wd-input value="{{ value }}" clearable bind:change="handleChange"/>
 ```
 
 ### 密码输入框
@@ -75,7 +75,7 @@ page({
 设置 `show-password` 属性。
 
 ```html
-<be-input value="{{ value }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange"/>
+<wd-input value="{{ value }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange"/>
 ```
 
 ### 前后icon
@@ -83,14 +83,14 @@ page({
 设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
 
 ```html
-<be-input value="{{ value }}" prefix-icon="be-icon-person" suffix-icon="be-icon-tickets" bind:change="handleChange"/>
+<wd-input value="{{ value }}" prefix-icon="wd-icon-person" suffix-icon="wd-icon-tickets" bind:change="handleChange"/>
 ```
 
 ```html
-		<be-input value="{{ value }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange">
+		<wd-input value="{{ value }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange">
 			<view slot="prefix">1</view>
 			<view slot="suffix">2</view>
-		</be-input>
+		</wd-input>
 ```
 ```css
     /* 插槽样式 */
@@ -105,25 +105,25 @@ page({
 设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
 
 ```html
-<be-input value="{{ value }}" maxlength="20" show-word-limit="{{ true }}" bind:change="handleChange"/>
+<wd-input value="{{ value }}" maxlength="20" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
 ### 文本域
 
 设置 `type` 为 'textarea`。
 
 ```html
-<be-input type="textarea" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
+<wd-input type="textarea" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
 ```
 
 设置清空，字数限制。
 
 ```html
-<be-input type="textarea" value="{{ value }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
+<wd-input type="textarea" value="{{ value }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
 也可以设置`auto-height`使高度自增加。
 
 ```html
-<be-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
+<wd-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
 ```
 
 ### Attributes

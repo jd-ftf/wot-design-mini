@@ -5,29 +5,29 @@
 ```json
 {
   "usingComponents": {
-    "be-transition": "/bee-design/transition/index"
+    "wd-transition": "/wot-design/transition/index"
   }
 }
 ```
 
 ### 基本用法
 
-将元素包裹在 `be-transition` 标签中，并设置 `show` 来切换显隐，设置 `name` 选择动画。
+将元素包裹在 `wd-transition` 标签中，并设置 `show` 来切换显隐，设置 `name` 选择动画。
 
 ```html
-<be-transition show="{{ show }}" name="fade">
+<wd-transition show="{{ show }}" name="fade">
   内容
-</be-transition>
+</wd-transition>
 ```
 
 ### 动画类型
 
-`be-transition` 内置了常用的动画，如 `fade`、`slide`、`zoom-in` 等。
+`wd-transition` 内置了常用的动画，如 `fade`、`slide`、`zoom-in` 等。
 
 ```html
-<be-transition show="{{ show }}" name="slide">
+<wd-transition show="{{ show }}" name="slide">
   内容
-</be-transition>
+</wd-transition>
 ```
 
 ### 动画时间
@@ -43,7 +43,7 @@
 在动画离开时，会给标签设置 `leave-class` 和 `leave-active-class` 样式，在下一帧切换为 `leave-to-class` 和 `leave-active-class` 样式，因此离开动画是从 `leave-class` 样式切换为 `leave-to-class` 样式状态，`leave-active-class` 设置 `transition` 相关属性。
 
 ```html
-<be-transition
+<wd-transition
   show="{{ customShow }}"
   duration="{{ { enter: 700, leave: 1000 } }}"
   enter-class="custom-enter"

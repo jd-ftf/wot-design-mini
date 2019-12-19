@@ -1,31 +1,31 @@
-<be-message-box id="be-message-box"></be-message-box>
-<be-message-box id="be-message-box-slot" use-slot>
-  <be-rate
+<wd-message-box id="wd-message-box"></wd-message-box>
+<wd-message-box id="wd-message-box-slot" use-slot>
+  <wd-rate
     custom-class="custom-rate-class"
     value="{{value}}"
     bind:change="changeValue"
   />
-</be-message-box>
+</wd-message-box>
 <demo-block title="alert类型的弹框">
-  <be-button type="primary" bind:click="alert">alert</be-button>
+  <wd-button type="primary" bind:click="alert">alert</wd-button>
 </demo-block>
 
 <demo-block title="显示标题">
-  <be-button type="primary" bind:click="alertWithTitle">alert</be-button>
+  <wd-button type="primary" bind:click="alertWithTitle">alert</wd-button>
 </demo-block>
 
 <demo-block title="confirm类型的弹框">
-  <be-button type="primary" bind:click="confirm">confirm</be-button>
+  <wd-button type="primary" bind:click="confirm">confirm</wd-button>
 </demo-block>
 
 <demo-block title="prompt类型的弹框，支持输入框输入和校验">
-  <be-button type="primary" bind:click="prompt">prompt</be-button>
+  <wd-button type="primary" bind:click="prompt">prompt</wd-button>
 </demo-block>
 
 <demo-block title="当文案过长时，弹框的高度不再增加，而是将文案内容设置成滚动">
-  <be-button type="primary" bind:click="alertWithLongChar">alert</be-button>
+  <wd-button type="primary" bind:click="alertWithLongChar">alert</wd-button>
 </demo-block>
 
 <demo-block title="通过slot插入其他组件内容">
-  <be-button type="primary" bind:click="withSlot">custom</be-button>
+  <wd-button type="primary" bind:click="withSlot">custom</wd-button>
 </demo-block>
