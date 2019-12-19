@@ -2,7 +2,7 @@
 import VueComponent from '../common/component'
 import touch from '../mixins/touch'
 
-const $selector = '.wd-slider'
+const $slider = '.wd-slider'
 // 存放右滑轮中的所有属性
 const rightSlider = {}
 VueComponent({
@@ -88,7 +88,7 @@ VueComponent({
         this.currentValue = newValue
         // 动态传值后修改
         if (this.checkType(newValue) === 'Array') {
-          if (this.equar(newValue, oldValue)) return
+          if (this.equal(newValue, oldValue)) return
           this.setData({ showRight: true })
           const { leftBarPercent, rightBarPercent } = this.data
           if (leftBarPercent < rightBarPercent) {
@@ -106,7 +106,7 @@ VueComponent({
     }
   },
   mounted () {
-    this.getRect($selector).then(rect => {
+    this.getRect($slider).then(rect => {
       if (!rect || !rect.width) return
       // trackWidth: 轨道全长
       this.trackWidth = rect.width
@@ -229,7 +229,7 @@ VueComponent({
     checkType (value) {
       return Object.prototype.toString.call(value).slice(8, -1)
     },
-    equar (arr1, arr2) {
+    equal (arr1, arr2) {
       let i = 0
       arr1.forEach((item, index) => {
         item === arr2[index] && i++
