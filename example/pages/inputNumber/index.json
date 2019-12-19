@@ -2,6 +2,6 @@
   "navigationBarTitleText": "InputNumber 计数器",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-input-number": "../../dist/inputNumber/index"
+    "wd-input-number": "../../dist/inputNumber/index"
   }
 }

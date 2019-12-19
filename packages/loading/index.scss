@@ -1,6 +1,6 @@
 @import "../common/abstracts/_mixin.scss";
 
-@keyframes be-rotate {
+@keyframes wd-rotate {
   0% {
     transform: rotate(0deg);
   }
@@ -20,14 +20,14 @@
     border-top-color: currentColor;
     border-radius: 50%;
     font-size: 0;
-    animation: be-rotate .8s linear infinite;
+    animation: wd-rotate .8s linear infinite;
   }
 
   @include e(spinner) {
     position: relative;
     width: 100%;
     height: 100%;
-    animation: be-rotate .8s steps(12) infinite;
+    animation: wd-rotate .8s steps(12) infinite;
   }
 
   @include e(spinner-dot) {
@@ -48,7 +48,7 @@
     }
   }
   @for $i from 1 through 12 {
-    .be-loading__spinner-dot-#{$i - 1} {
+    .wd-loading__spinner-dot-#{$i - 1} {
       transform: rotate(#{$i*30}deg);
       opacity: #{1-($i - 1)*.0625};
     }

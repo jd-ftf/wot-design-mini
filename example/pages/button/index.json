@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Button 按钮",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-button": "../../dist/button/index"
+    "wd-button": "../../dist/button/index"
   }
 }

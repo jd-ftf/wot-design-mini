@@ -1,7 +1,7 @@
-<be-transition
+<wd-transition
   show="{{ show }}"
   name="fade"
-  custom-class="be-modal"
+  custom-class="wd-modal"
   duration="{{ duration }}"
   custom-style="z-index: {{ zIndex }}"
   bind:tap="handleClick"

@@ -6,11 +6,11 @@
   color: #fff;
   border-color: $normal;
 
-  &.be-button--active {
+  &.wd-button--active {
     background: $active;
   }
   @include when(disabled) {
-    &.be-button--active {
+    &.wd-button--active {
       background: $disabled;
       color: #fff;
     }
@@ -19,14 +19,14 @@
     background: $disabled;
     border-color: $disabled;
   }
-  .be-button__loading {
+  .wd-button__loading {
     color: #fff;
   }
   @include when(loading) {
     background: $disabled;
     border-color: $disabled;
 
-    &.be-button--active {
+    &.wd-button--active {
       background: $disabled;
       border-color: $disabled;
     }
@@ -42,7 +42,7 @@
   border-color: $normal;
   background: transparent;
 
-  &.be-button--active {
+  &.wd-button--active {
     color: $active;
     border-color: $active;
     background: transparent;
@@ -52,7 +52,7 @@
     border-color: $disabled;
     background: transparent;
   }
-  .be-button__loading {
+  .wd-button__loading {
     color: $disabled;
   }
   @include when(loading) {
@@ -76,7 +76,7 @@
     border-width: 0;
   }
 
-  &.be-button--active {
+  &.wd-button--active {
     color: $-button-color-normal-active;
     background: $-button-color-normal-active-bg;
     border-color: $-button-color-normal-active-border;
@@ -86,7 +86,7 @@
     background: $-button-color-normal-disabled-bg;
     border-color: $-button-color-normal-disabled-border;
 
-    &.be-button--active {
+    &.wd-button--active {
       color: $-button-color-normal-disabled;
       background: $-button-color-normal-disabled-bg;
       border-color: $-button-color-normal-disabled-border;
@@ -131,7 +131,7 @@
     @include when(round) {
       border-radius: $-button-small-round-radius;
     }
-    .be-button__loading {
+    .wd-button__loading {
       width: $-button-small-loading;
       height: $-button-small-loading;
     }
@@ -146,7 +146,7 @@
     @include when(round) {
       border-radius: $-button-medium-round-radius;
     }
-    .be-button__loading {
+    .wd-button__loading {
       width: $-button-medium-loading;
       height: $-button-medium-loading;
     }
@@ -161,7 +161,7 @@
     @include when(round) {
       border-radius: $-button-large-round-radius;
     }
-    .be-button__loading {
+    .wd-button__loading {
       width: $-button-large-loading;
       height: $-button-large-loading;
     }
@@ -172,7 +172,7 @@
     color: $-button-color-primary;
     padding: 4px 0;
 
-    &.be-button--active {
+    &.wd-button--active {
       color: $-button-color-primary-active;
       background: transparent;
     }
@@ -201,7 +201,7 @@
       @include button-plain-style($-button-color-error, $-button-color-error-active, $-button-color-error-disabled);
     }
     @include when(suck) {
-      &.be-button--active {
+      &.wd-button--active {
         background: #eee;
       }
       @include when(disabled) {
@@ -235,14 +235,14 @@
     font-size: 0;
     color: $-button-color-icon;
 
-    &.be-button--active {
+    &.wd-button--active {
       background: $-button-color-icon-active;
     }
     @include when(disabled) {
       color: $-button-color-icon-disabled;
       background: transparent;
 
-      &.be-button--active {
+      &.wd-button--active {
         background: transparent;
       }
     }

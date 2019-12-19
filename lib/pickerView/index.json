@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "be-loading": "../loading/index"
+    "wd-loading": "../loading/index"
   }
 }

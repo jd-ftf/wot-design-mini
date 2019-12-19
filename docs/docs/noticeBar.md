@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-notice-bar": "/bee-design/noticeBar/index"
+    "wd-notice-bar": "/wot-design/noticeBar/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 设置 `text` 文本内容和 `left-icon` 左侧图标。
 
 ```html
-<be-notice-bar
+<wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   left-icon="bell"
 />
@@ -26,7 +26,7 @@
 设置 `scrollable` 为 `false` 禁止文本滚动。
 
 ```html
-<be-notice-bar
+<wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   scrollable="{{ false }}"
 />
@@ -37,7 +37,7 @@
 设置 `wrapable` 属性为 `true` 且同时禁止滚动 `scrollable`。
 
 ```html
-<be-notice-bar
+<wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   wrapable
   scrollable="{{ false }}"
@@ -49,7 +49,7 @@
 设置 `cloable` 属性，使通知栏可以关闭。
 
 ```html
-<be-notice-bar
+<wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   closable
 />
@@ -60,7 +60,7 @@
 设置 `color` 修改文字和图标颜色，设置 `background-color` 修改背景颜色。
 
 ```html
-<be-notice-bar
+<wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   left-icon="bell"
   closable

@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-button": "/bee-design/button/index"
+    "wd-button": "/wot-design/button/index"
   }
 }
 ```
@@ -15,12 +15,12 @@
 基本按钮。
 
 ```html
-<be-button>默认按钮</be-button>
-<be-button type="primary">主要按钮</be-button>
-<be-button type="success">成功按钮</be-button>
-<be-button type="info">信息按钮</be-button>
-<be-button type="warning">警告按钮</be-button>
-<be-button type="error">危险按钮</be-button>
+<wd-button>默认按钮</wd-button>
+<wd-button type="primary">主要按钮</wd-button>
+<wd-button type="success">成功按钮</wd-button>
+<wd-button type="info">信息按钮</wd-button>
+<wd-button type="warning">警告按钮</wd-button>
+<wd-button type="error">危险按钮</wd-button>
 ```
 
 ### 禁用
@@ -28,7 +28,7 @@
 设置 `disabled` 属性。
 
 ```html
-<be-button disabled="{{true}}">默认按钮</be-button>
+<wd-button disabled="{{true}}">默认按钮</wd-button>
 ```
 
 ### 幽灵按钮
@@ -36,7 +36,7 @@
 设置 `plain` 属性。
 
 ```html
-<be-button type="primary" plain>主要按钮</be-button>
+<wd-button type="primary" plain>主要按钮</wd-button>
 ```
 
 ### 圆角按钮
@@ -44,7 +44,7 @@
 设置 `round` 属性。
 
 ```html
-<be-button type="primary" round>主要按钮</be-button>
+<wd-button type="primary" round>主要按钮</wd-button>
 ```
 
 ### 按钮大小
@@ -52,9 +52,9 @@
 设置 `size` ，支持 'small'、'medium'、'large'，默认为 'medium'。
 
 ```html
-<be-button type="primary" size="small">小号按钮</be-button>
-<be-button type="primary" size="medium">中号按钮</be-button>
-<be-button type="primary" size="large">大号按钮</be-button>
+<wd-button type="primary" size="small">小号按钮</wd-button>
+<wd-button type="primary" size="medium">中号按钮</wd-button>
+<wd-button type="primary" size="large">大号按钮</wd-button>
 ```
 
 ### 加载中按钮
@@ -62,7 +62,7 @@
 设置 `loading` 属性，让按钮处于加载中状态。加载中的按钮是禁止点击的。
 
 ```html
-<be-button type="primary" loading>加载中</be-button>
+<wd-button type="primary" loading>加载中</wd-button>
 ```
 
 ### 文字按钮
@@ -70,7 +70,7 @@
 将 `type` 设置为 `text`。文字按钮不支持其他颜色。
 
 ```html
-<be-button type="text">文字按钮</be-button>
+<wd-button type="text">文字按钮</wd-button>
 ```
 
 ### 图标按钮
@@ -78,7 +78,7 @@
 将 `type` 设置为 `icon`，同时设置 `icon` 属性，icon为图标的类名，可以直接使用 `Icon 图标` 章节中的图标类名。
 
 ```html
-<be-button type="icon" icon="menu"></be-button>
+<wd-button type="icon" icon="menu"></wd-button>
 ```
 
 ### 带图标的按钮
@@ -86,7 +86,7 @@
 设置 `icon` 属性，不需要设置 `type` 为 `icon`，即可以直接使用带图标的按钮。
 
 ```html
-<be-button type="primary" icon="edit-outline"></be-button>
+<wd-button type="primary" icon="edit-outline"></wd-button>
 ```
 
 ### 吸顶按钮
@@ -94,7 +94,7 @@
 设置 `suck` 属性。
 
 ```html
-<be-button type="primary" suck>主要按钮</be-button>
+<wd-button type="primary" suck>主要按钮</wd-button>
 ```
 
 ### 块状按钮
@@ -102,7 +102,7 @@
 设置 `block` 属性。
 
 ```html
-<be-button type="primary" block>主要按钮</be-button>
+<wd-button type="primary" block>主要按钮</wd-button>
 ```
 
 ### Attributes

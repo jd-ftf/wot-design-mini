@@ -5,8 +5,8 @@
 ```json
 {
   "usingComponents": {
-    "be-collapse": "/bee-design/collapse/index",
-    "be-collapse-item": "/bee-design/collapseItem/index"
+    "wd-collapse": "/wot-design/collapse/index",
+    "wd-collapse-item": "/wot-design/collapseItem/index"
   }
 }
 ```
@@ -28,17 +28,17 @@ page({
 })
 ```
 ```html
-<be-collapse value="{{ value }}" bind:change="handleChange1">
-    <be-collapse-item title="标签1" name="item1">
+<wd-collapse value="{{ value }}" bind:change="handleChange1">
+    <wd-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
-    </be-collapse-item>
-    <be-collapse-item title="标签2" name="item2">
+    </wd-collapse-item>
+    <wd-collapse-item title="标签2" name="item2">
     这是一条简单的示例文字。
-    </be-collapse-item>
-    <be-collapse-item title="标签3" name="item3">
+    </wd-collapse-item>
+    <wd-collapse-item title="标签3" name="item3">
     这是一条简单的示例文字。
-    </be-collapse-item>
-</be-collapse>
+    </wd-collapse-item>
+</wd-collapse>
 ```
 
 ### 手风琴
@@ -46,17 +46,17 @@ page({
 设置 `accordion` 属性。
 
 ```html
-<be-collapse value="{{ value  }}" accordion>
-  <be-collapse-item title="标签1" name="item1">
+<wd-collapse value="{{ value  }}" accordion>
+  <wd-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
-  </be-collapse-item>
-  <be-collapse-item title="标签2" name="item2">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签2" name="item2">
     这是一条简单的示例文字。
-  </be-collapse-item>
-  <be-collapse-item title="标签3" name="item3">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签3" name="item3">
     这是一条简单的示例文字。
-  </be-collapse-item>
-</be-collapse>
+  </wd-collapse-item>
+</wd-collapse>
 ```
 
 ### 禁用
@@ -64,17 +64,17 @@ page({
 给 CollapseItem 设置 `disabled` 属性，禁用某个折叠栏。
 
 ```html
-<be-collapse value="{{ value }}">
-  <be-collapse-item title="标签1" name="item1">
+<wd-collapse value="{{ value }}">
+  <wd-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
-  </be-collapse-item>
-  <be-collapse-item title="标签2" name="item2" disabled >
+  </wd-collapse-item>
+  <wd-collapse-item title="标签2" name="item2" disabled >
     这是一条简单的示例文字。
-  </be-collapse-item>
-  <be-collapse-item title="标签3" name="item3">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签3" name="item3">
     这是一条简单的示例文字。
-  </be-collapse-item>
-</be-collapse>
+  </wd-collapse-item>
+</wd-collapse>
 ```
 
 ### 查看更多
@@ -82,9 +82,9 @@ page({
 Collapse 可以单独使用，通过设置 `viewmore` 属性，将其转化为查看更多的折叠类型，同时可以设置 `line-num` 修改收起时的显示行数。这时候的 `value` 为 boolean 类型。
 
 ```html
-<be-collapse viewmore value="{{ value }}">
+<wd-collapse viewmore value="{{ value }}">
   这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-</be-collapse>
+</wd-collapse>
 ```
 ### 查看更多-使用插槽
 Collapse 查看更多的模式下，可以使用插槽定义自己想要的折叠处样式，使用 `use-more-slot` 设置插槽开启。并且可以使用外部样式类 `custom-more-slot-class` 为自定义插槽设置样式。
@@ -94,10 +94,10 @@ Collapse 查看更多的模式下，可以使用插槽定义自己想要的折�
 }
 ```
 ```html
-<be-collapse viewmore value="{{ value }}" bind:change="handleChange4" use-more-slot custom-more-slot-class="more-slot">
+<wd-collapse viewmore value="{{ value }}" bind:change="handleChange4" use-more-slot custom-more-slot-class="more-slot">
   具名插槽：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
   <view slot="more">显示全部</view>
-</be-collapse>
+</wd-collapse>
 ```
 ### CollapseItem Attributes
 

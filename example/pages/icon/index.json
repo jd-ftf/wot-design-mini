@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "Icon 图标",
   "usingComponents": {
-    "be-icon": "../../dist/icon/index"
+    "wd-icon": "../../dist/icon/index"
   }
 }

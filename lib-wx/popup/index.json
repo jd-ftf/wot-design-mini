@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "be-transition": "../transition/index",
-    "be-modal": "../modal/index",
-    "be-icon": "../icon/index"
+    "wd-transition": "../transition/index",
+    "wd-modal": "../modal/index",
+    "wd-icon": "../icon/index"
   }
 }

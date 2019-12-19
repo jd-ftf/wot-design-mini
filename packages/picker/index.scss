@@ -19,7 +19,7 @@
     }
 
     @include m(disabled) {
-      .be-picker__value {
+      .wd-picker__value {
         color: $-picker-column-disabled-color;
       }
     }

@@ -1,32 +1,32 @@
-<be-popup
+<wd-popup
   transition="zoom-in"
   show="{{ show }}"
-  custom-class="be-message-box"
+  custom-class="wd-message-box"
   bind:click-modal="toggleModal"
   z-index="{{ zIndex }}"
 >
-  <view class="be-message-box__container custom-class">
+  <view class="wd-message-box__container custom-class">
     <!--内容部分-->
-    <view class="be-message-box__body {{ !title ? 'is-no-title' : '' }} {{ type === 'prompt' ? 'is-prompt' : '' }}">
+    <view class="wd-message-box__body {{ !title ? 'is-no-title' : '' }} {{ type === 'prompt' ? 'is-prompt' : '' }}">
       <!--公共title-->
-      <view jd:if="title" class="be-message-box__title">
+      <view jd:if="title" class="wd-message-box__title">
         {{ title }}
       </view>
       <!--其它类型-->
-      <view class="be-message-box__content">
+      <view class="wd-message-box__content">
         <!--prompt类型-->
         <block jd:if="{{type === 'prompt'}}">
           <!--输入框-->
-          <view class="be-message-box__input-container">
+          <view class="wd-message-box__input-container">
             <input
               value="{{inputValue}}"
               type="{{inputType}}"
               placeholder="{{ inputPlaceholder || '请输入' }}"
-              placeholder-class="be-message-box__input-placeholder" class="be-message-box__input"
+              placeholder-class="wd-message-box__input-placeholder" class="wd-message-box__input"
               bindinput="inputValChange"/>
           </view>
           <!--错误提示-->
-          <view jd:if="{{showErr}}" class="be-message-box__input-error">
+          <view jd:if="{{showErr}}" class="wd-message-box__input-error">
             {{ inputError || '输入的数据不合法' }}
           </view>
         </block>
@@ -37,20 +37,20 @@
       </view>
     </view>
     <!--action按钮组合-->
-    <view class="be-message-box__actions">
+    <view class="wd-message-box__actions">
       <view
         jd:if="{{showCancelButton}}"
-        class="be-message-box__button be-message-box__button--cancel"
+        class="wd-message-box__button wd-message-box__button--cancel"
         data-action="cancel"
         bind:tap="toggleModal">
         {{ cancelButtonText || '取消'}}
       </view>
       <view
-        class="be-message-box__button be-message-box__button--confirm"
+        class="wd-message-box__button wd-message-box__button--confirm"
         data-action="confirm"
         bind:tap="toggleModal">
         {{ confirmButtonText || '确定'}}
       </view>
     </view>
   </view>
-</be-popup>
+</wd-popup>

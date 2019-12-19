@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Badge 角标",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-badge": "../../dist/badge/index",
-    "be-button": "../../dist/button/index"
+    "wd-badge": "../../dist/badge/index",
+    "wd-button": "../../dist/button/index"
   }
 }

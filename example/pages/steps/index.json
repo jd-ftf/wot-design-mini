@@ -2,8 +2,8 @@
   "navigationBarTitleText": "Steps 步骤条",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-steps": "../../dist/steps/index",
-    "be-step": "../../dist/step/index",
-    "be-button": "../../dist/button/index"
+    "wd-steps": "../../dist/steps/index",
+    "wd-step": "../../dist/step/index",
+    "wd-button": "../../dist/button/index"
   }
 }

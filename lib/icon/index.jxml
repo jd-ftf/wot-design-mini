@@ -1,4 +1,4 @@
-<view class="be-icon custom-class {{isImageUrl ? 'be-icon--image' : ('be-icon-' + name)}}"
+<view class="wd-icon custom-class {{isImageUrl ? 'wd-icon--image' : ('wd-icon-' + name)}}"
       style="color: {{color}}; font-size: {{size}}">
-  <image jd:if="{{isImageUrl}}" class="be-icon__image" src="{{name}}"></image>
+  <image jd:if="{{isImageUrl}}" class="wd-icon__image" src="{{name}}"></image>
 </view>

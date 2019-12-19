@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-search": "/bee-design/search/index"
+    "wd-search": "/wot-design/search/index"
   }
 }
 ```
@@ -15,7 +15,7 @@
 `value`设置输入框绑定值、`focus`绑定聚焦事件、`change` 绑定输入事件，`blur`绑定失焦事件，`search` 绑定搜索事件，`cancel` 绑定取消事件，`clear` 绑定清空事件。
 
 ```html
-<be-search
+<wd-search
   value="{{value}}"
   bind:focus="focus"
   bind:blur="blur"
@@ -59,13 +59,13 @@ Page({
 设置 `light` 属性，将组件背景色和输入框背景色反转。
 
 ```html
-<be-search light />
+<wd-search light />
 ```
 
 ### 输入框提示文案靠左
 设置 `placeholder-left` 属性。
 ```html
-<be-search placeholder-left />
+<wd-search placeholder-left />
 ```
 
 ### 隐藏取消按钮
@@ -73,7 +73,7 @@ Page({
 设置 `hide-cancel` 属性。
 
 ```html
-<be-search hide-cancel />
+<wd-search hide-cancel />
 ```
 
 ### 禁用
@@ -81,13 +81,13 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<be-search disabled="{{true}}" />
+<wd-search disabled="{{true}}" />
 ```
 
 可以和 `hide-cancel` 结合使用，用于在本页只展示搜索框，当点击搜索框时，将页面路由切换进搜索页，在搜索页中再使用搜索功能。
 
 ```html
-<be-search hide-cancel disabled="{{true}}" />
+<wd-search hide-cancel disabled="{{true}}" />
 ```
 
 ### 自定义
@@ -95,14 +95,14 @@ Page({
 通过设置 `placeholder` 修改输入框提示文案，`cancel-txt` 修改取消按钮文案。
 
 ```html
-<be-search placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
+<wd-search placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
 ```
 通过设置 `use-action-slot` 来自定义输入框左边内容，设置`use-action-slot` 使用自定义内容替换取消按钮。
 ```html
-<be-search use-label-slot use-action-slot>
+<wd-search use-label-slot use-action-slot>
   <view slot="label" style="line-height: 14px;margin-right: 10px;">左侧</view>
   <view slot="action" style="padding: 5px 10px;color: #ff0000;">右侧</view>
-</be-search>
+</wd-search>
 ```
 
 ### Attributes

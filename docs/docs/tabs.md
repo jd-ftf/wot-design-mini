@@ -5,8 +5,8 @@
 ```json
 {
   "usingComponents": {
-    "be-tab": "/bee-design/tab/index",
-    "be-tabs": "/bee-design/tabs/index"
+    "wd-tab": "/wot-design/tab/index",
+    "wd-tabs": "/wot-design/tabs/index"
   }
 }
 ```
@@ -15,16 +15,16 @@
 
 `value` 为绑定值，可以为 number 类型（选中的tab的下标）和 string 类型（标签名）。
 
-> 当`value`为`number`类型时，`be-tab`可以不必设置`name`。同时如果value超出了tab数量，会用0自动兜底
+> 当`value`为`number`类型时，`wd-tab`可以不必设置`name`。同时如果value超出了tab数量，会用0自动兜底
 
 ```html
-<be-tabs value="{{0}}">
+<wd-tabs value="{{0}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <be-tab title="标签{{item}}">
+    <wd-tab title="标签{{item}}">
       <view class="content">内容{{item}}</view>
-    </be-tab>
+    </wd-tab>
   </block>
-</be-tabs>
+</wd-tabs>
 ```
 ```css
 .content{
@@ -38,13 +38,13 @@
 设置 `animated` 属性，开启tab切换动画。
 
 ```html
-<be-tabs value="{{0}}" animated="{{true}}">
+<wd-tabs value="{{0}}" animated="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <be-tab title="标签{{item}}">
+    <wd-tab title="标签{{item}}">
       <view class="content">内容{{item}}</view>
-    </be-tab>
+    </wd-tab>
   </block>
-</be-tabs>
+</wd-tabs>
 
 ```
 
@@ -53,27 +53,27 @@
 设置 `sticky` 属性，使用粘性布局。可以设置 `offset-top` 属性，当距离窗口顶部多少像素时，固定标签头。
 
 ```html
-<be-tabs value="{{0}}" sticky="{{true}}">
+<wd-tabs value="{{0}}" sticky="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <be-tab title="标签{{item}}">
+    <wd-tab title="标签{{item}}">
       <view class="content">内容{{item}}</view>
-    </be-tab>
+    </wd-tab>
   </block>
-</be-tabs>
+</wd-tabs>
 ```
 
 ### 禁用Tab
 
-在 `be-tab` 上设置 `disabled` 属性，禁用某个页签。
+在 `wd-tab` 上设置 `disabled` 属性，禁用某个页签。
 
 ```html
-<be-tabs value="{{0}}">
+<wd-tabs value="{{0}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <be-tab title="标签{{item}}" disabled="{{item === 1}}">
+    <wd-tab title="标签{{item}}" disabled="{{item === 1}}">
       <view class="content">内容{{item}}</view>
-    </be-tab>
+    </wd-tab>
   </block>
-</be-tabs>
+</wd-tabs>
 ```
 
 ### 点击事件
@@ -81,13 +81,13 @@
 监听页签的点击事件.
 
 ```html
-<be-tabs value="{{0}}" bind:click="handleClick">
+<wd-tabs value="{{0}}" bind:click="handleClick">
   <block jd:for="{{4}}" jd:key="$this">
-    <be-tab title="标签{{item}}">
+    <wd-tab title="标签{{item}}">
       <view class="content">内容{{item}}</view>
-    </be-tab>
+    </wd-tab>
   </block>
-</be-tabs>
+</wd-tabs>
 ```
 ```javascript
 Page({
@@ -104,13 +104,13 @@ Page({
 设置 `lazy-render` 属性，只有切换到当前页签时，页签的内容才会渲染。
 
 ```html
-<be-tabs value="{{0}}" lazy-render="{{true}}">
+<wd-tabs value="{{0}}" lazy-render="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <be-tab title="标签{{item}}">
+    <wd-tab title="标签{{item}}">
       <view class="content">内容{{item}}</view>
-    </be-tab>
+    </wd-tab>
   </block>
-</be-tabs>
+</wd-tabs>
 
 ```
 
@@ -119,13 +119,13 @@ Page({
 设置 `swipeable` 属性，支持手势滑动。
 
 ```html
-<be-tabs value="{{0}}" swipeable="{{true}}">
+<wd-tabs value="{{0}}" swipeable="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <be-tab title="标签{{item}}">
+    <wd-tab title="标签{{item}}">
       <view class="content">内容{{item}}</view>
-    </be-tab>
+    </wd-tab>
   </block>
-</be-tabs>
+</wd-tabs>
 ```
 
 ---

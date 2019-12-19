@@ -1,4 +1,4 @@
-<be-picker-view
+<wd-picker-view
   custom-class="custom-class"
   id="{{pickerId}}"
   value="{{pickerValue}}"

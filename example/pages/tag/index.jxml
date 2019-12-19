@@ -1,40 +1,40 @@
 <demo-block title="基本用法">
-  <be-tag custom-class="space">标签</be-tag>
-  <be-tag custom-class="space" type="primary" >标签</be-tag>
-  <be-tag custom-class="space" type="danger">标签</be-tag>
-  <be-tag custom-class="space" type="warning">标签</be-tag>
-  <be-tag custom-class="space" type="success">标签</be-tag>
+  <wd-tag custom-class="space">标签</wd-tag>
+  <wd-tag custom-class="space" type="primary" >标签</wd-tag>
+  <wd-tag custom-class="space" type="danger">标签</wd-tag>
+  <wd-tag custom-class="space" type="warning">标签</wd-tag>
+  <wd-tag custom-class="space" type="success">标签</wd-tag>
 </demo-block>
 
 <demo-block title="幽灵标签">
-  <be-tag custom-class="space" plain >标签</be-tag>
-  <be-tag custom-class="space" plain type="primary">标签</be-tag>
-  <be-tag custom-class="space" plain type="danger">标签</be-tag>
-  <be-tag custom-class="space" plain type="warning">标签</be-tag>
-  <be-tag custom-class="space" plain type="success">标签</be-tag>
+  <wd-tag custom-class="space" plain >标签</wd-tag>
+  <wd-tag custom-class="space" plain type="primary">标签</wd-tag>
+  <wd-tag custom-class="space" plain type="danger">标签</wd-tag>
+  <wd-tag custom-class="space" plain type="warning">标签</wd-tag>
+  <wd-tag custom-class="space" plain type="success">标签</wd-tag>
 </demo-block>
 
 <demo-block title="标签大小">
-  <be-tag custom-class="space" size="small">标签</be-tag>
-  <be-tag custom-class="space">标签</be-tag>
-  <be-tag custom-class="space" size="large">标签</be-tag>
+  <wd-tag custom-class="space" size="small">标签</wd-tag>
+  <wd-tag custom-class="space">标签</wd-tag>
+  <wd-tag custom-class="space" size="large">标签</wd-tag>
 </demo-block>
 
 <demo-block title="自定义颜色">
-  <be-tag custom-class="space" color="#0083ff" bg-color="#d0e8ff">标签</be-tag>
-  <be-tag custom-class="space" color="#FAA21E" bg-color="#FAA21E" plain>标签</be-tag>
+  <wd-tag custom-class="space" color="#0083ff" bg-color="#d0e8ff">标签</wd-tag>
+  <wd-tag custom-class="space" color="#FAA21E" bg-color="#FAA21E" plain>标签</wd-tag>
 </demo-block>
 
 <demo-block title="设置图标">
-  <be-tag custom-class="space" icon="tickets">标签</be-tag>
-  <be-tag custom-class="space" use-icon-slot>
+  <wd-tag custom-class="space" icon="tickets">标签</wd-tag>
+  <wd-tag custom-class="space" use-icon-slot>
     <text>插槽</text>
-    <be-icon slot="icon" name="tickets"/>
-  </be-tag>
+    <wd-icon slot="icon" name="tickets"/>
+  </wd-tag>
 </demo-block>
 
 <demo-block title="可关闭">
-  <be-tag
+  <wd-tag
     jd:for="{{tags}}"
     jd:key="$this"
     jd:for-item="tag"
@@ -48,5 +48,5 @@
     bind:close="handleClose"
   >
     {{tag.value}}
-  </be-tag>
+  </wd-tag>
 </demo-block>

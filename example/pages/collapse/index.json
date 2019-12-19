@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Collapse 折叠面板",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-collapse": "../../dist/collapse/index",
-    "be-collapse-item": "../../dist/collapseItem/index"
+    "wd-collapse": "../../dist/collapse/index",
+    "wd-collapse-item": "../../dist/collapseItem/index"
   }
 }

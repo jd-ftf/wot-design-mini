@@ -1,7 +1,7 @@
-<be-picker
+<wd-picker
   custom-class="custom-class"
   custom-view-class="custom-view-class"
-  id="be-picker"
+  id="wd-picker"
   label="{{label}}"
   placeholder="{{placeholder}}"
   disabled="{{disabled}}"

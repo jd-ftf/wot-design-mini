@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-action-sheet": "/bee-design/actionSheet/index"
+    "wd-action-sheet": "/wot-design/actionSheet/index"
   }
 }
 ```
@@ -15,8 +15,8 @@
 通过 `show` 属性设置显示隐藏，监听 `bind:close` 事件，隐藏菜单。
 
 ```html
-<be-button type="primary" bind:click="showActions">弹出菜单</be-button>
-<be-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
+<wd-button type="primary" bind:click="showActions">弹出菜单</wd-button>
+<wd-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
 ```
 
 ```javascript
@@ -52,8 +52,8 @@ page({
 可以设置 颜色、禁用、加载 等状态。
 
 ```html
-<be-button type="primary" bind:click="showActions">弹出菜单</be-button>
-<be-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
+<wd-button type="primary" bind:click="showActions">弹出菜单</wd-button>
+<wd-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
 ```
 
 ```javascript
@@ -90,7 +90,7 @@ page({
 设置 `cancel-text` 取消按钮文案，展示取消按钮。
 
 ```html
-<be-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" cancel-text="取消" />
+<wd-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" cancel-text="取消" />
 ```
 
 ### 标题
@@ -98,9 +98,9 @@ page({
 设置 `title` 展示标题。
 
 ```html
-<be-action-sheet show="{{ show }}" title="标题" bind:close="close">
+<wd-action-sheet show="{{ show }}" title="标题" bind:close="close">
   <view style="padding: 15px 15px 150px 15px;">内容</view>
-</be-action-sheet>
+</wd-action-sheet>
 ```
 
 ### Attributes

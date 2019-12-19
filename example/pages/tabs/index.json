@@ -2,8 +2,8 @@
   "navigationBarTitleText": "Tabs 标签页",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "be-tabs": "../../dist/tabs/index",
-    "be-tab": "../../dist/tab/index",
-    "be-toast": "../../dist/toast/index"
+    "wd-tabs": "../../dist/tabs/index",
+    "wd-tab": "../../dist/tab/index",
+    "wd-toast": "../../dist/toast/index"
   }
 }

@@ -1,12 +1,12 @@
-<view class="be-picker-view custom-class">
+<view class="wd-picker-view custom-class">
   <view
-    class="be-picker-view__loading"
+    class="wd-picker-view__loading"
     jd:if="{{loading}}"
   >
-    <be-loading color="#0083FF" size="33px"/>
+    <wd-loading color="#0083FF" size="33px"/>
   </view>
   <picker-view
-    mask-class="be-picker-view__mask"
+    mask-class="wd-picker-view__mask"
     indicator-class=""
     indicator-style="height: {{itemHeight}}px;"
     style="height: {{itemHeight * visibleItemCount}}px;"
@@ -18,14 +18,14 @@
       jd:for-index="colIndex"
       jd:for-item="col"
       jd:key="$this"
-      class="be-picker-view-column"
+      class="wd-picker-view-column"
     >
       <view
         jd:for="{{col}}"
         jd:for-index="rowIndex"
         jd:for-item="row"
         jd:key="$this"
-        class="be-picker-view-column__item {{row['disabled']?'be-picker-view-column__item--disabled':''}} {{selectedIndex[colIndex] == rowIndex ? 'be-picker-view-column__item--active' : ''}}"
+        class="wd-picker-view-column__item {{row['disabled']?'wd-picker-view-column__item--disabled':''}} {{selectedIndex[colIndex] == rowIndex ? 'wd-picker-view-column__item--active' : ''}}"
         style="line-height: {{itemHeight}}px;"
       >
         {{row[labelKey]}}

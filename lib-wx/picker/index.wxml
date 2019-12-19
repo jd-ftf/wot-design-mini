@@ -1,41 +1,41 @@
-<view class="be-picker be-field custom-class">
+<view class="wd-picker wd-field custom-class">
   <!--文案-->
   <view
-    class="be-picker__field {{disabled ? 'be-picker__field--disabled' : '' }}"
+    class="wd-picker__field {{disabled ? 'wd-picker__field--disabled' : '' }}"
     bindtap="showPopup"
   >
-    <view class="be-picker__label">{{ label }}</view>
-    <view class="be-picker__value">
+    <view class="wd-picker__label">{{ label }}</view>
+    <view class="wd-picker__value">
       {{ showValue ? showValue : placeholder }}
     </view>
-    <be-icon
+    <wd-icon
       wx:if="{{!disabled && !readonly}}"
-      custom-class="be-picker__arrow"
+      custom-class="wd-picker__arrow"
       name="arrow-right"
     />
   </view>
   <!--弹出层-->
-  <be-popup
+  <wd-popup
     show="{{ popupShow }}"
     position="bottom"
     bind:close="onCancel"
   >
 
     <!--toolBar-->
-    <view class="be-picker__toolbar">
+    <view class="wd-picker__toolbar">
       <!--取消按钮-->
-      <view class="be-picker__action be-picker__action--cancel" bindtap="onCancel">
+      <view class="wd-picker__action wd-picker__action--cancel" bindtap="onCancel">
         {{ cancelButtonText }}
       </view>
       <!--标题-->
-      <view wx:if="{{title}}" class="be-picker__title">{{ title }}</view>
+      <view wx:if="{{title}}" class="wd-picker__title">{{ title }}</view>
       <!--确定按钮-->
-      <view class="be-picker__action" bindtap="onConfirm">
+      <view class="wd-picker__action" bindtap="onConfirm">
         {{ confirmButtonText }}
       </view>
     </view>
     <!--pickerView-->
-    <be-picker-view
+    <wd-picker-view
       custom-class="custom-view-class"
       id="{{pickerId}}"
       value="{{value}}"
@@ -47,5 +47,5 @@
       label-key="{{labelKey}}"
       bind:change="handleChange"
     />
-  </be-popup>
+  </wd-popup>
 </view>

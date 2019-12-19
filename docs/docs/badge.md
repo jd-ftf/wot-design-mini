@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "be-badge": "/bee-design/badge/index"
+    "wd-badge": "/wot-design/badge/index"
   }
 }
 ```
@@ -19,13 +19,13 @@
 定义`value`属性，它接受`Number`或者`String`。
 
 ```html
-<be-badge value="12">
-  <be-button size="small">评论</be-button>
-</be-badge>
+<wd-badge value="12">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
 
-<be-badge value="12px">
-  <be-button size="small">评论</be-button>
-</be-badge>
+<wd-badge value="12px">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
 ```
 
 ### 修改背景色
@@ -33,21 +33,21 @@
 设置 `type` 属性，也可以自定义背景色 `bg-color`，也可以通过`custom-class`定义组件样式。
 
 ```html
-<be-badge custom-class="badge" value="3" bg-color="pink">
-  <be-button size="small">回复</be-button>
-</be-badge>
-<be-badge custom-class="badge" value="1" type="primary">
-  <be-button size="small">评论</be-button>
-</be-badge>
-<be-badge custom-class="badge" value="2" type="warning">
-  <be-button size="small">回复</be-button>
-</be-badge>
-<be-badge custom-class="badge" value="1" type="success">
-  <be-button size="small">评论</be-button>
-</be-badge>
-<be-badge custom-class="badge" value="2" type="info">
-  <be-button size="small">回复</be-button>
-</be-badge>
+<wd-badge custom-class="badge" value="3" bg-color="pink">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
+<wd-badge custom-class="badge" value="1" type="primary">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge custom-class="badge" value="2" type="warning">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
+<wd-badge custom-class="badge" value="1" type="success">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge custom-class="badge" value="2" type="info">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
 ```
 
 ```css
@@ -64,12 +64,12 @@
 由`max`属性定义，它接受一个`Number`，需要注意的是，只有当`value`为`Number`时，它才会生效。
 
 ```html
-<be-badge value="200" max="99">
-  <be-button size="small">评论</be-button>
-</be-badge>
-<be-badge value="100" max="10">
-  <be-button size="small">回复</be-button>
-</be-badge>
+<wd-badge value="200" max="99">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge value="100" max="10">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
 ```
 
 
@@ -80,12 +80,12 @@
  定义`value`为`String`类型是时可以用于显示自定义文本。
 
 ```html
-<be-badge value="new">
-  <be-button size="small">评论</be-button>
-</be-badge>
-<be-badge value="hot">
-  <be-button size="small">回复</be-button>
-</be-badge>
+<wd-badge value="new">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge value="hot">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
 ```
 
 
@@ -96,10 +96,10 @@
  除了数字外，设置`is-dot`属性，它接受一个`Boolean`。
 
 ```html
-<be-badge is-dot>数据查询</be-badge>
-<be-badge is-dot>
-  <be-button class="share-button"  type="primary"></be-button>
-</be-badge>
+<wd-badge is-dot>数据查询</wd-badge>
+<wd-badge is-dot>
+  <wd-button class="share-button"  type="primary"></wd-button>
+</wd-badge>
 ```
 
 

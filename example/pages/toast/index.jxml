@@ -1,16 +1,16 @@
-<be-toast id="be-toast"/>
+<wd-toast id="wd-toast"/>
 <demo-block title="基本用法">
-  <be-button type="primary" bind:click="showToast">toast</be-button>
+  <wd-button type="primary" bind:click="showToast">toast</wd-button>
 </demo-block>
 <demo-block title="类型toast">
-  <be-button type="primary" bind:click="showSuccessToast">成功toast</be-button>
-  <be-button type="primary" bind:click="showErrorToast">错误toast</be-button>
-  <be-button type="primary" bind:click="showWarnToast">警告toast</be-button>
+  <wd-button type="primary" bind:click="showSuccessToast">成功toast</wd-button>
+  <wd-button type="primary" bind:click="showErrorToast">错误toast</wd-button>
+  <wd-button type="primary" bind:click="showWarnToast">警告toast</wd-button>
 </demo-block>
 <demo-block title="提示位置">
-  <be-button type="primary" bind:click="showTopToast">顶部toast</be-button>
-  <be-button type="primary" bind:click="showBottomToast">底部toast</be-button>
+  <wd-button type="primary" bind:click="showTopToast">顶部toast</wd-button>
+  <wd-button type="primary" bind:click="showBottomToast">底部toast</wd-button>
 </demo-block>
 <demo-block title="Loading">
-  <be-button type="primary" bind:click="showLoadingToast">Loading加载</be-button>
+  <wd-button type="primary" bind:click="showLoadingToast">Loading加载</wd-button>
 </demo-block>

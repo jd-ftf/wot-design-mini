@@ -1,22 +1,22 @@
 <view
-  class="be-tag {{tagClass}} custom-class"
+  class="wd-tag {{tagClass}} custom-class"
   style="{{(!plain && bgColor)?'background :'+bgColor+';':''}}{{bgColor?'border-color:'+bgColor:''}}"
   bindtap="handleClick"
 >
-  <view jd:if="{{useIconSlot}}" class="be-tag__icon">
+  <view jd:if="{{useIconSlot}}" class="wd-tag__icon">
     <slot name="icon"/>
   </view>
-  <be-icon
+  <wd-icon
     jd:elif="{{icon}}"
     name="{{icon}}"
-    custom-class="be-tag__icon"
+    custom-class="wd-tag__icon"
   />
-  <view class="be-tag__text" style="{{color?'color:'+color:''}}">
+  <view class="wd-tag__text" style="{{color?'color:'+color:''}}">
     <slot/>
   </view>
-  <be-icon
+  <wd-icon
     jd:if="{{closable}}"
-    class="be-tag__close"
+    class="wd-tag__close"
     name="close-outline"
     catchtap="handleClose"/>
 </view>

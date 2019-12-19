@@ -1,31 +1,31 @@
 <demo-block title="基本用法">
-  <be-rate value="{{5}}"/>
+  <wd-rate value="{{5}}"/>
 </demo-block>
 
 <demo-block title="只读状态 readonly">
-  <be-rate value="{{3}}" readonly/>
+  <wd-rate value="{{3}}" readonly/>
 </demo-block>
 
 <demo-block title="禁用状态 disabled、设置禁用颜色">
   <view>
-    <be-rate value="{{2}}" disabled="{{true}}"/>
+    <wd-rate value="{{2}}" disabled="{{true}}"/>
   </view>
   <view>
-    <be-rate value="{{2}}" disabled="{{true}}" disabled-color="rgb(197, 197, 197,0.5)"/>
+    <wd-rate value="{{2}}" disabled="{{true}}" disabled-color="rgb(197, 197, 197,0.5)"/>
   </view>
 </demo-block>
 
 <demo-block title="修改选中颜色 active-color，支持平分和四舍五入">
   <view>
-    <be-rate value="{{3.5}}" active-color="#FFAE16"/>
+    <wd-rate value="{{3.5}}" active-color="#FFAE16"/>
   </view>
   <view>
-    <be-rate value="{{4}}" active-color="yellow"/>
+    <wd-rate value="{{4}}" active-color="yellow"/>
   </view>
 </demo-block>
 
 <demo-block title="修改icon和选中颜色、active-icon、active-color">
-  <be-rate
+  <wd-rate
     value="{{1}}"
     icon="good"
     active-icon="good"
@@ -34,9 +34,9 @@
 </demo-block>
 
 <demo-block title="监听change，修改数量">
-  <be-rate value="{{value}}" bind:change="changeValue"/>
+  <wd-rate value="{{value}}" bind:change="changeValue"/>
 </demo-block>
 
 <demo-block title="修改size、space">
-  <be-rate value="{{5}}" space="10px" size="30px"/>
+  <wd-rate value="{{5}}" space="10px" size="30px"/>
 </demo-block>

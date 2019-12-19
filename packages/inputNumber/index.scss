@@ -102,14 +102,14 @@
   }
 
   @include when(disabled) {
-    .be-input-number__input {
+    .wd-input-number__input {
       color: $-inputNumber-disabled-color;
       background: $-inputNumber-disabled-input-bg;
       z-index: inherit;
     }
   }
   @include when(without-input) {
-    .be-input-number__action:last-child::after {
+    .wd-input-number__action:last-child::after {
       border-left: none;
     }
   }

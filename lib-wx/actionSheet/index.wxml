@@ -1,5 +1,5 @@
-<be-popup
-  custom-class="be-action-sheet"
+<wd-popup
+  custom-class="wd-action-sheet"
   show="{{ show }}"
   duration="{{ duration }}"
   position="bottom"
@@ -10,24 +10,24 @@
   bind:after-leave="handleClosed"
   z-index="{{ zIndex }}"
 >
-  <view wx:if="{{ title }}" class="be-action-sheet__header">
+  <view wx:if="{{ title }}" class="wd-action-sheet__header">
     {{ title }}
-    <be-icon custom-class="be-action-sheet__close" name="add" bind:tap="close"/>
+    <wd-icon custom-class="wd-action-sheet__close" name="add" bind:tap="close"/>
   </view>
   <view>
     <button
       wx:for="{{ actions }}"
       wx:key="{{ index }}"
-      class="be-action-sheet__action {{ item.disabled ? 'be-action-sheet__action--disabled' : '' }} {{ item.loading ? 'be-action-sheet__action--loading' : '' }}"
+      class="wd-action-sheet__action {{ item.disabled ? 'wd-action-sheet__action--disabled' : '' }} {{ item.loading ? 'wd-action-sheet__action--loading' : '' }}"
       style="color: {{ item.color }}"
       data-index="{{ index }}"
       bind:tap="select"
     >
-      <be-loading wx:if="{{ item.loading }}" size="20px" color="{{ item.color }}"/>
-      <view wx:else class="be-action-sheet__name">{{ item.name }}</view>
-      <view wx:if="{{ !item.loading && item.subname }}" class="be-action-sheet__subname">{{ item.subname }}</view>
+      <wd-loading wx:if="{{ item.loading }}" size="20px" color="{{ item.color }}"/>
+      <view wx:else class="wd-action-sheet__name">{{ item.name }}</view>
+      <view wx:if="{{ !item.loading && item.subname }}" class="wd-action-sheet__subname">{{ item.subname }}</view>
     </button>
   </view>
   <slot/>
-  <button wx:if="{{ cancelText }}" class="be-action-sheet__cancel" bind:tap="handleCancel">{{ cancelText }}</button>
-</be-popup>
+  <button wx:if="{{ cancelText }}" class="wd-action-sheet__cancel" bind:tap="handleCancel">{{ cancelText }}</button>
+</wd-popup>

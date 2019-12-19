@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "be-loading": "../loading/index",
-    "be-icon": "../icon/index",
-    "be-transition": "../transition/index"
+    "wd-loading": "../loading/index",
+    "wd-icon": "../icon/index",
+    "wd-transition": "../transition/index"
   }
 }
