@@ -134,7 +134,6 @@ VueComponent({
       this.newValue = this.startValue + diff
       // 左滑轮滑动控制
       this.leftBarSlider(this.newValue)
-      console.log(this.newValue)
       this.$emit('dragmove', this.currentValue)
     },
     onTouchEnd () {
