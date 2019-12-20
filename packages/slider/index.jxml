@@ -5,7 +5,7 @@
     {{ min }}
   </view>
   <view
-    class="wd-slider__bar-wrapper {{ disabled ? 'disabled' : '' }} custom-class"
+    class="wd-slider__bar-wrapper"
     style="{{ inactiveColor ? 'background:' + inactiveColor : '' }}">
     <view
       class="wd-slider__bar"
