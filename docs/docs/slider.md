@@ -87,14 +87,15 @@ page({
 | max      | 最大值        | number | - | 100 |
 | min       | 最小值  | number | - | 0 |
 | step           | 步进值        | number | - | 1 |
-
+| activeColor           | 进度条激活背景颜色        | string | - | '#0084ff' |
+| inactiveColor           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:drag-start | 开始移动时触发 | value |
-| bind:drag-move | 移动滑块时触发 | value |
-| bind:drag-end | 移动结束时触发 | value |
+| bind:dragstart | 开始移动时触发 | value |
+| bind:dragmove | 移动滑块时触发 | value |
+| bind:dragend | 移动结束时触发 | value |
 
 ### 外部样式类
 | 类名     | 说明                |

@@ -205,7 +205,6 @@ VueComponent({
     // 样式控制
     styleControl () {
       const { leftNewValue, rightNewValue } = this.data
-      if (!leftNewValue || !rightNewValue) return
       const { leftBarPercent, rightBarPercent } = this.data
       // 左右滑轮距离左边最短为当前激活条所处位置
       const barLeft = leftBarPercent < rightBarPercent
