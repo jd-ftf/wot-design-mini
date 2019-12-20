@@ -122,7 +122,6 @@ VueComponent({
       this.startValue = this.checkType(value) !== 'Array'
         ? this.format(value)
         : (leftBarPercent < rightBarPercent ? this.format(value[0]) : this.format(value[1]))
-      // this.currentValue = this.startValue
       this.$emit('dragstart', this.currentValue)
     },
     onTouchMove (event) {
@@ -148,7 +147,6 @@ VueComponent({
       this.touchStart.call(rightSlider, event)
       // 记录开始数据值
       rightSlider.startValue = leftBarPercent < rightBarPercent ? this.format(value[1]) : this.format(value[0])
-      // this.currentValue = rightSlider.startValue
       this.$emit('dragstart', this.currentValue)
     },
     onTouchMoveRight (event) {
