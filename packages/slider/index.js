@@ -122,6 +122,7 @@ VueComponent({
       this.startValue = this.checkType(value) !== 'Array'
         ? this.format(value)
         : (leftBarPercent < rightBarPercent ? this.format(value[0]) : this.format(value[1]))
+      // this.currentValue = this.startValue
       this.$emit('dragstart', this.currentValue)
     },
     onTouchMove (event) {
@@ -133,6 +134,7 @@ VueComponent({
       this.newValue = this.startValue + diff
       // 左滑轮滑动控制
       this.leftBarSlider(this.newValue)
+      console.log(this.newValue)
       this.$emit('dragmove', this.currentValue)
     },
     onTouchEnd () {
@@ -147,6 +149,7 @@ VueComponent({
       this.touchStart.call(rightSlider, event)
       // 记录开始数据值
       rightSlider.startValue = leftBarPercent < rightBarPercent ? this.format(value[1]) : this.format(value[0])
+      // this.currentValue = rightSlider.startValue
       this.$emit('dragstart', this.currentValue)
     },
     onTouchMoveRight (event) {
@@ -205,7 +208,7 @@ VueComponent({
     // 样式控制
     styleControl () {
       const { leftNewValue, rightNewValue } = this.data
-      if (!leftNewValue || !rightNewValue) return
+      // if (!leftNewValue || !rightNewValue) return
       const { leftBarPercent, rightBarPercent } = this.data
       // 左右滑轮距离左边最短为当前激活条所处位置
       const barLeft = leftBarPercent < rightBarPercent
