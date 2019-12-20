@@ -87,8 +87,12 @@ VueComponent({
      * @description 输入框失焦的handle
      */
     searchBlur () {
+      if (!this.data.str) {
+        this.setData({
+          showPlaceHolder: true
+        })
+      }
       this.setData({
-        showPlaceHolder: true,
         autofocus: false
       })
       // 组件触发blur事件
