@@ -5,7 +5,14 @@
         <i class="wot-design-logo"></i>
         <span>Wot Design Mini</span>
       </router-link>
+      
       <ul class="header-tab">
+        <!--// TODO 搜索待做 -->
+        <!-- 搜索 -->
+        <!-- <li class="header-tab__item">
+          <search />
+        </li> -->
+        <!-- 组件文档切换 -->
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
           <a v-if="page.href" :href="page.href" class="header-tab__link" target="_blank">{{ page.name }}</a>
           <router-link
@@ -15,6 +22,18 @@
             :to="`/${key}`"
           >{{ page.name }}</router-link>
         </li>
+        <!-- 版本控制 -->
+        <li class="header-tab__item version-control" v-show="isComponentPage" >
+          <a href="#" class="header-tab__link " @click="showOption">{{ version }}</a>
+          <div class="wot-dropdown" v-show="isShowOption">
+              <ul class="wot-dropdown-menu">
+                <li class="wot-dropdown-item" v-for="item in versions" :value="item" :key="item" @click="switchVersion(item)">
+                  {{ item }}
+                </li>
+              </ul>
+              <i class="popper__arrow" ></i>
+          </div>
+        </li>
       </ul>
     </div>
   </header>
@@ -22,12 +41,31 @@
 
 <script>
 import pagesConfig from '../pages.config.json'
+import versions from '../versions.json'
+import search from './search'
 
 export default {
+  components: {search},
   data () {
     return {
-      pages: pagesConfig
+      pages: pagesConfig,
+      versions: versions,
+      isComponentPage: true,
+      isShowOption: false,
+      version: '0.8.0'
     }
+  },
+  methods: {
+    showOption () {
+      this.isShowOption = !this.isShowOption
+    },
+    switchVersion (selected) {
+      this.isShowOption = !this.isShowOption
+      if (selected === this.version) return
+      this.version = selected
+      window.location.href = `${ location.origin }/wot-design-mini/${this.version}/${ location.hash }`
+      // window.location = 'http://jdftf.top/wot-design-mini/0.7.0/#/components/introduction'
+    },
   }
 }
 </script>
@@ -78,7 +116,9 @@ export default {
 }
 .header-tab__item {
   display: inline-block;
+  position: relative;
 }
+
 .header-tab__link {
   position: relative;
   display: inline-block;
@@ -106,5 +146,54 @@ export default {
     bottom: 0;
     background: $color-theme;
   }
+}
+.version-control{
+  &:before{
+    position: absolute;
+    content: " ";
+    top: calc(50% - 8px);
+    width: 1px;
+    height: 16px;
+    background-color: #ebebeb;
+  }
+}
+.wot-dropdown-menu{
+  padding: 10px 5px;
+  margin: 0 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: #666;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ebeef5;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.wot-dropdown-item{
+  list-style: none;
+  height: 30px;
+  line-height: 32px;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 12px;
+  color: #464c5b;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  &:hover{
+    background-color: #f5f7f9;
+    color: #464c5b;
+  }
+}
+.popper__arrow{
+  border: 1px solid;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  border-width: 6px;
+  border-color: transparent;
+  border-bottom-color: white;
 }
 </style>

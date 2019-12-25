@@ -54,19 +54,22 @@ VueComponent({
     stateControl (key, value) {
       this.setData({ [key]: value })
     },
-    async scrollHeight (select) {
-      const { height } = await this.getRect(select)
-      if (this.data.isExpand) {
-        this.setData({ height: 0, show: true })
-        setTimeout(() => {
+    scrollHeight (select) {
+      this.getRect(select).then(rect => {
+        if (!rect) return
+        const { height } = rect
+        if (this.data.isExpand) {
+          this.setData({ height: 0, show: true })
+          setTimeout(() => {
+            this.setData({ height: height + 'px' })
+          }, 30)
+        } else {
           this.setData({ height: height + 'px' })
-        }, 30)
-      } else {
-        this.setData({ height: height + 'px' })
-        setTimeout(() => {
-          this.setData({ height: 0 })
-        }, 30)
-      }
+          setTimeout(() => {
+            this.setData({ height: 0 })
+          }, 30)
+        }
+      })
     },
     toggle () {
       const { disabled, name, isExpand } = this.data
