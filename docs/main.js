@@ -4,7 +4,9 @@ import App from './App'
 import './assets/style/base.scss'
 import './assets/fonts/iconfont.css'
 import { isMac } from './utils/index'
+import InstantSearch from 'vue-instantsearch'
 
+Vue.use(InstantSearch)
 Vue.config.productionTip = false
 
 if (!isMac) {

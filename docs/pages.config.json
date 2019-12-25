@@ -22,6 +22,11 @@
           "type": "pages",
           "path": "/changelog",
           "demo": "/"
+        },
+        "CommonProblems": {
+          "name": "常见问题",
+          "path": "/commonProblems",
+          "demo": "/"
         }
       }, {
         "name": "组件",
