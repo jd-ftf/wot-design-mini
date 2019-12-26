@@ -52,7 +52,7 @@ export default {
       versions: versions,
       isComponentPage: true,
       isShowOption: false,
-      version: '0.8.0'
+      version: '1.0.0'
     }
   },
   methods: {
@@ -63,7 +63,8 @@ export default {
       this.isShowOption = !this.isShowOption
       if (selected === this.version) return
       this.version = selected
-      window.location.href = `${ location.origin }/wot-design-mini/${this.version}/${ location.hash }`
+      // location.hash
+      window.location.href = `${ location.origin }/wot-design-mini/${this.version}/#/components/introduction`
       // window.location = 'http://jdftf.top/wot-design-mini/0.7.0/#/components/introduction'
     },
   }
