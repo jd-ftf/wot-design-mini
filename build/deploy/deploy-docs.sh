@@ -21,7 +21,7 @@ git config --global credential.helper store
 
 # release docs
 git clone https://$ACCESS_TOKENS@github.com/jd-ftf/jd-ftf.github.io.git
-VERSION=$(node build/deploy/delete-old.js --version=0.0.12 --dir=jd-ftf.github.io/wot-design-mini)
+VERSION=$(node build/deploy/delete-old.js --version=$RELEASE_NAME --dir=jd-ftf.github.io/wot-design-mini)
 cd jd-ftf.github.io/wot-design-mini
 mv ../../docs/dist $VERSION
 git add -A .
