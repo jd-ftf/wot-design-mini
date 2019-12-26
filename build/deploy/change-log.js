@@ -30,4 +30,4 @@ for (let i = 0; i < html.length; i++) {
   queue.push(html[i])
 }
 queue.shift()
-process.stdout.write(queue.join() + '\n')
+process.stdout.write(queue.join('') + '\n')
