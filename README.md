@@ -1,127 +1,45 @@
-## Wot Design Mini 小程序组件库
-### 文档介绍
+## 快速上手
 
-* 京东小程序IDE目前功能暂不完善，此脚手架将京东小程序转换成微信小程序，通过微信小程序IDE进行调试。
-* 最低兼容到小程序基础库 v1.9.91
+本节介绍如何在小程序中使用 `Wot Design Mini`
 
-### 目录机构
-```
-.__
-├── READMD.md
-├── ISSUE.md                         // 用于记录开发时遇到的一些坑
-├── build
-│   ├── gulpfile.js                  // 使用gulp构建组件
-│   ├── md-loader
-│   │   └── index.js                 // 构建docs时将markdown转换为html的webpack loader
-│   ├── plugins
-│   │   ├── gulp-js-replace.js       // 将js中的字符串jd替换为wx
-│   │   └── gulp-replace.js          // 将html中的字符串jd替换为wx
-│   ├── utils.js                     // 自定义的webpack helper
-│   └── webpack.docs.conf.js         // 构建docs的webpack配置
-├── docs                             // 线上组件官方文档目录
-├── .eslintrc                        // eslint配置文件
-├── example                          // 京东小程序源码
-│   └── dist                         // 组件库 copy from packages
-├── example-wx                       // 京东小程序转换成的微信小程序
-├── lib                              // 打包后的京东小程序组件库
-├── lib-wx                           // 打包后的微信小程序组件库
-├── package-lock.json
-├── package.json
-└── packages                         // 组件库源码
-    └── common                       // 公共样式、宏
-```
-### 使用的技术栈
+### 下载组件库项目
 
-scss + 小程序
+通过 `github`下载组件库源码：
 
-### 构建工具
+* 进入[下载页面](https://github.com/jd-ftf/wot-design-mini/releases)，选择合适版本的源码。
 
-gulp、webpack
+* 将下载的源码解压缩，将解压后得到到`wot-design` 文件夹复制到你的小程序工程中如下结构：
 
-### 开发流程
-
-#### 使用京东小程序开发者工具开发，[点击下载](http://doc.jd.com/ares/alldoc/JDmp/download/IDE下载.html)。
-
-  1. 运行 `npm run dev` 命令，构建京东小程序组件。
-
-  2. 在京东小程序开发者工具中导入项目，项目地址选择 example 文件夹。
-
-  3. 在京东小程序开发者工具上预览效果。
-
-  4. 创建其它组件。
-
-#### 使用微信开发者工具开发
-
-  1. 运行 `npm run dev:wx` 命令，构建微信小程序组件。
-
-  2. 在微信小程序开发者工具中导入项目，项目地址选择 example-wx 文件夹。
-
-  3. 在微信小程序开发者工具上预览效果。
-
-  4. 创建其它组件。
-
-### 命令介绍
-
-```bash
-# 安装依赖
-npm install
-
-# 运行开发环境(将packages目录下文件复制到/example/dist，用于组件库预览)
-npm run dev
-
-# 打包插件库(将packages目录下文件打包到/lib下的，用于在npm发布)
-npm run build
-
-# 运行开发环境（npm run dev + example转微信小程序）
-npm run dev:wx
-
-# 打包插件库（同时打包生成京东、微信小程序组件库）
-npm run build:wx
-
-# 运行文档工程
-npm run dev:docs
-
-# 打包文档工程
-npm run build:docs
-
-# 自动生成 icon demo
-npm run build:icon
-
-# eslint自动格式化代码
-npm run fix
-
+```html
+.
+├── app.js
+├── app.json
+├── app.wxss
+├── wot-design								 wot-design 组件库
+|   └── button						         button组件
+|       ├── index.js
+|       ├── index.json
+|       ├── index.jxml
+|       └── index.jxss
+├── pages						             小程序项目页面使用目录
+├── project.config.json
+└── sitemap.json
 ```
 
-### 规范
-* commit时需要遵循 git flow，例如git commit -m "release(0.0.1): new version"。
-* commit时会自动运行eslint检测，不通过检测无法提交。可使用'npm run lint:fix'进行修复，部分错误需要手动修复。
+在页面的 index.json 文件中引入需要使用的组件：
 
-### 组件库开发步骤
-
-1. 新建分支，分支名规范：姓名-组件名，例如xieyu-message
-
-2. 参照[小程序原生框架](https://developers.weixin.qq.com/miniprogram/dev/component/)进行封装，封装为[自定义组件](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
-
-3. 组件库packages下新建以组件命名的目录，例如开发radio组件则建立packages/radio。之后在packages/radio分别新建：
-
-  + index.js
-  + index.scss(构建时自动转成scss)
-  + index.json
-  + index.jxml
-
-4. 小程序项目example开发：pages下新建目录如button,在目录中新建index.js，index.json，index.jxml，index.jxss。
-
-5. 在 example/pages/button/index.json 中添加组件引用，即可在页面中使用该组件
-
-```json5
+```json
 {
   "usingComponents": {
-    //引入小程序自定义组件库，即打包后开发的工具组件库
-    "wd-button": "/dist/button/index"
+    "wd-button": "/wot-design/button/index"
   }
 }
 ```
 
-可以在微信开发者工具中添加编译模式，将自己开发的组件页面设定为当前编译的页面。
+在页面中就可以使用该组件：
 
-![编译页面](https://img10.360buyimg.com/jmadvertisement/jfs/t1/69211/17/10309/119659/5d7f628fE022d5dcd/9534d56d95f58f5e.png)
+```html
+<view>
+  <wd-button>按钮</wd-button>
+</view>
+```
