@@ -1,7 +1,7 @@
 {
   "vue-components": {
-    "href": "//beta-jmw.jd.com/lib/wot-design/docs.html",
-    "name": "小程序组件"
+    "href": "//jdftf.top/wot-design/",
+    "name": "Vue组件"
   },
   "components": {
     "name": "小程序",

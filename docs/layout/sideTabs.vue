@@ -9,12 +9,8 @@
         </div>
         <div class="demo-preview" ref="phone" :style="phoneStyle">
           <div class="demo-preview-item">
-            <p>京麦app预览</p>
-            <img class="phone-title" src="//img10.360buyimg.com/jmadvertisement/jfs/t1/51214/13/14499/165933/5db2c2caE328337ea/c6a4a5e49768a266.jpg" />
-          </div>
-          <div class="demo-preview-item">
-            <p>微信app预览</p>
-            <img class="phone-title" src="//img10.360buyimg.com/jmadvertisement/jfs/t1/96166/30/911/122457/5db655dbE83581c67/762bd46a13c4831f.jpg" />
+            <p>京东app预览</p>
+            <img class="phone-title" src="../assets/img/jd.jpg" />
           </div>
         </div>
       </div>
