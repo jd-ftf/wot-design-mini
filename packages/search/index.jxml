@@ -27,7 +27,7 @@
       bindconfirm="search"
       disabled="{{disabled}}"
       maxlength="{{maxlength}}"
-      focus="{{autofocus}}"
+      focus="{{focus}}"
     />
     <!--icon:clear-->
     <wd-icon

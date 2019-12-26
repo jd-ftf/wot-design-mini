@@ -25,7 +25,6 @@ VueComponent({
       type: Number,
       value: -1
     },
-    autofocus: Boolean,
     value: {
       type: String,
       observer (s) {
@@ -38,6 +37,7 @@ VueComponent({
     }
   },
   data: {
+    focus: false,
     str: '',
     showPlaceHolder: true
   },
@@ -46,7 +46,7 @@ VueComponent({
       if (this.data.disabled) return
       this.setData({
         showPlaceHolder: false,
-        autofocus: true
+        focus: true
       })
     },
     /**
@@ -63,7 +63,11 @@ VueComponent({
     clearSearch () {
       setTimeout(() => {
         // 延迟清空，避免在输入时会触发change，但清除在change之前，导致之前change的值重新被set上去
-        this.setData({ str: '' })
+        this.setData({
+          str: ''
+          // TODO 点击清空会造成失焦，可以考虑重新聚焦拉起键盘
+          // focus: true
+        })
         this.$emit('change', '')
         this.$emit('clear')
       }, 30)
@@ -92,9 +96,6 @@ VueComponent({
           showPlaceHolder: true
         })
       }
-      this.setData({
-        autofocus: false
-      })
       // 组件触发blur事件
       this.$emit('blur', this.data.str)
     },
