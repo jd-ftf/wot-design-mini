@@ -43,7 +43,7 @@
 import pagesConfig from '../pages.config.json'
 import versions from '../versions.json'
 import search from './search'
-
+const { version } = require('../../package.json')
 export default {
   components: {search},
   data () {
@@ -52,7 +52,7 @@ export default {
       versions: versions,
       isComponentPage: true,
       isShowOption: false,
-      version: '1.0.0'
+      version
     }
   },
   methods: {
@@ -62,9 +62,8 @@ export default {
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
       if (selected === this.version) return
-      this.version = selected
       // location.hash
-      window.location.href = `${ location.origin }/wot-design-mini/${this.version}/#/components/introduction`
+      window.location.href = `${ location.origin }/wot-design-mini/${ selected }/#/components/introduction`
       // window.location = 'http://jdftf.top/wot-design-mini/0.7.0/#/components/introduction'
     },
   }
