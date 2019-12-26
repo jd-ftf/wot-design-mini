@@ -4,13 +4,11 @@
 
 ### 下载组件库项目
 
-通过 git 拉取 git 项目：
+通过 `github`下载组件库源码：
 
-```bash
-git clone git@git.jd.com:pop-FE/wd-vapp.git
-```
+* 进入[下载页面](https://github.com/jd-ftf/wot-design-mini/releases)，选择合适版本的源码。
 
-将项目中的 `lib` 文件夹复制到你的小程序工程中，重新命名为 `wot-design` ，如下结构：
+* 将下载的源码解压缩，将解压后得到到`wot-design` 文件夹复制到你的小程序工程中如下结构：
 
 ```html
 .
