@@ -1,17 +1,13 @@
 #! /bin/sh
 
-##############################################################
-#                                                            #
-#       description: Wot Design Mini document update         #
-#       auther: Gkxie                                        #
-#       date: 2019-12-26                                     #
-#                                                            #
-##############################################################
+if [ ! $RELEASE_NAME ]; then
+  exit 0
+fi
 
 # check BOT_GITHIB_TOKENS
 if [ ! $ACCESS_TOKENS ]; then
   echo "permission denied"
-  exit 1
+  exit 0
 fi
 
 # set git config
