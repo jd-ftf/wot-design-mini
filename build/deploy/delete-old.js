@@ -10,7 +10,7 @@ const minimist = require('minimist')
 const args = minimist(process.argv.slice(2))
 const rules = /\d+\.\d+\.\d+/
 
-let { version = '0.0.0', dir = './' } = args
+let {version = '0.0.0', dir = './'} = args
 
 // 传入的version不正确，异常退出
 if (!rules.test(version)) {
