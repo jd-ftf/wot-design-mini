@@ -96,6 +96,9 @@ Page({
           }, {
             id: 'toast',
             name: 'Toast 轻提示'
+          }, {
+            id: 'tooltip',
+            name: 'Tooltip 文字提示'
           }
         ]
       }, {

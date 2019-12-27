@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/input/index",
+    "pages/tooltip/index",
     "pages/slider/index",
     "pages/collapse/index",
     "pages/button/index",

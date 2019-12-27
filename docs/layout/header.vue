@@ -55,9 +55,21 @@ export default {
       version
     }
   },
+  created () {
+    this.filter()
+  },
   methods: {
     showOption () {
       this.isShowOption = !this.isShowOption
+    },
+    filter () {
+      const keys = Object.keys(versions)
+      let result = ''
+      keys.forEach(item => {
+        const arr = item.split('.')
+        console.log(arr)
+      })
+      return result
     },
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
