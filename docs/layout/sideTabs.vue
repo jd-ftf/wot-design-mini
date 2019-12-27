@@ -121,6 +121,15 @@ export default {
     overflow: auto;
     line-height: 1.1;
   }
+
+  .demo-iframe{
+    .phone-title{
+      width: 100%;
+    }
+    iframe{
+      width: 100%;
+    }
+  }
   .demo-preview {
     width: 375px;
     margin-left: 20px;
