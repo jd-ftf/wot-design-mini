@@ -35,4 +35,4 @@ deploy:
     tags: true
     condition: $(node build/deploy/check-deploy.js) = true
 after_deploy:
-  - sh ./build/deploy/after_deploy.sh
+  - sh ./build/deploy/after-deploy.sh
