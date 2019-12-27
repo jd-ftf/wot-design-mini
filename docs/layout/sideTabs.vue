@@ -45,10 +45,7 @@ export default {
   },
   computed: {
     demoLink () {
-      let path = location.pathname.slice(0, location.pathname.lastIndexOf('/'))
-      return location.protocol + '//' + location.host + '/wot-design' + (process.env.NODE_ENV === 'dev'
-        ? `/demo#${this.$route.meta.demo}`
-        : `${path}/demo.html#${this.$route.meta.demo}`)
+      return `${location.protocol}//${location.host}/wot-design/demo.html；`
     }
   },
   methods: {
