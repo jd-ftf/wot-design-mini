@@ -44,19 +44,17 @@ import pagesConfig from '../pages.config.json'
 import versions from '../versions.json'
 import search from './search'
 const { version } = require('../../package.json')
+
 export default {
   components: {search},
   data () {
     return {
       pages: pagesConfig,
-      versions: versions,
+      versions: this.filter(),
       isComponentPage: true,
       isShowOption: false,
       version
     }
-  },
-  created () {
-    this.filter()
   },
   methods: {
     showOption () {
@@ -64,19 +62,37 @@ export default {
     },
     filter () {
       const keys = Object.keys(versions)
-      let result = ''
+      let result = []
+      let preVersionList = []
+
       keys.forEach(item => {
-        const arr = item.split('.')
-        console.log(arr)
+        const lastIndex = item.lastIndexOf('.')
+        const preVersion = item.slice(0, lastIndex)
+        const curentPreIndex = preVersionList.indexOf(preVersion)
+        if (curentPreIndex === -1) {
+          preVersionList.push(preVersion)
+          result.push(item)
+        } else {
+          const lastVersion = item.slice(lastIndex + 1)
+          // 当前的 preVersion 如果存在，那么查找目前 result 中存在前两位版本的最后版本数的大小
+          result = result.map(itemR => {
+            const lastIndexR = itemR.lastIndexOf('.')
+            const preVersionR = itemR.slice(0, lastIndexR)
+            const lastVersionR = itemR.slice(lastIndexR + 1)
+            if( preVersion === preVersionR && lastVersion > lastVersionR) {
+              itemR = item
+            }
+            return itemR
+          })
+        }
       })
-      return result
+      return result.sort()
     },
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
       if (selected === this.version) return
       // location.hash
       window.location.href = `${ location.origin }/wot-design-mini/${ selected }/#/components/introduction`
-      // window.location = 'http://jdftf.top/wot-design-mini/0.7.0/#/components/introduction'
     },
   }
 }

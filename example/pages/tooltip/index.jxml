@@ -1,3 +1,3 @@
 <wd-tooltip placement="top-start" content="显示">
-  <wd-button>12345</wd-button>
+  <wd-button style="margin-left:100px">12345</wd-button>
 </wd-tooltip>

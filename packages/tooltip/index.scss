@@ -1,0 +1,53 @@
+@import "./../common/abstracts/_mixin.scss";
+@import "./../common/abstracts/variable.scss";
+$tooltip-bg-color: rgba(38, 39, 40, 0.8);
+$tooltip-arrow-height: 10px;
+
+// @include b(tootltip) {
+
+//   @include e(container) {
+//     width: 138px;
+//     height: 45px; 
+//   }
+
+//   @include e(inner) {
+//     width: 10px;
+//     border: 1px solid;
+//   }
+// }
+
+.wd-tooltip{
+  position: relative;
+}
+.wd-tooltip__target{
+  display: inline;
+}
+.wd-tooltip__container{
+  width: 138px;
+  line-height: 19px;
+  font-size: 14px;
+  padding: 8px;
+
+  box-sizing: border-box;
+  position: absolute;
+  color: $-color-white;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: $tooltip-bg-color;
+  background-clip: padding-box;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  border-radius: 10px;
+ 
+  text-align: center;
+}
+.wd-tooltip__arrow{
+  width: 0;
+  height: 0;
+  position: absolute;
+  display: block;
+  border: $tooltip-arrow-height solid transparent;
+  border-bottom-width: 0;
+  border-top-color: $tooltip-bg-color;
+  bottom: -$tooltip-arrow-height;
+  left: 50%;
+}
