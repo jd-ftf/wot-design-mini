@@ -57,9 +57,21 @@
     vertical-align: middle;
     color: $-tag-close-color;
   }
-
+  @include e(add-text) {
+    height: 15px;
+    min-height: 15px;
+    width: 60px;
+    display: inline-block;
+    font-size: $-tag-font-size;
+    vertical-align: middle;
+  }
   @include when(small) {
     .wd-tag__text {
+      font-size: $-tag-small-font-size;
+    }
+    .wd-tag__add-text {
+      height: 14px;
+      min-height: 14px;
       font-size: $-tag-small-font-size;
     }
     .wd-tag__close {
@@ -74,11 +86,10 @@
     .wd-tag__close {
       margin-left: 18px;
     }
-  }
-  @include e(add-text) {
-    min-height: 17px;
-    height: 17px;
-    width: 60px;
-    font-size: $-tag-font-size;
+    .wd-tag__add-text {
+      height: 17px;
+      min-height: 17px;
+      font-size: $-tag-small-font-size;
+    }
   }
 }
