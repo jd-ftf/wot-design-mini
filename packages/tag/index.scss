@@ -58,8 +58,8 @@
     color: $-tag-close-color;
   }
   @include e(add-text) {
-    height: 15px;
-    min-height: 15px;
+    height: 17px;
+    min-height: 17px;
     width: 60px;
     display: inline-block;
     font-size: $-tag-font-size;
@@ -85,11 +85,6 @@
 
     .wd-tag__close {
       margin-left: 18px;
-    }
-    .wd-tag__add-text {
-      height: 17px;
-      min-height: 17px;
-      font-size: $-tag-small-font-size;
     }
   }
 }

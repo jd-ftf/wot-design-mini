@@ -28,14 +28,14 @@ Page({
         plain: true,
         closable: true,
         type: 'primary',
-        size: 'small',
+        size: 'large',
         value: '标签一'
       },
       {
         plain: true,
         closable: true,
         type: 'primary',
-        size: 'small',
+        size: 'large',
         value: '标签二'
       }
     ]
@@ -61,7 +61,7 @@ Page({
           plain: true,
           closable: true,
           type: 'primary',
-          size: 'small',
+          size: 'large',
           value: event.detail
         }])
       })
