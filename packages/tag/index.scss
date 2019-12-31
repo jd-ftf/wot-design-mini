@@ -18,6 +18,7 @@
   border-radius: 2px;
   font-size: 0;
   transition: opacity .3s;
+  vertical-align: middle;
   @include tag-type-style($-tag-info-color, $-tag-info-color-light);
 
   @include when(primary) {
@@ -31,6 +32,9 @@
   }
   @include when(success) {
     @include tag-type-style($-tag-success-color, $-tag-success-color-light);
+  }
+  @include when(dynamic) {
+    @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
   }
   @include e(icon) {
     display: inline-block;
@@ -70,5 +74,11 @@
     .wd-tag__close {
       margin-left: 18px;
     }
+  }
+  @include e(add-text) {
+    min-height: 17px;
+    height: 17px;
+    width: 60px;
+    font-size: $-tag-font-size;
   }
 }
