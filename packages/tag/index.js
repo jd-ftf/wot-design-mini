@@ -10,8 +10,8 @@ VueComponent({
       type: String,
       observer (s) {
         if (!s) return
-        // type: 'primary', 'danger', 'warning', 'success'
-        const type = ['primary', 'danger', 'warning', 'success']
+        // type: 'primary', 'danger', 'warning', 'success', 'dynamic'
+        const type = ['primary', 'danger', 'warning', 'success', 'dynamic']
         if (type.indexOf(s) === -1) throw Error(`type must be one of ${type.toString()}`)
         this.computeTagClass()
       }
@@ -40,7 +40,9 @@ VueComponent({
     }
   },
   data: {
-    tagClass: ''
+    tagClass: '',
+    dynamicValue: '',
+    dynamicInput: false
   },
   methods: {
     computeTagClass () {
@@ -57,6 +59,24 @@ VueComponent({
     },
     handleClose () {
       this.$emit('close')
+    },
+    handleAdd () {
+      this.setData({
+        dynamicInput: true,
+        dynamicValue: ''
+      })
+    },
+    handleBlur () {
+      this.setDynamicInput()
+    },
+    handleConfirm (event) {
+      this.setDynamicInput()
+      this.$emit('confirm', event.detail.value)
+    },
+    setDynamicInput () {
+      this.setData({
+        dynamicInput: false
+      })
     }
   }
 })

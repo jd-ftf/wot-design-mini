@@ -50,3 +50,26 @@
     {{tag.value}}
   </wd-tag>
 </demo-block>
+<demo-block title="可添加">
+  <wd-tag
+    jd:for="{{dynamicTags}}"
+    jd:key="$this"
+    jd:for-item="dynamicTags"
+    custom-class="space"
+    plain
+    closable
+    type="primary"
+    size="{{dynamicTags.size}}"
+    data-index="{{index}}"
+    bind:close="handleClose1"
+  >
+    {{dynamicTags.value}}
+  </wd-tag>
+  <wd-tag
+    custom-class="space"
+    plain
+    type="dynamic"
+    size="{{dynamicTags[0].size}}"
+    bind:confirm="handleConfirm"
+  ></wd-tag>
+</demo-block>
