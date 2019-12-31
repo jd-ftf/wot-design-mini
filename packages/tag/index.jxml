@@ -1,5 +1,4 @@
 <view
-  jd:if="{{ type != 'dynamic' }}"
   class="wd-tag {{tagClass}} custom-class"
   style="{{(!plain && bgColor)?'background :'+bgColor+';':''}}{{bgColor?'border-color:'+bgColor:''}}"
   bindtap="handleClick"
@@ -20,23 +19,10 @@
     class="wd-tag__close"
     name="close-outline"
     catchtap="handleClose"/>
-</view>
-<view
-  jd:else
-  class="wd-tag {{tagClass}} custom-class"
-  style="{{(!plain && bgColor)?'background :'+bgColor+';':''}}{{bgColor?'border-color:'+bgColor:''}}"
-  bindtap="handleClick">
-  <view jd:if="{{useIconSlot}}" class="wd-tag__icon">
-    <slot name="icon"/>
-  </view>
-  <wd-icon
-    jd:elif="{{icon}}"
-    name="{{icon}}"
-    custom-class="wd-tag__icon"
-  />
   <input
-    jd:if="{{ dynamicInput }}"
+    jd:if="{{ dynamicInput && type == 'dynamic' }}"
     class="wd-tag__add-text"
+    placeholder="请输入"
     type="text"
     focus="true"
     value="{{ dynamicValue }}"
@@ -44,7 +30,7 @@
     bindconfirm="handleConfirm">
   </input>
   <view
-    jd:else
+    jd:elif="{{type == 'dynamic'}}"
     class="wd-tag__text"
     style="{{color?'color:'+color:''}}"
     catchtap="handleAdd">
