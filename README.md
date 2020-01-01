@@ -1,6 +1,6 @@
 # Wot Design Mini
 
-An ui component library built on vue.js.
+An ui component library for mini program.
 
 [Documentation](http://jdftf.top/wot-design-mini/)
 
