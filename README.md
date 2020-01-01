@@ -1,45 +1,18 @@
-## 快速上手
+# Wot Design Mini
 
-本节介绍如何在小程序中使用 `Wot Design Mini`
+An ui component library built on vue.js.
 
-### 下载组件库项目
+[Documentation](http://jdftf.top/wot-design-mini/)
 
-通过 `github`下载组件库源码：
 
-* 进入[下载页面](https://github.com/jd-ftf/wot-design-mini/releases)，选择合适版本的源码。
+## Quick Start
 
-* 将下载的源码解压缩，将解压后得到到`wot-design` 文件夹复制到你的小程序工程中如下结构：
+Enter the [download](https://github.com/jd-ftf/wot-design-mini/releases) page and select the appropriate version of the source code.
 
-```html
-.
-├── app.js
-├── app.json
-├── app.wxss
-├── wot-design								 wot-design 组件库
-|   └── button						         button组件
-|       ├── index.js
-|       ├── index.json
-|       ├── index.jxml
-|       └── index.jxss
-├── pages						             小程序项目页面使用目录
-├── project.config.json
-└── sitemap.json
-```
 
-在页面的 index.json 文件中引入需要使用的组件：
+For more information, please refer to [Quick Start](http://jdftf.top/wot-design-mini/#/components/quickUse) in our documentation.
 
-```json
-{
-  "usingComponents": {
-    "wd-button": "/wot-design/button/index"
-  }
-}
-```
 
-在页面中就可以使用该组件：
+## LICENSE
 
-```html
-<view>
-  <wd-button>按钮</wd-button>
-</view>
-```
+[MIT](https://github.com/jd-ftf/wot-design-mini/blob/dev/LICENSE)
