@@ -19,4 +19,21 @@
     class="wd-tag__close"
     name="close-outline"
     catchtap="handleClose"/>
+  <input
+    jd:if="{{ dynamicInput && type == 'dynamic' }}"
+    class="wd-tag__add-text"
+    placeholder="请输入"
+    type="text"
+    focus="true"
+    value="{{ dynamicValue }}"
+    bindblur="handleBlur"
+    bindconfirm="handleConfirm">
+  </input>
+  <view
+    jd:elif="{{type == 'dynamic'}}"
+    class="wd-tag__text"
+    style="{{color?'color:'+color:''}}"
+    catchtap="handleAdd">
+    + 新增标签
+  </view>
 </view>
