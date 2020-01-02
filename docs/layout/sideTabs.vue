@@ -8,8 +8,15 @@
           <page-controller></page-controller>
         </div>
         <div class="demo-preview" ref="phone" :style="phoneStyle">
+          <div class="demo-iframe">
+            <div class="phone-header">
+              <img class="phone-title" src="../assets/img/phtitle.png" />
+              <input readonly v-model="demoLink" class="phone-link" />
+            </div>
+            <iframe frameborder="0" :src="demoLink" style="height: 597px" ref="iframe"></iframe>
+          </div>
           <div class="demo-preview-item">
-            <p>京东app预览</p>
+            <p>京东app扫码预览</p>
             <img class="phone-title" src="../assets/img/jd.jpg" />
           </div>
         </div>
@@ -38,10 +45,7 @@ export default {
   },
   computed: {
     demoLink () {
-      let path = location.pathname.slice(0, location.pathname.lastIndexOf('/'))
-      return location.protocol + '//' + location.host + (process.env.NODE_ENV === 'dev'
-        ? `/examples#${this.$route.meta.demo}`
-        : `${path}/examples.html#${this.$route.meta.demo}`)
+      return `${location.protocol}//${location.host}/wot-design/demo.html`
     }
   },
   methods: {
@@ -117,6 +121,15 @@ export default {
     overflow: auto;
     line-height: 1.1;
   }
+
+  .demo-iframe{
+    .phone-title{
+      width: 100%;
+    }
+    iframe{
+      width: 100%;
+    }
+  }
   .demo-preview {
     width: 375px;
     margin-left: 20px;
@@ -125,10 +138,23 @@ export default {
     font-size: 18px;
 
     .demo-preview-item {
-      margin-bottom: 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      height: 100%;
+      text-align: center;
+      background-color: hsla(0,0%,100%,.95);
+      opacity: 0;
+      transition: .3s;
 
       &:last-child{
         margin-bottom: 0;
+      }
+
+      &:hover{
+        opacity: 1;
       }
     }
     img {
