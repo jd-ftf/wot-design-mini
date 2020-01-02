@@ -67,7 +67,7 @@ VueComponent({
       })
     },
     handleBlur () {
-      // this.setDynamicInput()
+      this.setDynamicInput()
     },
     handleConfirm (event) {
       this.setDynamicInput()
