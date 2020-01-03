@@ -1,4 +1,4 @@
-sudo: false
+os: linux
 language: node_js
 node_js:
   - "12"
@@ -18,10 +18,10 @@ before_deploy:
   # init file before deploy
   - sh build/deploy/before-deploy.sh
 deploy:
-  provider: <releases>
+  provider: releases
   # ⋮
   edge: true
-  skip_cleanup: true
+  cleanup: false
   overwrite: true
   api_key:
     secure: N6S2rNITmL0nYySaKrZaQsbGfBd2TcLv1nbfEMeO1IMrcgx+1k+YgJQbkbxIk/WHtiLaXfuUsViCAwLVIvbt0YW3ryq1Mjw7ntTnYidwAN45TD0+6YHPoUpvvwC/5a2CnOBFE0LaEILFba47gVcXFy+TewSmU1u7ZwEimK0fFHhcn6Pa6XSTqv4qnvlR6JsYZRK+cbluPKEZOfuVeI6/ubL3JS/TxakLDoC1+vQ+7PQqKG5RH2/xnBcIGMeKTu6SlCN/Q9UpkHVqRFUHVlrDycc25uPr5IeOpFBn5AZvb+C2+laKk1JgM56Sr9Z4XYQXcFN/xXGFwyI+PiXQ8GkIdzHoIw+upwtLPe5pcPMNqdbsaYgBMBdcLaz66ZGVXtPWTXslFqmvqZPK2sJ4WKair4j6CvMSmE/fj6bBA5eVfUvkxWHI0n5pUnduY1e7atLFzO15Ks6+uLCf0nOcv4WhV660ZmZWKsg2jlLFYPfAYt9MGtzyrsfXJB/cI/p12xS+/lXqOgkAwJlON7pMoC0sZ0cKPrsmwWg7AnxlhHEb59V1cigiVNBoWBglVKiOcjnjIf1P240Lu2YIEr3N9TqP0hpGKSKoK1UfjIczsFGTcHoeMnobPepPBjAipUFoxxVgsjXmwhdY+RNAzLmn94rF0RmobD/DYZbIcW3k1PnGAOs=
