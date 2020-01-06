@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import cell from '../mixins/cell'
 
 VueComponent({
   externalClasses: [
@@ -7,6 +8,18 @@ VueComponent({
     'custom-textarea-class',
     'custom-input-class'
   ],
+  behaviors: [cell],
+  relations: {
+    '../cellGroup/index': {
+      type: 'ancestor',
+      linked (target) {
+        this.parent = target
+      },
+      unlinked () {
+        this.parent = null
+      }
+    }
+  },
   data: {
     isPwdVisible: false
   },
@@ -127,7 +140,17 @@ VueComponent({
       value: false
     },
     suffix: String,
-    suffixCount: Number
+    suffixCount: Number,
+    label: String,
+    noHair: {
+      type: Boolean,
+      value: true
+    },
+    size: {
+      type: String,
+      value: 'medium'
+    },
+    error: Boolean
   },
   created () {
     this.initState()
@@ -183,6 +206,12 @@ VueComponent({
     },
     handleMapTextarea (event) {
       this.$emit('linechange', event)
+    },
+    onClickSuffixIcon () {
+      this.$emit('clicksuffixicon')
+    },
+    onClickPrefixIcon () {
+      this.$emit('clickprefixicon')
     }
   }
 })

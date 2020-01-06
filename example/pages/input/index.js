@@ -12,7 +12,13 @@ Page({
     value6: '',
     value7: '123456789123456789123456789',
     value8: '',
-    value9: ''
+    value9: '',
+    value10: '',
+    value11: '该输入框禁用',
+    value12: '12345678',
+    value13: '',
+    value14: '',
+    value15: ''
   },
   handleInput({ detail }) {
     var value = detail.value

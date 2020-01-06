@@ -1,7 +1,7 @@
 <view class="wd-picker wd-field custom-class">
   <!--文案-->
   <view
-    class="wd-picker__field {{disabled ? 'wd-picker__field--disabled' : '' }}"
+    class="wd-picker__field {{ noHair ? 'is-no-hair' : '' }} {{disabled ? 'wd-picker__field--disabled' : '' }}"
     bindtap="showPopup"
   >
     <view class="wd-picker__label">{{ label }}</view>

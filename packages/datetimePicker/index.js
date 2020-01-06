@@ -1,6 +1,7 @@
 import VueComponent from '../common/component'
 import pickerProps from '../picker/props'
 import datetimePickerView, { defaultDisplayFormat } from '../mixins/datetimePickerView'
+import cell from '../mixins/cell'
 
 import { getType } from '../common/util'
 
@@ -10,6 +11,18 @@ VueComponent({
    */
   externalClasses: ['custom-view-class'],
   mixins: [datetimePickerView()],
+  behaviors: [cell],
+  relations: {
+    '../cellGroup/index': {
+      type: 'ancestor',
+      linked (target) {
+        this.parent = target
+      },
+      unlinked () {
+        this.parent = null
+      }
+    }
+  },
   props: {
     ...pickerProps,
     // 选中项，当 type 为 time 时，类型为字符串，否则为 时间戳

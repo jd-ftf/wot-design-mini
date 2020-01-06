@@ -23,7 +23,5 @@
   bindopensetting="handleOpensetting"
 >
   <wd-icon jd:if="{{icon}}" class="wd-button__icon" name="{{icon}}" size="1.2em"></wd-icon>
-  <view class="wd-button__text">
-    <slot/>
-  </view>
+  <view class="wd-button__text"><slot/></view>
 </button>

@@ -2,6 +2,7 @@
   "navigationBarTitleText": "picker 选择器",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-picker": "../../dist/picker/index"
+    "wd-picker": "../../dist/picker/index",
+    "wd-cell-group": "../../dist/cellGroup/index"
   }
 }

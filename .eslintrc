@@ -15,7 +15,8 @@
     "Component": true,
     "Page": true,
     "getCurrentPages": true,
-    "jd": true
+    "jd": true,
+    "Behavior": true
   },
   "plugins": [
     "json"

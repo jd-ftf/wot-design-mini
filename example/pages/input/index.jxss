@@ -8,3 +8,7 @@
   margin-left: 8px;
   vertical-align: middle;
 }
+.button {
+  margin-left: 8px;
+  vertical-align: middle;
+}

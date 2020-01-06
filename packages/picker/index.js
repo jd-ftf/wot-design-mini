@@ -2,9 +2,22 @@ import VueComponent from '../common/component'
 import { getType, defaultDisplayFormat, defaultFunction } from '../common/util'
 import selfProps from './props'
 import pickerViewProps from '../pickerView/props'
+import cell from '../mixins/cell'
 
 VueComponent({
   externalClasses: ['custom-view-class'],
+  behaviors: [cell],
+  relations: {
+    '../cellGroup/index': {
+      type: 'ancestor',
+      linked (target) {
+        this.parent = target
+      },
+      unlinked () {
+        this.parent = null
+      }
+    }
+  },
   props: {
     ...selfProps,
     // 外部展示格式化函数

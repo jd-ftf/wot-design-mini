@@ -24,6 +24,7 @@
     vertical-align: middle;
     flex-shrink: 0;
     margin-right: 20px;
+    line-height: 1.315;
   }
   @include e(label) {
     margin-top: 3px;
@@ -33,8 +34,6 @@
   @include e(right) {
     position: relative;
     font-size: 0;
-    //text-align: right;
-    //vertical-align: middle;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

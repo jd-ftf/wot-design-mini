@@ -12,12 +12,17 @@
     color: $-cell-title-color;
     font-size: $-picker-cell-fs;
 
-    @include halfPixelBorder('bottom', 15px);
+    @include halfPixelBorder('top', 15px);
 
     &:last-child::after {
       display: none;
     }
 
+    @include when(no-hair){
+      &::after {
+        display: none;
+      }
+    }
     @include m(disabled) {
       .wd-picker__value {
         color: $-picker-column-disabled-color;
@@ -33,7 +38,6 @@
   }
   @include e(value) {
     flex: 1;
-    padding: 11px 0;
     color: $-picker-value-color;
     @include lineEllipsis;
   }
