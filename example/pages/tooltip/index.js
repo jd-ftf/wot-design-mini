@@ -1,10 +1,10 @@
 Page({
   data: {
     show: false,
-    content: '显示显示显示显示显示显示显示显示显示显示显示显示显示',
+    content: '显示内容',
     menu: [
       {
-        name: 'close-fill',
+        name: 'person',
         title: '全部标记已读'
       },
       {
@@ -13,9 +13,7 @@ Page({
       }
     ]
   },
-  methods: {
-    hide () {
-      this.setData({ show: true })
-    }
+  hide () {
+    this.setData({ show: !this.data.show })
   }
 })

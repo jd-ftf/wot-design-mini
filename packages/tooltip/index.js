@@ -87,11 +87,11 @@ VueComponent({
         // 左
         ['left', `right: ${horizontalX}px; top: ${horizontalY}px;`],
         ['left-start', `right: ${horizontalX}px; top: ${0};`],
-        ['left-end', `right: ${horizontalX}px; bottom: ${0};`],
+        ['left-end', `right: ${horizontalX}px; bottom: ${3}px;`],
         // 右
         ['right', `left: ${horizontalX}px; top: ${horizontalY}px;`],
         ['right-start', `left: ${horizontalX}px; top: ${0};`],
-        ['right-end', `left: ${horizontalX}px; bottom: ${0};`]
+        ['right-end', `left: ${horizontalX}px; bottom: ${3}px;`]
       ])
 
       this.setData({

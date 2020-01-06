@@ -10,12 +10,13 @@
       <view jd:if="{{ !useContentSlot && mode === 'menu' }}" class="wd-tooltip__menu-inner ">
         <view
           jd:for="{{ content }}"
+          jd:key="{{ item.index }}"
           class="wd-tooltip__menu"
           style="border-top: {{ index === 0 ? 'none' : '1px solid rgba(255, 255, 255, .5)' }}" >
-          <!-- <wd-icon
+          <wd-icon
             name="{{ item.name  }}"
-            class="wd-search__clear"
-          /> -->
+            class="wd-tooltip__icon"
+          />
           <text>{{item.title}}</text>
         </view>
       </view>

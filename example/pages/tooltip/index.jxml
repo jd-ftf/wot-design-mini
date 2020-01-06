@@ -94,10 +94,23 @@
   <view class="button-sp-area text-bottom">
     <wd-tooltip placement="bottom" useContentSlot="{{ true }}">
       <wd-button >多行文本</wd-button>
-      <view slot="content" style="color: red; padding: 5px; width: 100px">
-        <view>插槽自定义1</view>
-        <view>插槽自定义2</view>
-        <view>插槽自定义3</view>
+      <view slot="content" style="color: red; padding: 5px; width: 90px">
+        <view>多行文本1</view>
+        <view>多行文本2</view>
+        <view>多行文本3</view>
+      </view>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="控制显隐" >
+  <wd-button bind:tap="hide">控制开关</wd-button>
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="right-start" useContentSlot="{{ true }}" show="{{ show }}">
+      <wd-button >多行文本</wd-button>
+      <view slot="content" style="padding: 5px; width: 90px">
+        <view>多行文本1</view>
+        <view>多行文本2</view>
+        <view>多行文本3</view>
       </view>
     </wd-tooltip>
   </view>
