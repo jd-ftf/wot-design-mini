@@ -1,14 +1,16 @@
 <view class="wd-tooltip">
-  <view catchtap="click" class="wd-tooltip__target">
-    <slot />
-  </view>
-  <wd-transition show="{{ show }}" name="fade">
-    <view
-      jd:if="{{ placement === 'top-start' && show }}"
-      class="wd-tooltip__container"
-      style="left: {{ popLeft }}; top: {{ popTop }}">
-      <view class="wd-tooltip__arrow"></view>
-      <view class="wd-tooltip__inner">{{ content }}</view>
-    </view>
-  </wd-transition>
+	<view
+    class="wd-tooltip__pos"
+    style="{{ popStyle }}; visibility: {{ show ? '' : 'hidden' }}">
+		<view class="wd-tooltip__container">
+			<view class="wd-tooltip__arrow {{ arrowClass }}" ></view>
+			<view jd:if="{{ useContentSlot }}" class="wd-tooltip__inner">{{ content }}</view>
+      <block jd:else>
+        <slot name="contet"/>
+      </block>
+		</view>
+	</view>
+	<view catchtap="click" class="wd-tooltip__target">
+		<slot />
+	</view>
 </view>

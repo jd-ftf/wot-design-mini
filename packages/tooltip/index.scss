@@ -1,42 +1,34 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
 $tooltip-bg-color: rgba(38, 39, 40, 0.8);
-$tooltip-arrow-height: 10px;
-
-// @include b(tootltip) {
-
-//   @include e(container) {
-//     width: 138px;
-//     height: 45px; 
-//   }
-
-//   @include e(inner) {
-//     width: 10px;
-//     border: 1px solid;
-//   }
-// }
+$tooltip-arrow-height: 5px;
+$blur-size: 10px;
 
 .wd-tooltip{
   position: relative;
+  display: inline-block;
 }
 .wd-tooltip__target{
-  display: inline;
+  display: inline-block;
+  line-height: 1;
+}
+.wd-tooltip__pos{
+  position: absolute;
 }
 .wd-tooltip__container{
+  display: absolute;
   width: 138px;
   line-height: 19px;
   font-size: 14px;
   padding: 8px;
 
   box-sizing: border-box;
-  position: absolute;
   color: $-color-white;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur($blur-size);
   background-color: $tooltip-bg-color;
   background-clip: padding-box;
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
-  border-radius: 10px;
+  border-radius: $tooltip-arrow-height;
  
   text-align: center;
 }
@@ -46,8 +38,52 @@ $tooltip-arrow-height: 10px;
   position: absolute;
   display: block;
   border: $tooltip-arrow-height solid transparent;
-  border-bottom-width: 0;
+}
+// 顶部
+.wd-tooltip__arrow-top,
+.wd-tooltip__arrow-top-start,
+.wd-tooltip__arrow-top-end{
   border-top-color: $tooltip-bg-color;
-  bottom: -$tooltip-arrow-height;
+  bottom: - $tooltip-arrow-height;
+  border-bottom-width: 0;
+}
+.wd-tooltip__arrow-top,
+.wd-tooltip__arrow-bottom{
   left: 50%;
+  transform: translateX(-50%);
+}
+.wd-tooltip__arrow-top-end,
+.wd-tooltip__arrow-bottom-end{
+  right: 10px;
+}
+// 左侧
+.wd-tooltip__arrow-left,
+.wd-tooltip__arrow-left-start,
+.wd-tooltip__arrow-left-end{
+  border-left-color: rgba(38,39,40,.8);
+  right: -10px;
+}
+.wd-tooltip__arrow-right-start,
+.wd-tooltip__arrow-left-start{
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wd-tooltip__arrow-right-end,
+.wd-tooltip__arrow-left-end{
+  bottom: 10px;
+}
+// 右侧
+.wd-tooltip__arrow-right,
+.wd-tooltip__arrow-right-start,
+.wd-tooltip__arrow-right-end{
+  border-right-color: rgba(38,39,40,.8);
+  left: -10px;  
+}
+// 底部
+.wd-tooltip__arrow-bottom,
+.wd-tooltip__arrow-bottom-start,
+.wd-tooltip__arrow-bottom-end{
+  border-bottom-color: $tooltip-bg-color;
+  top: - $tooltip-arrow-height;
+  border-top-width: 0;
 }

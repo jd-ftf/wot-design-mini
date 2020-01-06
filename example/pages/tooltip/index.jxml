@@ -1,3 +1,93 @@
-<wd-tooltip placement="top-start" content="显示">
-  <wd-button style="margin-left:100px">12345</wd-button>
-</wd-tooltip>
+
+<demo-block title="top" >
+  <view class="button-sp-area text-right">
+    <wd-tooltip placement="top" content="{{ content }}">
+      <wd-button>top</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="top-start">
+  <view class="button-sp-area text-right">
+    <wd-tooltip placement="top-start" content="{{ content }}">
+      <wd-button>top-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="top-end" >
+  <view class="button-sp-area text-right">
+    <wd-tooltip placement="top-end" content="{{ content }}">
+      <wd-button >top-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="bottom" >
+  <view class="button-sp-area text-bottom">
+    <wd-tooltip placement="bottom" content="{{ content }}">
+      <wd-button >bottom</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="bottom-start" >
+  <view class="button-sp-area text-bottom">
+    <wd-tooltip placement="bottom-start" content="{{ content }}">
+      <wd-button >bottom-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="bottom-end" >
+  <view class="button-sp-area text-bottom">
+    <wd-tooltip placement="bottom-end" content="{{ content }}">
+      <wd-button >bottom-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="left" >
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="left" content="{{ content }}">
+      <wd-button >left</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="left-start" >
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="left-start" content="{{ content }}">
+      <wd-button >left-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="left-end" >
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="left-end" content="{{ content }}">
+      <wd-button >left-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="right" >
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="right" content="{{ content }}">
+      <wd-button >right</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="right-start" >
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="right-start" content="{{ content }}">
+      <wd-button >right-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="right-end" >
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="right-end" content="{{ content }}">
+      <wd-button >right-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="自定义内容样式" >
+  <view class="button-sp-area text-left">
+    <wd-tooltip placement="right-end" useContentSlot="{{ true }}">
+      <wd-button >right-end</wd-button>
+      <view name="contet">1111111131232131231</view>
+    </wd-tooltip>
+  </view>
+</demo-block>
