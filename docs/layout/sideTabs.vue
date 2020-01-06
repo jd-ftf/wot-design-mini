@@ -16,7 +16,7 @@
             <iframe frameborder="0" :src="demoLink" style="height: 597px" ref="iframe"></iframe>
           </div>
           <div class="demo-preview-item">
-            <p>京东app预览</p>
+            <p>京东app扫码预览</p>
             <img class="phone-title" src="../assets/img/jd.jpg" />
           </div>
         </div>

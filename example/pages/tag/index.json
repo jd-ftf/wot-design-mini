@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Tag 标签",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-tag": "../../dist/tag/index",
-    "wd-icon": "../../dist/icon/index"
+    "wd-icon": "../../dist/icon/index",
+    "wd-tag": "../../dist/tag/index"
   }
 }

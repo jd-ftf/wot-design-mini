@@ -22,6 +22,22 @@ Page({
         size: 'large',
         value: '标签三'
       }
+    ],
+    dynamicTags: [
+      {
+        plain: true,
+        closable: true,
+        type: 'primary',
+        size: 'large',
+        value: '标签一'
+      },
+      {
+        plain: true,
+        closable: true,
+        type: 'primary',
+        size: 'large',
+        value: '标签二'
+      }
     ]
   },
   handleClick ({ currentTarget: { dataset: { index } } }) {
@@ -32,5 +48,23 @@ Page({
       tags: this.data.tags.filter((value, index) => index !== order)
     })
     console.log('close:index' + order)
+  },
+  handleClose1 ({ currentTarget: { dataset: { index: order } } }) {
+    this.setData({
+      dynamicTags: this.data.dynamicTags.filter((value, index) => index !== order)
+    })
+  },
+  handleConfirm (event) {
+    if (event.detail) {
+      this.setData({
+        dynamicTags: this.data.dynamicTags.concat([{
+          plain: true,
+          closable: true,
+          type: 'primary',
+          size: 'large',
+          value: event.detail
+        }])
+      })
+    }
   }
 })

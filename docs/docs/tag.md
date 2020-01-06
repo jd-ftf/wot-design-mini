@@ -72,6 +72,13 @@
 <wd-tag closable type="primary">标签</wd-tag>
 ```
 
+### 可添加
+
+设置 `dynamic` 类型，该标签为新增，输入内容确定后触发 `confirm` 事件。
+```html
+<wd-tag type="dynamic"></wd-tag>
+```
+
 ### 事件
 ```html
 <wd-tag
@@ -118,7 +125,7 @@ Page({
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| type | 标签类型 | String | 'primary', 'danger', 'warning', 'success' | - | - |
+| type | 标签类型 | String | 'primary', 'danger', 'warning', 'success', 'dynamic' | - | - |
 | plain | 幽灵类型 | Boolean | - | false |
 | size | 标签大小 | String | 'small', 'large' | - |
 | icon | 左侧图标 | String | - | - |
@@ -135,6 +142,7 @@ Page({
 |------------- |------------------------------------ |--------- |
 | bind:click | 标签点击时触发 | - |
 | bind:close | 点击关闭按钮时触发 | - |
+| bind:confirm | 新增标签输入内容确定后触发 | - |
 
 ### Slots
 

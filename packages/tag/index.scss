@@ -18,6 +18,7 @@
   border-radius: 2px;
   font-size: 0;
   transition: opacity .3s;
+  vertical-align: middle;
   @include tag-type-style($-tag-info-color, $-tag-info-color-light);
 
   @include when(primary) {
@@ -31,6 +32,9 @@
   }
   @include when(success) {
     @include tag-type-style($-tag-success-color, $-tag-success-color-light);
+  }
+  @include when(dynamic) {
+    @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
   }
   @include e(icon) {
     display: inline-block;
@@ -53,9 +57,21 @@
     vertical-align: middle;
     color: $-tag-close-color;
   }
-
+  @include e(add-text) {
+    height: 17px;
+    min-height: 17px;
+    width: 60px;
+    display: inline-block;
+    font-size: $-tag-font-size;
+    vertical-align: middle;
+  }
   @include when(small) {
     .wd-tag__text {
+      font-size: $-tag-small-font-size;
+    }
+    .wd-tag__add-text {
+      height: 14px;
+      min-height: 14px;
       font-size: $-tag-small-font-size;
     }
     .wd-tag__close {
