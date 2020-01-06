@@ -1,7 +1,7 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
-$tooltip-bg-color: rgba(38, 39, 40, 0.8);
-$tooltip-arrow-height: 5px;
+$tooltip-bg-color: rgba(0, 0, 0, 0.7);
+$tooltip-arrow-height: 3px;
 $blur-size: 10px;
 
 .wd-tooltip{
@@ -16,21 +16,32 @@ $blur-size: 10px;
   position: absolute;
 }
 .wd-tooltip__container{
-  display: absolute;
-  width: 138px;
   line-height: 19px;
   font-size: 14px;
-  padding: 8px;
 
-  box-sizing: border-box;
   color: $-color-white;
   backdrop-filter: blur($blur-size);
   background-color: $tooltip-bg-color;
   background-clip: padding-box;
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
-  border-radius: $tooltip-arrow-height;
+  border-radius: 2px;
  
   text-align: center;
+}
+.wd-tooltip__inner{
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+.wd-tooltip__menu-inner{
+  padding: 5px 10px;
+}
+.wd-tooltip__menu{
+  display: inline-block;
+  padding: 5px 0;
+  white-space: nowrap;
+  color: $-color-white;
+  line-height: 19px;
+  height: 19px;
 }
 .wd-tooltip__arrow{
   width: 0;
@@ -43,9 +54,13 @@ $blur-size: 10px;
 .wd-tooltip__arrow-top,
 .wd-tooltip__arrow-top-start,
 .wd-tooltip__arrow-top-end{
-  border-top-color: $tooltip-bg-color;
-  bottom: - $tooltip-arrow-height;
+  border-top: $tooltip-arrow-height * 2 solid $tooltip-bg-color;
+  bottom: - $tooltip-arrow-height * 2;
   border-bottom-width: 0;
+}
+.wd-tooltip__arrow-top-start,
+.wd-tooltip__arrow-bottom-start{
+  left: $tooltip-arrow-height * 3;
 }
 .wd-tooltip__arrow-top,
 .wd-tooltip__arrow-bottom{
@@ -54,36 +69,41 @@ $blur-size: 10px;
 }
 .wd-tooltip__arrow-top-end,
 .wd-tooltip__arrow-bottom-end{
-  right: 10px;
-}
-// 左侧
-.wd-tooltip__arrow-left,
-.wd-tooltip__arrow-left-start,
-.wd-tooltip__arrow-left-end{
-  border-left-color: rgba(38,39,40,.8);
-  right: -10px;
-}
-.wd-tooltip__arrow-right-start,
-.wd-tooltip__arrow-left-start{
-  top: 50%;
-  transform: translateY(-50%);
-}
-.wd-tooltip__arrow-right-end,
-.wd-tooltip__arrow-left-end{
-  bottom: 10px;
-}
-// 右侧
-.wd-tooltip__arrow-right,
-.wd-tooltip__arrow-right-start,
-.wd-tooltip__arrow-right-end{
-  border-right-color: rgba(38,39,40,.8);
-  left: -10px;  
+  right: $tooltip-arrow-height * 3;
 }
 // 底部
 .wd-tooltip__arrow-bottom,
 .wd-tooltip__arrow-bottom-start,
 .wd-tooltip__arrow-bottom-end{
-  border-bottom-color: $tooltip-bg-color;
-  top: - $tooltip-arrow-height;
+  border-bottom: $tooltip-arrow-height * 2 solid $tooltip-bg-color;
+  top: - $tooltip-arrow-height * 2;
   border-top-width: 0;
+}
+
+// 左侧
+.wd-tooltip__arrow-left,
+.wd-tooltip__arrow-left-start,
+.wd-tooltip__arrow-left-end{
+  border-left: $tooltip-arrow-height * 2 solid $tooltip-bg-color;
+  right: - $tooltip-arrow-height * 3;
+}
+.wd-tooltip__arrow-left-start,
+.wd-tooltip__arrow-right-start{
+  top: $tooltip-arrow-height * 3;
+}
+.wd-tooltip__arrow-right,
+.wd-tooltip__arrow-left{
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wd-tooltip__arrow-right-end,
+.wd-tooltip__arrow-left-end{
+  bottom: $tooltip-arrow-height * 3;
+}
+// 右侧
+.wd-tooltip__arrow-right,
+.wd-tooltip__arrow-right-start,
+.wd-tooltip__arrow-right-end{
+  border-right: $tooltip-arrow-height * 2 solid $tooltip-bg-color;
+  left: - $tooltip-arrow-height * 3;  
 }

@@ -1,13 +1,26 @@
-<view class="wd-tooltip">
+<view class="wd-tooltip custom-class">
 	<view
     class="wd-tooltip__pos"
-    style="{{ popStyle }}; visibility: {{ show ? '' : 'hidden' }}">
-		<view class="wd-tooltip__container">
-			<view class="wd-tooltip__arrow {{ arrowClass }}" ></view>
-			<view jd:if="{{ useContentSlot }}" class="wd-tooltip__inner">{{ content }}</view>
-      <block jd:else>
-        <slot name="contet"/>
-      </block>
+    style="{{ popStyle }}; opacity: {{ visible ? '1' : '0' }}" >
+		<view class="wd-tooltip__container custom-container">
+			<view class="wd-tooltip__arrow {{ arrowClass }} custom-arrow" ></view>
+      <!-- 普通模式 -->
+			<view jd:if="{{ !useContentSlot && mode === 'normal' }}" class="wd-tooltip__inner">{{ content }}</view>
+       <!-- 列表模式 -->
+      <view jd:if="{{ !useContentSlot && mode === 'menu' }}" class="wd-tooltip__menu-inner ">
+        <view
+          jd:for="{{ content }}"
+          class="wd-tooltip__menu"
+          style="border-top: {{ index === 0 ? 'none' : '1px solid rgba(255, 255, 255, .5)' }}" >
+          <!-- <wd-icon
+            name="{{ item.name  }}"
+            class="wd-search__clear"
+          /> -->
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+      <!-- 用户自定义样式 -->
+      <slot name="content" jd:else/>
 		</view>
 	</view>
 	<view catchtap="click" class="wd-tooltip__target">

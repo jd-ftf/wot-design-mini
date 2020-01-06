@@ -83,11 +83,22 @@
     </wd-tooltip>
   </view>
 </demo-block>
-<demo-block title="自定义内容样式" >
-  <view class="button-sp-area text-left">
-    <wd-tooltip placement="right-end" useContentSlot="{{ true }}">
-      <wd-button >right-end</wd-button>
-      <view name="contet">1111111131232131231</view>
+<demo-block title="菜单模式" >
+  <view class="button-sp-area text-bottom">
+    <wd-tooltip placement="bottom" mode="menu" content="{{ menu }}">
+      <wd-button >菜单</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="多行文本" >
+  <view class="button-sp-area text-bottom">
+    <wd-tooltip placement="bottom" useContentSlot="{{ true }}">
+      <wd-button >多行文本</wd-button>
+      <view slot="content" style="color: red; padding: 5px; width: 100px">
+        <view>插槽自定义1</view>
+        <view>插槽自定义2</view>
+        <view>插槽自定义3</view>
+      </view>
     </wd-tooltip>
   </view>
 </demo-block>

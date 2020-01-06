@@ -8,26 +8,38 @@ import VueComponent from '../common/component'
  */
 VueComponent({
   externalClasses: [
-    'custom-icon-class'
+    'custom-container',
+    'custom-arrow',
+    'custom-content'
   ],
   data: {
     popStyle: '',
-    arrowClass: 'wd-tooltip__arrow'
+    arrowClass: 'wd-tooltip__arrow',
+    visible: false
   },
   props: {
     placement: {
       type: String,
       value: 'top'
     },
-    useContentSlot: Boolean,
-    content: String,
+    useContentSlot: {
+      type: Boolean,
+      value: false
+    },
+    content: null,
     show: {
       type: Boolean,
       observer (newValue) {
         newValue && this.control()
+        this.setData({ visible: newValue })
       }
     },
-    zIndex: Number
+    zIndex: Number,
+    // 列表模式 menu 和 普通模式 normal
+    mode: {
+      type: String,
+      value: 'normal'
+    }
   },
   mounted () {
     this.getRect('.wd-tooltip__target').then(rect => {
@@ -73,12 +85,12 @@ VueComponent({
         ['bottom-start', `left:${0}; top: ${verticalY}px;`],
         ['bottom-end', `right: ${0}; top: ${verticalY}px;`],
         // 左
-        ['left', `right: ${horizontalX}px; top: ${0};`],
-        ['left-start', `right: ${horizontalX}px; top: ${horizontalY}px;`],
+        ['left', `right: ${horizontalX}px; top: ${horizontalY}px;`],
+        ['left-start', `right: ${horizontalX}px; top: ${0};`],
         ['left-end', `right: ${horizontalX}px; bottom: ${0};`],
         // 右
-        ['right', `left: ${horizontalX}px; top: ${0};`],
-        ['right-start', `left: ${horizontalX}px; top: ${horizontalY}px;`],
+        ['right', `left: ${horizontalX}px; top: ${horizontalY}px;`],
+        ['right-start', `left: ${horizontalX}px; top: ${0};`],
         ['right-end', `left: ${horizontalX}px; bottom: ${0};`]
       ])
 
