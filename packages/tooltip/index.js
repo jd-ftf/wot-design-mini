@@ -8,9 +8,8 @@ import VueComponent from '../common/component'
  */
 VueComponent({
   externalClasses: [
-    'custom-container',
     'custom-arrow',
-    'custom-content'
+    'custom-pop'
   ],
   data: {
     popStyle: '',
@@ -18,15 +17,31 @@ VueComponent({
     visible: false
   },
   props: {
+    // 显示内容 String || Array
+    content: {
+      type: null,
+      observer (newVal) {
+        const { mode } = this.data
+        // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
+        if (newVal === null || newVal === undefined) {
+          throw Error('value can\'t be null or undefined')
+        }
+        // 手风琴状态下 value 类型只能为 string
+        if (mode === 'normal' && typeof newVal !== 'string') {
+          throw Error('The value type must be a string type in normal mode')
+        } else if (mode === 'menu' && this.checkType(newVal) !== 'Array') {
+          throw Error('The value type must be a Array type in menu mode')
+        }
+      }
+    },
     placement: {
       type: String,
-      value: 'top'
+      value: 'bottom'
     },
     useContentSlot: {
       type: Boolean,
       value: false
     },
-    content: null,
     show: {
       type: Boolean,
       observer (newValue) {
@@ -34,7 +49,6 @@ VueComponent({
         this.setData({ visible: newValue })
       }
     },
-    zIndex: Number,
     // 列表模式 menu 和 普通模式 normal
     mode: {
       type: String,
@@ -62,6 +76,9 @@ VueComponent({
       this.setData({
         show: !show
       })
+    },
+    checkType (value) {
+      return Object.prototype.toString.call(value).slice(8, -1)
     },
     control () {
       const { placement } = this.data

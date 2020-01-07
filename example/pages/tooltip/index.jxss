@@ -1,12 +1,17 @@
 
-.button-sp-area {
+.top{
   margin: 40px auto 0;
   width: 80%;
   text-align: center;
 }
-.text-bottom {
-  margin: 0 auto 80px;
+.bottom {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto 90px;
 }
-.text-left{
-  margin: 40px auto;
+.left,
+.right{
+  width: 80%;
+  text-align: center;
+  margin: 40px;
 }

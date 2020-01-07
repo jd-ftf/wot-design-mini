@@ -61,7 +61,7 @@ export default {
       this.isShowOption = !this.isShowOption
     },
     filter () {
-      const keys = Object.keys(versions)
+      const keys = versions
       let result = []
       let preVersionList = []
 

@@ -2,7 +2,7 @@
 	<view
     class="wd-tooltip__pos"
     style="{{ popStyle }}; opacity: {{ visible ? '1' : '0' }}" >
-		<view class="wd-tooltip__container custom-container">
+		<view class="wd-tooltip__container custom-pop">
 			<view class="wd-tooltip__arrow {{ arrowClass }} custom-arrow" ></view>
       <!-- 普通模式 -->
 			<view jd:if="{{ !useContentSlot && mode === 'normal' }}" class="wd-tooltip__inner">{{ content }}</view>
@@ -17,7 +17,7 @@
             name="{{ item.name  }}"
             class="wd-tooltip__icon"
           />
-          <text>{{item.title}}</text>
+          <text>{{item.content}}</text>
         </view>
       </view>
       <!-- 用户自定义样式 -->

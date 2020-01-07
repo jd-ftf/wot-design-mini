@@ -5,11 +5,11 @@ Page({
     menu: [
       {
         name: 'person',
-        title: '全部标记已读'
+        content: '全部标记已读'
       },
       {
         name: 'close-fill',
-        title: '清空最近会话'
+        content: '清空最近会话'
       }
     ]
   },
