@@ -20,4 +20,12 @@
     <wd-picker label="标题" columns="{{columns7}}" title="文案标题"/>
   </wd-cell-group>
 </demo-block>
-
+<demo-block title="label 不传" transparent>
+  <wd-picker columns="{{columns0}}"/>
+</demo-block>
+<demo-block title="大小" transparent>
+  <wd-picker label="单列选项" size="large" columns="{{columns0}}"/>
+</demo-block>
+<demo-block title="错误" transparent>
+  <wd-picker label="单列选项" error columns="{{columns0}}"/>
+</demo-block>

@@ -343,7 +343,7 @@ export default function () {
        * @param value
        * @return {Array}
        */
-      updateColumnValue (value) {
+      updateColumnValue (value, shouldUpdateValue = true) {
         const values = []
         const { type, formatter = defaultFormatter } = this.data
         const date = new Date(value)

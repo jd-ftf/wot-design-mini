@@ -23,7 +23,7 @@
 	<demo-block title="设置 prefix/suffix 的slot">
 		<wd-input type="text" value="{{ value6 }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange3">
 			<view slot="prefix">1</view>
-			<view slot="suffix">2</view>
+			<view class="suffix-slot" slot="suffix">2</view>
 		</wd-input>
 	</demo-block>
 	<demo-block title="字数限制">

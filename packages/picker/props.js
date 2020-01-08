@@ -32,5 +32,9 @@ export default {
   noHair: {
     type: Boolean,
     value: true
-  }
+  },
+  size: String,
+  labelWidth: String,
+  useLabelSlot: Boolean,
+  error: Boolean
 }

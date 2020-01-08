@@ -32,7 +32,10 @@ VueComponent({
     noHair: {
       type: Boolean,
       value: true
-    }
+    },
+    size: String,
+    titleWidth: String,
+    center: Boolean
   },
   relations: {
     '../cellGroup/index': {

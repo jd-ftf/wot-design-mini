@@ -3,10 +3,9 @@ import cell from '../mixins/cell'
 
 VueComponent({
   externalClasses: [
-    'custom-suffix-class',
-    'custom-prefix-class',
     'custom-textarea-class',
-    'custom-input-class'
+    'custom-input-class',
+    'custom-label-class'
   ],
   behaviors: [cell],
   relations: {
@@ -142,15 +141,15 @@ VueComponent({
     suffix: String,
     suffixCount: Number,
     label: String,
+    labelWidth: String,
+    useLabelSlot: Boolean,
     noHair: {
       type: Boolean,
       value: true
     },
-    size: {
-      type: String,
-      value: 'medium'
-    },
-    error: Boolean
+    size: String,
+    error: Boolean,
+    center: Boolean
   },
   created () {
     this.initState()

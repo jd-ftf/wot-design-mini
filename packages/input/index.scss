@@ -44,6 +44,9 @@
     &.is-error::after {
       background: $-color-line;
     }
+    &.is-center {
+      align-items: center;
+    }
     .wd-input__textarea, .wd-input__block {
       flex: 1;
     }
@@ -74,6 +77,26 @@
       &::-webkit-input-placeholder {
         color: $-color-aid-red;
       }
+    }
+  }
+  @include when(large) {
+    .wd-input__label {
+      font-size: 16px;
+    }
+    .wd-input__inner {
+      font-size: 16px;
+    }
+    .wd-input__textarea-inner {
+      font-size: 16px;
+    }
+    .wd-input__count {
+      font-size: 14px;
+    }
+    .wd-input__textarea-count {
+      font-size: 14px;
+    }
+    .wd-input__icon {
+      font-size: 18px;
     }
   }
   @include when(disabled) {

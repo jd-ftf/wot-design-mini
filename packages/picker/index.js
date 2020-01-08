@@ -5,7 +5,11 @@ import pickerViewProps from '../pickerView/props'
 import cell from '../mixins/cell'
 
 VueComponent({
-  externalClasses: ['custom-view-class'],
+  externalClasses: [
+    'custom-view-class',
+    'custom-label-class',
+    'custom-value-class'
+  ],
   behaviors: [cell],
   relations: {
     '../cellGroup/index': {

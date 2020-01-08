@@ -195,5 +195,3 @@ page({
 | custom-class | 根结点样式 |
 | custom-textarea-class | textarea外部自定义样式 |
 | custom-input-class | input外部自定义样式 |
-| custom-prefix-class | input框头部icon使用slot时的自定义样式 |
-| custom-suffix-class | input框尾部icon使用slot时的自定义样式 |

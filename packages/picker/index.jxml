@@ -1,11 +1,14 @@
-<view class="wd-picker wd-field custom-class">
+<view class="wd-picker {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} custom-class">
   <!--文案-->
   <view
     class="wd-picker__field {{ noHair ? 'is-no-hair' : '' }} {{disabled ? 'wd-picker__field--disabled' : '' }}"
     bindtap="showPopup"
   >
-    <view class="wd-picker__label">{{ label }}</view>
-    <view class="wd-picker__value">
+    <view jd:if="{{ label || useLabelSlot }}" class="wd-picker__label custom-label-class" style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
+      <block jd:if="{{label}}">{{ label }}</block>
+      <slot jd:else name="label"></slot>
+    </view>
+    <view class="wd-picker__value custom-value-class">
       {{ showValue ? showValue : placeholder }}
     </view>
     <wd-icon
@@ -20,7 +23,6 @@
     position="bottom"
     bind:close="onCancel"
   >
-
     <!--toolBar-->
     <view class="wd-picker__toolbar">
       <!--取消按钮-->

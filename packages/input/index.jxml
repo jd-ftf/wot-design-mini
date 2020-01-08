@@ -1,12 +1,13 @@
-<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label ? 'is-cell' : '' }} {{ noHair ? 'is-no-hair' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} custom-class">
-  <view jd:if="{{ label }}" class="wd-input__label">
+<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label || useLabelSlot ? 'is-cell' : '' }} {{ center ? 'is-center' : '' }} {{ noHair ? 'is-no-hair' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} custom-class">
+  <view jd:if="{{ label || useLabelSlot }}" class="wd-input__label custom-label-width" style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
     <view jd:if="{{ prefixIcon || usePrefixSlot }}" class="wd-input__prefix">
       <wd-icon jd:if="{{ prefixIcon }}" custom-class="wd-input__icon" name="{{ prefixIcon }}" bind:tap="onClickPrefixIcon" />
-      <view jd:else class="custom-prefix-class">
-        <slot name="prefix"></slot>
-      </view>
+      <slot name="prefix"></slot>
     </view>
-    <view class="wd-input__label-inner">{{ label }}</view>
+    <view class="wd-input__label-inner">
+      <block jd:if="label">{{ label }}</block>
+      <slot jd:else name="label"></slot>
+    </view>
   </view>
   <!-- 文本域 -->
 	<view jd:if="{{ type === 'textarea' }}">

@@ -1,4 +1,4 @@
-<view class="wd-cell custom-class {{noHair?'is-no-hair':'' }}"
+<view class="wd-cell {{noHair?'is-no-hair':'' }} {{ size ? 'is-' + size : '' }} {{ center ? 'is-center' : '' }} custom-class"
       hover-class="{{clickable?'is-hover':'none'}}"
       hover-stay-time="70"
       bindtap="onClick">
@@ -14,7 +14,7 @@
   </view>
 
   <view class="wd-cell__wrapper">
-    <view class="wd-cell__title">
+    <view class="wd-cell__title" style="{{ titleWidth ? 'min-width:' + titleWidth + ';max-width:' + titleWidth + ';' : '' }}">
       <!--title BEGIN-->
       <view class="custom-title-class">
         <block jd:if="{{title}}">{{title}}</block>
