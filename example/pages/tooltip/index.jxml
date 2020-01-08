@@ -1,0 +1,123 @@
+<demo-block title="top" >
+  <view class="top">
+    <wd-tooltip placement="top" content="top 提示文字" >
+      <wd-button>top</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="top-start">
+  <view class="top">
+    <wd-tooltip placement="top-start" content="top-start 提示文字">
+      <wd-button>top-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="top-end" >
+  <view class="top">
+    <wd-tooltip placement="top-end" content="top-end 提示文字">
+      <wd-button >top-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="bottom" >
+  <view class="bottom">
+    <wd-tooltip placement="bottom" content="bottom 提示文字">
+      <wd-button >bottom</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="bottom-start" >
+  <view class="bottom">
+    <wd-tooltip placement="bottom-start" content="bottom-start 提示文字">
+      <wd-button >bottom-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="bottom-end" >
+  <view class="bottom">
+    <wd-tooltip placement="bottom-end" content="bottom-end 提示文字">
+      <wd-button >bottom-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="left" >
+  <view class="left">
+    <wd-tooltip placement="left" content="left 提示文字">
+      <wd-button >left</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="left-start" >
+  <view class="left">
+    <wd-tooltip placement="left-start" content="left-start 提示文字">
+      <wd-button >left-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="left-end" >
+  <view class="left">
+    <wd-tooltip placement="left-end" content="left-end 提示文字">
+      <wd-button >left-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="right" >
+  <view class="right">
+    <wd-tooltip placement="right" content="right 提示文字">
+      <wd-button >right</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="right-start" >
+  <view class="right">
+    <wd-tooltip placement="right-start" content="right-start 提示文字">
+      <wd-button >right-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="right-end" >
+  <view class="right">
+    <wd-tooltip placement="right-end" content="right-end 提示文字">
+      <wd-button >right-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="列表模式" >
+  <view class="bottom">
+    <wd-tooltip placement="bottom" mode="menu" content="{{ menu }}">
+      <wd-button >列表</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="light风格" >
+  <view class="bottom">
+    <wd-tooltip effect="light" content="light 风格">
+      <wd-button >light</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="多行文本" >
+  <view class="right">
+    <wd-tooltip placement="right" useContentSlot="{{ true }}">
+      <wd-button >多行文本</wd-button>
+      <view slot="content" style="color: red; padding: 5px; width: 90px">
+        <view>多行文本1</view>
+        <view>多行文本2</view>
+        <view>多行文本3</view>
+      </view>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="控制显隐" >
+  <wd-button bind:tap="hide">控制开关</wd-button>
+  <view class="right">
+    <wd-tooltip placement="right-end" useContentSlot="{{ true }}" show="{{ show }}">
+      <wd-button >多行文本</wd-button>
+      <view slot="content" style="padding: 5px; width: 90px">
+        <view>多行文本1</view>
+        <view>多行文本2</view>
+        <view>多行文本3</view>
+      </view>
+    </wd-tooltip>
+  </view>
+</demo-block>

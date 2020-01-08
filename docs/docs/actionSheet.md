@@ -90,7 +90,11 @@ page({
 设置 `cancel-text` 取消按钮文案，展示取消按钮。
 
 ```html
-<wd-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" cancel-text="取消" />
+<wd-action-sheet
+  show="{{ show }}"
+  actions="{{ actions }}"
+  bind:close="close"
+  cancel-text="取消" />
 ```
 
 ### 标题
