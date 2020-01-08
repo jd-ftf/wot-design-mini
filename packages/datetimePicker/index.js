@@ -81,13 +81,5 @@ VueComponent({
     // 手动进行一次render
     const innerValue = this.correctValue(this.data.value)
     this.updateColumnValue(innerValue)
-  },
-  mounted () {
-    // 如果传入的值是空值，直接把picker的showValue置空
-    if (!this.data.value) {
-      this.picker.setData({
-        showValue: ''
-      })
-    }
   }
 })
