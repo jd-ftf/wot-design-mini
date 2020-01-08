@@ -158,6 +158,7 @@
 
 | 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
 |--------------------|----------------------------------------------------------|-------------------|-------------|--------|
+|  effect        |  默认提供的主题  | String            | dark/light | dark  |
 |  content        |  显示的内容，也可以通过 `slot#content` 传入  | String/Array            | — | — |
 |  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
 |  show |  状态是否可见  | Boolean           | — |  false |

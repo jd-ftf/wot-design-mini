@@ -7,11 +7,10 @@
       </router-link>
       
       <ul class="header-tab">
-        <!--// TODO 搜索待做 -->
         <!-- 搜索 -->
-        <!-- <li class="header-tab__item">
+        <li class="header-tab__item">
           <search />
-        </li> -->
+        </li>
         <!-- 组件文档切换 -->
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
           <a v-if="page.href" :href="page.href" class="header-tab__link" target="_blank">{{ page.name }}</a>

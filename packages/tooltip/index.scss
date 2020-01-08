@@ -1,59 +1,65 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
 
-
-.wd-tooltip{
+@include b(tooltip) {
   position: relative;
   display: inline-block;
-  z-index: 1000;
+  @include e(icon) {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  @include e(target) {
+    display: inline-block;
+    line-height: 1;
+  }
+  @include e(pos) {
+    position: absolute;
+    transition:opacity .3s;
+  }
+  @include e(container) {
+    line-height: $-tooltip-lineheight;
+    font-size: $-tooltip-fontsize;
+  
+    background-color: $-tooltip-bg-color;
+    color: $-tooltip-color;
+    backdrop-filter: blur($-tooltip-blur);
+    background-clip: padding-box; 
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    border-radius: 2px;
+   
+    text-align: center;
+    box-sizing: border-box;
+  }
+  @include e(inner) {
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+  @include e(menu-inner) {
+    padding: 5px 10px;
+  }
+  @include e(menu) {
+    display: inline-block;
+    padding: 5px 0;
+    white-space: nowrap;
+  }
+  @include e(arrow) {
+    width: 0;
+    height: 0;
+    position: absolute;
+    display: block;
+    border: $-tooltip-arrow-height solid transparent;
+    z-index: 1001; 
+  }
+  @include when(dark) {
+    background-color: $-tooltip-bg-color;
+    color: $-tooltip-color;
+  }
+  @include when(light) {
+    background-color: $-color-white;
+    color: $-color-text;
+  }
 }
-.wd-tooltip__icon{
-  margin-right: 5px;
-  vertical-align: middle;
-}
-.wd-tooltip__target{
-  display: inline-block;
-  line-height: 1;
-}
-.wd-tooltip__pos{
-  position: absolute;
-  transition:opacity .3s;
-}
-.wd-tooltip__container{
-  line-height: $-tooltip-lineheight;
-  font-size: $-tooltip-fontsize;
 
-  color: $-color-white;
-  backdrop-filter: blur($-tooltip-blur);
-  background-color: $-tooltip-bg-color;
-  background-clip: padding-box;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15);
-  border-radius: 2px;
- 
-  text-align: center;
-  box-sizing: border-box;
-}
-.wd-tooltip__inner{
-  padding: 5px 10px;
-  white-space: nowrap;
-}
-.wd-tooltip__menu-inner{
-  padding: 5px 10px;
-}
-.wd-tooltip__menu{
-  display: inline-block;
-  padding: 5px 0;
-  white-space: nowrap;
-  color: $-color-white;
-}
-.wd-tooltip__arrow{
-  width: 0;
-  height: 0;
-  position: absolute;
-  display: block;
-  border: $-tooltip-arrow-height solid transparent;
-  z-index: 1001; 
-}
 // 顶部
 .wd-tooltip__arrow-top,
 .wd-tooltip__arrow-top-start,

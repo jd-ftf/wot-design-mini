@@ -17,6 +17,12 @@ VueComponent({
     visible: false
   },
   props: {
+    effect: {
+      type: String,
+      value: 'light',
+      observer () {
+      }
+    },
     // 显示内容 String || Array
     content: {
       type: null,

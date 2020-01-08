@@ -1,8 +1,8 @@
 <view class="wd-tooltip custom-class">
 	<view
-    class="wd-tooltip__pos"
+    class="wd-tooltip__pos "
     style="{{ popStyle }}; opacity: {{ visible ? '1' : '0' }}" >
-		<view class="wd-tooltip__container custom-pop">
+		<view class="wd-tooltip__container {{ 'is-' + effect }} custom-pop">
 			<view class="wd-tooltip__arrow {{ arrowClass }} custom-arrow" ></view>
       <!-- 普通模式 -->
 			<view jd:if="{{ !useContentSlot && mode === 'normal' }}" class="wd-tooltip__inner">{{ content }}</view>
