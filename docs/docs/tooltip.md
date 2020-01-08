@@ -100,6 +100,20 @@
   margin: 40px;
 }
 ```
+### 主题
+
+Tooltip 组件提供了两个不同的主题：`dark`和`light`。
+
+通过设置`effect`属性来改变主题，默认为`dark`。
+```html
+<wd-tooltip content="dark 默认风格">
+  <wd-button >dark</wd-button>
+</wd-tooltip>
+<wd-tooltip effect="light" content="light 风格">
+  <wd-button >light</wd-button>
+</wd-tooltip>
+```
+
 ### 更多 Content
 
 展示多行文本或者是设置文本内容的格式

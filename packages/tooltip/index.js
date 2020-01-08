@@ -20,7 +20,7 @@ VueComponent({
   props: {
     effect: {
       type: String,
-      value: 'light',
+      value: 'dark',
       observer (newVal) {
         if (newVal !== 'light' && newVal !== 'dark') {
           this.setData({ effect: 'dark' })

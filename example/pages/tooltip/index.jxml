@@ -89,6 +89,13 @@
     </wd-tooltip>
   </view>
 </demo-block>
+<demo-block title="light风格" >
+  <view class="bottom">
+    <wd-tooltip effect="light" content="light 风格">
+      <wd-button >light</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
 <demo-block title="多行文本" >
   <view class="right">
     <wd-tooltip placement="right" useContentSlot="{{ true }}">
