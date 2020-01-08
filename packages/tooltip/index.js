@@ -14,14 +14,30 @@ VueComponent({
   data: {
     popStyle: '',
     arrowClass: 'wd-tooltip__arrow',
-    visible: false
+    visible: false,
+    lineColor: 'rgba(255, 255, 255, .5)'
   },
   props: {
     effect: {
       type: String,
       value: 'light',
-      observer () {
+      observer (newVal) {
+        if (newVal !== 'light' && newVal !== 'dark') {
+          this.setData({ effect: 'dark' })
+          console.warn('must \'dark\' or \'light\'')
+        }
+        this.setData({
+          lineColor: newVal === 'dark' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
+        })
       }
+    },
+    openDelay: {
+      type: Number,
+      value: 300
+    },
+    visibleArrow: {
+      type: Boolean,
+      value: true
     },
     // 显示内容 String || Array
     content: {
@@ -55,25 +71,30 @@ VueComponent({
         this.setData({ visible: newValue })
       }
     },
-    // 列表模式 menu 和 普通模式 normal
+    // menu || normal
     mode: {
       type: String,
       value: 'normal'
     }
   },
   mounted () {
-    this.getRect('.wd-tooltip__target').then(rect => {
-      if (!rect) return
-      this.left = rect.left
-      this.bottom = rect.bottom
-      this.width = rect.width
-      this.height = rect.height
-      this.top = rect.top
+    this.setData({
+      lineColor: this.data.effect === 'dark' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
     })
-    this.getRect('.wd-tooltip__container').then(rect => {
-      if (!rect) return
-      this.popWidth = rect.width
-      this.popHeight = rect.height
+    Promise.all([
+      this.getRect('.wd-tooltip__target'),
+      this.getRect('.wd-tooltip__container')
+    ]).then(rects => {
+      if (!rects) return
+      const [target, container] = rects
+      this.left = target.left
+      this.bottom = target.bottom
+      this.width = target.width
+      this.height = target.height
+      this.top = target.top
+
+      this.popWidth = container.width
+      this.popHeight = container.height
     })
   },
   methods: {
@@ -87,7 +108,7 @@ VueComponent({
       return Object.prototype.toString.call(value).slice(8, -1)
     },
     control () {
-      const { placement } = this.data
+      const { placement, visibleArrow } = this.data
       const contentWidth = 10
       // 上下位（纵轴）对应的距离左边的距离
       const verticalX = 0 - (this.popWidth - this.width) / 2
@@ -119,7 +140,7 @@ VueComponent({
 
       this.setData({
         popStyle: placements.get(placement),
-        arrowClass: `wd-tooltip__arrow-${placement}`
+        arrowClass: visibleArrow && `wd-tooltip__arrow-${placement}`
       })
     }
   }

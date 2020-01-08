@@ -1,6 +1,6 @@
 <demo-block title="top" >
   <view class="top">
-    <wd-tooltip placement="top" content="top 提示文字">
+    <wd-tooltip placement="top" content="top 提示文字" >
       <wd-button>top</wd-button>
     </wd-tooltip>
   </view>

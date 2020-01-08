@@ -1,9 +1,9 @@
 <view class="wd-tooltip custom-class">
 	<view
-    class="wd-tooltip__pos "
-    style="{{ popStyle }}; opacity: {{ visible ? '1' : '0' }}" >
-		<view class="wd-tooltip__container {{ 'is-' + effect }} custom-pop">
-			<view class="wd-tooltip__arrow {{ arrowClass }} custom-arrow" ></view>
+    class="wd-tooltip__pos {{ 'is-' + effect }}"
+    style="{{ popStyle }}; opacity: {{ visible ? '1' : '0' }}; transition-duration: {{ openDelay + 'ms'}}" >
+		<view class="wd-tooltip__container custom-pop">
+			<view jd:if="{{ visibleArrow }}" class="wd-tooltip__arrow {{ arrowClass }} custom-arrow" ></view>
       <!-- 普通模式 -->
 			<view jd:if="{{ !useContentSlot && mode === 'normal' }}" class="wd-tooltip__inner">{{ content }}</view>
        <!-- 列表模式 -->
@@ -12,7 +12,7 @@
           jd:for="{{ content }}"
           jd:key="{{ item.index }}"
           class="wd-tooltip__menu"
-          style="border-top: {{ index === 0 ? 'none' : '1px solid rgba(255, 255, 255, .5)' }}" >
+          style="border-top: {{ index === 0 ? 'none' : '1px solid ' + lineColor }}" >
           <wd-icon
             name="{{ item.name  }}"
             class="wd-tooltip__icon"
