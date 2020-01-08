@@ -167,20 +167,10 @@ export default function () {
     },
     methods: {
       /**
-       * @description observer触发选项重计算，防抖50秒
+       * @description updateValue 防抖函数的占位符
        */
-      updateValue: debounce(function () {
-        // 只有等created hook初始化数据之后，observer才能执行此操作
-        if (!this.data.created) return
-        const { data } = this
-        const val = this.correctValue(this.data.value)
-        const isEqual = val === data.innerValue
-        if (!isEqual) {
-          this.updateColumnValue(val)
-        } else {
-          this.setData({ columns: this.updateColumns() })
-        }
-      }, 50),
+      updateValue () {
+      },
       /**
        * @description 使用formatter格式化getOriginColumns的结果
        * @return {Array<Array<Number>>} 用于传入picker的columns
@@ -381,10 +371,11 @@ export default function () {
         }
         this.setData({ innerValue: value })
         // 更新pickerView的value,columns
-        this.setData({
-          columns: this.updateColumns(),
-          pickerValue: values
-        })
+        this.setData({ columns: this.updateColumns() })
+        // prop中value值为空，不向picker透传
+        if (this.data.value) {
+          this.setData({ pickerValue: values })
+        }
       },
       /**
        * @description 选中项改变，多级联动
@@ -444,6 +435,22 @@ export default function () {
       }
     },
     beforeCreate () {
+      /**
+       * @description observer触发选项重计算，防抖50秒
+       * 防抖函数必须要在实例初始化的时候手动挂载到this上
+       */
+      this.updateValue = debounce(function () {
+        // 只有等created hook初始化数据之后，observer才能执行此操作
+        if (!this.data.created) return
+        const { data } = this
+        const val = this.correctValue(this.data.value)
+        const isEqual = val === data.innerValue
+        if (!isEqual) {
+          this.updateColumnValue(val)
+        } else {
+          this.setData({ columns: this.updateColumns() })
+        }
+      }, 50)
       // pickerView挂载到全局
       this.picker = this.selectComponent(`#${this.data.pickerId}`)
     },
