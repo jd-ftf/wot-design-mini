@@ -18,7 +18,7 @@ export default {
       apiKey: '2e031c5218bf2d41b5b9aa75aec4f725',
       indexName: 'wot-design-mini',
       inputSelector: '#search_input',
-      debug: true // Set debug to true if you want to inspect the dropdown
+      debug: false // Set debug to true if you want to inspect the dropdown
     })
   }
 }
