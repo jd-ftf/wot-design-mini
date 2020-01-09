@@ -1,8 +1,8 @@
 <template>
-  <div class="wot-input">
+  <div class="wot-search-input">
     <input
       type="text"
-      class="wot-input__inner"
+      class="wot-search-input__inner"
       id="search_input"
       placeholder="搜索文档"
     >
@@ -13,11 +13,6 @@ import 'docsearch.js/dist/cdn/docsearch.min.css'
 import docsearch from 'docsearch.js'
 
 export default {
-  data() {
-    return {
-      queryText: ""
-    }
-  },
   mounted () {
     docsearch({
       apiKey: '2e031c5218bf2d41b5b9aa75aec4f725',
@@ -29,12 +24,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
-.wot-input {
+.wot-search-input {
   margin-right: 30px;
 }
-.wot-input__inner {
+.wot-search-input__inner {
   display: block;
   width: 100%;
   padding: 10px 15px;
@@ -48,12 +43,48 @@ export default {
     cursor: pointer;
   }
 }
-.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column{
-  line-height: 50px;
-  height: 50px;
+.algolia-autocomplete{
+  .algolia-docsearch-suggestion--title,
+  .algolia-docsearch-suggestion--subcategory-column {
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .algolia-docsearch-suggestion--wrapper {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+  }
+  .algolia-docsearch-suggestion--highlight{
+    color:#5468ff !important;
+    background: rgba(143,187,237,.3) !important;
+  }
+  .ds-dropdown-menu:before {
+    width: 10px;
+    height: 10px;
+    top: -5px;
+  }
+  .ds-dropdown-menu .ds-suggestions {
+    padding-top: 30px;
+    &::before{
+      content: "Search Result";
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-weight: bolder;
+      font-size: 16px;
+      color: #303133;
+    }
+    &::after{
+      content: " ";
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      width: 3px;
+      height: 16px;
+      background-color: #5468ff;
+    }
+  }
 }
-.algolia-autocomplete .algolia-docsearch-suggestion--content {
-  height: 50px !important;
-  line-height: 50px !important;
-}
+
+
 </style>
