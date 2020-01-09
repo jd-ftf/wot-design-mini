@@ -1,5 +1,6 @@
 import VueComponent from '../common/component'
 
+console.log(1)
 VueComponent({
   props: {
     value: {
