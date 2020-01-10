@@ -9,9 +9,23 @@ const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const webpack = require('webpack')
-
+const fs = require('fs')
 const isProd = process.env.NODE_ENV === 'production'
 let outputConfig
+
+const versions = require('../build/deploy/change-log')
+// 把 versions 对象转换为json格式字符串
+var content = JSON.stringify(versions)
+
+// 指定创建目录及文件名称，__dirname为执行当前js文件的目录
+var file = path.join('docs/versions.json')
+
+// 写入文件
+fs.writeFile(file, content, err => {
+  if (err) {
+    return console.error(err)
+  }
+})
 
 const webpackConf = {
   mode: isProd ? 'production' : 'development',

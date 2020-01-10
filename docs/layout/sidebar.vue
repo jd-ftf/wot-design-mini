@@ -1,5 +1,9 @@
 <template>
   <ul class="side-bar" :class="isMac ? '' : 'win-scrollbar'">
+    <div>
+      <div class="side-bar__link">关于我们</div> 
+      <a href="https://github.com/jd-ftf/wot-design-mini" target="_blank"><i class="github-logo"></i></a>
+    </div>
     <li v-for="(group, index) in pages[$route.path.split('/')[1]].sideTabs" class="side-bar__item" :key="index">
       <template v-if="group.list">
         <a class="side-bar__group-name">{{ group.name }}</a>
@@ -71,7 +75,16 @@ export default {
 
 <style lang="scss">
 @import '../assets/style/_variable.scss';
-
+.github-logo{
+  display: inline-block;
+  margin: 16px 0;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  background: url('../assets/img/github.png') no-repeat;
+  background-size: cover;
+  vertical-align: middle;
+}
 .side-bar {
   position: fixed;
   left: 120px;
@@ -84,6 +97,9 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
   background: $color-bg;
+}
+.side-bar__link{
+  color: #adadad;
 }
 .side-bar__group-name {
   display: block;

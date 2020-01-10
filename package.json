@@ -1,6 +1,6 @@
 {
   "name": "wot-design-mini",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A ui component library for mini program",
   "scripts": {
     "dev": "npm run build:icon && cross-env EFF_ABSOLUTE_PATHS=true gulp dev --env development --gulpfile build/gulpfile.js",
@@ -33,6 +33,7 @@
     "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
+    "docsearch.js": "^2.6.3",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-formatter-friendly": "^7.0.0",

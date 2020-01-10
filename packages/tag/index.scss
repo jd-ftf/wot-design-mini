@@ -33,9 +33,6 @@
   @include when(success) {
     @include tag-type-style($-tag-success-color, $-tag-success-color-light);
   }
-  @include when(dynamic) {
-    @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
-  }
   @include e(icon) {
     display: inline-block;
     margin-right: 3px;

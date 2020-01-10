@@ -82,23 +82,37 @@ page({
 
 设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
 
-```html
-<wd-input value="{{ value }}" prefix-icon="wd-icon-person" suffix-icon="wd-icon-tickets" bind:change="handleChange"/>
-```
+`prefix-icon`、`suffix-icon`属性名对应显示。
 
 ```html
-		<wd-input value="{{ value }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange">
-			<view slot="prefix">1</view>
-			<view slot="suffix">2</view>
-		</wd-input>
+<wd-input
+  value="{{ value }}"
+  prefix-icon="wd-icon-person"
+  suffix-icon="wd-icon-tickets"
+  bind:change="handleChange"/>
+```
+### 前后icon
+
+设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
+```html
+<wd-input 
+  value="{{ value }}" 
+  clearable="{{ true }}" 
+  use-suffix-slot="{{ true }}" 
+  use-prefix-slot="{{ true }}" 
+  custom-suffix-class="suffix-slot" 
+  bind:change="handleChange">
+    <view slot="prefix">1</view>
+    <view slot="suffix">2</view>
+</wd-input>
 ```
 ```css
-    /* 插槽样式 */
-    .suffix-slot{
-      display: inline-block;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
+/* 插槽样式 */
+.suffix-slot{
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 ```
 ### 限制字数输入
 
@@ -118,7 +132,14 @@ page({
 设置清空，字数限制。
 
 ```html
-<wd-input type="textarea" value="{{ value }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" bind:change="handleChange"/>
+<wd-input
+  type="textarea"
+  value="{{ value }}"
+  placeholder="请输入..."
+  maxlength="120"
+  clearable="{{ true }}"
+  show-word-limit="{{ true }}"
+  bind:change="handleChange"/>
 ```
 也可以设置`auto-height`使高度自增加。
 

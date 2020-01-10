@@ -52,7 +52,7 @@ page({
 设置 `min` 最小值，`min` 最大值。
 
 ```html
-<wd-slider value="{{ value }}" min="{{ 4 }}" max="{{ 10000 }}"  bind:drag-move="handleChange"/>
+<wd-slider value="{{ value }}" min="{{ 4 }}" max="{{ 10000 }}" bind:drag-move="handleChange"/>
 ```
 
 ### 隐藏文案

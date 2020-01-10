@@ -68,7 +68,8 @@
   <wd-tag
     custom-class="space"
     plain
-    type="dynamic"
+    dynamic
+    type="primary"
     size="{{dynamicTags[0].size}}"
     bind:confirm="handleConfirm"
   ></wd-tag>

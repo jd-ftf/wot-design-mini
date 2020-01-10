@@ -7,11 +7,10 @@
       </router-link>
       
       <ul class="header-tab">
-        <!--// TODO 搜索待做 -->
         <!-- 搜索 -->
-        <!-- <li class="header-tab__item">
+        <li class="header-tab__item">
           <search />
-        </li> -->
+        </li>
         <!-- 组件文档切换 -->
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
           <a v-if="page.href" :href="page.href" class="header-tab__link" target="_blank">{{ page.name }}</a>
@@ -43,29 +42,56 @@
 import pagesConfig from '../pages.config.json'
 import versions from '../versions.json'
 import search from './search'
+const { version } = require('../../package.json')
 
 export default {
   components: {search},
   data () {
     return {
       pages: pagesConfig,
-      versions: versions,
+      versions: this.filter(),
       isComponentPage: true,
       isShowOption: false,
-      version: '1.0.0'
+      version
     }
   },
   methods: {
     showOption () {
       this.isShowOption = !this.isShowOption
     },
+    filter () {
+      const keys = versions
+      let result = []
+      let preVersionList = []
+
+      keys.forEach(item => {
+        const lastIndex = item.lastIndexOf('.')
+        const preVersion = item.slice(0, lastIndex)
+        const curentPreIndex = preVersionList.indexOf(preVersion)
+        if (curentPreIndex === -1) {
+          preVersionList.push(preVersion)
+          result.push(item)
+        } else {
+          const lastVersion = item.slice(lastIndex + 1)
+          // 当前的 preVersion 如果存在，那么查找目前 result 中存在前两位版本的最后版本数的大小
+          result = result.map(itemR => {
+            const lastIndexR = itemR.lastIndexOf('.')
+            const preVersionR = itemR.slice(0, lastIndexR)
+            const lastVersionR = itemR.slice(lastIndexR + 1)
+            if( preVersion === preVersionR && lastVersion > lastVersionR) {
+              itemR = item
+            }
+            return itemR
+          })
+        }
+      })
+      return result.sort()
+    },
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
       if (selected === this.version) return
-      this.version = selected
       // location.hash
-      window.location.href = `${ location.origin }/wot-design-mini/${this.version}/#/components/introduction`
-      // window.location = 'http://jdftf.top/wot-design-mini/0.7.0/#/components/introduction'
+      window.location.href = `${ location.origin }/wot-design-mini/${ selected }/#/components/introduction`
     },
   }
 }
