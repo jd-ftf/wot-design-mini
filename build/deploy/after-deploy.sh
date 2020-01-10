@@ -21,6 +21,7 @@ mkdir -p jd-ftf.github.io/wot-design-mini/
 VERSION=$(node build/deploy/delete-old.js --version=$RELEASE_NAME --dir=jd-ftf.github.io/wot-design-mini)
 cd jd-ftf.github.io/wot-design-mini
 rm -f *
+rm -rf static
 cp -r ../../docs/dist/* ./
 mv ../../docs/dist $VERSION
 git add -A .
