@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     demoLink () {
-      return `${location.protocol}//${location.host}/wot-design/demo.html`
+      return `http://localhost:8075/demo.html#${this.$route.meta.demo}`
     }
   },
   methods: {
@@ -94,7 +94,9 @@ export default {
     position: relative;
   }
   .wd-markdown {
-    margin-right: 395px;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-right: 410px;
   }
   .markdown-content {
     min-height: 600px;
@@ -123,6 +125,9 @@ export default {
   }
 
   .demo-iframe{
+    box-shadow: 0 0 10px #cecece;
+    font-size: 0;
+
     .phone-title{
       width: 100%;
     }
@@ -142,8 +147,9 @@ export default {
       top: 0;
       left: 0;
       right: 0;
+      bottom: 0;
+      padding-top: 80px;
       z-index: 1;
-      height: 100%;
       text-align: center;
       background-color: hsla(0,0%,100%,.95);
       opacity: 0;

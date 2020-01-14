@@ -2,7 +2,10 @@
   <ul class="side-bar" :class="isMac ? '' : 'win-scrollbar'">
     <div>
       <div class="side-bar__link">关于我们</div> 
-      <a href="https://github.com/jd-ftf/wot-design-mini" target="_blank"><i class="github-logo"></i></a>
+      <div class="side-bar__github-info">
+        <a href="https://github.com/jd-ftf/wot-design-mini" target="_blank"><i class="github-logo"></i></a>
+        <github-button class="github-star" href="https://github.com/jd-ftf/wot-design-mini" data-icon="octicon-star" data-show-count="true" aria-label="Star jd-ftf/wot-design on GitHub">Star</github-button>
+      </div>
     </div>
     <li v-for="(group, index) in pages[$route.path.split('/')[1]].sideTabs" class="side-bar__item" :key="index">
       <template v-if="group.list">
@@ -55,8 +58,12 @@
 <script>
 import pageConfig from '../pages.config.json'
 import { isMac } from '../utils/index'
+import GithubButton from 'vue-github-button'
 
 export default {
+  components: {
+    GithubButton
+  },
   data () {
     return {
       pages: pageConfig,
@@ -75,9 +82,12 @@ export default {
 
 <style lang="scss">
 @import '../assets/style/_variable.scss';
+
+.side-bar__github-info {
+  margin: 15px 0 32px;
+}
 .github-logo{
   display: inline-block;
-  margin: 16px 0;
   margin-right: 10px;
   width: 30px;
   height: 30px;
@@ -85,12 +95,15 @@ export default {
   background-size: cover;
   vertical-align: middle;
 }
+.github-star {
+  display: inline-block;
+  vertical-align: middle;
+}
 .side-bar {
   position: fixed;
   left: 120px;
   top: $layout-header-height;
   bottom: 0;
-  border-right: 1px solid #eee;
   width: 210px;
   padding-top: 20px;
   padding-bottom: 100px;
