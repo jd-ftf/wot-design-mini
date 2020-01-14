@@ -5,12 +5,12 @@
       <view class="logo"></view>
       <view class="inline">Wot Design Mini</view>
     </view>
-    <view class="page__desc">基于小程序开发的移动端组件库，旨在给开发者提供统一的页面风格。</view>
+    <view class="page__desc">该组件库基于小程序构建构建，根据京东商家侧的UI设计规范（京麦移动端设计规范）开发，旨在给商家提供统一的UI交互，同时提高研发的开发效率。</view>
   </view>
-  <view class="page__bd page__bd_spacing">
+  <view class="page__bd">
     <block jd:for="{{list}}" jd:key="{{ item.id }}">
       <view class="kind-list__item">
-        <view id="{{item.id}}" class="wd-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}"
+        <view id="{{item.id}}" class="wd-flex kind-list__item-hd"
           bindtap="kindToggle">
           <view class="wd-flex__item title">{{item.name}}</view>
           <image class="kind-list__img" src="../images/icon_nav_{{item.id}}.png"></image>

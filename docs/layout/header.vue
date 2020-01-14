@@ -23,15 +23,17 @@
         </li>
         <!-- 版本控制 -->
         <li class="header-tab__item version-control" v-show="isComponentPage" >
-          <a href="#" class="header-tab__link " @click="showOption">{{ version }}</a>
-          <div class="wot-dropdown" v-show="isShowOption">
+          <a class="header-tab__link header-tab__with-arrow" @click="showOption">{{ version }}</a>
+          <transition name="drop-scale-in">
+            <div class="wot-dropdown" v-show="isShowOption">
               <ul class="wot-dropdown-menu">
                 <li class="wot-dropdown-item" v-for="item in versions" :value="item" :key="item" @click="switchVersion(item)">
                   {{ item }}
                 </li>
               </ul>
-              <i class="popper__arrow" ></i>
-          </div>
+              <i class="popper__arrow"></i>
+            </div>
+          </transition>
         </li>
       </ul>
     </div>
@@ -85,7 +87,7 @@ export default {
           })
         }
       })
-      return result.sort()
+      return result.filter(item => item !== version).sort((a, b) => a - b)
     },
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
@@ -93,6 +95,24 @@ export default {
       // location.hash
       window.location.href = `${ location.origin }/wot-design-mini/${ selected }/#/components/introduction`
     },
+    clickOutside (event) {
+      let clickDom = event.target
+
+      // 监听常见问题标题点击
+      while (clickDom.className.indexOf('version-control') === -1 && clickDom !== document.body) {
+        clickDom = clickDom.parentNode
+      }
+
+      if (clickDom.className.indexOf('version-control') === -1) {
+        this.isShowOption = false
+      }
+    }
+  },
+  mounted () {
+    document.body.addEventListener('click', this.clickOutside)
+  },
+  beforeDestroy () {
+    document.body.removeEventListener('click', this.clickOutside)
   }
 }
 </script>
@@ -108,7 +128,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 10px #eee;
   background: $color-bg;
   z-index: 100;
 }
@@ -153,25 +173,30 @@ export default {
   font-size: $fs-title;
   line-height: 25px;
   color: $color-text-light;
+  transition: color .3s;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     color: $color-important;
   }
+}
+.header-tab__with-arrow::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  width: 0;
+  height: 0;
+  top: 19px;
+  right: 0;
+  border: 6px solid rgba(0,0,0,0);
+  border-top-color: #ccc;
 }
 .header-tab__link--active{
   color: $color-theme;
 
   &:hover {
     color: $color-theme;
-  }
-  &::after {
-    position: absolute;
-    content: '';
-    width: 70%;
-    height: 2px;
-    left: 15%;
-    bottom: 0;
-    background: $color-theme;
   }
 }
 .version-control{
@@ -184,33 +209,40 @@ export default {
     background-color: #ebebeb;
   }
 }
+.wot-dropdown {
+  position: relative;
+}
 .wot-dropdown-menu{
-  padding: 10px 5px;
-  margin: 0 10px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding: 10px 0;
+  width: 90px;
   border: none;
   background-color: transparent;
   font-size: 14px;
   color: #666;
-  position: absolute;
   background-color: #fff;
   border: 1px solid #ebeef5;
   border-radius: 2px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  box-shadow: 0 2px 12px 4px rgba(0,0,0,.1);
 }
 .wot-dropdown-item{
   list-style: none;
   height: 30px;
-  line-height: 32px;
-  padding: 0 10px;
+  line-height: 30px;
+  padding-left: 15px;
   margin: 0;
   font-size: 12px;
   color: #464c5b;
   cursor: pointer;
   font-size: 14px;
   outline: none;
+  transition: background .3s, color .3s;
+
   &:hover{
-    background-color: #f5f7f9;
-    color: #464c5b;
+    background-color: mix(#0083ff, #fff, 10%);
+    color: #0083ff;
   }
 }
 .popper__arrow{
@@ -219,8 +251,15 @@ export default {
   position: absolute;
   left: 50%;
   bottom: -2px;
+  margin-left: -3px;
   border-width: 6px;
   border-color: transparent;
   border-bottom-color: white;
+}
+.drop-scale-in-enter, .drop-scale-in-leave-to {
+  transform: scaleY(0);
+}
+.drop-scale-in-enter-active, .drop-scale-in-leave-active {
+  transition: transform .2s;
 }
 </style>
