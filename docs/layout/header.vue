@@ -137,6 +137,11 @@ export default {
   height: $layout-header-height;
   line-height: $layout-header-height;
 }
+@media (max-width: 1366px) {
+  .header-container {
+    margin: 0 30px;
+  }
+}
 .logo-block {
   display: inline-block;
   height: $layout-header-height;
