@@ -94,7 +94,7 @@ export default {
 
 <style lang="scss">
 .tab-content{
-  margin: 0 410px 100px 375px;
+  margin: 0 530px 100px 375px;
 
   .content-flex {
     position: relative;
@@ -157,7 +157,7 @@ export default {
     top: 60px;
     right: 120px;
     width: 375px;
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     font-size: 18px;
     box-shadow: 0 0 10px #cecece;
