@@ -197,6 +197,7 @@ export default {
     .demo-preview {
       right: 80px;
       width: 320px;
+      margin-top: 20px;
     }
   }
 }
