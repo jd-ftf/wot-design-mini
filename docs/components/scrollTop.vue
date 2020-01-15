@@ -8,22 +8,24 @@
 export default {
   data () {
     return {
-      showTop: false
+      showTop: false,
+      bodyContent: null
     }
   },
   methods: {
     gotoTop () {
-      window.scrollTo(0, 0)
+     this.bodyContent.scrollTop = 0
     },
     scrollTopListener (e) {
-      this.showTop = document.documentElement.scrollTop > 100
+      this.showTop = this.bodyContent.scrollTop > 100
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.scrollTopListener)
+    this.bodyContent = document.querySelector('.body-content')
+    this.bodyContent.addEventListener('scroll', this.scrollTopListener)
   },
   destroyed () {
-    window.removeEventListener('scroll', this.scrollTopListener)
+    this.bodyContent.removeEventListener('scroll', this.scrollTopListener)
   }
 }
 </script>

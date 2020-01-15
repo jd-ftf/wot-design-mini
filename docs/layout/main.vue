@@ -25,5 +25,7 @@ export default {
 
 .body-content{
   padding-top: $layout-header-height;
+  height: calc(100vh - #{$layout-header-height});
+  overflow: auto;
 }
 </style>

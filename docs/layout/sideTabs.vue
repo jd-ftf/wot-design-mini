@@ -7,7 +7,7 @@
           <router-view></router-view>
           <page-controller></page-controller>
         </div>
-        <div class="demo-preview" ref="phone" :style="phoneStyle">
+        <div class="demo-preview" ref="phone">
           <div class="demo-iframe">
             <div class="phone-header">
               <img class="phone-title" src="../assets/img/phtitle.png" />
@@ -32,11 +32,7 @@ import PageController from './pageController'
 export default {
   data () {
     return {
-      phoneStyle: {
-        position: 'absolute',
-        right: '0',
-        top: '0'
-      }
+      bodyContent: null
     }
   },
   components: {
@@ -49,39 +45,49 @@ export default {
     }
   },
   methods: {
-    phoneListener () {
-      let phoneHeight = this.$refs.phone.clientHeight
+    renderAnchorHref() {
+      const anchors = document.querySelectorAll('h2 a,h3 a,h4 a,h5 a')
+      const basePath = location.href.split('#').splice(0, 2).join('#')
 
-      if (this.$refs.demoBlock.clientHeight > phoneHeight) {
-        let demoBlockRect = this.$refs.demoBlock.getBoundingClientRect()
+      Array.prototype.slice.call(anchors).forEach(a => {
+        const href = a.getAttribute('href')
+        a.href = basePath + href
+      })
+    },
+    goAnchor () {
+      if (location.href.match(/#/g).length > 1) {
+        const anchor = location.href.match(/#[^#]+$/g)
+        if (!anchor) return
+        const elm = document.querySelector(anchor[0])
+        if (!elm) return
 
-        if (demoBlockRect.top - 60 < 0 && demoBlockRect.bottom - 60 > phoneHeight) {
-          this.phoneStyle = {
-            position: 'fixed',
-            right: '120px',
-            top: '60px'
-          }
-        } else if (demoBlockRect.top - 60 > 0) {
-          this.phoneStyle = {
-            position: 'absolute',
-            right: '0',
-            top: '0'
-          }
-        } else if (demoBlockRect.bottom - 60 < phoneHeight) {
-          this.phoneStyle = {
-            position: 'absolute',
-            right: '0',
-            bottom: '0'
-          }
-        }
+        setTimeout(() => {
+          this.bodyContent.scrollTop = elm.offsetTop
+        }, 50)
       }
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.phoneListener)
+    this.bodyContent = document.querySelector('.body-content')
+    this.renderAnchorHref()
+    this.goAnchor()
   },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.phoneListener)
+  beforeRouteUpdate (to, from, next) {
+    next()
+    const toPath = to.path
+    const fromPath = from.path
+    if (toPath !== fromPath) {
+      this.bodyContent.scrollTop = 0
+    }
+    setTimeout(() => {
+      if (toPath === fromPath && to.hash) {
+        this.goAnchor()
+      }
+
+      if (toPath !== fromPath) {
+        this.renderAnchorHref()
+      }
+    }, 100)
   }
 }
 </script>
@@ -97,6 +103,21 @@ export default {
     padding-top: 10px;
     margin-top: 10px;
     margin-right: 410px;
+
+    h1, h2, h3, h4, h5, h6 {
+      position: relative;
+
+      &:hover {
+        .header-anchor {
+          opacity: 0.4;
+        }
+      }
+    }
+    .header-anchor {
+      float: left;
+      margin-left: -15px;
+      opacity: 0;
+    }
   }
   .markdown-content {
     min-height: 600px;
@@ -136,8 +157,10 @@ export default {
     }
   }
   .demo-preview {
+    position: fixed;
+    top: 60px;
+    right: 120px;
     width: 375px;
-    margin-left: 20px;
     margin-top: 20px;
     text-align: center;
     font-size: 18px;
