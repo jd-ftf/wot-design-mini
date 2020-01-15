@@ -34,19 +34,21 @@ a {
   overflow-y: auto;
   overflow-y: overlay;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) #fefefe;
+  scrollbar-color: rgba(0, 0, 0, 0.3) #fefefe;
 
   &::-webkit-scrollbar-track-piece {
     background-color: transparent;
   }
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 7px;
+    height: 7px;
   }
   &::-webkit-scrollbar-thumb {
-    width: 5px;
+    width: 7px;
+    height: 7px;
     opacity: 0.5;
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 }
 .win-scrollbar {
@@ -54,20 +56,18 @@ a {
   overflow-y: overlay;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0) #fefefe;
-  transition: all .3s;
 
   &::-webkit-scrollbar-track-piece {
     background-color: transparent;
   }
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
   }
   &::-webkit-scrollbar-thumb {
-    width: 5px;
+    width: 6px;
     opacity: 0.5;
     border-radius: 3px;
     background-color: transparent;
-    transition: background-color .3s;
   }
   &:hover{
     &::-webkit-scrollbar-thumb {

@@ -137,6 +137,7 @@ export default {
   height: $layout-header-height;
   line-height: $layout-header-height;
 }
+
 .logo-block {
   display: inline-block;
   height: $layout-header-height;
@@ -192,7 +193,8 @@ export default {
   content: '';
   width: 0;
   height: 0;
-  top: 19px;
+  top: 50%;
+  margin-top: -3px;
   right: 0;
   border: 6px solid rgba(0,0,0,0);
   border-top-color: #ccc;
@@ -266,5 +268,22 @@ export default {
 }
 .drop-scale-in-enter-active, .drop-scale-in-leave-active {
   transition: transform .2s;
+}
+@media (max-width: 1366px) {
+  .header-container {
+    margin: 0 30px;
+  }
+}
+@media (max-width: 773px) {
+  .wot-design-title {
+    font-size: 16px;
+  }
+  .header-container {
+    margin: 0 15px;
+  }
+  .header-tab__link {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
 }
 </style>
