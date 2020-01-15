@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-layout></header-layout>
-    <div class="body-content">
+    <div class="body-content" :class="isMac ? '' : 'body-scrollbar'">
       <router-view></router-view>
     </div>
     <scroll-top></scroll-top>
@@ -11,11 +11,17 @@
 <script>
 import HeaderLayout from './header'
 import ScrollTop from '../components/scrollTop'
+import { isMac } from '../utils/index'
 
 export default {
   components: {
     HeaderLayout,
     ScrollTop
+  },
+  data () {
+    return {
+      isMac
+    }
   }
 }
 </script>

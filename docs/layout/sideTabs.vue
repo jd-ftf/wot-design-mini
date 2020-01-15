@@ -51,7 +51,7 @@ export default {
 
       Array.prototype.slice.call(anchors).forEach(a => {
         const href = a.getAttribute('href')
-        a.href = basePath + href
+        a.href = href.indexOf(basePath) > -1 ? href : (basePath + href)
       })
     },
     goAnchor () {
