@@ -111,6 +111,11 @@ export default {
   overflow-y: auto;
   background: $color-bg;
 }
+@media (max-width: 1366px) {
+  .side-bar {
+    left: 30px;
+  }
+}
 .side-bar__link{
   color: #adadad;
 }

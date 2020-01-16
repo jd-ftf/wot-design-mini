@@ -2,8 +2,8 @@
   <header class="header">
     <div class="header-container">
       <router-link :to="{ path: '/' }" class="logo-block">
-        <i class="wot-design-logo"></i>
-        <span>Wot Design Mini</span>
+        <img class="wot-design-logo" src="../assets/img/wot-design.png" alt="wot design mini" />
+        <h1 class="wot-design-title">Wot Design Mini</h1>
       </router-link>
       
       <ul class="header-tab">
@@ -137,6 +137,7 @@ export default {
   height: $layout-header-height;
   line-height: $layout-header-height;
 }
+
 .logo-block {
   display: inline-block;
   height: $layout-header-height;
@@ -154,9 +155,14 @@ export default {
   margin-right: 10px;
   width: 40px;
   height: 40px;
-  background: url('../assets/img/wot-design.png') no-repeat;
-  background-size: cover;
   vertical-align: middle;
+}
+.wot-design-title {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 18px;
+  color: $color-theme;
+  margin: 0;
 }
 .header-tab {
   float: right;
@@ -187,7 +193,8 @@ export default {
   content: '';
   width: 0;
   height: 0;
-  top: 19px;
+  top: 50%;
+  margin-top: -3px;
   right: 0;
   border: 6px solid rgba(0,0,0,0);
   border-top-color: #ccc;
@@ -261,5 +268,22 @@ export default {
 }
 .drop-scale-in-enter-active, .drop-scale-in-leave-active {
   transition: transform .2s;
+}
+@media (max-width: 1366px) {
+  .header-container {
+    margin: 0 30px;
+  }
+}
+@media (max-width: 773px) {
+  .wot-design-title {
+    font-size: 16px;
+  }
+  .header-container {
+    margin: 0 15px;
+  }
+  .header-tab__link {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
 }
 </style>

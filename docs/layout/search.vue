@@ -1,5 +1,5 @@
 <template>
-  <div class="wot-search-input">
+  <div class="wot-search-input" :class="isMac ? '' : 'wot-search-input--win'">
     <input
       type="text"
       class="wot-search-input__inner"
@@ -11,8 +11,14 @@
 <script>
 import 'docsearch.js/dist/cdn/docsearch.min.css'
 import docsearch from 'docsearch.js'
+import { isMac } from '../utils/index'
 
 export default {
+  data () {
+    return {
+      isMac
+    }
+  },
   mounted () {
     docsearch({
       apiKey: '2e031c5218bf2d41b5b9aa75aec4f725',
@@ -45,6 +51,35 @@ export default {
   border-radius: 6px;
   &:hover{
     cursor: pointer;
+  }
+}
+.wot-search-input--win {
+  .algolia-autocomplete {
+    .ds-dropdown-menu .ds-suggestions {
+      overflow-y: auto;
+      overflow-y: overlay;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0) #fefefe;
+
+      &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-thumb {
+        width: 6px;
+        opacity: 0.5;
+        border-radius: 3px;
+        background-color: transparent;
+      }
+      &:hover{
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        scrollbar-color: rgba(0, 0, 0, 0.2) #fefefe;
+      }
+    }
   }
 }
 .algolia-autocomplete{
@@ -85,7 +120,7 @@ export default {
   .ds-dropdown-menu .ds-suggestions {
     padding: 30px 8px 8px;
     max-height: 380px;
-    overflow: auto;
+    overflow-y: auto;
 
     &::before{
       content: "Search Result";
