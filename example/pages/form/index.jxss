@@ -1,0 +1,8 @@
+page .radio-inline {
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+.wrapper {
+  padding: 15px;
+}

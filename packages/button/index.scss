@@ -72,9 +72,10 @@
   color: $-button-color-normal;
   transition: all .2s;
   user-select: none;
+  font-weight: normal;
 
   &::after {
-    border-width: 0;
+    display: none;
   }
 
   &.wd-button--active {
@@ -209,16 +210,15 @@
   }
 
   @include when(suck) {
+    display: flex;
     font-size: $-button-large-font-size;
     height: $-button-suck-height;
-    width: 100%;
     border: none;
     border-radius: 0;
   }
 
   @include when(block) {
-    display: block;
-    width: 100%;
+    display: flex;
   }
 
   @include when(icon) {
@@ -256,6 +256,10 @@
   @include e(text) {
     display: block;
     user-select: none;
-    vertical-align: middle;
   }
+}
+// 微信2.8.0以上版本加了较高层级的默认样式，需要重置掉
+button.wd-button {
+  min-height: auto;
+  width: auto;
 }

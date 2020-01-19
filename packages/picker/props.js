@@ -36,5 +36,6 @@ export default {
   size: String,
   labelWidth: String,
   useLabelSlot: Boolean,
-  error: Boolean
+  error: Boolean,
+  alignRight: Boolean
 }

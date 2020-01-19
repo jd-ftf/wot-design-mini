@@ -78,4 +78,9 @@
       font-size: $-cell-title-size-large;
     }
   }
+  @include when(center) {
+    .wd-cell__wrapper {
+      align-items: center;
+    }
+  }
 }

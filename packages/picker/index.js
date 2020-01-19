@@ -36,12 +36,43 @@ VueComponent({
           this.picker.data.selectedIndex &&
           this.picker.data.selectedIndex.length !== 0
         ) {
-          this.setShowValue(this.picker.getSelects())
+          if (this.data.value) {
+            this.setShowValue(this.picker.getSelects())
+          } else {
+            this.setData({
+              showValue: ''
+            })
+          }
         }
       }
     },
     /* 参考pickerView组件 */
-    value: null,
+    value: {
+      type: null,
+      observer (value) {
+        if (value === this.data.pickerValue) return
+
+        this.setData({
+          pickerValue: value
+        })
+        // 为picker的displayFormat设置默认值
+        this.data.displayFormat || this.setData({
+          displayFormat: defaultDisplayFormat
+        })
+        // JM小程序无法透传function类型的props，此处手动透传
+        this.data.columnChange || this.picker.setData({
+          columnChange: defaultFunction
+        })
+        // 获取初始选中项,并展示初始选中文案
+        if (value) {
+          this.setShowValue(this.picker.getSelects())
+        } else {
+          this.setData({
+            showValue: ''
+          })
+        }
+      }
+    },
     columns: Array,
     ...pickerViewProps,
     columnChange: {
@@ -63,7 +94,8 @@ VueComponent({
     // pickerView选择器
     pickerId: 'wd-picker-view',
     // 选定后展示的选中项
-    showValue: ''
+    showValue: '',
+    pickerValue: ''
   },
   methods: {
     /**
@@ -78,30 +110,53 @@ VueComponent({
      * @description 点击取消按钮触发。关闭popup，触发cancel事件。
      */
     onCancel () {
-      this.setData({ popupShow: false })
+      this.setData({
+        popupShow: false
+      })
+      setTimeout(() => {
+        this.setData({
+          pickerValue: this.data.value
+        })
+      }, 300)
       this.$emit('cancel')
     },
     /**
      * @description 点击确定按钮触发。展示选中值，触发cancel事件。
      */
     onConfirm () {
+      if (this.data.loading || this.data.disabled) {
+        this.setData({
+          popupShow: false
+        })
+        return
+      }
+
       const selects = this.picker.getSelects()
-      this.setData({ popupShow: false })
+      const values = this.picker.getValues()
+      this.setData({
+        popupShow: false,
+        value: values
+      })
       this.setShowValue(selects)
-      this.$emit('confirm', selects)
+      this.$emit('confirm', values)
     },
     /**
      * @description 初始change事件
      * @param event
      */
-    handleChange (event) {
-      this.$emit('change', event.detail)
+    pickerViewChange ({ detail }) {
+      this.setData({
+        pickerValue: detail.value
+      })
     },
     /**
      * @description 设置展示值
      * @param {Array<String>} items
      */
     setShowValue (items) {
+      // 避免值为空时调用自定义展示函数
+      if ((items instanceof Array && !items.length) || !items) return
+
       const { valueKey, labelKey } = this.data
       this.setData({
         showValue: this.data.displayFormat(items, { valueKey, labelKey })
@@ -121,7 +176,5 @@ VueComponent({
     this.data.columnChange || this.picker.setData({
       columnChange: defaultFunction
     })
-    // 获取初始选中项,并展示初始选中文案
-    this.setShowValue(this.picker.getSelects())
   }
 })

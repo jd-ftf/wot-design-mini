@@ -230,6 +230,7 @@ export default function () {
           maxHour,
           maxMinute
         } = this.getBoundary('max', data.innerValue)
+        console.log(data.innerValue)
         const {
           minYear,
           minDate,

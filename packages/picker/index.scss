@@ -12,6 +12,11 @@
       color: $-color-aid-red;
     }
   }
+  @include when(align-right) {
+    .wd-picker__value {
+      text-align: right;
+    }
+  }
   @include e(field) {
     position: relative;
     display: flex;

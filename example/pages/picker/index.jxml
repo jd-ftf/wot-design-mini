@@ -29,3 +29,6 @@
 <demo-block title="错误" transparent>
   <wd-picker label="单列选项" error columns="{{columns0}}"/>
 </demo-block>
+<demo-block title="值靠右显示" transparent>
+  <wd-picker label="单列选项" align-right columns="{{columns0}}"/>
+</demo-block>

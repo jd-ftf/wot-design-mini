@@ -1,6 +1,5 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
-//@import "./../icon/index.scss";
 
 @include b(radio) {
   display: block;
@@ -8,7 +7,7 @@
   font-size: 0;
 
   &:last-child {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   @include e(shape) {

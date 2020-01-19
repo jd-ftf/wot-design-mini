@@ -1,4 +1,4 @@
-<view class="wd-picker {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} custom-class">
+<view class="wd-picker {{ size ? 'is-' + size : '' }} {{ alignRight ? 'is-align-right' : '' }} {{ error ? 'is-error' : '' }} custom-class">
   <!--文案-->
   <view
     class="wd-picker__field {{ noHair ? 'is-no-hair' : '' }} {{disabled ? 'wd-picker__field--disabled' : '' }}"
@@ -40,14 +40,14 @@
     <wd-picker-view
       custom-class="custom-view-class"
       id="{{pickerId}}"
-      value="{{value}}"
+      value="{{pickerValue}}"
       columns="{{columns}}"
       loading="{{loading}}"
       visible-item-count="{{visibleItemCount}}"
       item-height="{{itemHeight}}"
       value-key="{{valueKey}}"
       label-key="{{labelKey}}"
-      bind:change="handleChange"
+      bind:change="pickerViewChange"
     />
   </wd-popup>
 </view>

@@ -52,11 +52,13 @@ VueComponent({
      * @param {String|Number|Boolean|Array<String|Number|Boolean|Array<any>>}value
      */
     selectWithValue (value) {
-      if (
-        !this.data.value ||
-        this.data.columns.length === 0
-      ) {
-        return
+      if (this.data.columns.length === 0) return
+
+      // 使其默认选中首项
+      if (!this.data.value) {
+        value = this.data.formatColumns.map(col => {
+          return col[0][this.data.valueKey]
+        })
       }
       const valueType = getType(value)
       const type = ['string', 'number', 'boolean', 'array']
@@ -199,9 +201,7 @@ VueComponent({
       const diffRow = selectedIndex[diffCol]
       const picker = this
       // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
-      value = selectedIndex.length === 1
-        ? this.getValues()[0]
-        : this.getValues()
+      value = this.getValues()
       // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
       const index = selectedIndex.length === 1 ? diffRow : diffCol
       // 执行多级联动
@@ -217,14 +217,27 @@ VueComponent({
      */
     getSelects () {
       const { selectedIndex, formatColumns } = this.data
-      return selectedIndex.map((row, col) => formatColumns[col][row])
+      const selects = selectedIndex.map((row, col) => formatColumns[col][row])
+
+      // 单列选择器，则返回单项
+      if (selects.length === 1) {
+        return selects[0]
+      }
+
+      return selects
     },
     /**
      * @description 获取所有列选中项的value，返回值为一个数组
      */
     getValues () {
       const { selectedIndex, formatColumns, valueKey } = this.data
-      return selectedIndex.map((row, col) => formatColumns[col][row][valueKey])
+      const values = selectedIndex.map((row, col) => formatColumns[col][row][valueKey])
+
+      if (values.length === 1) {
+        return values[0]
+      }
+
+      return values
     },
     /**
      * @description 获取所有列选中项的label，返回值为一个数组
@@ -279,10 +292,14 @@ VueComponent({
     })
     // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
     if (
-      !this.data.value &&
+      (!this.data.value || !this.data.value.length) &&
       this.data.columns.length !== 0
     ) {
-      this.setData({ formatColumns: this.formatArray(this.data.columns) })
+      const formatColumns = this.formatArray(this.data.columns)
+      this.setData({
+        formatColumns,
+        selectedIndex: formatColumns.map(() => 0)
+      })
     }
   }
 })
