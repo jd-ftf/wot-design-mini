@@ -6,3 +6,8 @@ page .radio-inline {
 .wrapper {
   padding: 15px;
 }
+.display-item {
+  padding: 0 15px;
+  margin-bottom: 10px;
+  color: #999;
+}

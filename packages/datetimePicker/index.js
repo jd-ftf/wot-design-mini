@@ -58,16 +58,9 @@ VueComponent({
     pickerId: 'wd-picker'
   },
   methods: {
-    onChange ({ detail: { picker } }) {
-      // 更新pickerView的value
-      const value = picker.getLabels()
-      this.setData({
-        pickerValue: value instanceof Array ? value : [value]
-      })
-    },
     /** picker触发confirm事件，同步触发confirm事件 */
-    onConfirm ({ detail }) {
-      this.$emit('confirm', detail)
+    onConfirm () {
+      this.$emit('confirm', this.data.innerValue)
     },
     /** picker触发cancel事件，同步触发cancel事件 */
     onCancel () {

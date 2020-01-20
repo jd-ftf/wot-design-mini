@@ -8,7 +8,15 @@ const isValidDate = date => isDef(date) && !Number.isNaN(date)
 /** @description 保证num不超出min和max的范围 */
 const range = (num, min, max) => Math.min(Math.max(num, min), max)
 /** @description 不满10补0 */
-const padZero = val => `00${val}`.slice(-2)
+const padZero = (number, length = 2) => {
+  number = number + ''
+
+  while (number.length < length) {
+    number = '0' + number
+  }
+
+  return number
+}
 /**
  * @description 生成n个元素，并使用iterator接口进行填充
  * @param n
@@ -178,7 +186,10 @@ export default function () {
       updateColumns () {
         const { formatter = defaultFormatter } = this.data
         return this.getOriginColumns().map(column => {
-          return column.values.map(value => formatter(column.type, value))
+          return column.values.map(value => ({
+            label: formatter(column.type, padZero(value)),
+            value
+          }))
         })
       },
       /**
@@ -189,9 +200,7 @@ export default function () {
         const { filter } = this.data
         return this.getRanges().map(({ type, range }) => {
           let values = times(range[1] - range[0] + 1, index => {
-            let value = range[0] + index
-            value = type === 'year' ? `${value}` : padZero(value)
-            return value
+            return range[0] + index
           })
 
           if (filter) {
@@ -230,7 +239,6 @@ export default function () {
           maxHour,
           maxMinute
         } = this.getBoundary('max', data.innerValue)
-        console.log(data.innerValue)
         const {
           minYear,
           minDate,
@@ -344,30 +352,20 @@ export default function () {
        * @param value
        * @return {Array}
        */
-      updateColumnValue (value, shouldUpdateValue = true) {
+      updateColumnValue (value) {
         const values = []
-        const { type, formatter = defaultFormatter } = this.data
+        const { type } = this.data
         const date = new Date(value)
 
         if (type === 'time') {
           const pair = value.split(':')
-          values.push(
-            formatter('hour', pair[0]),
-            formatter('minute', pair[1])
-          )
+          values.push(pair[0], pair[1])
         } else {
-          values.push(
-            formatter('year', `${date.getFullYear()}`),
-            formatter('month', padZero(date.getMonth() + 1))
-          )
+          values.push(date.getFullYear(), date.getMonth() + 1)
           if (type === 'date') {
-            values.push(formatter('date', padZero(date.getDate())))
+            values.push(date.getDate())
           } else if (type === 'datetime') {
-            values.push(
-              formatter('date', padZero(date.getDate())),
-              formatter('hour', padZero(date.getHours())),
-              formatter('minute', padZero(date.getMinutes()))
-            )
+            values.push(date.getDate(), date.getHours(), date.getMinutes())
           }
         }
         this.setData({ innerValue: value })

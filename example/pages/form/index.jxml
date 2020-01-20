@@ -17,6 +17,26 @@
     <wd-datetime-picker label="生日" error="{{ birthdayError }}" type="date" formatter="{{ birthdayFormat }}" value="{{ birthday }}" bind:confirm="handleBirthday" align-right />
   </wd-cell-group>
   <view class="wrapper">
-    <wd-button type="primary" block bind:click="handleClick">提交</wd-button>
+    <wd-button type="primary" block size="large" bind:click="handleClick">提交</wd-button>
+  </view>
+</demo-block>
+<demo-block title="表单数据" transparent>
+  <view class="display-item">
+    用户名: {{ username }}
+  </view>
+  <view class="display-item">
+    密码: {{ password }}
+  </view>
+  <view class="display-item">
+    性别: {{ gender }}
+  </view>
+  <view class="display-item">
+    是否订阅: {{ subscribe }}
+  </view>
+  <view class="display-item">
+    注册类型: {{ userType }}
+  </view>
+  <view class="display-item">
+    生日: {{ birthday }}
   </view>
 </demo-block>

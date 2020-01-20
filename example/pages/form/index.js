@@ -41,13 +41,13 @@ Page({
   handleUsername ({ detail }) {
     this.setData({
       username: detail,
-      usernameError: !detail && !this.data.usernameError
+      usernameError: false
     })
   },
   handlePassword ({ detail }) {
     this.setData({
       password: detail,
-      passwordError: !detail && !this.data.passwordError
+      passwordError: false
     })
   },
   handleGender ({ detail }) {
