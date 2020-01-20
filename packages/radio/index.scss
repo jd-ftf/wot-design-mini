@@ -38,9 +38,13 @@
   @include e(check) {
     position: absolute;
     display: inline-block;
-    right: 0;
-    top: 1px;
-    color: #fff;
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: currentColor;
+    border-radius: 50%;
     font-size: 13px;
     opacity: 0;
     transition: opacity .2s;
@@ -48,31 +52,11 @@
   @include when(checked) {
     .wd-radio__shape {
       color: $-radio-color-checked;
-      background: currentColor;
       border-color: currentColor;
     }
     .wd-radio__check {
+      color: $-radio-color-checked;
       opacity: 1;
-    }
-  }
-  @include when(dot) {
-    .wd-radio__check {
-      width: 10px;
-      height: 10px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: currentColor;
-      border-radius: 50%;
-    }
-    @include when(checked) {
-      .wd-radio__check {
-        color: $-radio-color-checked;
-      }
-      .wd-radio__shape {
-        background: #fff;
-        border-color: currentColor;
-      }
     }
   }
 
@@ -127,10 +111,8 @@
       .wd-radio__shape {
         color: $-radio-color-disabled-label;
       }
-      @include when(dot) {
-        .wd-radio__check {
-          color: $-radio-color-disabled-label;
-        }
+      .wd-radio__check {
+        color: $-radio-color-disabled-label;
       }
       .wd-radio__label {
         color: $-radio-color-disabled-label;

@@ -26,8 +26,8 @@ VueComponent({
       type: String,
       value: null,
       observer (target) {
-        // type: 'circle', 'dot', 'button'
-        const type = ['circle', 'dot', 'button']
+        // type: 'dot', 'button'
+        const type = ['dot', 'button']
         if (type.indexOf(target) === -1) throw Error(`shape must be one of ${type.toString()}`)
       }
     },

@@ -39,11 +39,11 @@ VueComponent({
     },
     shape: {
       type: String,
-      value: 'circle',
+      value: 'dot',
       observer (value) {
-        // type: 'circle', 'dot', 'button'
-        const type = ['circle', 'dot', 'button']
-        if (type.indexOf(value) === -1) throw Error(`circle must be one of ${type.toString()}`)
+        // type: 'dot', 'button'
+        const type = ['dot', 'button']
+        if (type.indexOf(value) === -1) throw Error(`shape must be one of ${type.toString()}`)
         this.updateAllChild({ shape: value })
       }
     },
