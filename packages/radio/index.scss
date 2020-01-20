@@ -3,13 +3,11 @@
 
 @include b(radio) {
   display: block;
-  margin-bottom: 10px;
-  font-size: 0;
+  margin-top: 10px;
 
-  &:last-child {
-    margin-bottom: 0;
+  @include when(first) {
+    margin-top: 0;
   }
-
   @include e(shape) {
     position: relative;
     display: inline-block;
@@ -80,12 +78,9 @@
 
   @include when(button) {
     display: inline-block;
-    margin-bottom: 0;
-    margin-right: 8px;
-    // 小程序中每个插槽会被shadow-root包起来，所以last-child等伪类选择器无效
-    //&:last-child {
-    //  margin-right: 0;
-    //}
+    margin-top: 0;
+    margin-left: 8px;
+
     .wd-radio__shape {
       width: 0;
       height: 0;
@@ -98,13 +93,26 @@
       padding: 4px 28px;
       border: 1px solid $-radio-color-border;
       border-radius: 4px;
-      transition: all .2s;
+      transition: color .2s, border-color .2s;
     }
     @include when(checked) {
       .wd-radio__label {
         color: $-radio-color-checked;
         border-color: currentColor;
       }
+    }
+    @include when(first) {
+      margin-left: 0;
+    }
+  }
+
+  @include when(inline) {
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 10px;
+    
+    @include when(first) {
+      margin-left: 0;
     }
   }
 

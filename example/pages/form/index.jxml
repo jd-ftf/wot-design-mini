@@ -6,8 +6,8 @@
     <wd-input label="密码" error="{{ passwordError }}" show-password clearable value="{{ password }}" placeholder="请输入密码" bind:change="handlePassword" />
     <wd-cell title="性别" center>
       <wd-radio-group value="{{ gender }}" bind:change="handleGender">
-        <wd-radio custom-class="radio-inline" value="{{ 1 }}">男</wd-radio>
-        <wd-radio custom-class="radio-inline" value="{{ 2 }}">女</wd-radio>
+        <wd-radio inline value="{{ 1 }}">男</wd-radio>
+        <wd-radio inline value="{{ 2 }}">女</wd-radio>
       </wd-radio-group>
     </wd-cell>
     <wd-cell title="是否订阅" center>

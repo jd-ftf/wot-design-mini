@@ -23,10 +23,9 @@
   </wd-radio-group>
 </demo-block>
 
-
-<demo-block title="修改形状(在radioGroup上设置) shape 为 'button'">
+<demo-block title="同行展示">
   <wd-radio-group
-    shape="button"
+    inline
     data-index="{{2}}"
     value="{{value2}}"
     bind:change="change"
@@ -36,10 +35,22 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="修改单个形状(在radio上设置) shape 为 'dot'">
+<demo-block title="修改形状(在radioGroup上设置) shape 为 'button'">
   <wd-radio-group
+    shape="button"
     data-index="{{3}}"
     value="{{value3}}"
+    bind:change="change"
+  >
+    <wd-radio value="{{1}}">京麦</wd-radio>
+    <wd-radio value="{{2}}">商家后台</wd-radio>
+  </wd-radio-group>
+</demo-block>
+
+<demo-block title="修改单个形状(在radio上设置) shape 为 'dot'">
+  <wd-radio-group
+    data-index="{{4}}"
+    value="{{value4}}"
     bind:change="change"
   >
     <wd-radio value="{{1}}" shape="dot">京麦</wd-radio>
@@ -49,8 +60,8 @@
 
 <demo-block title="修改选中颜色 checked-color">
   <wd-radio-group
-    data-index="{{4}}"
-    value="{{value4}}"
+    data-index="{{5}}"
+    value="{{value5}}"
     bind:change="change"
   >
     <wd-radio value="{{1}}" checked-color="#f00">京麦</wd-radio>
@@ -59,14 +70,18 @@
 </demo-block>
 
 <demo-block title="禁用 disabled">
-  <wd-radio-group value="{{1}}" disabled="{{true}}">
-    <wd-radio value="{{1}}">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
-  </wd-radio-group>
-  <wd-radio-group value="{{1}}" disabled="{{true}}" shape="dot">
-    <wd-radio value="{{1}}">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
-  </wd-radio-group>
+  <view style="margin-bottom: 10px;">
+    <wd-radio-group value="{{1}}" disabled="{{true}}">
+      <wd-radio value="{{1}}">京麦</wd-radio>
+      <wd-radio value="{{2}}">商家后台</wd-radio>
+    </wd-radio-group>
+  </view>
+  <view style="margin-bottom: 10px;">
+    <wd-radio-group value="{{1}}" disabled="{{true}}" shape="dot">
+      <wd-radio value="{{1}}">京麦</wd-radio>
+      <wd-radio value="{{2}}">商家后台</wd-radio>
+    </wd-radio-group>
+  </view>
   <wd-radio-group value="{{1}}" disabled="{{true}}" shape="button">
     <wd-radio value="{{1}}">京麦</wd-radio>
     <wd-radio value="{{2}}">商家后台</wd-radio>
@@ -78,8 +93,8 @@
     hape="button"
     disabled="{{true}}"
     checked-color="#f00"
-    data-index="{{5}}"
-    value="{{value5}}"
+    data-index="{{6}}"
+    value="{{value6}}"
     bind:change="change"
   >
     <wd-radio
