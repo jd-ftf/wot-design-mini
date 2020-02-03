@@ -69,6 +69,10 @@ VueComponent({
     /** picker触发cancel事件，同步触发cancel事件 */
     onCancel () {
       this.$emit('cancel')
+    },
+    // before-confirm 的value修改为innerValue
+    handleBeforeConfirm (value, resolve, picker) {
+      this.data.beforeConfirm(this.data.innerValue, resolve, picker)
     }
   },
   beforeCreate () {
@@ -84,7 +88,8 @@ VueComponent({
      */
     this.picker.setData({
       displayFormat: (displayFormat || defaultDisplayFormat).bind(this),
-      columnChange: this.columnChange.bind(this)
+      columnChange: this.columnChange.bind(this),
+      beforeConfirm: this.handleBeforeConfirm.bind(this)
     })
     // 初始化完毕，打开observer触发render的开关
     this.setData({ created: true })

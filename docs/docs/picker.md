@@ -163,6 +163,44 @@ Page({
 <wd-picker label="单列选项" align-right columns="{{columns}}" value="{{value}}"/>
 ```
 
+### 确定前校验
+
+设置 `before-confirm` 函数，在用户点击`确定`按钮时，会执行 `before-confirm` 函数，并传入 `value` 、 `resolve` 和 `picker` 参数，可以对 `value` 进行校验，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会关闭 `picker`弹窗。可以通过 `picker` 参数直接设置 `loading`、`columns` 等属性。
+
+```html
+<wd-picker label="before-confirm" columns="{{columns}}" value="{{value}}" before-confirm="{{beforeConfirm}}" bind:confirm="handleConfirm" />
+```
+
+```javascript
+Page({
+  data: {
+    columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+    value: '',
+    beforeConfirm: function (value, resolve, picker) {
+      picker.setData({
+        loading: true
+      })
+      setTimeout(() => {
+        picker.setData({
+          loading: false
+        })
+        if (['选项2', '选项3'].indexOf(value) > -1) {
+          resolve(false)
+          Toast.error('选项校验不通过，请重新选择')
+        } else {
+          resolve(true)
+        }
+      }, 2000)
+    }
+  },
+  handleConfirm ({ detail }) {
+    this.setData({
+      value: detail
+    })
+  }
+})
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -188,6 +226,7 @@ Page({
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | use-label-slot | label 使用插槽 | boolean | - | false |
+| before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
 ### Events
 

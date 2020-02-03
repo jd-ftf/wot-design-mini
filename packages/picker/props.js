@@ -37,5 +37,6 @@ export default {
   labelWidth: String,
   useLabelSlot: Boolean,
   error: Boolean,
-  alignRight: Boolean
+  alignRight: Boolean,
+  beforeConfirm: null
 }

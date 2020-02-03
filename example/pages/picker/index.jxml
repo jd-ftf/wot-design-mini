@@ -1,3 +1,4 @@
+<wd-toast id="wd-toast"/>
 <demo-block transparent>
   <wd-cell-group>
     <wd-picker label="单列选项" columns="{{columns0}}"/>
@@ -18,6 +19,7 @@
       display-format="{{displayFormat}}"
     />
     <wd-picker label="标题" columns="{{columns7}}" title="文案标题"/>
+    <wd-picker label="before-confirm" columns="{{columns0}}" value="{{value7}}" before-confirm="{{beforeConfirm}}" />
   </wd-cell-group>
 </demo-block>
 <demo-block title="label 不传" transparent>

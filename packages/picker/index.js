@@ -124,6 +124,16 @@ VueComponent({
      * @description 点击确定按钮触发。展示选中值，触发cancel事件。
      */
     onConfirm () {
+      const { beforeConfirm } = this.data
+      if (beforeConfirm && getType(beforeConfirm) === 'function') {
+        beforeConfirm(this.data.pickerValue, isPass => {
+          isPass && this.handleConfirm()
+        }, this)
+      } else {
+        this.handleConfirm()
+      }
+    },
+    handleConfirm () {
       if (this.data.loading || this.data.disabled) {
         this.setData({
           popupShow: false
