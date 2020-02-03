@@ -9,7 +9,11 @@ VueComponent({
   /**
    * 注意，datetimePickerView和datetimePicker有公共逻辑，抽离成/mixins/datetimePickerView，通过mixins options注入
    */
-  externalClasses: ['custom-view-class'],
+  externalClasses: [
+    'custom-view-class',
+    'custom-label-class',
+    'custom-value-class'
+  ],
   mixins: [datetimePickerView()],
   behaviors: [cell],
   relations: {

@@ -18,7 +18,8 @@ Page({
     value12: '12345678',
     value13: '',
     value14: '',
-    value15: ''
+    value15: '',
+    value16: ''
   },
   handleInput({ detail }) {
     var value = detail.value

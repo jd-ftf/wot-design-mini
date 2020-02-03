@@ -1,5 +1,5 @@
 <view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label || useLabelSlot ? 'is-cell' : '' }} {{ center ? 'is-center' : '' }} {{ noHair ? 'is-no-hair' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} custom-class">
-  <view jd:if="{{ label || useLabelSlot }}" class="wd-input__label custom-label-width" style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
+  <view jd:if="{{ label || useLabelSlot }}" class="wd-input__label custom-label-class" style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
     <view jd:if="{{ prefixIcon || usePrefixSlot }}" class="wd-input__prefix">
       <wd-icon jd:if="{{ prefixIcon }}" custom-class="wd-input__icon" name="{{ prefixIcon }}" bind:tap="onClickPrefixIcon" />
       <slot name="prefix"></slot>
@@ -123,7 +123,7 @@
         <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__icon" name="close-outline"  bindtap="clear"/>
         <wd-icon
           jd:if="{{ showPassword }}"
-          custom-class="wd-input__icon "
+          custom-class="wd-input__icon"
           name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
           bindtap="togglePwdVisible"
         />

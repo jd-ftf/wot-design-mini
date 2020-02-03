@@ -1,6 +1,8 @@
 <wd-picker
   custom-class="custom-class"
   custom-view-class="custom-view-class"
+  custom-label-class="custom-label-class"
+  custom-value-class="custom-value-class"
   id="wd-picker"
   label="{{label}}"
   placeholder="{{placeholder}}"

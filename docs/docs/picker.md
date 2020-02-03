@@ -14,7 +14,7 @@ Picker 组件为 popup 和 pickerView 的组合。
 
 ### 基本用法
 
-`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。
+`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。label 可以不传。可以通过 `label-width` 设置标题宽度，默认为 '33%'。
 
 ```html
 <wd-picker columns="{{columns1}}" label="单列选项" value="{{value}}" />
@@ -139,6 +139,30 @@ Page({
 })
 ```
 
+### 选择器大小
+
+通过设置 `size` 修改选择器大小，将 `size` 设置为 'large' 时字号为 16px。
+
+```html
+<wd-picker label="单列选项" size="large" value="{{value}}" columns="{{columns}}" />
+```
+
+### 错误状态
+
+设置 `error` 属性，选择器的值显示为红色。
+
+```html
+<wd-picker label="单列选项" error columns="{{columns}}" value="{{value}}"/>
+```
+
+### 值靠右展示
+
+设置 `align-right` 属性，选择器的值靠右展示。
+
+```html
+<wd-picker label="单列选项" align-right columns="{{columns}}" value="{{value}}"/>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -159,18 +183,30 @@ Page({
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+| size | 设置选择器大小 | string | 'large' | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
+| align-right | 选择器的值靠右展示 | boolean | - | false |
+| use-label-slot | label 使用插槽 | boolean | - | false |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:confirm | 点击右侧按钮触发 | - |
+| bind:confirm | 点击右侧按钮触发 | 单列：选中项值；多列：所有列选中项值 |
 | bind:cancel | 点击左侧按钮触发 | - |
-| bind:change | 选项值修改时触发 | 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
 
+### Slot
+
+| name      | 说明       |
+|------------- |----------- |
+| label | 左侧标题插槽 |
 
 ### 外部样式类
 
 | 类名     | 说明                |
 |---------|---------------------|
 | custom-class | 根结点样式 |
+| custom-view-class | pickerView 外部自定义样式 |
+| custom-label-class | label 外部自定义样式 |
+| custom-value-class | value 外部自定义样式 |

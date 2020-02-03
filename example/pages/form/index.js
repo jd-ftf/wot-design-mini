@@ -73,7 +73,7 @@ Page({
     })
   },
   handleClick () {
-    const { username, password, gender, subscribe, userType, birthday } = this.data
+    const { username, password, userType, birthday } = this.data
 
     if (!username || !password || !userType || !birthday) {
       this.setData({

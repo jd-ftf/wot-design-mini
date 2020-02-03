@@ -48,6 +48,7 @@
 			<wd-input type="text" label="自定义插槽" value="{{ value15 }}" placeholder="请输入..." use-suffix-slot clearable>
 				<wd-button slot="suffix" type="primary" size="small" custom-class="button">获取验证码</wd-button>
 			</wd-input>
+			<wd-input type="text" label="大尺寸" size="large" value="{{ value16 }}" placeholder="请输入..." />
 		</wd-cell-group>
 	</demo-block>
 </view>

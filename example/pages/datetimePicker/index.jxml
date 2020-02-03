@@ -52,7 +52,7 @@
     error
   />
 </demo-block>
-<demo-block title="值靠右显示" transparent>
+<demo-block title="值靠右展示" transparent>
   <wd-datetime-picker
     label="日期选择"
     align-right

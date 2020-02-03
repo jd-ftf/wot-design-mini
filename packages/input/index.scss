@@ -85,6 +85,7 @@
     }
     .wd-input__inner {
       font-size: 16px;
+      height: 44px;
     }
     .wd-input__textarea-inner {
       font-size: 16px;
@@ -96,7 +97,9 @@
       font-size: 14px;
     }
     .wd-input__icon {
+      height: 44px;
       font-size: 18px;
+      line-height: 44px;
     }
   }
   @include when(disabled) {

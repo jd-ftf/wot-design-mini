@@ -18,9 +18,8 @@ VueComponent({
   },
   methods: {
     /** pickerView触发change事件，同步修改pickerValue */
-    onChange ({ detail: { picker } }) {
+    onChange ({ detail: { value } }) {
       // 更新pickerView的value
-      const value = picker.getValues()
       this.setData({
         pickerValue: value
       })
