@@ -19,7 +19,8 @@ module.exports = {
         'docs',
         'config',
         'demo',
-        'merge'
+        'merge',
+        'form'
       ].concat(fs.readdirSync('packages'))
     ],
     'type-case': [2, 'always',

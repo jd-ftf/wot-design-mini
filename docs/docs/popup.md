@@ -45,19 +45,20 @@
 | duration | 动画持续时间 | number / boolean | - | 300(ms) |
 | z-index | 设置层级 | number | - | 10 |
 | modal | 是否显示遮罩 | boolean | - | true |
+| hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
 | bind:close | 弹出层关闭时触发 | - |
-| bind:click-modal | 点击遮罩时触发 | - |
-| bind:before-enter | 进入前触发 | - |
+| bind:clickmodal | 点击遮罩时触发 | - |
+| bind:beforeenter | 进入前触发 | - |
 | bind:enter | 进入时触发 | - |
-| bind:after-enter | 进入后触发 | - |
-| bind:before-leave | 离开前触发 | - |
+| bind:afterenter | 进入后触发 | - |
+| bind:beforeleave | 离开前触发 | - |
 | bind:leave | 离开时触发 | - |
-| bind:after-leave | 离开后触发| - |
+| bind:afterleave | 离开后触发| - |
 
 ### 外部样式类
 

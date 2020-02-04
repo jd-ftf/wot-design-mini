@@ -74,6 +74,9 @@ Page({
           }, {
             id: 'switch',
             name: 'Switch 开关'
+          }, {
+            id: "form",
+            name: "Form 表单组件组合"
           }
         ]
       }, {

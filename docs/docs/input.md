@@ -14,7 +14,8 @@
 
 `value` 为绑定值。
 `bindChange`为绑定change事件。
-**微信小程序非双向绑定，需要手动赋值到当前页面。**
+**小程序非双向绑定，需要手动赋值到当前页面。**
+
 ```javascript
 page({
   data: {
@@ -31,7 +32,9 @@ page({
 <wd-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
 ```
 ### input事件使用示例
+
 组件自定义，input事件无法直接return赋值，因此也需要手动赋值。
+
 ```javascript
 page({
   handleInput({ detail }) {
@@ -94,6 +97,7 @@ page({
 ### 前后icon
 
 设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
+
 ```html
 <wd-input 
   value="{{ value }}" 
@@ -106,6 +110,7 @@ page({
     <view slot="suffix">2</view>
 </wd-input>
 ```
+
 ```css
 /* 插槽样式 */
 .suffix-slot{
@@ -121,6 +126,7 @@ page({
 ```html
 <wd-input value="{{ value }}" maxlength="20" show-word-limit="{{ true }}" bind:change="handleChange"/>
 ```
+
 ### 文本域
 
 设置 `type` 为 'textarea`。
@@ -145,6 +151,38 @@ page({
 
 ```html
 <wd-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
+```
+
+### 设置label标题
+
+设置 `label` 标题，可以和 `cell-group` 组合使用，形成 `cell` 展示类型。可以通过 `label-width` 设置标题宽度，默认为 '33%'。
+
+```html
+<wd-input type="text" label="基本用法" value="{{ value }}" placeholder="请输入..." />
+```
+
+### 输入框大小
+
+通过设置 `size` 修改输入框大小，将 `size` 设置为 'large' 时字号为 16px。
+
+```html
+<wd-input type="text" label="基本用法" size="large" value="{{ value }}" placeholder="请输入..." />
+```
+
+### 错误状态
+
+设置 `error` 属性，输入框的值显示为红色。
+
+```html
+<wd-input type="text" value="{{ value }}" placeholder="请输入用户名" error />
+```
+
+### 垂直居中
+
+当设置 `label` 标题时，默认为顶部居中，设置 `center` 属性可以使标题和输入框垂直居中。
+
+```html
+<wd-input type="text" label="基本用法" value="{{ value }}" center />
 ```
 
 ### Attributes
@@ -175,6 +213,12 @@ page({
 | selectionEnd | 原生属性，光标结束位置，自动聚集时有效，需与selection-start搭配使用 | number | - | -1 |
 | adjustPosition | 原生属性，键盘弹起时，是否自动上推页面 | boolean | - | true |
 | autoHeight | textarea原生属性，textarea 行数自适应，从1行开始显示 | string | - | - |
+| label | 设置左侧标题 | string | - | - |
+| size | 设置输入框大小 | string | - | - |
+| error | 设置输入框错误状态，错误状态时为红色 | boolean | - | false |
+| center | 当有label属性时，设置标题和输入框垂直居中，默认为顶部居中 | boolean | - | false |
+| label-width | 设置左侧标题宽度 | string | - | '33%' |
+| use-label-slot | 使用 label 插槽 | boolean | - | false |
 
 ### Events
 
@@ -188,12 +232,19 @@ page({
 | bind:linechange        | 监听输入框行数变化(仅限textarea)                   | event.detail = {height: 0, heightRpx: 0, lineCount: 0}       |
 | bind:confirm        | 点击完成时， 触发 confirm 事件                   | event.detail = {value: value}       |
 
+### Slot
+
+| name      | 说明       |
+|------------- |----------- |
+| label | 左侧标题插槽 |
+| prefix | 前置插槽 |
+| suffix | 后置插槽 |
+
 ### 外部样式类
 
 | 类名     | 说明                |
 |---------|---------------------|
 | custom-class | 根结点样式 |
-| custom-textarea-class | textarea外部自定义样式 |
-| custom-input-class | input外部自定义样式 |
-| custom-prefix-class | input框头部icon使用slot时的自定义样式 |
-| custom-suffix-class | input框尾部icon使用slot时的自定义样式 |
+| custom-textarea-class | textarea 外部自定义样式 |
+| custom-input-class | input 外部自定义样式 |
+| custom-label-class | label 外部自定义样式 |

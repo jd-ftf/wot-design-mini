@@ -1,78 +1,64 @@
-<wd-toast id="wd-toast"/>
+<wd-toast id="wd-toast" />
 <demo-block title="基本用法" transparent="#f4f4f4">
-    <wd-cell-group>
-        <wd-cell title="标题文字" value="内容"/>
-        <wd-cell title="标题文字" label="描述信息" value="内容"/>
-    </wd-cell-group>
+  <wd-cell-group>
+    <wd-cell title="标题文字" value="内容" />
+    <wd-cell title="标题文字" label="描述信息" value="内容" />
+  </wd-cell-group>
 </demo-block>
 
 <demo-block title="图标" transparent="#f4f4f4">
-    <wd-cell-group>
-        <wd-cell title="标题文字" value="内容" icon="setting"/>
-        <wd-cell title="标题文字" value="内容" icon="collect"/>
-        <wd-cell
-                title="标题文字"
-                value="内容"
-                custom-icon-class="custom-icon-class"
-        >
-            <wd-icon slot="icon" name="play"/>
-        </wd-cell>
-    </wd-cell-group>
+  <wd-cell-group>
+    <wd-cell title="标题文字" value="内容" icon="setting" />
+    <wd-cell title="标题文字" value="内容" icon="collect" />
+    <wd-cell title="标题文字" value="内容" custom-icon-class="custom-icon-class">
+      <wd-icon slot="icon" name="play" />
+    </wd-cell>
+  </wd-cell-group>
+</demo-block>
+
+<demo-block title="大小" transparent="#f4f4f4">
+  <wd-cell-group>
+    <wd-cell size="large" title="标题文字" value="内容" />
+    <wd-cell size="large" title="标题文字" label="描述信息" value="内容" />
+  </wd-cell-group>
 </demo-block>
 
 <demo-block title="分组标题" transparent="#f4f4f4">
-    <wd-cell-group
-            use-slot
-            title="交易管理"
-    >
-        <view slot="value" class="blueColor">
-            <wd-icon name="cart"/>
-            <span>订购</span>
-        </view>
-        <wd-cell title="标题文字" value="内容"/>
-        <wd-cell
-                title="标题文字"
-                label="描述信息"
-                value="内容"
-        >
-        </wd-cell>
-    </wd-cell-group>
+  <wd-cell-group use-slot title="交易管理">
+    <view slot="value" class="blueColor">
+      <wd-icon name="cart" />
+      <span>订购</span>
+    </view>
+    <wd-cell title="标题文字" value="内容" />
+    <wd-cell title="标题文字" label="描述信息" value="内容">
+    </wd-cell>
+  </wd-cell-group>
 </demo-block>
 
 <demo-block title="页面跳转" transparent="#f4f4f4">
-    <wd-cell-group>
-        <wd-cell title="帮助与反馈" clickable bind:click="onClick"/>
-        <wd-cell
-                is-link
-                to="/pages/button/index"
-                title="设置"
-                value="内容"
-                bind:click="onClick"
-        >
-        </wd-cell>
-    </wd-cell-group>
+  <wd-cell-group>
+    <wd-cell title="帮助与反馈" clickable bind:click="onClick" />
+    <wd-cell is-link to="/pages/button/index" title="设置" value="内容" bind:click="onClick">
+    </wd-cell>
+  </wd-cell-group>
 </demo-block>
 
 <demo-block title="自定义slot" transparent="#f4f4f4">
-    <wd-cell-group use-slot>
-        <view slot="title">交易管理</view>
-        <view slot="value" class="blueColor">
-            <wd-icon name="cart"/>
-            <span>订购</span>
-        </view>
-        <wd-cell
-                is-link
-                custom-icon-class="custom-icon-class"
-                custom-title-class="custom-title-class"
-                custom-value-class="custom-value-class"
-        >
-            <wd-icon slot="icon" name="play"></wd-icon>
-            <view slot="title">
-                <text>标题文字</text>
-                <view class="end-time">25天后到期</view>
-            </view>
-            <text slot="label" class="custom-label">描述信息</text>
-            <text>内容</text>
-        </wd-cell>
-    </wd-cell-group>
+  <wd-cell-group use-slot>
+    <view slot="title">交易管理</view>
+    <view slot="value" class="blueColor">
+      <wd-icon name="cart" />
+      <span>订购</span>
+    </view>
+    <wd-cell is-link custom-icon-class="custom-icon-class" custom-title-class="custom-title-class"
+      custom-value-class="custom-value-class">
+      <wd-icon slot="icon" name="play"></wd-icon>
+      <view slot="title">
+        <text>标题文字</text>
+        <view class="end-time">25天后到期</view>
+      </view>
+      <text slot="label" class="custom-label">描述信息</text>
+      <text>内容</text>
+    </wd-cell>
+  </wd-cell-group>
 </demo-block>

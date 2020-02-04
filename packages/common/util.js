@@ -50,7 +50,11 @@ export function getType (target) {
  */
 export const defaultDisplayFormat = function (items, { labelKey = 'value' }) {
   // 在props中，this被指向了全局data
-  return items.map(item => item[labelKey]).toString()
+  if (items instanceof Array) {
+    return items.map(item => item[labelKey]).toString()
+  } else {
+    return items[labelKey]
+  }
 }
 /**
  * @description 默认函数占位符 - pickerView组件

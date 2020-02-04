@@ -23,7 +23,7 @@
 	<demo-block title="设置 prefix/suffix 的slot">
 		<wd-input type="text" value="{{ value6 }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange3">
 			<view slot="prefix">1</view>
-			<view slot="suffix">2</view>
+			<view class="suffix-slot" slot="suffix">2</view>
 		</wd-input>
 	</demo-block>
 	<demo-block title="字数限制">
@@ -37,5 +37,18 @@
 	</demo-block>
 	<demo-block title="textarea 高度自适应">
 		<wd-input type="textarea" value="" auto-height='true' placeholder="请输入..."></wd-input>
+	</demo-block>
+	<demo-block title="cell 类型" transparent>
+		<wd-cell-group>
+			<wd-input type="text" label="基本用法" value="{{ value10 }}" placeholder="请输入..." />
+			<wd-input type="text" label="禁用" value="{{ value11 }}" disabled placeholder="用户名" />
+			<wd-input type="text" label="清除、密码" value="{{ value12 }}" placeholder="密码" clearable show-password="{{ true }}" />
+			<wd-input type="text" label="错误状态" value="{{ value13 }}" placeholder="请输入用户名" error />
+			<wd-input type="text" label="图标" value="{{ value14 }}" placeholder="请输入..." prefix-icon="person" suffix-icon="tickets" />
+			<wd-input type="text" label="自定义插槽" value="{{ value15 }}" placeholder="请输入..." use-suffix-slot clearable>
+				<wd-button slot="suffix" type="primary" size="small" custom-class="button">获取验证码</wd-button>
+			</wd-input>
+			<wd-input type="text" label="大尺寸" size="large" value="{{ value16 }}" placeholder="请输入..." />
+		</wd-cell-group>
 	</demo-block>
 </view>

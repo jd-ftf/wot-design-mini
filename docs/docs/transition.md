@@ -93,12 +93,12 @@
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:before-enter | 进入前触发 | - |
+| bind:beforeenter | 进入前触发 | - |
 | bind:enter | 进入时触发 | - |
-| bind:after-enter | 进入后触发 | - |
-| bind:before-leave | 离开前触发 | - |
+| bind:afterenter | 进入后触发 | - |
+| bind:beforeleave | 离开前触发 | - |
 | bind:leave | 离开时触发 | - |
-| bind:after-leave | 离开后触发| - |
+| bind:afterleave | 离开后触发| - |
 
 ### 外部样式类
 

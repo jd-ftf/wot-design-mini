@@ -50,6 +50,15 @@
     font-size: 18px;
 }
 ```
+
+### 单元格大小
+
+通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px。
+
+```html
+<wd-cell size="large" title="标题文字" value="内容" />
+```
+
 ### 分组标题
 
 可以在 `cell-group` 上设置 `title` 和 `value` 属性。也可以使用 slot 插槽。
@@ -174,6 +183,10 @@ Page({
 | to | 跳转地址 | string | - | - |
 | clickable | 开启点击反馈,is-link默认开启 | boolean | - | false |
 | replace | 跳转时是否替换栈顶页面 | boolean | - | false |
+| size | 设置单元格大小 | string | 'large' | - |
+| title-width | 设置左侧标题宽度 | string | - | - |
+| center | 是否垂直居中，默认顶部居中 | boolean | - | false |
+
 ### CellGroup Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -195,6 +208,7 @@ Page({
 | default | 右侧内容，使用时不需要设置slot="default" |
 | icon | 图标 |
 | label | 描述信息 |
+
 ### CellGroup Slot
 
 > CellGroup必须首先开启`use-slot`,插槽才生效。使用插槽时请通过外部自定义样式类来控制样式。
@@ -213,6 +227,7 @@ Page({
 | custom-label-class | label使用slot时的自定义样式 |
 | custom-value-class | value使用slot时的自定义样式 |
 | custom-title-class | title使用slot时的自定义样式 |
+
 ### CellGroup 外部样式类
 
 | 类名     | 说明                |

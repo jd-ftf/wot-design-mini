@@ -18,13 +18,12 @@ VueComponent({
   },
   methods: {
     /** pickerView触发change事件，同步修改pickerValue */
-    onChange ({ detail: { picker } }) {
+    onChange ({ detail: { value } }) {
       // 更新pickerView的value
-      const value = picker.getLabels()
       this.setData({
-        pickerValue: value instanceof Array ? value : [value]
+        pickerValue: value
       })
-      this.$emit('change', this.data.pickerValue)
+      this.$emit('change', value)
     }
   },
   created () {

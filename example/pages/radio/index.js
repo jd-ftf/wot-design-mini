@@ -7,11 +7,7 @@ Page({
     value3: 1,
     value4: 1,
     value5: 1,
-    value6: 1,
-    value7: 1,
-    value8: 1,
-    value9: 1,
-    value10: 1
+    value6: 1
   },
   change (event) {
     const index = event.target.dataset.index
