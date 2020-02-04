@@ -1,0 +1,20 @@
+<demo-block transparent>
+  <wd-swipe-action
+    bind:click="clickHandle"
+    before-close="{{beforeClose}}"
+  >
+
+    <view slot="left" class="left">
+      <view class="action" style="background-color: #98ffd7;">选中</view>
+      <view class="action" style="background-color: #5f76ff;">放弃</view>
+    </view>
+
+    <view style="background-color: white;line-height: 60px;">666</view>
+
+    <view slot="right" class="right">
+      <view class="action" style="background-color: red;">确定</view>
+      <view class="action" style="background-color: #ffe7a8;">取消</view>
+    </view>
+
+  </wd-swipe-action>
+</demo-block>

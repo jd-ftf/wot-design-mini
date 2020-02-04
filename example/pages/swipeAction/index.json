@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "SwipeAction 滑动操作",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "wd-swipe-action": "../../dist/swipeAction/index"
+  }
+}
