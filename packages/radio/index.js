@@ -38,10 +38,6 @@ VueComponent({
     disabled: {
       type: Boolean,
       value: null
-    },
-    inline: {
-      type: Boolean,
-      value: null
     }
   },
   relations: {
@@ -81,7 +77,8 @@ VueComponent({
   },
   data: {
     isChecked: false,
-    isFirst: -1
+    isFirst: false,
+    inline: null
   },
   methods: {
     /**
@@ -98,13 +95,6 @@ VueComponent({
         this.parent.handleClick(value)
         this.parent.setData({ value })
       }
-    },
-    setIndex () {
-      if (!this.parent) return
-
-      this.setData({
-        index: this.parent.children.indexOf(this)
-      })
     }
   }
 })

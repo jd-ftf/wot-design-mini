@@ -38,6 +38,31 @@ Page({
 })
 ```
 
+### 同行展示
+
+设置 `inline` 属性，使单选框在同一行展示。
+
+```html
+<demo-block title="基本用法">
+  <wd-radio-group value="{{value}}" inline bind:change="change">
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
+  </wd-radio-group>
+</demo-block>
+```
+```javascript
+Page({
+  data: {
+    value: 1
+  },
+  change (event) {
+    this.setData({
+      value: event.detail
+    })
+  }
+})
+```
+
 ### 修改图标形状
 
 修改 `shape` 属性，可选值为 'dot', 'button'，默认为 'dot'。
@@ -83,6 +108,7 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
     <wd-radio value="3">商家智能</wd-radio>
   </wd-radio-group>
 ```
+
 ### RadioGroup Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -106,4 +132,3 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 | shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
-| inline | 同行展示 | boolean | - | false |

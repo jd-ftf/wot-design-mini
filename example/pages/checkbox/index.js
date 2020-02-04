@@ -1,10 +1,16 @@
 Page({
   data: {
-    label: ''
+    value1: '京麦',
+    value2: [1]
   },
-  handleChange (event) {
+  handleChange1 (event) {
     this.setData({
-      label: event.detail
+      value1: event.detail
+    })
+  },
+  handleChange2 (event) {
+    this.setData({
+      value2: event.detail
     })
   }
 })

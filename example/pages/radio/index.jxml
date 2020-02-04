@@ -1,13 +1,12 @@
-<demo-block title="基本用法">
+<demo-block title="基本用法：当前选中值 {{value0}}">
   <wd-radio-group
     data-index="{{0}}"
     value="{{value0}}"
     bind:change="change"
   >
-    <wd-radio value="{{value}}">单选框1</wd-radio>
+    <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
-  <view>当前选中的值为:{{value0}}</view>
 </demo-block>
 
 <demo-block title="同行展示">
@@ -17,8 +16,8 @@
     value="{{value1}}"
     bind:change="change"
   >
-    <wd-radio value="{{1}}">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
 </demo-block>
 
