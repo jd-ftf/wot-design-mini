@@ -99,12 +99,17 @@ VueComponent({
   },
   methods: {
     /**
-     * @description 展示popup
+     * @description 展示popup，小程序有个bug，在picker-view弹出时设置value，会触发change事件，而且会将picker-view的value多次触发change重置为第一项
      */
     showPopup () {
       if (this.data.disabled || this.data.readonly) return
 
-      this.setData({ popupShow: true })
+      this.$emit('open')
+      // 打开时还原内部选中值
+      this.setData({
+        popupShow: true,
+        pickerValue: this.data.value
+      })
     },
     /**
      * @description 点击取消按钮触发。关闭popup，触发cancel事件。
@@ -113,11 +118,6 @@ VueComponent({
       this.setData({
         popupShow: false
       })
-      setTimeout(() => {
-        this.setData({
-          pickerValue: this.data.value
-        })
-      }, 300)
       this.$emit('cancel')
     },
     /**

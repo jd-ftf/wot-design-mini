@@ -6,8 +6,8 @@
   close-on-click-modal="{{ closeOnClickModal }}"
   bind:enter="handleOpen"
   bind:close="close"
-  bind:after-enter="handleOpened"
-  bind:after-leave="handleClosed"
+  bind:afterenter="handleOpened"
+  bind:afterleave="handleClosed"
   z-index="{{ zIndex }}"
 >
   <view wx:if="{{ title }}" class="wd-action-sheet__header">

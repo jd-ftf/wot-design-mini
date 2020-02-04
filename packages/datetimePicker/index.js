@@ -64,11 +64,18 @@ VueComponent({
   methods: {
     /** picker触发confirm事件，同步触发confirm事件 */
     onConfirm () {
+      this.setData({
+        value: this.data.innerValue
+      })
       this.$emit('confirm', this.data.innerValue)
     },
     /** picker触发cancel事件，同步触发cancel事件 */
     onCancel () {
       this.$emit('cancel')
+    },
+    onOpen () {
+      // 打开时还原innerValue，避免还保留关闭前的值
+      this.updateValue()
     },
     // before-confirm 的value修改为innerValue
     handleBeforeConfirm (value, resolve, picker) {
@@ -81,7 +88,7 @@ VueComponent({
   },
   created () {
     // 小程序基础库v1.9.91无法初始化时兼容JM客户端props传入function
-    const { displayFormat } = this.data
+    const { displayFormat, beforeConfirm } = this.data
     /**
      * 外部展示直接挂载到picker
      * 多级联动挂载到picker上，通过picker自动挂载到pickerView
@@ -89,7 +96,7 @@ VueComponent({
     this.picker.setData({
       displayFormat: (displayFormat || defaultDisplayFormat).bind(this),
       columnChange: this.columnChange.bind(this),
-      beforeConfirm: this.handleBeforeConfirm.bind(this)
+      beforeConfirm: beforeConfirm ? this.handleBeforeConfirm.bind(this) : ''
     })
     // 初始化完毕，打开observer触发render的开关
     this.setData({ created: true })

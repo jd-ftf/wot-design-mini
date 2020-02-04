@@ -32,18 +32,6 @@ const times = (n, iteratee) => {
   return result
 }
 /**
- * @description 还原数据，例如 2019年 ->getTrueValue-> 2019
- * @param {String} formattedValue
- * @return {Number}
- */
-const getTrueValue = (formattedValue) => {
-  if (!formattedValue) return
-  while (isNaN(parseInt(formattedValue, 10))) {
-    formattedValue = formattedValue.slice(1)
-  }
-  return parseInt(formattedValue, 10)
-}
-/**
  * @description 获取某年某月有多少天
  * @param {Number} year
  * @param {Number} month
@@ -389,11 +377,11 @@ export default function () {
           return
         }
         /** 重新计算年月日时分秒，修正时间。 */
-        const values = picker.getLabels()
-        const year = getTrueValue(values[0])
-        const month = getTrueValue(values[1])
+        const values = picker.getValues()
+        const year = values[0]
+        const month = values[1]
         const maxDate = getMonthEndDay(year, month)
-        let date = getTrueValue(values[2])
+        let date = values[2]
         if (type === 'year-month') {
           date = 1
         }
@@ -401,8 +389,8 @@ export default function () {
         let hour = 0
         let minute = 0
         if (type === 'datetime') {
-          hour = getTrueValue(values[3])
-          minute = getTrueValue(values[4])
+          hour = values[3]
+          minute = values[4]
         }
         const value = new Date(year, month - 1, date, hour, minute)
         /** 根据计算选中项的时间戳，重新计算所有的选项列表 */

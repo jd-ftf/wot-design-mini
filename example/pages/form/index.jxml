@@ -39,4 +39,7 @@
   <view class="display-item">
     生日: {{ birthday }}
   </view>
+  <view class="display-item">
+    生日日期格式: {{ birthdayDate }}
+  </view>
 </demo-block>

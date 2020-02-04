@@ -17,10 +17,11 @@
       name="arrow-right"
     />
   </view>
-  <!--弹出层-->
+  <!--弹出层，picker-view 在隐藏时修改值，会触发多次change事件，从而导致所有列选中第一项，因此picker在关闭时不隐藏 -->
   <wd-popup
     show="{{ popupShow }}"
     position="bottom"
+    hide-when-close="{{ false }}"
     bind:close="onCancel"
   >
     <!--toolBar-->

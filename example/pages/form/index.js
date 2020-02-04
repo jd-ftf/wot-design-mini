@@ -24,6 +24,7 @@ Page({
     userType: '',
     userTypeError: false,
     birthday: '',
+    birthdayDate: '',
     birthdayError: false,
     birthdayFormat (type, value) {
       switch (type) {
@@ -67,8 +68,10 @@ Page({
     })
   },
   handleBirthday ({ detail }) {
+    let date = new Date(detail)
     this.setData({
       birthday: detail,
+      birthdayDate: date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(),
       birthdayError: false
     })
   },

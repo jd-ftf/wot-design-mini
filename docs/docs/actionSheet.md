@@ -129,7 +129,7 @@ page({
 | bind:opened | 弹出层打开动画结束时触发 | - |
 | bind:close | 弹出层关闭时触发 | - |
 | bind:closed | 弹出层关闭动画结束时触发 | - |
-| bind:click-modal | 点击遮罩时触发 | - |
+| bind:clickmodal | 点击遮罩时触发 | - |
 | bind:cancel | 点击取消按钮时触发 | - |
 
 ### Action 数据结构

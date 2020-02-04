@@ -22,9 +22,9 @@
   error="{{error}}"
   label-width="{{labelWidth}}"
   align-right="{{alignRight}}"
-  bind:change="onChange"
   bind:confirm="onConfirm"
   bind:cancel="onCancel"
+  bind:open="onOpen"
 >
   <slot jd:if="{{useLabelSlot}}" name="label" slot="label" />
 </wd-picker>

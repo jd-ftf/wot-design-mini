@@ -76,16 +76,17 @@ VueComponent({
        */
       value = value instanceof Array ? value : [value]
       value = value.slice(0, this.data.formatColumns.length)
+      let selectedIndex = this.data.selectedIndex
       value.forEach((target, col) => {
         let row = this.data.formatColumns[col].findIndex(row => row[this.data.valueKey] === target)
         row = row === -1 ? 0 : row
-        this.selectWithIndex(col, row)
+        selectedIndex = this.selectWithIndex(col, row)
       })
       /** 根据formatColumns的长度去除selectWithIndex无用的部分。
        * 始终保持value、selectWithIndex、formatColumns长度一致
        */
       this.setData({
-        selectedIndex: this.data.selectedIndex.slice(0, value.length)
+        selectedIndex: selectedIndex.slice(0, value.length)
       })
     },
     /**
@@ -115,8 +116,7 @@ VueComponent({
       } else {
         selectedIndex[columnIndex] = rowIndex
       }
-      this.setData({ selectedIndex })
-      return true
+      return selectedIndex
     },
     /**
      * @description 为props的value为array类型时提供format
@@ -188,12 +188,15 @@ VueComponent({
       value = value.slice(0, this.data.formatColumns.length)
       // 保留选中前的
       const origin = this.data.selectedIndex.slice(0)
+      let selectedIndex = this.data.selectedIndex
       // 开始应用最新的值
       value.forEach((row, col) => {
         if (row === origin[col]) return
-        this.selectWithIndex(col, row)
+        selectedIndex = this.selectWithIndex(col, row)
       })
-      const { selectedIndex } = this.data
+      this.setData({
+        selectedIndex
+      })
       // diff出变化的列
       const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index])
       if (diffCol === -1) return
@@ -276,7 +279,10 @@ VueComponent({
        * 如果此时把此列的选项修改后还剩下3个，那么选中项会由第10项滑落到第3项，同时出发change事件
        */
       // 为了防止上述情况发生，修改数据前先将当前列选中0
-      this.selectWithIndex(columnIndex, jumpTo)
+      const selectedIndex = this.selectWithIndex(columnIndex, jumpTo)
+      this.setData({
+        selectedIndex
+      })
       // 经过formatArray处理的数据会变成二维数组，一定要拍成一维的。
       // ps 小程序基础库v2.9.3才可以用flat
       const formatColumns = this.data.formatColumns
