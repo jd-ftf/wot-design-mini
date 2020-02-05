@@ -170,6 +170,11 @@
                 "name": "Toast 轻提示",
                 "path": "/toast",
                 "demo": "/toast"
+              },
+              "SwipeAction": {
+                "name": "SwipeAction 滑动操作",
+                "path": "/swipeAction",
+                "demo": "/swipeAction"
               }
             }
           }, {
