@@ -18,5 +18,9 @@ Page({
 
   handleClick (event) {
     Toast(`点击${event.detail}关闭操作按钮`)
+  },
+
+  handleAction (event) {
+    Toast(`点击了${event.target.dataset.action}`)
   }
 })
