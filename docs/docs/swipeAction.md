@@ -12,6 +12,8 @@
 
 ### 基本用法
 
+> `wd-swipe-action`分为三部分：'自定义左按钮内容'、'自定义内容'、'自定义右按钮内容'。自定义按钮内容需要设置`slot`开启，自定义内容为默认插槽，无需手动开启。
+
 ```html
 <wd-swipe-action>
   <wd-cell title="标题文字" value="内容" />
@@ -93,12 +95,12 @@ Page({
 })
 ```
 
-### 按钮关闭时的回调
+### 按钮关闭前的钩子函数
 
 > 通过`before-close`属性传入一个函数，注意传入的变量必须定义在`data`在。回调函数会在滑动按钮关闭前执行。
 > 同时接收两个参数:`reason`、`position`。
-> `reason`表示滑动按钮关闭的原因，值为:`click`、`tap`、`click`，分别代表:点击关闭、滑动关闭、state改变关闭;
-> `position`代表被关闭的操作按钮，值为：`left`、`right`、`outside`。当`reason`为`click`时，表示点击`position`关闭滑动按钮。
+> `reason`表示滑动按钮关闭的原因，值为:`click`、`tap`、`state`，分别代表:点击关闭按钮、滑动关闭按钮、通过控制`state`关闭按钮;
+> `position`代表被关闭的操作按钮，值为：`left`、`right`。当`reason`为`click`时，表示点击`position`位置关闭滑动按钮，值为：`left`、`right`、`outside`。
 >
 ```html
 <demo-block transparent title="切换按钮">
@@ -143,7 +145,7 @@ Page({
 ### 点击事件
 
 > `click`事件只会在关闭滑动按钮时触发，回调函数的参数表示点击的位置。
-> 其中`left`、`right`表示左右滑动按钮，`outside`表示容器内按钮以外的地方。
+> 其中`left`、`right`表示点击了左右滑动按钮，`outside`表示点击了容器内按钮以外的地方。
 >
 ```html
   <wd-swipe-action bind:click="handleClick">
@@ -180,8 +182,6 @@ Page({
 </wd-swipe-action>
 ```
 
-
-
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -194,7 +194,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:click | 当当滑动按钮打开时，点击整个滑动操作容器触发click事件 | event.detail='left'、'outside'、'right' |
+| bind:click | 当滑动按钮打开时，点击整个滑动操作容器触发click事件 | event.detail='left'、'outside'、'right' |
 
 ### Slot
 
