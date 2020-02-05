@@ -102,6 +102,9 @@ Page({
           }, {
             id: 'tooltip',
             name: 'Tooltip 文字提示'
+          }, {
+            id: 'swipeAction',
+            name: 'SwipeAction 滑动操作'
           }
         ]
       }, {
