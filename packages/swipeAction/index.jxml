@@ -1,6 +1,6 @@
 <!--注意阻止横向滑动的穿透：横向移动时阻止冒泡-->
 <view
-  class="wd-swipe-action"
+  class="wd-swipe-action custom-class"
   catchtap="onClick"
   bindtouchstart="startDrag"
   catchtouchmove="{{stopPropagation ? 'nothing' :''}}"
