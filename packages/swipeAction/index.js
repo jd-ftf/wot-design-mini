@@ -127,11 +127,10 @@ VueComponent({
 
       // 本次滑动，wrapper应该设置的偏移量
       const offset = this.originOffset + this.deltaX
-
       this.getWidths().then(([leftWidth, rightWidth]) => {
         if (
           (offset > 0 && offset > leftWidth) ||
-          (offset < 0 && -offset > leftWidth)
+          (offset < 0 && -offset > rightWidth)
         ) {
           return
         }
