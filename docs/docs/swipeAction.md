@@ -16,13 +16,22 @@
 
 ```html
 <wd-swipe-action>
-  <wd-cell title="标题文字" value="内容" />
+  <wd-cell title="标题文字" value="内容"/>
   <view slot="right" class="action">
-    <view class="button" style="background: #C8C7CD;">操作1</view>
-    <view class="button" style="background: #FFB300;">操作2</view>
-    <view class="button" style="background: #E2231A;">操作3</view>
+    <view class="button" style="background: #C8C7CD;" bindtap="handleAction" data-action="操作1">操作1</view>
+    <view class="button" style="background: #FFB300;" bindtap="handleAction" data-action="操作2">操作2</view>
+    <view class="button" style="background: #E2231A;" bindtap="handleAction" data-action="操作3">操作3</view>
   </view>
 </wd-swipe-action>
+```
+```javascript
+import Toast from '../../dist/toast/toast'
+
+Page({
+  handleAction (event) {
+    Toast(`点击了${event.target.dataset.action}`)
+  }
+})
 ```
 ```css
 .action {
