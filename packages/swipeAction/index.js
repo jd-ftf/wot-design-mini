@@ -188,7 +188,7 @@ VueComponent({
           this.setData({ state: 'left' })
         } else {
           // 回归初始状态
-          this.close('tap')
+          this.close('swipe')
         }
       })
     },
@@ -196,13 +196,13 @@ VueComponent({
      * @description 关闭操过按钮，并在合适的时候调用 beforeClose
      */
     close (reason, position) {
-      if (reason === 'tap' && this.originOffset === 0) {
+      if (reason === 'swipe' && this.originOffset === 0) {
         // offset：0 ——> offset：0
         return this.swipeMove(0)
-      } else if (reason === 'tap' && this.originOffset > 0) {
+      } else if (reason === 'swipe' && this.originOffset > 0) {
         // offset > 0 ——> offset：0
         position = 'left'
-      } else if (reason === 'tap' && this.originOffset < 0) {
+      } else if (reason === 'swipe' && this.originOffset < 0) {
         // offset < 0 ——> offset：0
         position = 'right'
       }

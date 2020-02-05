@@ -99,7 +99,7 @@ Page({
 
 > 通过`before-close`属性传入一个函数，注意传入的变量必须定义在`data`在。回调函数会在滑动按钮关闭前执行。
 > 同时接收两个参数:`reason`、`position`。
-> `reason`表示滑动按钮关闭的原因，值为:`click`、`tap`、`state`，分别代表:点击关闭按钮、滑动关闭按钮、通过控制`state`关闭按钮;
+> `reason`表示滑动按钮关闭的原因，值为:`click`、`swipe`、`state`，分别代表:点击关闭按钮、滑动关闭按钮、通过控制`state`关闭按钮;
 > `position`代表被关闭的操作按钮，值为：`left`、`right`。当`reason`为`click`时，表示点击`position`位置关闭滑动按钮，值为：`left`、`right`、`outside`。
 >
 ```html
