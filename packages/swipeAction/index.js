@@ -12,8 +12,8 @@ VueComponent({
     state: {
       type: String,
       value: 'close',
-      observer (state) {
-        this.changeState(state)
+      observer (state, old) {
+        this.changeState(state, old)
       }
     }
   },
@@ -22,11 +22,16 @@ VueComponent({
     stopPropagation: false
   },
   methods: {
-    changeState (state) {
+    changeState (state, old) {
+      if (this.data.disabled) {
+        return
+      }
       this.getWidths().then(([leftWidth, rightWidth]) => {
         switch (state) {
         case 'close':
-          this.swipeMove(0)
+          // 调用此函数时，偏移量本就是0
+          if (this.wrapperOffset === 0) return
+          this.close('state', old)
           break
         case 'left':
           this.swipeMove(leftWidth)
@@ -92,11 +97,7 @@ VueComponent({
       }
 
       const { key: position = 'outside' } = event.target.dataset
-      this.data.beforeClose(position, this)
-      if (position !== 'left' || position !== 'right') {
-        this.swipeMove(0)
-        this.setData({ state: 'close' })
-      }
+      this.close('click', position)
       this.$emit('click', position)
     },
     /**
@@ -187,10 +188,33 @@ VueComponent({
           this.setData({ state: 'left' })
         } else {
           // 回归初始状态
-          this.swipeMove(0)
-          this.setData({ state: 'close' })
+          this.close('tap')
         }
       })
+    },
+    /**
+     * @description 关闭操过按钮，并在合适的时候调用 beforeClose
+     */
+    close (reason, position) {
+      if (reason === 'tap' && this.originOffset === 0) {
+        // offset：0 ——> offset：0
+        return this.swipeMove(0)
+      } else if (reason === 'tap' && this.originOffset > 0) {
+        // offset > 0 ——> offset：0
+        position = 'left'
+      } else if (reason === 'tap' && this.originOffset < 0) {
+        // offset < 0 ——> offset：0
+        position = 'right'
+      }
+
+      if (reason && position) {
+        this.data.beforeClose(reason, position)
+      }
+
+      this.swipeMove(0)
+      if (this.data.state !== 'close') {
+        this.setData({ state: 'close' })
+      }
     }
   },
   beforeCreate () {
