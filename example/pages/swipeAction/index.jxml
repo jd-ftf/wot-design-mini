@@ -42,13 +42,12 @@
       <view class="button" style="background: #383fe2;">操作6</view>
     </view>
   </wd-swipe-action>
-
-  <view class="button-group">
-    <wd-button data-state='left' type="primary" bindclick="changeState">打开左边</wd-button>
-    <wd-button data-state='close' type="primary" bindclick="changeState">关闭所有</wd-button>
-    <wd-button data-state='right' type="primary" bindclick="changeState">打开右边</wd-button>
-  </view>
 </demo-block>
+<view class="button-group">
+  <wd-button data-state='left' type="primary" bindclick="changeState">打开左边</wd-button>
+  <wd-button data-state='close' type="primary" bindclick="changeState">关闭所有</wd-button>
+  <wd-button data-state='right' type="primary" bindclick="changeState">打开右边</wd-button>
+</view>
 
 <demo-block transparent title="点击事件">
   <wd-swipe-action bind:click="handleClick">
