@@ -130,11 +130,21 @@ VueComponent({
       // 本次滑动，wrapper应该设置的偏移量
       const offset = this.originOffset + this.deltaX
       this.getWidths().then(([leftWidth, rightWidth]) => {
+        // 如果需要想滑出来的按钮不存在，对应的按钮肯定滑不出来，容器处于初始状态。此时需要模拟一下位于此处的start事件。
         if (
-          (offset > 0 && offset > leftWidth) ||
-          (offset < 0 && -offset > rightWidth)
+          (leftWidth === 0 && offset > 0) ||
+          (rightWidth === 0 && offset < 0)
         ) {
-          return
+          this.swipeMove(0)
+          return this.startDrag(event)
+        }
+        // 按钮已经展示完了，再滑动没有任何意义，相当于滑动结束。此时需要模拟一下位于此处的start事件。
+        if (leftWidth !== 0 && offset >= leftWidth) {
+          this.swipeMove(leftWidth)
+          return this.startDrag(event)
+        } else if (rightWidth !== 0 && -offset >= rightWidth) {
+          this.swipeMove(-rightWidth)
+          return this.startDrag(event)
         }
         this.swipeMove(offset)
       })
@@ -143,12 +153,7 @@ VueComponent({
      * @description 滑动结束，自动修正位置
      */
     endDrag () {
-      if (
-        this.data.disabled ||
-        this.deltaX === 0
-      ) {
-        return
-      }
+      if (this.data.disabled) return
       // 滑出"操作按钮"的阈值
       const THRESHOLD = 0.3
 
