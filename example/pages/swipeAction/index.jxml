@@ -29,7 +29,7 @@
 </demo-block>
 
 <demo-block transparent title="切换按钮">
-  <wd-swipe-action state="{{state}}" before-close="{{beforeClose}}">
+  <wd-swipe-action value="{{value}}" before-close="{{beforeClose}}">
     <view slot="left" class="action">
       <view class="button" style="background: #C8C7CD;">操作1</view>
       <view class="button" style="background: #FFB300;">操作2</view>
@@ -44,9 +44,9 @@
   </wd-swipe-action>
 </demo-block>
 <view class="button-group">
-  <wd-button data-state='left' type="primary" bindclick="changeState">打开左边</wd-button>
-  <wd-button data-state='close' type="primary" bindclick="changeState">关闭所有</wd-button>
-  <wd-button data-state='right' type="primary" bindclick="changeState">打开右边</wd-button>
+  <wd-button data-value='left' type="primary" bindclick="changeState">打开左边</wd-button>
+  <wd-button data-value='close' type="primary" bindclick="changeState">关闭所有</wd-button>
+  <wd-button data-value='right' type="primary" bindclick="changeState">打开右边</wd-button>
 </view>
 
 <demo-block transparent title="点击事件">

@@ -2,7 +2,7 @@ import Toast from '../../dist/toast/toast'
 
 Page({
   data: {
-    state: 'outside',
+    value: 'close',
     beforeClose (reason, position) {
       if (reason === 'click') {
         Toast(`${reason} ${position}导致滑动按钮关闭`)
@@ -12,8 +12,8 @@ Page({
     }
   },
   changeState (event) {
-    const { state } = event.target.dataset
-    this.setData({ state: state })
+    const { value } = event.target.dataset
+    this.setData({ value: value })
   },
 
   handleClick (event) {

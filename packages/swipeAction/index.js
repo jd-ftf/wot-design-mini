@@ -9,11 +9,11 @@ VueComponent({
       type: Boolean,
       value: false
     },
-    state: {
+    value: {
       type: String,
       value: 'close',
-      observer (state, old) {
-        this.changeState(state, old)
+      observer (value, old) {
+        this.changeState(value, old)
       }
     }
   },
@@ -22,16 +22,16 @@ VueComponent({
     stopPropagation: false
   },
   methods: {
-    changeState (state, old) {
+    changeState (value, old) {
       if (this.data.disabled) {
         return
       }
       this.getWidths().then(([leftWidth, rightWidth]) => {
-        switch (state) {
+        switch (value) {
         case 'close':
           // 调用此函数时，偏移量本就是0
           if (this.wrapperOffset === 0) return
-          this.close('state', old)
+          this.close('value', old)
           break
         case 'left':
           this.swipeMove(leftWidth)
@@ -96,7 +96,7 @@ VueComponent({
         return
       }
 
-      const { key: position = 'outside' } = event.target.dataset
+      const { key: position = 'inside' } = event.target.dataset
       this.close('click', position)
       this.$emit('click', position)
     },
@@ -162,14 +162,14 @@ VueComponent({
           this.wrapperOffset - this.originOffset < rightWidth * THRESHOLD// 并且滑动的范围不超过右边框阀值
         ) {
           this.swipeMove(-rightWidth)// 回归右按钮
-          this.setData({ state: 'right' })
+          this.setData({ value: 'right' })
         } else if (
           this.originOffset > 0 &&// 之前展示的是左按钮
           this.wrapperOffset > 0 &&// 现在仍然是左按钮
           this.originOffset - this.wrapperOffset < leftWidth * THRESHOLD// 并且滑动的范围不超过左按钮阀值
         ) {
           this.swipeMove(leftWidth)// 回归左按钮
-          this.setData({ state: 'left' })
+          this.setData({ value: 'left' })
         } else if (
           rightWidth > 0 &&
           this.originOffset >= 0 &&// 之前是初始状态或者展示左按钮显
@@ -177,7 +177,7 @@ VueComponent({
           Math.abs(this.wrapperOffset) > rightWidth * THRESHOLD// 视图中已经展示的右按钮长度超过阀值
         ) {
           this.swipeMove(-rightWidth)
-          this.setData({ state: 'right' })
+          this.setData({ value: 'right' })
         } else if (
           leftWidth > 0 &&
           this.originOffset <= 0 &&// 之前初始状态或者右按钮显示
@@ -185,7 +185,7 @@ VueComponent({
           Math.abs(this.wrapperOffset) > leftWidth * THRESHOLD// 视图中已经展示的左按钮长度超过阀值
         ) {
           this.swipeMove(leftWidth)
-          this.setData({ state: 'left' })
+          this.setData({ value: 'left' })
         } else {
           // 回归初始状态
           this.close('swipe')
@@ -212,8 +212,8 @@ VueComponent({
       }
 
       this.swipeMove(0)
-      if (this.data.state !== 'close') {
-        this.setData({ state: 'close' })
+      if (this.data.value !== 'close') {
+        this.setData({ value: 'close' })
       }
     }
   },
@@ -231,7 +231,7 @@ VueComponent({
   },
   mounted () {
     this.touching = true
-    this.changeState(this.data.state)
+    this.changeState(this.data.value)
     this.touching = false
   }
 })

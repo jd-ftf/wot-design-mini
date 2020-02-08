@@ -68,10 +68,10 @@ Page({
 
 ### 切换按钮
 
-> 可以通过设置`state`来控制开启关闭滑动按钮，可选值为:`left`、`close`、`right`分别表示："打开左滑动按钮"、"关闭滑动按钮""打开右滑动按钮"
+> 可以通过设置`value`来控制开启关闭滑动按钮，可选值为:`left`、`close`、`right`分别表示："打开左滑动按钮"、"关闭滑动按钮""打开右滑动按钮"
 
 ```html
-<wd-swipe-action state="{{state}}">
+<wd-swipe-action value="{{value}}">
   <view slot="left" class="action">
     <view class="button" style="background: #C8C7CD;">操作1</view>
     <view class="button" style="background: #FFB300;">操作2</view>
@@ -86,19 +86,19 @@ Page({
 </wd-swipe-action>
 
 <view class="button-group">
-  <wd-button data-state='left' type="primary" bindclick="changeState">打开左边</wd-button>
-  <wd-button data-state='close' type="primary" bindclick="changeState">关闭所有</wd-button>
-  <wd-button data-state='right' type="primary" bindclick="changeState">打开右边</wd-button>
+  <wd-button data-value='left' type="primary" bindclick="changeState">打开左边</wd-button>
+  <wd-button data-value='close' type="primary" bindclick="changeState">关闭所有</wd-button>
+  <wd-button data-value='right' type="primary" bindclick="changeState">打开右边</wd-button>
 </view>
 ```
 ```javascript
 Page({
   data: {
-    state: 'outside'
+    value: 'close'
   },
   changeState (event) {
-    const { state } = event.target.dataset
-    this.setData({ state })
+    const { value } = event.target.dataset
+    this.setData({ value })
   }
 })
 ```
@@ -108,12 +108,12 @@ Page({
 > 通过`before-close`属性传入一个函数，注意传入的变量必须定义在`data`在。回调函数会在滑动按钮关闭前执行。
 
 钩子函数接收两个参数:`reason`、`position`。
-`reason`表示滑动按钮关闭的原因，值为:`click`、`swipe`、`state`，分别代表:点击关闭按钮、滑动关闭按钮、通过控制`state`关闭按钮;
-`position`代表被关闭的操作按钮，值为：`left`、`right`。当`reason`为`click`时，表示点击`position`位置关闭滑动按钮，值为：`left`、`right`、`outside`。
+`reason`表示滑动按钮关闭的原因，值为:`click`、`swipe`、`value`，分别代表:点击关闭按钮、滑动关闭按钮、通过控制`value`关闭按钮;
+`position`代表被关闭的操作按钮，值为：`left`、`right`。当`reason`为`click`时，表示点击`position`位置关闭滑动按钮，值为：`left`、`right`、`inside`。
 
 ```html
 <demo-block transparent title="切换按钮">
-  <wd-swipe-action state="{{state}}" before-close="{{beforeClose}}">
+  <wd-swipe-action value="{{value}}" before-close="{{beforeClose}}">
     <view slot="left" class="action">
       <view class="button" style="background: #C8C7CD;">操作1</view>
       <view class="button" style="background: #FFB300;">操作2</view>
@@ -128,9 +128,9 @@ Page({
   </wd-swipe-action>
 
   <view class="button-group">
-    <wd-button data-state='left' type="primary" bindclick="changeState">打开左边</wd-button>
-    <wd-button data-state='close' type="primary" bindclick="changeState">关闭所有</wd-button>
-    <wd-button data-state='right' type="primary" bindclick="changeState">打开右边</wd-button>
+    <wd-button data-value='left' type="primary" bindclick="changeState">打开左边</wd-button>
+    <wd-button data-value='close' type="primary" bindclick="changeState">关闭所有</wd-button>
+    <wd-button data-value='right' type="primary" bindclick="changeState">打开右边</wd-button>
   </view>
 </demo-block>
 ```
@@ -139,14 +139,14 @@ import Toast from '../../dist/toast/toast'
 
 Page({
   data: {
-    state: 'outside',
+    value: 'close',
     beforeClose (reason, position) {
       Toast(`${reason}导致${position}操作按钮关闭`)
     }
   },
   changeState (event) {
-    const { state } = event.target.dataset
-    this.setData({ state: state })
+    const { value } = event.target.dataset
+    this.setData({ value: value })
   }
 })
 ```
@@ -155,7 +155,7 @@ Page({
 
 > `click`事件只会在关闭滑动按钮时触发。
 
-回调函数的参数表示点击的位置，其中`left`、`right`表示点击了左右滑动按钮，`outside`表示点击了容器内按钮以外的地方。
+回调函数的参数表示点击的位置，其中`left`、`right`表示点击了左右滑动按钮，`inside`表示点击了容器内按钮以外的地方。
 
 ```html
   <wd-swipe-action bind:click="handleClick">
@@ -196,7 +196,7 @@ Page({
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| state | 滑动按钮的状态 | string | 'left'、'close'、'right' | 'close' |
+| value | 滑动按钮的状态 | string | 'left'、'close'、'right' | 'close' |
 | disabled | 是否禁用滑动操作 | boolean | - | false |
 | before-close | 关闭滑动按钮前的钩子函数 | function | - | - |
 
@@ -204,7 +204,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:click | 当滑动按钮打开时，点击整个滑动操作容器触发click事件 | event.detail='left'、'outside'、'right' |
+| bind:click | 当滑动按钮打开时，点击整个滑动操作容器触发click事件 | event.detail='left'、'inside'、'right' |
 
 ### Slot
 
