@@ -33,7 +33,8 @@
     "pages/checkbox/index",
     "pages/form/index",
     "pages/swipeAction/index",
-    "pages/sortButton/index"
+    "pages/sortButton/index",
+    "pages/dropMenu/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

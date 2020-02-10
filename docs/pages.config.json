@@ -146,6 +146,11 @@
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
               },
+              "DropMenu": {
+                "name": "DropMenu 下拉菜单",
+                "path": "/dropMenu",
+                "demo": "/dropMenu"
+              },
               "Loading": {
                 "name": "Loading 加载",
                 "path": "/loading",

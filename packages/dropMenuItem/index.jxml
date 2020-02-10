@@ -1,0 +1,35 @@
+<view class="wd-drop-item custom-class" style="z-index: {{ zIndex }}; {{ positionStyle }}">
+	<wd-transition name="{{ transName }}" show="{{ showPop }}" duration="{{ duration }}">
+		<view class="wd-drop-item__pop" jd:if="{{ useDropItemSlot }}">
+			<slot name="custom"/>
+		</view>
+		<view jd:else style="background-color: #fff">
+			<view 
+				jd:for="{{ options }}" 
+				jd:key="index" 
+				bindtap="choose" 
+				data-value="{{ item }}"
+				class="wd-drop-item__pop"
+				style="color: {{ (item.value ? item.value : item) === value ? activeColor : '#333' }}"
+				>
+				<!-- 左侧文字 -->
+				<view class="wd-drop-item__title custom-title">
+					{{ item.text ? item.text : item }}
+				</view>
+				<!-- 按钮 -->
+				<wd-icon jd:if="{{ (item.value ? item.value : item) === value }}" name="{{ iconName }}" size="8px" class="wd-drop-item__icon custom-icon"/>
+			</view>
+		</view>
+	</wd-transition>
+</view>
+<!-- 遮罩层 -->
+<wd-transition 
+	jd:if="{{ modal }}" 
+	show="{{ showPop }}" 
+	custom-class="wd-drop-item__modal" 
+	custom-style="z-index: {{ zIndex - 1 }};{{ positionStyle }}" 
+	duration="{{ duration }}" 
+	name="fade" 
+	bind:tap="handleClickModal" 
+	catch:touchmove="noop" 
+	/>

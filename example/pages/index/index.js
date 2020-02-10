@@ -88,6 +88,9 @@ Page({
             id: 'actionSheet',
             name: 'ActionSheet 上拉菜单'
           }, {
+            id: 'dropMenu',
+            name: 'DropMenu 下拉菜单'
+          }, {
             id: 'loading',
             name: 'Loading 加载指示器'
           }, {
