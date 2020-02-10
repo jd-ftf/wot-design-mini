@@ -1,0 +1,57 @@
+<view class="demo-body">
+	<demo-block title="基本用法" transparent>
+		<wd-drop-menu>
+			<wd-drop-menu-item value="0" options="{{ option2 }}" />
+			<wd-drop-menu-item value="0" options="{{ option1 }}" />
+			<wd-drop-menu-item value="a" options="{{ option3 }}" />
+		</wd-drop-menu>
+	</demo-block>
+	<demo-block title="外部控制" transparent>
+		<wd-drop-menu>
+			<wd-drop-menu-item value="{{ value1 }}" options="{{ option2 }}" bindchange="choose1" />
+			<wd-drop-menu-item value="{{ value2 }}" options="{{ option1 }}" bindchange="choose2" />
+			<wd-drop-menu-item value="{{ value3 }}" options="{{ option2 }}" bindchange="choose3" />
+		</wd-drop-menu>
+		<wd-button bindtap="click" type="primary" size="small" style="margin: 10px;display: block;">选中第一个</wd-button>
+	</demo-block>
+	<demo-block title="自定义菜单内容" transparent>
+		<wd-drop-menu>
+			<wd-drop-menu-item value="0" options="{{ option1 }}" />
+			<wd-drop-menu-item options="筛选" id="drop-menu" use-drop-item-slot="{{ true }}">
+				<view slot="custom">
+					<wd-cell title="标题文字" value="内容" icon="setting" />
+					<wd-cell title="标题文字" value="内容" icon="collect" />
+					<wd-cell is-link to="/pages/button/index" title="设置" value="内容" bind:click="onClick" />
+					<wd-button type="primary" block size="large" suck bind:tap="confirm">主要按钮</wd-button>
+				</view>
+			</wd-drop-menu-item>
+		</wd-drop-menu>
+	</demo-block>
+	<demo-block title="自定义菜单选项" transparent>
+		<wd-drop-menu use-drop-menu-slot="{{ true }}">
+			<wd-drop-menu-item value="0" options="{{ option1 }}" />
+			<view slot="menu" style="line-height: 14px;">
+				<wd-sort-button title="价格" allow-reset bind:click="handleClick" />
+			</view>
+		</wd-drop-menu>
+	</demo-block>
+	<demo-block title="自定义激活颜色" transparent>
+		<wd-drop-menu active-color="red">
+			<wd-drop-menu-item value="0" options="{{ option1 }}" />
+			<wd-drop-menu-item value="0" options="{{ option2 }}" />
+		</wd-drop-menu>
+	</demo-block>
+	<demo-block title="向上弹出" transparent>
+		<wd-drop-menu direction="up">
+			<wd-drop-menu-item value="0" options="{{ option1 }}" />
+			<wd-drop-menu-item value="0" options="{{ option2 }}" />
+		</wd-drop-menu>
+	</demo-block>
+	<demo-block title="禁用" transparent>
+		<wd-drop-menu direction="up">
+			<wd-drop-menu-item value="0" disabled options="{{ option2 }}" />
+			<wd-drop-menu-item value="0" disabled options="{{ option1 }}" />
+			<wd-drop-menu-item value="1" options="{{ option2 }}" />
+		</wd-drop-menu>
+	</demo-block>
+</view>

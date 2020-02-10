@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "drop-menu 下拉列表",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "wd-drop-menu": "../../dist/dropMenu/index",
+    "wd-cell": "../../dist/cell/index",
+    "wd-sort-button": "../../dist/sortButton/index",
+    "wd-button": "../../dist/button/index",
+    "wd-drop-menu-item": "../../dist/dropMenuItem/index"
+  }
+}
