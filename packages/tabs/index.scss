@@ -119,7 +119,6 @@
   @include e(map-body) {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 20px 15px 10px;
     background: #fff;
     transition: transform .3s;
@@ -131,15 +130,25 @@
     }
   }
   @include e(map-nav-item) {
+    flex-basis: 33%;
+
+    &:nth-child(3n + 2) {
+      text-align: center;
+    }
+    &:nth-child(3n + 3) {
+      text-align: right;
+    }
+  }
+  @include e(map-nav-btn) {
     display: inline-block;
-    width: 78px;
-    padding: 0 10px;
+    width: 98px;
     height: 26px;
     line-height: 26px;
     border: 1px solid #c5c5c5;
     margin-bottom: 10px;
     border-radius: 4px;
     color: #333;
+    box-sizing: border-box;
     text-align: center;
     transition: color .3s, border-color .3s;
     @include lineEllipsis;
@@ -173,5 +182,10 @@
     .wd-tabs__nav--wrap{
       padding-right: 40px;
     }
+  }
+}
+@media screen and (max-width: 330px) {
+  .wd-tabs__map-nav-btn {
+    width: 90px;
   }
 }
