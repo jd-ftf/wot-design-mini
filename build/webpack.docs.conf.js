@@ -8,6 +8,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const fs = require('fs')
 const isProd = process.env.NODE_ENV === 'production'
@@ -18,7 +19,7 @@ const versions = require('../build/deploy/change-log')
 var content = JSON.stringify(versions)
 
 // 指定创建目录及文件名称，__dirname为执行当前js文件的目录
-var file = path.join('docs/versions.json')
+var file = path.join('docs/public/versions.json')
 
 // 写入文件
 fs.writeFile(file, content, err => {
@@ -107,7 +108,17 @@ const webpackConf = {
       filename: isProd ? path.resolve(__dirname, '../docs/dist/index.html') : 'index.html',
       template: path.resolve(__dirname, '../docs/index.html'),
       favicon: path.resolve(__dirname, '../docs/favicon.ico')
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../docs/public'),
+        to: utils.assetsPath('public'),
+        toType: 'dir',
+        ignore: [
+          '.DS_Store'
+        ]
+      }
+    ])
   ]
 }
 

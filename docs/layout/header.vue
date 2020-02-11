@@ -3,7 +3,7 @@
     <div class="header-container">
       <router-link :to="{ path: '/' }" class="logo-block">
         <img class="wot-design-logo" src="../assets/img/wot-design.png" alt="wot design mini" />
-        <h1 class="wot-design-title">Wot Design Mini</h1>
+        <h1 class="wot-design-title">京麦 Wot Design Mini</h1>
       </router-link>
       
       <ul class="header-tab">
@@ -27,7 +27,13 @@
           <transition name="drop-scale-in">
             <div class="wot-dropdown" v-show="isShowOption">
               <ul class="wot-dropdown-menu">
-                <li class="wot-dropdown-item" v-for="item in versions" :value="item" :key="item" @click="switchVersion(item)">
+                <li
+                  class="wot-dropdown-item"
+                  :class="{ 'is-active': item === version }"
+                  v-for="item in formatVersions"
+                  :key="item"
+                  @click="switchVersion(item)"
+                >
                   {{ item }}
                 </li>
               </ul>
@@ -42,8 +48,8 @@
 
 <script>
 import pagesConfig from '../pages.config.json'
-import versions from '../versions.json'
 import search from './search'
+import axios from 'axios'
 const { version } = require('../../package.json')
 
 export default {
@@ -51,17 +57,29 @@ export default {
   data () {
     return {
       pages: pagesConfig,
-      versions: this.filter(),
+      versions: [],
       isComponentPage: true,
       isShowOption: false,
       version
+    }
+  },
+  computed: {
+    formatVersions () {
+      return this.filter(this.versions)
     }
   },
   methods: {
     showOption () {
       this.isShowOption = !this.isShowOption
     },
-    filter () {
+    getVersions () {
+      const requestUrl = process.env.NODE_ENV === 'dev' ? '/static/public/versions.json' : '/wot-design-mini/static/public/versions.json'
+
+      axios.get(requestUrl).then(res => {
+        this.versions = res.data
+      })
+    },
+    filter (versions) {
       const keys = versions
       let result = []
       let preVersionList = []
@@ -87,7 +105,7 @@ export default {
           })
         }
       })
-      return result.filter(item => item !== version).sort((a, b) => a - b)
+      return result.sort((a, b) => a - b)
     },
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
@@ -113,6 +131,9 @@ export default {
   },
   beforeDestroy () {
     document.body.removeEventListener('click', this.clickOutside)
+  },
+  created () {
+    this.getVersions()
   }
 }
 </script>
@@ -225,6 +246,8 @@ export default {
   top: 100%;
   padding: 10px 0;
   width: 90px;
+  max-height: 300px;
+  overflow: auto;
   border: none;
   background-color: transparent;
   font-size: 14px;
@@ -233,6 +256,23 @@ export default {
   border: 1px solid #ebeef5;
   border-radius: 2px;
   box-shadow: 0 2px 12px 4px rgba(0,0,0,.1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) #fefefe;
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 6px;
+    opacity: 0.5;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 .wot-dropdown-item{
   list-style: none;
@@ -247,7 +287,7 @@ export default {
   outline: none;
   transition: background .3s, color .3s;
 
-  &:hover{
+  &:hover, &.is-active, &.is-active:hover {
     background-color: mix(#0083ff, #fff, 10%);
     color: #0083ff;
   }
