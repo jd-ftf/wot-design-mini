@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "SortButton 排序按钮",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "wd-sort-button": "../../dist/sortButton/index",
+    "wd-toast": "../../dist/toast/index"
+  }
+}

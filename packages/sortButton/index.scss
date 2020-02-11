@@ -1,0 +1,33 @@
+@import '../common/abstracts/variable';
+@import '../common/abstracts/mixin';
+
+@include b(sort-button){
+
+  height: 34px;
+  font-size: 14px;
+  word-break: break-all;
+  white-space:nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include e(right){
+    height: 10px;
+    margin-left: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include when(only){
+      justify-content: center;
+    }
+  }
+
+  @include e(icon){
+    display: block;
+    font-size: 8px;
+    line-height: 4px;
+  }
+}
+

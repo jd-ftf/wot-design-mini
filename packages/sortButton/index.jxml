@@ -1,0 +1,33 @@
+<view
+  class="wd-sort-button custom-class"
+  bindtap="handleClick"
+>
+  <view
+    class="wd-sort-button__left"
+    style="{{  direction ? 'color :'+ color : '' }}"
+  >
+    {{value}}
+  </view>
+  <view class="wd-sort-button__right {{ only ? 'is-only' :'' }}">
+    <view
+      jd:if="{{ top.display }}"
+      class="wd-sort-button__icon--top"
+    >
+      <wd-icon
+        name="caret-top"
+        color="{{top.color}}"
+        custom-class="wd-sort-button__icon"
+      />
+    </view>
+    <view
+      jd:if="{{ bottom.display }}"
+      class="wd-sort-button__icon--bottom"
+    >
+      <wd-icon
+        name="caret-bottom"
+        color="{{bottom.color}}"
+        custom-class="wd-sort-button__icon"
+      />
+    </view>
+  </view>
+</view>
