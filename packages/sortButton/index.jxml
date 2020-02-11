@@ -6,7 +6,7 @@
     class="wd-sort-button__left"
     style="{{  direction ? 'color :'+ color : '' }}"
   >
-    {{value}}
+    {{title}}
   </view>
   <view class="wd-sort-button__right {{ only ? 'is-only' :'' }}">
     <view
