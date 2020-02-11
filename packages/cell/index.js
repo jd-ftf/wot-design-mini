@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import cell from '../mixins/cell'
 
 VueComponent({
   externalClasses: [
@@ -7,6 +8,7 @@ VueComponent({
     'custom-value-class',
     'custom-title-class'
   ],
+  behaviors: [cell],
   props: {
     title: String,
     value: String,
@@ -19,10 +21,6 @@ VueComponent({
       observer: 'openClickAble'
     },
     to: String,
-    noHair: {
-      type: Boolean,
-      value: true
-    },
     replace: {
       type: Boolean,
       value: false
@@ -30,11 +28,18 @@ VueComponent({
     clickable: {
       type: Boolean,
       value: false
-    }
+    },
+    noHair: {
+      type: Boolean,
+      value: true
+    },
+    size: String,
+    titleWidth: String,
+    center: Boolean
   },
   relations: {
     '../cellGroup/index': {
-      type: 'parent',
+      type: 'ancestor',
       linked (target) {
         this.parent = target
       },
@@ -51,22 +56,6 @@ VueComponent({
     openClickAble (clickAble) {
       if (!clickAble) return
       this.setData({ clickable: true })
-    },
-    /**
-     * @description 从cellGroup获取此组件的索引
-     * @return {Number} 此组件的索引
-     */
-    getIndex () {
-      if (!this.parent) return
-      return this.parent.children.indexOf(this)
-    },
-    /**
-     * @description 为所有索引非0的组件设置刘海线，此方法由cellGroup调用
-     */
-    setIndexAndStatus () {
-      const index = this.getIndex()
-      if (!index || index === 0) return
-      this.setData({ noHair: false })
     },
     /**
      * @description 点击cell的handle

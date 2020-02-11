@@ -38,29 +38,42 @@ Page({
 })
 ```
 
-### 修改图标形状
+### 同行展示
 
-修改 `shape` 属性，可选值为 'circle'、'dot'、'button'，默认为 'circle'。
+设置 `inline` 属性，使单选框在同一行展示。
 
 ```html
-<wd-radio-group value="1" shape="dot">
-  <wd-radio value="1">京麦</wd-radio>
-  <wd-radio value="2">商家后台</wd-radio>
-</wd-radio-group>
+<demo-block title="基本用法">
+  <wd-radio-group value="{{value}}" inline bind:change="change">
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
+  </wd-radio-group>
+</demo-block>
+```
+```javascript
+Page({
+  data: {
+    value: 1
+  },
+  change (event) {
+    this.setData({
+      value: event.detail
+    })
+  }
+})
+```
 
+### 修改图标形状
+
+修改 `shape` 属性，可选值为 'dot', 'button'，默认为 'dot'。
+
+```html
 <wd-radio-group value="1" shape="button">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
 ```
-可以只修改其中某个radio的图标形状。
 
-```html
-<wd-radio-group value="1">
-  <wd-radio value="1" shape="dot">京麦</wd-radio>
-  <wd-radio value="2">商家后台</wd-radio>
-</wd-radio-group>
-```
 ### 修改选中的颜色
 
 设置 `checked-color` 属性。
@@ -90,12 +103,12 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 
 ```html
   <wd-radio-group value="1" shape="button" disabled="{{true}}" checked-color="#f00">
-    <wd-radio value="1" disabled="{{false}}" checked-color="#000" shape="circle">商家后台</wd-radio>
-    <wd-radio value="2" disabled="{{false}}" shape="dot">商家前端</wd-radio>
-    <wd-radio value="3" disabled="{{false}}">京麦</wd-radio>
-    <wd-radio value="4">商家智能</wd-radio>
+    <wd-radio value="1" disabled="{{false}}" checked-color="#000">商家后台</wd-radio>
+    <wd-radio value="2" disabled="{{false}}">京麦</wd-radio>
+    <wd-radio value="3">商家智能</wd-radio>
   </wd-radio-group>
 ```
+
 ### RadioGroup Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -103,6 +116,7 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 | shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
+| inline | 同行展示 | boolean | - | false |
 
 ### RadioGroup Events
 
@@ -115,6 +129,6 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 单选框选中时的值。会自动匹配radioGroup的value | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
+| shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |

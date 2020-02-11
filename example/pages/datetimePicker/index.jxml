@@ -1,34 +1,68 @@
-<demo-block>
+<wd-toast id="wd-toast"/>
+<demo-block transparent>
+  <wd-cell-group>
+    <wd-datetime-picker
+      label="日期选择"
+      value="{{value1}}"
+    />
+    <wd-datetime-picker
+      label="年月日"
+      type="date"
+    />
+    <wd-datetime-picker
+      value="{{value2}}"
+      label="年月"
+      type="year-month"
+    />
+    <wd-datetime-picker
+      label="时分"
+      type="time"
+      value="{{value3}}"
+    />
+    <wd-datetime-picker
+      label="展示格式"
+      value="{{value4}}"
+      display-format="{{displayFormat}}"
+    />
+    <wd-datetime-picker
+      label="内部格式"
+      value="{{value5}}"
+      formatter="{{formatter}}"
+    />
+    <wd-datetime-picker
+      label="过滤选项"
+      filter="{{filter}}"
+    />
+    <wd-datetime-picker
+      label="before-confirm"
+      value="{{value6}}"
+      before-confirm="{{beforeConfirm}}"
+      bind:confirm="handleConfirm"
+    />
+  </wd-cell-group>
+</demo-block>
+<demo-block title="label 不传" transparent>
+  <wd-datetime-picker
+    value="{{value7}}"
+  />
+</demo-block>
+<demo-block title="大小" transparent>
   <wd-datetime-picker
     label="日期选择"
-    value="{{value1}}"
+    size="large"
+    value="{{value8}}"
   />
+</demo-block>
+<demo-block title="错误" transparent>
   <wd-datetime-picker
-    label="年月日"
-    type="date"
+    label="日期选择"
+    error
   />
+</demo-block>
+<demo-block title="值靠右展示" transparent>
   <wd-datetime-picker
-    value="{{value2}}"
-    label="年月"
-    type="year-month"
-  />
-  <wd-datetime-picker
-    label="时分"
-    type="time"
-    value="{{value3}}"
-  />
-  <wd-datetime-picker
-    label="展示格式"
-    value="{{value4}}"
-    display-format="{{displayFormat}}"
-  />
-  <wd-datetime-picker
-    label="内部格式"
-    value="{{value5}}"
-    formatter="{{formatter}}"
-  />
-  <wd-datetime-picker
-    label="过滤选项"
-    filter="{{filter}}"
+    label="日期选择"
+    align-right
+    value="{{value9}}"
   />
 </demo-block>

@@ -8,6 +8,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const fs = require('fs')
 const isProd = process.env.NODE_ENV === 'production'
@@ -15,10 +16,15 @@ let outputConfig
 
 const versions = require('../build/deploy/change-log')
 // 把 versions 对象转换为json格式字符串
-var content = JSON.stringify(versions)
+const content = JSON.stringify(versions)
 
 // 指定创建目录及文件名称，__dirname为执行当前js文件的目录
-var file = path.join('docs/versions.json')
+const versionDir = path.resolve(__dirname, '../docs/public')
+const file = path.resolve(__dirname, '../docs/public/versions.json')
+
+if (!fs.existsSync(versionDir)) {
+  fs.mkdirSync(versionDir, { recursive: true })
+}
 
 // 写入文件
 fs.writeFile(file, content, err => {
@@ -51,14 +57,14 @@ const webpackConf = {
             }
           },
           {
-            loader: path.resolve(__dirname, './md-loader/index.js')
+            loader: path.resolve(__dirname, './md-loader.js')
           }
         ]
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: /node_modules/
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -107,7 +113,17 @@ const webpackConf = {
       filename: isProd ? path.resolve(__dirname, '../docs/dist/index.html') : 'index.html',
       template: path.resolve(__dirname, '../docs/index.html'),
       favicon: path.resolve(__dirname, '../docs/favicon.ico')
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../docs/public'),
+        to: utils.assetsPath('public'),
+        toType: 'dir',
+        ignore: [
+          '.DS_Store'
+        ]
+      }
+    ])
   ]
 }
 

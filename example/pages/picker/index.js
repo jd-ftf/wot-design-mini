@@ -1,3 +1,5 @@
+import Toast from '../../dist/toast/toast.js'
+
 const district = {
   0: [{
     label: '北京',
@@ -39,6 +41,7 @@ const district = {
     value: '440304'
   }]
 }
+
 Page({
   data: {
     columns0: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
@@ -88,6 +91,24 @@ Page({
       return items.map(item => {
         return item.label
       }).join('-')
+    },
+
+    value7: '',
+    beforeConfirm: function (value, resolve, picker) {
+      picker.setData({
+        loading: true
+      })
+      setTimeout(() => {
+        picker.setData({
+          loading: false
+        })
+        if (['选项2', '选项3'].indexOf(value) > -1) {
+          resolve(false)
+          Toast.error('选项校验不通过，请重新选择')
+        } else {
+          resolve(true)
+        }
+      }, 2000)
     }
   }
 })

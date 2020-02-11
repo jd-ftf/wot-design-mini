@@ -1,0 +1,13 @@
+page .radio-inline {
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+.wrapper {
+  padding: 15px;
+}
+.display-item {
+  padding: 0 15px;
+  margin-bottom: 10px;
+  color: #999;
+}

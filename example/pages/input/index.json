@@ -3,6 +3,8 @@
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
     "wd-input": "../../dist/input/index",
-    "wd-icon": "../../dist/icon/index"
+    "wd-icon": "../../dist/icon/index",
+    "wd-cell-group": "../../dist/cellGroup/index",
+    "wd-button": "../../dist/button/index"
   }
 }

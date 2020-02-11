@@ -3,12 +3,11 @@
 
 @include b(checkbox) {
   display: block;
-  margin-bottom: 10px;
-  font-size: 0;
+  margin-top: 10px;
 
-  //&:last-child {
-  //  margin-bottom: 10px;
-  //}
+  @include when(first) {
+    margin-top: 0;
+  }
 
   @include e(shape) {
     position: relative;
@@ -37,7 +36,7 @@
     display: inline-block;
     font-size: 16px;
     vertical-align: middle;
-    margin-right: 4px;
+    margin-right: 8px;
     height: 16px;
     width: 16px;
   }
@@ -74,12 +73,9 @@
   }
   @include when(button) {
     display: inline-block;
-    margin-bottom: 0;
-    margin-right: 8px;
-    // 小程序中每个插槽会被shadow-root包起来，所以last-child等伪类选择器无效
-    //&:last-child {
-    //  margin-right: 0;
-    //}
+    margin-top: 0;
+    margin-left: 8px;
+
     .wd-checkbox__shape {
       width: 0;
       height: 0;
@@ -102,7 +98,21 @@
         border-color: currentColor;
       }
     }
+    @include when(first) {
+      margin-left: 0;
+    }
   }
+
+  @include when(inline) {
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 10px;
+    
+    @include when(first) {
+      margin-left: 0;
+    }
+  }
+
   @include when(disabled) {
     .wd-checkbox__shape {
       border-color: $-checkbox-color-disabled-label;

@@ -21,9 +21,85 @@
     align-items: center;
     z-index: 1;
   }
+  @include e(label) {
+    width: 33%;
+    color: $-picker-label-color;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  @include e(label-inner) {
+    display: inline-block;
+    padding: 11px 10px 11px 0;
+  }
+  @include when(cell) {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 15px;
+    background-color: #fff;
+    @include halfPixelBorder('top', 15px);
+
+    &.is-no-hair::after {
+      display: none;
+    }
+    &.is-error::after {
+      background: $-color-line;
+    }
+    &.is-center {
+      align-items: center;
+    }
+    .wd-input__textarea, .wd-input__block {
+      flex: 1;
+    }
+    .wd-input__icon {
+      height: 42px;
+      line-height: 42px;
+    }
+    .wd-input__prefix {
+      display: inline-block;
+    }
+    .wd-input__inner {
+      height: 42px;
+    }
+  }
   @include when(textarea) {
     &::after {
       display: none;
+    }
+  }
+  @include when(error) {
+    &::after {
+      background: $-color-aid-red;
+    }
+    .wd-input__inner, .wd-input__textarea-inner {
+      color: $-color-aid-red;
+      background: transparent;
+
+      &::-webkit-input-placeholder {
+        color: $-color-aid-red;
+      }
+    }
+  }
+  @include when(large) {
+    .wd-input__label {
+      font-size: 16px;
+    }
+    .wd-input__inner {
+      font-size: 16px;
+      height: 44px;
+    }
+    .wd-input__textarea-inner {
+      font-size: 16px;
+    }
+    .wd-input__count {
+      font-size: 14px;
+    }
+    .wd-input__textarea-count {
+      font-size: 14px;
+    }
+    .wd-input__icon {
+      height: 44px;
+      font-size: 18px;
+      line-height: 44px;
     }
   }
   @include when(disabled) {
@@ -48,10 +124,15 @@
       color: $-color-tip;
     }
   }
-  @include e(icon-wrap) {
-    z-index: 2;
-    margin: 0 8px 0 10px;
-    vertical-align: middle;
+  @include e(prefix) {
+    margin-right: 8px;
+
+    .wd-input__icon {
+      margin-left: 0;
+    }
+  }
+  @include e(suffix) {
+    margin-left: 8px;
   }
   @include e(icon) {
     margin-left: 8px;
@@ -61,11 +142,6 @@
     height: 37px;
     line-height: 37px;
     background: #fff;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
   }
   @include e(count) {
     margin-left: 8px;
@@ -106,7 +182,6 @@
     flex: 1;
     padding: 0;
     font-size: 14px;
-    // line-height: 17px;
     color: $-color-title;
     outline: none;
     box-sizing: border-box;
@@ -146,6 +221,13 @@
     color: $-color-title;
 
     @include when(error) {
+      color: $-color-aid-red;
+    }
+  }
+  @include e(placeholder) {
+    color: $-color-tip;
+
+    &.is-error {
       color: $-color-aid-red;
     }
   }

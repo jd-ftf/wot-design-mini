@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "Form 表单组件组合",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "wd-button": "../../dist/button/index",
+    "wd-cell": "../../dist/cell/index",
+    "wd-cell-group": "../../dist/cellGroup/index",
+    "wd-datetime-picker": "../../dist/datetimePicker/index",
+    "wd-input": "../../dist/input/index",
+    "wd-picker": "../../dist/picker/index",
+    "wd-radio": "../../dist/radio/index",
+    "wd-radio-group": "../../dist/radioGroup/index",
+    "wd-switch": "../../dist/switch/index",
+    "wd-toast": "../../dist/toast/index",
+    "wd-message-box": "../../dist/messageBox/index"
+  }
+}

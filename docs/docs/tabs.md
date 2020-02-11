@@ -20,8 +20,8 @@
 ```html
 <wd-tabs value="{{0}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item}}">
-      <view class="content">内容{{item}}</view>
+    <wd-tab title="标签{{item + 1}}">
+      <view class="content">内容{{item + 1}}</view>
     </wd-tab>
   </block>
 </wd-tabs>
@@ -40,8 +40,8 @@
 ```html
 <wd-tabs value="{{0}}" animated="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item}}">
-      <view class="content">内容{{item}}</view>
+    <wd-tab title="标签{{item + 1}}">
+      <view class="content">内容{{item + 1}}</view>
     </wd-tab>
   </block>
 </wd-tabs>
@@ -55,8 +55,8 @@
 ```html
 <wd-tabs value="{{0}}" sticky="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item}}">
-      <view class="content">内容{{item}}</view>
+    <wd-tab title="标签{{item + 1}}">
+      <view class="content">内容{{item + 1}}</view>
     </wd-tab>
   </block>
 </wd-tabs>
@@ -69,8 +69,8 @@
 ```html
 <wd-tabs value="{{0}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item}}" disabled="{{item === 1}}">
-      <view class="content">内容{{item}}</view>
+    <wd-tab title="标签{{item + 1}}" disabled="{{item === 1}}">
+      <view class="content">内容{{item + 1}}</view>
     </wd-tab>
   </block>
 </wd-tabs>
@@ -83,8 +83,8 @@
 ```html
 <wd-tabs value="{{0}}" bind:click="handleClick">
   <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item}}">
-      <view class="content">内容{{item}}</view>
+    <wd-tab title="标签{{item + 1}}">
+      <view class="content">内容{{item + 1}}</view>
     </wd-tab>
   </block>
 </wd-tabs>
@@ -106,8 +106,8 @@ Page({
 ```html
 <wd-tabs value="{{0}}" lazy-render="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item}}">
-      <view class="content">内容{{item}}</view>
+    <wd-tab title="标签{{item + 1}}">
+      <view class="content">内容{{item + 1}}</view>
     </wd-tab>
   </block>
 </wd-tabs>
@@ -121,8 +121,8 @@ Page({
 ```html
 <wd-tabs value="{{0}}" swipeable="{{true}}">
   <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item}}">
-      <view class="content">内容{{item}}</view>
+    <wd-tab title="标签{{item + 1}}">
+      <view class="content">内容{{item + 1}}</view>
     </wd-tab>
   </block>
 </wd-tabs>

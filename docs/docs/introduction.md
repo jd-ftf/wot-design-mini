@@ -1,6 +1,6 @@
 ## 介绍
 
-基于小程序开发的移动端组件库，旨在给开发者提供统一的页面风格。
+该组件库基于小程序构建，根据京东商家侧的UI设计规范（京麦移动端设计规范）开发，旨在给商家提供统一的UI交互，同时提高研发的开发效率。
 
 ### 快速上手
 
@@ -8,8 +8,32 @@
 
 ### 扫码体验
 
-目前只有体验版，需要扫码体验请联系 钟志杰 。
+<img style="width: 150px; height: 150px;" :src="codeImg" />
+
+### 特性
+
+* 30+ 组件
+* 京东小程序和微信小程序2个版本
+
+
+### 链接
+
+* [意见反馈](https://github.com/jd-ftf/wot-design-mini/issues)
+* [更新日志](#/components/changelog)
+* [常见问题](#/components/commonProblems)
 
 ### 开源协议
 
 本项目遵循 MIT 协议。
+
+<script>
+import JdQrcode from '../assets/img/jd.jpg'
+
+export default {
+  data () {
+    return {
+      codeImg: JdQrcode
+    }
+  }
+}
+</script>

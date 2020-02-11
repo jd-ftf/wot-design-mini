@@ -14,7 +14,7 @@ Picker 组件为 popup 和 pickerView 的组合。
 
 ### 基本用法
 
-`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。
+`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。label 可以不传。可以通过 `label-width` 设置标题宽度，默认为 '33%'。
 
 ```html
 <wd-picker columns="{{columns1}}" label="单列选项" value="{{value}}" />
@@ -139,6 +139,68 @@ Page({
 })
 ```
 
+### 选择器大小
+
+通过设置 `size` 修改选择器大小，将 `size` 设置为 'large' 时字号为 16px。
+
+```html
+<wd-picker label="单列选项" size="large" value="{{value}}" columns="{{columns}}" />
+```
+
+### 错误状态
+
+设置 `error` 属性，选择器的值显示为红色。
+
+```html
+<wd-picker label="单列选项" error columns="{{columns}}" value="{{value}}"/>
+```
+
+### 值靠右展示
+
+设置 `align-right` 属性，选择器的值靠右展示。
+
+```html
+<wd-picker label="单列选项" align-right columns="{{columns}}" value="{{value}}"/>
+```
+
+### 确定前校验
+
+设置 `before-confirm` 函数，在用户点击`确定`按钮时，会执行 `before-confirm` 函数，并传入 `value` 、 `resolve` 和 `picker` 参数，可以对 `value` 进行校验，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会关闭 `picker`弹窗。可以通过 `picker` 参数直接设置 `loading`、`columns` 等属性。
+
+```html
+<wd-picker label="before-confirm" columns="{{columns}}" value="{{value}}" before-confirm="{{beforeConfirm}}" bind:confirm="handleConfirm" />
+```
+
+```javascript
+Page({
+  data: {
+    columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+    value: '',
+    beforeConfirm: function (value, resolve, picker) {
+      picker.setData({
+        loading: true
+      })
+      setTimeout(() => {
+        picker.setData({
+          loading: false
+        })
+        if (['选项2', '选项3'].indexOf(value) > -1) {
+          resolve(false)
+          Toast.error('选项校验不通过，请重新选择')
+        } else {
+          resolve(true)
+        }
+      }, 2000)
+    }
+  },
+  handleConfirm ({ detail }) {
+    this.setData({
+      value: detail
+    })
+  }
+})
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -159,18 +221,32 @@ Page({
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+| size | 设置选择器大小 | string | 'large' | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
+| align-right | 选择器的值靠右展示 | boolean | - | false |
+| use-label-slot | label 使用插槽 | boolean | - | false |
+| before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:confirm | 点击右侧按钮触发 | - |
+| bind:confirm | 点击右侧按钮触发 | 单列：选中项值；多列：所有列选中项值 |
 | bind:cancel | 点击左侧按钮触发 | - |
-| bind:change | 选项值修改时触发 | 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
+| bind:open | 打开选择器弹出层时触发 | - |
 
+### Slot
+
+| name      | 说明       |
+|------------- |----------- |
+| label | 左侧标题插槽 |
 
 ### 外部样式类
 
 | 类名     | 说明                |
 |---------|---------------------|
 | custom-class | 根结点样式 |
+| custom-view-class | pickerView 外部自定义样式 |
+| custom-label-class | label 外部自定义样式 |
+| custom-value-class | value 外部自定义样式 |

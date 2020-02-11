@@ -1,28 +1,25 @@
-<demo-block title="基本用法">
+<demo-block title="基本用法：当前选中值 {{value0}}">
   <wd-radio-group
     data-index="{{0}}"
     value="{{value0}}"
     bind:change="change"
   >
-    <wd-radio value="{{value}}">单选框1</wd-radio>
+    <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
-  <view>当前选中的值为:{{value0}}</view>
 </demo-block>
 
-
-<demo-block title="修改形状(在radioGroup上设置) shape 为 'dot'">
+<demo-block title="同行展示">
   <wd-radio-group
-    shape="dot"
+    inline
     data-index="{{1}}"
     value="{{value1}}"
     bind:change="change"
   >
-    <wd-radio value="{{1}}">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
 </demo-block>
-
 
 <demo-block title="修改形状(在radioGroup上设置) shape 为 'button'">
   <wd-radio-group
@@ -36,21 +33,10 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="修改单个形状(在radio上设置) shape 为 'dot'">
+<demo-block title="修改选中颜色 checked-color">
   <wd-radio-group
     data-index="{{3}}"
     value="{{value3}}"
-    bind:change="change"
-  >
-    <wd-radio value="{{1}}" shape="dot">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
-  </wd-radio-group>
-</demo-block>
-
-<demo-block title="修改选中颜色 checked-color">
-  <wd-radio-group
-    data-index="{{4}}"
-    value="{{value4}}"
     bind:change="change"
   >
     <wd-radio value="{{1}}" checked-color="#f00">京麦</wd-radio>
@@ -59,14 +45,12 @@
 </demo-block>
 
 <demo-block title="禁用 disabled">
-  <wd-radio-group value="{{1}}" disabled="{{true}}">
-    <wd-radio value="{{1}}">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
-  </wd-radio-group>
-  <wd-radio-group value="{{1}}" disabled="{{true}}" shape="dot">
-    <wd-radio value="{{1}}">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
-  </wd-radio-group>
+  <view style="margin-bottom: 10px;">
+    <wd-radio-group value="{{1}}" disabled="{{true}}">
+      <wd-radio value="{{1}}">京麦</wd-radio>
+      <wd-radio value="{{2}}">商家后台</wd-radio>
+    </wd-radio-group>
+  </view>
   <wd-radio-group value="{{1}}" disabled="{{true}}" shape="button">
     <wd-radio value="{{1}}">京麦</wd-radio>
     <wd-radio value="{{2}}">商家后台</wd-radio>
@@ -78,31 +62,24 @@
     hape="button"
     disabled="{{true}}"
     checked-color="#f00"
-    data-index="{{5}}"
-    value="{{value5}}"
+    data-index="{{4}}"
+    value="{{value4}}"
     bind:change="change"
   >
     <wd-radio
       value="{{1}}"
-      disabled="{{false}}"
       checked-color="#000"
-      shape="circle"
-    >商家后台
-    </wd-radio>
-    <wd-radio
-      value="{{2}}"
       disabled="{{false}}"
-      shape="dot"
     >
       商家前端
     </wd-radio>
     <wd-radio
-      value="{{3}}"
+      value="{{2}}"
       disabled="{{false}}"
     >京麦
     </wd-radio>
     <wd-radio
-      value="{{4}}"
+      value="{{3}}"
     >
       商家智能
     </wd-radio>

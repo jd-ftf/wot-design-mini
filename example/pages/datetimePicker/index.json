@@ -2,6 +2,8 @@
   "navigationBarTitleText": "DatetimePicker 时间选择器",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-datetime-picker": "../../dist/datetimePicker/index"
+    "wd-datetime-picker": "../../dist/datetimePicker/index",
+    "wd-cell-group": "../../dist/cellGroup/index",
+    "wd-toast": "../../dist/toast/index"
   }
 }

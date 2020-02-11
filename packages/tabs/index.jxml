@@ -55,15 +55,17 @@
         bindtap="handleSelect"
       >
         <view
+          class="wd-tabs__map-nav-item"
           jd:for="{{items}}"
           jd:key="$this"
           jd:for-index="index"
           jd:for-item="item"
-          data-index="{{index}}"
-          class="wd-tabs__map-nav-item {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
-          style="{{ activeIndex === index ? (color ? 'color:' + color + ';border-color:' + color :'') : (inactiveColor ? 'color:'+inactiveColor :'') }}"
         >
-          {{item.title}}
+          <view
+            class="wd-tabs__map-nav-btn {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
+            style="{{ activeIndex === index ? (color ? 'color:' + color + ';border-color:' + color :'') : (inactiveColor ? 'color:'+inactiveColor :'') }}"
+            data-index="{{index}}"
+          >{{ item.title }}</view>
         </view>
       </view>
     </view>

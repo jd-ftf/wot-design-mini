@@ -74,6 +74,9 @@ Page({
           }, {
             id: 'switch',
             name: 'Switch 开关'
+          }, {
+            id: "form",
+            name: "Form 表单组件组合"
           }
         ]
       }, {
@@ -99,6 +102,9 @@ Page({
           }, {
             id: 'tooltip',
             name: 'Tooltip 文字提示'
+          }, {
+            id: 'swipeAction',
+            name: 'SwipeAction 滑动操作'
           }
         ]
       }, {
@@ -135,8 +141,7 @@ Page({
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
         list[i].open = !list[i].open
-      } else {
-        list[i].open = false
+        break
       }
     }
     this.setData({
