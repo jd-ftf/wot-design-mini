@@ -171,6 +171,11 @@
                 "path": "/toast",
                 "demo": "/toast"
               },
+              "Tooltip": {
+                "name": "Tooltip 轻提示",
+                "path": "/tooltip",
+                "demo": "/tooltip"
+              },
               "SwipeAction": {
                 "name": "SwipeAction 滑动操作",
                 "path": "/swipeAction",

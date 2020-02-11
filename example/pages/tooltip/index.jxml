@@ -84,7 +84,7 @@
 </demo-block>
 <demo-block title="列表模式" >
   <view class="bottom">
-    <wd-tooltip placement="bottom" mode="menu" content="{{ menu }}">
+    <wd-tooltip placement="bottom" mode="menu" content="{{ menu }}" bind:menu-click="link">
       <wd-button >列表</wd-button>
     </wd-tooltip>
   </view>
@@ -118,6 +118,20 @@
         <view>多行文本2</view>
         <view>多行文本3</view>
       </view>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="绑定事件" >
+  <view class="right">
+    <wd-tooltip placement="right-end" content="{{ content }}" bind:show="onShow" bind:hide="onHide">
+      <wd-button >事件</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="禁用" >
+  <view class="right">
+    <wd-tooltip placement="right-end" content="禁用" disabled="{{ true }}">
+      <wd-button >禁用</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
