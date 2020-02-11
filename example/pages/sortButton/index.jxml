@@ -1,0 +1,24 @@
+<wd-toast id="wd-toast"/>
+
+<demo-block title="基础用法">
+	<wd-sort-button value="价格"/>
+</demo-block>
+
+<demo-block title="选中颜色">
+  <wd-sort-button value="价格" color="#00c740"/>
+</demo-block>
+
+<demo-block title="单独显示">
+  <wd-sort-button value="综合" only/>
+</demo-block>
+
+<demo-block title="初始状态">
+  <wd-sort-button value="价格" direction="top"/>
+  <wd-sort-button value="综合" only direction="top"/>
+</demo-block>
+
+<demo-block title="事件监听">
+  <wd-sort-button value="价格" bind:click="handleClick"/>
+</demo-block>
+
+

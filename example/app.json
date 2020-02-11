@@ -32,7 +32,8 @@
     "pages/tabs/index",
     "pages/checkbox/index",
     "pages/form/index",
-    "pages/swipeAction/index"
+    "pages/swipeAction/index",
+    "pages/sortButton/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -130,6 +130,9 @@ Page({
           }, {
             id: 'progress',
             name: 'Progress 进度条'
+          }, {
+            id: 'sortButton',
+            name: 'SortButton 排序按钮'
           }
         ]
       }
