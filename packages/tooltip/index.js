@@ -31,10 +31,6 @@ VueComponent({
         })
       }
     },
-    openDelay: {
-      type: Number,
-      value: 300
-    },
     visibleArrow: {
       type: Boolean,
       value: true
@@ -64,11 +60,17 @@ VueComponent({
       type: Boolean,
       value: false
     },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
     show: {
       type: Boolean,
       observer (newValue) {
+        if (this.data.disabled) return
         newValue && this.control()
         this.setData({ visible: newValue })
+        this.$emit(`${newValue === true ? 'show' : 'hide'}`)
       }
     },
     // menu || normal
@@ -79,7 +81,7 @@ VueComponent({
   },
   mounted () {
     this.setData({
-      lineColor: this.data.effect === 'dark' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
+      lineColor: this.data.effect === 'dark' ? '#666' : '#eee'
     })
     Promise.all([
       this.getRect('.wd-tooltip__target'),
@@ -100,9 +102,7 @@ VueComponent({
   methods: {
     click (event) {
       const { show } = this.data
-      this.setData({
-        show: !show
-      })
+      this.setData({ show: !show })
     },
     checkType (value) {
       return Object.prototype.toString.call(value).slice(8, -1)
@@ -142,6 +142,11 @@ VueComponent({
         popStyle: placements.get(placement),
         arrowClass: visibleArrow && `wd-tooltip__arrow-${placement}`
       })
+    },
+    menuClick (event) {
+      this.setData({ show: false })
+      const item = event.currentTarget.dataset
+      this.$emit('menu-click', item)
     }
   }
 })

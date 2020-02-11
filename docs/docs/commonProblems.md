@@ -155,4 +155,4 @@ Some selectors are not allowed in component wxss, including tag name selectors, 
 
 ### 关于我们
 
-**如果您的问题不在上述列表中或您有更好的建议，请联系我们 `ftf@jd.com`**
+**如果您的问题不在上述列表中或您有更好的建议，请联系我们 `ftf@jd.com` **
