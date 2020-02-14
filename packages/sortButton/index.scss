@@ -2,7 +2,6 @@
 @import '../common/abstracts/mixin';
 
 @include b(sort-button){
-
   display: inline-block;
 
   @include e(wrapper){
@@ -16,22 +15,31 @@
   }
 
   @include e(right){
-    height: 10px;
     margin-left: 2px;
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     @include when(only){
       justify-content: center;
+
+      .wd-sort-button__icon--top,
+      .wd-sort-button__icon--bottom{
+        margin: 0;
+      }
     }
   }
 
   @include e(icon){
     display: block;
-    font-size: 8px;
-    line-height: 4px;
+    transform: scale((4/7));
+
+    @include m(top){
+      margin-bottom: -4px;
+    }
+    @include m(bottom){
+      margin-top: -4px;
+    }
   }
 }
 
