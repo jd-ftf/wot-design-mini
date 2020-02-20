@@ -93,8 +93,8 @@ $placement:'top','top-start','top-end', 'bottom','bottom-start','bottom-end', 'r
     }
 
     @include when(light){
-      background-color: $-color-white;
-      color: $-color-text;
+      background-color: #fff;
+      color: $-color-content;
       border: 1px solid $-tooltip-bg-color;
       .wd-tooltip__arrow-top,
       .wd-tooltip__arrow-top-end,
@@ -108,7 +108,7 @@ $placement:'top','top-start','top-end', 'bottom','bottom-start','bottom-end', 'r
           margin-left: - $-tooltip-arrow-height;
           height:  0;
           border-color: transparent;
-          border-top-color: $-color-white;
+          border-top-color: #fff;
           border-style: solid;
         }
       }
@@ -124,7 +124,7 @@ $placement:'top','top-start','top-end', 'bottom','bottom-start','bottom-end', 'r
           margin-left: - $-tooltip-arrow-height;
           height:  0;
           border-color: transparent;
-          border-bottom-color: $-color-white;
+          border-bottom-color: #fff;
           border-style: solid;
         }
       }
@@ -140,7 +140,7 @@ $placement:'top','top-start','top-end', 'bottom','bottom-start','bottom-end', 'r
           margin-left: - $-tooltip-arrow-height * 2 - 2;
           height:  0;
           border-color: transparent;
-          border-left-color: $-color-white;
+          border-left-color: #fff;
           border-style: solid;
         }
       }
@@ -156,7 +156,7 @@ $placement:'top','top-start','top-end', 'bottom','bottom-start','bottom-end', 'r
           margin-left: 2px;
           height:  0;
           border-color: transparent;
-          border-right-color: $-color-white;
+          border-right-color: #fff;
           border-style: solid;
         }
       }

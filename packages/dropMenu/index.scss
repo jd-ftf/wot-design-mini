@@ -3,14 +3,14 @@
 
 @include b(drop-menu) {
   display: flex;
-  background-color: $-color-white;
+  background-color: #fff;
   box-sizing: border-box;
-  color: $-color-title;
-  font-size: 14px;
+  color: $-drop-menu-color;
+  font-size: $-drop-menu-fs;
 
   @include e(title) {
     flex: 1;
-    padding: 0px 15px;
+    padding: 0 $-drop-menu-side-padding;
     height: $-drop-menu-height;
     line-height: $-drop-menu-height;
     position: relative;
@@ -19,29 +19,29 @@
     &::before{
       position: absolute;
       content: "";
-      width: 200%;
-      height: 0;
+      width: 100%;
+      height: 1px;
       left: 0;
       top: 0;
-      border-top: 1px solid $-color-line;
-      transform: scale(.5);
-      transform-origin: left top;
+      background: $-color-border-light;
+      transform: scaleY(.5);
+      transform-origin: center top;
       z-index: 100;
     }
     &::after{
       position: absolute;
       content: "";
-      width: 200%;
-      height: 0;
+      width: 100%;
+      height: 1px;
       left: 0;
       top: $-drop-menu-height - 1;
-      border-bottom: 1px solid $-color-line;
-      transform: scale(.5);
-      transform-origin: left bottom;
+      background: $-color-border-light;
+      transform: scaleY(.5);
+      transform-origin: center bottom;
       z-index: 100;
     }
     @include when(disabled) {
-      color: $-color-tip;
+      color: $-drop-menu-disabled-color;
     }
   }
 

@@ -8,16 +8,16 @@
   height: $-slider-handle-radius * 3;
 
   @include e(label-min, label-max) {
-    font-size: $-slider-font-size;
-    color: $-slider-font-color;
+    font-size: $-slider-fs;
+    color: $-slider-color;
   }
   @include e(label) {
     text-align: center;
     width: $-slider-handle-radius * 2;
     line-height: $-slider-handle-radius * 2;
-    font-size: $-slider-font-size;
-    color: $-slider-font-color;
-    background-color: rgba($color: $-color-white, $alpha: 0.5);
+    font-size: $-slider-fs;
+    color: $-slider-color;
+    background-color: rgba($color: #fff, $alpha: 0.5);
     border-radius: 100%;
     position: absolute;
     top: -$-slider-handle-radius * 2;
@@ -33,7 +33,7 @@
     position: relative;
     border-radius: inherit;
     height: $-slider-axie-height;
-    background-color: $-color-theme;
+    background-color: $-slider-line-color;
   }
   @include e(button-wrapper) {
     width: $-slider-handle-radius * 2;
@@ -49,17 +49,17 @@
   @include e(button) {
     height: $-slider-handle-radius * 2;
     width: $-slider-handle-radius * 2;
-    background-color: $-color-white;
+    background-color: #fff;
     border-radius: 100%;
-    border: 1px solid $-slider-axie-bg-color;
-    box-shadow: 0 2px 4px 0 rgba($color: $-color-black, $alpha: 0.3);
+    border: 1px solid $-slider-axie-bg;
+    box-shadow: 0 2px 4px 0 rgba($color: #000, $alpha: 0.3);
   }
   @include m(disabled) {
     @include me(bar) {
-      background-color: $-slider-disable-line-color;
+      background-color: $-slider-disabled-line-color;
     }
     @include me(label-min, label-max) {
-      color: $-slider-disable-font-color;
+      color: $-slider-disabled-color;
     }
   }
 }

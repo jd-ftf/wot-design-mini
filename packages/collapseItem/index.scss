@@ -10,11 +10,11 @@
     overflow: hidden;
     user-select: none;
 
-    @include halfPixelBorder(top, 15px);
+    @include halfPixelBorder(top, $-collapse-side-padding);
   }
   @include e(title) {
     color: $-collapse-title-color;
-    font-size: $-collapse-title-size;
+    font-size: $-collapse-title-fs;
   }
   @include e(arrow) {
     display: block;
@@ -32,12 +32,12 @@
     overflow: hidden;
     will-change: height;
 
-    @include halfPixelBorder(top, 15px);
+    @include halfPixelBorder(top, $-collapse-side-padding);
   }
   @include e(body) {
     padding: $-collapse-body-padding;
     color: $-collapse-body-color;
-    font-size: $-collapse-body-size;
+    font-size: $-collapse-body-fs;
   }
 
   @include when(disabled) {

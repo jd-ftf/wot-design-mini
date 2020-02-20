@@ -13,7 +13,7 @@
       <text>{{ placeholder || '搜索' }}</text>
     </view>
     <!--icon:search-->
-    <wd-icon name="search" class="wd-search__search-icon"></wd-icon>
+    <wd-icon name="search" class="wd-search__search-left-icon"></wd-icon>
     <!--搜索框-->
     <input
       placeholder="{{ placeholder || '搜索' }}"
