@@ -27,8 +27,8 @@ Page({
   },
   showLoadingToast () {
     Toast.loading('3s后调用close关闭')
-    // setTimeout(() => {
-    //   Toast.close()
-    // }, 3000)
+    setTimeout(() => {
+      Toast.close()
+    }, 3000)
   }
 })

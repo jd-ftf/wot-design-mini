@@ -1,8 +1,12 @@
 Page({
   data: {
-    value: 1
+    value1: 5,
+    value2: 3.5
   },
-  changeValue ({ detail }) {
-    this.setData({ value: detail })
+  changeValue1 ({ detail }) {
+    this.setData({ value1: detail })
+  },
+  changeValue2({ detail }) {
+    this.setData({ value2: detail })
   }
 })

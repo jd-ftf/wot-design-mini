@@ -150,7 +150,7 @@ page({
 也可以设置`auto-height`使高度自增加。
 
 ```html
-<wd-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
+<wd-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange" clearable/>
 ```
 
 ### 设置label标题
