@@ -17,6 +17,11 @@
           "path": "/quickUse",
           "demo": "/"
         },
+        "CustomTheme": {
+          "name": "自定义主题",
+          "path": "/customTheme",
+          "demo": "/"
+        },
         "Changelog": {
           "name": "更新日志",
           "type": "pages",
