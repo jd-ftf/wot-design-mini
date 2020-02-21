@@ -1,4 +1,4 @@
-<demo-block title="展示消息数量value">
+<demo-block title="展示消息数量">
     <wd-badge custom-class="badge" value="12">
         <wd-button size="small">评论</wd-button>
     </wd-badge>
@@ -19,7 +19,7 @@
     </wd-badge>
 </demo-block>
 
-<demo-block title="可定义消息最大值max">
+<demo-block title="可定义消息最大值">
     <wd-badge custom-class="badge" value="200" max="99">
         <wd-button size="small">评论</wd-button>
     </wd-badge>
@@ -28,7 +28,7 @@
     </wd-badge>
 </demo-block>
 
-<demo-block title="可自己定制内容value，value 设置为字符串">
+<demo-block title="自定义内容">
     <wd-badge custom-class="badge" value="new">
         <wd-button size="small">评论</wd-button>
     </wd-badge>
@@ -37,7 +37,7 @@
     </wd-badge>
 </demo-block>
 
-<demo-block title="小红点is-dot">
+<demo-block title="点状类型">
     <wd-badge custom-class="badge" is-dot>数据查询</wd-badge>
     <wd-badge custom-class="badge" is-dot>
         <wd-button size="small">回复</wd-button>

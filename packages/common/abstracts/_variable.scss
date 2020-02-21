@@ -137,7 +137,7 @@ $-cell-value-fs: $-fs-content !default; // 右侧内容字号
 $-cell-value-color: $-color-content !default; // 右侧内容文字颜色
 $-cell-arrow-size: 14px !default; // 右箭头大小
 $-cell-arrow-color: $-color-icon !default; // 右箭头颜色
-$-cell-tap-bg: rgba(158, 47, 47, 0.06) !default; // 点击态背景色
+$-cell-tap-bg: rgba(0, 0, 0, 0.06) !default; // 点击态背景色
 
 /* checkbox */
 $-checkbox-margin: 10px !default; // 多个复选框距离

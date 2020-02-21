@@ -14,6 +14,7 @@
     height: 1px;
     background: $-input-border-color;
     transform: scaleY(0.5);
+    z-index: 3;
   }
   @include e(label) {
     width: $-input-cell-label-width;
@@ -125,6 +126,18 @@
       display: none;
     }
   }
+  @include when(auto-height) {
+    &::after {
+      display: block;
+    }
+    .wd-input__textarea {
+      padding: $-input-inner-padding;
+    }
+    .wd-input__textarea-suffix {
+      top: 8px;
+      right: 0;
+    }
+  }
   @include e(inner) {
     flex: 1;
     height: $-input-inner-height;
@@ -170,18 +183,18 @@
     padding: $-input-textarea-padding;
     font-size: 0;
     display: flex;
+    background: #fff;
 
     @include when(show-limit) {
       padding-bottom: 25px;
     }
-    @include when(text-auto) {
-      padding: $-input-inner-padding;
-
-      .wd-input__textarea-suffix {
-        top: 0;
-        right: 0;
-      }
-    }
+  }
+  @include e(textarea-icon) {
+    margin-left: 8px;
+    font-size: $-input-icon-size;
+    line-height: 20px;
+    color: $-input-icon-color;
+    background: #fff;
   }
   @include e(textarea-inner) {
     flex: 1;
@@ -203,8 +216,8 @@
   }
   @include e(textarea-suffix) {
     position: absolute;
-    right: 0;
-    top: 2px;
+    right: 14px;
+    top: 15px;
     bottom: 0;
     z-index: 2;
   }

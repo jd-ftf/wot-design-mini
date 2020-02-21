@@ -29,14 +29,14 @@
 	<demo-block title="字数限制">
 		<wd-input type="text" value="{{ value7 }}" maxlength="20" show-word-limit="{{ true }}" />
 	</demo-block>
-	<demo-block title="textarea">
+	<demo-block title="textarea" transparent>
 		<wd-input type="textarea" value="{{ value8 }}" placeholder="请输入..." />
 	</demo-block>
-	<demo-block title="textarea 清空按钮 和 字数限制">
+	<demo-block title="textarea 清空按钮 和 字数限制" transparent>
 		<wd-input type="textarea" value="{{ value9 }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" />
 	</demo-block>
 	<demo-block title="textarea 高度自适应">
-		<wd-input type="textarea" value="" auto-height='true' placeholder="请输入..."></wd-input>
+		<wd-input type="textarea" value="" auto-height='true' placeholder="请输入..." clearable></wd-input>
 	</demo-block>
 	<demo-block title="cell 类型" transparent>
 		<wd-cell-group>

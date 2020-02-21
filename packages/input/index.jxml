@@ -1,4 +1,4 @@
-<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label || useLabelSlot ? 'is-cell' : '' }} {{ center ? 'is-center' : '' }} {{ noHair ? 'is-no-hair' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} custom-class">
+<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label || useLabelSlot ? 'is-cell' : '' }} {{ center ? 'is-center' : '' }} {{ noHair ? 'is-no-hair' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ autoHeight ? 'is-auto-height' : '' }} custom-class">
   <view jd:if="{{ label || useLabelSlot }}" class="wd-input__label custom-label-class" style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
     <view jd:if="{{ prefixIcon || usePrefixSlot }}" class="wd-input__prefix">
       <wd-icon jd:if="{{ prefixIcon }}" custom-class="wd-input__icon" name="{{ prefixIcon }}" bind:tap="onClickPrefixIcon" />
@@ -43,7 +43,7 @@
           bindkeyboardheightchange="handleKeyboardheightchange"
         />
         <view class="wd-input__textarea-suffix">
-          <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__icon" name="close-outline" catchtap="clear"/>
+          <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__textarea-icon" name="close-outline" catchtap="clear"/>
           <view jd:if="{{ showWordCount }}" class="wd-input__textarea-count">
             <text class="wd-input__textarea-count-current {{ value.length> parseInt(maxlength) ? 'is-error' : '' }}">{{ value.length }}</text>/{{ maxlength }}
           </view>
