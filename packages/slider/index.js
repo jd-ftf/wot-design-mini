@@ -186,18 +186,18 @@ VueComponent({
       const { min, max, showRight } = this.data
       value = this.format(value)
       // 把 value 转换成百分比
-      const percent = this.format((value - min) / (max - min) * 100)
+      const percent = (value - min) / (max - min) * 100
       if (!showRight) {
         this.setData({
           value,
           leftNewValue: value,
-          leftBarPercent: this.format(percent),
+          leftBarPercent: percent,
           barStyle: `width: ${percent}%; height: ${this.data.barHeight};`
         })
       } else {
         this.setData({
           leftNewValue: value,
-          leftBarPercent: this.format(percent)
+          leftBarPercent: percent
         })
         this.styleControl()
       }
