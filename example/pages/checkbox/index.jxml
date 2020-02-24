@@ -41,14 +41,14 @@
 
 <demo-block title="禁用状态">
   <view style="margin-bottom: 10px;">
-    <wd-checkbox-group value="{{[1,3]}}" disabled="{{true}}">
+    <wd-checkbox-group value="{{[1,3]}}" disabled>
       <wd-checkbox value="{{1}}">京麦</wd-checkbox>
       <wd-checkbox value="{{2}}">商家后台</wd-checkbox>
       <wd-checkbox value="{{3}}" shape="square">京麦</wd-checkbox>
       <wd-checkbox value="{{4}}" shape="square">商家后台</wd-checkbox>
     </wd-checkbox-group>
   </view>
-  <wd-checkbox-group  value="{{[1]}}" disabled="{{true}}">
+  <wd-checkbox-group  value="{{[1]}}" disabled>
     <wd-checkbox value="{{1}}" shape="button">京麦</wd-checkbox>
     <wd-checkbox value="{{2}}" shape="button">商家后台</wd-checkbox>
   </wd-checkbox-group>

@@ -8,12 +8,12 @@
     <wd-button type="error">危险按钮</wd-button>
   </demo-block>
   <demo-block title="禁用按钮">
-    <wd-button disabled="{{true}}">默认按钮</wd-button>
-    <wd-button type="primary" disabled="{{true}}">主要按钮</wd-button>
-    <wd-button type="success" disabled="{{true}}">成功按钮</wd-button>
-    <wd-button type="info" disabled="{{true}}">信息按钮</wd-button>
-    <wd-button type="warning" disabled="{{true}}">警告按钮</wd-button>
-    <wd-button type="error" disabled="{{true}}">危险按钮</wd-button>
+    <wd-button disabled>默认按钮</wd-button>
+    <wd-button type="primary" disabled>主要按钮</wd-button>
+    <wd-button type="success" disabled>成功按钮</wd-button>
+    <wd-button type="info" disabled>信息按钮</wd-button>
+    <wd-button type="warning" disabled>警告按钮</wd-button>
+    <wd-button type="error" disabled>危险按钮</wd-button>
   </demo-block>
   <demo-block title="幽灵按钮">
     <wd-button plain>默认按钮</wd-button>
@@ -24,12 +24,12 @@
     <wd-button type="error" plain>危险按钮</wd-button>
   </demo-block>
   <demo-block title="幽灵按钮禁用状态">
-    <wd-button plain disabled="{{true}}">默认按钮</wd-button>
-    <wd-button type="primary" plain disabled="{{true}}">主要按钮</wd-button>
-    <wd-button type="success" plain disabled="{{true}}">成功按钮</wd-button>
-    <wd-button type="info" plain disabled="{{true}}">信息按钮</wd-button>
-    <wd-button type="warning" plain disabled="{{true}}">警告按钮</wd-button>
-    <wd-button type="error" plain disabled="{{true}}">危险按钮</wd-button>
+    <wd-button plain disabled>默认按钮</wd-button>
+    <wd-button type="primary" plain disabled>主要按钮</wd-button>
+    <wd-button type="success" plain disabled>成功按钮</wd-button>
+    <wd-button type="info" plain disabled>信息按钮</wd-button>
+    <wd-button type="warning" plain disabled>警告按钮</wd-button>
+    <wd-button type="error" plain disabled>危险按钮</wd-button>
   </demo-block>
   <demo-block title="圆角按钮">
     <wd-button round>默认按钮</wd-button>
@@ -46,11 +46,11 @@
   </demo-block>
   <demo-block title="文字按钮">
     <wd-button type="text">按钮</wd-button>
-    <wd-button type="text" disabled="{{true}}">按钮</wd-button>
+    <wd-button type="text" disabled>按钮</wd-button>
   </demo-block>
   <demo-block title="图标按钮">
     <wd-button type="icon" icon="menu"></wd-button>
-    <wd-button type="icon" icon="menu" disabled="{{true}}"></wd-button>
+    <wd-button type="icon" icon="menu" disabled></wd-button>
   </demo-block>
   <demo-block title="带图标的基本按钮">
     <wd-button type="primary" icon="edit-outline">修改</wd-button>

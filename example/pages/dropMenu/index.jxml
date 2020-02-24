@@ -17,7 +17,7 @@
 	<demo-block title="自定义菜单内容" transparent>
 		<wd-drop-menu>
 			<wd-drop-menu-item value="0" options="{{ option1 }}" />
-			<wd-drop-menu-item options="筛选" id="drop-menu" use-drop-item-slot="{{ true }}">
+			<wd-drop-menu-item options="筛选" id="drop-menu" use-drop-item-slot>
 				<view slot="custom">
 					<wd-cell title="标题文字" value="内容" icon="setting" />
 					<wd-cell title="标题文字" value="内容" icon="collect" />
@@ -28,7 +28,7 @@
 		</wd-drop-menu>
 	</demo-block>
 	<demo-block title="自定义菜单选项" transparent>
-		<wd-drop-menu use-drop-menu-slot="{{ true }}">
+		<wd-drop-menu use-drop-menu-slot>
 			<wd-drop-menu-item value="0" options="{{ option1 }}" />
 			<view slot="menu" style="line-height: 14px;">
 				<wd-sort-button title="价格" allow-reset bind:click="handleClick" />

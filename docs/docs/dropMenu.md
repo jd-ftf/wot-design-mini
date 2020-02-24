@@ -136,7 +136,7 @@ Page({
 注意: 使用 `dropMenu` 插槽的过程中，菜单内容和展开方式也需要用户自行控制。如果只需要控制选项卡上的选项(如: `sortButton`), 则不需要展开折叠。
 
 ```html
-<wd-drop-menu use-drop-menu-slot="{{ true }}">
+<wd-drop-menu use-drop-menu-slot>
   <wd-drop-menu-item value="0" options="{{ option1 }}" />
   <view slot="menu" style="line-height: 14px;">
     <wd-sort-button title="价格" allow-reset/>

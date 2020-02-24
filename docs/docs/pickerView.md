@@ -32,7 +32,7 @@ Page({
 选项可以为对象，设置 `disabled` 属性。
 
 ```html
-<wd-picker-view columns="{{columns}}" value="{{value}}" disabled="{{true}}" />
+<wd-picker-view columns="{{columns}}" value="{{value}}" disabled />
 ```
 ```javascript
 Page({
@@ -48,7 +48,7 @@ Page({
 设置 `loading` 属性。
 
 ```html
-<wd-picker-view columns="{{columns}}" loading="{{true}}" />
+<wd-picker-view columns="{{columns}}" loading />
 ```
 ### 多列
 

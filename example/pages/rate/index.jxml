@@ -7,7 +7,7 @@
 </demo-block>
 
 <demo-block title="禁用状态">
-  <wd-rate value="{{2}}" disabled="{{true}}"/>
+  <wd-rate value="{{2}}" disabled/>
 </demo-block>
 
 <demo-block title="修改选中颜色">

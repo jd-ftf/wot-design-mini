@@ -76,9 +76,9 @@ Page({
 ```html
 <wd-input
   value="{{ value }}"
-  clearable="{{ true }}"
-  use-suffix-slot="{{ true }}"
-  use-prefix-slot="{{ true }}"
+  clearable
+  use-suffix-slot
+  use-prefix-slot
   bind:change="handleChange">
     <view slot="prefix">1</view>
     <view slot="suffix">2</view>
@@ -93,9 +93,9 @@ Page({
 ```html
 <wd-input
   value="{{ value }}"
-  clearable="{{ true }}"
-  use-suffix-slot="{{ true }}"
-  use-prefix-slot="{{ true }}"
+  clearable
+  use-suffix-slot
+  use-prefix-slot
   custom-suffix-class="suffix-slot"
   bind:change="handleChange">
     <view slot="prefix">1</view>
@@ -116,22 +116,6 @@ Page({
 
 * 如果某一列(以下简称列)中有10个选项，而且列当前选中第10项。如果此时把列的选项个数修改后还剩下3个，那么选中项会由第10项滑落到第3项，同时触发change事件。
 * 修改原生pickerView的columns，当手动触发change事件时，callback中的的event.detail表示的数组长度是修改columns之前的长度,所以event.detail的长度并不会跟随并不会columns缩减。
-
-## properties
-
-###  单键值设置
-
-若发现 `properties` 传值不生效，则将写法改成 `等式`，该问题为京东小程序编译问题。
-
-```html
-<!-- disabled 属性不生效 -->
-<view disabled ></view> 
-```
-
-```html
-<!-- disabled 属性生效 -->
-<view disabled="{{ true }}"></view>
-```
 
 ## 样式
 

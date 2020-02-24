@@ -28,7 +28,7 @@
 设置 `disabled` 属性。
 
 ```html
-<wd-button disabled="{{true}}">默认按钮</wd-button>
+<wd-button disabled>默认按钮</wd-button>
 ```
 
 ### 幽灵按钮

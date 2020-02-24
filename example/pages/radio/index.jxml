@@ -46,12 +46,12 @@
 
 <demo-block title="禁用">
   <view style="margin-bottom: 10px;">
-    <wd-radio-group value="{{1}}" disabled="{{true}}">
+    <wd-radio-group value="{{1}}" disabled>
       <wd-radio value="{{1}}">京麦</wd-radio>
       <wd-radio value="{{2}}">商家后台</wd-radio>
     </wd-radio-group>
   </view>
-  <wd-radio-group value="{{1}}" disabled="{{true}}" shape="button">
+  <wd-radio-group value="{{1}}" disabled shape="button">
     <wd-radio value="{{1}}">京麦</wd-radio>
     <wd-radio value="{{2}}">商家后台</wd-radio>
   </wd-radio-group>
@@ -60,7 +60,7 @@
 <demo-block title="radio的props比radioGroup的优先级高">
   <wd-radio-group
     hape="button"
-    disabled="{{true}}"
+    disabled
     checked-color="#f00"
     data-index="{{4}}"
     value="{{value4}}"

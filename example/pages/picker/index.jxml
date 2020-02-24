@@ -2,9 +2,9 @@
 <demo-block transparent>
   <wd-cell-group>
     <wd-picker label="单列选项" columns="{{columns0}}"/>
-    <wd-picker label="禁用" disabled="{{true}}" value="{{value1}}" columns="{{columns1}}"/>
+    <wd-picker label="禁用" disabled value="{{value1}}" columns="{{columns1}}"/>
     <wd-picker label="只读" readonly value="{{value2}}" columns="{{columns2}}"/>
-    <wd-picker label="loading" loading="{{true}}" columns="{{columns3}}"/>
+    <wd-picker label="loading" loading columns="{{columns3}}"/>
     <wd-picker label="多列" value="{{value4}}" columns="{{columns4}}"/>
     <wd-picker
       label="多级联动"

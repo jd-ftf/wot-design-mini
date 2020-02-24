@@ -30,7 +30,7 @@
         <wd-collapse-item title="标签1" name="item1">
           这是一条简单的示例文字。
         </wd-collapse-item>
-        <wd-collapse-item title="标签2" name="item2" disabled="{{ true }}">
+        <wd-collapse-item title="标签2" name="item2" disabled>
           这是一条简单的示例文字。
         </wd-collapse-item>
         <wd-collapse-item title="标签3" name="item3">
@@ -39,17 +39,17 @@
       </wd-collapse>
 	</demo-block>
 	<demo-block title="查看更多" transparent>
-		<wd-collapse viewmore="{{ true }}" value="{{ value4 }}" bind:change="handleChange4">
+		<wd-collapse viewmore value="{{ value4 }}" bind:change="handleChange4">
 			这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
 		</wd-collapse>
 	</demo-block>
 	<demo-block title="查看更多-行数显示设置" transparent>
-		<wd-collapse viewmore="{{ true }}" value="{{ value4 }}" bind:change="handleChange4" line-num="3">
+		<wd-collapse viewmore value="{{ value4 }}" bind:change="handleChange4" line-num="3">
 			行数显示设置：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
 		</wd-collapse>
 	</demo-block>
 	<demo-block title="查看更多-具名插槽" transparent>
-		<wd-collapse viewmore="{{ true }}" value="{{ value5 }}" bind:change="handleChange5" use-more-slot="{{ true }}" custom-more-slot-class="more-slot">
+		<wd-collapse viewmore value="{{ value5 }}" bind:change="handleChange5" use-more-slot custom-more-slot-class="more-slot">
 			具名插槽：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
 			<view slot="more">显示全部</view>
 		</wd-collapse>
