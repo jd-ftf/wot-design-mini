@@ -81,13 +81,13 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<wd-search disabled="{{true}}" />
+<wd-search disabled />
 ```
 
 可以和 `hide-cancel` 结合使用，用于在本页只展示搜索框，当点击搜索框时，将页面路由切换进搜索页，在搜索页中再使用搜索功能。
 
 ```html
-<wd-search hide-cancel disabled="{{true}}" />
+<wd-search hide-cancel disabled />
 ```
 
 ### 自定义

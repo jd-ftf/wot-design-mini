@@ -128,7 +128,7 @@ Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 使用插槽时，请使用 `useContentSlot` 属性，确定 `content` 插槽开启。
 
 ```html
-<wd-tooltip placement="right" useContentSlot="{{ true }}">
+<wd-tooltip placement="right" useContentSlot>
   <wd-button >多行文本</wd-button>
   <view slot="content" style="color: red; padding: 5px; width: 90px">
     <view>多行文本1</view>
@@ -181,7 +181,7 @@ Page({
 如果需要关闭 `tooltip` 功能，`disabled` 属性可以满足这个需求，它接受一个`Boolean`，设置为`true`即可。
 
 ```html
-<wd-tooltip placement="right-end" content="禁用" disabled="{{ true }}">
+<wd-tooltip placement="right-end" content="禁用" disabled>
   <wd-button >禁用</wd-button>
 </wd-tooltip>
 ```

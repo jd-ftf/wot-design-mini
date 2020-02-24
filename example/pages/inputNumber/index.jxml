@@ -9,7 +9,7 @@
     <wd-input-number value="{{ value3 }}" bind:change="handleChange3" min="{{ 3 }}" max="{{ 10 }}" />
   </demo-block>
   <demo-block title="禁用">
-    <wd-input-number value="{{ value4 }}" bind:change="handleChange4" disabled="{{true}}" />
+    <wd-input-number value="{{ value4 }}" bind:change="handleChange4" disabled />
   </demo-block>
   <demo-block title="无输入框">
     <view class="flex">

@@ -50,7 +50,7 @@ Page({
 设置 `disabled` 属性。
 
 ```html
-<wd-input-number value="{{ value }}" bind:change="handleChange" disabled="{{true}}" />
+<wd-input-number value="{{ value }}" bind:change="handleChange" disabled />
 ```
 
 ### 无输入框
