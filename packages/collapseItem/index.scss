@@ -22,6 +22,7 @@
     color: $-collapse-arrow-color;
     transition: transform .3s;
 
+
     @include when(retract) {
       transform: rotate(-180deg);
     }

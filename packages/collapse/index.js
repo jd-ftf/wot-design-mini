@@ -20,8 +20,9 @@ VueComponent({
         } else if (!accordion && !viewmore && this.checkType(newVal) !== 'Array') {
           throw Error('value must be Array')
         }
+        // 初始状态不执行动画
         // 外部修改 value 滚动
-        if (!viewmore && this.children) {
+        if (oldVal && !viewmore && this.children) {
           this.children.forEach((item) => {
             const { name, isExpand } = item.data
             const condition = newVal === name || newVal.indexOf(name) > -1
