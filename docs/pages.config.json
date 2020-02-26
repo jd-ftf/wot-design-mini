@@ -77,6 +77,11 @@
                 "name": "Tabs 标签页",
                 "path": "/tabs",
                 "demo": "/tabs"
+              },
+              "Grid": {
+                "name": "Grid 宫格",
+                "path": "/grid",
+                "demo": "/grid"
               }
             }
           }, {

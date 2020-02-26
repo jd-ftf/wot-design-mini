@@ -34,6 +34,9 @@ Page({
           }, {
             id: 'tabs',
             name: 'Tabs 标签页'
+          }, {
+            id: 'grid',
+            name: 'Grid 宫格'
           }
         ]
       }, {
@@ -75,8 +78,8 @@ Page({
             id: 'switch',
             name: 'Switch 开关'
           }, {
-            id: "form",
-            name: "Form 表单组件组合"
+            id: 'form',
+            name: 'Form 表单组件组合'
           }
         ]
       }, {
