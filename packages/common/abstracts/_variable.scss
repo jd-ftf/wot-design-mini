@@ -393,9 +393,15 @@ $-toast-icon-size: 39px !default; // 图标大小
 $-toast-loading-padding: 10px !default; // loading 下的padding
 
 /* tooltip */
-$-tooltip-bg-color: rgba(0, 0, 0, 0.7) !default;
-$-tooltip-lineheight: 19px !default;
-$-tooltip-arrow-height: 3px !default;
-$-tooltip-fontsize: 14px !default;
-$-tooltip-blur: 10px !default;
-$-tooltip-color: #fff !default;
+$-tooltip-bg-color: rgba(0, 0, 0, 0.7) !default; // dark模式下默认背景颜色
+$-tooltip-lineheight: 19px !default; // 行高
+$-tooltip-arrow-height: 3px !default; // 尖角高度
+$-tooltip-fs: 14px !default; // 字号
+$-tooltip-blur: 10px !default; // 高斯模糊程度
+$-tooltip-color: #fff !default; // 默认文字颜色
+
+/* grid-item */
+$-grid-item-fs: 12px !default; // 字号
+$-grid-item-padding: 15px 10px !default; // 内容的 padding
+$-grid-item-border-color: $-color-border-light !default; // 边框颜色
+

@@ -172,7 +172,7 @@ $placement:'top','top-start','top-end', 'bottom','bottom-start','bottom-end', 'r
 
   @include e(container) {
     line-height: $-tooltip-lineheight;
-    font-size: $-tooltip-fontsize;
+    font-size: $-tooltip-fs;
   }
 
   @include e(inner) {
