@@ -40,6 +40,7 @@ git commit -m "feat(button): new color"
 | chore | 本次 commit 和组件库的构建行为挂钩 |
 | docs | 本次 commit 修改了组件库的 markdown 文档 |
 | demo | 如果本次 commit 为组件新增了某个 usage |
+| util | 如果本次 commit 为组件新增了某个 工具方法 |
 | 组件名 | 如果本次 commit 是针对某个组件的行为，但在上述列表无法找到符合的 type ，则 commit 类型可以直接为该组件的名称。 |
 
 ### commit 修改项
