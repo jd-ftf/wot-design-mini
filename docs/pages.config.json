@@ -82,6 +82,11 @@
                 "name": "Grid 宫格",
                 "path": "/grid",
                 "demo": "/grid"
+              },
+              "Layout": {
+                "name": "Layout 布局",
+                "path": "/layout",
+                "demo": "/layout"
               }
             }
           }, {
