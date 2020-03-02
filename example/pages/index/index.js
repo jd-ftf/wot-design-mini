@@ -37,6 +37,9 @@ Page({
           }, {
             id: 'grid',
             name: 'Grid 宫格'
+          }, {
+            id: 'layout',
+            name: 'Layout 布局'
           }
         ]
       }, {
