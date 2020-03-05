@@ -1,0 +1,1 @@
+.wd-swipe-action{position:relative;overflow:hidden}.wd-swipe-action__left{left:0;transform:translate3d(-100%,0,0)}.wd-swipe-action__right{right:0;transform:translate3d(100%,0,0)}.wd-swipe-action__left,.wd-swipe-action__right{position:absolute;top:0;height:100%}

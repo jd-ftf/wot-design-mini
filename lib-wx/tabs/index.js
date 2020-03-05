@@ -1,6 +1,11 @@
 import VueComponent from '../common/component';
 import { getType, checkNumRange, debounce } from '../common/util';
 import touch from '../mixins/touch';
+const $tabs = '.wd-tabs';
+const $body = '.wd-tabs__body';
+const $nav = '.wd-tabs__nav';
+const $item = '.wd-tabs__nav-item';
+const $container = '.wd-tabs__nav-container';
 VueComponent({
   mixins: [touch()],
   relations: {
@@ -179,7 +184,7 @@ VueComponent({
         slidableNum,
         items
       } = this.data;
-      this.getRect('.wd-tabs__nav-item', true).then(rects => {
+      this.getRect($item, true).then(rects => {
         const rect = rects[activeIndex];
         const width = lineWidth || (slidableNum < items.length ? rect.width : rect.width - 14);
         let left = rects.slice(0, activeIndex).reduce((prev, curr) => prev + curr.width, 0);
@@ -211,7 +216,7 @@ VueComponent({
         items,
         lazyRender
       } = this.data;
-      this.getRect('.wd-tabs__body').then(rect => {
+      this.getRect($body).then(rect => {
         const {
           width
         } = rect;
@@ -254,7 +259,7 @@ VueComponent({
       const {
         activeIndex
       } = this.data;
-      Promise.all([this.getRect('.wd-tabs__nav-item', true), this.getRect('.wd-tabs__nav-container')]).then(([navItemsRects, navRect]) => {
+      Promise.all([this.getRect($item, true), this.getRect($container)]).then(([navItemsRects, navRect]) => {
         // 选中元素
         const selectItem = navItemsRects[activeIndex]; // 选中元素之前的节点的宽度总和
 
@@ -350,13 +355,13 @@ VueComponent({
       const {
         windowHeight
       } = wx.getSystemInfoSync();
-      this.getRect('.wd-tabs__nav').then(({
+      this.getRect($nav).then(({
         height: navHeight
       }) => {
         this.createIntersectionObserver().disconnect();
         this.createIntersectionObserver().relativeToViewport({
           top: -(navHeight + offsetTop)
-        }).observe('.wd-tabs', res => {
+        }).observe($tabs, res => {
           if (res.boundingClientRect.top > offsetTop) return;
           let navStyle = '';
 
@@ -396,7 +401,7 @@ VueComponent({
         });
         this.createIntersectionObserver().relativeToViewport({
           bottom: -(windowHeight - 1 - offsetTop)
-        }).observe('.wd-tabs', res => {
+        }).observe($tabs, res => {
           if (res.boundingClientRect.bottom < navHeight) return;
           let navStyle = '';
 

@@ -1,6 +1,8 @@
 <wd-picker
   custom-class="custom-class"
   custom-view-class="custom-view-class"
+  custom-label-class="custom-label-class"
+  custom-value-class="custom-value-class"
   id="wd-picker"
   label="{{label}}"
   placeholder="{{placeholder}}"
@@ -14,7 +16,15 @@
   item-height="{{itemHeight}}"
   value="{{pickerValue}}"
   columns="{{columns}}"
-  bind:change="onChange"
+  no-hair="{{noHair}}"
+  size="{{size}}"
+  use-label-slot="{{useLabelSlot}}"
+  error="{{error}}"
+  label-width="{{labelWidth}}"
+  align-right="{{alignRight}}"
   bind:confirm="onConfirm"
   bind:cancel="onCancel"
-/>
+  bind:open="onOpen"
+>
+  <slot wx:if="{{useLabelSlot}}" name="label" slot="label" />
+</wd-picker>

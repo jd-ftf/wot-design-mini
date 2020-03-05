@@ -1,0 +1,5 @@
+<div class="wd-status-tip">
+	<image class="wd-status-tip__image" src="./img/default-{{type}}.svg"></image>
+	<view class="wd-status-tip__text">{{text}}</view>
+  <slot></slot>
+</div>

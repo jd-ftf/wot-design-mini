@@ -57,7 +57,7 @@ export default function () {
         const classNames = getClassNames(this.data.name);
         const currentDuration = isObj(duration) ? duration.enter : duration;
         this.status = 'enter';
-        this.$emit('before-enter');
+        this.$emit('beforeenter');
         Promise.resolve().then(nextTick).then(() => {
           this.checkStatus('enter');
           this.$emit('enter');
@@ -84,7 +84,7 @@ export default function () {
         const classNames = getClassNames(this.data.name);
         const currentDuration = isObj(duration) ? duration.leave : duration;
         this.status = 'leave';
-        this.$emit('before-leave');
+        this.$emit('beforeleave');
         Promise.resolve().then(nextTick).then(() => {
           this.checkStatus('leave');
           this.$emit('leave');
@@ -111,7 +111,7 @@ export default function () {
       onTransitionEnd() {
         if (this.transitionEnded) return;
         this.transitionEnded = true;
-        this.$emit(`after-${this.status}`);
+        this.$emit(`after${this.status}`);
         const {
           show,
           display

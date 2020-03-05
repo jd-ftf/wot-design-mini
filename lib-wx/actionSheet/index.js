@@ -38,7 +38,7 @@ VueComponent({
     },
 
     handleClickModal() {
-      this.$emit('click-modal');
+      this.$emit('clickmodal');
 
       if (this.data.closeOnClickModal) {
         this.close();

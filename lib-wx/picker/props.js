@@ -29,5 +29,15 @@ export default {
   confirmButtonText: {
     type: String,
     value: '完成'
-  }
+  },
+  noHair: {
+    type: Boolean,
+    value: true
+  },
+  size: String,
+  labelWidth: String,
+  useLabelSlot: Boolean,
+  error: Boolean,
+  alignRight: Boolean,
+  beforeConfirm: null
 };

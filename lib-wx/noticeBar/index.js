@@ -1,4 +1,6 @@
 import VueComponent from '../common/component';
+const $wrap = '.wd-notice-bar__wrap';
+const $content = '.wd-notice-bar__content';
 VueComponent({
   data: {
     firstPlay: true,
@@ -45,16 +47,6 @@ VueComponent({
       this.$emit('close');
     },
 
-    getRect(select) {
-      return new Promise(resolve => {
-        this.createSelectorQuery().select(select).boundingClientRect(rect => {
-          if (rect) {
-            resolve(rect);
-          }
-        }).exec();
-      });
-    },
-
     initAnimation(duration, delay, translate) {
       return wx.createAnimation({
         duration,
@@ -63,7 +55,7 @@ VueComponent({
     },
 
     scroll() {
-      Promise.all([this.getRect('.wd-notice-bar__wrap'), this.getRect('.wd-notice-bar__content')]).then(rects => {
+      Promise.all([this.getRect($wrap), this.getRect($content)]).then(rects => {
         const [wrapRect, contentRect] = rects;
         if (!wrapRect || !contentRect || !wrapRect.width || !contentRect.width) return;
         const wrapWidth = wrapRect.width;
