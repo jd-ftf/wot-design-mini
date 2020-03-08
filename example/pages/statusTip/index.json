@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "StatusTip 缺省组件",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "wd-status-tip": "../../dist/statusTip/index",
+    "wd-toast": "../../dist/toast/index",
+    "wd-button": "../../dist/button/index"
+  }
+}

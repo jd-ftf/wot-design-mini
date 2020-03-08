@@ -1,0 +1,4 @@
+.option-btn-box {
+	margin-top: 18px;
+	text-align: center;
+}

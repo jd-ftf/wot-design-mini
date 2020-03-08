@@ -36,7 +36,8 @@
     "pages/sortButton/index",
     "pages/dropMenu/index",
     "pages/grid/index",
-    "pages/layout/index"
+    "pages/layout/index",
+    "pages/statusTip/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
