@@ -63,6 +63,11 @@
                 "name": "Transition 动画",
                 "path": "/transition",
                 "demo": "/transition"
+              },
+              "img": {
+                "name": "Img 图片",
+                "path": "/img",
+                "demo": "/img"
               }
             }
           }, {

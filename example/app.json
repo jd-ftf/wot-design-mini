@@ -36,6 +36,7 @@
     "pages/sortButton/index",
     "pages/dropMenu/index",
     "pages/grid/index",
+    "pages/img/index",
     "pages/layout/index"
   ],
   "window": {
