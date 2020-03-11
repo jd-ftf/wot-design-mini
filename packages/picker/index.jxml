@@ -42,7 +42,7 @@
       custom-class="custom-view-class"
       id="{{pickerId}}"
       value="{{pickerValue}}"
-      columns="{{columns}}"
+      columns="{{displayColumns}}"
       loading="{{loading}}"
       visible-item-count="{{visibleItemCount}}"
       item-height="{{itemHeight}}"
