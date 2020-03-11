@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType, defaultFunction } from '../common/util'
+import { getType } from '../common/util'
 import selfProps from './props'
 
 VueComponent({
@@ -203,17 +203,30 @@ VueComponent({
       // 获取变化的的行
       const diffRow = selectedIndex[diffCol]
       const picker = this
-      // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
-      value = this.getValues()
+
       // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
       const index = selectedIndex.length === 1 ? diffRow : diffCol
       // 执行多级联动
-      this.data.columnChange(picker, this.getSelects(), index)
-      this.$emit('change', {
-        picker,
-        value,
-        index
-      })
+      if (this.data.columnChange) {
+        // columnsChange 可能有异步操作，需要添加 resolve 进行回调通知
+        this.data.columnChange(picker, this.getSelects(), index, () => {
+          // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
+          value = this.getValues()
+          this.$emit('change', {
+            picker,
+            value,
+            index
+          })
+        })
+      } else {
+        // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
+        value = this.getValues()
+        this.$emit('change', {
+          picker,
+          value,
+          index
+        })
+      }
     },
     /**
      * @description 获取所有列选中项，返回值为一个数组
@@ -290,12 +303,12 @@ VueComponent({
       this.setData({
         formatColumns: formatColumns
       })
+    },
+    getColumnsData () {
+      return this.data.formatColumns.slice(0)
     }
   },
   created () {
-    this.data.columnChange || this.setData({
-      columnChange: defaultFunction
-    })
     // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
     if (
       (!this.data.value || !this.data.value.length) &&
