@@ -21,6 +21,9 @@ Page({
           }, {
             id: 'transition',
             name: 'Transition 动画'
+          }, {
+            id: 'img',
+            name: 'Img 图片'
           }
         ]
       }, {
