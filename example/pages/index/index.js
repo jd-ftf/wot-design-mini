@@ -145,6 +145,9 @@ Page({
           }, {
             id: 'sortButton',
             name: 'SortButton 排序按钮'
+          }, {
+            id: 'statusTip',
+            name: 'StatusTip 缺省提示'
           }
         ]
       }

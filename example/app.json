@@ -37,7 +37,8 @@
     "pages/dropMenu/index",
     "pages/grid/index",
     "pages/img/index",
-    "pages/layout/index"
+    "pages/layout/index",
+    "pages/statusTip/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
