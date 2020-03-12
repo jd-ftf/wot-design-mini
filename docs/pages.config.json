@@ -244,6 +244,11 @@
                 "name": "SortButton 排序按钮",
                 "path": "/sortButton",
                 "demo": "/sortButton"
+              },
+              "StatusTip": {
+                "name": "StatusTip 缺省提示",
+                "path": "/statusTip",
+                "demo": "/statusTip"
               }
             }
           }
