@@ -185,7 +185,8 @@ VueComponent({
       this.setData({
         showValue: this.data.displayFormat(items, { valueKey, labelKey })
       })
-    }
+    },
+    noop () {}
   },
   beforeCreate () {
     // pickerView挂载到全局
