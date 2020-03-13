@@ -9,7 +9,7 @@
 项目结构部分主要是梳理项目的结构，介绍几个关键模块的作用，方便开发者接入。
 
     wot-design-mini
-    |-- .babelrc  
+    |-- .babelrc
     |-- .editorconfig                      // idea、vscode 编辑器配置文件
     |-- .eslintrc
     |-- .gitignore
@@ -17,7 +17,7 @@
     |-- .postcssrc.js
     |-- .travis.yml                        // travis 机器人配置
     |-- commitlint.config.js               // commit 配置，pre-commit 检查代码是否符合项目开发规范
-    |-- lint-staged.config.js              
+    |-- lint-staged.config.js
     |-- package-lock.json
     |-- package.json
     |-- build                              // 构建、配置相关文件夹
@@ -53,7 +53,7 @@
     |   |-- app.js
     |   |-- app.json                          // 京东(微信)小程序页面配置项
     |   |-- app.jxss
-    |   |-- project.config.json               
+    |   |-- project.config.json
     |   |-- sitemap.json
     |   |-- pages                             // demo 页面
     |       |-- images
@@ -83,14 +83,14 @@
         |       |-- isObject.js
         |       |-- internal
         |           |-- freeGlobal.js
-        |           |-- root.js 
+        |           |-- root.js
         |-- mixins                           // 定义的 mixins
         |   |-- basic.js                        // 微信节点选择器
         |   |-- cell.js
         |   |-- datetimePickerView.js
         |   |-- touch.js                        // touchMove相关
         |   |-- transition.js
-        |-- button                           // 具体的组件源码(以button为例) 
+        |-- button                           // 具体的组件源码(以button为例)
             |-- index.js
             |-- index.json
             |-- index.jxml
@@ -132,7 +132,7 @@
 |-- packages                              // wot-design 组件源码包
 	|-- common                               // 公共方法文件夹
 	|-- mixins                            // 定义的 mixins
-	|-- button                            // 具体的组件源码(以button为例) 
+	|-- button                            // 具体的组件源码(以button为例)
 		|-- index.js
 		|-- index.json
 		|-- index.jxml
@@ -194,14 +194,14 @@ index.scss 内容：当前组件的 scss 文件。
 
 ```
 |-- example                              // 示例
- 	|-- app.json  
+ 	|-- app.json
     |-- pages                               // demo 页面
         |-- index                              // 小程序索引页（首页展示）
         |   |-- index.js                       // 索引页页面引入配置
         |   |-- index.json
         |   |-- index.wxml
         |   |-- index.wxss
-	    button                              // 组件示例页(以button为例) 
+	    button                              // 组件示例页(以button为例)
 			|-- index.js
 			|-- index.json
 			|-- index.jxml
@@ -300,4 +300,4 @@ index.jxss 内容：与wxss用法相同。
 
 ### 代码提交及流程
 
-参考 [@/.github/CONTRIBUTING.md]() 文件所定义的规则，进行代码提交。
+参考 [CONTRIBUTING.md](https://github.com/jd-ftf/wot-design-mini/blob/dev/.github/CONTRIBUTING.md) 文件所定义的规则，进行代码提交。

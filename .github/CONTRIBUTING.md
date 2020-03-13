@@ -2,13 +2,17 @@
 
 ## 获取代码
 
-* 请先 [fork](https://help.github.com/cn/github/getting-started-with-github/fork-a-repo) 一份组件库源码到自己的 github
+* 请先 [fork](https://help.github.com/cn/github/getting-started-with-github/fork-a-repo) 一份组件库源码到自己的 github。
 * 使用 `git clone` 将自己 github 上 fork 得到的源码同步到到你的本地
-* 请确保切换到 `dev` 分支进行开发，我们只接受此分支上的代码贡献
+* 请确保基于 `dev` 分支进行开发，我们只接受此分支上的代码贡献。
+
+## 项目开发
+
+参考[DEVELOP_GUIDE.md](https://github.com/jd-ftf/wot-design-mini/blob/dev/.github/DEVELOP_GUIDE.md)中的内容.
 
 ## Commit
 
-在 commit 代码时，commit message 请遵循以下格式：
+开发之后，在 commit 代码时，commit message 请遵循以下格式：
 
 > 如不按照此以下格式，`git commit` 可能无法正常工作。
 
@@ -61,20 +65,39 @@ commit 描述说明了我们本次提交的具体描述，具体内容视情况�
 
 请通过 Pull Request 的方式提交代码，而不是直接运行 `git push` 推送你的 commit。
 
-提交 PR 前请从 upstream 仓库拉取最新代码：
+### 提交 PR 前请从 upstream 仓库拉取最新代码：
 
-> 此操作确保官方分支上的最新提交能够同步到你的分支
+> 以下操作确保官方分支上的最新提交能够同步到你的分支
 
 ```shell script
 git remote add upstream https://github.com/jd-ftf/wot-design-mini.git # 首先把官方源加入到本地源中
 git fetch upstream # 将官方源同步下来
+```
+
+### 您需要保持 commit message 的简洁
+
+`git merge` 会导致 commit 记录眼花缭乱，对于开发人员来说极其难以维护，所以我们推荐使用 `git rebase` 来代替它。
+
+> 以下操作确保你的分支始终保持一条直线
+
+```shell script
 git rebase upstream/dev # 将官方源以 `rebase` 的方式合并到本地源
 ```
+
+以上步骤仅仅只能保证你开发过程中提交的 commit 是一条线性的记录，但这并不是最好的解决方案。
+假设您提交的 commit 中包含多条无意义的message或者多条重复的message，这对于我们来说是糟糕的。
+所以我们推荐您使用 `git rebase` 的 squash 模式将多个 commit 压缩成仅有一条 commit 记录。
+
+
 > 关于使用 [git rebase](https://git-scm.com/book/zh/v2/Git-分支-变基) 遇到的诸多问题
 
 使用 rebase 你可能面临 "代码冲突" 问题，此时你需要手动解决。
 
-当最新的官方源合并到你开发的本地源后，此时你可以使用 `git push` 将您的本地源提交到你的github上，之后在你的项目页点击 `New pull request` 按即可以发起代码贡献请求。待我们 review 并通过你的 PR 后将你的代码合并到我们的官方分支。
+### 创建 PR
+
+> 当您创建的 PR 中包含不符合上述提交规范的 commit 时，我们的机器人将自动关闭您的 PR，同时会 @您 并留言给出解决方案。
+
+当您按照上述规范操作后，此时你可以使用 `git push` 将您的本地源提交到你的github上，之后在你的项目页点击 `New pull request` 按即可以发起代码贡献请求。待我们 review 并通过你的 PR 后将你的代码合并到我们的官方分支。
 
 大部分情况下，请将 PR 提交至 `dev` 分支，`dev` 分支仅用于日常开发工作。永远不要将 PR 提交至 `master` 分支。
 
