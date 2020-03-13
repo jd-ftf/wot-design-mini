@@ -54,7 +54,7 @@ page({
 设置 `disabled` 属性。
 
 ```html
-<wd-input value="input" disabled="{{ true }}" />
+<wd-input value="input" disabled />
 ```
 
 ### 只读
@@ -62,7 +62,7 @@ page({
 设置 `readonly` 属性。
 
 ```html
-<wd-input value="{{ value }}" readonly="{{ true }}" />
+<wd-input value="{{ value }}" readonly />
 ```
 
 ### 清空按钮
@@ -78,7 +78,7 @@ page({
 设置 `show-password` 属性。
 
 ```html
-<wd-input value="{{ value }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange"/>
+<wd-input value="{{ value }}" clearable show-password bind:change="handleChange"/>
 ```
 
 ### 前后icon
@@ -101,9 +101,9 @@ page({
 ```html
 <wd-input 
   value="{{ value }}" 
-  clearable="{{ true }}" 
-  use-suffix-slot="{{ true }}" 
-  use-prefix-slot="{{ true }}" 
+  clearable 
+  use-suffix-slot 
+  use-prefix-slot
   custom-suffix-class="suffix-slot" 
   bind:change="handleChange">
     <view slot="prefix">1</view>
@@ -124,7 +124,7 @@ page({
 设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
 
 ```html
-<wd-input value="{{ value }}" maxlength="20" show-word-limit="{{ true }}" bind:change="handleChange"/>
+<wd-input value="{{ value }}" maxlength="20" show-word-limit bind:change="handleChange"/>
 ```
 
 ### 文本域
@@ -143,14 +143,14 @@ page({
   value="{{ value }}"
   placeholder="请输入..."
   maxlength="120"
-  clearable="{{ true }}"
-  show-word-limit="{{ true }}"
+  clearable
+  show-word-limit
   bind:change="handleChange"/>
 ```
 也可以设置`auto-height`使高度自增加。
 
 ```html
-<wd-input value="{{ value }}" auto-height="{{ true }}" bind:change="handleChange"/>
+<wd-input value="{{ value }}" auto-height bind:change="handleChange" clearable/>
 ```
 
 ### 设置label标题

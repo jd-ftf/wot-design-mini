@@ -1,4 +1,4 @@
-<demo-block title="基本用法：当前选中值 {{value0}}">
+<demo-block title="基本用法">
   <wd-radio-group
     data-index="{{0}}"
     value="{{value0}}"
@@ -21,7 +21,7 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="修改形状(在radioGroup上设置) shape 为 'button'">
+<demo-block title="修改形状">
   <wd-radio-group
     shape="button"
     data-index="{{2}}"
@@ -33,7 +33,7 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="修改选中颜色 checked-color">
+<demo-block title="修改选中颜色">
   <wd-radio-group
     data-index="{{3}}"
     value="{{value3}}"
@@ -44,14 +44,14 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="禁用 disabled">
+<demo-block title="禁用">
   <view style="margin-bottom: 10px;">
-    <wd-radio-group value="{{1}}" disabled="{{true}}">
+    <wd-radio-group value="{{1}}" disabled>
       <wd-radio value="{{1}}">京麦</wd-radio>
       <wd-radio value="{{2}}">商家后台</wd-radio>
     </wd-radio-group>
   </view>
-  <wd-radio-group value="{{1}}" disabled="{{true}}" shape="button">
+  <wd-radio-group value="{{1}}" disabled shape="button">
     <wd-radio value="{{1}}">京麦</wd-radio>
     <wd-radio value="{{2}}">商家后台</wd-radio>
   </wd-radio-group>
@@ -60,7 +60,7 @@
 <demo-block title="radio的props比radioGroup的优先级高">
   <wd-radio-group
     hape="button"
-    disabled="{{true}}"
+    disabled
     checked-color="#f00"
     data-index="{{4}}"
     value="{{value4}}"

@@ -9,7 +9,7 @@
     <wd-input-number value="{{ value3 }}" bind:change="handleChange3" min="{{ 3 }}" max="{{ 10 }}" />
   </demo-block>
   <demo-block title="禁用">
-    <wd-input-number value="{{ value4 }}" bind:change="handleChange4" disabled="{{true}}" />
+    <wd-input-number value="{{ value4 }}" bind:change="handleChange4" disabled />
   </demo-block>
   <demo-block title="无输入框">
     <view class="flex">
@@ -20,7 +20,7 @@
   <demo-block title="设置小数精度">
     <wd-input-number value="{{ value6 }}" bind:change="handleChange6" precision="{{ 2 }}" step="{{ 0.1 }}" />
   </demo-block>
-  <demo-block title="严格步数倍数">
+  <demo-block title="输入严格为步数的倍数">
     <wd-input-number value="{{ value7 }}" bind:change="handleChange7" step-strictly step="{{ 2 }}" />
   </demo-block>
   <demo-block title="修改输入框宽度">

@@ -22,7 +22,7 @@
     value="{{value3}}"
     columns="{{columns3}}"
     data-index="{{3}}"
-    loading="{{true}}"
+    loading
     bind:change="onChange"
   />
 </demo-block>

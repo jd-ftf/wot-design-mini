@@ -9,40 +9,40 @@
 		<wd-input type="text" value="{{ value2 }}" placeholder="请输入..." disabled="true" />
 	</demo-block>
 	<demo-block title="只读状态">
-		<wd-input type="text" value="{{ value3 }}" readonly="{{ true }}" />
+		<wd-input type="text" value="{{ value3 }}" readonly />
 	</demo-block>
 	<demo-block title="清空按钮">
-		<wd-input type="text" value="{{ value4 }}" placeholder="请输入..." clearable="{{ true }}" bind:change="handleChange1" />
+		<wd-input type="text" value="{{ value4 }}" placeholder="请输入..." clearable bind:change="handleChange1" />
 	</demo-block>
 	<demo-block title="密码框">
-		<wd-input type="text" value="{{ value5 }}" clearable="{{ true }}" show-password="{{ true }}" bind:change="handleChange2" />
+		<wd-input type="text" value="{{ value5 }}" clearable show-password bind:change="handleChange2" />
 	</demo-block>
 	<demo-block title="设置前后Icon">
-		<wd-input type="text" value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable="{{ true }}" bind:change="handleChange3" />
+		<wd-input type="text" value="{{ value6 }}" prefix-icon="person" suffix-icon="tickets" clearable bind:change="handleChange3" />
 	</demo-block>
 	<demo-block title="设置 prefix/suffix 的slot">
-		<wd-input type="text" value="{{ value6 }}" clearable="{{ true }}" use-suffix-slot="{{ true }}" use-prefix-slot="{{ true }}" custom-suffix-class="suffix-slot" bind:change="handleChange3">
+		<wd-input type="text" value="{{ value6 }}" clearable use-suffix-slot use-prefix-slot custom-suffix-class="suffix-slot" bind:change="handleChange3">
 			<view slot="prefix">1</view>
 			<view class="suffix-slot" slot="suffix">2</view>
 		</wd-input>
 	</demo-block>
 	<demo-block title="字数限制">
-		<wd-input type="text" value="{{ value7 }}" maxlength="20" show-word-limit="{{ true }}" />
+		<wd-input type="text" value="{{ value7 }}" maxlength="20" show-word-limit />
 	</demo-block>
-	<demo-block title="textarea">
+	<demo-block title="textarea" transparent>
 		<wd-input type="textarea" value="{{ value8 }}" placeholder="请输入..." />
 	</demo-block>
-	<demo-block title="textarea 清空按钮 和 字数限制">
-		<wd-input type="textarea" value="{{ value9 }}" placeholder="请输入..." maxlength="120" clearable="{{ true }}" show-word-limit="{{ true }}" />
+	<demo-block title="textarea 清空按钮 和 字数限制" transparent>
+		<wd-input type="textarea" value="{{ value9 }}" placeholder="请输入..." maxlength="120" clearable show-word-limit />
 	</demo-block>
 	<demo-block title="textarea 高度自适应">
-		<wd-input type="textarea" value="" auto-height='true' placeholder="请输入..."></wd-input>
+		<wd-input type="textarea" value="" auto-height='true' placeholder="请输入..." clearable></wd-input>
 	</demo-block>
 	<demo-block title="cell 类型" transparent>
 		<wd-cell-group>
 			<wd-input type="text" label="基本用法" value="{{ value10 }}" placeholder="请输入..." />
 			<wd-input type="text" label="禁用" value="{{ value11 }}" disabled placeholder="用户名" />
-			<wd-input type="text" label="清除、密码" value="{{ value12 }}" placeholder="密码" clearable show-password="{{ true }}" />
+			<wd-input type="text" label="清除、密码" value="{{ value12 }}" placeholder="密码" clearable show-password />
 			<wd-input type="text" label="错误状态" value="{{ value13 }}" placeholder="请输入用户名" error />
 			<wd-input type="text" label="图标" value="{{ value14 }}" placeholder="请输入..." prefix-icon="person" suffix-icon="tickets" />
 			<wd-input type="text" label="自定义插槽" value="{{ value15 }}" placeholder="请输入..." use-suffix-slot clearable>

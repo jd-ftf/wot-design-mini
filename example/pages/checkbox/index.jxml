@@ -2,15 +2,15 @@
   <wd-checkbox value="{{true}}">单选框1</wd-checkbox>
 </demo-block>
 
-<demo-block title="修改形状 shape 为 'square'">
+<demo-block title="修改形状: square">
   <wd-checkbox value="{{true}}" shape="square">京麦</wd-checkbox>
 </demo-block>
 
-<demo-block title="修改形状 shape 为 'button'">
+<demo-block title="修改形状: button">
   <wd-checkbox value="{{true}}" shape="button">京麦</wd-checkbox>
 </demo-block>
 
-<demo-block title="修改选中颜色 checked-color">
+<demo-block title="修改选中颜色">
   <wd-checkbox value="{{true}}" checked-color="#f00">京麦</wd-checkbox>
 </demo-block>
 
@@ -41,20 +41,20 @@
 
 <demo-block title="禁用状态">
   <view style="margin-bottom: 10px;">
-    <wd-checkbox-group value="{{[1,3]}}" disabled="{{true}}">
+    <wd-checkbox-group value="{{[1,3]}}" disabled>
       <wd-checkbox value="{{1}}">京麦</wd-checkbox>
       <wd-checkbox value="{{2}}">商家后台</wd-checkbox>
       <wd-checkbox value="{{3}}" shape="square">京麦</wd-checkbox>
       <wd-checkbox value="{{4}}" shape="square">商家后台</wd-checkbox>
     </wd-checkbox-group>
   </view>
-  <wd-checkbox-group  value="{{[1]}}" disabled="{{true}}">
+  <wd-checkbox-group  value="{{[1]}}" disabled>
     <wd-checkbox value="{{1}}" shape="button">京麦</wd-checkbox>
     <wd-checkbox value="{{2}}" shape="button">商家后台</wd-checkbox>
   </wd-checkbox-group>
 </demo-block>
 
-<demo-block title="设置最小选中数量 min 为1 和最大选中数量 max 为3（也可以将其中一项设置为disabled，剩下3项最多选2项）">
+<demo-block title="设置最小选中数量和最大选中数量">
   <wd-checkbox-group value="{{[1]}}" min="{{1}}" max="{{3}}">
     <wd-checkbox value="{{1}}">京东</wd-checkbox>
     <wd-checkbox value="{{2}}">京麦</wd-checkbox>

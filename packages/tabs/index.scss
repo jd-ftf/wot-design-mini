@@ -5,11 +5,13 @@
   position: relative;
   background: #fff;
   padding-top: $-tabs-nav-height;
+
   @include e(nav) {
     left: 0;
     right: 0;
     height: $-tabs-nav-height;
     background-color: #fff;
+  
     &::after {
       position: absolute;
       display: block;
@@ -19,7 +21,7 @@
       left: 0;
       bottom: -1px;
       transform: scaleY(0.5);
-      background: $-color-line;
+      background: $-color-border-light;
     }
     @include m(wrap) {
       height: 100%;
@@ -30,7 +32,7 @@
     position: relative;
     display: flex;
     user-select: none;
-    padding-bottom: $-tabs-nav-placeholder;
+    padding-bottom: 15px;
   }
   @include e(nav-item) {
     flex: 1;
@@ -38,20 +40,20 @@
     text-align: center;
     height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
-    font-size: 14px;
-    color: #333;
+    font-size: $-tabs-nav-fs;
+    color: $-tabs-nav-color;
     transition: color .3s;
 
     @include when(active) {
       color: $-tabs-nav-active-color;
     }
     @include when(disabled) {
-      color: #dedede;
+      color: $-tabs-nav-disabled-color;
     }
   }
   @include e(line) {
     position: absolute;
-    bottom: $-tabs-nav-placeholder;
+    bottom: 15px;
     left: 0;
     height: $-tabs-nav-line-height;
     background: $-tabs-nav-active-color;
@@ -76,10 +78,10 @@
     right: 0;
     top: 0;
     width: $-tabs-nav-height;
-    height: 40px;
+    height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
     text-align: center;
-    color: #c5c5c5;
+    color: $-tabs-nav-map-arrow-color;
     z-index: 3;
     background: #fff;
     @include halfPixelBorder;
@@ -92,7 +94,7 @@
       left: 0;
       width: 1px;
       transform: scaleX(0.5);
-      background: #eee;
+      background: $-color-border-light;
     }
   }
   @include e(map-arrow) {
@@ -108,8 +110,8 @@
     padding-left: 17px;
     height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
-    font-size: 14px;
-    color: #333;
+    font-size: $-tabs-nav-map-fs;
+    color: $-tabs-nav-map-color;
     transition: opacity .3s;
     background: #fff;
     opacity: 0;
@@ -144,21 +146,22 @@
     width: 98px;
     height: 26px;
     line-height: 26px;
-    border: 1px solid #c5c5c5;
+    border: 1px solid $-tabs-nav-map-button-border-color;
     margin-bottom: 10px;
-    border-radius: 4px;
-    color: #333;
+    border-radius: $-tabs-nav-map-button-radius;
+    color: $-tabs-nav-map-color;
+    font-size: $-tabs-nav-map-fs;
     box-sizing: border-box;
     text-align: center;
     transition: color .3s, border-color .3s;
     @include lineEllipsis;
 
     @include when(active) {
-      color: #0083ff;
-      border-color: #0083ff;
+      color: $-tabs-nav-active-color;
+      border-color: $-tabs-nav-active-color;
     }
     @include when(disabled) {
-      color: #dedede;
+      color: $-tabs-nav-disabled-color;
       border-color: #f4f4f4;
     }
   }
@@ -168,7 +171,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: $-tabs-nav-map-modal-bg;
     opacity: 0;
     transition: opacity .3s;
   }

@@ -84,7 +84,7 @@
 </demo-block>
 <demo-block title="列表模式" >
   <view class="bottom">
-    <wd-tooltip placement="bottom" mode="menu" content="{{ menu }}">
+    <wd-tooltip placement="bottom" mode="menu" content="{{ menu }}" bind:menu-click="link">
       <wd-button >列表</wd-button>
     </wd-tooltip>
   </view>
@@ -98,7 +98,7 @@
 </demo-block>
 <demo-block title="多行文本" >
   <view class="right">
-    <wd-tooltip placement="right" useContentSlot="{{ true }}">
+    <wd-tooltip placement="right" useContentSlot>
       <wd-button >多行文本</wd-button>
       <view slot="content" style="color: red; padding: 5px; width: 90px">
         <view>多行文本1</view>
@@ -111,13 +111,27 @@
 <demo-block title="控制显隐" >
   <wd-button bind:tap="hide">控制开关</wd-button>
   <view class="right">
-    <wd-tooltip placement="right-end" useContentSlot="{{ true }}" show="{{ show }}">
+    <wd-tooltip placement="right-end" useContentSlot show="{{ show }}">
       <wd-button >多行文本</wd-button>
       <view slot="content" style="padding: 5px; width: 90px">
         <view>多行文本1</view>
         <view>多行文本2</view>
         <view>多行文本3</view>
       </view>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="绑定事件" >
+  <view class="right">
+    <wd-tooltip placement="right-end" content="{{ content }}" bind:show="onShow" bind:hide="onHide">
+      <wd-button >事件</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+<demo-block title="禁用" >
+  <view class="right">
+    <wd-tooltip placement="right-end" content="禁用" disabled>
+      <wd-button >禁用</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>

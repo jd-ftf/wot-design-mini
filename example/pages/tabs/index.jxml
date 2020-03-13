@@ -1,5 +1,5 @@
 <wd-toast id="wd-toast"/>
-<demo-block title="基本用法" transparent="{{true}}">
+<demo-block title="基本用法" transparent>
   <wd-tabs value="{{0}}">
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
@@ -9,8 +9,8 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="滑动动画" transparent="{{true}}">
-  <wd-tabs value="{{0}}" animated="{{true}}">
+<demo-block title="滑动动画" transparent>
+  <wd-tabs value="{{0}}" animated>
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
         <view class="content">内容{{item + 1}}</view>
@@ -19,8 +19,8 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="粘性布局" transparent="{{true}}">
-  <wd-tabs value="{{0}}" sticky="{{true}}">
+<demo-block title="粘性布局" transparent>
+  <wd-tabs value="{{0}}" sticky>
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
         <view class="content">内容{{item + 1}}</view>
@@ -29,7 +29,7 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="禁用tab" transparent="{{true}}">
+<demo-block title="禁用tab" transparent>
   <wd-tabs value="{{0}}">
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}" disabled="{{item === 1}}">
@@ -39,7 +39,7 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="点击事件" transparent="{{true}}">
+<demo-block title="点击事件" transparent>
   <wd-tabs value="{{0}}" bind:click="handleClick">
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
@@ -49,8 +49,8 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="延迟渲染" transparent="{{true}}">
-  <wd-tabs value="{{0}}" lazy-render="{{true}}">
+<demo-block title="延迟渲染" transparent>
+  <wd-tabs value="{{0}}" lazy-render>
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
         <view class="content">内容{{item + 1}}</view>
@@ -59,8 +59,8 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="手势滑动" transparent="{{true}}">
-  <wd-tabs value="{{0}}" swipeable="{{true}}">
+<demo-block title="手势滑动" transparent>
+  <wd-tabs value="{{0}}" swipeable>
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
         <view class="content">内容{{item + 1}}</view>
@@ -69,8 +69,8 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="数量大于6时可滚动" transparent="{{true}}">
-  <wd-tabs value="{{0}}" lazy-render="{{true}}">
+<demo-block title="数量大于6时可滚动" transparent>
+  <wd-tabs value="{{0}}" lazy-render>
     <block jd:for="{{7}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
         <view class="content">内容{{item + 1}}</view>
@@ -79,7 +79,7 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="数量大于10时出现导航地图" transparent="{{true}}">
+<demo-block title="数量大于10时出现导航地图" transparent>
   <wd-tabs value="{{0}}">
     <block jd:for="{{11}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">

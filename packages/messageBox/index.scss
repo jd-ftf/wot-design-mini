@@ -2,16 +2,16 @@
 @import "../common/abstracts/_mixin.scss";
 
 @include b(message-box) {
-  border-radius: 8px;
+  border-radius: $-message-box-radius;
   overflow: hidden;
 
   @include e(container) {
-    width: 270px;
+    width: $-message-box-width;
     box-sizing: border-box;
   }
   @include e(body) {
     background-color: #fff;
-    padding: 21px 25px 14px;
+    padding: $-message-box-padding;
 
     @include when(no-title) {
       padding: 25px;
@@ -22,25 +22,26 @@
   }
   @include e(title) {
     text-align: center;
-    font-size: 16px;
+    font-size: $-message-box-title-fs;
     margin-bottom: 4px;
-    color: #333;
+    color: $-message-box-title-color;
+    line-height: 1.375;
   }
   @include e(content) {
-    max-height: 170px;
-    color: #666;
-    font-size: 12px;
+    max-height: $-message-box-content-max-height;
+    color: $-message-box-content-color;
+    font-size: $-message-box-content-fs;
     text-align: center;
     overflow: auto;
     word-break: break-all;
 
     &::-webkit-scrollbar {
-      width: 4px;
+      width: $-message-box-content-scrollbar-width;
     }
     &::-webkit-scrollbar-thumb {
-      width: 4px;
-      background: #d8d8d8;
-      border-radius: 2px;
+      width: $-message-box-content-scrollbar-width;
+      background: $-message-box-content-scrollbar-color;
+      border-radius: $-message-box-content-scrollbar-width / 2;
     }
   }
   @include e(input-container) {
@@ -55,14 +56,17 @@
       left: 0;
       bottom: 0;
       transform: scaleY(0.5);
-      background: $-color-icon;
+      background: $-message-box-input-border-color;
     }
   }
   @include e(input) {
     margin-top: 14px;
     border: none;
+    height: $-message-box-input-height;
+    min-height: auto;
     width: 100%;
-    font-size: 14px;
+    font-size: $-message-box-input-fs;
+    line-height: $-message-box-input-height;
     box-sizing: border-box;
     outline: none;
     text-align: left;
@@ -77,7 +81,7 @@
   @include e(input-error) {
     min-height: 18px;
     margin-top: 2px;
-    color: red;
+    color: $-message-box-input-error-color;
     text-align: left;
 
     @include when(hidden) {
@@ -90,23 +94,23 @@
   @include e(button) {
     display: block;
     flex: 1;
-    font-size: 16px;
+    font-size: $-message-box-button-fs;
     text-align: center;
-    height: 45px;
-    line-height: 45px;
-    color: #666;
+    height: $-message-box-button-height;
+    line-height: $-message-box-button-height;
+    color: $-message-box-cancel-color;
     outline: none;
     -webkit-appearance: none;
     border: none;
 
     @include m(cancel) {
-      background-color: #fff;
+      background-color: $-message-box-cancel-bg;
       border-top: 1px solid #eee;
       box-sizing: border-box;
     }
     @include m(confirm) {
-      background-color: $-color-theme;
-      color: #fff;
+      background-color: $-message-box-confirm-bg;
+      color: $-message-box-confirm-color;
     }
   }
 }

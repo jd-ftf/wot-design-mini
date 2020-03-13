@@ -14,7 +14,6 @@ VueComponent({
   data: {
     popStyle: '',
     arrowClass: 'wd-tooltip__arrow',
-    visible: false,
     lineColor: 'rgba(255, 255, 255, .5)'
   },
   props: {
@@ -30,10 +29,6 @@ VueComponent({
           lineColor: newVal === 'dark' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
         })
       }
-    },
-    openDelay: {
-      type: Number,
-      value: 300
     },
     visibleArrow: {
       type: Boolean,
@@ -64,11 +59,15 @@ VueComponent({
       type: Boolean,
       value: false
     },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
     show: {
       type: Boolean,
       observer (newValue) {
         newValue && this.control()
-        this.setData({ visible: newValue })
+        this.$emit(`${newValue === true ? 'show' : 'hide'}`)
       }
     },
     // menu || normal
@@ -81,28 +80,20 @@ VueComponent({
     this.setData({
       lineColor: this.data.effect === 'dark' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
     })
-    Promise.all([
-      this.getRect('.wd-tooltip__target'),
-      this.getRect('.wd-tooltip__container')
-    ]).then(rects => {
-      if (!rects) return
-      const [target, container] = rects
-      this.left = target.left
-      this.bottom = target.bottom
-      this.width = target.width
-      this.height = target.height
-      this.top = target.top
-
-      this.popWidth = container.width
-      this.popHeight = container.height
+    this.getRect('.wd-tooltip__target').then(rect => {
+      if (!rect) return
+      this.left = rect.left
+      this.bottom = rect.bottom
+      this.width = rect.width
+      this.height = rect.height
+      this.top = rect.top
     })
   },
   methods: {
-    click (event) {
+    toggle (event) {
+      if (this.data.disabled) return
       const { show } = this.data
-      this.setData({
-        show: !show
-      })
+      this.setData({ show: !show })
     },
     checkType (value) {
       return Object.prototype.toString.call(value).slice(8, -1)
@@ -111,29 +102,29 @@ VueComponent({
       const { placement, visibleArrow } = this.data
       const contentWidth = 10
       // 上下位（纵轴）对应的距离左边的距离
-      const verticalX = 0 - (this.popWidth - this.width) / 2
+      const verticalX = this.width / 2
       // 上下位（纵轴）对应的距离底部的距离
       const verticalY = contentWidth + this.height
       // 左右位（横轴）对应的距离左边的距离
       const horizontalX = this.width + contentWidth
       // 左右位（横轴）对应的距离底部的距离
-      const horizontalY = 0 - (this.popHeight - this.height) / 2
+      const horizontalY = this.height / 2
 
       const placements = new Map([
         // 上
-        ['top', `left: ${verticalX}px; bottom: ${verticalY}px;`],
+        ['top', `left: ${verticalX}px; bottom: ${verticalY}px; transform: translateX(-50%);`],
         ['top-start', `left:${0}; bottom: ${verticalY}px;`],
         ['top-end', `right: ${0}; bottom: ${verticalY}px;`],
         // 下
-        ['bottom', `left: ${verticalX}px; top: ${verticalY}px;`],
+        ['bottom', `left: ${verticalX}px; top: ${verticalY}px; transform: translateX(-50%);`],
         ['bottom-start', `left:${0}; top: ${verticalY}px;`],
         ['bottom-end', `right: ${0}; top: ${verticalY}px;`],
         // 左
-        ['left', `right: ${horizontalX}px; top: ${horizontalY}px;`],
+        ['left', `right: ${horizontalX}px; top: ${horizontalY}px; transform: translateY(-50%);`],
         ['left-start', `right: ${horizontalX}px; top: ${0};`],
         ['left-end', `right: ${horizontalX}px; bottom: ${3}px;`],
         // 右
-        ['right', `left: ${horizontalX}px; top: ${horizontalY}px;`],
+        ['right', `left: ${horizontalX}px; top: ${horizontalY}px; transform: translateY(-50%);`],
         ['right-start', `left: ${horizontalX}px; top: ${0};`],
         ['right-end', `left: ${horizontalX}px; bottom: ${3}px;`]
       ])
@@ -142,6 +133,10 @@ VueComponent({
         popStyle: placements.get(placement),
         arrowClass: visibleArrow && `wd-tooltip__arrow-${placement}`
       })
+    },
+    menuClick (event) {
+      this.setData({ show: false })
+      this.$emit('menu-click', event.currentTarget.dataset)
     }
   }
 })

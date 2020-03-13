@@ -1,0 +1,35 @@
+@import '../common/abstracts/variable';
+@import '../common/abstracts/mixin';
+@include b(drop-item) {
+  position: absolute;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  font-size: $-drop-menu-item-fs;
+  color: $-drop-menu-item-color;
+
+  @include e(modal) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: $-drop-menu-item-modal-bg;
+    height: 100%;
+  }
+  @include e(pop){
+    background-color: #fff;
+  }
+  @include e(title){
+    display: inline-block;
+    box-sizing: border-box;
+    height: $-drop-menu-item-height;
+    line-height: $-drop-menu-item-height;
+    padding: 0 $-drop-menu-side-padding;
+  }
+  @include e(icon){
+    vertical-align: middle;
+    float: right;
+    height: $-drop-menu-item-height;
+    line-height: $-drop-menu-item-height;
+    padding: 0 $-drop-menu-side-padding;
+  }
+}

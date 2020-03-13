@@ -16,6 +16,9 @@ Page({
             id: 'icon',
             name: 'Icon 图标'
           }, {
+            id: 'img',
+            name: 'Img 图片'
+          }, {
             id: 'popup',
             name: 'Popup 弹出层'
           }, {
@@ -31,6 +34,12 @@ Page({
           {
             id: 'cell',
             name: 'Cell 单元格'
+          }, {
+            id: 'grid',
+            name: 'Grid 宫格'
+          }, {
+            id: 'layout',
+            name: 'Layout 布局'
           }, {
             id: 'tabs',
             name: 'Tabs 标签页'
@@ -75,8 +84,8 @@ Page({
             id: 'switch',
             name: 'Switch 开关'
           }, {
-            id: "form",
-            name: "Form 表单组件组合"
+            id: 'form',
+            name: 'Form 表单组件组合'
           }
         ]
       }, {
@@ -88,6 +97,9 @@ Page({
             id: 'actionSheet',
             name: 'ActionSheet 上拉菜单'
           }, {
+            id: 'dropMenu',
+            name: 'DropMenu 下拉菜单'
+          }, {
             id: 'loading',
             name: 'Loading 加载指示器'
           }, {
@@ -97,14 +109,11 @@ Page({
             id: 'slider',
             name: 'Slider 滑块'
           }, {
-            id: 'toast',
-            name: 'Toast 轻提示'
-          }, {
-            id: 'tooltip',
-            name: 'Tooltip 文字提示'
-          }, {
             id: 'swipeAction',
             name: 'SwipeAction 滑动操作'
+          }, {
+            id: 'toast',
+            name: 'Toast 轻提示'
           }
         ]
       }, {
@@ -122,24 +131,30 @@ Page({
             id: 'noticeBar',
             name: 'NoticeBar 通知栏'
           }, {
+            id: 'progress',
+            name: 'Progress 进度条'
+          }, {
+            id: 'sortButton',
+            name: 'SortButton 排序按钮'
+          }, {
             id: 'steps',
             name: 'Steps 步骤条'
           }, {
             id: 'tag',
             name: 'Tag 标签'
           }, {
-            id: 'progress',
-            name: 'Progress 进度条'
+            id: 'tooltip',
+            name: 'Tooltip 文字提示'
           }
         ]
       }
     ]
   },
   kindToggle: function (e) {
-    var id = e.currentTarget.id,
-      list = this.data.list
-    for (var i = 0, len = list.length; i < len; ++i) {
-      if (list[i].id == id) {
+    const { id } = e.currentTarget
+    const list = this.data.list
+    for (let i = 0, len = list.length; i < len; ++i) {
+      if (list[i].id === id) {
         list[i].open = !list[i].open
         break
       }

@@ -1,0 +1,37 @@
+<demo-block title="基础用法" transparent>
+	<wd-row>
+		<wd-col span="24" custom-class="dark">span: 24</wd-col>
+	</wd-row>
+	<wd-row>
+		<wd-col span="12" custom-class="dark">span: 12</wd-col>
+		<wd-col span="12" custom-class="light">span: 12</wd-col>
+	</wd-row>
+	<wd-row>
+		<wd-col span="8" custom-class="dark">span: 8</wd-col>
+		<wd-col span="8" custom-class="light">span: 8</wd-col>
+		<wd-col span="8" custom-class="dark">span: 8</wd-col>
+	</wd-row>
+	<wd-row>
+		<wd-col span="6" custom-class="dark">span: 6</wd-col>
+		<wd-col span="6" custom-class="light">span: 6</wd-col>
+		<wd-col span="6" custom-class="dark">span: 6</wd-col>
+		<wd-col span="6" custom-class="light">span: 6</wd-col>
+	</wd-row>
+</demo-block>
+<demo-block title="分栏偏移" transparent>
+	<wd-row>
+		<wd-col span="4" custom-class="dark">span: 4</wd-col>
+		<wd-col span="8" offset="4" custom-class="light">span: 8 offset: 4</wd-col>
+	</wd-row>
+	<wd-row>
+		<wd-col span="8" offset="4" custom-class="dark">span: 8 offset: 4</wd-col>
+		<wd-col span="8" offset="4" custom-class="light">span: 8 offset: 4</wd-col>
+	</wd-row>
+</demo-block>
+<demo-block title="分栏间隔" transparent>
+	<wd-row gutter="20">
+		<wd-col span="8" custom-class="dark">span: 8</wd-col>
+		<wd-col span="8" custom-class="light">span: 8</wd-col>
+		<wd-col span="8" custom-class="dark">span: 8</wd-col>
+	</wd-row>
+</demo-block>

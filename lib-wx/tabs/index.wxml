@@ -8,7 +8,7 @@
     <view class="wd-tabs__nav--wrap">
       <scroll-view
         scroll-x="{{slidableNum < items.length}}"
-        scroll-with-animation="{{true}}"
+        scroll-with-animation
         scroll-left="{{scrollLeft}}"
       >
         <view

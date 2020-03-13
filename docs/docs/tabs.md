@@ -38,7 +38,7 @@
 设置 `animated` 属性，开启tab切换动画。
 
 ```html
-<wd-tabs value="{{0}}" animated="{{true}}">
+<wd-tabs value="{{0}}" animated>
   <block jd:for="{{4}}" jd:key="$this">
     <wd-tab title="标签{{item + 1}}">
       <view class="content">内容{{item + 1}}</view>
@@ -53,7 +53,7 @@
 设置 `sticky` 属性，使用粘性布局。可以设置 `offset-top` 属性，当距离窗口顶部多少像素时，固定标签头。
 
 ```html
-<wd-tabs value="{{0}}" sticky="{{true}}">
+<wd-tabs value="{{0}}" sticky>
   <block jd:for="{{4}}" jd:key="$this">
     <wd-tab title="标签{{item + 1}}">
       <view class="content">内容{{item + 1}}</view>
@@ -104,7 +104,7 @@ Page({
 设置 `lazy-render` 属性，只有切换到当前页签时，页签的内容才会渲染。
 
 ```html
-<wd-tabs value="{{0}}" lazy-render="{{true}}">
+<wd-tabs value="{{0}}" lazy-render>
   <block jd:for="{{4}}" jd:key="$this">
     <wd-tab title="标签{{item + 1}}">
       <view class="content">内容{{item + 1}}</view>
@@ -119,7 +119,7 @@ Page({
 设置 `swipeable` 属性，支持手势滑动。
 
 ```html
-<wd-tabs value="{{0}}" swipeable="{{true}}">
+<wd-tabs value="{{0}}" swipeable>
   <block jd:for="{{4}}" jd:key="$this">
     <wd-tab title="标签{{item + 1}}">
       <view class="content">内容{{item + 1}}</view>

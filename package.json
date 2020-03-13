@@ -1,6 +1,6 @@
 {
   "name": "wot-design-mini",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A ui component library for mini program",
   "scripts": {
     "dev": "npm run build:icon && cross-env EFF_ABSOLUTE_PATHS=true gulp dev --env development --gulpfile build/gulpfile.js",
@@ -78,7 +78,7 @@
     "qrcode": "^1.4.4",
     "readable-stream": "^3.4.0",
     "rimraf": "^3.0.0",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^8.0.2",
     "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^2.2.1",
     "through2": "^3.0.1",

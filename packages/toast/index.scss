@@ -2,9 +2,9 @@
 @import "./../common/abstracts/variable.scss";
 
 @include b(toast) {
-  padding: 8px 14px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 8px;
+  padding: $-toast-padding;
+  background-color: $-toast-bg;
+  border-radius: $-toast-radius;
   color: #fff;
   transition: all 0.2s;
   text-align: center;
@@ -17,14 +17,14 @@
     transform: translate(-50%, -50%);
   }
   @include e(msg) {
-    font-size: 14px;
+    font-size: $-toast-fs;
     line-height: 1.4285;
     white-space: nowrap;
   }
   @include e(icon) {
     display: inline-block;
     margin-bottom: 16px;
-    font-size: 39px;
+    font-size: $-toast-icon-size;
   }
   @include e(loading) {
     margin-bottom: 16px;
@@ -36,12 +36,12 @@
     transform: translate3d(0, 40vh, 0);
   }
   @include m(with-icon) {
-    min-width: 150px;
-    padding: 18px 15px 15px;
+    min-width: $-toast-with-icon-min-width;
+    padding: $-toast-with-icon-padding;
     box-sizing: border-box;
   }
   @include m(loading) {
     min-width: auto;
-    padding: 10px;
+    padding: $-toast-loading-padding;
   }
 }

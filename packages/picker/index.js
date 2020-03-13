@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType, defaultDisplayFormat, defaultFunction } from '../common/util'
+import { getType, defaultDisplayFormat } from '../common/util'
 import selfProps from './props'
 import pickerViewProps from '../pickerView/props'
 import cell from '../mixins/cell'
@@ -60,8 +60,8 @@ VueComponent({
           displayFormat: defaultDisplayFormat
         })
         // JM小程序无法透传function类型的props，此处手动透传
-        this.data.columnChange || this.picker.setData({
-          columnChange: defaultFunction
+        this.data.columnChange && this.picker.setData({
+          columnChange: this.data.columnChange
         })
         // 获取初始选中项,并展示初始选中文案
         if (value) {
@@ -73,7 +73,15 @@ VueComponent({
         }
       }
     },
-    columns: Array,
+    columns: {
+      type: Array,
+      observer (val) {
+        this.setData({
+          displayColumns: val,
+          resetColumns: val
+        })
+      }
+    },
     ...pickerViewProps,
     columnChange: {
       type: null,
@@ -95,7 +103,9 @@ VueComponent({
     pickerId: 'wd-picker-view',
     // 选定后展示的选中项
     showValue: '',
-    pickerValue: ''
+    pickerValue: '',
+    displayColumns: [], // 传入 pickerView 的columns
+    resetColumns: [] // 保存之前的 columns，当取消时，将数据源回滚，避免多级联动数据源不正确的情况
   },
   methods: {
     /**
@@ -105,10 +115,11 @@ VueComponent({
       if (this.data.disabled || this.data.readonly) return
 
       this.$emit('open')
-      // 打开时还原内部选中值
+
       this.setData({
         popupShow: true,
-        pickerValue: this.data.value
+        pickerValue: this.data.value, // 打开时重置回原来的选中值
+        displayColumns: this.data.resetColumns // 打开时重置当前展示的数据源
       })
     },
     /**
@@ -143,9 +154,12 @@ VueComponent({
 
       const selects = this.picker.getSelects()
       const values = this.picker.getValues()
+      // 获取当前的数据源，并设置给 resetColumns，用于取消时可以回退数据源
+      const columns = this.picker.getColumnsData()
       this.setData({
         popupShow: false,
-        value: values
+        value: values,
+        resetColumns: columns
       })
       this.setShowValue(selects)
       this.$emit('confirm', values)
@@ -171,7 +185,8 @@ VueComponent({
       this.setData({
         showValue: this.data.displayFormat(items, { valueKey, labelKey })
       })
-    }
+    },
+    noop () {}
   },
   beforeCreate () {
     // pickerView挂载到全局
@@ -183,8 +198,12 @@ VueComponent({
       displayFormat: defaultDisplayFormat
     })
     // JM小程序无法透传function类型的props，此处手动透传
-    this.data.columnChange || this.picker.setData({
-      columnChange: defaultFunction
+    this.data.columnChange && this.picker.setData({
+      columnChange: this.data.columnChange
+    })
+    this.setData({
+      displayColumns: this.data.columns,
+      resetColumns: this.data.columns
     })
   }
 })

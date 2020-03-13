@@ -1,7 +1,8 @@
-<view class="wd-tooltip custom-class">
+<view class="wd-tooltip custom-class" id="tooltip">
+  <wd-transition show="{{ show }}" name="fade">
 	<view
     class="wd-tooltip__pos {{ 'is-' + effect }}"
-    style="{{ popStyle }}; opacity: {{ visible ? '1' : '0' }}; transition-duration: {{ openDelay + 'ms'}}" >
+    style="{{ popStyle }};" >
 		<view class="wd-tooltip__container custom-pop">
 			<view jd:if="{{ visibleArrow }}" class="wd-tooltip__arrow {{ arrowClass }} custom-arrow" ></view>
       <!-- 普通模式 -->
@@ -10,8 +11,10 @@
       <view jd:if="{{ !useContentSlot && mode === 'menu' }}" class="wd-tooltip__menu-inner ">
         <view
           jd:for="{{ content }}"
-          jd:key="{{ item.index }}"
+          jd:key="this"
           class="wd-tooltip__menu"
+          data-item="{{ item }}"
+          bindtap="menuClick"
           style="border-top: {{ index === 0 ? 'none' : '1px solid ' + lineColor }}" >
           <wd-icon
             name="{{ item.name  }}"
@@ -24,7 +27,9 @@
       <slot name="content" jd:else/>
 		</view>
 	</view>
-	<view catchtap="click" class="wd-tooltip__target">
+  </wd-transition>
+
+	<view catchtap="toggle" class="wd-tooltip__target">
 		<slot />
 	</view>
 </view>

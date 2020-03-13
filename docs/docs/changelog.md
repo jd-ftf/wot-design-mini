@@ -1,5 +1,50 @@
 ## 更新日志
 
+### 1.4.0
+
+*2020-02-11*
+
+#### 新特性
+
+- Col
+  - 新增组件 (by @HXCStudio123 )
+- DropMenu
+  - 新增组件 (by @HXCStudio123 )
+- Grid
+  - 新增组件 (by @HXCStudio123 )
+- Img
+  - 新增组件 (by @HXCStudio123 )
+- Row
+  - 新增组件 (by @HXCStudio123 )
+- SortButton
+  - 新增组件 (by @Gkxie )
+- StatusTip
+  - 新增组件 (by @Ren Jing )
+
+#### Bug 修复
+
+- Collapse
+  - 修正初始动画展示 (by @HXCStudio123 )
+- Picker
+  - 修复 picker 组件 Toolbar 滑动穿透 (by @HXCStudio123 )
+  - 修复多级联动，修改内部值后取消恢复数据源 (by @yawuling )
+  - 修复 column-change 异步情况下无法准确获取值的问题 (by @yawuling )
+- Rate
+  - 修正单向数据传输 (by @yawuling )
+- Slider
+  - 修正样式和偏移比例计算问题 (by @yawuling )
+- Search
+  - 高度问题修复 (by @HXCStudio123 )
+- Tooltip
+  - 解决tooltip关闭后透明未隐藏问题 (by @HXCStudio123 )
+  
+#### 优化
+
+- Doc
+  - 自定义主题 (by @yawuling )
+  - 新增Col/Row组合使用Layout文档 (by @HXCStudio123 )
+  - 添加开发指南 (by @HXCStudio123 )
+
 ### 1.3.0
 
 *2020-02-11*
@@ -28,6 +73,7 @@
   - 新增属性`inline` (by @yawuling )
 - SwipeAction
   - 新增组件 (by @Gkxie )
+
 #### Bug 修复
 - ActionSheet
   - 修复自定义事件连字符无法在京东小程序中触发的问题 (by @yawuling )
