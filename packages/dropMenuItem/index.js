@@ -111,6 +111,7 @@ VueComponent({
     },
     open () {
       this.setData({ showPop: true })
-    }
+    },
+    noop () {}
   }
 })

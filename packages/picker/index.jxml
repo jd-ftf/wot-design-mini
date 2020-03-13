@@ -25,7 +25,7 @@
     bind:close="onCancel"
   >
     <!--toolBar-->
-    <view class="wd-picker__toolbar">
+    <view class="wd-picker__toolbar" catch:touchmove="noop">
       <!--取消按钮-->
       <view class="wd-picker__action wd-picker__action--cancel" bindtap="onCancel">
         {{ cancelButtonText }}
