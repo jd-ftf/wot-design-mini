@@ -2,7 +2,7 @@
 
 ### 1.4.0
 
-*2020-02-11*
+*2020-03-13*
 
 #### 新特性
 
@@ -37,13 +37,12 @@
   - 高度问题修复 (by @HXCStudio123 )
 - Tooltip
   - 解决tooltip关闭后透明未隐藏问题 (by @HXCStudio123 )
-  
+
 #### 优化
 
 - Doc
   - 自定义主题 (by @yawuling )
   - 新增Col/Row组合使用Layout文档 (by @HXCStudio123 )
-  - 添加开发指南 (by @HXCStudio123 )
 
 ### 1.3.0
 
