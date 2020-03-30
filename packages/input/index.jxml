@@ -94,7 +94,7 @@
       <input
         jd:else
         class="wd-input__inner {{ prefixIcon ? 'wd-input__inner--prefix' : '' }} {{ showWordCount ? 'wd-input__inner--count' : '' }} custom-input-class"
-        type="text"
+        type="{{ type }}"
         value="{{ value }}"
         placeholder="{{ placeholder }}"
         readonly="{{ readonly }}"
