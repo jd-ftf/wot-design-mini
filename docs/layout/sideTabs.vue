@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     demoLink () {
-      return `http://jdftf.top/wot-design/demo.html#${this.$route.meta.demo}`
+      return `http://ftf.jd.com/wot-design/demo.html#${this.$route.meta.demo}`
     }
   },
   methods: {
