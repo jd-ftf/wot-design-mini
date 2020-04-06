@@ -169,7 +169,7 @@
 通过 `url` 属性设置跳转链接, 通过 `url` 属性设置 URL 跳转链接。
 
 ```html
-<wd-grid>
+<wd-grid clickable>
   <wd-grid-item link-type="redirectTo" url="/pages/button/index" bind:itemclick="click" icon="person" text="Redirect to ..." />
   <wd-grid-item link-type="navigateTo" url="/pages/button/index" bind:itemclick="click" icon="link" text="Navigate to ..." />
 </wd-grid>
@@ -210,7 +210,7 @@
 | value | 图标右上角 `badge` 显示值 | string, number | - | - |
 | max | 图标右上角 `badge` 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型 | number | - | - |
 | url | 点击后跳转的链接地址 | string | - | - |
-| linkType | 页面跳转方式, 参考[微信小程序路由文档](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/route.html) | string | - | - |
+| link-type | 页面跳转方式, 参考[微信小程序路由文档](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/route.html) | string | navigateTo / switchTab / reLaunch | - |
 | use-slot | 是否开启 `GridItem` 内容插槽 | boolean | - | false |
 | use-icon-slot | 是否开启 `GridItem` icon 插槽 | boolean | - | false |
 | use-text-slot | 是否开启 `GridItem` text 内容插槽 | boolean | - | false |
