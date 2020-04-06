@@ -20,29 +20,27 @@
  `options` 属性一般格式为 `[{ text:'', value: '0' }]`, 如果开启内容插槽,应当使用 `string` 类型, 使用说明见后文。
 
 ```html
-<wd-drop-menu-menu>
+<wd-drop-menu>
   <wd-drop-menu-item value="0" options="{{ option1 }}" />
   <wd-drop-menu-item value="a" options="{{ option2 }}" />
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ```JavaScript
-export default {
-  data() {
-    return {
-      option1: [
-        { text: '全部商品', value: '0' },
-        { text: '新款商品', value: '1' },
-        { text: '活动商品', value: '2' }
-      ],
-      option2: [
-        { text: '综合', value: 'a' },
-        { text: '销量', value: 'b' },
-        { text: '上架时间', value: 'c' }
-      ]
-    }
+Page({
+  data: {
+    option1: [
+      { text: '全部商品', value: '0' },
+      { text: '新款商品', value: '1' },
+      { text: '活动商品', value: '2' }
+    ],
+    option2: [
+      { text: '综合', value: 'a' },
+      { text: '销量', value: 'b' },
+      { text: '上架时间', value: 'c' }
+    ]
   }
-}
+})
 ```
 
 ### 外部控制选项
@@ -52,11 +50,10 @@ export default {
 动态控制 `value` 时, 需要绑定 `change` 事件, 动态的在外部改变选中的值。
 
 ```html
-<wd-drop-menu-menu>
+<wd-drop-menu>
   <wd-drop-menu-item value="{{ value1 }}" options="{{ option1 }}" bindchange="choose1"/>
   <wd-drop-menu-item value="{{ value2 }}" options="{{ option1 }}" bindchange="choose2"/>
-  <wd-drop-menu-item value="{{ value3 }}" options="{{ option2 }}" bindchange="choose3"/>
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ```JavaScript
@@ -64,7 +61,6 @@ Page({
   data: {
     value1: '0',
     value2: '0',
-    value3: '0',
     option1: [
       { text: '全部商品', value: '0' },
       { text: '新款商品', value: '1' },
@@ -81,9 +77,6 @@ Page({
   },
   choose2 ({ detail }) {
     this.setData({ value2: detail })
-  },
-  choose3 ({ detail }) {
-    this.setData({ value3: detail })
   }
 })
 ```
@@ -95,7 +88,7 @@ Page({
 使用 `custom` 插槽过程中, 传入 `string` 类型的 `options` 属性用来展示列表上的显示名称, 开启 `DropMenuItem` 上的属性 `use-drop-item-slot`。
 
 ```html
-<wd-drop-menu-menu>
+<wd-drop-menu>
   <wd-drop-menu-item value="0" options="{{ option1 }}" />
   <wd-drop-menu-item title="筛选" id="drop-menu" use-drop-item-slot>
     <view slot="custom">
@@ -104,7 +97,7 @@ Page({
       <wd-cell is-link to="/pages/button/index" title="设置" value="内容" bind:click="onClick" />
       <wd-button type="primary" block size="large" suck bind:tap="confirm">主要按钮</wd-button>
     </view>
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ```JavaScript
@@ -149,10 +142,10 @@ Page({
 通过`active-color`属性可以自定义菜单标题和选项的选中态颜色
 
 ```html
-<wd-drop-menu-menu active-color="#ee0a24">
+<wd-drop-menu active-color="#ee0a24">
   <wd-drop-menu-item value="0" options="{{ option1 }}" />
   <wd-drop-menu-item value="1" options="{{ option2 }}" />
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ### 向上展开
@@ -160,10 +153,10 @@ Page({
 将`direction`属性值设置为`up`，菜单即可向上展开
 
 ```html
-<wd-drop-menu-menu direction="up">
+<wd-drop-menu direction="up">
   <wd-drop-menu-item value="0" options="{{ option1 }}" />
   <wd-drop-menu-item value="1" options="{{ option2 }}" />
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ### 禁用菜单
