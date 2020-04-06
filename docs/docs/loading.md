@@ -1,12 +1,13 @@
 ## Loading 加载指示器
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { Loading } from 'wot-design'
-
-Vue.use(Loading)
+```json
+{
+  "usingComponents": {
+    "wd-loading": "/wot-design/loading/index"
+  }
+}
 ```
 
 ### 基本用法

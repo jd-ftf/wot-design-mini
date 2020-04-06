@@ -4,9 +4,8 @@
 
 ```json
 {
-  "navigationBarTitleText": "SortButton 排序按钮",
   "usingComponents": {
-    "wd-sort-button": "../../dist/sortButton/index"
+    "wd-sort-button": "/wot-design/sortButton/index"
   }
 }
 
