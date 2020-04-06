@@ -6,7 +6,7 @@
 {
   "usingComponents": {
     "wd-radio": "/wot-design/radio/index",
-    "wd-radio-group": "wot-design/radioGroup/index"
+    "wd-radio-group": "/wot-design/radioGroup/index"
   }
 }
 ```
