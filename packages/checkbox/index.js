@@ -113,10 +113,11 @@ VueComponent({
      * @description 点击checkbox的Event handle
      */
     toggle () {
-      const { value, finalDisabled, trueValue, falseValue } = this.data
+      const { value, finalDisabled, trueValue, falseValue, isChecked } = this.data
       if (finalDisabled) return
       // 复选框单独使用时点击反选，并且在checkbox上触发change事件
       if (this.parent) {
+        this.$emit('change', !isChecked)
         this.parent.changeValue(value)
       } else {
         const newVal = value === trueValue ? falseValue : trueValue

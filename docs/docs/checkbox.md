@@ -204,7 +204,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发，当为复选框组时不触发 | event.detail = true-value、false-value（true-value的值默认为true、false-value的值默认为false） |
+| bind:change | 绑定值变化时触发，当为复选框组时参数为boolean，表示该复选框是否选中 | event.detail = true-value、false-value（true-value的值默认为true、false-value的值默认为false） |
 
 ### CheckboxGroup Events
 
