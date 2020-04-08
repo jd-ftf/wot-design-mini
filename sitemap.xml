@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://docs.aahframework.org/v0.12</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/getting-started.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/examples.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/anatomy-aah-application.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/configuration.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/request-life-cycle.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/rest-api-versioning.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/security-terminology.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/security-design.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/security-permissions.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/security-subject.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/pooling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/versioning.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/release-and-development-process.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/go-coding-standards-and-code-quality.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/release-notes.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/aah-cli-tool.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/aah-project-file.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/init.go-file.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/server.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/server-extension.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/server-access-log.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/server-dump-log.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/app-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/security-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/log-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/request-and-response.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/routing.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/routes-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/request-parameters-auto-bind.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/controllers.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/interceptors.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/authentication.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/auth-schemes/form.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/auth-schemes/basic.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/auth-schemes/oauth2.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/auth-schemes/generic.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/password-encoders.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/authorization.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/validation.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/session.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/reply.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/middleware.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/views.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/template-funcs.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/i18n.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/websocket.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/event-publisher.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/cache.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/console-commands.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/anti-csrf-protection.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/cors.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/static-files.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/error-handling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/logging.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/vfs.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/cryptography.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/cookie-manager.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/faq.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/diagnosis-and-profiling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/debugging.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/aah-application-binary.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/deployment.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/configuration-hot-reload.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/cluster-deployment.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/getting-started-with-systemd.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.12/getting-started-with-docker.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/faq.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/routes-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/release-notes.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/aah-application-binary.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/vfs.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/configuration-hot-reload.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/websocket.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/static-files.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/security-permissions.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/error-handling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/%2Ferror-handling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/template-funcs.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/request-life-cycle.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/init.go-file.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/anatomy-aah-application.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/app-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/routes-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/security-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/i18n.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/views.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/aah-cli-tool.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/aah-project-file.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/init.go-file.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/server.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/server-extension.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/server-access-log.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/server-dump-log.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/configuration.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/log-config.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/request-and-response.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/routing.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/request-parameters-auto-bind.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/controllers.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/interceptors.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/authentication.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/password-encoders.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/authorization.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/security-permissions.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/validation.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/session.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/reply.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/middleware.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/template-funcs.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/event-publisher.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/anti-csrf-protection.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/cors.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/static-files.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/error-handling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/logging.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/faq.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/aah-application-binary.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/deployment.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/configuration-hot-reload.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/cluster-deployment.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/getting-started-with-systemd.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/getting-started-with-docker.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/request-life-cycle.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/security-terminology.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/security-design.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/security-subject.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/rest-api-versioning.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/pooling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/versioning.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/release-and-development-process.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/go-coding-standards-and-code-quality.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/release-notes.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.10/%2Ferror-handling.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/v0.10/external-json-library.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/aah-cli-tool.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/validation.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.aahframework.org/docs.aahframework.org/v0.12/cors.html</loc>
+  <lastmod>2020-04-03T08:37:32+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>
