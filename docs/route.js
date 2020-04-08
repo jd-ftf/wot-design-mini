@@ -135,4 +135,9 @@ const router = new Router({
   ]
 })
 
+// const { siteMapUrls, createSitemapXml } = require('./utils/sitemap')
+// const { origin, pathname } = window.location
+// const routerList = siteMapUrls(router.options.routes, origin + pathname)
+// const sitemapXml = createSitemapXml(routerList)
+
 export default router

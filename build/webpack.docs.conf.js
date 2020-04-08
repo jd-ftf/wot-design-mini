@@ -10,28 +10,15 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
-const fs = require('fs')
+const {
+  versionWriter,
+  sitemapWriter
+} = require('./file-writer')
 const isProd = process.env.NODE_ENV === 'production'
 let outputConfig
 
-const versions = require('../build/deploy/change-log')
-// 把 versions 对象转换为json格式字符串
-const content = JSON.stringify(versions)
-
-// 指定创建目录及文件名称，__dirname为执行当前js文件的目录
-const versionDir = path.resolve(__dirname, '../docs/public')
-const file = path.resolve(__dirname, '../docs/public/versions.json')
-
-if (!fs.existsSync(versionDir)) {
-  fs.mkdirSync(versionDir, { recursive: true })
-}
-
-// 写入文件
-fs.writeFile(file, content, err => {
-  if (err) {
-    return console.error(err)
-  }
-})
+sitemapWriter()
+versionWriter()
 
 const webpackConf = {
   mode: isProd ? 'production' : 'development',
@@ -94,9 +81,9 @@ const webpackConf = {
   },
   devtool: isProd ? false : 'cheap-module-eval-source-map',
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.md'],
+    extensions: ['.js', '.vue', '.json', '.md', '.xml'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.esm.js'
     }
   },
   stats: {
@@ -122,19 +109,23 @@ const webpackConf = {
         ignore: [
           '.DS_Store'
         ]
+      },
+      {
+        from: path.resolve(__dirname, '../docs/sitemap.xml'),
+        to: utils.assetsPath('../sitemap.xml')
       }
     ])
   ]
 }
 
 if (!isProd) {
-  let devWebpackConf = merge(webpackConf, {
+  const devWebpackConf = merge(webpackConf, {
     devServer: {
       clientLogLevel: 'warning',
       historyApiFallback: {
         rewrites: [
           { from: /.*/, to: 'index.html' }
-        ],
+        ]
       },
       hot: true,
       contentBase: false,
