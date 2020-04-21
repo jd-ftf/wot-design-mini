@@ -31,8 +31,8 @@ VueComponent({
       value: null,
 
       observer(target) {
-        // type: 'circle', 'dot', 'button'
-        const type = ['circle', 'dot', 'button'];
+        // type: 'dot', 'button'
+        const type = ['dot', 'button'];
         if (type.indexOf(target) === -1) throw Error(`shape must be one of ${type.toString()}`);
       }
 
@@ -48,10 +48,34 @@ VueComponent({
   },
   relations: {
     '../radioGroup/index': {
-      type: 'parent',
+      type: 'ancestor',
 
       linked(target) {
         this.parent = target;
+        const {
+          shape,
+          checkedColor,
+          disabled,
+          inline
+        } = this.parent.data;
+        const data = {
+          shape,
+          checkedColor,
+          disabled,
+          inline
+        };
+        const keys = Object.keys(data);
+        const will = {};
+        keys.forEach(key => {
+          if (data[key] !== null && data[key] !== undefined && this.data[key] === null) {
+            will[key] = data[key];
+          }
+        });
+        this.setData(will);
+        this.setData({
+          isChecked: this.data.value === this.parent.data.value,
+          isFirst: this.parent.children.length === 1
+        });
       },
 
       unlinked() {
@@ -61,7 +85,9 @@ VueComponent({
     }
   },
   data: {
-    isChecked: false
+    isChecked: false,
+    isFirst: false,
+    inline: null
   },
   methods: {
     /**
@@ -81,16 +107,5 @@ VueComponent({
       }
     }
 
-  },
-
-  mounted() {
-    /**
-     * relations在props之后才建立，所以初始化的时候props无法拿到relations的值，因此挂载后需要手动执行一下。
-     * 判断此节点是否可以被选中，可以的话通知radioGroup选中。
-     */
-    if (this.parent && this.data.value === this.parent.data.value) {
-      this.parent.changeSelect(this.data.value);
-    }
   }
-
 });

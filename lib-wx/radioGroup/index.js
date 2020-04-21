@@ -2,7 +2,7 @@ import VueComponent from '../common/component';
 VueComponent({
   relations: {
     '../radio/index': {
-      type: 'child',
+      type: 'descendant',
 
       linked(child) {
         this.children = this.children || []; // 在建立relations时radioGroup保存radio实例中的value，注意value的唯一性。
@@ -12,7 +12,14 @@ VueComponent({
       },
 
       unlinked(target) {
+        const index = this.children.indexOf(target);
         this.children = this.children.filter(child => child !== target);
+
+        if (index === 0 && this.children.length > 0) {
+          this.children[0].setData({
+            isFirst: true
+          });
+        }
       }
 
     }
@@ -37,12 +44,12 @@ VueComponent({
     },
     shape: {
       type: String,
-      value: 'circle',
+      value: 'dot',
 
       observer(value) {
-        // type: 'circle', 'dot', 'button'
-        const type = ['circle', 'dot', 'button'];
-        if (type.indexOf(value) === -1) throw Error(`circle must be one of ${type.toString()}`);
+        // type: 'dot', 'button'
+        const type = ['dot', 'button'];
+        if (type.indexOf(value) === -1) throw Error(`shape must be one of ${type.toString()}`);
         this.updateAllChild({
           shape: value
         });
@@ -67,6 +74,17 @@ VueComponent({
       observer(value) {
         this.updateAllChild({
           disabled: value
+        });
+      }
+
+    },
+    inline: {
+      type: Boolean,
+      value: false,
+
+      observer(value) {
+        this.updateAllChild({
+          inline: value
         });
       }
 
@@ -129,20 +147,5 @@ VueComponent({
       this.$emit('change', value);
     }
 
-  },
-
-  mounted() {
-    // 用radioGroup的props覆盖radio中props值为null的属性
-    const {
-      shape,
-      checkedColor,
-      disabled
-    } = this.data;
-    this.updateAllChild({
-      shape,
-      checkedColor,
-      disabled
-    });
   }
-
 });

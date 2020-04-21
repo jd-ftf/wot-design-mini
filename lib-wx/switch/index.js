@@ -21,7 +21,11 @@ VueComponent({
   methods: {
     switchValue() {
       if (this.data.disabled) return;
-      this.$emit('change', this.data.value === this.data.activeValue ? this.data.inactiveValue : this.data.activeValue);
+      const newVal = this.data.value === this.data.activeValue ? this.data.inactiveValue : this.data.activeValue;
+      this.setData({
+        value: newVal
+      });
+      this.$emit('change', newVal);
     }
 
   },

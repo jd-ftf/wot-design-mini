@@ -20,7 +20,7 @@
     name="close-outline"
     catchtap="handleClose"/>
   <input
-    jd:if="{{ dynamicInput && type == 'dynamic' }}"
+    jd:if="{{ dynamicInput && dynamic }}"
     class="wd-tag__add-text"
     placeholder="请输入"
     type="text"
@@ -30,10 +30,10 @@
     bindconfirm="handleConfirm">
   </input>
   <view
-    jd:elif="{{type == 'dynamic'}}"
+    jd:elif="{{ dynamic }}"
     class="wd-tag__text"
     style="{{color?'color:'+color:''}}"
     catchtap="handleAdd">
-    +新增标签
+    + 新增标签
   </view>
 </view>

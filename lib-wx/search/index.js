@@ -24,7 +24,6 @@ VueComponent({
       type: Number,
       value: -1
     },
-    autofocus: Boolean,
     value: {
       type: String,
 
@@ -41,6 +40,7 @@ VueComponent({
     }
   },
   data: {
+    focus: false,
     str: '',
     showPlaceHolder: true
   },
@@ -49,7 +49,7 @@ VueComponent({
       if (this.data.disabled) return;
       this.setData({
         showPlaceHolder: false,
-        autofocus: true
+        focus: true
       });
     },
 
@@ -75,7 +75,9 @@ VueComponent({
       setTimeout(() => {
         // 延迟清空，避免在输入时会触发change，但清除在change之前，导致之前change的值重新被set上去
         this.setData({
-          str: ''
+          str: '' // TODO 点击清空会造成失焦，可以考虑重新聚焦拉起键盘
+          // focus: true
+
         });
         this.$emit('change', '');
         this.$emit('clear');
@@ -107,10 +109,12 @@ VueComponent({
      * @description 输入框失焦的handle
      */
     searchBlur() {
-      this.setData({
-        showPlaceHolder: true,
-        autofocus: false
-      }); // 组件触发blur事件
+      if (!this.data.str) {
+        this.setData({
+          showPlaceHolder: true
+        });
+      } // 组件触发blur事件
+
 
       this.$emit('blur', this.data.str);
     },

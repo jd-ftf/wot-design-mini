@@ -1,12 +1,12 @@
 <view
-  class="wd-checkbox {{isChecked ? 'is-checked' : ''}} {{shape === 'button' ? 'is-button' : ''}} {{disabled ? 'is-disabled' : ''}} custom-class"
+  class="wd-checkbox {{isChecked ? 'is-checked' : ''}} {{ isFirst ? 'is-first' : '' }} {{ inline ? 'is-inline' : '' }} {{shape === 'button' ? 'is-button' : ''}} {{finalDisabled ? 'is-disabled' : ''}} custom-class"
   bindtap="toggle"
 >
   <!--shape为button时只保留wd-checkbox__label-->
   <view
     wx:if="{{shape !== 'button' }}"
     class="wd-checkbox__shape {{shape === 'square' ? 'is-square' : ''}}"
-    style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
+    style="{{(isChecked && !finalDisabled) ? 'color :' + checkedColor : '' }}"
   >
     <wd-icon
       custom-class="wd-checkbox__check"
@@ -16,7 +16,7 @@
   <!--文字-->
   <view
     class="wd-checkbox__label"
-    style="{{isChecked && shape === 'button' && !disabled ? ('color:' + checkedColor) : ''}}"
+    style="{{isChecked && shape === 'button' && !finalDisabled ? ('color:' + checkedColor) : ''}}"
   >
     <!--button选中时展示的icon-->
     <wd-icon
@@ -28,8 +28,5 @@
     <view class="wd-checkbox__txt">
       <slot></slot>
     </view>
-  </view>
-  <view>
-    {{shape === 'circle' || shape === 'square' ? 'check-round' : '' }}
   </view>
 </view>

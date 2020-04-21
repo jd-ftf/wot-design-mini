@@ -5,7 +5,7 @@
     {{ min }}
   </view>
   <view
-    class="wd-slider__bar-wrapper {{ disabled ? 'disabled' : '' }} custom-class"
+    class="wd-slider__bar-wrapper"
     style="{{ inactiveColor ? 'background:' + inactiveColor : '' }}">
     <view
       class="wd-slider__bar"
@@ -14,7 +14,7 @@
     <!-- 左边 -->
       <view
         class="wd-slider__button-wrapper"
-        style="left: {{ leftBarPercent - 10 + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
+        style="left: {{ leftBarPercent + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
         bind:touchstart="onTouchStart"
         catch:touchmove="onTouchMove"
         bind:touchend="onTouchEnd"
@@ -28,7 +28,7 @@
       <view
         wx:if="{{ showRight }}"
         class="wd-slider__button-wrapper"
-        style="left: {{ rightBarPercent - 10 + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
+        style="left: {{ rightBarPercent + '%' }}; visibility: {{ !disabled ? 'show' : 'hidden' }}"
         bind:touchstart="onTouchStartRight"
         catch:touchmove="onTouchMoveRight"
         bind:touchend="onTouchEndRight"

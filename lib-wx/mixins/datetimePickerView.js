@@ -12,7 +12,15 @@ const range = (num, min, max) => Math.min(Math.max(num, min), max);
 /** @description 不满10补0 */
 
 
-const padZero = val => `00${val}`.slice(-2);
+const padZero = (number, length = 2) => {
+  number = number + '';
+
+  while (number.length < length) {
+    number = '0' + number;
+  }
+
+  return number;
+};
 /**
  * @description 生成n个元素，并使用iterator接口进行填充
  * @param n
@@ -30,22 +38,6 @@ const times = (n, iteratee) => {
   }
 
   return result;
-};
-/**
- * @description 还原数据，例如 2019年 ->getTrueValue-> 2019
- * @param {String} formattedValue
- * @return {Number}
- */
-
-
-const getTrueValue = formattedValue => {
-  if (!formattedValue) return;
-
-  while (isNaN(parseInt(formattedValue, 10))) {
-    formattedValue = formattedValue.slice(1);
-  }
-
-  return parseInt(formattedValue, 10);
 };
 /**
  * @description 获取某年某月有多少天
@@ -199,25 +191,9 @@ export default function () {
     },
     methods: {
       /**
-       * @description observer触发选项重计算，防抖50秒
+       * @description updateValue 防抖函数的占位符
        */
-      updateValue: debounce(function () {
-        // 只有等created hook初始化数据之后，observer才能执行此操作
-        if (!this.data.created) return;
-        const {
-          data
-        } = this;
-        const val = this.correctValue(this.data.value);
-        const isEqual = val === data.innerValue;
-
-        if (!isEqual) {
-          this.updateColumnValue(val);
-        } else {
-          this.setData({
-            columns: this.updateColumns()
-          });
-        }
-      }, 50),
+      updateValue() {},
 
       /**
        * @description 使用formatter格式化getOriginColumns的结果
@@ -228,7 +204,10 @@ export default function () {
           formatter = defaultFormatter
         } = this.data;
         return this.getOriginColumns().map(column => {
-          return column.values.map(value => formatter(column.type, value));
+          return column.values.map(value => ({
+            label: formatter(column.type, padZero(value)),
+            value
+          }));
         });
       },
 
@@ -245,9 +224,7 @@ export default function () {
           range
         }) => {
           let values = times(range[1] - range[0] + 1, index => {
-            let value = range[0] + index;
-            value = type === 'year' ? `${value}` : padZero(value);
-            return value;
+            return range[0] + index;
           });
 
           if (filter) {
@@ -404,21 +381,20 @@ export default function () {
       updateColumnValue(value) {
         const values = [];
         const {
-          type,
-          formatter = defaultFormatter
+          type
         } = this.data;
         const date = new Date(value);
 
         if (type === 'time') {
           const pair = value.split(':');
-          values.push(formatter('hour', pair[0]), formatter('minute', pair[1]));
+          values.push(pair[0], pair[1]);
         } else {
-          values.push(formatter('year', `${date.getFullYear()}`), formatter('month', padZero(date.getMonth() + 1)));
+          values.push(date.getFullYear(), date.getMonth() + 1);
 
           if (type === 'date') {
-            values.push(formatter('date', padZero(date.getDate())));
+            values.push(date.getDate());
           } else if (type === 'datetime') {
-            values.push(formatter('date', padZero(date.getDate())), formatter('hour', padZero(date.getHours())), formatter('minute', padZero(date.getMinutes())));
+            values.push(date.getDate(), date.getHours(), date.getMinutes());
           }
         }
 
@@ -427,9 +403,14 @@ export default function () {
         }); // 更新pickerView的value,columns
 
         this.setData({
-          columns: this.updateColumns(),
-          pickerValue: values
-        });
+          columns: this.updateColumns()
+        }); // prop中value值为空，不向picker透传
+
+        if (this.data.value) {
+          this.setData({
+            pickerValue: values
+          });
+        }
       },
 
       /**
@@ -446,11 +427,11 @@ export default function () {
         /** 重新计算年月日时分秒，修正时间。 */
 
 
-        const values = picker.getLabels();
-        const year = getTrueValue(values[0]);
-        const month = getTrueValue(values[1]);
+        const values = picker.getValues();
+        const year = values[0];
+        const month = values[1];
         const maxDate = getMonthEndDay(year, month);
-        let date = getTrueValue(values[2]);
+        let date = values[2];
 
         if (type === 'year-month') {
           date = 1;
@@ -461,8 +442,8 @@ export default function () {
         let minute = 0;
 
         if (type === 'datetime') {
-          hour = getTrueValue(values[3]);
-          minute = getTrueValue(values[4]);
+          hour = values[3];
+          minute = values[4];
         }
 
         const value = new Date(year, month - 1, date, hour, minute);
@@ -494,7 +475,28 @@ export default function () {
     },
 
     beforeCreate() {
-      // pickerView挂载到全局
+      /**
+       * @description observer触发选项重计算，防抖50秒
+       * 防抖函数必须要在实例初始化的时候手动挂载到this上
+       */
+      this.updateValue = debounce(function () {
+        // 只有等created hook初始化数据之后，observer才能执行此操作
+        if (!this.data.created) return;
+        const {
+          data
+        } = this;
+        const val = this.correctValue(this.data.value);
+        const isEqual = val === data.innerValue;
+
+        if (!isEqual) {
+          this.updateColumnValue(val);
+        } else {
+          this.setData({
+            columns: this.updateColumns()
+          });
+        }
+      }, 50); // pickerView挂载到全局
+
       this.picker = this.selectComponent(`#${this.data.pickerId}`);
     },
 

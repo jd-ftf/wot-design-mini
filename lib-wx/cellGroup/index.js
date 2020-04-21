@@ -1,4 +1,5 @@
 import VueComponent from '../common/component';
+import cell from '../mixins/cell';
 VueComponent({
   props: {
     title: String,
@@ -9,8 +10,9 @@ VueComponent({
     }
   },
   relations: {
-    '../cell/index': {
-      type: 'child',
+    cell: {
+      type: 'descendant',
+      target: cell,
 
       linked(target) {
         this.children = this.children || [];

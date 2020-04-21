@@ -1,5 +1,5 @@
 <view
-  class="wd-radio {{ isChecked ? 'is-checked' : '' }} {{shape !== 'circle' ? 'is-'+shape : '' }} {{ disabled ? 'is-disabled' : ''}} custom-class"
+  class="wd-radio {{ isFirst ? 'is-first' : '' }} {{ inline ? 'is-inline' : '' }} {{ isChecked ? 'is-checked' : '' }} {{shape !== 'dot' ? 'is-'+shape : '' }} {{ disabled ? 'is-disabled' : ''}} custom-class"
   bindtap="handleClick"
 >
   <!--形状为button时不展示-->
@@ -8,17 +8,7 @@
     class="wd-radio__shape"
     style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
   >
-    <!--shape为circle的时候使用check-round图标-->
-    <wd-icon
-      wx:if="{{ shape === 'circle' }}"
-      name="check-round"
-      custom-class="wd-radio__check"
-    />
-    <!--否则使用dot-->
-    <view wx:else
-          class="wd-radio__check"
-          style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}"
-    />
+    <view class="wd-radio__check" style="{{(isChecked && !disabled) ? 'color :' + checkedColor : '' }}" />
   </view>
   <!--文案-->
   <view

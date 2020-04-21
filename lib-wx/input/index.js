@@ -1,6 +1,22 @@
 import VueComponent from '../common/component';
+import cell from '../mixins/cell';
 VueComponent({
-  externalClasses: ['custom-suffix-class', 'custom-prefix-class', 'custom-textarea-class', 'custom-input-class'],
+  externalClasses: ['custom-textarea-class', 'custom-input-class', 'custom-label-class'],
+  behaviors: [cell],
+  relations: {
+    '../cellGroup/index': {
+      type: 'ancestor',
+
+      linked(target) {
+        this.parent = target;
+      },
+
+      unlinked() {
+        this.parent = null;
+      }
+
+    }
+  },
   data: {
     isPwdVisible: false
   },
@@ -128,7 +144,17 @@ VueComponent({
       value: false
     },
     suffix: String,
-    suffixCount: Number
+    suffixCount: Number,
+    label: String,
+    labelWidth: String,
+    useLabelSlot: Boolean,
+    noHair: {
+      type: Boolean,
+      value: true
+    },
+    size: String,
+    error: Boolean,
+    center: Boolean
   },
 
   created() {
@@ -215,6 +241,14 @@ VueComponent({
 
     handleMapTextarea(event) {
       this.$emit('linechange', event);
+    },
+
+    onClickSuffixIcon() {
+      this.$emit('clicksuffixicon');
+    },
+
+    onClickPrefixIcon() {
+      this.$emit('clickprefixicon');
     }
 
   }

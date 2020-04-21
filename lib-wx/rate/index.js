@@ -92,6 +92,9 @@ VueComponent({
       }
     }) {
       if (this.data.readonly || this.data.disabled) return;
+      this.setData({
+        value: index + 1
+      });
       this.$emit('change', index + 1);
     }
 

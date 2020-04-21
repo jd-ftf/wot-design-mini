@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-return */
 import VueComponent from '../common/component';
 import touch from '../mixins/touch';
-const $selector = '.wd-slider'; // 存放右滑轮中的所有属性
+const $slider = '.wd-slider'; // 存放右滑轮中的所有属性
 
 const rightSlider = {};
 VueComponent({
@@ -106,7 +106,7 @@ VueComponent({
         this.currentValue = newValue; // 动态传值后修改
 
         if (this.checkType(newValue) === 'Array') {
-          if (this.equar(newValue, oldValue)) return;
+          if (this.equal(newValue, oldValue)) return;
           this.setData({
             showRight: true
           });
@@ -132,7 +132,7 @@ VueComponent({
   },
 
   mounted() {
-    this.getRect($selector).then(rect => {
+    this.getRect($slider).then(rect => {
       if (!rect || !rect.width) return; // trackWidth: 轨道全长
 
       this.trackWidth = rect.width; // trackLeft: 轨道距离左侧的距离
@@ -241,19 +241,19 @@ VueComponent({
       } = this.data;
       value = this.format(value); // 把 value 转换成百分比
 
-      const percent = this.format((value - min) / (max - min) * 100);
+      const percent = (value - min) / (max - min) * 100;
 
       if (!showRight) {
         this.setData({
           value,
           leftNewValue: value,
-          leftBarPercent: this.format(percent),
+          leftBarPercent: percent,
           barStyle: `width: ${percent}%; height: ${this.data.barHeight};`
         });
       } else {
         this.setData({
           leftNewValue: value,
-          leftBarPercent: this.format(percent)
+          leftBarPercent: percent
         });
         this.styleControl();
       }
@@ -265,7 +265,6 @@ VueComponent({
         leftNewValue,
         rightNewValue
       } = this.data;
-      if (!leftNewValue || !rightNewValue) return;
       const {
         leftBarPercent,
         rightBarPercent
@@ -297,7 +296,7 @@ VueComponent({
       return Object.prototype.toString.call(value).slice(8, -1);
     },
 
-    equar(arr1, arr2) {
+    equal(arr1, arr2) {
       let i = 0;
       arr1.forEach((item, index) => {
         item === arr2[index] && i++;

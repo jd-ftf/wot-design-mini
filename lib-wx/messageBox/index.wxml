@@ -2,7 +2,8 @@
   transition="zoom-in"
   show="{{ show }}"
   custom-class="wd-message-box"
-  bind:click-modal="toggleModal"
+  bind:clickmodal="toggleModal"
+  data-action="modal"
   z-index="{{ zIndex }}"
 >
   <view class="wd-message-box__container custom-class">

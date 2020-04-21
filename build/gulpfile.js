@@ -1,98 +1,14 @@
-const { src, dest, parallel, series } = require('gulp')
-const sass = require('gulp-sass')
+const { src, parallel, series, watch } = require('gulp')
+const del = require('del')
 const eslint = require('gulp-eslint')
-const rename = require('gulp-rename')
-const postcss = require('gulp-postcss')
-const cssnano = require('gulp-cssnano')
-const autoprefixer = require('autoprefixer')
-const watch = require('gulp-watch')
-const minimist = require('minimist')
-const pipeline = require('readable-stream').pipeline
 const path = require('path')
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
-const base64 = require('gulp-base64')
-const jsReplace = require('./plugins/gulp-js-replace')
-const strReplace = require('./plugins/gulp-replace')
-
-const options = minimist(process.argv.slice(2), {
-  string: 'env',
-  default: {
-    env: process.env.NODE_ENV || 'production'
-  }
-})
-
-const example = path.resolve(__dirname, '../example')
-const libDir = path.resolve(__dirname, '../lib')
-const exampleDist = path.resolve(example, './dist')
-const packagesPath = path.resolve(__dirname, '../packages')
-const finalPath = options.env === 'production' ? libDir : exampleDist
-const scssDir = `${packagesPath}/**/*.scss`
+const { htmlTransform, jsTransform, styleTransform, copyNoChange } = require('@ftf/gulp-vapp-transform')
 
 const cleanTask = function (filepath) {
   return function () {
     return exec(`npx rimraf ${filepath}`)
-  }
-}
-
-const createReplaceExtTask = function (srcPath, toPath, ext, base) {
-  return function () {
-    return src(srcPath)
-      .pipe(rename(path => {
-        path.extname = `.${ext}`
-      }))
-      .pipe(dest(toPath))
-  }
-}
-
-const createScssTask = function (srcPath, ext, base) {
-  return function () {
-    return src(srcPath, { base })
-      .pipe(sass().on('error', sass.logError))
-      .pipe(base64({
-        extensions: ['ttf']
-      }))
-      .pipe(postcss([autoprefixer()]))
-      .pipe(cssnano({
-        discardComments: { removeAll: true }
-      }))
-      .pipe(rename(path => {
-        path.extname = `.${ext}`
-      }))
-      .pipe(dest(finalPath))
-  }
-}
-
-const createJsTask = function (srcPath, toPath, replaceStr, str) {
-  return function () {
-    return src(srcPath)
-      .pipe(jsReplace(replaceStr, str))
-      .pipe(dest(toPath))
-  }
-}
-
-const createHtmlTask = function (srcPath, toPath, replaceArr, ext) {
-  let replaceTask = (replaceArr || []).map(item => {
-    return strReplace(item.replaceStr, item.str)
-  })
-
-  ext && replaceTask.push(rename(path => {
-    path.extname = `.${ext}`
-  }))
-
-  return function () {
-    return pipeline(
-      src(srcPath),
-      ...replaceTask,
-      dest(toPath)
-    )
-  }
-}
-
-const createCopyTask = function (srcPath, toPath) {
-  return function () {
-    return src(srcPath)
-      .pipe(dest(toPath))
   }
 }
 
@@ -104,108 +20,129 @@ const createEsLintTask = function (srcPath, ext, base) {
   }
 }
 
-const sassToJxss = createScssTask([scssDir], 'jxss')
-const jsToJdJs = createJsTask([`${packagesPath}/**/*.js`], finalPath)
-const jxmlToJxml = createHtmlTask([`${packagesPath}/**/*.jxml`], finalPath)
-const packagesCopy = createCopyTask([
+/**
+ * watch 不监听删除文件和文件夹事，因此手动处理监听操作
+ * @param {String} stats 当前执行的操作
+ * @param {String} changePath 修改的路径
+ * @param {String} entryName 源地址
+ * @param {String} outputName 目标地址
+ */
+const watchDelTask = (stats, changePath, entryName, outputName) => {
+  function filters (ext) {
+    if (ext === '.jxml' || ext === '.wxml') {
+      return isToWx ? '.wxml' : '.jxml'
+    } else if (ext === '.scss' || ext === '.jxss' || ext === '.wxss') {
+      return isToWx ? '.wxss' : '.jxss'
+    } else {
+      return ext
+    }
+  }
+
+  if (stats === 'unlink' || stats === 'unlinkDir') {
+    const file = path.parse(changePath)
+    const { name, ext, dir } = file
+    // 此处存在一个问题，如果替换文件前方有重名文件夹，可能会造成替换错误，因此建议使用不重名的文件夹名作为入口
+    const pre = dir.replace(entryName, outputName)
+    const final = pre + '/' + name + filters(ext)
+    del.sync(final, { force: true })
+  }
+}
+
+const options = process.env.NODE_ENV || 'production'
+
+// 1. packages -> example/dist example(dist) 监听 packages（entry）
+// 2. example -> example-wx example-wx(wx-dist) 监听 example (entry)
+const isToWx = process.env.PLATFORM === 'wx'
+const example = path.resolve(__dirname, '../example')
+const libDir = path.resolve(__dirname, '../lib')
+const exampleDist = path.resolve(example, './dist')
+const packagesPath = path.resolve(__dirname, '../packages')
+const finalPath = options === 'production' ? libDir : exampleDist
+
+// packages 内部的 jd小程序转成 example 微信小程序
+// √ scss -> jxss
+const scssTask = () => styleTransform(packagesPath, finalPath, 'scss', 'jxss')()
+// √ js
+const jsTask = () => jsTransform(packagesPath, finalPath)()
+// √ jxml -> jxml
+const jxmlTask = () => htmlTransform(packagesPath, finalPath, 'jxml', 'jxml')()
+
+const packagesCopy = copyNoChange([
   `${packagesPath}/**`,
-  `!${scssDir}`,
+  `!${packagesPath}/**/*.scss`,
   `!${packagesPath}/**/*.js`,
   `!${packagesPath}/**/*.jxml`
 ], finalPath)
+
 const esLint = createEsLintTask([
   `${packagesPath}/**/*.js`,
   `${packagesPath}/**/*.json`
 ], finalPath)
 
-const watchTask = function () {
-  return watch(`${packagesPath}/**`, parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy, esLint))
-}
-
-exports.dev = series(cleanTask(finalPath), parallel(watchTask, sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy, esLint))
-
-const build = series(cleanTask(finalPath), parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy))
-exports.build = build
-
-const wxLib = path.resolve(__dirname, '../lib-wx')
-const wxExample = path.resolve(__dirname, '../example-wx')
-const wxExampleDist = `${wxExample}/dist`
-const wxFinalPath = options.env === 'production' ? wxLib : wxExampleDist
-const htmlReplace = [
-  {
-    replaceStr: '\\.jxs',
-    str: '.wxs'
-  }, {
-    replaceStr: '<jxs',
-    str: '<wxs'
-  }, {
-    replaceStr: 'jd:',
-    str: 'wx:'
-  }
+const baseTransTask = [
+  parallel(scssTask, jsTask, jxmlTask, packagesCopy, esLint)
 ]
+const watchTask = function () {
+  return watch(`${packagesPath}/**`, ...baseTransTask)
+    .on('all', (stats, changePath) => {
+      watchDelTask(stats, changePath, packagesPath, finalPath)
+    })
+}
 
-const wxCssTask = createReplaceExtTask([`${finalPath}/**/*.jxss`], wxFinalPath, 'wxss')
-const wxJsTask = createJsTask([`${finalPath}/**/*.js`], wxFinalPath, 'jd', 'wx')
-const wxHtmlTask = () => createHtmlTask([`${finalPath}/**/*.jxml`], wxFinalPath, htmlReplace, 'wxml')()
-const wxWxsTask = createReplaceExtTask([`${finalPath}/**/*.jxs`], wxFinalPath, 'wxs')
-const wxPackageCopy = createCopyTask([
-  `${finalPath}/**`,
-  `!${finalPath}/**/*.jxss`,
-  `!${finalPath}/**/*.js`,
-  `!${finalPath}/**/*.jxml`,
-  `!${finalPath}/**/*.jxs`
-], wxFinalPath)
-const wxExampleCssTask = createReplaceExtTask([`${example}/**/*.jxss`, `!${example}/dist/**`], wxExample, 'wxss')
-const wxExampleJsTask = createJsTask([`${example}/**/*.js`, `!${example}/dist/**`], wxExample, 'jd', 'wx')
-const wxExampleHtmlTask = () => createHtmlTask([`${example}/**/*.jxml`, `!${example}/dist/**`], wxExample, htmlReplace, 'wxml')()
-const wxExampleWxsTask = createReplaceExtTask([`${example}/**/*.jxs`, `!${example}/dist/**`], wxExample, 'wxs')
-const wxExampleCopy = createCopyTask([
-  `${example}/**`,
-  `!${example}/**/*.jxss`,
-  `!${example}/**/*.js`,
-  `!${example}/**/*.jxml`,
-  `!${example}/**/*.jxs`
-], wxExample)
+exports.dev = series(cleanTask(finalPath), ...baseTransTask, parallel(watchTask))
+exports.build = series(cleanTask(finalPath), ...baseTransTask)
 
-const watchWx = function () {
-  return watch(
+// example -> example-wx
+if (isToWx) {
+  // wxExample转换 除了转换成demo之外，也需要把小程序打包
+  const wxLib = path.resolve(__dirname, '../lib-wx')
+  const wxExample = path.resolve(__dirname, '../example-wx')
+  const wxExampleDist = path.resolve(__dirname, '../example-wx/dist')
+  const wxFinalPath = options === 'production' ? wxLib : wxExample
+  const sourceFinal = options === 'production' ? wxLib : wxExampleDist
+
+  // packages (源代码) -> example-wx
+  const scssToWxssTask = () => styleTransform(packagesPath, sourceFinal, 'scss', 'wxss')()
+  const jsSourceTask = () => jsTransform(packagesPath, sourceFinal)()
+  const jxmlSourceTask = () => htmlTransform(packagesPath, sourceFinal, 'jxml', 'wxml')()
+  const sourceCopy = copyNoChange([
     `${packagesPath}/**`,
-    series(
-      parallel(sassToJxss, jsToJdJs, jxmlToJxml, packagesCopy),
-      parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxExampleCopy, esLint)
-    )
-  )
+    `!${packagesPath}/**/*.scss`,
+    `!${packagesPath}/**/*.js`,
+    `!${packagesPath}/**/*.jxml`
+  ], sourceFinal)
+
+  const sourceBaseTask = [
+    parallel(scssToWxssTask, jsSourceTask, jxmlSourceTask, sourceCopy)
+  ]
+
+  const watchSourceTask = function () {
+    return watch(`${packagesPath}/**`, ...sourceBaseTask)
+      .on('all', (stats, changePath) => {
+        watchDelTask(stats, changePath, packagesPath, sourceFinal)
+      })
+  }
+
+  // (example) -> (example-wx)
+  const jxssTask = () => styleTransform(example, wxFinalPath, 'jxss')()
+  const jsWxTask = () => jsTransform(example, wxFinalPath, false)()
+  const jxmlWxTask = () => htmlTransform(example, wxFinalPath, 'jxml')()
+
+  const wxCopy = copyNoChange([
+    `${example}/**`,
+    `!${example}/**/*.jxss`,
+    `!${example}/**/*.js`,
+    `!${example}/**/*.jxml`
+  ], wxFinalPath)
+
+  const baseTask = [
+    parallel(jxssTask, jsWxTask, jxmlWxTask, wxCopy)
+  ]
+  const watchWxTask = function () {
+    return watch([`${example}/**`, `!${example}/dist/**`], ...baseTask)
+  }
+  const devwx = series(cleanTask(sourceFinal), cleanTask(wxFinalPath), ...sourceBaseTask, ...baseTask, parallel(watchSourceTask, watchWxTask))
+  const buildwx = series(cleanTask(wxFinalPath), ...sourceBaseTask)
+  exports.devwx = devwx
+  exports.buildwx = buildwx
 }
-
-const watchExample = function () {
-  return watch([`${example}/**`, `!${example}/dist/**`], parallel(wxExampleCssTask, wxExampleJsTask, wxExampleHtmlTask, wxExampleWxsTask, wxExampleCopy))
-}
-
-exports.devwx = series(
-  cleanTask(finalPath),
-  cleanTask(wxExample),
-  parallel(
-    sassToJxss,
-    jsToJdJs,
-    jxmlToJxml,
-    packagesCopy
-  ),
-  parallel(
-    wxCssTask,
-    wxJsTask,
-    wxHtmlTask,
-    wxWxsTask,
-    wxExampleCssTask,
-    wxExampleJsTask,
-    wxExampleHtmlTask,
-    wxExampleWxsTask,
-    wxExampleCopy,
-    esLint
-  ),
-  parallel(
-    watchWx,
-    watchExample
-  )
-)
-
-exports.buildwx = series(build, cleanTask(wxLib), parallel(wxCssTask, wxJsTask, wxHtmlTask, wxWxsTask, wxPackageCopy))

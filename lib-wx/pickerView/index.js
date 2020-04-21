@@ -1,5 +1,5 @@
 import VueComponent from '../common/component';
-import { getType, defaultFunction } from '../common/util';
+import { getType } from '../common/util';
 import selfProps from './props';
 VueComponent({
   props: {
@@ -60,8 +60,12 @@ VueComponent({
      * @param {String|Number|Boolean|Array<String|Number|Boolean|Array<any>>}value
      */
     selectWithValue(value) {
-      if (!this.data.value || this.data.columns.length === 0) {
-        return;
+      if (this.data.columns.length === 0) return; // 使其默认选中首项
+
+      if (!this.data.value) {
+        value = this.data.formatColumns.map(col => {
+          return col[0][this.data.valueKey];
+        });
       }
 
       const valueType = getType(value);
@@ -82,17 +86,18 @@ VueComponent({
 
       value = value instanceof Array ? value : [value];
       value = value.slice(0, this.data.formatColumns.length);
+      let selectedIndex = this.data.selectedIndex;
       value.forEach((target, col) => {
         let row = this.data.formatColumns[col].findIndex(row => row[this.data.valueKey] === target);
         row = row === -1 ? 0 : row;
-        this.selectWithIndex(col, row);
+        selectedIndex = this.selectWithIndex(col, row);
       });
       /** 根据formatColumns的长度去除selectWithIndex无用的部分。
        * 始终保持value、selectWithIndex、formatColumns长度一致
        */
 
       this.setData({
-        selectedIndex: this.data.selectedIndex.slice(0, value.length)
+        selectedIndex: selectedIndex.slice(0, value.length)
       });
     },
 
@@ -130,10 +135,7 @@ VueComponent({
         selectedIndex[columnIndex] = rowIndex;
       }
 
-      this.setData({
-        selectedIndex
-      });
-      return true;
+      return selectedIndex;
     },
 
     /**
@@ -217,32 +219,45 @@ VueComponent({
       // 小程序bug，修改原生pickerView的columns，滑动触发change事件回传的数组长度为未改变columns之前的,并不会缩减
       value = value.slice(0, this.data.formatColumns.length); // 保留选中前的
 
-      const origin = this.data.selectedIndex.slice(0); // 开始应用最新的值
+      const origin = this.data.selectedIndex.slice(0);
+      let selectedIndex = this.data.selectedIndex; // 开始应用最新的值
 
       value.forEach((row, col) => {
         if (row === origin[col]) return;
-        this.selectWithIndex(col, row);
+        selectedIndex = this.selectWithIndex(col, row);
       });
-      const {
+      this.setData({
         selectedIndex
-      } = this.data; // diff出变化的列
+      }); // diff出变化的列
 
       const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index]);
       if (diffCol === -1) return; // 获取变化的的行
 
       const diffRow = selectedIndex[diffCol];
-      const picker = this; // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
-
-      value = selectedIndex.length === 1 ? this.getValues()[0] : this.getValues(); // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
+      const picker = this; // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
 
       const index = selectedIndex.length === 1 ? diffRow : diffCol; // 执行多级联动
 
-      this.data.columnChange(picker, this.getSelects(), index);
-      this.$emit('change', {
-        picker,
-        value,
-        index
-      });
+      if (this.data.columnChange) {
+        // columnsChange 可能有异步操作，需要添加 resolve 进行回调通知
+        this.data.columnChange(picker, this.getSelects(), index, () => {
+          // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
+          value = this.getValues();
+          this.$emit('change', {
+            picker,
+            value,
+            index
+          });
+        });
+      } else {
+        // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
+        value = this.getValues();
+        this.$emit('change', {
+          picker,
+          value,
+          index
+        });
+      }
     },
 
     /**
@@ -253,7 +268,13 @@ VueComponent({
         selectedIndex,
         formatColumns
       } = this.data;
-      return selectedIndex.map((row, col) => formatColumns[col][row]);
+      const selects = selectedIndex.map((row, col) => formatColumns[col][row]); // 单列选择器，则返回单项
+
+      if (selects.length === 1) {
+        return selects[0];
+      }
+
+      return selects;
     },
 
     /**
@@ -265,7 +286,13 @@ VueComponent({
         formatColumns,
         valueKey
       } = this.data;
-      return selectedIndex.map((row, col) => formatColumns[col][row][valueKey]);
+      const values = selectedIndex.map((row, col) => formatColumns[col][row][valueKey]);
+
+      if (values.length === 1) {
+        return values[0];
+      }
+
+      return values;
     },
 
     /**
@@ -312,7 +339,10 @@ VueComponent({
        * 如果此时把此列的选项修改后还剩下3个，那么选中项会由第10项滑落到第3项，同时出发change事件
        */
       // 为了防止上述情况发生，修改数据前先将当前列选中0
-      this.selectWithIndex(columnIndex, jumpTo); // 经过formatArray处理的数据会变成二维数组，一定要拍成一维的。
+      const selectedIndex = this.selectWithIndex(columnIndex, jumpTo);
+      this.setData({
+        selectedIndex
+      }); // 经过formatArray处理的数据会变成二维数组，一定要拍成一维的。
       // ps 小程序基础库v2.9.3才可以用flat
 
       const formatColumns = this.data.formatColumns;
@@ -320,18 +350,21 @@ VueComponent({
       this.setData({
         formatColumns: formatColumns
       });
+    },
+
+    getColumnsData() {
+      return this.data.formatColumns.slice(0);
     }
 
   },
 
   created() {
-    this.data.columnChange || this.setData({
-      columnChange: defaultFunction
-    }); // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
-
-    if (!this.data.value && this.data.columns.length !== 0) {
+    // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
+    if ((!this.data.value || !this.data.value.length) && this.data.columns.length !== 0) {
+      const formatColumns = this.formatArray(this.data.columns);
       this.setData({
-        formatColumns: this.formatArray(this.data.columns)
+        formatColumns,
+        selectedIndex: formatColumns.map(() => 0)
       });
     }
   }

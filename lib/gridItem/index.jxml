@@ -1,0 +1,26 @@
+<view 
+	class="wd-grid-item {{ border && !gutter ? itemClass : '' }} custom-class" 
+	bindtap="click" 
+	style="{{ style }}"
+	>
+	<view 
+		class="wd-grid-item__content {{ square ? 'is-square' : '' }} {{ (border && gutter > 0) ? 'is-round' : '' }}" 
+		style="{{ gutterContentStyle }}"
+		>
+		<slot jd:if="{{ useSlot }}" />
+		<block jd:else>
+			<wd-badge 
+				custom-class="badge" 
+				is-dot="{{ isDot }}" 
+				value="{{ value }}" 
+				max="{{ max }}" 
+				type="{{ type }}"
+				>
+				<slot jd:if="{{ useIconSlot }}" name="icon"/>
+				<wd-icon jd:else name="{{ icon }}" size="{{ iconSize }}" class="custom-icon" />
+			</wd-badge>
+			<slot name="text" jd:if="{{ useTextSlot }}"/>
+			<view jd:else class="wd-grid-item__text custom-text">{{ text }}</view>
+		</block>
+	</view>
+</view>

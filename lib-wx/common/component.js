@@ -86,7 +86,8 @@ function VueComponent(vueOptions) {
     mounted: 'ready',
     relations: 'relations',
     destroyed: 'detached',
-    externalClasses: 'externalClasses'
+    externalClasses: 'externalClasses',
+    behaviors: 'behaviors'
   }); // 每一个自定义组件开启一个custom-class
 
   options.externalClasses = options.externalClasses || [];

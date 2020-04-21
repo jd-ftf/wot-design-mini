@@ -2,11 +2,35 @@ import VueComponent from '../common/component';
 VueComponent({
   relations: {
     '../checkboxGroup/index': {
-      type: 'parent',
+      type: 'ancestor',
 
       linked(target) {
         this.parent = target;
         this.checkName(this, this.data.value);
+        const {
+          shape,
+          checkedColor,
+          inline
+        } = this.parent.data;
+        const data = {
+          shape,
+          checkedColor,
+          inline
+        };
+        const keys = Object.keys(data);
+        const will = {};
+        keys.forEach(key => {
+          if (data[key] !== null && data[key] !== undefined && this.data[key] === null) {
+            will[key] = data[key];
+          }
+        });
+        this.setData(will);
+        this.setData({
+          isChecked: this.parent.data.value.indexOf(this.data.value) > -1,
+          isFirst: this.parent.children.length === 1
+        }); // disabled 单独设置
+
+        this.checkDisabled();
       },
 
       unlinked() {
@@ -28,16 +52,11 @@ VueComponent({
 
         if (this.parent) {
           this.checkName();
-          return this.parent.reset();
-        } // 非组合使用走这个逻辑
-
-
-        if (typeof value !== 'boolean') {
-          throw Error('checkbox\'s value must be boolean without Group');
+          return this.parent.resetChildren();
         }
 
         this.setData({
-          isChecked: value
+          isChecked: value === this.data.trueValue
         });
       }
 
@@ -58,14 +77,28 @@ VueComponent({
     },
     disabled: {
       type: Boolean,
-      value: null
+      value: false,
+
+      observer() {
+        this.checkDisabled();
+      }
+
     },
-    trueValue: String,
-    falseValue: String
+    trueValue: {
+      type: null,
+      value: true
+    },
+    falseValue: {
+      type: null,
+      value: false
+    }
   },
   data: {
     isChecked: false,
-    inited: false
+    inited: false,
+    isFirst: false,
+    finalDisabled: false,
+    inline: null
   },
   methods: {
     /**
@@ -84,47 +117,47 @@ VueComponent({
     /**
      * @description 点击checkbox的Event handle
      */
-    toggle(event) {
+    toggle() {
       const {
         value,
-        disabled,
+        finalDisabled,
         trueValue,
         falseValue,
         isChecked
       } = this.data;
-      if (disabled) return; // 复选框单独使用时点击反选，并且在checkbox上触发change事件
+      if (finalDisabled) return; // 复选框单独使用时点击反选，并且在checkbox上触发change事件
 
-      if (!this.parent) {
-        this.setData({
-          value: !value
-        });
-        return this.$emit('change', !value ? trueValue || true : falseValue || false);
-      }
-      /**
-       * 复选框组合使用时，如果之前已经被选中，那就把它从Group的value中剔除；
-       * 如果之前没有被选中，那就把它加入Group的value中；
-       * Group的value有observer，会自动重新匹配选中的checkbox
-       * 同时在Group上触发change事件
-       */
-
-
-      const temp = this.parent.data.value.slice(0);
-
-      if (isChecked) {
-        if (this.parent.data.value.length === this.parent.data.min) return;
-        temp.splice(temp.indexOf(value), 1);
+      if (this.parent) {
+        this.$emit('change', !isChecked);
+        this.parent.changeValue(value);
       } else {
-        if (this.parent.data.max !== 0 && this.parent.data.value.length === this.parent.data.max) {
-          return;
-        }
-
-        temp.push(value);
+        const newVal = value === trueValue ? falseValue : trueValue;
+        this.setData({
+          value: newVal
+        });
+        this.$emit('change', newVal);
       }
+    },
 
-      this.parent.setData({
-        value: temp
-      });
-      this.parent.$emit('change', temp);
+    /**
+     * @description 检查设置实际 disabled 情况，需要考虑父组件的 min, max 和 value.length 的关系
+     */
+    checkDisabled() {
+      if (this.parent) {
+        const {
+          min,
+          max,
+          disabled,
+          value
+        } = this.parent.data;
+        this.setData({
+          finalDisabled: this.data.disabled || disabled || min && value.length <= min && this.data.isChecked || max && value.length >= max && !this.data.isChecked
+        });
+      } else {
+        this.setData({
+          finalDisabled: this.data.disabled
+        });
+      }
     }
 
   },
@@ -137,17 +170,13 @@ VueComponent({
   },
 
   mounted() {
-    if (this.parent) {
-      // 组合使用走这个逻辑
-      return this.parent.reset();
-    } else if (typeof this.data.value !== 'boolean') {
-      // 非组合使用走这个逻辑
-      throw Error('checkbox\'s value must be boolean without Group');
+    // 如果没有父组件，设置 isChecked
+    if (!this.parent) {
+      this.setData({
+        isChecked: this.data.value === this.data.trueValue,
+        isFirst: true
+      });
     }
-
-    this.setData({
-      isChecked: this.data.value
-    });
   }
 
 });

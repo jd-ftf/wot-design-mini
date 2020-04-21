@@ -26,6 +26,10 @@ VueComponent({
       type: Boolean,
       observer: 'computeTagClass'
     },
+    dynamic: {
+      type: Boolean,
+      value: false
+    },
     color: String,
     bgColor: String,
     size: {
@@ -43,7 +47,9 @@ VueComponent({
     }
   },
   data: {
-    tagClass: ''
+    tagClass: '',
+    dynamicValue: '',
+    dynamicInput: false
   },
   methods: {
     computeTagClass() {
@@ -68,6 +74,28 @@ VueComponent({
 
     handleClose() {
       this.$emit('close');
+    },
+
+    handleAdd() {
+      this.setData({
+        dynamicInput: true,
+        dynamicValue: ''
+      });
+    },
+
+    handleBlur() {
+      this.setDynamicInput();
+    },
+
+    handleConfirm(event) {
+      this.setDynamicInput();
+      this.$emit('confirm', event.detail.value);
+    },
+
+    setDynamicInput() {
+      this.setData({
+        dynamicInput: false
+      });
     }
 
   }
