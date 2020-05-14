@@ -30,5 +30,8 @@ Page({
     setTimeout(() => {
       Toast.close()
     }, 3000)
+  },
+  showLongToast () {
+    Toast('这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文案')
   }
 })
