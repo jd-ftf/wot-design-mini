@@ -58,7 +58,7 @@ export default {
   }
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1536px) {
   .scroll-top {
     right: 20px;
   }

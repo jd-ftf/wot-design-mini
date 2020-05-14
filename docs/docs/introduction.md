@@ -8,7 +8,15 @@
 
 ### 扫码体验
 
-<img style="width: 150px; height: 150px;" :src="codeImg" />
+<div style="display: inline-block; margin-right: 20px;">
+  <img style="width: 150px; height: 150px;" :src="JdQrcode" />
+  <div style="text-align: center;">京东app扫码</div>
+</div>
+
+<div style="display: inline-block;">
+  <img style="width: 150px; height: 150px;" :src="JmQrcode" />
+  <div style="text-align: center;">京麦app扫码</div>
+</div>
 
 ### 特性
 
@@ -28,11 +36,13 @@
 
 <script>
 import JdQrcode from '../assets/img/jd.jpg'
+import JmQrcode from '../assets/img/jm.jpg'
 
 export default {
   data () {
     return {
-      codeImg: JdQrcode
+      JdQrcode,
+      JmQrcode
     }
   }
 }
