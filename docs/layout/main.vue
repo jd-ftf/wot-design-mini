@@ -10,7 +10,7 @@
 
 <script>
 import HeaderLayout from './header'
-import ScrollTop from '../components/scrollTop'
+import ScrollTop from './scrollTop'
 import { isMac } from '../utils/index'
 
 export default {

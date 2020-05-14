@@ -18,6 +18,8 @@
           <div class="demo-preview-item">
             <p>京东app扫码预览</p>
             <img class="phone-title" src="../assets/img/jd.jpg" />
+            <p style="margin-top: 40px;">京麦app扫码预览</p>
+            <img class="phone-title" src="../assets/img/jm.jpg" />
           </div>
         </div>
       </div>
@@ -169,7 +171,7 @@ export default {
       left: 0;
       right: 0;
       bottom: 0;
-      padding-top: 80px;
+      padding-top: 40px;
       z-index: 1;
       text-align: center;
       background-color: hsla(0,0%,100%,.95);
@@ -184,20 +186,45 @@ export default {
         opacity: 1;
       }
     }
+    .demo-preview-item--jm {
+      top: 150px;
+    }
     img {
       width: 150px;
     }
   }
 }
-@media (max-width: 1366px) {
+@media (max-width: 1536px) and (max-height: 750px) {
+  .tab-content {
+    margin-left: 275px;
+    margin-right: 460px;
+    margin-bottom: 0;
+
+    .demo-preview {
+      right: 80px;
+      width: 360px;
+      margin-top: 20px;
+
+      iframe {
+        height: 550px;
+      }
+    }
+  }
+}
+@media (max-width: 1366px) and (max-height: 670px) {
   .tab-content {
     margin-left: 275px;
     margin-right: 420px;
+    margin-bottom: 0;
 
     .demo-preview {
       right: 80px;
       width: 320px;
       margin-top: 20px;
+
+      iframe {
+        height: 460px;
+      }
     }
   }
 }
@@ -222,17 +249,6 @@ export default {
   }
   .wot-search-input {
     display: none;
-  }
-}
-@media (max-height: 750px) {
-  .tab-content {
-    margin-bottom: 0;
-
-    .demo-preview {
-      iframe {
-        height: 460px;
-      }
-    }
   }
 }
 </style>
