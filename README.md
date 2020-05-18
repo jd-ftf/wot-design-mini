@@ -2,7 +2,7 @@
 
 An ui component library for mini program.
 
-[Documentation](http://jdftf.top/wot-design-mini/)
+[Documentation](http://ftf.jd.com/wot-design-mini/)
 
 
 ## Quick Start
@@ -10,7 +10,7 @@ An ui component library for mini program.
 Enter the [download](https://github.com/jd-ftf/wot-design-mini/releases) page and select the appropriate version of the source code.
 
 
-For more information, please refer to [Quick Start](http://jdftf.top/wot-design-mini/#/components/quickUse) in our documentation.
+For more information, please refer to [Quick Start](http://ftf.jd.com/wot-design-mini/#/components/quickUse) in our documentation.
 
 
 ## LICENSE

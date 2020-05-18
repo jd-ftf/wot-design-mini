@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "wd-loadmore": "../../dist/loadmore/index"
+    "wd-loadmore": "/wot-design/loadmore/index"
   }
 }
 ```
