@@ -1,5 +1,33 @@
 ## 更新日志
 
+### 1.5.0
+
+*2020-05-18*
+
+#### 新特性
+
+- Checkbox
+  - 支持复选框组下的单个复选框触发 `change` 事件 (by [@yawuling](https://github.com/yawuling) )
+
+#### Bug 修复
+
+- DropMenu
+  - 修正文档组件名错误 (by [@yawuling](https://github.com/yawuling) )
+  - 修正居中样式 (by [@yawuling](https://github.com/yawuling) )
+- Input
+  - 修正 `type` 类型修改无效的问题 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Slider
+  - 文档方法名修正 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Toast
+  - 修复文案过长不换行导致超出页面的问题 (by [@yawuling](https://github.com/yawuling) )
+
+#### 优化
+
+- Doc
+  - 完善 grid 组件文档 (by [@yawuling](https://github.com/yawuling) )
+  - 添加爬虫文件sitemap，优化搜索功能 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 优化响应式 (by [@yawuling](https://github.com/yawuling) )
+
 ### 1.4.0
 
 *2020-03-13*
