@@ -68,4 +68,9 @@ export default {
     bottom: 40px;
   }
 }
+@media (max-width: 773px) {
+  .scroll-top {
+    display: none;
+  }
+}
 </style>
