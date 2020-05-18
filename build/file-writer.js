@@ -28,7 +28,7 @@ const sitemapWriter = () => {
   const currentVersion = require('../package.json').version
   const { siteMapUrls, createSitemapXml } = require('./sitemap')
   const pages = require('../docs/pages.config.json')
-  const originUrl = 'http://ftf.jd.com/wot-design-mini/' + currentVersion + '/#'
+  const originUrl = 'https://ftf.jd.com/wot-design-mini/' + currentVersion + '/#'
   const sitemapUrl = siteMapUrls(pages.components.sideTabs, originUrl)
   const sitemapXml = createSitemapXml(sitemapUrl)
 

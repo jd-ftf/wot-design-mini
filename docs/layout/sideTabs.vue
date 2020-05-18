@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     demoLink () {
-      return `http://ftf.jd.com/wot-design/demo.html#${this.$route.meta.demo}`
+      return `https://ftf.jd.com/wot-design/demo.html#${this.$route.meta.demo}`
     }
   },
   methods: {
