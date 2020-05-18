@@ -1,5 +1,5 @@
 <template>
-  <div class="wot-search-input" :class="isMac ? '' : 'wot-search-input--win'">
+  <div class="wot-search-input" :class="isWindows ? 'wot-search-input--win' : ''">
     <input
       type="text"
       class="wot-search-input__inner"
@@ -11,12 +11,12 @@
 <script>
 import 'docsearch.js/dist/cdn/docsearch.min.css'
 import docsearch from 'docsearch.js'
-import { isMac } from '../utils/index'
+import { isWindows } from '../utils/index'
 
 export default {
   data () {
     return {
-      isMac
+      isWindows
     }
   },
   mounted () {
