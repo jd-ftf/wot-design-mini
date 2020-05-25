@@ -61,11 +61,11 @@ const finalPath = options === 'production' ? libDir : exampleDist
 
 // packages 内部的 jd小程序转成 example 微信小程序
 // √ scss -> jxss
-const scssTask = () => styleTransform(packagesPath, finalPath, [], 'scss', 'jxss')()
+const scssTask = () => styleTransform({ entry: packagesPath, toPath: finalPath, replaceExt: 'scss', toExt: 'jxss' })()
 // √ js
-const jsTask = () => jsTransform(packagesPath, finalPath)()
+const jsTask = () => jsTransform({ entry: packagesPath, toPath: finalPath })()
 // √ jxml -> jxml
-const jxmlTask = () => htmlTransform(packagesPath, finalPath, [], 'jxml', 'jxml')()
+const jxmlTask = () => htmlTransform({ entry: packagesPath, toPath: finalPath, replaceExt: 'jxml', toExt: 'jxml' })()
 
 const packagesCopy = copyNoChange([
   `${packagesPath}/**`,
@@ -101,9 +101,14 @@ if (isToWx) {
   const wxFinalPath = options === 'production' ? wxLib : wxExample
   const sourceFinal = options === 'production' ? wxLib : wxExampleDist
   // packages (源代码) -> example-wx
-  const scssToWxssTask = () => styleTransform(packagesPath, sourceFinal, [], 'scss', 'wxss')()
-  const jsSourceTask = () => jsTransform(packagesPath, sourceFinal)()
-  const jxmlSourceTask = () => htmlTransform(packagesPath, sourceFinal, [], 'jxml', 'wxml')()
+  // const scssToWxssTask = () => styleTransform(packagesPath, sourceFinal, [], 'scss', 'wxss')()
+  const scssToWxssTask = () => styleTransform({ entry: packagesPath, toPath: sourceFinal, replaceExt: 'scss', toExt: 'wxss' })()
+
+  // const jsSourceTask = () => jsTransform(packagesPath, sourceFinal)()
+  const jsSourceTask = () => jsTransform({ entry: packagesPath, toPath: sourceFinal })()
+
+  // const jxmlSourceTask = () => htmlTransform(packagesPath, sourceFinal, [], 'jxml', 'wxml')()
+  const jxmlSourceTask = () => htmlTransform({ entry: packagesPath, toPath: sourceFinal, replaceExt: 'scjxmlss', toExt: 'wxml' })()
   const sourceCopy = copyNoChange([
     `${packagesPath}/**`,
     `!${packagesPath}/**/*.scss`,
@@ -122,23 +127,27 @@ if (isToWx) {
   }
 
   // (example) -> (example-wx)
-  const ignoreList = [`!${example}/dist/**`] // 屏蔽列表
-  const jxssTask = () => styleTransform(example, wxFinalPath, ignoreList, 'jxss')()
-  const jsWxTask = () => jsTransform(example, wxFinalPath, ignoreList)()
-  const jxmlWxTask = () => htmlTransform(example, wxFinalPath, ignoreList, 'jxml')()
+  const ignoreExpressList = [`!${example}/dist/**`] // 屏蔽列表
+  // const jxssTask = () => styleTransform(example, wxFinalPath, ignoreExpressList, 'jxss')()
+  const jxssTask = () => styleTransform({ entry: example, toPath: wxFinalPath, ignoreExpressList, replaceExt: 'jxss' })()
+
+  // const jsWxTask = () => jsTransform(example, wxFinalPath, ignoreExpressList)()
+  const jsWxTask = () => jsTransform({ entry: example, toPath: wxFinalPath, ignoreExpressList })()
+  // const jxmlWxTask = () => htmlTransform(example, wxFinalPath, ignoreExpressList, 'jxml')()
+  const jxmlWxTask = () => htmlTransform({ entry: example, toPath: wxFinalPath, ignoreExpressList, replaceExt: 'jxml' })()
 
   const wxCopy = copyNoChange([
     `${example}/**`,
     `!${example}/**/*.jxss`,
     `!${example}/**/*.js`,
     `!${example}/**/*.jxml`
-  ].concat(ignoreList), wxFinalPath)
+  ].concat(ignoreExpressList), wxFinalPath)
 
   const baseTask = [
     parallel(jxssTask, jsWxTask, jxmlWxTask, wxCopy)
   ]
   const watchWxTask = function () {
-    return watch([`${example}/**`].concat(ignoreList), ...baseTask)
+    return watch([`${example}/**`].concat(ignoreExpressList), ...baseTask)
   }
   const devwx = series(cleanTask(sourceFinal), cleanTask(wxFinalPath), ...sourceBaseTask, ...baseTask, parallel(watchSourceTask, watchWxTask))
   const buildwx = series(cleanTask(wxFinalPath), ...sourceBaseTask)
