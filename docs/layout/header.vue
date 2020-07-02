@@ -13,13 +13,18 @@
         </li>
         <!-- 组件文档切换 -->
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
-          <a v-if="page.href" :href="page.href" class="header-tab__link" target="_blank">{{ page.name }}</a>
+          <a
+            v-if="page.type === 'link'"
+            :href="page.link"
+            class="header-tab__link"
+            target="_blank"
+          >{{ page.title }}</a>
           <router-link
             v-else
             class="header-tab__link"
             active-class="header-tab__link--active"
-            :to="`/${key}`"
-          >{{ page.name }}</router-link>
+            :to="{ name: page.name }"
+          >{{ page.title }}</router-link>
         </li>
         <!-- 版本控制 -->
         <li class="header-tab__item version-control" v-show="isComponentPage" >
@@ -47,7 +52,7 @@
 </template>
 
 <script>
-import pagesConfig from '../pages.config.json'
+import routesConfig from '../routes.yml'
 import search from './search'
 import survey from './survey'
 import axios from 'axios'
@@ -60,7 +65,7 @@ export default {
   },
   data () {
     return {
-      pages: pagesConfig,
+      pages: routesConfig,
       versions: [],
       isComponentPage: true,
       isShowOption: false,

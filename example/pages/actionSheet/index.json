@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "ActionSheet 上拉菜单",
+  "navigationBarTitleText": "ActionSheet 动作面板",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
     "wd-action-sheet": "../../dist/actionSheet/index",
