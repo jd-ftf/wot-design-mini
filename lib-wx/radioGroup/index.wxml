@@ -1,3 +1,0 @@
-<view class="wd-radio-group custom-class">
-  <slot/>
-</view>

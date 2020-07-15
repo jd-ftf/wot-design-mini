@@ -1,9 +1,0 @@
-<wd-transition
-  show="{{ show }}"
-  name="fade"
-  custom-class="wd-modal"
-  duration="{{ duration }}"
-  custom-style="z-index: {{ zIndex }}"
-  bind:tap="handleClick"
-  catch:touchmove="noop"
-/>
