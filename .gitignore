@@ -1,17 +1,18 @@
-.DS_Store
-node_modules/
-/example-wx/
-/example/dist/
-/docs/dist/
-/docs/public/versions.json
-/docs/sitemap.xml
+node_modules
+example/dist
+example-wx
+lib
+lib-wx
+docs/dist
+docs/public/versions.json
+docs/sitemap.xml
+dist
 # Editor directories and files
+.DS_Store
 .idea
 .vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-dist/
 npm-debug.log
-package-lock.json

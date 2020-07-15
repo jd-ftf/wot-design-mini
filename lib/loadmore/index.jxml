@@ -1,8 +1,0 @@
-<view class="wd-loadmore custom-class" bindtap="reload">
-  <wd-icon
-    jd:if="{{state === 'loading'}}"
-    name="news"
-    size="20px"
-    class="wd-loadmore__indicator"/>
-  <text class="wd-loadmore__text">{{ showText }}</text>
-</view>

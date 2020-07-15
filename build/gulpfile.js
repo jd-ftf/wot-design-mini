@@ -108,7 +108,7 @@ if (isToWx) {
   const jsSourceTask = () => jsTransform({ entry: packagesPath, toPath: sourceFinal })()
 
   // const jxmlSourceTask = () => htmlTransform(packagesPath, sourceFinal, [], 'jxml', 'wxml')()
-  const jxmlSourceTask = () => htmlTransform({ entry: packagesPath, toPath: sourceFinal, replaceExt: 'scjxmlss', toExt: 'wxml' })()
+  const jxmlSourceTask = () => htmlTransform({ entry: packagesPath, toPath: sourceFinal, replaceExt: 'jxml', toExt: 'wxml' })()
   const sourceCopy = copyNoChange([
     `${packagesPath}/**`,
     `!${packagesPath}/**/*.scss`,
