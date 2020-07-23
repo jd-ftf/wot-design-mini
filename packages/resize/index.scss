@@ -2,14 +2,13 @@
 @import '../common/abstracts/mixin';
 
 @include b(resize) {
-  position: relative;
   @include e(wrapper) {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: -9999;
     overflow: hidden;
     visibility: hidden;
     @include m(placeholder) {
