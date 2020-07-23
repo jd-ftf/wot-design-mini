@@ -2,7 +2,6 @@
 .custom-item{
   height: 80px !important;
   color: #e2231a;
-  padding-left: 20px;
   text-align: left !important;
 }
 .img{
@@ -13,11 +12,11 @@
   vertical-align: middle;
 }
 .slot-img{
-  height: 50px;
-  width: 50px;
-  margin-bottom: 5px;
+  height: 36px;
+  width: 36px;
+  border-radius: 4px;
 }
 .text{
   color: #ffb300;
-  margin-top: 5px;
+  margin-top: 8px;
 }
