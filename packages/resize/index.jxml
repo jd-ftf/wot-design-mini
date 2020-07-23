@@ -1,0 +1,23 @@
+<view class="wd-resize">
+  <slot/>
+  <scroll-view
+    class="wd-resize__wrapper"
+    scroll-y="{{true}}"
+    scroll-top="{{expandScrollTop}}"
+    scroll-x="{{true}}"
+    scroll-left="{{expandScrollLeft}}"
+    bindscroll="onScrollHandler"
+  >
+    <view class="wd-resize__wrapper--placeholder" style="height:100000px;width:100000px;"></view>
+  </scroll-view>
+  <scroll-view
+    class="wd-resize__wrapper"
+    scroll-y="{{true}}"
+    scroll-top="{{shrinkScrollTop}}"
+    scroll-x="{{true}}"
+    scroll-left="{{shrinkScrollLeft}}"
+    bindscroll="onScrollHandler"
+  >
+    <view class="wd-resize__wrapper--placeholder" style="height:250%;width:250%;"></view>
+  </scroll-view>
+</view>
