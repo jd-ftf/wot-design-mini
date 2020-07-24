@@ -1,19 +1,26 @@
+@import './function';
 /**
  * UI规范基础变量
  */
 
 /* 主题颜色 */
-$-color-theme: #0083ff !default; // 正常色
+$-color-theme: $default-theme !default; // 正常色
 $-color-theme-light: mix(#fff, $-color-theme, 42%) !default; // 弱化色
 $-color-theme-emph: mix(#000, $-color-theme, 18%) !default; // 强调色
 
 /* 辅助色 */
-$-color-success: #00c740 !default;
-$-color-warning: #ffb300 !default;
-$-color-danger: #e2231a !default;
+$-color-success: #34d19d !default; // 成功色
+$-color-warning: #f0883a !default; // 警告色
+$-color-danger: #fa4350 !default; // 危险出错色
+$-color-purple: #8268de !default; // 紫色
+$-color-yellow: #f0cd1d !default; // 黄色
+$-color-blue: #2bb3ed !default; // 蓝色
+
 $-color-info: #909399 !default;
 $-color-grey: #d9d9d9;
 $-border-color: #c8c8cd;
+$-color-white: #ffffff !default; // 正常色
+$-color-black: #000000 !default; // 正常色
 
 /* 图形颜色 */
 $-color-icon: #c5c5c5 !default; // icon颜色
@@ -403,6 +410,7 @@ $-tooltip-color: #fff !default; // 默认文字颜色
 
 /* grid-item */
 $-grid-item-fs: 12px !default; // 字号
+$-grid-item-bg: $-color-white !default; // 字号
 $-grid-item-padding: 15px 10px !default; // 内容的 padding
 $-grid-item-border-color: $-color-border-light !default; // 边框颜色
 

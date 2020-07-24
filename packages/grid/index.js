@@ -14,7 +14,15 @@ VueComponent({
     },
     border: {
       type: Boolean,
-      value: true
+      value: false
+    },
+    bgColor: {
+      type: String,
+      value: '#ffffff'
+    },
+    iconSize: {
+      type: String,
+      value: '26px'
     },
     gutter: Number
   },
@@ -31,6 +39,7 @@ VueComponent({
     }
   },
   mounted () {
+    console.log(this.data.bgColor)
     if (!this.data.border) return
     const { length } = this.children
     this.children.forEach((item, index) => {
@@ -41,18 +50,11 @@ VueComponent({
 
         isFirstLine && item.set('itemClass', 'is-first')
         isRightItem && item.set('itemClass', 'is-right')
-        !isFirstLine && !isRightItem && item.set('itemClass', 'is-border')
-
-        // 没有完全替换时, 倒数第二行最后一个
-        if (index === length - (length % column) - 1) {
-          item.set('itemClass', 'is-last')
-        }
+        !isFirstLine && item.set('itemClass', 'is-border')
       } else {
         item.set('itemClass', 'is-first')
       }
-      if (length - 1 === index) {
-        item.set('itemClass', 'is-last')
-      }
+      length - 1 === index && item.set('itemClass', item.data.itemClass + ' is-last')
     })
   }
 })

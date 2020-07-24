@@ -4,7 +4,9 @@ VueComponent({
   externalClasses: ['custom-text', 'custom-icon'],
   data: {
     style: '',
+    iconSize: '',
     gutterContentStyle: '',
+    iconStyle: '',
     itemClass: '',
     gutter: 0,
     square: false,
@@ -14,10 +16,6 @@ VueComponent({
     icon: {
       type: String,
       value: ''
-    },
-    iconSize: {
-      type: String,
-      value: '26px'
     },
     text: String,
     url: String,
@@ -51,19 +49,20 @@ VueComponent({
   methods: {
     init () {
       const { children, data } = this.parent
-      const { column, gutter, square, border } = data
+      const { column, gutter, square, border, bgColor, iconSize } = data
       const width = column ? 100 / column + '%' : 100 / children.length + '%'
       // 单独定义间隔
       const gutterStyle = gutter ? `padding:${gutter}px ${gutter}px 0 0; background-color: transparent;` : ''
       // 单独定义正方形
-      const squareStyle = square ? 'background-color: transparent; padding-bottom: 0; padding-top:' + width : ''
+      const squareStyle = square ? `background-color:transparent; padding-bottom: 0; padding-top:${width}` : ''
       // 间隔+正方形
-      const gutterContentStyle = (gutter && square) ? `right: ${gutter}px; bottom:${gutter}px;` : ''
+      const gutterContentStyle = (gutter && square) ? `right: ${gutter}px; bottom:${gutter}px;height: auto; background-color: ${bgColor}` : `background-color: ${bgColor}`
       this.setData({
         border,
         square,
         gutter,
         gutterContentStyle,
+        iconSize,
         style: `width: ${width}; ${squareStyle || gutterStyle}`
       })
     },

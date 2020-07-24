@@ -1,5 +1,9 @@
+import { joy } from '../images/joy'
 
 Page({
+  data: {
+    joy
+  },
   options: {
     multipleSlots: true
   },

@@ -42,6 +42,34 @@
 </wd-grid>
 ```
 
+### 自定义背景颜色
+
+`bg-color` 可以用来自定义宫格背景颜色。
+
+```html
+<wd-grid bg-color="rgba(0, 0, 0, 0.02)">
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+</wd-grid>
+```
+
+### 开启边框
+
+`border` 可以用来开启边框线展示。
+
+```html
+<wd-grid border column="3">
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+  <wd-grid-item icon="picture" text="文字"/>
+</wd-grid>
+```
+
 ### 内容插槽
 
 通过默认插槽可以自定义 `GridItem` 的内容。
@@ -51,13 +79,13 @@
 ```html
 <wd-grid>
   <wd-grid-item use-slot>
-    <image class="img" src="../images/jd.png" />
+    <image class="img" src="{{ joy }}" />
   </wd-grid-item>
   <wd-grid-item use-slot>
-    <image class="img" src="../images/jd.png" />
+    <image class="img" src="{{ joy }}" />
   </wd-grid-item>
   <wd-grid-item use-slot>
-    <image class="img" src="../images/jd.png" />
+    <image class="img" src="{{ joy }}" />
   </wd-grid-item>
 </wd-grid>
 ```
@@ -75,13 +103,19 @@
 
 通过插槽 `text` 可以插入 `GridItem` 中的文字位。通过 `use-text-slot` 开启文字插槽。
 
-注意: 使用单个插槽或者自定义样式时，需要用户使用 `custom-class` 控制 每一个  `GridItem` 的高度，保证每一个 `GridItem` 的高度相同且符合用户预期。
+注意:
+
+1. 使用单个插槽或者自定义样式时，需要用户使用 `custom-class` 控制 每一个  `GridItem` 的高度，保证每一个 `GridItem` 的高度相同且符合用户预期。
+
+2. 使用icon插槽时，如果插槽大小超过`icon-size`设置的值时，需要调整`icon-size`属性使其大小等于插槽尺寸。
 
 ```html
-<wd-grid column="3">
+<wd-grid icon-size="36px">
   <wd-grid-item use-icon-slot text="文字" wx:for="{{ 3 }}" wx:key="*this">
-    <image slot="icon" class="slot-img" src="../images/jd.png" />
+    <image slot="icon" class="slot-img" src="{{ joy }}" />
   </wd-grid-item>
+</wd-grid>
+<wd-grid>
   <wd-grid-item use-text-slot icon="picture" wx:for="{{ 3 }}" wx:key="*this">
     <view slot="text" class="text">自定义文字插槽</view>
   </wd-grid-item>
@@ -90,13 +124,13 @@
 
 ```css
 .slot-img{
-  height: 50px;
-  width: 50px;
-  margin-bottom: 5px;
+  height: 36px;
+  width: 36px;
+  border-radius: 4px;
 }
 .text{
   color: #ffb300;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 ```
 
@@ -170,8 +204,8 @@
 
 ```html
 <wd-grid clickable>
-  <wd-grid-item link-type="redirectTo" url="/pages/button/index" bind:itemclick="click" icon="person" text="Redirect to ..." />
-  <wd-grid-item link-type="navigateTo" url="/pages/button/index" bind:itemclick="click" icon="link" text="Navigate to ..." />
+  <wd-grid-item link-type="redirectTo" url="/pages/button/index" bind:itemclick="click" icon="search" text="Redirect to ..." />
+  <wd-grid-item link-type="navigateTo" url="/pages/button/index" bind:itemclick="click" icon="setting" text="Navigate to ..." />
 </wd-grid>
 ```
 
@@ -183,8 +217,8 @@
 
 ```html
 <wd-grid>
-  <wd-grid-item is-dot icon="cart" text="文字" />
-  <wd-grid-item value="100" max="99" icon="chat-bubble" text="文字" />
+  <wd-grid-item is-dot icon="goods" text="文字" />
+  <wd-grid-item value="100" max="99" icon="computer" text="文字" />
 </wd-grid>
 ```
 
@@ -193,17 +227,18 @@
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | column | 列数 | number | - | - |
-| border | 是否显示边框 | boolean | - | true |
+| border | 是否显示边框 | boolean | - | false |
 | gutter | 格子之间的间距，默认单位为`px` | number | - | - |
 | square | 是否将格子固定为正方形 | boolean | - | false |
 | clickable | 是否开启格子点击反馈 | boolean | - | false |
+| icon-size | 图标大小，默认单位为`px` | string | - | '26px' |
+| bg-color | 背景颜色设置 | string | - | '#ffffff' |
 
 ### GridItem Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | text | 文字 value | string | - | - |
-| icon-size | 图标大小，默认单位为`px` | string | - | '26px' |
 | icon | 图标名称，可选值见 `wd-icon` 组件 | string | - | - |
 | is-dot | 是否显示图标右上角小红点 | boolean | - | - | false |
 | type | 图标右上角显示的 `badge` 类型 | string | primary / success / warning / danger / info | - |
