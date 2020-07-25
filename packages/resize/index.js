@@ -6,9 +6,9 @@ VueComponent({
     shrinkScrollTop: 0,
     expandScrollLeft: 0,
     shrinkScrollLeft: 0,
-    position: 'static',
     height: 0,
-    width: 0
+    width: 0,
+    scrollEventCount: 0
   },
   methods: {
     onScrollHandler () {
@@ -35,30 +35,39 @@ VueComponent({
       this.setData(diff)
     }
   },
-  mounted () {
-    const query = this.createSelectorQuery()
+  created () {
+    this.query = this.createSelectorQuery()
       .in(this)
       .select('.wd-resize__container')
       .boundingClientRect()
-    query.exec(([res]) => {
-      // 插槽脱离父容器文档流，需要手动设置父容器高宽，防止父容器坍塌。
+    this.query.exec(([res]) => {
+      const { width, height } = res
+      // 立即填充父容器高宽
       this.setData({
-        // 初次挂载时先使用文档流，
-        // 在此 event loop 中 可以获得正常的 layout 计算结算，
-        // 在下一个帧(n 个 event loop)之后修改为绝对定位。脱离文档流，杜绝被父元素的样式影响。
-        position: 'absolute',
-        height: res.height,
-        width: res.width
+        width,
+        height
+      })
+      // 立即把4个滚动条拉到底
+      this.scrollToBottom({
+        height,
+        width
       })
       // 闭包记录容器高度
-      let lastHeight = res.height
-      let lastWidth = res.width
-      this.scrollToBottom({
-        height: lastHeight,
-        width: lastWidth
-      })
+      let lastHeight = height
+      let lastWidth = width
+      // 监听滚动事件
       this.onScrollHandler = () => {
-        query.exec(([res]) => {
+        this.query.exec(([res]) => {
+          // 前两次滚动事件被触发，说明 created 的修改已渲染，通知用户代码当前容器大小
+          if (this.data.scrollEventCount++ === 0) {
+            const result = {};
+            ['bottom', 'top', 'left', 'right', 'height', 'width'].forEach(propName => {
+              result[propName] = res[propName]
+            })
+            this.$emit('size', result)
+          }
+          // 滚动条拉到底部会触发两次多余的事件，屏蔽掉。
+          if (this.scrollEventCount < 3) return
           // 手动设置父容器高宽，防止父容器坍塌
           this.setData({
             height: res.height,

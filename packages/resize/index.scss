@@ -2,6 +2,11 @@
 @import '../common/abstracts/mixin';
 
 @include b(resize) {
+
+  @include e(container) {
+    position: absolute;
+  }
+
   @include e(wrapper) {
     position: absolute;
     top: 0;
@@ -11,6 +16,7 @@
     z-index: -9999;
     overflow: hidden;
     visibility: hidden;
+
     @include m(placeholder) {
       transition: 0s;
       animation: none;
