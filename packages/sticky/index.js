@@ -60,9 +60,10 @@ VueComponent({
         width,
         height
       })
-      // 如果和 wd-sticky-box 配套使用，吸顶逻辑交由 wd-sticky-box 进行处理
-      if (this.parent) return
+      // // 如果和 wd-sticky-box 配套使用，吸顶逻辑交由 wd-sticky-box 进行处理
       this.observerContentScroll()
+      if (!this.parent) return
+      this.parent.observerForChild(this)
     },
     /**
      * @description 模拟吸顶逻辑
@@ -71,6 +72,13 @@ VueComponent({
       const { offsetTop, height, width } = this.data
       // 视图在 render tree 中未呈现，吸顶无任何意义。
       if (height === 0 && width === 0) return
+      // sticky 高度大于或等于 wd-sticky-box，使用 wd-sticky-box 无任何意义
+      if (this.parent && height >= this.parent.data.height) {
+        return renderData(this, {
+          position: 'absolute',
+          top: 0
+        })
+      }
       const offset = offsetTop + height
       this.clearObserver()
       this.createObserver().relativeToViewport({
@@ -88,6 +96,7 @@ VueComponent({
       const { offsetTop } = this.data
       // boundingClientRect : 目标节点各个边在 viewport 中的坐标
       if (boundingClientRect.top <= offsetTop) {
+        this.data.state = 'sticky'
         // 开始吸顶，固定到顶部
         renderData(this, {
           openBox: false,
@@ -95,6 +104,7 @@ VueComponent({
           top: offsetTop
         })
       } else if (boundingClientRect.top > offsetTop) {
+        this.data.state = 'normal'
         // 完全展示，结束吸顶
         renderData(this, {
           openBox: false,
