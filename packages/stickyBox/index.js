@@ -60,7 +60,6 @@ VueComponent({
      * @param child sticky
      */
     observerForChild (child) {
-      console.log('parent:observer for child')
       // 如果 wd-sticky 比 wd-sticky-box还大，"相对吸顶"无任何意义,此时强制吸顶元素回归其占位符
       if (this.data.height <= child.data.height) {
         return renderData(child, {
