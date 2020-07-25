@@ -35,7 +35,7 @@ VueComponent({
       this.setData(diff)
     }
   },
-  created () {
+  mounted () {
     this.query = this.createSelectorQuery()
       .in(this)
       .select('.wd-resize__container')
