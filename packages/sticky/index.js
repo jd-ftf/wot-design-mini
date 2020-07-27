@@ -5,7 +5,7 @@ VueComponent({
   props: {
     zIndex: {
       type: Number,
-      value: 0
+      value: 1
     },
     offsetTop: {
       type: Number,
