@@ -72,13 +72,6 @@ VueComponent({
       const { offsetTop, height, width } = this.data
       // 视图在 render tree 中未呈现，吸顶无任何意义。
       if (height === 0 && width === 0) return
-      // sticky 高度大于或等于 wd-sticky-box，使用 wd-sticky-box 无任何意义
-      if (this.parent && height >= this.parent.data.height) {
-        return renderData(this, {
-          position: 'absolute',
-          top: 0
-        })
-      }
       const offset = offsetTop + height
       this.clearObserver()
       this.createObserver().relativeToViewport({
@@ -93,7 +86,14 @@ VueComponent({
      * @description 根据位置进行吸顶
      */
     scrollHandler ({ boundingClientRect }) {
-      const { offsetTop } = this.data
+      const { offsetTop, height } = this.data
+      // sticky 高度大于或等于 wd-sticky-box，使用 wd-sticky-box 无任何意义
+      if (this.parent && height >= this.parent.data.height) {
+        return renderData(this, {
+          position: 'absolute',
+          top: 0
+        })
+      }
       // boundingClientRect : 目标节点各个边在 viewport 中的坐标
       if (boundingClientRect.top <= offsetTop) {
         this.data.state = 'sticky'

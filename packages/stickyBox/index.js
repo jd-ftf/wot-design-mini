@@ -11,7 +11,7 @@ VueComponent({
     }
   },
   beforeCreate () {
-    this.resizeNum = 0
+    this.observerMap = new Map()
   },
   methods: {
     /**
@@ -23,8 +23,6 @@ VueComponent({
         width: e.detail.width,
         height: e.detail.height
       })
-      // 第一次 resize 无任何作用
-      if (this.resizeNum++ === 0) return
       // wd-sticky-box 大小变化时，重新监听所有吸顶元素
       const temp = this.observerMap
       this.observerMap = new Map()
@@ -60,6 +58,9 @@ VueComponent({
      * @param child sticky
      */
     observerForChild (child) {
+      const offset = child.data.height + child.data.offsetTop
+      this.deleteObserver(child)
+      const observer = this.createObserver(child)
       // 如果 wd-sticky 比 wd-sticky-box还大，"相对吸顶"无任何意义,此时强制吸顶元素回归其占位符
       if (this.data.height <= child.data.height) {
         return renderData(child, {
@@ -68,10 +69,6 @@ VueComponent({
           top: 0
         })
       }
-      const offset = child.data.height + child.data.offsetTop
-      this.observerMap = this.observerMap || new Map()
-      this.deleteObserver(child)
-      const observer = this.createObserver(child)
       observer.relativeToViewport({ top: -offset })
         .observe('.wd-sticky-box', this.scrollHandler.bind(this, child))
       this.getRect('.wd-sticky-box').then(res => {
@@ -95,7 +92,10 @@ VueComponent({
           position: 'absolute',
           top: boundingClientRect.height - child.data.height
         })
-      } else if (boundingClientRect.bottom > offset) {
+      } else if (
+        boundingClientRect.top <= offset
+        && boundingClientRect.bottom > offset
+      ) {
         // wd-sticky 已经完全呈现了 viewport 中了，
         // 此时没有必要再相对 wd-sticky-box 吸顶了
         if (child.data.state === 'normal') return
