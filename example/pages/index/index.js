@@ -145,6 +145,9 @@ Page({
           }, {
             id: 'tooltip',
             name: 'Tooltip 文字提示'
+          }, {
+            id: 'sticky',
+            name: 'Sticky 吸顶布局'
           }
         ]
       }

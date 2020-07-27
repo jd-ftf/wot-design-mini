@@ -38,7 +38,8 @@
     "pages/grid/index",
     "pages/img/index",
     "pages/layout/index",
-    "pages/statusTip/index"
+    "pages/statusTip/index",
+    "pages/sticky/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
