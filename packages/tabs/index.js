@@ -59,23 +59,12 @@ VueComponent({
     // 粘性布局
     sticky: {
       type: Boolean,
-      value: false,
-      observer (value) {
-        if (value) {
-          this.observerContentScroll()
-        } else {
-          this.createIntersectionObserver().disconnect()
-        }
-      }
+      value: false
     },
     // 粘性布局吸顶位置
     offsetTop: {
       type: Number,
-      value: 0,
-      observer (value) {
-        checkNumRange(value)
-        this.observerContentScroll()
-      }
+      value: 0
     },
     // 开启切换动画
     animated: Boolean,
@@ -113,9 +102,7 @@ VueComponent({
     // 标签页偏移量
     bodyStyle: '',
     // scroll-view偏移量
-    scrollLeft: 0,
-    // nav wrap的样式
-    navStyle: 'position: absolute;top: 0;'
+    scrollLeft: 0
   },
   methods: {
     /**
@@ -294,93 +281,6 @@ VueComponent({
         }
       }
     },
-    /**
-     * @description 监听page，模拟粘性布局
-     */
-    observerContentScroll () {
-      if (!this.inited) return
-      const { sticky, offsetTop } = this.data
-      if (!sticky) return
-      const { windowHeight } = jd.getSystemInfoSync()
-      this.getRect($nav).then(
-        ({ height: navHeight }) => {
-          this.createIntersectionObserver().disconnect()
-          this.createIntersectionObserver()
-            .relativeToViewport({ top: -(navHeight + offsetTop) })
-            .observe($tabs, (res) => {
-              if (res.boundingClientRect.top > offsetTop) return
-              let navStyle = ''
-              if (res.intersectionRatio > 0) {
-                /**
-                 * 方向：手指向上滑动，文档向下走
-                 * 相交区域：container的border-bottom 与 viewport的border-top 之间的量
-                 * targetNum：relativeToViewport传入的option的top值
-                 * 过渡阶段：相交区域<targetNum  -> 相交区域=targetNum -> 相交区域<targetNum
-                 * 物理意义：手指再向上滑动，相交区域就要大于targetNum了
-                 * 脱离底部，开始吸顶
-                 */
-                navStyle = `
-                  position:fixed;
-                  top: ${offsetTop}px;
-                  z-index: 1;
-                `
-              } else {
-                /**
-                 * 方向：手指向下滑动，文档向上走
-                 * 相交区域：container的border-bottom 与 viewport的border-top 之间的量
-                 * targetNum：relativeToViewport传入的option的top值
-                 * 过渡阶段：相交区域>targetNum  -> 相交区域=targetNum -> 相交区域<targetNum
-                 * 物理意义：手指再向下滑动targetNum，container的border-bottom就要驶出viewport了，相交区域就要小于targetNum了
-                 * 吸顶结束，固定在底部
-                 */
-                navStyle = `
-              position: absolute;
-              bottom: 0;
-              z-index: 1;
-            `
-              }
-              this.setData({ navStyle })
-            })
-          this.createIntersectionObserver()
-            .relativeToViewport({
-              bottom: -(windowHeight - 1 - offsetTop)
-            })
-            .observe($tabs, (res) => {
-              if (res.boundingClientRect.bottom < navHeight) return
-              let navStyle = ''
-              if (res.intersectionRatio > 0) {
-                /**
-                 * 方向：手指向下滑动，文档向上走
-                 * 相交区域：container的border-top 与 viewport的border-bottom 之间的量
-                 * targetNum：relativeToViewport传入的option的bottom值
-                 * 过渡阶段：相交区域<targetNum  -> 相交区域=targetNum -> 相交区域>targetNum。相交区域扩增
-                 * 物理意义：手指再向下滑动，container的border-top就要驶出viewport了，相交区域就要超过targetNum了
-                 * 状态：由正常布局变为吸顶状态
-                 */
-                navStyle = `
-                  position:fixed;
-                  top: ${offsetTop}px;
-                  z-index: 1;
-                `
-              } else {
-                /**
-                 * 方向：手指向上滑动，文档向下走
-                 * 相交区域：container的border-top 与 viewport的border-bottom 之间的量
-                 * targetNum：relativeToViewport传入的option的bottom值
-                 * 过渡阶段：相交区域>targetNum  -> 相交区域=targetNum -> 相交区域<targetNum
-                 * 物理意义：手指再向上滑动，相交区域就要小于targetNum了
-                 * 状态：由吸顶状态变为正常布局
-                 */
-                navStyle = `
-                  position:absolute;
-                  top: 0;
-                  z-index: 1;
-                `
-              }
-              this.setData({ navStyle })
-            })
-        })
-    }
   },
   beforeCreate () {
     /**
@@ -418,9 +318,5 @@ VueComponent({
   mounted () {
     this.inited = true
     this.setActive(this.data.value, true)
-    this.observerContentScroll()
-  },
-  destroy () {
-    this.createIntersectionObserver().disconnect()
   }
 })
