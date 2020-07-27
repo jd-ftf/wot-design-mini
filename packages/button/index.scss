@@ -256,10 +256,11 @@
   @include e(text) {
     display: block;
     user-select: none;
+    white-space: nowrap;
   }
 }
 // 微信2.8.0以上版本加了较高层级的默认样式，需要重置掉
-button.wd-button {
+.wd-button {
   min-height: auto;
   width: auto;
 }
