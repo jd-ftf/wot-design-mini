@@ -93,8 +93,8 @@ VueComponent({
           top: boundingClientRect.height - child.data.height
         })
       } else if (
-        boundingClientRect.top <= offset
-        && boundingClientRect.bottom > offset
+        boundingClientRect.top <= offset &&
+        boundingClientRect.bottom > offset
       ) {
         // wd-sticky 已经完全呈现了 viewport 中了，
         // 此时没有必要再相对 wd-sticky-box 吸顶了

@@ -1,10 +1,7 @@
 import VueComponent from '../common/component'
 import { getType, checkNumRange, debounce } from '../common/util'
 import touch from '../mixins/touch'
-
-const $tabs = '.wd-tabs'
 const $body = '.wd-tabs__body'
-const $nav = '.wd-tabs__nav'
 const $item = '.wd-tabs__nav-item'
 const $container = '.wd-tabs__nav-container'
 VueComponent({
@@ -280,7 +277,7 @@ VueComponent({
           this.setActive(activeIndex + 1)
         }
       }
-    },
+    }
   },
   beforeCreate () {
     /**
