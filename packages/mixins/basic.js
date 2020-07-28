@@ -24,7 +24,14 @@ export default {
           })
           .exec()
       })
+    },
+    /**
+     * @default 模拟 requestAnimationFrame
+     * @param {Function} cb 下一渲染帧的回调
+     */
+    requestAnimationFrame (cb = () => void 0) {
+      if (typeof cb !== 'function' || !this || !('setData' in this)) return
+      this.setData({}, cb)
     }
-
   }
 }
