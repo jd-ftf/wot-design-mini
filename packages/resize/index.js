@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import { renderData } from '../common/util'
 
 VueComponent({
   data: {
@@ -13,26 +14,13 @@ VueComponent({
   methods: {
     onScrollHandler () {
     },
-    scrollToBottom ({ height, width }) {
-      // 计算 scrollTop 的极限值
-      const maxHeight = 10000 * (height)
-      const maxWidth = 10000 * (width)
-      const target = {
-        expandScrollTop: maxHeight,
-        shrinkScrollTop: maxHeight,
-        expandScrollLeft: maxWidth,
-        shrinkScrollLeft: maxWidth
-      }
-      // 性能优化
-      const diff = Object.keys(target).reduce((prev, key) => {
-        if (target[key] !== this.data[key]) {
-          prev[key] = target[key]
-        }
-        return prev
-      }, {})
-      if (Object.keys(diff).length === 0) return
-      // 所有元素滚动到底部
-      this.setData(diff)
+    scrollToBottom ({ width, height }) {
+      renderData(this, {
+        expandScrollTop: 100000 + height,
+        shrinkScrollTop: 3 * this.data.height + height,
+        expandScrollLeft: 100000 + width,
+        shrinkScrollLeft: 3 * this.data.width + width
+      })
     }
   },
   mounted () {
@@ -42,19 +30,14 @@ VueComponent({
       .boundingClientRect()
     this.query.exec(([res]) => {
       const { width, height } = res
-      // 立即填充父容器高宽
-      this.setData({
-        width,
-        height
-      })
-      // 立即把4个滚动条拉到底
-      this.scrollToBottom({
-        height,
-        width
-      })
       // 闭包记录容器高度
       let lastHeight = height
       let lastWidth = width
+      // 立即填充父容器高宽
+      renderData(this, {
+        height,
+        width
+      })
       // 监听滚动事件
       this.onScrollHandler = () => {
         this.query.exec(([res]) => {
@@ -69,13 +52,15 @@ VueComponent({
           // 滚动条拉到底部会触发两次多余的事件，屏蔽掉。
           if (this.scrollEventCount < 3) return
           // 手动设置父容器高宽，防止父容器坍塌
-          this.setData({
-            height: res.height,
-            width: res.width
-          })
           // 滚动完，重新获取容器新的高度
-          const newHeight = res.height || 1
-          const newWidth = res.width || 1
+          const newHeight = res.height
+          const newWidth = res.width
+          // 立即填充父容器高宽
+          renderData(this, {
+            height: newHeight,
+            width: newWidth
+          })
+          // 宽高都改变时，只需要触发一次 size 事件
           const emitStack = []
           if (newHeight !== lastHeight) {
             lastHeight = newHeight
@@ -92,12 +77,18 @@ VueComponent({
             })
             this.$emit('size', result)
           }
+          // 滚动条拉到底部（如果使用 nextTick 效果更佳）
           this.scrollToBottom({
-            height: lastHeight,
-            width: lastWidth
+            width: lastWidth,
+            height: lastHeight
           })
         })
       }
+      // 滚动条拉到底部（如果使用 nextTick 效果更佳）
+      this.scrollToBottom({
+        width: lastWidth,
+        height: lastHeight
+      })
     })
   }
 })

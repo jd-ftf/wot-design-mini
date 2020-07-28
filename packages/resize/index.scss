@@ -5,8 +5,8 @@
 
   @include e(container) {
     position: absolute;
-    min-width: 10px;
-    min-height: 10px;
+    min-width: 1px;
+    min-height: 1px;
   }
 
   @include e(wrapper) {
