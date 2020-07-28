@@ -20,7 +20,7 @@
   <view class="demo-title">相对容器</view>
   <view class="demo-container">
     <wd-sticky-box>
-      <view style="height: 150px;width: 100vw;background-color: #ffffff">
+      <view style="height: 120px;width: 100vw;background-color: #ffffff">
         <wd-sticky style="margin-left: 220px;">
           <wd-button type="warning">相对容器</wd-button>
         </wd-sticky>
@@ -30,10 +30,20 @@
 </view>
 
 <view class="demo-block">
+  <view class="demo-title">动态插入</view>
+  <view class="demo-container">
+    <wd-button type="info" plain bindtap="insert">点击插入</wd-button>
+    <wd-sticky style="margin-left: 220px;">
+      <wd-button type="error" jd:if="{{show}}">动态生成</wd-button>
+    </wd-sticky>
+  </view>
+</view>
+
+<view class="demo-block">
   <view class="demo-title">相对容器+吸顶距离</view>
   <view class="demo-container">
     <wd-sticky-box>
-      <view style="height: 150px;width: 100vw;background-color: #ffffff">
+      <view style="height: 120px;width: 100vw;background-color: #ffffff">
         <wd-sticky offset-top="{{150}}">
           <wd-button type="warning">相对容器+吸顶距离</wd-button>
         </wd-sticky>
