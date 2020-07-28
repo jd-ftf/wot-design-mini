@@ -244,6 +244,11 @@
                 "name": "Tooltip 轻提示",
                 "path": "/tooltip",
                 "demo": "/tooltip"
+              },
+              "Sticky": {
+                "name": "Sticky 粘性布局",
+                "path": "/sticky",
+                "demo": "/sticky"
               }
             }
           }

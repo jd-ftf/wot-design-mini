@@ -4,14 +4,15 @@
 @include b(tabs) {
   position: relative;
   background: #fff;
-  padding-top: $-tabs-nav-height;
+  width: $-tabs-width;
 
   @include e(nav) {
     left: 0;
     right: 0;
     height: $-tabs-nav-height;
     background-color: #fff;
-  
+    width: $-tabs-width;
+
     &::after {
       position: absolute;
       display: block;

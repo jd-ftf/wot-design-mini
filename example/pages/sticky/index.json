@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "Sticky 粘性布局",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "wd-button": "../../dist/button/index",
+    "wd-sticky": "../../dist/sticky/index",
+    "wd-sticky-box": "../../dist/stickyBox/index"
+  }
+}

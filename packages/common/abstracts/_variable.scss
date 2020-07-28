@@ -362,6 +362,8 @@ $-switch-inactive-shadow-color: rgba(0, 0, 0, 0.3) !default; // 非选中状态s
 $-switch-border-color: #e5e5e5 !default; // 边框颜色
 
 /* tabs */
+$-tabs-width: 100vw; // tabs 默认宽度
+$-tabs-nav-width: 100vw; // tabs 头部切换宽度
 $-tabs-nav-height: 40px !default; // 头部切换高度
 $-tabs-nav-fs: $-fs-content !default; // 头部切换文字大小
 $-tabs-nav-color: $-color-title !default; // 头部切换文字颜色
