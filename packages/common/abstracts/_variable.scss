@@ -37,6 +37,8 @@ $-color-secondary: #a7a7a7 !default; // 次要信息，注释/补充/正文
 $-color-aid: #d2d2d2 !default; // 辅助文字字号，弱化信息，引导性/不可点文字
 
 /* 文字字号 */
+$-fs-big: 24px !default; // 大型标题
+$-fs-important: 19px !default; // 重要数据
 $-fs-title: 16px !default; // 标题字号/重要正文字号
 $-fs-content: 14px !default; // 普通正文
 $-fs-secondary: 12px !default; // 次要信息，注释/补充/正文

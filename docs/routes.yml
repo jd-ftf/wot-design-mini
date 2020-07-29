@@ -22,6 +22,9 @@
     - name: customTheme
       title: 自定义主题
       demo: /
+    - name: typography
+      title: 字体
+      demo: /
     - type: page
       name: changelog
       title: 更新日志
