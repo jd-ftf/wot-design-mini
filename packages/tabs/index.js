@@ -49,10 +49,10 @@ VueComponent({
       value: 10,
       observer: checkNumRange
     },
-    // 标题选中时的颜色
-    color: String,
-    // 标题未选中时的颜色
-    inactiveColor: String,
+    // // 标题选中时的颜色
+    // color: String,
+    // // 标题未选中时的颜色
+    // inactiveColor: String,
     // 粘性布局
     sticky: {
       type: Boolean,
@@ -72,19 +72,20 @@ VueComponent({
     // 底部条宽度，单位像素
     lineWidth: {
       type: Number,
-      observer (value) {
-        checkNumRange(value)
-        this.updateLineStyle()
-      }
+      value: 19
+      // observer (value) {
+      //   checkNumRange(value)
+      //   this.updateLineStyle()
+      // }
     },
     // 底部条高度，单位像素
     lineHeight: {
       type: Number,
-      value: 3,
-      observer (value) {
-        checkNumRange(value)
-        this.updateLineStyle()
-      }
+      value: 3
+      // observer (value) {
+      //   checkNumRange(value)
+      //   this.updateLineStyle()
+      // }
     }
   },
   data: {
@@ -134,11 +135,13 @@ VueComponent({
      */
     updateLineStyle (animation = true) {
       if (!this.inited) return
-      const { color, activeIndex, lineWidth, lineHeight, slidableNum, items } = this.data
+      // const { activeIndex, lineWidth, lineHeight, slidableNum, items } = this.data
+      const { activeIndex, lineWidth, lineHeight } = this.data
       this.getRect($item, true).then(
         (rects) => {
           const rect = rects[activeIndex]
-          const width = lineWidth || (slidableNum < items.length ? rect.width : (rect.width - 14))
+          // const width = lineWidth || (slidableNum < items.length ? rect.width : (rect.width - 14))
+          const width = lineWidth
           let left = rects.slice(0, activeIndex).reduce((prev, curr) => prev + curr.width, 0)
           left += (rect.width - width) / 2
           const transition = animation
@@ -148,7 +151,6 @@ VueComponent({
           const lineStyle = `
             height: ${lineHeight}px;
             width: ${width}px;
-            background-color: ${color};
             transform: translateX(${left}px);
             ${transition}
           `

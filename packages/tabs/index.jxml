@@ -162,9 +162,13 @@
             jd:for-index="index"
             jd:for-item="item"
           >
+<!--            <view-->
+<!--              class="wd-tabs__map-nav-btn {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"-->
+<!--              style="{{ activeIndex === index ? (color ? 'color:' + color + ';border-color:' + color :'') : (inactiveColor ? 'color:'+inactiveColor :'') }}"-->
+<!--              data-index="{{index}}"-->
+<!--            >-->
             <view
               class="wd-tabs__map-nav-btn {{ activeIndex === index ? 'is-active' :'' }} {{ item.disabled ? 'is-disabled' :'' }}"
-              style="{{ activeIndex === index ? (color ? 'color:' + color + ';border-color:' + color :'') : (inactiveColor ? 'color:'+inactiveColor :'') }}"
               data-index="{{index}}"
             >{{ item.title }}
             </view>
