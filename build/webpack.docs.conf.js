@@ -54,6 +54,10 @@ const webpackConf = {
         exclude: /node_modules/
       },
       {
+        test: /\.yml$/,
+        loader: 'yml-loader'
+      },
+      {
         test: /\.css$/,
         use: utils.cssLoader('css-loader', 'postcss-loader')
       },
