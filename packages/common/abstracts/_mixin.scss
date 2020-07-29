@@ -142,3 +142,9 @@
      z-index: 3;
    }
  }
+@mixin buttonClear {
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+}

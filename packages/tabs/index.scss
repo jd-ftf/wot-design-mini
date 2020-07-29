@@ -12,6 +12,7 @@
     height: $-tabs-nav-height;
     background-color: #fff;
     width: $-tabs-width;
+    position: relative;
 
     &::after {
       position: absolute;
@@ -33,7 +34,6 @@
     position: relative;
     display: flex;
     user-select: none;
-    padding-bottom: 15px;
   }
   @include e(nav-item) {
     flex: 1;
@@ -46,7 +46,7 @@
     transition: color .3s;
 
     @include when(active) {
-      color: $-tabs-nav-active-color;
+      font-weight: 500;
     }
     @include when(disabled) {
       color: $-tabs-nav-disabled-color;
@@ -54,11 +54,12 @@
   }
   @include e(line) {
     position: absolute;
-    bottom: 15px;
+    bottom: 4px;
     left: 0;
     height: $-tabs-nav-line-height;
-    background: $-tabs-nav-active-color;
+    background: $-tabs-nav-line-bg-color;
     z-index: 1;
+    border-radius: 1.5px;
   }
   @include e(container) {
     overflow: hidden;
@@ -84,18 +85,18 @@
     text-align: center;
     color: $-tabs-nav-map-arrow-color;
     z-index: 3;
-    background: #fff;
+    background: $-tabs-nav-bg;
+    -webkit-tap-highlight-color: transparent;
     @include halfPixelBorder;
 
     &::before {
       position: absolute;
       content: '';
       top: 0;
-      bottom: 0;
-      left: 0;
-      width: 1px;
-      transform: scaleX(0.5);
-      background: $-color-border-light;
+      left: -24px;
+      width: 24px;
+      height: $-tabs-nav-height - 1;
+      background: $-tabs-nav-map-btn-before-bg
     }
   }
   @include e(map-arrow) {
@@ -143,23 +144,25 @@
     }
   }
   @include e(map-nav-btn) {
+    @include buttonClear;
+    @include lineEllipsis;
     display: inline-block;
-    width: 98px;
-    height: 26px;
-    line-height: 26px;
-    border: 1px solid $-tabs-nav-map-button-border-color;
+    width: 107px;
+    height: 32px;
+    line-height: 32px;
+    background-color: $-tabs-nav-map-button-back-color;
+    border-color: transparent;
     margin-bottom: 10px;
     border-radius: $-tabs-nav-map-button-radius;
     color: $-tabs-nav-map-color;
     font-size: $-tabs-nav-map-fs;
-    box-sizing: border-box;
     text-align: center;
     transition: color .3s, border-color .3s;
-    @include lineEllipsis;
 
     @include when(active) {
       color: $-tabs-nav-active-color;
-      border-color: $-tabs-nav-active-color;
+      border: 1px solid $-tabs-nav-active-color;
+      background-color: $-tabs-nav-bg
     }
     @include when(disabled) {
       color: $-tabs-nav-disabled-color;
