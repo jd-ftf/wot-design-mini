@@ -71,14 +71,15 @@ $-action-sheet-close-right: 10px !default; // 关闭按钮距离标题右侧距�
 $-badge-bg:  $-color-danger !default; // 背景填充颜色
 $-badge-color: #fff !default; // 文字颜色
 $-badge-fs: 12px !default; // 文字字号
-$-badge-padding: 0 6px !default; // padding
-$-badge-height: 18px !default; // 高度
+$-badge-padding: 0 5px !default; // padding
+$-badge-height: 16px !default; // 高度
 $-badge-primary: $-color-theme !default;
 $-badge-success: $-color-success !default;
 $-badge-warning: $-color-warning !default;
 $-badge-danger: $-color-danger !default;
 $-badge-info: $-color-info !default;
-$-badge-dot-size: 8px !default; // dot 类型大小
+$-badge-dot-size: 6px !default; // dot 类型大小
+$-badge-border: 2px solid $-badge-color; // 边框样式
 
 /* button */
 $-button-normal-color: $-color-title !default; // 文字颜色

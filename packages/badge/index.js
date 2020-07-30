@@ -18,7 +18,9 @@ VueComponent({
       observer: 'notice'
     },
     hidden: Boolean,
-    type: String
+    type: String,
+    top: Number,
+    right: Number
   },
   data: {
     content: ''
