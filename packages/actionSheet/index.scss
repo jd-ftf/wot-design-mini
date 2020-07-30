@@ -2,6 +2,17 @@
 @import '../common/abstracts/mixin';
 
 @include b(action-sheet) {
+  border-radius: $-action-sheet-radius $-action-sheet-radius 0 0;
+
+  @include m(spacing) {
+    margin: $-action-sheet-spacing;
+    border-radius: $-action-sheet-radius;
+  }
+
+  @include e(actions) {
+    padding: 8px 0;
+  }
+
   @include e(action) {
     position: relative;
     display: block;
@@ -12,33 +23,22 @@
     font-size: $-action-sheet-fs;
     text-align: center;
     border: none;
-    background: #fff;
+    background: $-action-sheet-bg;
     outline: none;
     border-radius: 0;
 
+    &:after {
+      display: none;
+    }
+
     &:active {
       background: $-action-sheet-active-color;
-    }
-    &::after {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      top: auto;
-      background: $-action-sheet-border-color;
-      transform: scaleY(0.5);
-      border: none;
-      border-radius: 0;
-    }
-    &:last-child::after {
-      display: none;
     }
 
     @include m(disabled) {
       color: $-action-sheet-disabled-color;
     }
+
     @include m(loading) {
       display: flex;
       align-items: center;
@@ -46,59 +46,52 @@
       line-height: initial;
     }
   }
+
   @include e(name) {
     display: inline-block;
   }
+
   @include e(subname) {
     display: inline-block;
     margin-left: 4px;
     font-size: $-action-sheet-subname-fs;
     color: $-action-sheet-subname-color;
   }
+
   @include e(cancel) {
     display: block;
-    width: 100%;
-    line-height: $-action-sheet-action-height;
+    width: calc(100% - 48px);
+    line-height: $-action-sheet-cancel-height;
     padding: 0;
-    color: $-action-sheet-color;
+    color: $-action-sheet-cancel-color;
     font-size: $-action-sheet-fs;
     text-align: center;
+    border-radius: $-action-sheet-cancel-radius;
     border: none;
-    background: #fff;
+    background: $-action-sheet-cancel-bg;
     outline: none;
-    border-radius: 0;
+    margin: 0 auto 24px;
+    font-weight: $-action-sheet-weight;
 
     &:active {
       background: $-action-sheet-active-color;
     }
-    &::before {
-      display: block;
-      content: '';
-      height: 10px;
-      background: $-action-sheet-bg;
-    }
-    &::after {
+
+    &:after {
       display: none;
     }
   }
+
   @include e(header) {
+    color: $-action-sheet-color;
     position: relative;
     height: $-action-sheet-title-height;
     line-height: $-action-sheet-title-height;
     text-align: center;
     font-size: $-action-sheet-title-fs;
-
-    &::after {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      background: $-action-sheet-border-color;
-      transform: scaleY(0.5);
-    }
+    font-weight: $-action-sheet-weight;
   }
+
   @include e(close) {
     position: absolute;
     top: $-action-sheet-close-top;
@@ -107,5 +100,48 @@
     font-size: $-action-sheet-close-fs;
     transform: rotate(-45deg);
     line-height: 1.1;
+  }
+
+  @include e(panels) {
+    height: 84px;
+    overflow-y: hidden;
+
+    &:first-of-type {
+      margin-top: 20px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 12px;
+    }
+  }
+
+  @include e(panels-content) {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @include e(panel) {
+    width: 88px;
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: $-action-sheet-panel-padding;
+  }
+
+  @include e(panel-img) {
+    display: block;
+    width: $-action-sheet-panel-img-fs;
+    height: $-action-sheet-panel-img-fs;
+    margin: 0 auto;
+    margin-bottom: 7px;
+    border-radius: $-action-sheet-panel-img-radius;
+  }
+
+  @include e(panel-title) {
+    font-size: $-action-sheet-subname-fs;
+    line-height: 1.2;
+    text-align: center;
+    color: $-action-sheet-color;
+    @include lineEllipsis;
   }
 }
