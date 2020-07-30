@@ -30,6 +30,7 @@
     "new-cap": "off",
     "indent": ["error",2],
     "eol-last":["error","never"],
-    "no-prototype-builtins": "off"
+    "no-prototype-builtins": "off",
+    "no-void": "off"
   }
 }
