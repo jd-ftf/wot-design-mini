@@ -1,10 +1,20 @@
-<view class="wd-loading custom-class"
-      style="width: {{ size }}; height: {{ size }}; color: {{ color || '#c5c5c5' }}; {{ customStyle }}">
-  <view jd:if="{{ type === 'circle' }}" class="wd-loading__circle"></view>
-  <view jd:else class="wd-loading__spinner">
+<view class="wd-loading custom-class" style="width:{{ size }}px; height:{{ size }}px;color:{{color}}">
+
+  <view jd:if="{{type === 'circle-outline'}}" class="wd-loading--circle-outline">
+    <view class="wd-loading__svg" style="background-image: url({{svg}});"></view>
+  </view>
+
+  <view jd:if="{{type === 'circle'}}" class="wd-loading__spinner wd-loading--circle">
+    <view class="wd-loading__svg" style="background-image: url({{svg}});"></view>
+  </view>
+
+  <view jd:if="{{type === 'spinner'}}" class="wd-loading__spinner wd-loading--spinner">
     <view
       jd:for="{{ 12 }}"
-      jd:key="{{ index }}"
-      class="wd-loading__spinner-dot wd-loading__spinner-dot-{{ index }}"></view>
+      jd:key="$this"
+      class="wd-loading__spinner-dot wd-loading__spinner-dot-{{ index }}"
+    >
+    </view>
+
   </view>
 </view>
