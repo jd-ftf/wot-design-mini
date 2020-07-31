@@ -1,35 +1,37 @@
 @import "../common/abstracts/_mixin.scss";
-
-@keyframes wd-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(1turn);
-  }
-}
+@import "../common/abstracts/variable.scss";
 
 @include b(loading) {
+  font-size: 0;
+  line-height: 0;
+  vertical-align: middle;
   display: inline-block;
 
-  @include e(circle) {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-    font-size: 0;
-    animation: wd-rotate .8s linear infinite;
-  }
-
   @include e(spinner) {
-    position: relative;
+    display: block;
     width: 100%;
     height: 100%;
-    animation: wd-rotate .8s steps(12) infinite;
+    animation: wd-rotate 0.8s linear infinite;
   }
+  @include m(circle) {
+    animation-duration: 2s;
+  }
+  @include m(circle-outline) {
+    width: 100%;
+    height: 100%;
+    animation: wd-rotate 0.8s linear infinite;
+    animation-duration: 2s;
 
+  }
+  @include e(svg) {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  @include m(spinner) {
+    animation-timing-function: steps(12);
+  }
   @include e(spinner-dot) {
     position: absolute;
     top: 0;
@@ -39,19 +41,30 @@
 
     &::before {
       display: block;
+      content: "";
       width: 2px;
       height: 25%;
+      border-radius: 1px;
       margin: 0 auto;
-      background-color: currentColor;
-      border-radius: 40%;
-      content: " ";
+      background: currentColor;
     }
   }
-  @for $i from 1 through 12 {
-    .wd-loading__spinner-dot-#{$i - 1} {
-      transform: rotate(#{$i*30}deg);
-      opacity: #{1-($i - 1)*.0625};
-    }
+}
+
+@for $i from 1 through 12 {
+  .wd-loading__spinner-dot:nth-of-type(#{$i}) {
+    opacity: 1 - (0.75 / 12) * ($i - 1);
+    transform: rotate($i * 30deg);
+  }
+}
+
+@keyframes wd-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 

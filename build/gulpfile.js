@@ -144,7 +144,7 @@ if (isToWx) {
   ].concat(ignoreExpressList), wxFinalPath)
 
   const baseTask = [
-    parallel(jxssTask, jsWxTask, jxmlWxTask, wxCopy)
+    parallel(jxssTask, jsWxTask, jxmlWxTask, wxCopy,esLint)
   ]
   const watchWxTask = function () {
     return watch([`${example}/**`].concat(ignoreExpressList), ...baseTask)
