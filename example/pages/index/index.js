@@ -148,6 +148,9 @@ Page({
           }, {
             id: 'sticky',
             name: 'Sticky 吸顶布局'
+          }, {
+            id: 'statusTip',
+            name: 'StatusTip 缺省提示'
           }
         ]
       }
