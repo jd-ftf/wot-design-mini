@@ -5,7 +5,8 @@ Page({
     checked2: '京麦',
     checked3: true,
     checked4: true,
-    checked5: true
+    checked5: true,
+    checked6: false
   },
   handleChange1 ({ detail }) {
     this.setData({

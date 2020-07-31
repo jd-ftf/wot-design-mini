@@ -12,7 +12,10 @@
   <demo-block title="修改大小">
     <wd-switch value="{{ checked4 }}" size="20px" bind:change="handleChange4" />
   </demo-block>
-  <demo-block title="禁用">
+  <demo-block title="选中禁用">
     <wd-switch value="{{ checked5 }}" disabled />
+  </demo-block>
+  <demo-block title="非选中禁用">
+    <wd-switch value="{{ checked6 }}" disabled />
   </demo-block>
 </view>

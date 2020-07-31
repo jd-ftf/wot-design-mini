@@ -358,13 +358,29 @@ $-steps-dot-size: 7px !default; // 点状大小
 $-steps-dot-active-size: 9px !default; // 点状高亮大小
 
 /* switch */
-$-switch-width: 1.8em !default; // 宽度
-$-switch-circle-size: 1em !default; // 圆点大小
-$-switch-active-color: $-color-theme !default; // 选中状态背景颜色
-$-switch-active-shadow-color: rgba($-color-theme, .8) !default; // 选中状态shadow颜色
-$-switch-inactive-color: #fff !default; // 非选中背景颜色
-$-switch-inactive-shadow-color: rgba(0, 0, 0, 0.3) !default; // 非选中状态shadow颜色
-$-switch-border-color: #e5e5e5 !default; // 边框颜色
+$-switch-width: 51px !default; // 宽度
+$-switch-height: 32px !default; // 高度
+$-switch-circle-size: 28px !default; // 圆点大小
+$-switch-border-color: #e5e5e5 !default; // 边框颜色选中状态背景颜色
+$-switch-active-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "light" "dark",
+  #4f7cf8 #668df8,
+  0% 100%
+) !default; // 选中状态背景
+$-switch-active-shadow-color: rgba(0, 83, 162, 0.5) !default; // 选中状态shadow颜色
+$-switch-inactive-color: resultColor(
+  $open-linear,
+  315deg,
+  #dadada,
+  "light" "dark" "dark",
+  #f2f2f2 #dadada #668df8,
+  0% 100% 100%
+) !default; // 非选中背景颜色
+$-switch-inactive-shadow-color: rgba(155, 155, 155, 0.5) !default; // 非选中状态shadow颜色
+
 
 /* tabs */
 $-tabs-width: 100vw; // tabs 默认宽度
@@ -438,8 +454,7 @@ $-grid-item-padding: 15px 10px !default; // 内容的 padding
 $-grid-item-border-color: $-color-border-light !default; // 边框颜色
 
 /* statustip */
-$-statustip-bg: $-modal-bg !default; // 背景色
-$-statustip-fs: $-fs-title !default; // 字号
-$-statustip-color: $-color-title !default; // 文字颜色
-$-statustip-line-height: 22px !default; // 文字颜色
+$-statustip-fs: $-fs-content !default; // 字号
+$-statustip-color: rgba($-color-black, 0.45) !default; // 文字颜色
+$-statustip-line-height: 16px !default; // 文字行高
 $-statustip-padding: 5px 10px !default; // 间距

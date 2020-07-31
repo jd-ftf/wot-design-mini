@@ -3,7 +3,7 @@
 </demo-block>
 
 <demo-block title="404页面">
-  <wd-status-tip type="network" tip="该页面暂时无法访问"/>
+  <wd-status-tip type="network" tip="当前网络不可用，请检查你的网络设置"/>
 </demo-block>
 
 <demo-block title="页面无数据">
