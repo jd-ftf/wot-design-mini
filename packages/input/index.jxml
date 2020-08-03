@@ -25,7 +25,6 @@
           focus="{{ focus }}"
           placeholder-style="{{ placeholderStyle }}"
           placeholder-class="wd-input__placeholder {{ error ? 'is-error' : '' }} {{ placeholderClass }}"
-          auto-focus="{{ autofocus }}"
           auto-height="{{ autoHeight }}"
           cursor-spacing="{{ cursorSpacing }}"
           fixed="{{ fixed }}"

@@ -99,12 +99,12 @@ page({
 设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
 
 ```html
-<wd-input 
-  value="{{ value }}" 
-  clearable 
-  use-suffix-slot 
+<wd-input
+  value="{{ value }}"
+  clearable
+  use-suffix-slot
   use-prefix-slot
-  custom-suffix-class="suffix-slot" 
+  custom-suffix-class="suffix-slot"
   bind:change="handleChange">
     <view slot="prefix">1</view>
     <view slot="suffix">2</view>
@@ -204,7 +204,6 @@ page({
 | placeholderStyle | 原生属性，指定 placeholder 的样式，目前仅支持color,font-size和font-weight | string | - | - |
 | placeholderClass | textarea指定 placeholder 的样式类 | string | - | textarea-placeholder |
 | focus | 原生属性，获取焦点 | boolean | - | false |
-| autofocus | 原生属性，自动聚焦，拉起键盘 | boolean | - | false |
 | cursorSpacing | 原生属性，指定光标与键盘的距离。取textarea距离底部的距离和cursor-spacing指定的距离的最小值作为光标与键盘的距离 | number | - | 0 |
 | fixed | textarea原生属性，如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true | boolean | - | false |
 | cursor | 原生属性，指定focus时的光标位置 | number | - | -1 |
