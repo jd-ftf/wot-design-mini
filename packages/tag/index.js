@@ -31,16 +31,15 @@ VueComponent({
     },
     color: String,
     bgColor: String,
-    size: {
-      type: String,
-      value: 'medium',
-      observer (s) {
-        if (!s) return
-        // size: 'small', 'large'
-        const size = ['small', 'medium', 'large']
-        if (size.indexOf(s) === -1) throw Error(`size must be one of ${size.toString()}`)
-        this.computeTagClass()
-      }
+    round: {
+      type: Boolean,
+      value: false,
+      observer: 'computeTagClass'
+    },
+    mark: {
+      type: Boolean,
+      value: false,
+      observer: 'computeTagClass'
     }
   },
   data: {
@@ -50,11 +49,15 @@ VueComponent({
   },
   methods: {
     computeTagClass () {
-      const { type, plain, size } = this.data
+      const { type, plain, round, mark, dynamic, dynamicInput, icon, useIconSlot } = this.data
       let tagClass = []
       type && tagClass.push(`is-${type}`)
       plain && tagClass.push('is-plain')
-      size && tagClass.push(`is-${size}`)
+      round && tagClass.push('is-round')
+      mark && tagClass.push('is-mark')
+      dynamic && tagClass.push('is-dynamic')
+      dynamicInput && tagClass.push('is-dynamic-input')
+      if (icon || useIconSlot) tagClass.push('is-icon')
       tagClass = tagClass.join(' ')
       this.setData({ tagClass })
     },

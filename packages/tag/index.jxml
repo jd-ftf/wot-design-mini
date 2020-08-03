@@ -1,5 +1,5 @@
 <view
-  class="wd-tag {{tagClass}} custom-class"
+  class="wd-tag custom-class {{tagClass}}"
   style="{{(!plain && bgColor)?'background :'+bgColor+';':''}}{{bgColor?'border-color:'+bgColor:''}}"
   bindtap="handleClick"
 >
@@ -15,9 +15,9 @@
     <slot/>
   </view>
   <wd-icon
-    jd:if="{{closable}}"
+    jd:if="{{closable && round}}"
     class="wd-tag__close"
-    name="close-outline"
+    name="error-fill"
     catchtap="handleClose"/>
   <input
     jd:if="{{ dynamicInput && dynamic }}"
@@ -34,6 +34,11 @@
     class="wd-tag__text"
     style="{{color?'color:'+color:''}}"
     catchtap="handleAdd">
-    + 新增标签
+    <wd-icon
+      class="wd-tag__add"
+      size="12px"
+      name="add"
+      custom-class="wd-tag__icon"
+    />新增标签
   </view>
 </view>

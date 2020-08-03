@@ -32,16 +32,57 @@
 
 ```html
 <wd-tag plain>标签</wd-tag>
+<wd-tag type="primary" plain>标签</wd-tag>
+<wd-tag type="danger" plain>标签</wd-tag>
+<wd-tag type="warning" plain>标签</wd-tag>
+<wd-tag type="success" plain>标签</wd-tag>
 ```
 
-### 标签大小
+### 标记标签
 
-设置 `size` 属性，默认为 'medium' 大小，可选值 'small', 'large'。
+设置 `mark` 属性。
 
 ```html
-<wd-tag size="small">标签</wd-tag>
-<wd-tag>标签</wd-tag>
-<wd-tag size="large">标签</wd-tag>
+<wd-tag mark>标签</wd-tag>
+<wd-tag type="primary" mark>标签</wd-tag>
+<wd-tag type="danger" mark>标签</wd-tag>
+<wd-tag type="warning" mark>标签</wd-tag>
+<wd-tag type="success" mark>标签</wd-tag>
+```
+
+### 幽灵标记标签
+同时设置 `mark` 和 `plain` 属性。
+
+```html
+<wd-tag mark plain>标签</wd-tag>
+<wd-tag type="primary" mark plain>标签</wd-tag>
+<wd-tag type="danger" mark plain>标签</wd-tag>
+<wd-tag type="warning" mark plain>标签</wd-tag>
+<wd-tag type="success" mark plain>标签</wd-tag>
+```
+
+### 圆角标签
+
+设置 `round` 属性。
+
+```html
+<wd-tag round>标签</wd-tag>
+<wd-tag type="primary" round>标签</wd-tag>
+<wd-tag type="danger" round>标签</wd-tag>
+<wd-tag type="warning" round>标签</wd-tag>
+<wd-tag type="success" round>标签</wd-tag>
+```
+
+### 设置图标
+
+设置 `icon` 左侧图标，也可以使用 'icon' 的 slot 插槽,此时要开启`use-icon-slot`。
+
+```html
+<wd-tag custom-class="space" icon="clock" mark>标签</wd-tag>
+<wd-tag custom-class="space" mark use-icon-slot>
+  <text>插槽</text>
+  <wd-icon slot="icon" name="clock"/>
+</wd-tag>
 ```
 
 ### 自定义颜色
@@ -53,30 +94,18 @@
   <wd-tag color="#FAA21E" bg-color="#FAA21E" plain>标签</wd-tag>
 ```
 
-### 设置图标
-
-设置 `icon` 左侧图标，也可以使用 'icon' 的 slot 插槽,此时要开启`use-icon-slot`。
-
-```html
-<wd-tag custom-class="space" icon="tickets">标签</wd-tag>
-<wd-tag custom-class="space" use-icon-slot>
-  <text>插槽</text>
-  <wd-icon slot="icon" name="tickets"/>
-</wd-tag>
-```
-
 ### 可关闭
 
 设置 `closable` 属性，允许标签关闭，关闭时会触发 `close` 事件。
 ```html
-<wd-tag closable type="primary">标签</wd-tag>
+<wd-tag closable round type="primary">标签</wd-tag>
 ```
 
 ### 新增标签
 
 设置 `dynamic` 属性，该标签为新增，输入内容确定后触发 `confirm` 事件。
 ```html
-<wd-tag dynamic></wd-tag>
+<wd-tag dynamic round></wd-tag>
 ```
 
 ### 事件
@@ -85,10 +114,8 @@
   jd:for="{{tags}}"
   jd:key="$this"
   jd:for-item="tag"
-  plain
+  round
   closable
-  type="primary"
-  size="{{tag.size}}"
   data-index="{{index}}"
   bind:click="handleClick"
   bind:close="handleClose"
@@ -104,7 +131,6 @@ Page({
         plain: true,
         closable: true,
         type: 'primary',
-        size: 'small',
         value: '标签一'
       }
     ]
@@ -127,11 +153,12 @@ Page({
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | type | 标签类型 | String | 'primary', 'danger', 'warning', 'success' | - | - |
 | plain | 幽灵类型 | Boolean | - | false |
-| size | 标签大小 | String | 'small', 'large' | - |
+| mark | 标记类型 | Boolean | - | false |
+| round | 圆角类型 | Boolean | - | false |
 | icon | 左侧图标 | String | - | - |
 | color | 文字颜色 | String | - | - |
 | bg-color | 背景色和边框色 | String | - | - |
-| closable | 可关闭 | Boolean | - | false |
+| closable | 可关闭(只对圆角类型支持) | Boolean | - | false |
 | use-icon-slot | 开启图标插槽 | Boolean | - | false |
 | dynamic | 新增标签 | Boolean | - | false |
 
