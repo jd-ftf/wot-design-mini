@@ -118,6 +118,8 @@
 | size | 按钮尺寸 | string | 'small', 'medium', 'large' | 'medium' |
 | disabled | 禁用按钮 | boolean | - | false |
 | icon | 图标类名 | string | - | - |
+| loading | 加载中按钮 | boolean | - | - |
+| loading-color | 加载图标颜色 | string | - | - |
 | open-type | 微信开放能力 | string | - | - |
 | form-type | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 | string | 'submit' / 'reset' | - |
 | hover-stop-propagation | 指定是否阻止本节点的祖先节点出现点击态 | boolean | - | false |

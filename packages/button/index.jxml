@@ -1,6 +1,6 @@
 <button
   hover-class="wd-button--active"
-  class="wd-button custom-class is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }}"
+  class="wd-button custom-class is-{{type}} is-{{size}} {{ plain ? 'is-plain' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ round ? 'is-round' : '' }} {{ suck ? 'is-suck' : '' }} {{ block ? 'is-block' : '' }} {{ loading ? 'is-loading' : '' }}"
   open-type="{{ openType }}"
   send-message-title="{{sendMessageTitle}}"
   send-message-path="{{sendMessagePath}}"
@@ -22,6 +22,9 @@
   bindlaunchapp="handleLaunchapp"
   bindopensetting="handleOpensetting"
 >
-  <wd-icon jd:if="{{icon}}" class="wd-button__icon" name="{{icon}}" size="1.2em"></wd-icon>
+  <view jd:if="{{loading}}" class="wd-button__loading">
+    <view class="wd-button__loading-svg" style="background-image: url({{loadingIconSvg}});"></view>
+  </view>
+  <wd-icon jd:if="{{icon}}" class="wd-button__icon" name="{{icon}}" size="1.28em"></wd-icon>
   <view class="wd-button__text"><slot/></view>
 </button>

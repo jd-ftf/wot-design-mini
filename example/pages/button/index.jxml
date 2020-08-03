@@ -16,7 +16,6 @@
     <wd-button type="error" disabled>危险按钮</wd-button>
   </demo-block>
   <demo-block title="幽灵按钮">
-    <wd-button plain>默认按钮</wd-button>
     <wd-button type="primary" plain>主要按钮</wd-button>
     <wd-button type="success" plain>成功按钮</wd-button>
     <wd-button type="info" plain>信息按钮</wd-button>
@@ -24,7 +23,6 @@
     <wd-button type="error" plain>危险按钮</wd-button>
   </demo-block>
   <demo-block title="幽灵按钮禁用状态">
-    <wd-button plain disabled>默认按钮</wd-button>
     <wd-button type="primary" plain disabled>主要按钮</wd-button>
     <wd-button type="success" plain disabled>成功按钮</wd-button>
     <wd-button type="info" plain disabled>信息按钮</wd-button>
@@ -40,21 +38,34 @@
     <wd-button type="error" round>危险按钮</wd-button>
   </demo-block>
   <demo-block title="按钮大小">
-    <wd-button type="primary" size="large">大型按钮</wd-button>
-    <wd-button type="primary" size="medium">普通按钮</wd-button>
     <wd-button type="primary" size="small">小型按钮</wd-button>
+    <wd-button type="primary" size="medium">普通按钮</wd-button>
+    <wd-button type="primary" size="large">大型按钮</wd-button>
+  </demo-block>
+  <demo-block title="加载中">
+    <wd-button loading>加载中</wd-button>
+    <wd-button type="primary" loading>加载中</wd-button>
+    <wd-button type="success" loading>加载中</wd-button>
+    <wd-button type="warning" loading>加载中</wd-button>
+    <wd-button type="error" loading>加载中</wd-button>
+    <wd-button type="info" loading>加载中</wd-button>
+    <wd-button type="primary" loading plain>加载中</wd-button>
+    <wd-button type="success" loading plain>加载中</wd-button>
+    <wd-button type="warning" loading plain>加载中</wd-button>
+    <wd-button type="error" loading plain>加载中</wd-button>
+    <wd-button type="info" loading plain>加载中</wd-button>
   </demo-block>
   <demo-block title="文字按钮">
     <wd-button type="text">按钮</wd-button>
     <wd-button type="text" disabled>按钮</wd-button>
   </demo-block>
   <demo-block title="图标按钮">
-    <wd-button type="icon" icon="menu"></wd-button>
-    <wd-button type="icon" icon="menu" disabled></wd-button>
+    <wd-button type="icon" icon="delete-thin"></wd-button>
+    <wd-button type="icon" icon="delete-thin" disabled></wd-button>
   </demo-block>
   <demo-block title="带图标的基本按钮">
-    <wd-button type="primary" icon="edit-outline">修改</wd-button>
-    <wd-button type="primary" icon="share">分享</wd-button>
+    <wd-button type="primary" icon="download">下载</wd-button>
+    <wd-button type="primary" icon="setting">设置</wd-button>
   </demo-block>
   <demo-block title="吸顶按钮" transparent>
     <wd-button type="primary" suck custom-class="button-block">主要按钮</wd-button>
@@ -72,5 +83,46 @@
     <wd-button type="info" block size="large">信息按钮</wd-button>
     <wd-button type="warning" block size="large">警告按钮</wd-button>
     <wd-button type="error" block size="large">危险按钮</wd-button>
+  </demo-block>
+  <demo-block title="常用按钮：块状+圆角">
+    <wd-button type="primary" block round size="large" disabled>主要按钮</wd-button>
+    <wd-button type="primary" block round size="large">主要按钮</wd-button>
+    <wd-button type="primary" block round size="large" loading>主要按钮</wd-button>
+    <wd-button type="info" block round size="large" disabled>信息按钮</wd-button>
+    <wd-button type="info" block round size="large">信息按钮</wd-button>
+  </demo-block>
+  <demo-block title="常用按钮：圆角或圆角+幽灵">
+    <view>
+      <wd-button type="primary" disabled round>主操作</wd-button>
+      <wd-button type="primary" size="small" disabled round>主操作</wd-button>
+    </view>
+    <view>
+      <wd-button type="primary" round>主操作</wd-button>
+      <wd-button type="primary" size="small" round>主操作</wd-button>
+    </view>
+    <view>
+      <wd-button type="info" round disabled>次操作</wd-button>
+      <wd-button type="info" size="small" round disabled>次操作</wd-button>
+    </view>
+    <view>
+      <wd-button type="info" round>次操作</wd-button>
+      <wd-button type="info" size="small" round>次操作</wd-button>
+    </view>
+    <view>
+      <wd-button type="primary" plain disabled round>幽灵按钮</wd-button>
+      <wd-button type="primary" size="small" plain disabled round>幽灵按钮</wd-button>
+    </view>
+    <view>
+      <wd-button type="primary" plain round>幽灵按钮</wd-button>
+      <wd-button type="primary" size="small" plain round>幽灵按钮</wd-button>
+    </view>
+    <view>
+      <wd-button type="info" plain disabled round>次操作</wd-button>
+      <wd-button type="info" size="small" plain disabled round>次操作</wd-button>
+    </view>
+    <view>
+      <wd-button type="info" plain round>次操作</wd-button>
+      <wd-button type="info" size="small" plain round>次操作</wd-button>
+    </view>
   </demo-block>
 </view>
