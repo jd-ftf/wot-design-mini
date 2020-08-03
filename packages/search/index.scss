@@ -1,5 +1,5 @@
-@import "./../common/abstracts/_mixin.scss";
-@import "./../common/abstracts/variable.scss";
+@import "../common/abstracts/_mixin.scss";
+@import "../common/abstracts/variable.scss";
 
 @include b(search) {
   display: flex;
@@ -19,7 +19,6 @@
   @include e(input) {
     flex: 1;
     height: $-search-input-height;
-    border-radius: $-search-input-radius;
     box-sizing: border-box;
     padding: $-search-input-padding;
     border: none;
@@ -40,29 +39,32 @@
   @include e(cover) {
     position: absolute;
     top: 0;
-    right: 0;
-    left: 0;
     z-index: 1;
+    width: 100%;
     height: $-search-input-height;
     background-color: $-search-input-bg;
     line-height: $-search-input-height;
     font-size: $-search-input-fs;
     color: $-search-placeholder-color;
-    text-align: center;
-    vertical-align: middle;
-  }
+    border-radius: $-search-input-radius;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
   @include e(search-icon) {
     margin-right: 8px;
     color: $-search-icon-color;
     font-size: $-search-input-fs;
+    height: $-search-input-height;
   }
   @include e(search-left-icon) {
     position: absolute;
     display: inline-block;
     height: $-search-input-height;
     line-height: $-search-input-height;
-    top: 0;
-    left: 10px;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
     color: $-search-icon-color;
     font-size: $-search-input-fs;
   }
@@ -79,8 +81,9 @@
     padding: $-search-cancel-padding;
     height: $-search-input-height;
     line-height: $-search-input-height;
-    font-size: $-search-input-fs;
+    font-size: $-search-cancel-fs;
     color: $-search-cancel-color;
+    -webkit-tap-highlight-color: transparent;
   }
   @include when(light) {
     background: $-search-light-bg;
@@ -88,6 +91,7 @@
     .wd-search__block {
       background: #fff;
     }
+
     .wd-search__cover {
       background: #fff;
     }

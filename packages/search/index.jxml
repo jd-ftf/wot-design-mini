@@ -5,15 +5,15 @@
   <view class="wd-search__block">
     <view
       jd:if="{{!placeholderLeft}}"
-      style="display: {{ (str === '' && showPlaceHolder) ? 'block' : 'none' }}"
+      style="display: {{ (str === '' && showPlaceHolder) ? 'flex' : 'none' }}"
       class="wd-search__cover"
       bindtap="closeCover"
     >
-      <wd-icon name="search" class="wd-search__search-icon"></wd-icon>
+      <wd-icon name="search" size="18px" class="wd-search__search-icon"></wd-icon>
       <text>{{ placeholder || '搜索' }}</text>
     </view>
     <!--icon:search-->
-    <wd-icon name="search" size="18" class="wd-search__search-left-icon"></wd-icon>
+    <wd-icon name="search" size="18px" class="wd-search__search-left-icon"></wd-icon>
     <!--搜索框-->
     <input
       placeholder="{{ placeholder || '搜索' }}"
