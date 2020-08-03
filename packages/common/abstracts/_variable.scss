@@ -4,11 +4,11 @@ $open-linear: true !default;
 /**
  * UI规范基础变量
  */
-
+/*----------------------------------------- Theme color. start ----------------------------------------*/
 /* 主题颜色 */
 $-color-theme: $default-theme !default; // 正常色
-$-color-theme-light: mix(#fff, $-color-theme, 42%) !default; // 弱化色
-$-color-theme-emph: mix(#000, $-color-theme, 18%) !default; // 强调色
+$-color-white: #ffffff !default; // 用于mix的白色
+$-color-black: #000000 !default; // 用于mix的黑色
 
 /* 辅助色 */
 $-color-success: #34d19d !default; // 成功色
@@ -19,10 +19,10 @@ $-color-yellow: #f0cd1d !default; // 黄色
 $-color-blue: #2bb3ed !default; // 蓝色
 
 $-color-info: #909399 !default;
+$-color-theme-light: mix(#fff, $-color-theme, 42%) !default; // 弱化色
+$-color-theme-emph: mix(#000, $-color-theme, 18%) !default; // 强调色
 $-color-grey: #d9d9d9;
 $-border-color: #c8c8cd;
-$-color-white: #ffffff !default; // 正常色
-$-color-black: #000000 !default; // 正常色
 
 /* 图形颜色 */
 $-color-icon: #c5c5c5 !default; // icon颜色
@@ -318,16 +318,17 @@ $-radio-check-size: 10px !default; // 选中圆点大小
 /* search */
 $-search-side-padding: $-size-side-padding !default; // 左右间距
 $-search-padding: 10px 0 10px $-search-side-padding !default; // 不包含取消按钮的间距
-$-search-input-radius: 4px !default; // 输入框圆角大小
+$-search-input-radius: 15px !default; // 输入框圆角大小
 $-search-input-bg: $-color-bg !default; // 输入框背景色
-$-search-input-height: 28px !default; // 输入框高度
-$-search-input-padding: 0 32px !default; // 输入框间距
+$-search-input-height: 30px !default; // 输入框高度
+$-search-input-padding: 0 32px 0 42px !default; // 输入框间距
 $-search-input-fs: $-fs-content !default; // 输入框字号
 $-search-input-color: $-color-title !default; // 输入框文字颜色
 $-search-icon-color: $-color-icon !default; // 图标颜色
 $-search-placeholder-color: $-color-secondary !default; // placeholder 颜色
 $-search-cancel-padding: 0 $-search-side-padding 0 10px !default; // 取消按钮间距
-$-search-cancel-color: $-color-theme !default; // 取消按钮颜色
+$-search-cancel-fs: $-fs-title !default; // 取消按钮字号
+$-search-cancel-color: rgba($-color-black, 0.65) !default; // 取消按钮颜色
 $-search-light-bg: $-color-bg !default; // light 类型的容器背景色
 
 /* slider */
