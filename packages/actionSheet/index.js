@@ -7,6 +7,11 @@ VueComponent({
       type: Array,
       value: []
     },
+    panels: {
+      type: Array,
+      value: [],
+      observer: 'computedValue'
+    },
     title: String,
     cancelText: String,
     closeOnClickAction: {
@@ -19,20 +24,46 @@ VueComponent({
     },
     duration: {
       type: Number,
-      value: 300
+      value: 200
     },
     zIndex: {
       type: Number,
       value: 10
     }
   },
+  data () {
+    return {
+      formatPanels: []
+    }
+  },
   methods: {
-    select ({ currentTarget }) {
-      const index = currentTarget.dataset.index
-      this.$emit('select', {
-        item: this.data.actions[index],
-        index
+    isArray () {
+      return this.data.panels.length && !(this.data.panels[0] instanceof Array)
+    },
+    computedValue () {
+      this.setData({
+        formatPanels: this.isArray() ? [this.data.panels] : this.data.panels
       })
+    },
+    select (event) {
+      const { rowIndex, colIndex, type } = event.currentTarget.dataset
+      if (type === 'action') {
+        this.$emit('select', {
+          item: this.data.actions[rowIndex],
+          index: rowIndex
+        })
+      } else if (this.isArray()) {
+        this.$emit('select', {
+          item: this.data.panels[colIndex],
+          index: colIndex
+        })
+      } else {
+        this.$emit('select', {
+          item: this.data.panels[rowIndex][colIndex],
+          rowIndex,
+          colIndex
+        })
+      }
       this.close()
     },
     handleClickModal () {
