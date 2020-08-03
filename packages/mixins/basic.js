@@ -26,12 +26,17 @@ export default {
       })
     },
     /**
-     * @default 模拟 requestAnimationFrame
+     * @default 模拟 requestAnimationFrame，支持 Promise 嵌套。
      * @param {Function} cb 下一渲染帧的回调
      */
     requestAnimationFrame (cb = () => void 0) {
-      if (typeof cb !== 'function' || !this || !('setData' in this)) return
-      this.setData({}, cb)
+      return new Promise((resolve, reject) => {
+        if (typeof cb !== 'function' || !this || !('setData' in this)) return reject
+        this.setData({}, () => {
+          resolve()
+          cb()
+        })
+      })
     }
   }
 }

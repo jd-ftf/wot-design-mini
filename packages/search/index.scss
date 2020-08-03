@@ -29,7 +29,7 @@
     -webkit-appearance: none;
     outline: none;
     color: $-search-input-color;
-    z-index: 1;
+    z-index: 0;
 
     @include lineEllipsis;
 
@@ -37,13 +37,13 @@
       -webkit-appearance: none;
     }
   }
-  @include e(placeholder) {
+  @include e(cover) {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
+    z-index: 1;
     height: $-search-input-height;
-    z-index: 2;
     background-color: $-search-input-bg;
     line-height: $-search-input-height;
     font-size: $-search-input-fs;
@@ -71,10 +71,9 @@
     font-size: $-search-input-fs;
   }
   @include e(clear) {
-    margin-right: 12px;
-    padding: 4px;
-    font-size: $-search-input-fs;
-    color: $-search-icon-color;
+    position: absolute;
+    right: 0;
+    padding: 6px 9px 6px 7px;
   }
   @include e(cancel) {
     padding: $-search-cancel-padding;
@@ -89,7 +88,7 @@
     .wd-search__block {
       background: #fff;
     }
-    .wd-search__placeholder {
+    .wd-search__cover {
       background: #fff;
     }
   }

@@ -39,38 +39,45 @@ VueComponent({
   data: {
     focus: false,
     str: '',
-    showPlaceHolder: true
+    showPlaceHolder: true,
+    clearing: false
   },
   methods: {
-    closePlaceHolder () {
+    closeCover () {
       if (this.data.disabled) return
-      this.setData({
-        showPlaceHolder: false,
-        focus: true
-      })
+      this.requestAnimationFrame()
+        .then(() => this.requestAnimationFrame())
+        .then(() => this.requestAnimationFrame())
+        .then(() => {
+          this.setData({
+            showPlaceHolder: false,
+            focus: true
+          })
+        })
     },
     /**
      * @description input的input事件handle
      * @param value
      */
     inputValue ({ detail: { value } }) {
-      this.setData({ str: value })
-      this.$emit('change', value)
+      this.setData({ str: value }, () => {
+        this.$emit('change', value)
+      })
     },
     /**
      * @description 点击清空icon的handle
      */
     clearSearch () {
-      setTimeout(() => {
-        // 延迟清空，避免在输入时会触发change，但清除在change之前，导致之前change的值重新被set上去
-        this.setData({
-          str: ''
-          // TODO 点击清空会造成失焦，可以考虑重新聚焦拉起键盘
-          // focus: true
+      this.data.clearing = true
+      this.setData({ str: '' })
+      this.requestAnimationFrame()
+        .then(() => this.requestAnimationFrame())
+        .then(() => this.requestAnimationFrame())
+        .then(() => {
+          this.setData({ focus: true }, () => {
+            this.$emit('clear')
+          })
         })
-        this.$emit('change', '')
-        this.$emit('clear')
-      }, 30)
     },
     /**
      * @description 点击搜索按钮时的handle
@@ -84,20 +91,27 @@ VueComponent({
      * @description 输入框聚焦时的handle
      */
     searchFocus () {
-      // 组件触发focus事件
-      this.$emit('focus', this.data.str)
+      if (this.data.clearing) {
+        this.data.clearing = false
+        return
+      }
+      this.setData({
+        showPlaceHolder: false,
+        focus: true
+      },
+      () => this.$emit('focus', this.data.str)
+      )
     },
     /**
      * @description 输入框失焦的handle
      */
     searchBlur () {
-      if (!this.data.str) {
-        this.setData({
-          showPlaceHolder: true
-        })
-      }
+      if (this.data.clearing) return
       // 组件触发blur事件
-      this.$emit('blur', this.data.str)
+      this.setData(
+        { showPlaceHolder: !this.data.str },
+        () => this.$emit('blur', this.data.str)
+      )
     },
     /**
      * @description 点击取消搜索按钮的handle
