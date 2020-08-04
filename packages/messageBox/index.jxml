@@ -43,20 +43,30 @@
       </view>
     </view>
     <!--action按钮组合-->
-    <view class="wd-message-box__actions">
-      <view
+    <view class="wd-message-box__actions {{showCancelButton ? 'wd-message-box__flex' : 'wd-message-box__block'}}">
+       
+      
+      <wd-button
+        type="info"
+        round
+        block
         jd:if="{{showCancelButton}}"
-        class="wd-message-box__button wd-message-box__button--cancel"
+        custom-class="wd-message-box__button--cancel"
         data-action="cancel"
         bind:tap="toggleModal">
         {{ cancelButtonText || '取消'}}
-      </view>
-      <view
-        class="wd-message-box__button wd-message-box__button--confirm"
+      </wd-button>
+      <wd-button
+        type="primary"
+        round
+        block
+        custom-class="wd-message-box__button--confirm"
         data-action="confirm"
         bind:tap="toggleModal">
         {{ confirmButtonText || '确定'}}
-      </view>
+      </wd-button>
+
+    
     </view>
   </view>
 </wd-popup>

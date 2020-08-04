@@ -17,15 +17,9 @@
       padding: 25px 24px 0px;
     }
     @include when(prompt) {
-      //padding-bottom: 21px;
     }
   }
   @include e(title) {
-    // text-align: center;
-    // font-size: $-message-box-title-fs;
-    // margin-bottom: 4px;
-    // color: $-message-box-title-color;
-    // line-height: 1.375;
     text-align: center;
     font-size: 16px;
     color: rgba(0, 0, 0, 0.85);
@@ -68,22 +62,6 @@
       background: $-message-box-input-border-color;
     }
   }
-  // @include e(input) {
-  //   margin-top: 14px;
-  //   border: none;
-  //   height: $-message-box-input-height;
-  //   min-height: auto;
-  //   width: 100%;
-  //   font-size: $-message-box-input-fs;
-  //   line-height: $-message-box-input-height;
-  //   box-sizing: border-box;
-  //   outline: none;
-  //   text-align: left;
-
-  //   &::-webkit-input-placeholder {
-  //     color: #d2d2d2;
-  //   }
-  // }
   @include e(input-placeholder){
     text-align: left;
   }
@@ -98,33 +76,32 @@
     }
   }
   @include e(actions) {
-    display: flex;
     padding: 24px;
+  }
+  @include e(flex) {
+    display: flex;
+  }
+  @include e(block) {
+    display: block;
   }
   @include e(button) {
     display: block;
     flex: 1;
-    font-size: $-message-box-button-fs;
     text-align: center;
     height: $-message-box-button-height;
     line-height: $-message-box-button-height;
-    color: $-message-box-cancel-color;
     outline: none;
     -webkit-appearance: none;
     border: none;
     min-width: $-message-box-button-min-width;
     border-radius: $-message-box-button-border-radius;
-
+    
     @include m(cancel) {
-      background-color: $-message-box-cancel-bg;
-      border-color: $-message-box-cancel-bg;
-      // border-top: 1px solid #eee;
       box-sizing: border-box;
       margin-right: 16px;
+      border-top: 1px solid #f4f4f4;
     }
     @include m(confirm) {
-      background-color: $-message-box-confirm-bg;
-      color: $-message-box-confirm-color;
     }
   }
 }
@@ -146,12 +123,6 @@
     box-sizing: border-box;
     padding: 9px 0;
     flex:1;
-
-    // height: $-message-box-input-height;
-    // min-height: auto;
-    // width: 100%;
-    // font-size: $-message-box-input-fs;
-    // line-height: $-message-box-input-height;
     text-align: left;
 
     &-placeholder {

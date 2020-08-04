@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "wd-popup": "../popup/index"
+    "wd-popup": "../popup/index",
+    "wd-button": "../button/index"
   }
 }
