@@ -20,17 +20,14 @@ VueComponent({
     }
   },
   data: {
-    isPwdVisible: false
+    isPwdVisible: false,
+    clearing: false
   },
   props: {
     // 原生属性
     placeholder: String,
     placeholderStyle: String,
     placeholderClass: String,
-    autofocus: {
-      type: Boolean,
-      value: false
-    },
     autoHeight: {
       type: Boolean,
       value: false
@@ -174,11 +171,16 @@ VueComponent({
       this.setData({ isPwdVisible: !this.data.isPwdVisible })
     },
     clear () {
-      setTimeout(() => {
-        this.setData({ value: '' })
-        this.$emit('clear')
-        this.$emit('change', '')
-      }, 30)
+      this.setData({ value: '' })
+      this.requestAnimationFrame()
+        .then(() => this.requestAnimationFrame())
+        .then(() => this.requestAnimationFrame())
+        .then(() => {
+          this.setData({ focus: true }, () => {
+            this.$emit('clear')
+            this.$emit('change', '')
+          })
+        })
     },
     // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发 change 只触发 blur
     handleBlur () {
@@ -186,8 +188,15 @@ VueComponent({
       this.$emit('change', this.data.value)
       this.$emit('blur', this.data.value)
     },
-    handleFocus (event) {
-      this.$emit('focus', event)
+    handleFocus () {
+      if (this.data.clearing) {
+        this.data.clearing = false
+        return
+      }
+      this.setData(
+        { focus: true },
+        () => this.$emit('focus', this.data.value)
+      )
     },
     // input事件需要传入
     handleInput ({ detail }) {
