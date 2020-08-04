@@ -4,7 +4,8 @@ VueComponent({
   props: {
     useIconSlot: {
       type: Boolean,
-      value: false
+      value: false,
+      observer: 'computeTagClass'
     },
     type: {
       type: String,
@@ -16,7 +17,10 @@ VueComponent({
         this.computeTagClass()
       }
     },
-    icon: String,
+    icon: {
+      type: String,
+      observer: 'computeTagClass'
+    },
     closable: {
       type: Boolean,
       value: false
@@ -27,7 +31,8 @@ VueComponent({
     },
     dynamic: {
       type: Boolean,
-      value: false
+      value: false,
+      observer: 'computeTagClass'
     },
     color: String,
     bgColor: String,
@@ -46,6 +51,11 @@ VueComponent({
     tagClass: '',
     dynamicValue: '',
     dynamicInput: false
+  },
+  observers: {
+    'dynamicInput' () {
+      this.computeTagClass()
+    }
   },
   methods: {
     computeTagClass () {
