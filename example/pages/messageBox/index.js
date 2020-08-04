@@ -8,7 +8,7 @@ Page({
     this.setData({ value: detail })
   },
   alert () {
-    MessageBox.alert('提示文案')
+    MessageBox.alert('操作成功')
   },
   alertWithTitle () {
     MessageBox.alert({
@@ -18,13 +18,13 @@ Page({
   },
   confirm () {
     MessageBox.confirm({
-      msg: '提示文案',
-      title: '标题'
+      msg: '是否删除',
+      title: '提示'
     })
   },
   prompt () {
     MessageBox.prompt({
-      title: '邮箱',
+      title: '请输入邮箱',
       inputPattern: /.+@.+\..+/i
     })
   },

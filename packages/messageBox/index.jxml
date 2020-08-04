@@ -19,12 +19,17 @@
         <block jd:if="{{type === 'prompt'}}">
           <!--输入框-->
           <view class="wd-message-box__input-container">
-            <input
-              value="{{inputValue}}"
-              type="{{inputType}}"
-              placeholder="{{ inputPlaceholder || '请输入' }}"
-              placeholder-class="wd-message-box__input-placeholder" class="wd-message-box__input"
-              bindinput="inputValChange"/>
+            <view class="wd-input">
+              <view class="wd-input__block">
+               <input
+                 class="wd-input__inner"
+                 value="{{inputValue}}"
+                 type="{{inputType}}"
+                 placeholder="{{ inputPlaceholder || '请输入' }}"
+                 placeholder-class="wd-input__inner-placeholder"
+                 bindinput="inputValChange"/>
+              </view> 
+            </view> 
           </view>
           <!--错误提示-->
           <view jd:if="{{showErr}}" class="wd-message-box__input-error">

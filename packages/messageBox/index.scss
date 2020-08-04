@@ -14,18 +14,25 @@
     padding: $-message-box-padding;
 
     @include when(no-title) {
-      padding: 25px;
+      padding: 25px 24px 0px;
     }
     @include when(prompt) {
-      padding-bottom: 21px;
+      //padding-bottom: 21px;
     }
   }
   @include e(title) {
+    // text-align: center;
+    // font-size: $-message-box-title-fs;
+    // margin-bottom: 4px;
+    // color: $-message-box-title-color;
+    // line-height: 1.375;
     text-align: center;
-    font-size: $-message-box-title-fs;
-    margin-bottom: 4px;
-    color: $-message-box-title-color;
-    line-height: 1.375;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 20px;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 10px;
   }
   @include e(content) {
     max-height: $-message-box-content-max-height;
@@ -34,6 +41,7 @@
     text-align: center;
     overflow: auto;
     word-break: break-all;
+    line-height: 20px;
 
     &::-webkit-scrollbar {
       width: $-message-box-content-scrollbar-width;
@@ -46,6 +54,7 @@
   }
   @include e(input-container) {
     position: relative;
+    margin-top: 12px ;
 
     &::after {
       position: absolute;
@@ -59,22 +68,22 @@
       background: $-message-box-input-border-color;
     }
   }
-  @include e(input) {
-    margin-top: 14px;
-    border: none;
-    height: $-message-box-input-height;
-    min-height: auto;
-    width: 100%;
-    font-size: $-message-box-input-fs;
-    line-height: $-message-box-input-height;
-    box-sizing: border-box;
-    outline: none;
-    text-align: left;
+  // @include e(input) {
+  //   margin-top: 14px;
+  //   border: none;
+  //   height: $-message-box-input-height;
+  //   min-height: auto;
+  //   width: 100%;
+  //   font-size: $-message-box-input-fs;
+  //   line-height: $-message-box-input-height;
+  //   box-sizing: border-box;
+  //   outline: none;
+  //   text-align: left;
 
-    &::-webkit-input-placeholder {
-      color: #d2d2d2;
-    }
-  }
+  //   &::-webkit-input-placeholder {
+  //     color: #d2d2d2;
+  //   }
+  // }
   @include e(input-placeholder){
     text-align: left;
   }
@@ -90,6 +99,7 @@
   }
   @include e(actions) {
     display: flex;
+    padding: 24px;
   }
   @include e(button) {
     display: block;
@@ -102,15 +112,52 @@
     outline: none;
     -webkit-appearance: none;
     border: none;
+    min-width: $-message-box-button-min-width;
+    border-radius: $-message-box-button-border-radius;
 
     @include m(cancel) {
       background-color: $-message-box-cancel-bg;
-      border-top: 1px solid #eee;
+      border-color: $-message-box-cancel-bg;
+      // border-top: 1px solid #eee;
       box-sizing: border-box;
+      margin-right: 16px;
     }
     @include m(confirm) {
       background-color: $-message-box-confirm-bg;
       color: $-message-box-confirm-color;
+    }
+  }
+}
+
+@include b(input){
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  @include e(block){
+    position: relative;
+    display: flex;
+  }
+  @include e(inner){
+    height: 44px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding: 9px 0;
+    flex:1;
+
+    // height: $-message-box-input-height;
+    // min-height: auto;
+    // width: 100%;
+    // font-size: $-message-box-input-fs;
+    // line-height: $-message-box-input-height;
+    text-align: left;
+
+    &-placeholder {
+      color: #d2d2d2;
+      font-size: 16px;
+      font-weight: normal;
     }
   }
 }

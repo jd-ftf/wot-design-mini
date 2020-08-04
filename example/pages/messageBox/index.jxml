@@ -6,7 +6,7 @@
     bind:change="changeValue"
   />
 </wd-message-box>
-<demo-block title="alert类型的弹框">
+<demo-block title="alert">
   <wd-button type="primary" bind:click="alert">alert</wd-button>
 </demo-block>
 
@@ -14,11 +14,11 @@
   <wd-button type="primary" bind:click="alertWithTitle">alert</wd-button>
 </demo-block>
 
-<demo-block title="confirm类型的弹框">
+<demo-block title="confirm">
   <wd-button type="primary" bind:click="confirm">confirm</wd-button>
 </demo-block>
 
-<demo-block title="prompt类型的弹框，支持输入框输入和校验">
+<demo-block title="prompt">
   <wd-button type="primary" bind:click="prompt">prompt</wd-button>
 </demo-block>
 
@@ -26,6 +26,6 @@
   <wd-button type="primary" bind:click="alertWithLongChar">alert</wd-button>
 </demo-block>
 
-<demo-block title="通过slot插入其他组件内容">
+<demo-block title="使用wd-message-box组件，通过slot插入其他组件内容">
   <wd-button type="primary" bind:click="withSlot">custom</wd-button>
 </demo-block>
