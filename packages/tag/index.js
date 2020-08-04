@@ -4,7 +4,8 @@ VueComponent({
   props: {
     useIconSlot: {
       type: Boolean,
-      value: false
+      value: false,
+      observer: 'computeTagClass'
     },
     type: {
       type: String,
@@ -16,7 +17,10 @@ VueComponent({
         this.computeTagClass()
       }
     },
-    icon: String,
+    icon: {
+      type: String,
+      observer: 'computeTagClass'
+    },
     closable: {
       type: Boolean,
       value: false
@@ -27,20 +31,20 @@ VueComponent({
     },
     dynamic: {
       type: Boolean,
-      value: false
+      value: false,
+      observer: 'computeTagClass'
     },
     color: String,
     bgColor: String,
-    size: {
-      type: String,
-      value: 'medium',
-      observer (s) {
-        if (!s) return
-        // size: 'small', 'large'
-        const size = ['small', 'medium', 'large']
-        if (size.indexOf(s) === -1) throw Error(`size must be one of ${size.toString()}`)
-        this.computeTagClass()
-      }
+    round: {
+      type: Boolean,
+      value: false,
+      observer: 'computeTagClass'
+    },
+    mark: {
+      type: Boolean,
+      value: false,
+      observer: 'computeTagClass'
     }
   },
   data: {
@@ -48,13 +52,22 @@ VueComponent({
     dynamicValue: '',
     dynamicInput: false
   },
+  observers: {
+    'dynamicInput' () {
+      this.computeTagClass()
+    }
+  },
   methods: {
     computeTagClass () {
-      const { type, plain, size } = this.data
+      const { type, plain, round, mark, dynamic, dynamicInput, icon, useIconSlot } = this.data
       let tagClass = []
       type && tagClass.push(`is-${type}`)
       plain && tagClass.push('is-plain')
-      size && tagClass.push(`is-${size}`)
+      round && tagClass.push('is-round')
+      mark && tagClass.push('is-mark')
+      dynamic && tagClass.push('is-dynamic')
+      dynamicInput && tagClass.push('is-dynamic-input')
+      if (icon || useIconSlot) tagClass.push('is-icon')
       tagClass = tagClass.join(' ')
       this.setData({ tagClass })
     },
