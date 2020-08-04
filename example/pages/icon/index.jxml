@@ -1,5 +1,5 @@
 <view class="icon-list">
-  <view jd:for="{{icons}}" class="icon-item">
+  <view jd:for="{{icons}}" class="icon-item" jd:key="$this">
     <view><wd-icon name="{{item}}" size="22px" /></view>
     <view class="icon-item-name">{{item}}</view>
   </view>
