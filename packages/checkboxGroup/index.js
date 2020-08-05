@@ -1,22 +1,44 @@
 import VueComponent from '../common/component'
-import { checkNumRange, debounce } from '../common/util'
+import { checkNumRange, debounce, renderData } from '../common/util'
 
 VueComponent({
   relations: {
     '../checkbox/index': {
       type: 'descendant',
-      linked (child) {
+      linked (target) {
         this.children = this.children || []
-        this.children.push(child)
+        this.children.push(target)
+        const index = this.children.indexOf(target)
+        // 如果当前子节点为第一个组件，将其isFirst设置为true
+        if (index === 0) {
+          target.setData({
+            isFirst: true
+          })
+        }
+        // 如果当前子节点为最后一个组件，将其isLast设置为true，删掉倒数第二个子节点的isLast
+        if (index === this.children.length - 1) {
+          target.setData({
+            isLast: true
+          })
+          const [prevChild] = this.children.slice(-2, -1)
+          prevChild && renderData(prevChild, { isLast: false })
+        }
       },
       unlinked (target) {
-        const index = this.children.indexOf(target)
         this.children = this.children.filter(child => child !== target)
+        const index = this.children.indexOf(target)
 
-        // 如果当前删除的组件为第一个组件，将剩下的组件的第一个设置isFirst为true
-        if (index === 0 && this.children.length > 0) {
+        if (this.children.length === 0) return
+        // 如果当前删除的组件为第一个组件，将删除后的第一个组件的isFirst设置为true
+        if (index === 0) {
           this.children[0].setData({
             isFirst: true
+          })
+        }
+        // 如果当前删除的组件为最后一个组件，将删除后的倒数第一个组件的isLast设置为true
+        if (index === this.children.length - 1) {
+          this.children.slice(-1)[0].setData({
+            isLast: true
           })
         }
       }
@@ -41,6 +63,17 @@ VueComponent({
         this.children && this.children.length > 0 && this.resetChildren()
       }
     },
+    cell: {
+      type: Boolean,
+      value: false,
+      // 以下内容用于解决父子组件样式隔离的问题 —— START
+      observer (value) {
+        this.children && this.children.forEach(child => {
+          child.setData({ cellBox: value })
+        })
+      }
+      // 以下内容用于解决父子组件样式隔离的问题 —— END
+    },
     shape: {
       type: String,
       value: 'circle',
@@ -48,18 +81,22 @@ VueComponent({
         const type = ['circle', 'square', 'button']
         if (type.indexOf(value) === -1) throw Error(`shape must be one of ${type.toString()}`)
         this.updateAllChild({ shape: value })
+        // 以下内容用于解决父子组件样式隔离的问题 —— START
+        this.children && this.children.forEach(child => {
+          child.setData({ buttonBox: value === 'button' })
+        })
+        // 以下内容用于解决父子组件样式隔离的问题 —— END
       }
     },
     checkedColor: {
       type: String,
-      value: '#0083ff',
       observer (value) {
         this.updateAllChild({ checkedColor: value })
       }
     },
     disabled: {
       type: Boolean,
-      value: false,
+      value: null,
       observer () {
         // 当值修改时需要重新检测
         this.resetChildren()
@@ -109,46 +146,60 @@ VueComponent({
             will[key] = data[key]
           }
         })
-        child.setData(will)
+        renderData(child, will)
       })
     },
     /**
-     * @description 修改父组件的 value，同时检查设置所有子组件
-     * @param {*} value 子组件的 value
+     * @description 子节点通知父节点修改子节点选中状态
+     * @param {any} value 子组件的标识符
      */
-    changeValue (value) {
-      // slice 会导致 value 触发 observer
+    changeSelectState (value) {
       const temp = this.data.value
       const index = temp.indexOf(value)
       if (index > -1) {
+        // 已经选中，则从 value 列表中删除子节点的标识符。
         temp.splice(index, 1)
       } else {
+        // 之前未选中，则现在把加子节点的标识符加到 value 列表中。
         temp.push(value)
       }
       this.setData({
         value: temp
       })
+      // 操作完之后更新一下 所有节点的 disabled 状态
       this.resetChildren(temp)
       this.$emit('change', temp)
     },
     /**
-     * @description 检查设置子组件的 isChecked 和 finalDisabled
-     * @param {array}} values
+     * @description 修正子组件的 isChecked 和 finalDisabled
+     * @param {array} values
      */
     resetChildren (values) {
       values = values || this.data.value
-      const { min, max, disabled } = this.data
       this.children && this.children.forEach(child => {
+        // value 对应的节点直接选中
         const isChecked = values.indexOf(child.data.value) > -1
-        child.setData({
-          isChecked,
-          finalDisabled: child.data.disabled || disabled || (min && values.length <= min && isChecked) || (max && values.length >= max && !isChecked)
-        })
+        renderData(child, { isChecked })
+        child.checkDisabled()
       })
     }
   },
   beforeCreate () {
     // 设置防抖，避免修改 props(min, max, disabled) 触发多次
     this.resetChildren = debounce(this.resetChildren, 50)
+  },
+  mounted () {
+    // 以下内容用于解决父子组件样式隔离的问题 —— START
+    if (this.children.length === 0) return
+    const { cell, shape } = this.data
+    if (!cell) return
+    this.children.forEach(child => {
+      child.setData({ cellBox: true })
+    })
+    if (shape !== 'button') return
+    this.children.forEach(child => {
+      child.setData({ buttonBox: true })
+    })
+    // 以下内容用于解决父子组件样式隔离的问题 —— END
   }
 })

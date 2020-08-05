@@ -96,10 +96,37 @@ Page({
   <wd-checkbox value="shop">商家后台</wd-checkbox>
 </wd-checkbox-group>
 ```
+
+设置 `cell` 属性，开启表单模式复选框组。
+
+```html
+
+<wd-checkbox-group value="{{value1}}" cell>
+  <wd-checkbox value="jingmai">京麦</wd-checkbox>
+  <wd-checkbox value="shop">商家后台</wd-checkbox>
+</wd-checkbox-group>
+```
+
+开启表单模式时，如果同时设置 `shape` 为 `button` 自动开启表单复选按钮组模式。
+
+```html
+<wd-checkbox-group value="{{value2}}" cell shape="button">
+  <wd-checkbox value="1" disabled>选项一</wd-checkbox>
+  <wd-checkbox value="2">选项二</wd-checkbox>
+  <wd-checkbox value="3">选项三</wd-checkbox>
+  <wd-checkbox value="4">选项四</wd-checkbox>
+  <wd-checkbox value="5">选项五</wd-checkbox>
+  <wd-checkbox value="6">选项六</wd-checkbox>
+  <wd-checkbox value="7">选项七</wd-checkbox>
+</wd-checkbox-group>
+```
+
 ```javascript
 Page({
   data: {
-    value: ['jingmai']
+    value: ['jingmai'],
+    value1: ['jingmai'],
+    value2: ['1']
   },
   handleChange (event) {
     this.setData({value: event.detail})
@@ -188,6 +215,7 @@ Page({
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 绑定值 | Array | - | - |
 | shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
+| cell | 表单模式 | boolean | - |false |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
 | min | 最小选中的数量 | number | - | 0 |
