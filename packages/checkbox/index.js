@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import { renderData } from '../common/util'
 
 VueComponent({
   relations: {
@@ -25,11 +26,9 @@ VueComponent({
             will[key] = data[key]
           }
         })
-        this.setData(will)
-        this.setData({
-          isChecked: this.parent.data.value.indexOf(this.data.value) > -1,
-          isFirst: this.parent.children.length === 1
-        })
+        renderData(this, Object.assign(will, {
+          isChecked: this.parent.data.value.indexOf(this.data.value) > -1
+        }))
         // disabled 单独设置
         this.checkDisabled()
       },
@@ -72,7 +71,7 @@ VueComponent({
     },
     disabled: {
       type: Boolean,
-      value: false,
+      value: null,
       observer () {
         this.checkDisabled()
       }
@@ -89,9 +88,15 @@ VueComponent({
   data: {
     isChecked: false,
     inited: false,
+    // 相同组件的伪类选择器无效，这里配合类名手动模拟 last-child、first-child
     isFirst: false,
+    isLast: false,
     finalDisabled: false,
-    inline: null
+    inline: null,
+    // 以下内容用于解决父子组件样式隔离的问题 —— START
+    cellBox: false,
+    buttonBox: false
+    // 以下内容用于解决父子组件样式隔离的问题 —— END
   },
   methods: {
     /**
@@ -118,7 +123,7 @@ VueComponent({
       // 复选框单独使用时点击反选，并且在checkbox上触发change事件
       if (this.parent) {
         this.$emit('change', !isChecked)
-        this.parent.changeValue(value)
+        this.parent.changeSelectState(value)
       } else {
         const newVal = value === trueValue ? falseValue : trueValue
         this.setData({
@@ -129,18 +134,30 @@ VueComponent({
     },
     /**
      * @description 检查设置实际 disabled 情况，需要考虑父组件的 min, max 和 value.length 的关系
+     *
      */
     checkDisabled () {
-      if (this.parent) {
-        const { min, max, disabled, value } = this.parent.data
-        this.setData({
-          finalDisabled: this.data.disabled || disabled || (min && value.length <= min && this.data.isChecked) || (max && value.length >= max && !this.data.isChecked)
-        })
-      } else {
-        this.setData({
-          finalDisabled: this.data.disabled
-        })
+      // 不管 this.data.disabled 是啥，我先设置上
+      const config = {}
+      config.finalDisabled = this.data.disabled
+      if (!this.parent) {
+        return renderData(this, config)
       }
+      // 此处用于修正上一步
+      const { min, max, disabled, value } = this.parent.data
+      if (
+        // max 生效时，group 已经选满，禁止其它节点再选中。
+        (max && value.length >= max && !this.data.isChecked) ||
+        // min 生效时，group 选中的节点数量仅满足最小值，禁止取消已选中的节点。
+        (min && value.length <= min && this.data.isChecked) ||
+        // 只要子节点自己要求 disabled，那就 disabled。
+        (this.data.disabled === true) ||
+        // 父节点要求全局 disabled，子节点没吱声，那就 disabled。
+        (disabled && this.data.disabled === null)
+      ) {
+        config.finalDisabled = true
+      }
+      renderData(this, config)
     }
   },
   created () {
@@ -152,7 +169,8 @@ VueComponent({
     if (!this.parent) {
       this.setData({
         isChecked: this.data.value === this.data.trueValue,
-        isFirst: true
+        isFirst: true,
+        isLast: true
       })
     }
   }

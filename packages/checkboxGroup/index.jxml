@@ -1,3 +1,3 @@
-<view class="wd-checkbox-group custom-class">
+<view class="wd-checkbox-group {{ (shape==='button' && cell) ?'is-button':''}} custom-class">
   <slot/>
 </view>
