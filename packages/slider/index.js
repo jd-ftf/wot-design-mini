@@ -12,8 +12,8 @@ VueComponent({
   ],
   data: {
     showRight: false,
-    barStyle: 'width: 50%; height: 6px',
-    barHeight: '6px',
+    barStyle: 'width: 50%; height: 3px',
+    barHeight: '3px',
     leftNewValue: 0,
     rightNewValue: 0,
     rightBarPercent: 0,
