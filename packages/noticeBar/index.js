@@ -9,7 +9,8 @@ VueComponent({
     contentWidth: 0,
     show: true,
     duration: 0,
-    animation: ''
+    animation: '',
+    noticeBarClass: ''
   },
   props: {
     text: {
@@ -20,9 +21,16 @@ VueComponent({
         }, 20)
       }
     },
+    // warning | info | danger
+    type: {
+      type: String,
+      value: 'warning',
+      observer: 'computedClass'
+    },
     scrollable: {
       type: Boolean,
-      value: true
+      value: true,
+      observer: 'computedClass'
     },
     delay: {
       type: Number,
@@ -33,12 +41,27 @@ VueComponent({
       value: 50
     },
     closable: Boolean,
-    wrapable: Boolean,
-    leftIcon: String,
+    wrapable: {
+      type: Boolean,
+      observer: 'computedClass'
+    },
+    prefix: String,
     color: String,
     backgroundColor: String
   },
+  created () {
+    this.computedClass()
+  },
   methods: {
+    computedClass () {
+      const { type, wrapable, scrollable } = this.data
+      let noticeBarClass = []
+      type && noticeBarClass.push(`is-${type}`)
+      !wrapable && !scrollable && noticeBarClass.push('wd-notice-bar--ellipse')
+      wrapable && !scrollable && noticeBarClass.push('wd-notice-bar--wrap')
+      noticeBarClass = noticeBarClass.join(' ')
+      this.setData({ noticeBarClass })
+    },
     handleClose () {
       this.setData({
         show: false
