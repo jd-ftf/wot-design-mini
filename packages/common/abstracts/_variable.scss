@@ -295,29 +295,18 @@ $-load-more-fs: 10px !default; // 字号
 
 /* message-box */
 $-message-box-width: 300px !default; // 宽度
+$-message-box-border-radius: 16px !default; // 宽度
+$-message-box-bg: $-color-white !default; // 默认背景颜色
 $-message-box-radius: 8px !default; // 圆角大小
 $-message-box-padding: 25px 24px 0 !default; // 主体内容padding
-$-message-box-title-fs: $-fs-title !default; // 标题字号
-$-message-box-title-color: $-color-title !default; // 标题颜色
-$-message-box-content-fs: $-fs-content !default; // 内容字号
-$-message-box-content-color: $-color-content !default; // 内容颜色
+$-message-box-title-fs: 16px !default; // 标题字号
+$-message-box-title-color: rgba($-color-black, 0.85) !default; // 标题颜色
+$-message-box-content-fs: 14px !default; // 内容字号
+$-message-box-content-color: #666666 !default; // 内容颜色
 $-message-box-content-max-height: 264px !default; // 内容最大高度
 $-message-box-content-scrollbar-width: 4px !default; // 内容滚动条宽度
-$-message-box-content-scrollbar-color: #d8d8d8 !default; // 内容滚动条颜色
-$-message-box-input-fs: $-input-fs !default; // 输入框字号
-$-message-box-input-border-color: $-input-border-color !default; // 输入框边框颜色
-$-message-box-input-placeholder-color: $-input-placeholder-color !default; // 输入框占位符颜色
+$-message-box-content-scrollbar-color: rgba($-color-black, 0.1) !default; // 内容滚动条颜色
 $-message-box-input-error-color: $-input-error-color !default; // 输入框错误颜色
-$-message-box-input-height: 34px !default; // 输入框高度
-$-message-box-button-fs: $-fs-content !default; // 按钮字号
-$-message-box-button-height: 36px !default; // 按钮高度
-$-message-box-button-min-width: 118px !default; // 按钮高度
-$-message-box-button-border-radius: 22px !default; // 按钮高度
-
-$-message-box-cancel-color: #000 !default; // 取消按钮文字颜色
-$-message-box-cancel-bg: whitesmoke !default; // 取消按钮背景色
-$-message-box-confirm-color: #fff !default; // 确认按钮颜色
-$-message-box-confirm-bg: $-color-theme !default; // 确认按钮背景色
 
 /* notice-bar */
 $-notice-bar-fs: 12px !default; // 字号

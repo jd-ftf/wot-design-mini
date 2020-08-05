@@ -59,8 +59,17 @@
       left: 0;
       bottom: 0;
       transform: scaleY(0.5);
-      background: $-message-box-input-border-color;
+      background: #c5c5c5;
     }
+
+    &-placeholder {
+      color: #d2d2d2;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+  @include e(input-inner){
+    text-align: left;
   }
   @include e(input-placeholder){
     text-align: left;
@@ -88,13 +97,13 @@
     display: block;
     flex: 1;
     text-align: center;
-    height: $-message-box-button-height;
-    line-height: $-message-box-button-height;
+    height: 36px;
+    line-height: 36px;
     outline: none;
     -webkit-appearance: none;
     border: none;
-    min-width: $-message-box-button-min-width;
-    border-radius: $-message-box-button-border-radius;
+    min-width: 118px;
+    border-radius: 22PX;
     
     @include m(cancel) {
       box-sizing: border-box;
@@ -102,33 +111,6 @@
       border-top: 1px solid #f4f4f4;
     }
     @include m(confirm) {
-    }
-  }
-}
-
-@include b(input){
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  overflow: hidden;
-  @include e(block){
-    position: relative;
-    display: flex;
-  }
-  @include e(inner){
-    height: 44px;
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.85);
-    outline: none;
-    border: none;
-    box-sizing: border-box;
-    padding: 9px 0;
-    flex:1;
-    text-align: left;
-
-    &-placeholder {
-      color: #d2d2d2;
-      font-size: 16px;
-      font-weight: normal;
     }
   }
 }

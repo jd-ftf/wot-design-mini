@@ -20,6 +20,8 @@ Page({
     MessageBox.confirm({
       msg: '是否删除',
       title: '提示'
+    }).then(() => {
+      MessageBox.alert('删除成功')
     })
   },
   prompt () {
