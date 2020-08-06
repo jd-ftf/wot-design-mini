@@ -26,6 +26,15 @@
 <wd-progress percentage="60" hide-text>
 ```
 
+### 设置状态
+
+设置 `status`，告知用户当前状态和预期。
+
+```html
+<wd-progress percentage="100" hide-text status="success" />
+<wd-progress percentage="70" hide-text status="danger" />
+```
+
 ### 修改颜色
 
 设置 `color` 修改进度条颜色。
@@ -78,7 +87,8 @@ Page({
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | percentage | 进度数值，最大值100 | number | - | 0 |
 | hide-text | 隐藏进度文字 | boolean | - | false |
-| color | 进度条颜色 | string / array | - | '#0083ff' |
+| color | 进度条颜色 | string / array | - | 'linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%)' |
+| status | 进度条状态 | string | 'success'、'danger' | - |
 | duration | 进度增加1%所需毫秒数 | number | - | 30 |
 
 ### 外部样式类
