@@ -7,6 +7,7 @@
   <wd-button type="primary" bind:click="showSuccessToast">成功toast</wd-button>
   <wd-button type="primary" bind:click="showErrorToast">错误toast</wd-button>
   <wd-button type="primary" bind:click="showWarnToast">警告toast</wd-button>
+  <wd-button type="primary" bind:click="showNormalToast">常规toast</wd-button>
 </demo-block>
 <demo-block title="提示位置">
   <wd-button type="primary" bind:click="showTopToast">顶部toast</wd-button>
@@ -14,4 +15,6 @@
 </demo-block>
 <demo-block title="Loading">
   <wd-button type="primary" bind:click="showLoadingToast">Loading加载</wd-button>
+  <wd-button type="primary" bind:click="showLoadingToast2">Circle类型loading</wd-button>
+  <wd-button type="primary" bind:click="showLoadingToast3">Spinner类型loading</wd-button>
 </demo-block>
