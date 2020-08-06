@@ -87,8 +87,8 @@ page({
 | max      | 最大值        | number | - | 100 |
 | min       | 最小值  | number | - | 0 |
 | step           | 步进值        | number | - | 1 |
-| activeColor           | 进度条激活背景颜色        | string | - | 'linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%)' |
-| inactiveColor           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
+| active-color           | 进度条激活背景颜色        | string | - | 'linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%)' |
+| inactive-color           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
