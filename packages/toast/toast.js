@@ -4,7 +4,11 @@ const defaultOptions = {
   msg: '',
   duration: 2000,
   iconName: '',
-  loadingType: 'circle',
+  loadingType: 'circle-outline',
+  loadingColor: '#4D80F0',
+  iconColor: '#4D80F0',
+  iconSize: 42,
+  loadingSize: 42,
   customIcon: false,
   position: 'middle',
   show: true,
@@ -94,5 +98,6 @@ Toast.success = createMethod({
 })
 Toast.error = createMethod({ iconName: 'error' })
 Toast.warning = createMethod({ iconName: 'warning' })
+Toast.info = createMethod({ iconName: 'info' })
 
 export default Toast

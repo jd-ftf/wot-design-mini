@@ -540,15 +540,15 @@ $-tag-close-color: $-tag-info-color !default; // 关闭按钮颜色
 $-tag-close-active-color: rgba($-color-black, 0.45) !default; // 关闭按钮 active 颜色
 
 /* toast */
-$-toast-padding: 8px 14px !default; // 无图标的padding
-$-toast-side-padding: $-size-side-padding !default; //左右两边最小留白宽度
+$-toast-padding: 16px 24px !default; // padding
+$-toast-max-width: 300px !default; // 最大宽度
 $-toast-radius: 8px !default; // 圆角大小
 $-toast-bg: $-modal-bg !default; // 背景色
 $-toast-fs: $-fs-content !default; // 字号
 $-toast-with-icon-min-width: 150px !default; // 有图标的情况下最小宽度
-$-toast-with-icon-padding: 18px 15px 15px !default; // 有图标的padding
 $-toast-icon-size: 39px !default; // 图标大小
 $-toast-loading-padding: 10px !default; // loading 下的padding
+$-toast-box-shadow: 0px 6px 16px 0px rgba($-color-black, 0.08) !default; // 外部阴影
 
 /* tooltip */
 $-tooltip-bg-color: rgba(0, 0, 0, 0.7) !default; // dark模式下默认背景颜色
