@@ -8,10 +8,13 @@ Page({
     Toast.success('操作成功')
   },
   showErrorToast () {
-    Toast.error('手机验证码输入错误，请重新输入')
+    Toast.error('错误提示错误提示')
   },
   showWarnToast () {
     Toast.warning('提示信息')
+  },
+  showNormalToast () {
+    Toast.info('常规提示常规提示')
   },
   showTopToast () {
     Toast({
@@ -27,6 +30,26 @@ Page({
   },
   showLoadingToast () {
     Toast.loading('3s后调用close关闭')
+    setTimeout(() => {
+      Toast.close()
+    }, 3000)
+  },
+  showLoadingToast2 () {
+    Toast.loading({
+      msg: '3s后调用close关闭',
+      loadingType: 'circle',
+      loadingColor: '#fff'
+    })
+    setTimeout(() => {
+      Toast.close()
+    }, 3000)
+  },
+  showLoadingToast3 () {
+    Toast.loading({
+      msg: '3s后调用close关闭',
+      loadingType: 'spinner',
+      loadingColor: '#c7c7c7'
+    })
     setTimeout(() => {
       Toast.close()
     }, 3000)
