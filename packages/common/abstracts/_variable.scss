@@ -362,12 +362,38 @@ $-popup-close-size: 24px !default; // 关闭按钮尺寸
 $-popup-close-color: #666 !default; // 关闭按钮颜色
 
 /* progress */
-$-progress-bg: #e5e5e5 !default; // 进度条底色
-$-progress-color: $-color-theme !default; // 进度条颜色
+$-progress-padding: 9px 0 8px !default; // 进度条内边距
+$-progress-bg: rgba(229,229,229,1) !default; // 进度条底色
+$-progress-danger-color: $-color-danger !default; // 进度条danger颜色
+$-progress-success-color: $-color-success !default; // 进度条success进度条颜色
+$-progress-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  #517CF0 #769EF5 ,
+  0% 100%
+) !default; // 进度条渐变色
+$-progress-linear-success-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  #20B080 #2BD69D ,
+  0% 100%
+) !default; // success进度条渐变色
+$-progress-linear-danger-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  #E04350 #FF5964 ,
+  0% 100%
+) !default; // danger进度条渐变色
 $-progress-height: 3px !default; // 进度条高度
 $-progress-label-color: #333 !default; // 文字颜色
 $-progress-label-fs: 14px !default; // 文字字号
-$-progress-txt-height: 26px !default; // 文字占据的高度
+$-progress-icon-fs: 18px !default; // 图标字号
 
 /* radio */
 $-radio-margin: $-checkbox-margin !default; // 多个单选框距离

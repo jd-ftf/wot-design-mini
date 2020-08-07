@@ -20,7 +20,7 @@ VueComponent({
     },
     color: {
       type: null,
-      value: ['#0084ff'],
+      value: [''],
       observer (color) {
         const type = getType(color)
         const canUse = ['string', 'array']
@@ -38,6 +38,11 @@ VueComponent({
       type: Number,
       value: 30,
       observer: checkNumRange
+    },
+    status: {
+      type: String,
+      value: '',
+      observer: 'computeProgressClass'
     }
   },
   data: {
@@ -46,9 +51,17 @@ VueComponent({
     // 进度条展示的进度
     showPercent: 0,
     // newPercent - oldPercent 的绝对值
-    changeCount: 0
+    changeCount: 0,
+    progressClass: ''
   },
   methods: {
+    computeProgressClass () {
+      const { status } = this.data
+      let progressClass = []
+      status && progressClass.push(`is-${status}`)
+      progressClass = progressClass.join(' ')
+      this.setData({ progressClass })
+    },
     /**
      * @description jd小程序不兼容activeend事件,此处手动模拟
      * @param {Number} targetPercent 目标值
