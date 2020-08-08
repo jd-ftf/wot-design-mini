@@ -9,11 +9,15 @@ Page({
   },
   alert () {
     MessageBox.alert('操作成功')
+    .then(() => {})
+    .catch(()=>{})
   },
   alertWithTitle () {
     MessageBox.alert({
       msg: '提示文案',
       title: '标题'
+    }).then(() => {
+    }).catch(()=>{
     })
   },
   confirm () {
@@ -22,24 +26,32 @@ Page({
       title: '提示'
     }).then(() => {
       MessageBox.alert('删除成功')
+    }).catch(()=>{
+      console.log('已取消')
     })
   },
   prompt () {
     MessageBox.prompt({
       title: '请输入邮箱',
       inputPattern: /.+@.+\..+/i
+    }).then(()=>{
+      console.log('已确定')
+    }).catch(()=>{
+      console.log('已取消')
     })
   },
   alertWithLongChar () {
     MessageBox.alert({
       msg: '以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文',
       title: '标题'
-    })
+    }).then(() => {})
+    .catch(()=>{})
   },
   withSlot () {
     MessageBox({
       title: '评分',
       selector: '#wd-message-box-slot'
-    })
+    }).then(() => {})
+    .catch(()=>{})
   }
 })

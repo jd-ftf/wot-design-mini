@@ -10,7 +10,7 @@
     <!--内容部分-->
     <view class="wd-message-box__body {{ !title ? 'is-no-title' : '' }} {{ type === 'prompt' ? 'is-prompt' : '' }}">
       <!--公共title-->
-      <view jd:if="title" class="wd-message-box__title">
+      <view jd:if="{{title}}" class="wd-message-box__title">
         {{ title }}
       </view>
       <!--其它类型-->
