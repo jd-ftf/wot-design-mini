@@ -77,7 +77,7 @@ VueComponent({
      */
     validate (inputValue) {
       const { inputPattern, inputValidate } = this.data
-      if (inputPattern && !inputPattern.test(inputValue)) {
+      if (inputPattern && !inputPattern.test(this.data.inputValue)) {
         this.setData({ showErr: true })
         return false
       }
@@ -106,7 +106,9 @@ VueComponent({
         this.setData({ showErr: false })
         return
       }
-      this.validate(value)
+      this.setData({
+        inputValue: value
+      })
     }
   }
 })

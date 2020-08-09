@@ -25,19 +25,15 @@ Page({
       msg: '是否删除',
       title: '提示'
     }).then(() => {
-      MessageBox.alert('删除成功')
     }).catch(()=>{
-      console.log('已取消')
     })
   },
   prompt () {
     MessageBox.prompt({
       title: '请输入邮箱',
       inputPattern: /.+@.+\..+/i
-    }).then(()=>{
-      console.log('已确定')
+    }).then(() => {
     }).catch(()=>{
-      console.log('已取消')
     })
   },
   alertWithLongChar () {

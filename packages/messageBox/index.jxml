@@ -22,8 +22,9 @@
               <view>
                 <wd-input
                   custom-class="wd-message-box__input-inner"
-                  value="{{inputValue}}"
+                  value="{{ inputValue }}"
                   type="{{inputType}}"
+                  size="large"
                   placeholder="{{ inputPlaceholder || '请输入' }}"
                   placeholder-class="wd-message-box__input-container-placeholder"
                   bindinput="inputValChange"/>
@@ -31,7 +32,7 @@
           </view>
           <!--错误提示-->
           <view jd:if="{{showErr}}" class="wd-message-box__input-error">
-            {{ inputError || '输入的数据不合法' }}
+            {{ inputError || '邮箱格式不正确，请重新输入' }}
           </view>
         </block>
         <!--使用插槽-->
