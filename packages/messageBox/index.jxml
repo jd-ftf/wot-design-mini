@@ -19,7 +19,6 @@
         <block jd:if="{{type === 'prompt'}}">
           <!--输入框-->
           <view class="wd-message-box__input-container">
-              <view>
                 <wd-input
                   custom-class="wd-message-box__input-inner"
                   value="{{ inputValue }}"
@@ -28,11 +27,10 @@
                   placeholder="{{ inputPlaceholder || '请输入' }}"
                   placeholder-class="wd-message-box__input-container-placeholder"
                   bindinput="inputValChange"/>
-              </view>
           </view>
           <!--错误提示-->
           <view jd:if="{{showErr}}" class="wd-message-box__input-error">
-            {{ inputError || '邮箱格式不正确，请重新输入' }}
+            {{ inputError || '输入的数据不合法' }}
           </view>
         </block>
         <!--使用插槽-->

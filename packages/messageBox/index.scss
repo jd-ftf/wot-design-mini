@@ -27,7 +27,6 @@
     font-weight: 500;
     padding-top: 5px;
     padding-bottom: 10px;
-    font-family: "San Francisco", Rotobo, arial, "PingFang SC", "Noto SansCJK", "Microsoft Yahei", sans-serif;
   }
   @include e(content) {
     max-height: $-message-box-content-max-height;
@@ -37,7 +36,6 @@
     overflow: auto;
     word-break: break-all;
     line-height: 20px;
-    font-family: "San Francisco", Rotobo, arial, "PingFang SC", "Noto SansCJK", "Microsoft Yahei", sans-serif;
 
     &::-webkit-scrollbar {
       width: $-message-box-content-scrollbar-width;
@@ -51,7 +49,6 @@
   @include e(input-container) {
     position: relative;
     margin-top: 12px ;
-    font-family: "San Francisco", Rotobo, arial, "PingFang SC", "Noto SansCJK", "Microsoft Yahei", sans-serif;
 
     &::after {
       position: absolute;
