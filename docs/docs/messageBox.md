@@ -167,6 +167,28 @@ MessageBox.confirm(options)
 MessageBox.prompt(options)
 ```
 
+### 对 messageBox 封装
+
+当 `wd-message-box` 被包裹在用户代码封装的 `自定义组件` 时，`wd-message-box` 无法获取当前页面栈，进而导致 `wd-message-box` 无法在 `DOM` 中选中自己，此时需要用户代码手动透传。
+
+```html
+// 某个在 Page 中使用的自定义组件封装了 wd-message-box 。
+<wd-message-box id="wd-message-box" />
+```
+```javascript
+import MessageBox from '/wot-design/messageBox/messageBox'
+
+Page({
+  display () {
+    MessageBox({
+      title: '评分',
+      selector: '#wd-message-box-slot',
+      context: this
+    })
+  }
+})
+```
+
 ### Options Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -184,6 +206,7 @@ MessageBox.prompt(options)
 | confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
 | cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
 | selector      | 组件的id     | string    | - | '#wd-message-box' |
+| context | 引用 `wd-message-box` 的页面实例或自定义组件实例 | object | - | 当前页面实例 |
 
 ### 外部样式类
 
