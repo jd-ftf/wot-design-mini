@@ -12,7 +12,7 @@ const defaultOptions = {
   type: 'alert',
   inputType: 'text',
   inputValue: '',
-  inputPlaceholder: '请输入内容',
+  inputPlaceholder: '请输入',
   inputPattern: '',
   inputValidate: '',
   showErr: false,

@@ -75,8 +75,8 @@ VueComponent({
      * @description 如果存在校验规则行为，则进行判断校验是否通过规则。默认不存在校验直接铜鼓。
      * @return {Boolean} 是否通过校验
      */
-    validate (inputValue) {
-      const { inputPattern, inputValidate } = this.data
+    validate () {
+      const { inputPattern, inputValidate, inputValue } = this.data
       if (inputPattern && !inputPattern.test(inputValue)) {
         this.setData({ showErr: true })
         return false
@@ -106,7 +106,9 @@ VueComponent({
         this.setData({ showErr: false })
         return
       }
-      this.validate(value)
+      this.setData({
+        inputValue: value
+      })
     }
   }
 })
