@@ -26,8 +26,10 @@ const defaultOptions = {
  * @return {{}|{msg: *}}
  */
 const parseOptions = (msg) => {
-  if (!msg) return { show: false }
-  return isObj(msg) ? msg : { msg }
+  if (!msg) msg = { show: false }
+  msg = isObj(msg) ? msg : { msg }
+  msg.context = msg.context || getContext()
+  return msg
 }
 /**
  * @description MessageBox render
@@ -39,7 +41,7 @@ const MessageBox = (MessageBoxOptions) => {
   // 覆盖模板中的选项
   const options = Object.assign({}, defaultOptions, parseOptions(MessageBoxOptions))
   // 获取页面栈中栈顶页面(当前显示的页面)
-  const instance = getContext().selectComponent(options.selector)
+  const instance = options.context.selectComponent(options.selector)
   // 返回一个promise
   return new Promise((resolve, reject) => {
     Object.assign(options, {
