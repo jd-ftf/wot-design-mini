@@ -38,15 +38,15 @@ Page({
 })
 ```
 
-### 同行展示
+### 修改图标形状
 
-设置 `inline` 属性，使单选框在同一行展示。
+修改 `shape` 属性，可选值为 'dot'、'button'，默认为 'dot'。
 
 ```html
 <demo-block title="基本用法">
-  <wd-radio-group value="{{value}}" inline bind:change="change">
-    <wd-radio value="{{1}}">单选框1</wd-radio>
-    <wd-radio value="{{2}}">单选框2</wd-radio>
+  <wd-radio-group value="{{value}}" shape="button" bind:change="change">
+    <wd-radio value="{{1}}">京麦</wd-radio>
+    <wd-radio value="{{2}}">商家后台</wd-radio>
   </wd-radio-group>
 </demo-block>
 ```
@@ -63,14 +63,32 @@ Page({
 })
 ```
 
-### 修改图标形状
+### 表单模式
 
-修改 `shape` 属性，可选值为 'dot', 'button'，默认为 'dot'。
+设置 `cell` 属性，开启表单模式复选框组。
+
+开启表单模式时，如果同时设置 `shape` 为 `button` 开启表单复选按钮组模式。
 
 ```html
-<wd-radio-group value="1" shape="button">
-  <wd-radio value="1">京麦</wd-radio>
-  <wd-radio value="2">商家后台</wd-radio>
+<wd-radio-group value="1" cell>
+  <wd-radio value="1">选项一</wd-radio>
+  <wd-radio value="2">选项二</wd-radio>
+  <wd-radio value="3">选项三</wd-radio>
+  <wd-radio value="4">选项四</wd-radio>
+  <wd-radio value="5">选项五</wd-radio>
+  <wd-radio value="6">选项六</wd-radio>
+  <wd-radio value="7">选项七</wd-radio>
+</wd-radio-group>
+```
+
+### 同行展示
+
+设置 `inline` 属性，使单选框在同一行展示。
+
+```html
+<wd-radio-group value="value" inline>
+  <wd-radio value="1">单选框1</wd-radio>
+  <wd-radio value="2">单选框2</wd-radio>
 </wd-radio-group>
 ```
 
@@ -79,7 +97,7 @@ Page({
 设置 `checked-color` 属性。
 
 ```html
-<wd-radio-group value="1" checked-color="#f00">
+<wd-radio-group value="1" checked-color="#fa4350">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
@@ -91,6 +109,17 @@ Page({
 
 ```html
 <wd-radio-group value="1" disabled>
+  <wd-radio value="1">京麦</wd-radio>
+  <wd-radio value="2">商家后台</wd-radio>
+</wd-radio-group>
+```
+
+### 小尺寸
+
+设置 `size` 属性。
+
+```html
+<wd-radio-group value="value" size="small">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
@@ -113,9 +142,11 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 会自动选中value对应的单选框 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
+| size | 单选框尺寸 | string | 'normal', 'small' | 'normal' |
+| checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
 | inline | 同行展示 | boolean | - | false |
+| cell | 表单模式 | boolean | - | false |
 
 ### RadioGroup Events
 
@@ -129,5 +160,5 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 单选框选中时的值。会自动匹配radioGroup的value | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
+| checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |

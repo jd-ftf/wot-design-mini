@@ -9,21 +9,21 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="同行展示">
+<demo-block title="修改形状">
   <wd-radio-group
-    inline
+    shape="button"
     data-index="{{1}}"
     value="{{value1}}"
     bind:change="change"
   >
-    <wd-radio value="{{1}}">单选框1</wd-radio>
-    <wd-radio value="{{2}}">单选框2</wd-radio>
+    <wd-radio value="{{1}}">京麦</wd-radio>
+    <wd-radio value="{{2}}">商家后台</wd-radio>
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="修改形状">
+<demo-block title="表单---单选组" transparent>
   <wd-radio-group
-    shape="button"
+    cell
     data-index="{{2}}"
     value="{{value2}}"
     bind:change="change"
@@ -33,14 +33,32 @@
   </wd-radio-group>
 </demo-block>
 
+<demo-block title="表单--单选按钮组" transparent>
+  <wd-radio-group data-index="{{3}}" value="{{value3}}" cell shape="button">
+    <wd-radio value="{{1}}">选项一</wd-radio>
+    <wd-radio value="{{2}}">选项二</wd-radio>
+    <wd-radio value="{{3}}">选项三</wd-radio>
+    <wd-radio value="{{4}}">选项四</wd-radio>
+    <wd-radio value="{{5}}">选项五</wd-radio>
+    <wd-radio value="{{6}}">选项六</wd-radio>
+    <wd-radio value="{{7}}">选项七</wd-radio>
+  </wd-radio-group>
+</demo-block>
+<demo-block title="同行展示">
+  <wd-radio-group data-index="{{4}}" value="{{value4}}" inline>
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
+  </wd-radio-group>
+</demo-block>
+
 <demo-block title="修改选中颜色">
   <wd-radio-group
-    data-index="{{3}}"
-    value="{{value3}}"
+    data-index="{{5}}"
+    value="{{value5}}"
     bind:change="change"
   >
-    <wd-radio value="{{1}}" checked-color="#f00">京麦</wd-radio>
-    <wd-radio value="{{2}}" checked-color="#f00">商家后台</wd-radio>
+    <wd-radio value="{{1}}" checked-color="#fa4350">京麦</wd-radio>
+    <wd-radio value="{{2}}" checked-color="#fa4350">商家后台</wd-radio>
   </wd-radio-group>
 </demo-block>
 
@@ -57,13 +75,24 @@
   </wd-radio-group>
 </demo-block>
 
+<demo-block title="小尺寸">
+  <wd-radio-group data-index="{{6}}" value="{{value6}}" size="small">
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
+  </wd-radio-group>
+  <wd-radio-group data-index="{{7}}" value="{{value7}}" size="small" inline class="group">
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
+  </wd-radio-group>
+</demo-block>
+
 <demo-block title="radio的props比radioGroup的优先级高">
   <wd-radio-group
     hape="button"
     disabled
     checked-color="#f00"
-    data-index="{{4}}"
-    value="{{value4}}"
+    data-index="{{8}}"
+    value="{{value8}}"
     bind:change="change"
   >
     <wd-radio

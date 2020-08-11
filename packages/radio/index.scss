@@ -2,8 +2,11 @@
 @import "./../common/abstracts/variable.scss";
 
 @include b(radio) {
-  display: block;
+  display: flex;
   margin-top: $-radio-margin;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 
   @include when(first) {
     margin-top: 0;
@@ -13,13 +16,12 @@
     display: inline-block;
     width: $-radio-size;
     height: $-radio-size;
-    border: 1px solid $-radio-border-color;
-    border-radius: 50%;
-    color: #fff;
-    background: #fff;
+    font-size: $-radio-size;
+    color: transparent;
+    display: none;
+    background: $-radio-bg;
     vertical-align: middle;
-    transition: background .2s;
-    overflow: hidden;
+    transition: background 0.2s;
   }
   @include e(input) {
     position: absolute;
@@ -30,30 +32,16 @@
   }
   @include e(label) {
     display: inline-block;
-    margin-left: $-radio-label-margin;
     vertical-align: top;
     font-size: $-radio-label-fs;
     color: $-radio-label-color;
-    line-height: 1.43;
-  }
-  @include e(check) {
-    position: absolute;
-    display: inline-block;
-    width: $-radio-check-size;
-    height: $-radio-check-size;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: currentColor;
-    border-radius: 50%;
-    font-size: 13px;
-    opacity: 0;
-    transition: opacity .2s;
+    line-height: 20px;
   }
   @include when(checked) {
     .wd-radio__shape {
       color: $-radio-checked-color;
       border-color: currentColor;
+      display: inline-block;
     }
     .wd-radio__check {
       color: $-radio-checked-color;
@@ -64,47 +52,49 @@
   @include when(button) {
     display: inline-block;
     margin-top: 0;
-    margin-left: $-radio-margin;
+    margin-right: 10px;
 
     .wd-radio__shape {
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      opacity: 0;
-      border: none;
+      display: none;
     }
     .wd-radio__label {
+      height: $-radio-button-height;
+      min-width: $-radio-button-min-width;
+      max-width: $-radio-button-max-width;
+      padding: 5px 15px;
       margin-left: 0;
-      padding: 4px 28px;
-      border: 1px solid $-radio-border-color;
       border-radius: $-radio-button-radius;
-      transition: color .2s, border-color .2s;
+      background-color: $-radio-button-bg;
+      font-size: $-radio-button-fs;
+      box-sizing: border-box;
+      border: 1px solid $-radio-button-border;
+      transition: all 0.2s;
+      @include lineEllipsis;
     }
     @include when(checked) {
       .wd-radio__label {
         color: $-radio-checked-color;
         border-color: currentColor;
+        background-color: $-radio-bg;
       }
-    }
-    @include when(first) {
-      margin-left: 0;
     }
   }
 
   @include when(inline) {
     display: inline-block;
     margin-top: 0;
-    margin-left: $-radio-margin;
+    margin-right: $-radio-margin;
     
     @include when(first) {
       margin-left: 0;
     }
+    .wd-radio__shape {
+      display: inline-block;
+      margin-left: 4px;
+    }
   }
 
   @include when(disabled) {
-    .wd-radio__shape {
-      border-color: $-radio-disabled-label-color;
-    }
     .wd-radio__label {
       color: $-radio-disabled-label-color;
     }
@@ -122,7 +112,55 @@
     @include when(button) {
       .wd-radio__label {
         border-color: $-radio-disabled-color;
+        background: $-radio-disabled-color;
+        border-color: $-radio-button-border;
+        color: $-radio-disabled-label-color;
+      }
+      @include when(checked) {
+        .wd-radio__label {
+          border-color: $-radio-button-disabled-border;
+          background: $-radio-disabled-color;
+        }
       }
     }
   }
+
+  // 以下内容用于解决父子组件样式隔离的问题 —— START
+  @include when(cell-radio) {
+    padding: 14px 15px;
+    margin: 0;
+
+    @include when(small) {
+      padding: 8px 15px;
+    }
+  }
+  @include when(button-radio) {
+    float: left;
+    display: flex;
+    width: 33.3333%;
+    padding: 12px 12px 0px 0px;
+    box-sizing: border-box;
+
+    .wd-radio__label {
+      width: 100%;
+      max-width: inherit;
+    }
+
+    &:last-child::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  @include when(small-radio) {
+    .wd-radio__shape {
+      width: $-radio-small-size;
+      height: $-radio-small-size;
+      font-size: $-radio-small-size;
+    }
+    .wd-radio__label {
+      font-size: $-radio-small-label-fs;
+    }
+  }
+  // 以下内容用于解决父子组件样式隔离的问题 —— END
 }
