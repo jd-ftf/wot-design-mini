@@ -35,7 +35,9 @@ VueComponent({
     },
     size: String,
     titleWidth: String,
-    center: Boolean
+    center: Boolean,
+    required: Boolean,
+    vertical: Boolean
   },
   relations: {
     '../cellGroup/index': {

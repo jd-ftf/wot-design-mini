@@ -8,7 +8,7 @@ VueComponent({
       observer: 'computeRateList'
     },
     value: {
-      type: Number,
+      type: null,
       observer: 'computeRateList'
     },
     readonly: {
@@ -58,7 +58,11 @@ VueComponent({
     computeRateList () {
       const { value, num } = this.data
       // value和num都准备好才能计算
-      if (!value || !num) return
+      if (value === null || !num) return
+      if (typeof value !== 'number') {
+        console.error('[Wot Design] error: the value of wd-rate should be a number')
+        return
+      }
       const rateList = []
       const fullLength = Math.ceil(value) - 1
       for (let i = 0; i < num; i++) {
