@@ -86,7 +86,7 @@ Page({
 设置 `inline` 属性，使单选框在同一行展示。
 
 ```html
-<wd-radio-group value="value" inline>
+<wd-radio-group value="1" inline>
   <wd-radio value="1">单选框1</wd-radio>
   <wd-radio value="2">单选框2</wd-radio>
 </wd-radio-group>
@@ -119,7 +119,7 @@ Page({
 设置 `size` 属性。
 
 ```html
-<wd-radio-group value="value" size="small">
+<wd-radio-group value="1" size="small">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
