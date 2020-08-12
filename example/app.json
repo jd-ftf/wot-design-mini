@@ -39,6 +39,7 @@
     "pages/img/index",
     "pages/layout/index",
     "pages/statusTip/index",
+    "pages/popover/index",
     "pages/sticky/index"
   ],
   "window": {

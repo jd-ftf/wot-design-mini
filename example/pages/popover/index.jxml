@@ -1,0 +1,27 @@
+<wd-toast id="wd-toast" />
+<demo-block custom-class="pop" title="基本用法">
+  <view class="center">
+    <wd-popover content="这是一段内容。">
+      <wd-button type="primary">点击展示</wd-button>
+    </wd-popover>
+  </view>
+</demo-block>
+<demo-block custom-class="pop" title="嵌套信息">
+  <view class="center list">
+    <wd-popover use-content-slot>
+      <view slot="content" class="tag-wrapper">
+        <wd-tag type="primary" style="margin-right: 5px;">标签</wd-tag>
+        <wd-tag type="danger" style="margin-right: 5px;">标签</wd-tag>
+        <wd-tag type="warning">标签</wd-tag>
+      </view>
+      <wd-button type="primary">点击展示</wd-button>
+    </wd-popover>
+  </view>
+</demo-block>
+<demo-block custom-class="pop" title="列表展示">
+  <view class="center list">
+    <wd-popover mode="menu" content="{{ menu }}" bind:menu-click="link">
+      <wd-button type="primary">列表</wd-button>
+    </wd-popover>
+  </view>
+</demo-block>
