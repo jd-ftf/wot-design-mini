@@ -61,6 +61,20 @@ VueComponent({
         this.updateAllChild({ disabled: value })
       }
     },
+    cell: {
+      type: Boolean,
+      value: false,
+      observer (value) {
+        this.updateAllChild({ cell: value })
+      }
+    },
+    size: {
+      type: String,
+      value: 'normal',
+      observer (value) {
+        this.updateAllChild({ size: value })
+      }
+    },
     inline: {
       type: Boolean,
       value: false,

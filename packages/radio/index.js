@@ -38,6 +38,18 @@ VueComponent({
     disabled: {
       type: Boolean,
       value: null
+    },
+    cell: {
+      type: Boolean,
+      value: null
+    },
+    size: {
+      type: String,
+      value: null
+    },
+    inline: {
+      type: Boolean,
+      value: null
     }
   },
   relations: {
@@ -46,12 +58,14 @@ VueComponent({
       linked (target) {
         this.parent = target
 
-        const { shape, checkedColor, disabled, inline } = this.parent.data
+        const { shape, checkedColor, disabled, inline, size, cell } = this.parent.data
         const data = {
           shape,
           checkedColor,
           disabled,
-          inline
+          inline,
+          size,
+          cell
         }
         const keys = Object.keys(data)
         const will = {}
@@ -66,8 +80,7 @@ VueComponent({
         })
         this.setData(will)
         this.setData({
-          isChecked: this.data.value === this.parent.data.value,
-          isFirst: this.parent.children.length === 1
+          isChecked: this.data.value === this.parent.data.value
         })
       },
       unlinked () {
@@ -76,9 +89,7 @@ VueComponent({
     }
   },
   data: {
-    isChecked: false,
-    isFirst: false,
-    inline: null
+    isChecked: false
   },
   methods: {
     /**
