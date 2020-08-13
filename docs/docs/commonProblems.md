@@ -31,6 +31,42 @@ page({
   bind:change="handleChange"/>
 ```
 
+### 在 data 定义的函数变量获取 this
+
+方式一：
+
+```javascript
+let self
+
+Page({
+  data: {
+    myFunction () {
+      self.setData({})
+    }
+  },
+  onLoad () {
+    self = this
+  }
+})
+```
+
+方式二：
+
+```javascript
+Page({
+  data: {
+    myFunction: null
+  },
+  onLoad () {
+    this.setData({
+      myFunction: (function () {
+        this.setData({})
+      }).bind(this)
+    })
+  }
+})
+```
+
 ### input
 
 #### input获取焦点时，文案闪烁

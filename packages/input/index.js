@@ -140,10 +140,6 @@ VueComponent({
     label: String,
     labelWidth: String,
     useLabelSlot: Boolean,
-    noHair: {
-      type: Boolean,
-      value: true
-    },
     size: String,
     error: Boolean,
     center: Boolean,
