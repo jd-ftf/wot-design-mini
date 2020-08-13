@@ -1,3 +1,5 @@
+import Toast from '../../dist/toast/toast'
+
 Page({
   data: {
     show: false,
@@ -20,7 +22,7 @@ Page({
     console.log('显示')
   },
   onHide () {
-    console.log('隐藏')
+    Toast('文字提示关闭')
   },
   link (param) {
     const data = param.detail.item

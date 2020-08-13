@@ -1,4 +1,4 @@
-<view class="demo-block {{ transparent ? '' : 'is-white' }}">
+<view class="demo-block {{ transparent ? '' : 'is-white' }} custom-class">
   <view class="demo-title">{{title}}</view>
   <view class="demo-container" style="{{transparent ? '' : style}}">
     <slot />

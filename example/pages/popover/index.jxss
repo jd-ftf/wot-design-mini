@@ -1,0 +1,18 @@
+
+.center {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.pop {
+  overflow: visible !important;
+  padding: 10px;
+}
+.tag-wrapper{
+  background: #fff;
+z-index: 100;
+position: relative;
+z-index: 500;
+line-height: ;
+padding-top: 7px;
+
+}

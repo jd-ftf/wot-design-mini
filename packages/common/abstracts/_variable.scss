@@ -633,12 +633,29 @@ $-toast-loading-padding: 10px !default; // loading 下的padding
 $-toast-box-shadow: 0px 6px 16px 0px rgba($-color-black, 0.08) !default; // 外部阴影
 
 /* tooltip */
-$-tooltip-bg-color: rgba(0, 0, 0, 0.7) !default; // dark模式下默认背景颜色
-$-tooltip-lineheight: 19px !default; // 行高
-$-tooltip-arrow-height: 3px !default; // 尖角高度
-$-tooltip-fs: 14px !default; // 字号
-$-tooltip-blur: 10px !default; // 高斯模糊程度
-$-tooltip-color: #fff !default; // 默认文字颜色
+$-tooltip-bg: rgba(38, 39, 40, 0.8) !default; // 背景色
+$-tooltip-color: $-color-white !default; // 文字颜色
+$-tooltip-radius: 8px !default; // 圆角大小
+$-tooltip-arrow-size: 9px !default; // 箭头大小
+$-tooltip-fs: $-fs-content !default; // 字号
+$-tooltip-blur: 10px !default; // 背景高斯模糊效果
+$-tooltip-padding: 9px 20px !default; // 间距
+$-tooltip-close-size: 6px !default; // 背景高斯模糊效果
+$-tooltip-z-index: 500 !default;
+$-tooltip-line-height: 18px !default; // 行高
+
+/* popover */
+$-popover-bg: $-color-white !default; // 背景色
+$-popover-color: rgba($-color-black, 0.85) !default; // 文字颜色
+$-popover-box-shadow: 0px 2px 10px 0px rgba($-color-black, 0.1) !default; // 阴影颜色
+$-popover-arrow-box-shadow: 0px 2px 10px 0px rgba($-color-black, 0.2) !default; // 阴影颜色
+$-popover-border-color: rgba($-color-black, 0.09) !default; // 阴影颜色
+$-popover-radius: 4px !default; // 圆角大小
+$-popover-arrow-size: 6px !default; // 箭头大小
+$-popover-fs: $-fs-content !default; // 字号
+$-popover-padding: 15px !default; // 间距
+$-popover-line-height: 18px !default; // 行高
+$-popover-z-index: $-tooltip-z-index !default;
 
 /* grid-item */
 $-grid-item-fs: 12px !default; // 字号

@@ -1,8 +1,9 @@
 {
-  "navigationBarTitleText": "Tooltip 文字提示",
+  "navigationBarTitleText": "Popover 文字提示",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-tooltip": "../../dist/tooltip/index",
+    "wd-popover": "../../dist/popover/index",
+    "wd-tag": "../../dist/tag/index",
     "wd-button": "../../dist/button/index",
     "wd-toast": "../../dist/toast/index"
   }
