@@ -3,62 +3,96 @@
 
 @include b(cell) {
   position: relative;
-  display: flex;
   padding-left: $-cell-padding;
-  background-color: #fff;
+  background-color: $-color-white;
   text-decoration: none;
   color: $-cell-title-color;
-  line-height: 1.43;
+  line-height: $-cell-ling-height;
   -webkit-tap-highlight-color: transparent;
 
+  @include when(border) {
+    .wd-cell__wrapper {
+      @include halfPixelBorder('top');
+    }
+  }
   @include e(wrapper) {
     position: relative;
     display: flex;
-    flex: 1;
     padding: $-cell-wrapper-padding;
     justify-content: space-between;
+    align-items: flex-start;
 
-    @include halfPixelBorder('top');
+    @include when(vertical) {
+      display: block;
+
+      .wd-cell__right {
+        margin-top: $-cell-vertical-top;
+      }
+      .wd-cell__value {
+        text-align: left;
+      }
+    }
   }
-  @include e(title) {
+  @include e(left) {
+    position: relative;
+    flex: 1;
+    display: flex;
+    margin-right: $-cell-padding;
     font-size: $-cell-title-fs;
-    vertical-align: middle;
-    flex-shrink: 0;
-    margin-right: 20px;
-  }
-  @include e(label) {
-    margin-top: 3px;
-    font-size: $-cell-label-fs;
-    color: $-cell-label-color;
+
+    @include when(required) {
+      padding-left: 12px;
+
+      &::after {
+        position: absolute;
+        content: '*';
+        top: 0;
+        left: 0;
+        font-size: $-cell-required-size;
+        color: $-cell-required-color;
+      }
+    }
   }
   @include e(right) {
     position: relative;
-    font-size: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
+    flex: 1;
+  }
+  @include e(title) {
+    flex: 1;
+    width: 100%;
+    font-size: $-cell-title-fs;
+    margin-right: $-cell-padding;
+  }
+  @include e(label) {
+    margin-top: 2px;
+    font-size: $-cell-label-fs;
+    color: $-cell-label-color;
+    @include lineEllipsis;
   }
   @include e(icon) {
+    display: block;
     position: relative;
-    min-width: $-cell-icon-size;
-    height: $-cell-icon-height;
-    line-height: $-cell-icon-height;
+    width: $-cell-icon-size;
+    height: $-cell-icon-size;
+    line-height: 1.25;
     margin-right: $-cell-icon-right;
     font-size: $-cell-icon-size;
   }
   @include e(value) {
-    display: inline-block;
+    position: relative;
+    flex: 1;
     font-size: $-cell-value-fs;
     color: $-cell-value-color;
-    vertical-align: middle;
+    text-align: right;
+    line-height: $-cell-value-line-height;
   }
   @include e(arrow-right) {
     display: inline-block;
-    margin-left: 5px;
-    height: 20px;
-    min-width: $-cell-arrow-size;
-    line-height: 20px;
+    margin-left: 8px;
+    width: $-cell-arrow-size;
+    height: $-cell-arrow-size;
+    line-height: $-cell-arrow-size;
     font-size: $-cell-arrow-size;
     color: $-cell-arrow-color;
     vertical-align: middle;
@@ -78,13 +112,24 @@
     .wd-cell__title {
       font-size: $-cell-title-fs-large;
     }
-    .wd-cell__arrow-right {
-      height: 22px;
-      line-height: 22px;
+    .wd-cell__label {
+      font-size: $-cell-label-fs-large;
+    }
+    .wd-cell__value {
+      font-size: $-cell-value-fs-large;
+      line-height: $-cell-value-line-height-large;
     }
     .wd-cell__icon {
-      height: $-cell-icon-height-large;
-      line-height: $-cell-icon-height-large;
+      font-size: $-cell-icon-size-large;
+      width: $-cell-icon-size-large;
+      height: $-cell-icon-size-large;
+    }
+    .wd-cell__wrapper {
+      padding: $-cell-wrapper-padding-large;
+
+      @include when(label) {
+        padding: $-cell-wrapper-padding-large-with-label;
+      }
     }
   }
   @include when(center) {

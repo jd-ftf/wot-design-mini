@@ -12,7 +12,7 @@ VueComponent({
   ],
   data: {
     showRight: false,
-    barStyle: 'width: 50%; height: 3px',
+    barStyle: 'width: 0; height: 3px',
     barHeight: '3px',
     leftNewValue: 0,
     rightNewValue: 0,

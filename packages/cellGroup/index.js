@@ -8,6 +8,16 @@ VueComponent({
     useSlot: {
       type: Boolean,
       value: false
+    },
+    border: {
+      type: Boolean,
+      observer (val) {
+        this.children && this.children.forEach(child => {
+          child.setData({
+            border: val
+          })
+        })
+      }
     }
   },
   relations: {
@@ -18,12 +28,12 @@ VueComponent({
         this.children = this.children || []
         this.children.push(target)
         setTimeout(() => {
-          this.children.forEach(child => child.setIndexAndStatus())
+          this.children.forEach(child => child.setIndexAndStatus(this.data.border))
         }, 30)
       },
       unlinked (target) {
         this.children = this.children.filter(child => child !== target)
-        this.children.forEach(child => child.setIndexAndStatus())
+        this.children.forEach(child => child.setIndexAndStatus(this.data.border))
       }
     }
   }

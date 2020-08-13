@@ -6,6 +6,9 @@
     "wd-button": "../../dist/button/index",
     "wd-cell": "../../dist/cell/index",
     "wd-cell-group": "../../dist/cellGroup/index",
-    "wd-toast": "../../dist/toast/index"
+    "wd-toast": "../../dist/toast/index",
+    "wd-rate": "../../dist/rate/index",
+    "wd-slider": "../../dist/slider/index",
+    "wd-switch": "../../dist/switch/index"
   }
 }
