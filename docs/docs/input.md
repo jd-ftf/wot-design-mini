@@ -29,24 +29,7 @@ page({
 })
 ```
 ```html
-<wd-input type="text" value="{{ value }}" placeholder="请输入..." bind:change="handleChange"/>
-```
-### input事件使用示例
-
-组件自定义，input事件无法直接return赋值，因此也需要手动赋值。
-
-```javascript
-page({
-  handleInput({ detail }) {
-    var value = detail.value
-    this.setData({
-      value: value.replace(/11/g, '2')
-    })
-  },
-})
-```
-```html
-<wd-input value="{{ value }}" type="text" bind:input="handleInput" placeholder="连续的两个1会变成2" />
+<wd-input type="text" value="{{ value }}" placeholder="请输入用户名" bind:change="handleChange"/>
 ```
 
 ### 禁用
@@ -94,31 +77,7 @@ page({
   suffix-icon="wd-icon-tickets"
   bind:change="handleChange"/>
 ```
-### 前后icon
 
-设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
-
-```html
-<wd-input
-  value="{{ value }}"
-  clearable
-  use-suffix-slot
-  use-prefix-slot
-  custom-suffix-class="suffix-slot"
-  bind:change="handleChange">
-    <view slot="prefix">1</view>
-    <view slot="suffix">2</view>
-</wd-input>
-```
-
-```css
-/* 插槽样式 */
-.suffix-slot{
-  display: inline-block;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-```
 ### 限制字数输入
 
 设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
@@ -159,6 +118,14 @@ page({
 
 ```html
 <wd-input type="text" label="基本用法" value="{{ value }}" placeholder="请输入..." />
+```
+
+### 必填样式
+
+设置了 `label` 的情况下，设置 `required` 属性，展示必填样式。
+
+```html
+<wd-input value="{{ value }}" placeholder="请输入..." label="必填" required></wd-input>
 ```
 
 ### 输入框大小
@@ -218,6 +185,7 @@ page({
 | center | 当有label属性时，设置标题和输入框垂直居中，默认为顶部居中 | boolean | - | false |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | use-label-slot | 使用 label 插槽 | boolean | - | false |
+| required | cell 类型下必填样式 | boolean | - | false |
 
 ### Events
 
@@ -230,6 +198,8 @@ page({
 | bind:clear        | 监听输入框清空按钮事件                   | -       |
 | bind:linechange        | 监听输入框行数变化(仅限textarea)                   | event.detail = {height: 0, heightRpx: 0, lineCount: 0}       |
 | bind:confirm        | 点击完成时， 触发 confirm 事件                   | event.detail = {value: value}       |
+| bind:clickprefixicon | 点击前置图标时触发 | - |
+| bind:clicksuffixicon | 点击后置图标时触发 | - |
 
 ### Slot
 

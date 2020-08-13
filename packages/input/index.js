@@ -146,7 +146,9 @@ VueComponent({
     },
     size: String,
     error: Boolean,
-    center: Boolean
+    center: Boolean,
+    noBorder: Boolean,
+    required: Boolean
   },
   created () {
     this.initState()
