@@ -1,7 +1,4 @@
 export default Behavior({
-  data: {
-    border: false
-  },
   methods: {
     /**
      * @description 从cellGroup获取此组件的索引
@@ -17,8 +14,7 @@ export default Behavior({
     setIndexAndStatus (border) {
       const index = this.getIndex()
       this.setData({
-        noHair: !index || index === 0,
-        border
+        noHair: !border || !index || index === 0
       })
     }
   }
