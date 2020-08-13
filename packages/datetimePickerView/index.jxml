@@ -3,10 +3,9 @@
   id="{{pickerId}}"
   value="{{pickerValue}}"
   columns="{{columns}}"
+  columns-height="{{columnsHeight}}"
   cancel-button-text="{{cancelButtonText}}"
   confirm-button-text="{{confirmButtonText}}"
   loading="{{loading}}"
-  visible-item-count="{{visibleItemCount}}"
-  item-height="{{itemHeight}}"
   bind:change="onChange"
 />

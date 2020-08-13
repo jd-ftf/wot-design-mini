@@ -4,11 +4,14 @@
     class="wd-picker__field {{ noHair ? 'is-no-hair' : '' }} {{disabled ? 'wd-picker__field--disabled' : '' }}"
     bindtap="showPopup"
   >
-    <view jd:if="{{ label || useLabelSlot }}" class="wd-picker__label custom-label-class" style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
+    <view
+      jd:if="{{ label || useLabelSlot }}"
+      class="wd-picker__label custom-label-class {{required ? 'is-required' : ''}}"
+      style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
       <block jd:if="{{label}}">{{ label }}</block>
       <slot jd:else name="label"></slot>
     </view>
-    <view class="wd-picker__value custom-value-class">
+    <view class="wd-picker__value custom-value-class {{ showValue ? '' : 'wd-picker__placeholder' }}">
       {{ showValue ? showValue : placeholder }}
     </view>
     <wd-icon
@@ -23,6 +26,7 @@
     position="bottom"
     hide-when-close="{{ false }}"
     bind:close="onCancel"
+    custom-class="wd-picker__popup"
   >
     <!--toolBar-->
     <view class="wd-picker__toolbar" catch:touchmove="noop">
@@ -44,8 +48,7 @@
       value="{{pickerValue}}"
       columns="{{displayColumns}}"
       loading="{{loading}}"
-      visible-item-count="{{visibleItemCount}}"
-      item-height="{{itemHeight}}"
+      columns-height="{{columnsHeight}}"
       value-key="{{valueKey}}"
       label-key="{{labelKey}}"
       bind:change="pickerViewChange"

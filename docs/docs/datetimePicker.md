@@ -155,6 +155,14 @@ Page({
 <wd-datetime-picker label="日期选择" size="large" value="{{value}}" />
 ```
 
+### 必填属性
+
+设置 `required` 属性开启表单必填。
+
+```html
+<wd-datetime-picker label="必填属性" error value="{{value}}" required/>
+```
+
 ### 错误状态
 
 设置 `error` 属性，选择器的值显示为红色。
@@ -215,8 +223,7 @@ Page({
 | value | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
 | type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
 | loading | 加载中 | boolean | - | false |
-| visible-item-count | 展示的行数 | number | - | 7 |
-| item-height | 选项高度 | number | - | 33 |
+| columns-height | picker内部滚筒高 | number | - | 231 |
 | title | 弹出层标题 | string | - | - |
 | cancel-button-text | 取消按钮文案 | string | - | '取消' |
 | confirm-button-text | 确认按钮文案 | string | - | '完成' |
@@ -233,6 +240,7 @@ Page({
 | maxHour | 最大小时，time类型时生效 | number | - | 23 |
 | minMinute | 最小分钟，time类型时生效 | number | - | 0 |
 | maxMinute | 最大分钟，time类型时生效 | number | - | 59 |
+| required | 表单属性，必填 | boolean | - | false |
 | size | 设置选择器大小 | string | 'large' | - |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |

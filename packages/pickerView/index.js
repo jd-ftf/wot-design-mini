@@ -43,7 +43,8 @@ VueComponent({
     // 格式化之后，用于render 列表的数据
     formatColumns: [],
     // 格式化之后，每列选中的下标集合
-    selectedIndex: []
+    selectedIndex: [],
+    itemHeight: 33
   },
   methods: {
     /**
