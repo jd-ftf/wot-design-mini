@@ -40,6 +40,7 @@
 |name      |	使用的图标名字，可以使用链接图片   |	string    |	—           |	—       |
 |color	    | 图标的颜色                      |	string    |	-         |	inherit |
 |size      | 图标的字体大小                   | string | -       | inherit |
+|custom-style      | 根结点样式                   | string | -       | - |
 
 ### 外部样式类
 

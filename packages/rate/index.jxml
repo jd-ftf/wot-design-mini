@@ -3,7 +3,7 @@
     jd:for="{{rateList}}"
     jd:key="{{index}}"
     data-index="{{index}}"
-    style="margin : {{'0 ' + space}}"
+    style="margin-right : {{ index == rateList.length - 1 ? 0 : space }}"
     class="wd-rate__item"
     bindtap="changeRate"
   >
@@ -13,8 +13,8 @@
     >
       <wd-icon
         name="{{icon}}"
-        color="{{disabled ? disabledColor : color}}"
         size="{{size}}"
+        custom-style="background:{{color}}; -webkit-background-clip: text; color: transparent"
       />
     </view>
     <view
@@ -23,8 +23,8 @@
     >
       <wd-icon
         name="{{activeIcon}}"
-        color="{{disabled ? disabledColor : activeColor}}"
         size="{{size}}"
+        custom-style="background:{{disabled ? disabledColor : activeColor}}; -webkit-background-clip: text; color: transparent"
       />
     </view>
   </view>

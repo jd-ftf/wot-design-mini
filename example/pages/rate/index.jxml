@@ -12,16 +12,16 @@
 
 <demo-block title="修改选中颜色">
   <view>
-    <wd-rate value="{{value2}}" active-color="#FFAE16" bind:change="changeValue2"/>
+    <wd-rate value="{{value2}}" active-color="linear-gradient(315deg, rgba(245,34,34,1) 0%,rgba(255,117,102,1) 100%)" bind:change="changeValue2"/>
   </view>
 </demo-block>
 
 <demo-block title="修改icon和选中颜色">
   <wd-rate
-    value="{{1}}"
-    icon="good"
-    active-icon="good"
-    active-color="#0083ff"
+    value="{{3}}"
+    icon="dong"
+    active-icon="dong"
+    active-color="#4D80F0"
   />
 </demo-block>
 
