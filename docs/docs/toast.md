@@ -102,6 +102,7 @@ Toast.close()
 | loadingColor | 加载icon的颜色 | string | '' | '#4D80F0' |
 
 ### Methods
+
 | 方法名称      | 说明       | 参数   |
 |------------- |----------- |---------  |
 | success | 成功提示 | options |
