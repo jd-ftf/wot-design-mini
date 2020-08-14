@@ -1,5 +1,5 @@
 <view
-  class="wd-cell {{ noHair ? '' : 'is-border' }} {{ size ? 'is-' + size : '' }} {{ center ? 'is-center' : '' }} custom-class"
+  class="wd-cell {{ border ? 'is-border' : '' }} {{ size ? 'is-' + size : '' }} {{ center ? 'is-center' : '' }} custom-class"
   hover-class="{{clickable ? 'is-hover':'none'}}"
   hover-stay-time="70"
   bindtap="onClick"

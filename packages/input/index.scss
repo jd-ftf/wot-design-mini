@@ -45,7 +45,7 @@
       &::after {
         position: absolute;
         left: 0;
-        top: $-cell-wrapper-padding + 4px;
+        top: $-cell-wrapper-padding + 2px;
         content: '*';
         font-size: $-cell-required-size;
         line-height: 1.1;

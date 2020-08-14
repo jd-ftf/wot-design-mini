@@ -54,6 +54,9 @@ Page({
             id: 'checkbox',
             name: 'Checkbox 复选框'
           }, {
+            id: 'colPicker',
+            name: 'ColPicker 多列选择器'
+          }, {
             id: 'datetimePicker',
             name: 'DatetimePicker 时间选择器'
           }, {

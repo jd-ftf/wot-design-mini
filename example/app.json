@@ -5,6 +5,7 @@
     "pages/tooltip/index",
     "pages/slider/index",
     "pages/collapse/index",
+    "pages/colPicker/index",
     "pages/button/index",
     "pages/icon/index",
     "pages/inputNumber/index",

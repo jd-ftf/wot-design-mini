@@ -29,10 +29,6 @@ VueComponent({
       type: Boolean,
       value: false
     },
-    noHair: {
-      type: Boolean,
-      value: true
-    },
     size: String,
     titleWidth: String,
     center: Boolean,

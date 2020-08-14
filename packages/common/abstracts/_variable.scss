@@ -400,6 +400,27 @@ $-picker-cell-content-padding-large: 13px 10px 13px 0 !default; // cell 类型�
 $-picker-cell-arrow-size-large: $-cell-arrow-size !default; // cell 类型的大尺寸 右侧icon尺寸
 $-picker-placeholder-color: rgba($-color-black, 0.25) !default; // placeholder 颜色
 
+/* col-picker */
+$-col-picker-selected-height: 44px !default; // 弹框顶部值高度
+$-col-picker-selected-padding: 0 16px !default; // 弹框顶部值左右间距
+$-col-picker-selected-fs: 14px !default; // 弹框顶部值字号
+$-col-picker-selected-color: rgba($-color-black, 0.85) !default; // 弹框顶部值文字颜色
+$-col-picker-selected-fw: 700 !default; // 弹框顶部值高亮字重
+$-col-picker-line-width: 16px !default; // 弹框顶部值高亮线条宽度
+$-col-picker-line-height: 3px !default; // 弹框顶部值高亮线条高度
+$-col-picker-line-color: linear-gradient(315deg, rgba(81,124,240,1), rgba(118,158,245,1)) !default; // 弹框顶部值高亮线条颜色
+$-col-picker-line-box-shadow: 0px 1px 2px 0px rgba(1, 87, 255, 0.2) !default; // 弹框顶部值高亮线条阴影
+$-col-picker-list-height: 53vh !default; // 弹框列表高度
+$-col-picker-list-padding-bottom: 30px !default; // 弹框列表底部间距
+$-col-picker-list-color: rgba($-color-black, 0.85) !default; // 弹框列表文字颜色
+$-col-picker-list-color-disabled: rgba($-color-black, 0.15) !default; // 弹框列表文字禁用颜色
+$-col-picker-list-color-tip: rgba($-color-black, 0.45) !default; // 弹框列表提示文字颜色
+$-col-picker-list-fs: 14px !default; // 弹框列表文字字号
+$-col-picker-list-fs-tip: 12px !default; // 弹框列表提示文字字号
+$-col-picker-list-item-padding: 12px 15px !default; // 弹框列表选项间距
+$-col-picker-list-checked-icon-size: 18px !default; // 弹框列表选中箭头大小
+$-col-picker-list-color-checked: $-color-theme !default; // 弹框列表选中选项颜色
+
 /* popup */
 $-popup-close-size: 24px !default; // 关闭按钮尺寸
 $-popup-close-color: #666 !default; // 关闭按钮颜色
