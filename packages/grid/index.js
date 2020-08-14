@@ -20,10 +20,6 @@ VueComponent({
       type: String,
       value: '#ffffff'
     },
-    iconSize: {
-      type: String,
-      value: '26px'
-    },
     gutter: Number
   },
   relations: {

@@ -4,7 +4,6 @@ VueComponent({
   externalClasses: ['custom-text', 'custom-icon'],
   data: {
     style: '',
-    iconSize: '',
     gutterContentStyle: '',
     iconStyle: '',
     itemClass: '',
@@ -16,6 +15,10 @@ VueComponent({
     icon: {
       type: String,
       value: ''
+    },
+    iconSize: {
+      type: String,
+      value: '26px'
     },
     text: String,
     url: String,
@@ -49,7 +52,7 @@ VueComponent({
   methods: {
     init () {
       const { children, data } = this.parent
-      const { column, gutter, square, border, bgColor, iconSize } = data
+      const { column, gutter, square, border, bgColor } = data
       const width = column ? 100 / column + '%' : 100 / children.length + '%'
       // 单独定义间隔
       const gutterStyle = gutter ? `padding:${gutter}px ${gutter}px 0 0; background-color: transparent;` : ''
@@ -62,7 +65,6 @@ VueComponent({
         square,
         gutter,
         gutterContentStyle,
-        iconSize,
         style: `width: ${width}; ${squareStyle || gutterStyle}`
       })
     },

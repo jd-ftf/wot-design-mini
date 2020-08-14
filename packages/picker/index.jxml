@@ -1,24 +1,24 @@
-<view class="wd-picker {{ size ? 'is-' + size : '' }} {{ alignRight ? 'is-align-right' : '' }} {{ error ? 'is-error' : '' }} custom-class">
+<view class="wd-picker {{ disabled ? 'is-disabled' : '' }} {{ size ? 'is-' + size : '' }} {{ alignRight ? 'is-align-right' : '' }} {{ error ? 'is-error' : '' }} custom-class">
   <!--文案-->
-  <view
-    class="wd-picker__field {{ noHair ? 'is-no-hair' : '' }} {{disabled ? 'wd-picker__field--disabled' : '' }}"
-    bindtap="showPopup"
-  >
-    <view
-      jd:if="{{ label || useLabelSlot }}"
-      class="wd-picker__label custom-label-class {{required ? 'is-required' : ''}}"
-      style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
-      <block jd:if="{{label}}">{{ label }}</block>
-      <slot jd:else name="label"></slot>
+  <view bindtap="showPopup">
+    <slot jd:if="{{ useDefaultSlot }}"></slot>
+    <view jd:else class="wd-picker__field">
+      <view
+        jd:if="{{ label || useLabelSlot }}"
+        class="wd-picker__label custom-label-class {{required ? 'is-required' : ''}}"
+        style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}">
+        <block jd:if="{{label}}">{{ label }}</block>
+        <slot jd:else name="label"></slot>
+      </view>
+      <view class="wd-picker__value custom-value-class {{ showValue ? '' : 'wd-picker__placeholder' }}">
+        {{ showValue ? showValue : placeholder }}
+      </view>
+      <wd-icon
+        jd:if="{{!disabled && !readonly}}"
+        custom-class="wd-picker__arrow"
+        name="arrow-right"
+      />
     </view>
-    <view class="wd-picker__value custom-value-class {{ showValue ? '' : 'wd-picker__placeholder' }}">
-      {{ showValue ? showValue : placeholder }}
-    </view>
-    <wd-icon
-      jd:if="{{!disabled && !readonly}}"
-      custom-class="wd-picker__arrow"
-      name="arrow-right"
-    />
   </view>
   <!--弹出层，picker-view 在隐藏时修改值，会触发多次change事件，从而导致所有列选中第一项，因此picker在关闭时不隐藏 -->
   <wd-popup

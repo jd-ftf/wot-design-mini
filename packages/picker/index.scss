@@ -44,12 +44,8 @@
     font-size: $-picker-cell-fs;
     overflow: hidden;
     line-height: 1.43;
-    @include when(disabled) {
-      .wd-picker__value {
-        color: $-picker-column-disabled-color;
-      }
-    }
   }
+
   @include when(cell) {
     .wd-picker__field {
       @include halfPixelBorder("bottom", $-picker-side-padding);
@@ -57,6 +53,12 @@
 
     &:last-child .wd-picker__field::after {
       display: none;
+    }
+  }
+
+  @include when(disabled) {
+    .wd-picker__value {
+      color: $-picker-column-disabled-color;
     }
   }
 

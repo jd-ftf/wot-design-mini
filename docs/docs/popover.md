@@ -18,11 +18,11 @@
 Popover 的属性与 [Tooltip](/#/components/tooltip) 很类似，因此对于重复属性，请参考 [Tooltip](/#/components/tooltip) 的文档，在此文档中不做详尽解释。
 
 ```html
-<div>
+<view>
   <wd-popover content="这是一段信息。">
     <wd-button >点击展示</wd-button>
   </wd-popover>
-</div>
+</view>
 ```
 
 ### 模式 mode
