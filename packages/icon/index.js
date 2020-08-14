@@ -11,6 +11,7 @@ VueComponent({
       }
     },
     color: String,
-    size: String
+    size: String,
+    customStyle: String
   }
 })

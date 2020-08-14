@@ -17,7 +17,7 @@ VueComponent({
     },
     size: {
       type: String,
-      value: '20px'
+      value: '16px'
     },
     space: {
       type: String,
@@ -25,19 +25,19 @@ VueComponent({
     },
     color: {
       type: String,
-      value: '#c5c5c5'
+      value: '#E8E8E8'
     },
     activeColor: {
       type: String,
-      value: '#e2231a'
+      value: 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)'
     },
     icon: {
       type: String,
-      value: 'star'
+      value: 'star-on'
     },
     activeIcon: {
       type: String,
-      value: 'star-fill'
+      value: 'star-on'
     },
     disabled: {
       type: Boolean,
@@ -45,7 +45,7 @@ VueComponent({
     },
     disabledColor: {
       type: String,
-      value: '#c5c5c5'
+      value: 'linear-gradient(315deg, rgba(177,177,177,1) 0%,rgba(199,199,199,1) 100%)'
     }
   },
   data: {
@@ -69,7 +69,7 @@ VueComponent({
         if (i < fullLength) {
           rateList.push('100%')
         } else if (i === fullLength) {
-          const rate = value - fullLength
+          const rate = (value - fullLength) > 0.5 ? 1 : 0.5
           rateList.push(rate * 100 + '%')
         } else {
           rateList.push('0')
