@@ -31,12 +31,9 @@ export default {
   },
   // 是否必填
   required: Boolean,
-  noHair: {
-    type: Boolean,
-    value: true
-  },
   size: String,
   labelWidth: String,
+  useDefaultSlot: Boolean,
   useLabelSlot: Boolean,
   error: Boolean,
   alignRight: Boolean,

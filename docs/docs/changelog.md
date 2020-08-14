@@ -1,5 +1,101 @@
 ## 更新日志
 
+### 2.0.0-beta1
+
+*2020-08-07*
+
+#### 新特性
+
+- ActionSheet
+  - 新增属性 `panels` 自定义面板，支持一维数组和二维数组，panel数据结构支持设置显示的图片地址和标题内容 (by [@awjing](https://github.com/awjing) )
+- Badge
+  - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
+  - 新增属性 `right` 为正时表示角标向左偏移对应的像素 (by [@awjing](https://github.com/awjing) )
+- Cell
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `vertical`, 支持表单属性展示为上下结构 (by [@yawuling](https://github.com/yawuling) )
+- CellGroup
+  - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@yawuling](https://github.com/yawuling) )
+- CheckboxGroup
+  - 新增属性 `cell`, 支持复选框组下的表单模式事件 (by [@Gkxie](https://github.com/Gkxie) )
+- ColPicker
+  - 新增 ColPicker 多列选择组件 (by [@yawuling](https://github.com/yawuling) )
+- DatetimePicker
+  - 新增属性 `columns-height`, 支持设置 picker 内部的单个 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `use-default-slot`, 使用默认插槽 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
+- DatetimePickerView
+  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Grid
+  - 新增属性 `bg-color`, 支持宫格设置背景颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Icon
+  - 新增属性 `custom-style`  设置根节点样式  (by [@awjing](https://github.com/awjing) )
+- Input
+  - 新增属性 `no-border`, 支持设置取消底部边框 (by [@yawuling](https://github.com/yawuling) )
+  - 移除属性 `autofocus` (by [@yawuling](https://github.com/yawuling) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) )
+  - 新增事件 `clickprefixicon`, 点击前置图标时触发 (by [@yawuling](https://github.com/yawuling) )
+  - 新增事件 `clicksuffixicon`, 点击后置图标时触发 (by [@yawuling](https://github.com/yawuling) )
+- Loading
+  - 新增属性 `no-border`, 支持设置取消底部边框 (by [@Gkxie](https://github.com/Gkxie) )
+- MessageBox
+  - 新增属性 `context`, 引用 wd-message-box 的页面实例或自定义组件实例 (by [@wulin](https://github.com/wlin00) )
+- NoticeBar
+  - 新增属性 `type`， 新增默认插槽，支持设置通知栏类型 (by [@awjing](https://github.com/awjing) )
+  - 属性 `left-icon` 更名为 `prefix` (by [@awjing](https://github.com/awjing) )
+  - 插槽 `left-icon` 更名为 `prefix` (by [@awjing](httpradios://github.com/awjing) )
+  - 插槽 `right-icon` 更名为 `suffix` (by [@awjing](https://github.com/awjing) )
+- Picker
+  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `use-default-slot`, 使用默认插槽 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
+- PickerView
+  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Progress
+  - 新增属性 `status` 设置进度条状态，支持sucess和danger (by [@awjing](https://github.com/awjing) )
+- Popover
+  - 新增组件 `Popover` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- RadioGroup
+  - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `size`, 支持单选框尺寸更改（normal、large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- StatusTip
+  - 属性 `type` 下的七种类型 对应缺省展示图片更改 (by [@awjing](https://github.com/awjing) )
+- Sticky
+  - 新增粘性布局组件 Sticky （by [@Gkxie](https://github.com/Gkxie) ）
+- Tabs
+  - 移除属性 `color` (by [@Gkxie](https://github.com/Gkxie) )
+  - 移除属性 `inactive-color` (by [@Gkxie](https://github.com/Gkxie) )
+  - 移除属性 `line-width` (by [@Gkxie](https://github.com/Gkxie) )
+  - 移除属性 `line-height` (by [@Gkxie](https://github.com/Gkxie) )
+- Tag
+  - 移除属性 `size` (by [@awjing](https://github.com/awjing) )
+  - 新增属性 `mark` 标记类型 (by [@awjing](https://github.com/awjing) )
+  - 新增属性 `round` 圆角类型 (by [@awjing](https://github.com/awjing) )
+- Toast
+  - 新增属性 `iconSize`， 支持修改左侧图标尺寸 (by [@wulin](https://github.com/wlin00) )
+  - 新增属性 `loadingColor` ，支持设置加载指示器颜色 (by [@wulin](https://github.com/wlin00) )
+  - 新增方法 `info` ，支持展示常规Toast样式 (by zhongjiju )
+- Tooltip
+  - 新增属性 `show-close`， 支持设置显示 Tooltip 内部右侧的关闭按钮 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `effect` ，文字提示 2.0 起 不再支持主题设置，将主题白色样式迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `mode` ，文字提示 2.0 起 不再支持模式设置，将模式设置迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除事件 `menu-click` 该事件已迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
+#### Bug 修复
+
+- Input
+  - 修复input 清空后无法再次弹起 （by [@Gkxie](https://github.com/Gkxie) ）
+
 ### 1.5.0
 
 *2020-05-18*

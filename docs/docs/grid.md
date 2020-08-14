@@ -110,13 +110,13 @@
 2. 使用icon插槽时，如果插槽大小超过`icon-size`设置的值时，需要调整`icon-size`属性使其大小等于插槽尺寸。
 
 ```html
-<wd-grid icon-size="36px">
-  <wd-grid-item use-icon-slot text="文字" wx:for="{{ 3 }}" wx:key="*this">
+<wd-grid >
+  <wd-grid-item use-icon-slot text="文字" wx:for="{{ 3 }}" wx:key="*this" icon-size="36px">
     <image slot="icon" class="slot-img" src="{{ joy }}" />
   </wd-grid-item>
 </wd-grid>
 <wd-grid>
-  <wd-grid-item use-text-slot icon="picture" wx:for="{{ 3 }}" wx:key="*this">
+  <wd-grid-item use-text-slot icon="picture" wx:for="{{ 3 }}" wx:key="*this" >
     <view slot="text" class="text">自定义文字插槽</view>
   </wd-grid-item>
 </wd-grid>
@@ -231,7 +231,6 @@
 | gutter | 格子之间的间距，默认单位为`px` | number | - | - |
 | square | 是否将格子固定为正方形 | boolean | - | false |
 | clickable | 是否开启格子点击反馈 | boolean | - | false |
-| icon-size | 图标大小，默认单位为`px` | string | - | '26px' |
 | bg-color | 背景颜色设置 | string | - | '#ffffff' |
 
 ### GridItem Attributes
@@ -249,6 +248,7 @@
 | use-slot | 是否开启 `GridItem` 内容插槽 | boolean | - | false |
 | use-icon-slot | 是否开启 `GridItem` icon 插槽 | boolean | - | false |
 | use-text-slot | 是否开启 `GridItem` text 内容插槽 | boolean | - | false |
+| icon-size | 图标大小，默认单位为`px` | string | - | '26px' |
 
 ### GridItem Events
 

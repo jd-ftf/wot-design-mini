@@ -216,6 +216,16 @@ Page({
 })
 ```
 
+### 唤起项插槽
+
+开启 `use-default-slot` ，设置默认插槽修改唤起picker组件的形式。
+
+```html
+<wd-datetime-picker columns="{{columns}}" value="{{value}}" use-default-slot>
+  <wd-button type="primary">插槽唤起</wd-button>
+</wd-datetime-picker>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -246,6 +256,7 @@ Page({
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | use-label-slot | label 使用插槽 | boolean | - | false |
+| use-default-slot | 使用默认插槽 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
 ### Events
@@ -259,6 +270,7 @@ Page({
 
 | name      | 说明       |
 |------------- |----------- |
+| default | 使用默认插槽 |
 | label | 左侧标题插槽 |
 
 ### 外部样式类

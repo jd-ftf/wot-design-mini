@@ -105,21 +105,6 @@
 }
 ```
 
-### 主题
-
-Tooltip 组件提供了两个不同的主题：`dark`和`light`。
-
-通过设置`effect`属性来改变主题，默认为`dark`。
-
-```html
-<wd-tooltip content="dark 默认风格">
-  <wd-button >dark</wd-button>
-</wd-tooltip>
-<wd-tooltip effect="light" content="light 风格">
-  <wd-button >light</wd-button>
-</wd-tooltip>
-```
-
 ### 更多 Content
 
 展示多行文本或者是设置文本内容的格式
@@ -138,40 +123,14 @@ Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 </wd-tooltip>
 ```
 
-### 模式 mode
+### 显示关闭按钮
 
-使用 `mode` 属性控制当前文字提示的模式。
-
-`mode` 有两个值，一种是 `normal` 普通文字模式，另一种是 `menu` 列表模式。
-
-`mode` 默认值为 `normal`，当 `mode` 处于默认状态，`content` 属性传入要显示的 `String` 字符串。
-
-当 `mode` 为 `menu` ，文字提示框会展示成列表形式，此时 `content` 属性传入 `Array` 类型，数组中每一个对象以 `[{ name: 'person', content: '内容' }]` 命名。如果不需要icon，那么传入 `[{ content: '内容' }]`。
+Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 
 ```html
-<wd-tooltip placement="bottom" mode="menu" content="{{ menu }}" bind:menu-click="link">
-  <wd-button >列表</wd-button>
+<wd-tooltip content="显示关闭按钮" show-close>
+  <wd-button >显示关闭按钮</wd-button>
 </wd-tooltip>
-```
-
-```javascript
-Page({
-  data: {
-    menu: [
-      {
-        name: 'person',
-        content: '全部标记已读'
-      },
-      {
-        name: 'close-fill',
-        content: '清空最近会话'
-      }
-    ]
-  },
-  link (item) {
-    console.log('调用', item)
-  }
-})
 ```
 
 ### 高级扩展
@@ -221,6 +180,7 @@ Page({
 |  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
 |  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
 |  offset        |  出现位置的偏移量  | Number           | — |  5 |
+|  show-close   |  是否显示 Tooltip 内部的关闭按钮 | Boolean | — | false |
 
 ### Events
 
