@@ -152,6 +152,14 @@ Page({
 <wd-picker label="单列选项" size="large" value="{{value}}" columns="{{columns}}" />
 ```
 
+### 必填属性
+
+设置 `required` 属性开启表单必填。
+
+```html
+<wd-picker label="必填属性" error columns="{{columns}}" value="{{value}}" required/>
+```
+
 ### 错误状态
 
 设置 `error` 属性，选择器的值显示为红色。
@@ -213,8 +221,7 @@ Page({
 | value | 选中项，如果为多列选择器，则其类型应为数组 | string / number / boolean / array | - |
 | columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - |
 | loading | 加载中 | boolean | - | false |
-| visible-item-count | 展示的行数 | number | - | 7 |
-| item-height | 选项高度 | number | - | 33 |
+| columns-height | picker内部滚筒高 | number | - | 231 |
 | value-key | 选项对象中，value对应的 key | string | - | 'label' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
 | title | 弹出层标题 | string | - | - |
@@ -229,6 +236,7 @@ Page({
 | size | 设置选择器大小 | string | 'large' | - |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
+| required | 表单属性，必填 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | use-label-slot | label 使用插槽 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |

@@ -29,6 +29,8 @@ export default {
     type: String,
     value: '完成'
   },
+  // 是否必填
+  required: Boolean,
   noHair: {
     type: Boolean,
     value: true

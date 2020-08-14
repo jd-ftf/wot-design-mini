@@ -1,15 +1,15 @@
-<view class="wd-picker-view custom-class">
+<view class="wd-picker-view custom-class" >
   <view
     class="wd-picker-view__loading"
     jd:if="{{loading}}"
   >
-    <wd-loading color="#0083FF" size="33px"/>
+    <wd-loading color="#4d80f0" size="33px"/>
   </view>
   <picker-view
     mask-class="wd-picker-view__mask"
     indicator-class=""
     indicator-style="height: {{itemHeight}}px;"
-    style="height: {{itemHeight * visibleItemCount}}px;"
+    style="height: {{columnsHeight}}px;"
     value="{{selectedIndex}}"
     bindchange="handleChange"
   >

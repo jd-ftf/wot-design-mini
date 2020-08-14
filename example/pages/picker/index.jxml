@@ -1,7 +1,7 @@
 <wd-toast id="wd-toast"/>
 <demo-block transparent>
   <wd-cell-group>
-    <wd-picker label="单列选项" columns="{{columns0}}"/>
+    <wd-picker label="单列选项" columns="{{columns0}}" />
     <wd-picker label="禁用" disabled value="{{value1}}" columns="{{columns1}}"/>
     <wd-picker label="只读" readonly value="{{value2}}" columns="{{columns2}}"/>
     <wd-picker label="loading" loading columns="{{columns3}}"/>
@@ -21,6 +21,9 @@
     <wd-picker label="标题" columns="{{columns7}}" title="文案标题"/>
     <wd-picker label="before-confirm" columns="{{columns0}}" value="{{value7}}" before-confirm="{{beforeConfirm}}" />
   </wd-cell-group>
+</demo-block>
+<demo-block title="必填" transparent>
+  <wd-picker label="必填选项" columns="{{columns0}}" required/>
 </demo-block>
 <demo-block title="label 不传" transparent>
   <wd-picker columns="{{columns0}}"/>

@@ -1,15 +1,10 @@
 export default {
   // 加载中
   loading: Boolean,
-  // 展示的行数
-  visibleItemCount: {
+  // 选项总高度
+  columnsHeight: {
     type: Number,
-    value: 7
-  },
-  // 选项高度
-  itemHeight: {
-    type: Number,
-    value: 33
+    value: 231
   },
   // 选项对象中，value对应的 key
   valueKey: {

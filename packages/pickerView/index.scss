@@ -3,53 +3,28 @@
 
 
 @include b(picker-view) {
-  position: relative;
-  background: #fff;
   @include e(columns) {
+    position: relative;
     display: flex;
+    background: $-picker-bg;
     overflow: hidden;
+    align-items: center;
   }
+  
   @include e(mask) {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,.9),hsla(0,0%,100%,.5)),linear-gradient(0deg,hsla(0,0%,100%,.9),hsla(0,0%,100%,.5));
-    background-position: top,bottom;
-    background-size: 100% 99px;
+    width: 100%;
+    height: 100%;
+    background: $-picker-mask;
+    background-position: top, bottom;
     background-repeat: no-repeat;
     z-index: 2;
     pointer-events: none;
+    filter: blur(4px);
   }
-  @include e(select) {
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translate3d(0, -50%, 0);
-    z-index: 4;
-    pointer-events: none;
 
-    &::before, &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      transform: scaleY(0.5);
-      background: $-picker-column-selected-border;
-    }
-    &::before {
-      top: 0;
-    }
-    &::after {
-      bottom: 0;
-    }
-  }
   @include e(loading) {
     position: absolute;
     display: flex;
@@ -60,7 +35,7 @@
     align-items: center;
     justify-content: center;
     z-index: 3;
-    background: rgba(255, 255, 255, 0.8);
+    background: $-picker-loading-bg;
   }
 }
 
