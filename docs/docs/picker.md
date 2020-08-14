@@ -154,7 +154,7 @@ Page({
 
 ### 必填属性
 
-设置 `required` 属性开启表单必填。
+设置 `required` 属性，展示必填样式。
 
 ```html
 <wd-picker label="必填属性" error columns="{{columns}}" value="{{value}}" required/>
@@ -256,7 +256,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:confirm | 点击右侧按钮触发 | 单列：选中项值；多列：所有列选中项值 |
+| bind:confirm | 点击右侧按钮触发 | event.detail = { value, selectedItems } |
 | bind:cancel | 点击左侧按钮触发 | - |
 | bind:open | 打开选择器弹出层时触发 | - |
 

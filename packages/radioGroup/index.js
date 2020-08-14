@@ -70,7 +70,6 @@ VueComponent({
     },
     size: {
       type: String,
-      value: 'normal',
       observer (value) {
         this.updateAllChild({ size: value })
       }

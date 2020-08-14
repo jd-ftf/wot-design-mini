@@ -82,3 +82,14 @@
     <wd-checkbox value="{{4}}">营销中心</wd-checkbox>
   </wd-checkbox-group>
 </demo-block>
+
+<demo-block title="大尺寸">
+  <wd-checkbox-group value="{{jingmai}}" inline size="large">
+    <wd-checkbox value="jingmai">京麦</wd-checkbox>
+    <wd-checkbox value="shop">商家后台</wd-checkbox>
+  </wd-checkbox-group>
+  <wd-checkbox-group value="{{jingmai}}" size="large" class="group">
+    <wd-checkbox value="jingmai">京麦</wd-checkbox>
+    <wd-checkbox value="shop">商家后台</wd-checkbox>
+  </wd-checkbox-group>
+</demo-block>

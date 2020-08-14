@@ -75,7 +75,7 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="小尺寸">
+<demo-block title="大尺寸">
   <wd-radio-group data-index="{{6}}" value="{{value6}}" size="small">
     <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>

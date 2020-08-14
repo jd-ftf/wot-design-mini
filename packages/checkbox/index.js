@@ -9,11 +9,12 @@ VueComponent({
         this.parent = target
         this.checkName(this, this.data.value)
 
-        const { shape, checkedColor, inline } = this.parent.data
+        const { shape, checkedColor, inline, size } = this.parent.data
         const data = {
           shape,
           checkedColor,
-          inline
+          inline,
+          size
         }
         const keys = Object.keys(data)
         const will = {}
@@ -83,6 +84,10 @@ VueComponent({
     falseValue: {
       type: null,
       value: false
+    },
+    size: {
+      type: String,
+      value: null
     }
   },
   data: {

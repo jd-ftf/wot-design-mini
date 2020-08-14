@@ -1,0 +1,23 @@
+.search-type {
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 8px 0 16px;
+}
+.search-type::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  right: 0;
+  top: 5px;
+  bottom: 5px;
+  background: rgba(0, 0, 0, 0.25);
+}
+.search-type .icon-arrow {
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+}
+.overflowauto {
+  overflow: normal;
+}

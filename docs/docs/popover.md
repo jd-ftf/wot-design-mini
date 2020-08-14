@@ -111,4 +111,4 @@ Page({
 | -------------- | -------------- | ---------------------------------------- |
 | show     |显示时触发       | - |
 | hide | 隐藏时触发 | - |
-| menu-click | menu 模式下点击某一选项触发 | 当前选项内容{name,content}, 当前选项索引index |
+| menuclick | menu 模式下点击某一选项触发 | event.detail = { item, index } |

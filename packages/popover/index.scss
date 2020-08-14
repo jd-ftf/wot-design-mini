@@ -31,7 +31,6 @@
     box-sizing: border-box;
     background-clip: padding-box;
     text-align: center;
-    min-width: 138px;
     min-height: 36px;
     z-index: $-popover-z-index;
     line-height: $-popover-line-height;
@@ -45,7 +44,6 @@
 
   @include e(hidden) {
     left: -100vw;
-    bottom: -100vh;
     visibility: hidden;
   }
 

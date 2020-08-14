@@ -19,12 +19,17 @@ VueComponent({
     mode: {
       type: String,
       value: 'normal'
-    }
+    },
+    content: null
   },
   methods: {
     menuClick (event) {
+      const { index } = event.currentTarget.dataset
       this.setData({ show: false })
-      this.$emit('menu-click', event.currentTarget.dataset)
+      this.$emit('menuclick', {
+        item: this.data.content[index],
+        index
+      })
     }
   }
 })

@@ -6,14 +6,14 @@
         {{ content }}
       </view>
       <view jd:if="{{ !useContentSlot && mode === 'menu' }}" class="wd-popover__menu ">
-        <view jd:for="{{ content }}" jd:key="this" class="wd-popover__menu-inner" data-item="{{ item }}" bindtap="menuClick">
+        <view jd:for="{{ content }}" jd:key="this" class="wd-popover__menu-inner" data-index="{{ index }}" bindtap="menuClick">
           <wd-icon jd:if="{{ item.iconClass }}" name="{{ item.iconClass  }}" class="wd-popover__icon" />
           <text>{{item.content}}</text>
         </view>
       </view>
     </view>
   </view>
-  <wd-transition show="{{ show }}" name="fade">
+  <wd-transition show="{{ show }}" name="fade" duration="{{200}}">
     <view class="wd-popover__pos" style="{{ popStyle }};">
       <view class="wd-popover__container custom-pop">
         <view
@@ -30,7 +30,7 @@
             jd:for="{{ content }}"
             jd:key="this"
             class="wd-popover__menu-inner"
-            data-item="{{ item }}"
+            data-index="{{ index }}"
             bindtap="menuClick"
             style="{{ index === 0 ? 'border-top: none' : '' }}">
             <wd-icon jd:if="{{ item.iconClass }}" name="{{ item.iconClass  }}" class="wd-popover__icon" />

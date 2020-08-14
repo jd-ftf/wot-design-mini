@@ -126,6 +126,12 @@ VueComponent({
       observer (value) {
         this.updateAllChild({ inline: value })
       }
+    },
+    size: {
+      type: String,
+      observer (value) {
+        this.updateAllChild({ size: value })
+      }
     }
   },
   methods: {

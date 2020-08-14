@@ -21,8 +21,7 @@ Page({
       }
     ]
   },
-  link (param) {
-    const data = param.detail.item
-    Toast('选择了' + data.content)
+  link ({ detail: { item } }) {
+    Toast('选择了' + item.content)
   }
 })

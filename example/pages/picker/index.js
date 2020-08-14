@@ -80,5 +80,10 @@ Page({
         }
       }, 2000)
     }
+  },
+  handleConfirm ({ detail: { value } }) {
+    this.setData({
+      value8: value
+    })
   }
 })

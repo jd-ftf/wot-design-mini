@@ -497,6 +497,7 @@ Page({
 | required | 必填样式 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
+| loading-color | loading 图标的颜色 | string | - | '#4d80f0' |
 | use-default-slot | 使用默认插槽时设置该选项 | boolean | - | false |
 | use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false |
 

@@ -47,14 +47,6 @@ VueComponent({
     iconSize: {
       type: String,
       default: 42
-    },
-    loadingSize: {
-      type: Number,
-      default: 42
-    },
-    iconColor: {
-      type: String,
-      default: '#4D80F0'
     }
   },
   methods: {
