@@ -21,6 +21,7 @@
   use-label-slot="{{useLabelSlot}}"
   use-default-slot="{{useDefaultSlot}}"
   error="{{error}}"
+  required="{{required}}"
   label-width="{{labelWidth}}"
   align-right="{{alignRight}}"
   bind:confirm="onConfirm"

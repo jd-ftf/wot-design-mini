@@ -1,6 +1,6 @@
 <wd-toast id="wd-toast"/>
 <demo-block transparent>
-  <wd-cell-group>
+  <wd-cell-group border>
     <wd-datetime-picker
       label="日期选择"
       value="{{value1}}"
@@ -39,6 +39,14 @@
       before-confirm="{{beforeConfirm}}"
       bind:confirm="handleConfirm"
     />
+    <wd-datetime-picker
+      label="错误"
+      error
+    />
+    <wd-datetime-picker
+      label="必填"
+      required
+    />
   </wd-cell-group>
 </demo-block>
 <demo-block title="label 不传" transparent>
@@ -51,12 +59,6 @@
     label="日期选择"
     size="large"
     value="{{value8}}"
-  />
-</demo-block>
-<demo-block title="错误" transparent>
-  <wd-datetime-picker
-    label="日期选择"
-    error
   />
 </demo-block>
 <demo-block title="值靠右展示" transparent>

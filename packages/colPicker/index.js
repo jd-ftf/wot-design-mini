@@ -126,7 +126,8 @@ VueComponent({
     tipKey: {
       type: String,
       value: 'tip'
-    }
+    },
+    loadingColor: String
   },
   methods: {
     handlePickerClose () {

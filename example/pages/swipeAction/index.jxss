@@ -3,10 +3,10 @@
 }
 .button{
   display: inline-block;
-  padding: 0 11px;
+  padding: 0 15px;
   height: 100%;
   color: white;
-  line-height: 42px;
+  line-height: 46px;
 }
 .button-group{
   padding: 10px;

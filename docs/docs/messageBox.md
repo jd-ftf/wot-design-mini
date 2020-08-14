@@ -25,7 +25,7 @@ import MessageBox from '/wot-design/messageBox/messageBox'
 
 Page({
   alert () {
-    MessageBox.alert('提示文案')
+    MessageBox.alert('操作成功')
   }
 })
 ```
@@ -84,6 +84,8 @@ Page({
     MessageBox.confirm({
       msg: '提示文案',
       title: '标题'
+    }).then(() => {
+      console.log('点击了确定按钮')
     })
   }
 })
@@ -105,6 +107,8 @@ Page({
     MessageBox.prompt({
       title: '邮箱',
       inputPattern: /.+@.+\..+/i
+    }).then(({ value }) => {
+      console.log(`你输入的又想是： ${value}`)
     })
   }
 })

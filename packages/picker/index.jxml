@@ -1,4 +1,4 @@
-<view class="wd-picker {{ disabled ? 'is-disabled' : '' }} {{ size ? 'is-' + size : '' }} {{ alignRight ? 'is-align-right' : '' }} {{ error ? 'is-error' : '' }} custom-class">
+<view class="wd-picker {{ disabled ? 'is-disabled' : '' }} {{ size ? 'is-' + size : '' }}  {{ border ? 'is-border' : '' }} {{ alignRight ? 'is-align-right' : '' }} {{ error ? 'is-error' : '' }} custom-class">
   <!--文案-->
   <view bindtap="showPopup">
     <slot jd:if="{{ useDefaultSlot }}"></slot>

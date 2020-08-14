@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  line-height: 1.2;
 
   @include when(first) {
     margin-top: 0;
@@ -127,11 +128,11 @@
 
   // 以下内容用于解决父子组件样式隔离的问题 —— START
   @include when(cell-radio) {
-    padding: 14px 15px;
+    padding: 13px 15px;
     margin: 0;
 
-    @include when(small) {
-      padding: 8px 15px;
+    @include when(large) {
+      padding: 14px 15px;
     }
   }
   @include when(button-radio) {
@@ -152,14 +153,14 @@
       clear: both;
     }
   }
-  @include when(small-radio) {
+  @include when(large) {
     .wd-radio__shape {
-      width: $-radio-small-size;
-      height: $-radio-small-size;
-      font-size: $-radio-small-size;
+      width: $-radio-large-size;
+      height: $-radio-large-size;
+      font-size: $-radio-large-size;
     }
     .wd-radio__label {
-      font-size: $-radio-small-label-fs;
+      font-size: $-radio-large-label-fs;
     }
   }
   // 以下内容用于解决父子组件样式隔离的问题 —— END

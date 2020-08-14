@@ -18,6 +18,7 @@
   - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@yawuling](https://github.com/yawuling) )
 - CheckboxGroup
   - 新增属性 `cell`, 支持复选框组下的表单模式事件 (by [@Gkxie](https://github.com/Gkxie) )
+  - 新增属性 `size`，支持单选框尺寸更改（large） (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 新增 ColPicker 多列选择组件 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
@@ -67,7 +68,7 @@
   - 新增组件 `Popover` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - RadioGroup
   - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `size`, 支持单选框尺寸更改（normal、large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - StatusTip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改 (by [@awjing](https://github.com/awjing) )
 - Sticky

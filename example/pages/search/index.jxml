@@ -14,15 +14,20 @@
   <wd-search disabled hide-cancel/>
 </demo-block>
 
-<demo-block title="自定义" transparent>
-  <wd-search placeholder="请输入订单号/订单名称" cancel-txt="搜索"/>
-</demo-block>
-
-<demo-block title="插槽" transparent>
-  <wd-search use-label-slot use-action-slot>
-    <view slot="label" style="line-height: 14px;margin-right: 10px;">左侧</view>
-    <view slot="action" style="padding: 5px 10px;color: #ff0000;">右侧</view>
+<view style="margin: 15px 0; color: #666;">
+  <view style="padding: 0 15px;margin: 10px 0;font-size: 13px;">自定义左侧插槽</view>
+  <wd-search value="{{value3}}">
+    <wd-popover slot="prefix" mode="menu" content="{{menu}}" bind:menuclick="changeSearchType">
+      <view class="search-type">
+        <text>{{ searchType }}</text>
+        <wd-icon class="icon-arrow" name="fill-arrow-down"></wd-icon>
+      </view>
+    </wd-popover>
   </wd-search>
+</view>
+  
+<demo-block title="自定义右侧文案" transparent>
+  <wd-search placeholder="请输入订单号/订单名称" cancel-txt="搜索"/>
 </demo-block>
 
 <demo-block title="设置最大长度" transparent>

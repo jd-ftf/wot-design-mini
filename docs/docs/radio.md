@@ -114,12 +114,12 @@ Page({
 </wd-radio-group>
 ```
 
-### 小尺寸
+### 尺寸
 
-设置 `size` 属性。
+设置 `size` 属性，可选 `large`。
 
 ```html
-<wd-radio-group value="1" size="small">
+<wd-radio-group value="1" size="large">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
@@ -142,7 +142,7 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 会自动选中value对应的单选框 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
-| size | 单选框尺寸 | string | 'normal', 'small' | 'normal' |
+| size | 设置大小 | string | 'large' | - |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
 | inline | 同行展示 | boolean | - | false |
@@ -162,3 +162,4 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 | shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
+| size | 设置大小 | string | 'large' | - |

@@ -6,6 +6,7 @@
   margin-bottom: $-checkbox-margin;
   font-size: 0;
   -webkit-tap-highlight-color: transparent;
+  line-height: 1.2;
 
   @include when(last-child) {
     margin-bottom: 0;
@@ -162,8 +163,12 @@
   }
   // 以下内容用于解决父子组件样式隔离的问题 —— START
   @include when(cell-box) {
-    padding: 14px 15px;
+    padding: 13px 15px;
     margin: 0;
+
+    @include when(large) {
+      padding: 14px 15px;
+    }
   }
   @include when(button-box) {
     float: left;
@@ -182,5 +187,14 @@
       clear: both;
     }
   }
-  // 以下内容用于解决父子组件样式隔离的问题 —— END
+  @include when(large) {
+    .wd-checkbox__shape {
+      width: $-checkbox-large-size;
+      height: $-checkbox-large-size;
+      font-size: $-checkbox-large-size;
+    }
+    .wd-checkbox__label {
+      font-size: $-checkbox-large-label-fs;
+    }
+  }
 }

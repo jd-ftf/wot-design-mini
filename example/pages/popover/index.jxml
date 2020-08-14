@@ -20,7 +20,7 @@
 </demo-block>
 <demo-block custom-class="pop" title="列表展示">
   <view class="center list">
-    <wd-popover mode="menu" content="{{ menu }}" bind:menu-click="link">
+    <wd-popover mode="menu" content="{{ menu }}" bind:menuclick="link">
       <wd-button type="primary">列表</wd-button>
     </wd-popover>
   </view>

@@ -14,16 +14,22 @@ Picker 组件为 popup 和 pickerView 的组合。
 
 ### 基本用法
 
-`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。label 可以不传。可以通过 `label-width` 设置标题宽度，默认为 '33%'。
+`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。label 可以不传。可以通过 `label-width` 设置标题宽度，默认为 '33%'，监听 `bind:confirm` 事件，获取选中值，传出一个 evnet 对象， `event.detail = { value, selectedItems }`，value 为绑定值，selectedItems 为选中选项的对象。
 
 ```html
-<wd-picker columns="{{columns1}}" label="单列选项" value="{{value}}" />
+<wd-picker columns="{{columns1}}" label="单列选项" value="{{value}}" bind:confirm="handleConfirm" />
 ```
+
 ```javascript
 Page({
   data: {
     columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
     value: ''
+  },
+  handleConfirm ({ detail: { value } }) {
+    this.setData({
+      value: value
+    })
   }
 })
 ```
@@ -154,7 +160,7 @@ Page({
 
 ### 必填属性
 
-设置 `required` 属性开启表单必填。
+设置 `required` 属性，展示必填样式。
 
 ```html
 <wd-picker label="必填属性" error columns="{{columns}}" value="{{value}}" required/>
@@ -256,7 +262,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:confirm | 点击右侧按钮触发 | 单列：选中项值；多列：所有列选中项值 |
+| bind:confirm | 点击右侧按钮触发 | event.detail = { value, selectedItems } |
 | bind:cancel | 点击左侧按钮触发 | - |
 | bind:open | 打开选择器弹出层时触发 | - |
 

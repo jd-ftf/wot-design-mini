@@ -90,7 +90,59 @@ Page({
 <wd-search hide-cancel disabled />
 ```
 
-### 自定义
+### 自定义左侧插槽
+
+通过使用 `prefix` 插槽自定义搜索框左侧内容。
+
+```html
+<wd-search value="{{value}}">
+  <wd-popover slot="prefix" mode="menu" content="{{menu}}" bind:menuclick="changeSearchType">
+    <view class="search-type">
+      <text>{{ searchType }}</text>
+      <wd-icon class="icon-arrow" name="fill-arrow-down"></wd-icon>
+    </view>
+  </wd-popover>
+</wd-search>
+```
+
+```javascript
+Page({
+  data: {
+    value: '',
+    searchType: '全部'
+  },
+  changeSearchType ({ detail: { item } }) {
+    this.setData({
+      searchType: item.content
+    })
+  }
+})
+```
+
+```css
+.search-type {
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 8px 0 16px;
+}
+.search-type::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  right: 0;
+  top: 5px;
+  bottom: 5px;
+  background: rgba(0, 0, 0, 0.25);
+}
+.search-type .icon-arrow {
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+}
+```
+
+### 自定义文案
 
 通过设置 `placeholder` 修改输入框提示文案，`cancel-txt` 修改取消按钮文案。
 
@@ -117,8 +169,7 @@ Page({
 | disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
 | maxlength | 原生属性，设置最大长度。-1表示无限制 | string/number | - | -1 |
 | value | 输入框文案，单向数据绑定 | string | - | - |
-| use-label-slot | 是否使用输入框左侧插槽 | boolean | - | false |
-| use-action-slot | 是否使用输入框右侧插槽 | boolean | - | false |
+| use-suffix-slot | 是否使用输入框右侧插槽 | boolean | - | false |
 
 ### Events
 
@@ -135,8 +186,8 @@ Page({
 
 | name      | 说明                                 |
 |------------- |--------------------------------- |
-| label       | 输入框左侧自定义内容 |
-| action       | 输入框左侧自定义内容 |
+| prefix       | 输入框左侧自定义内容 |
+| suffix       | 输入框左侧自定义内容 |
 
 ### 外部样式类
 

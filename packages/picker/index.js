@@ -162,7 +162,10 @@ VueComponent({
         resetColumns: columns
       })
       this.setShowValue(selects)
-      this.$emit('confirm', values)
+      this.$emit('confirm', {
+        value: values,
+        selectedItems: selects
+      })
     },
     /**
      * @description 初始change事件

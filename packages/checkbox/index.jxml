@@ -1,5 +1,5 @@
 <view
-  class="wd-checkbox {{cellBox? 'is-cell-box':''}} {{buttonBox? 'is-button-box':''}} {{isChecked ? 'is-checked' : ''}} {{ isFirst ? 'is-first-child' : '' }} {{ isLast ? 'is-last-child' : '' }} {{ inline ? 'is-inline' : '' }} {{shape === 'button' ? 'is-button' : ''}} {{finalDisabled ? 'is-disabled' : ''}} custom-class"
+  class="wd-checkbox {{cellBox? 'is-cell-box':''}} {{buttonBox? 'is-button-box':''}} {{isChecked ? 'is-checked' : ''}} {{ isFirst ? 'is-first-child' : '' }} {{ isLast ? 'is-last-child' : '' }} {{ inline ? 'is-inline' : '' }} {{shape === 'button' ? 'is-button' : ''}} {{finalDisabled ? 'is-disabled' : ''}} {{ size && ('is-' + size) }} custom-class"
   bindtap="toggle"
 >
   <!--shape为button时，移除wd-checkbox__shape，只保留wd-checkbox__label-->

@@ -144,6 +144,7 @@ Page({
   <wd-checkbox value="shop">商家后台</wd-checkbox>
 </wd-checkbox-group>
 ```
+
 ```javascript
 Page({
   data: {
@@ -165,6 +166,7 @@ Page({
   <wd-checkbox value="shop">商家后台</wd-checkbox>
 </wd-checkbox-group>
 ```
+
 ```javascript
 Page({
   data: {
@@ -198,6 +200,17 @@ Page({
 })
 ```
 
+### 尺寸
+
+设置 `size` 属性，可选 `large`。
+
+```html
+<wd-checkbox-group value="1" size="large">
+  <wd-checkbox value="1">京麦</wd-checkbox>
+  <wd-checkbox value="2">商家后台</wd-checkbox>
+</wd-checkbox-group>
+```
+
 ### Checkbox Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -208,6 +221,7 @@ Page({
 | disabled | 禁用 | boolean | - | false |
 | true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | true |
 | false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | false |
+| size | 设置大小 | string | 'large' | - |
 
 ### CheckboxGroup Attributes
 
@@ -221,6 +235,7 @@ Page({
 | min | 最小选中的数量 | number | - | 0 |
 | max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 |
 | inline | 同行展示 | boolean | - | false |
+| size | 设置大小 | string | 'large' | - |
 
 ### Checkbox Methods
 

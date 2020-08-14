@@ -13,7 +13,6 @@
       type="{{ loadingType }}"
       color="{{ loadingColor }}"
       custom-class="wd-toast__icon"
-      size="{{ loadingSize }}"
     />
     <view class="wd-toast__iconWrap wd-toast__icon" jd:elif="{{ iconName === 'success' || iconName === 'warning' || iconName === 'info' || iconName === 'error' }}" style="width:{{ iconSize }}px; height:{{ iconSize }}px">
       <view class="wd-toast__iconBox">

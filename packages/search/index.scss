@@ -16,6 +16,13 @@
     align-items: center;
     position: relative;
   }
+  @include e(field) {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+  }
   @include e(input) {
     flex: 1;
     height: $-search-input-height;
