@@ -11,7 +11,20 @@ import popover from '../mixins/popover'
 VueComponent({
   mixins: [popover()],
   data: {
-    selector: 'tooltip',
-    arrowClass: 'wd-tooltip__arrow'
+    selector: 'popover',
+    arrowClass: 'wd-popover__arrow'
+  },
+  props: {
+    // menu || normal
+    mode: {
+      type: String,
+      value: 'normal'
+    }
+  },
+  methods: {
+    menuClick (event) {
+      this.setData({ show: false })
+      this.$emit('menu-click', event.currentTarget.dataset)
+    }
   }
 })

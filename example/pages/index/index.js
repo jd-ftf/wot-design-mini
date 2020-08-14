@@ -131,6 +131,9 @@ Page({
             id: 'noticeBar',
             name: 'NoticeBar 通知栏'
           }, {
+            id: 'popover',
+            name: 'Popover 气泡'
+          }, {
             id: 'progress',
             name: 'Progress 进度条'
           }, {

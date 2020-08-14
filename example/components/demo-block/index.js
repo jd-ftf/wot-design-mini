@@ -1,4 +1,5 @@
 Component({
+  externalClasses: ['custom-class'],
   properties: {
     title: String,
     ver: Number,
@@ -8,4 +9,4 @@ Component({
   data: {
     style: 'margin: 10px 15px;'
   }
-});
+})

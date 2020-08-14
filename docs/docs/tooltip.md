@@ -215,13 +215,12 @@ Page({
 
 | 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
 |--------------------|----------------------------------------------------------|-------------------|-------------|--------|
-|  effect        |  默认提供的主题  | String            | dark/light | dark  |
 |  show |  状态是否可见  | Boolean           | — |  false |
 |  content        |  显示的内容，也可以通过 `slot#content` 传入  | String/Array            | — | — |
 |  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
 |  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
 |  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
-| close-outside | 是否可以通过点击其他位置 关闭 tooltip | boolean    | — | true |
+|  offset        |  出现位置的偏移量  | Number           | — |  5 |
 
 ### Events
 
@@ -229,7 +228,6 @@ Page({
 | -------------- | -------------- | ---------------------------------------- |
 | show     |显示时触发       | - |
 | hide | 隐藏时触发 | - |
-| menu-click | menu 模式下点击某一选项触发 | 当前选项内容{name,content}|
 
 ### Slot
 
