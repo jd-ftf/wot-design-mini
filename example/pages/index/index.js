@@ -125,6 +125,9 @@ Page({
         open: false,
         pages: [
           {
+            id: 'card',
+            name: 'Card 卡片'
+          }, {
             id: 'collapse',
             name: 'Collapse 折叠面板'
           }, {

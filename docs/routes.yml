@@ -109,6 +109,8 @@
         - type: group
           title: 展示
           children:
+            - name: card
+              title: Card 卡片
             - name: collapse
               title: Collapse 折叠面板
             - name: loadmore

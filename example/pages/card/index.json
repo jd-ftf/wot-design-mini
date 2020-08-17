@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "Card 卡片",
+  "usingComponents": {
+    "demo-block": "../../components/demo-block/index",
+    "wd-card": "../../dist/card/index",
+    "wd-button": "../../dist/button/index",
+    "wd-icon": "../../dist/icon/index"
+  }
+}
