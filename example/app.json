@@ -4,6 +4,7 @@
     "pages/input/index",
     "pages/tooltip/index",
     "pages/slider/index",
+    "pages/card/index",
     "pages/collapse/index",
     "pages/colPicker/index",
     "pages/button/index",
