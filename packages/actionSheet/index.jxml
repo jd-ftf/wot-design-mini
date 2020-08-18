@@ -1,5 +1,6 @@
 <wd-popup
-  custom-class="wd-action-sheet {{ (actions && actions.length || panels && panels.length) ? 'wd-action-sheet--spacing': '' }}"
+  custom-class="wd-action-sheet"
+  custom-style="{{ (actions && actions.length || panels && panels.length) ? 'margin: 0 10px 10px; border-radius: 16px;' : '' }}"
   show="{{ show }}"
   duration="{{ duration }}"
   position="bottom"
@@ -13,7 +14,7 @@
   <view jd:if="{{ title }}" class="wd-action-sheet__header">
     {{ title }}
     <wd-icon custom-class="wd-action-sheet__close" name="add" bind:tap="close"/>
-  </view>
+  </view> 
   <view jd:if="actions && actions.length">
     <button
       jd:for="{{ actions }}"

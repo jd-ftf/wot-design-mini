@@ -25,6 +25,7 @@
     <wd-action-sheet
       show="{{ show2 }}"
       panels="{{ panels }}"
+      cancel-text="{{ cancelText }}"
       bind:close="close2"
       bind:select="select"
     />
@@ -34,6 +35,7 @@
      <wd-action-sheet
       show="{{ show3 }}"
       panels="{{ panels }}"
+      cancel-text="{{ cancelText }}"
       bind:close="close3"
       bind:select="select1"
     />
