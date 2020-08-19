@@ -16,7 +16,7 @@
     <wd-action-sheet
       show="{{ show1 }}"
       actions="{{ actions }}"
-      cancel-text="{{ cancelText }}"
+      cancel-text="取消"
       bind:close="close1"
     />
   </demo-block>
@@ -25,7 +25,7 @@
     <wd-action-sheet
       show="{{ show2 }}"
       panels="{{ panels }}"
-      cancel-text="{{ cancelText }}"
+      cancel-text="取消"
       bind:close="close2"
       bind:select="select"
     />
@@ -35,7 +35,7 @@
      <wd-action-sheet
       show="{{ show3 }}"
       panels="{{ panels }}"
-      cancel-text="{{ cancelText }}"
+      cancel-text="取消"
       bind:close="close3"
       bind:select="select1"
     />

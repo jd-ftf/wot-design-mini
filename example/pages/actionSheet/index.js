@@ -55,8 +55,7 @@ Page({
           name: '选项3',
           subname: '描述信息'
         }
-      ],
-      cancelText: '取消'
+      ]
     })
   },
   showActions4 () {
@@ -87,8 +86,7 @@ Page({
           iconUrl: 'https://img14.360buyimg.com/imagetools/jfs/t1/132639/25/4003/945/5f069336E18778248/fa181913030bed8a.png',
           title: 'QQ好友'
         }
-      ],
-      cancelText: '取消'
+      ]
     })
   },
   showActions5 () {
@@ -143,8 +141,7 @@ Page({
             title: '微信好友'
           }
         ]
-      ],
-      cancelText: '取消'
+      ]
     })
   },
   showActions6 () {
