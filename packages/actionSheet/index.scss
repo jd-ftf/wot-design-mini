@@ -4,15 +4,9 @@
 @include b(action-sheet) {
   border-radius: $-action-sheet-radius $-action-sheet-radius 0 0;
 
-  @include m(spacing) {
-    margin: $-action-sheet-spacing;
-    border-radius: $-action-sheet-radius;
-  }
-
   @include e(actions) {
     padding: 8px 0;
   }
-
   @include e(action) {
     position: relative;
     display: block;

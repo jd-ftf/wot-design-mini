@@ -55,8 +55,7 @@ Page({
           name: '选项3',
           subname: '描述信息'
         }
-      ],
-      cancelText: '取消'
+      ]
     })
   },
   showActions4 () {
