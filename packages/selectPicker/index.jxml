@@ -1,0 +1,66 @@
+<view class="wd-select-picker {{ border ? 'is-border' : '' }} custom-class">
+  <view class="wd-select-picker__field" bind:tap="showPicker">
+    <slot jd:if="{{ useDefaultSlot }}"></slot>
+    <view jd:else class="wd-select-picker__cell {{ disabled && 'is-disabled' }} {{ readonly && 'is-readonly' }} {{ alignRight && 'is-align-right' }} {{ error && 'is-error' }} {{ size && ('is-' + size) }}">
+      <view
+        jd:if="{{ label || useLabelSlot }}"
+        class="wd-select-picker__label {{ required && 'is-required' }} custom-label-class"
+        style="{{ abelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}"
+      >
+        <block jd:if="label">{{ label }}</block>
+        <slot jd:else name="label"></slot>
+      </view>
+      <view class="wd-select-picker__value custom-value-class {{ showValue ? '' : 'wd-select-picker__value--placeholder'  }}">{{ showValue || placeholder || '请选择' }}</view>
+      <wd-icon
+        jd:if="{{!disabled && !readonly}}"
+        custom-class="wd-select-picker__arrow"
+        name="arrow-right"
+      />
+    </view>
+  </view>
+  <wd-action-sheet show="{{ pickerShow }}" duration="{{ 250 }}" title="{{ title || '请选择' }}" bind:close="handlePickerClose" custom-header-class="wd-select-picker__header">
+    <view class='wd-select-picker__wrapper custom-content-class'>
+      <!-- 多选 -->
+      <wd-checkbox-group
+        jd:if="{{ type === 'checkbox' }}"
+        value="{{ selectList }}"
+        cell
+        size="{{ selectSize }}"
+        checked-color="{{ checkedColor }}"
+        min="{{ min }}"
+        max="{{ max }}"
+        bind:change="handleChange"
+      >
+        <wd-checkbox
+          jd:for="{{columns}}"
+          jd:key="$this"
+          jd:for-item="item"
+          value="{{ item[valueKey] }}"
+          disabled="{{ item.disabled }}"
+        >{{item[labelKey]}}</wd-checkbox>
+      </wd-checkbox-group>
+      <!-- 单选 -->
+      <wd-radio-group
+        jd:if="{{ type === 'radio' }}"
+        value="{{ selectList }}"
+        cell
+        size="{{ selectSize }}"
+        checked-color="{{ checkedColor }}"
+        bind:change="handleChange"
+      >
+        <wd-radio
+          jd:for="{{columns}}"
+          jd:key="$this"
+          jd:for-item="item"
+          value="{{ item[valueKey] }}"
+          disabled="{{ item.disabled }}"
+        >{{item[labelKey]}}</wd-radio>
+      </wd-radio-group>
+      <view jd:if="{{ loading }}" class="wd-select-picker__loading">
+        <wd-loading type="circular-ring" color="{{ loadingColor }}" />
+      </view>
+    </view>
+    <!-- 确认按钮 -->
+    <wd-button suck bind:tap="onConfirm" disabled="{{ loading }}">{{confirmButtonText}}</wd-button>
+  </wd-action-sheet>
+</view>

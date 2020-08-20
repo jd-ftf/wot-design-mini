@@ -433,7 +433,7 @@ Page({
 ```html
 <view style="margin-bottom: 10px;">当前选中项: {{ displayValue }}</view>
 <wd-col-picker value="{{value}}" columns="{{areaData}}" column-change="{{columnChange}}" bind:confirm="handleConfirm">
-  <wd-button type="primary">选择地址</wd-button>
+  <wd-button>选择地址</wd-button>
 </wd-col-picker>
 ```
 

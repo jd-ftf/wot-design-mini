@@ -50,7 +50,7 @@ index.jxml 文件代码：
   <wd-datetime-picker label="生日" error="{{ birthdayError }}" type="date" formatter="{{ birthdayFormat }}" value="{{ birthday }}" bind:confirm="handleBirthday" align-right />
 </wd-cell-group>
 <view class="wrapper">
-  <wd-button type="primary" block size="large" bind:click="handleClick">提交</wd-button>
+  <wd-button block size="large" bind:click="handleClick">提交</wd-button>
 </view>
 
 <!-- 展示当前表单的实际值 -->

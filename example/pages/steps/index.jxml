@@ -20,7 +20,7 @@
       <wd-step title="步骤3" description="完善个人信息" />
     </wd-steps>
     <view style="margin-top: 15px; text-align: center;">
-      <wd-button type="primary" size="small" bind:click="nextStep">下一步</wd-button>
+      <wd-button size="small" bind:click="nextStep">下一步</wd-button>
     </view>
   </demo-block>
   <demo-block title="修改图标">

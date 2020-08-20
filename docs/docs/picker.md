@@ -226,7 +226,7 @@ Page({
 
 ```html
 <wd-picker columns="{{columns}}" value="{{value}}" use-default-slot>
-  <wd-button type="primary">插槽唤起</wd-button>
+  <wd-button>插槽唤起</wd-button>
 </wd-picker>
 ```
 

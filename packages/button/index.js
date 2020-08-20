@@ -14,7 +14,7 @@ VueComponent({
     block: Boolean,
     type: {
       type: String,
-      value: 'default'
+      value: 'primary'
     },
     size: {
       type: String,

@@ -18,7 +18,7 @@ alert 弹框只有确定按钮，用于强提醒。
 > 由于小程序限制，组件必须设置id,默认设置为`wd-message-box`，如需修改请在options中同时传入
 ```html
 <wd-message-box id="wd-message-box" />
-<wd-button type="primary" bind:click="alert">alert</wd-button>
+<wd-button bind:click="alert">alert</wd-button>
 ```
 ```javascript
 import MessageBox from '/wot-design/messageBox/messageBox'
@@ -34,7 +34,7 @@ Page({
 
 ```html
 <wd-message-box id="wd-message-box" />
-<wd-button type="primary" bind:click="alert">alert</wd-button>
+<wd-button bind:click="alert">alert</wd-button>
 ```
 ```javascript
 import MessageBox from '/wot-design/messageBox/messageBox'
@@ -53,7 +53,7 @@ Page({
 
 ```html
 <wd-message-box id="wd-message-box" />
-<wd-button type="primary" bind:click="alert">alert</wd-button>
+<wd-button bind:click="alert">alert</wd-button>
 ```
 ```javascript
 import MessageBox from '/wot-design/messageBox/messageBox'
@@ -74,7 +74,7 @@ Page({
 
 ```html
 <wd-message-box id="wd-message-box" />
-<wd-button type="primary" bind:click="confirm">confirm</wd-button>
+<wd-button bind:click="confirm">confirm</wd-button>
 ```
 ```javascript
 import MessageBox from '/wot-design/messageBox/messageBox'
@@ -97,7 +97,7 @@ prompt 会展示一个输入框，并可以进行输入校验。
 
 ```html
 <wd-message-box id="wd-message-box" />
-<wd-button type="primary" bind:click="prompt">prompt</wd-button>
+<wd-button bind:click="prompt">prompt</wd-button>
 ```
 ```javascript
 import MessageBox from '/wot-design/messageBox/messageBox'

@@ -98,7 +98,7 @@
 ```html
 <wd-badge is-dot>数据查询</wd-badge>
 <wd-badge is-dot>
-  <wd-button class="share-button"  type="primary"></wd-button>
+  <wd-button class="share-button" ></wd-button>
 </wd-badge>
 ```
 

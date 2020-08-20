@@ -16,7 +16,7 @@
 
 ```html
 <wd-toast id="wd-toast"/>
-<wd-button type="primary" bind:click="showToast">toast</wd-button>
+<wd-button bind:click="showToast">toast</wd-button>
 ```
 
 ```javascript
