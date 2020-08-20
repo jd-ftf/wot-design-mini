@@ -1,6 +1,10 @@
 <view class="wd-loading custom-class" style="width:{{ size }}px; height:{{ size }}px;color:{{color}}">
 
-  <view jd:if="{{type === 'circle-outline'}}" class="wd-loading--circle-outline">
+  <view jd:if="{{type === 'circle-outline' }}" class="wd-loading--circle-outline">
+    <view class="wd-loading__svg" style="background-image: url({{svg}});"></view>
+  </view>
+
+  <view jd:if="{{type === 'circular-ring' }}" class="wd-loading--circle-outline">
     <view class="wd-loading__svg" style="background-image: url({{svg}});"></view>
   </view>
 

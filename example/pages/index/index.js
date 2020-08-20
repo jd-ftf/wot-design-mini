@@ -87,6 +87,9 @@ Page({
             id: 'search',
             name: 'Search 搜索'
           }, {
+            id: 'selectPicker',
+            name: 'SelectPicker 单复选选择器'
+          }, {
             id: 'switch',
             name: 'Switch 开关'
           }, {

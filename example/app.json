@@ -7,6 +7,7 @@
     "pages/card/index",
     "pages/collapse/index",
     "pages/colPicker/index",
+    "pages/selectPicker/index",
     "pages/button/index",
     "pages/icon/index",
     "pages/inputNumber/index",

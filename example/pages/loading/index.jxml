@@ -11,6 +11,13 @@
   </view>
 </demo-block>
 
+<demo-block title="circular-ring 类型，可以修改指示器颜色">
+  <view class="flex">
+    <wd-loading custom-class="loading" type="circular-ring"/>
+    <wd-loading custom-class="loading" type="circular-ring" color="#fa34aa"/>
+  </view>
+</demo-block>
+
 <demo-block title="spinner类型">
   <view class="flex">
     <wd-loading custom-class="loading" type="spinner" />

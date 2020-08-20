@@ -1,6 +1,9 @@
 import VueComponent from '../common/component'
 
 VueComponent({
+  externalClasses: [
+    'custom-header-class'
+  ],
   props: {
     show: Boolean,
     actions: {

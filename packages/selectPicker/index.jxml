@@ -1,5 +1,5 @@
 <view class="wd-select-picker {{ border ? 'is-border' : '' }} custom-class">
-  <view class="wd-select-picker__field" bind:tap="showPicker">
+  <view class="wd-select-picker__field" bind:tap="open">
     <slot jd:if="{{ useDefaultSlot }}"></slot>
     <view jd:else class="wd-select-picker__cell {{ disabled && 'is-disabled' }} {{ readonly && 'is-readonly' }} {{ alignRight && 'is-align-right' }} {{ error && 'is-error' }} {{ size && ('is-' + size) }}">
       <view
@@ -18,7 +18,7 @@
       />
     </view>
   </view>
-  <wd-action-sheet show="{{ pickerShow }}" duration="{{ 250 }}" title="{{ title || '请选择' }}" bind:close="handlePickerClose" custom-header-class="wd-select-picker__header">
+  <wd-action-sheet show="{{ pickerShow }}" duration="{{ 250 }}" title="{{ title || '请选择' }}" bind:close="close" custom-header-class="wd-select-picker__header">
     <view class='wd-select-picker__wrapper custom-content-class'>
       <!-- 多选 -->
       <wd-checkbox-group
@@ -56,7 +56,7 @@
           disabled="{{ item.disabled }}"
         >{{item[labelKey]}}</wd-radio>
       </wd-radio-group>
-      <view jd:if="{{ loading }}" class="wd-select-picker__loading">
+      <view jd:if="{{ loading }}" class="wd-select-picker__loading" catchtouchmove="noop">
         <wd-loading type="circular-ring" color="{{ loadingColor }}" />
       </view>
     </view>

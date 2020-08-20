@@ -24,9 +24,7 @@
     vertical-align: middle;
     transition: background 0.2s;
     box-sizing: border-box;
-    display: inline-flex;
-    align-content: center;
-    justify-content: center;
+
     @include when(square) {
       border-radius: $-checkbox-square-radius;
     }
@@ -75,6 +73,10 @@
     }
     .wd-checkbox__check {
       opacity: 1;
+      position: absolute;
+      left: 0;
+      top: -1px;
+      transform: translateX(-4.5%);
     }
   }
 
@@ -195,6 +197,10 @@
     }
     .wd-checkbox__label {
       font-size: $-checkbox-large-label-fs;
+    }
+    .wd-checkbox__check {
+      top: 0;
+      left: 1px;
     }
   }
 }

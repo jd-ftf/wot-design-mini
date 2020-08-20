@@ -4,6 +4,7 @@
   z-index="{{ zIndex }}"
   duration="{{ duration }}"
   bind:click="handleClickModal"
+  catchtouchmove="noop"
 />
 <view
   jd:if="{{ inited }}"
