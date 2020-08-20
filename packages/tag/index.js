@@ -88,7 +88,9 @@ VueComponent({
     },
     handleConfirm (event) {
       this.setDynamicInput()
-      this.$emit('confirm', event.detail.value)
+      this.$emit('confirm', {
+        value: event.detail.value
+      })
     },
     setDynamicInput () {
       this.setData({

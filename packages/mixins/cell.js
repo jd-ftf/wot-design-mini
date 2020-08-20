@@ -1,5 +1,5 @@
 export default Behavior({
-  data: {
+  props: {
     border: true
   },
   methods: {

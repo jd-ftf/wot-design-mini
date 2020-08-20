@@ -1,7 +1,7 @@
 <view class="wd-rate custom-class">
   <view
     jd:for="{{rateList}}"
-    jd:key="{{index}}"
+    jd:key="index"
     data-index="{{index}}"
     style="margin-right : {{ index == rateList.length - 1 ? 0 : space }}"
     class="wd-rate__item"

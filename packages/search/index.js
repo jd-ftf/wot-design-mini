@@ -1,6 +1,7 @@
 import VueComponent from '../common/component'
 
 VueComponent({
+  behaviors: ['jd://form-field'],
   props: {
     useActionSlot: {
       type: Boolean,
@@ -61,7 +62,9 @@ VueComponent({
      */
     inputValue ({ detail: { value } }) {
       this.setData({ str: value }, () => {
-        this.$emit('change', value)
+        this.$emit('change', {
+          value
+        })
       })
     },
     /**
@@ -85,7 +88,9 @@ VueComponent({
      */
     search ({ detail: { value } }) {
       // 组件触发search事件
-      this.$emit('search', value)
+      this.$emit('search', {
+        value
+      })
     },
     /**
      * @description 输入框聚焦时的handle
@@ -99,7 +104,9 @@ VueComponent({
         showPlaceHolder: false,
         focus: true
       },
-      () => this.$emit('focus', this.data.str)
+      () => this.$emit('focus', {
+        value: this.data.str
+      })
       )
     },
     /**
@@ -110,7 +117,9 @@ VueComponent({
       // 组件触发blur事件
       this.setData(
         { showPlaceHolder: !this.data.str },
-        () => this.$emit('blur', this.data.str)
+        () => this.$emit('blur', {
+          value: this.data.str
+        })
       )
     },
     /**
@@ -118,7 +127,9 @@ VueComponent({
      */
     handleCancel () {
       // 组件触发cancel事件
-      this.$emit('cancel', this.data.str)
+      this.$emit('cancel', {
+        value: this.data.str
+      })
     }
   }
 })

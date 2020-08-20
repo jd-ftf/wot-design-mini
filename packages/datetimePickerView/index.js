@@ -5,6 +5,7 @@ VueComponent({
   /**
    * 注意，datetimePickerView和datetimePicker有公共逻辑，抽离成/mixins/datetimePickerView，通过mixins options注入
    */
+  behaviors: ['jd://form-field'],
   mixins: [datetimePickerView()],
   props: {
     value: {
@@ -23,7 +24,9 @@ VueComponent({
       this.setData({
         pickerValue: value
       })
-      this.$emit('change', value)
+      this.$emit('change', {
+        value
+      })
     }
   },
   created () {

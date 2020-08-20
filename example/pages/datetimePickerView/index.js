@@ -32,6 +32,7 @@ Page({
     }
   },
   onChange ({ detail }) {
-    Toast(`当前选中时间: ${detail}`)
+    console.log(detail.value)
+    Toast(`当前选中时间: ${detail.value}`)
   }
 })

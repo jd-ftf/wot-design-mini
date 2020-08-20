@@ -4,9 +4,9 @@ Page({
     value2: 3.5
   },
   changeValue1 ({ detail }) {
-    this.setData({ value1: detail })
+    this.setData({ value1: detail.value })
   },
-  changeValue2({ detail }) {
-    this.setData({ value2: detail })
+  changeValue2 ({ detail }) {
+    this.setData({ value2: detail.value })
   }
 })

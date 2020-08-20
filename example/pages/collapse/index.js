@@ -13,21 +13,18 @@ Page({
     name: 'item1'
   },
   handleChange1 ({ detail }) {
-    this.setData({ value1: detail })
+    this.setData({ value1: detail.value })
   },
   handleChange2 ({ detail }) {
-    this.setData({ value2: detail })
+    this.setData({ value2: detail.value })
   },
   handleChange3 ({ detail }) {
-    this.setData({ value3: detail })
+    this.setData({ value3: detail.value })
   },
   handleChange4 ({ detail }) {
-    this.setData({ value4: detail })
+    this.setData({ value4: detail.value })
   },
   handleChange5 ({ detail }) {
-    this.setData({ value5: detail })
-  },
-  handleChange6 ({ detail }) {
-    this.setData({ value6: detail })
+    this.setData({ value5: detail.value })
   }
 })

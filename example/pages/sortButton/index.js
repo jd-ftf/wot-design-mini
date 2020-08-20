@@ -5,6 +5,6 @@ Page({
     value: 0
   },
   handleClick (event) {
-    Toast(`当前状态：${event.detail}`)
+    Toast(`当前状态：${event.detail.value}`)
   }
 })

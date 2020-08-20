@@ -10,22 +10,22 @@ Page({
   },
   handleChange1 ({ detail }) {
     this.setData({
-      checked1: detail
+      checked1: detail.value
     })
   },
   handleChange2 ({ detail }) {
     this.setData({
-      checked2: detail
+      checked2: detail.value
     })
   },
   handleChange3 ({ detail }) {
     this.setData({
-      checked3: detail
+      checked3: detail.value
     })
   },
   handleChange4 ({ detail }) {
     this.setData({
-      checked4: detail
+      checked4: detail.value
     })
   }
 })

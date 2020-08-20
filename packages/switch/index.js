@@ -1,6 +1,7 @@
 import VueComponent from '../common/component'
 
 VueComponent({
+  behaviors: ['jd://form-field'],
   props: {
     value: null,
     disabled: Boolean,
@@ -27,12 +28,16 @@ VueComponent({
       this.setData({
         value: newVal
       })
-      this.$emit('change', newVal)
+      this.$emit('change', {
+        value: newVal
+      })
     }
   },
   attached () {
     if ([this.data.activeValue, this.data.inactiveValue].indexOf(this.data.value) === -1) {
-      this.$emit('change', this.data.inactiveValue)
+      this.$emit('change', {
+        value: this.data.inactiveValue
+      })
     }
   }
 })

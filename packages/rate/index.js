@@ -1,6 +1,7 @@
 import VueComponent from '../common/component'
 
 VueComponent({
+  behaviors: ['jd://form-field'],
   props: {
     num: {
       type: Number,
@@ -86,7 +87,9 @@ VueComponent({
       this.setData({
         value: index + 1
       })
-      this.$emit('change', index + 1)
+      this.$emit('change', {
+        value: index + 1
+      })
     }
   }
 })

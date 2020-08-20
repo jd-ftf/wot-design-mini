@@ -2,6 +2,7 @@ import VueComponent from '../common/component'
 import { checkNumRange, debounce, renderData } from '../common/util'
 
 VueComponent({
+  behaviors: ['jd://form-field'],
   relations: {
     '../checkbox/index': {
       type: 'descendant',
@@ -174,7 +175,9 @@ VueComponent({
       })
       // 操作完之后更新一下 所有节点的 disabled 状态
       this.resetChildren(temp)
-      this.$emit('change', temp)
+      this.$emit('change', {
+        value: temp
+      })
     },
     /**
      * @description 修正子组件的 isChecked 和 finalDisabled
@@ -196,14 +199,15 @@ VueComponent({
   },
   mounted () {
     // 以下内容用于解决父子组件样式隔离的问题 —— START
-    if (this.children && this.children.length === 0) return
+    if (!this.children || this.children.length === 0) return
+
     const { cell, shape } = this.data
     if (!cell) return
-    this.children && this.children.forEach(child => {
+    this.children.forEach(child => {
       child.setData({ cellBox: true })
     })
     if (shape !== 'button') return
-    this.children && this.children.forEach(child => {
+    this.children.forEach(child => {
       child.setData({ buttonBox: true })
     })
     // 以下内容用于解决父子组件样式隔离的问题 —— END

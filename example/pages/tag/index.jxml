@@ -70,14 +70,13 @@
   <wd-tag
     jd:for="{{dynamicTags}}"
     jd:key="$this"
-    jd:for-item="dynamicTags"
     custom-class="space"
     round
     closable
     data-index="{{index}}"
     bind:close="handleClose1"
   >
-    {{dynamicTags.value}}
+    {{item}}
   </wd-tag>
   <wd-tag
     custom-class="space"

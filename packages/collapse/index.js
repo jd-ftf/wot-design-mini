@@ -105,8 +105,12 @@ VueComponent({
       } else if (viewmore) {
         name = !value
       }
-      this.$emit('input', name)
-      this.$emit('change', name)
+      this.$emit('input', {
+        value: name
+      })
+      this.$emit('change', {
+        value: name
+      })
     }
   }
 })

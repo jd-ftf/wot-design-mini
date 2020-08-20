@@ -3,6 +3,8 @@
 
 
 @include b(picker-view) {
+  position: relative;
+
   @include e(columns) {
     position: relative;
     display: flex;

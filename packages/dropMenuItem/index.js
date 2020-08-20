@@ -98,19 +98,27 @@ VueComponent({
     // 模拟单选操作 默认根据 value 选中操作
     choose (event) {
       if (this.data.disabled) return
-      const { value } = event.currentTarget.dataset.value
-      this.setData({ value })
+      const index = event.currentTarget.dataset.index
+      const item = this.data.options[index]
+      this.setData({
+        value: item.value || item
+      })
       this.close()
-      this.$emit('change', value)
+      this.$emit('change', {
+        value: item.value || item,
+        selectedItem: item
+      })
       this.parent.resetChooseValue()
     },
     // 外部关闭弹出框
     close () {
       this.setData({ showPop: false })
       this.parent.fold(-1)
+      this.$emit('close')
     },
     open () {
       this.setData({ showPop: true })
+      this.$emit('open')
     },
     noop () {}
   }

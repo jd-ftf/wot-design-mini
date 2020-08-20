@@ -98,7 +98,9 @@ VueComponent({
 
       const { key: position = 'inside' } = event.target.dataset
       this.close('click', position)
-      this.$emit('click', position)
+      this.$emit('click', {
+        value: position
+      })
     },
     /**
      * @description 开始滑动

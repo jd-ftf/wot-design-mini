@@ -10,6 +10,7 @@ VueComponent({
     'custom-min-class',
     'custom-max-class'
   ],
+  behaviros: ['jd://form-field'],
   data: {
     showRight: false,
     barStyle: 'width: 0; height: 3px',
@@ -122,7 +123,9 @@ VueComponent({
       this.startValue = this.checkType(value) !== 'Array'
         ? this.format(value)
         : (leftBarPercent < rightBarPercent ? this.format(value[0]) : this.format(value[1]))
-      this.$emit('dragstart', this.currentValue)
+      this.$emit('dragstart', {
+        value: this.currentValue
+      })
     },
     onTouchMove (event) {
       const { disabled, max, min } = this.data
@@ -133,11 +136,15 @@ VueComponent({
       this.newValue = this.startValue + diff
       // 左滑轮滑动控制
       this.leftBarSlider(this.newValue)
-      this.$emit('dragmove', this.currentValue)
+      this.$emit('dragmove', {
+        value: this.currentValue
+      })
     },
     onTouchEnd () {
       if (this.data.disabled) return
-      this.$emit('dragend', this.currentValue)
+      this.$emit('dragend', {
+        value: this.currentValue
+      })
     },
     // 右边滑轮滑动状态监听
     onTouchStartRight (event) {
@@ -147,7 +154,9 @@ VueComponent({
       this.touchStart.call(rightSlider, event)
       // 记录开始数据值
       rightSlider.startValue = leftBarPercent < rightBarPercent ? this.format(value[1]) : this.format(value[0])
-      this.$emit('dragstart', this.currentValue)
+      this.$emit('dragstart', {
+        value: this.currentValue
+      })
     },
     onTouchMoveRight (event) {
       if (this.data.disabled) return
@@ -158,11 +167,15 @@ VueComponent({
       rightSlider.newValue = this.format(rightSlider.startValue + diff)
       // 右滑轮滑动控制
       this.rightBarSlider(rightSlider.newValue)
-      this.$emit('dragmove', this.currentValue)
+      this.$emit('dragmove', {
+        value: this.currentValue
+      })
     },
     onTouchEndRight () {
       if (this.data.disabled) return
-      this.$emit('dragend', this.currentValue)
+      this.$emit('dragend', {
+        value: this.currentValue
+      })
     },
     /**
      * 控制右侧滑轮滑动， value校验

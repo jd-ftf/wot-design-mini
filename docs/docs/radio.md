@@ -32,7 +32,7 @@ Page({
   },
   change (event) {
     this.setData({
-      value: event.detail
+      value: event.detail.value
     })
   }
 })
@@ -57,7 +57,7 @@ Page({
   },
   change (event) {
     this.setData({
-      value: event.detail
+      value: event.detail.value
     })
   }
 })
@@ -147,12 +147,13 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 | disabled | 禁用 | boolean | - | false |
 | inline | 同行展示 | boolean | - | false |
 | cell | 表单模式 | boolean | - | false |
+| name | form 表单中的字段名 | string | - | - |
 
 ### RadioGroup Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | event.detail = 选中的radio的value  |
+| bind:change | 绑定值变化时触发 | event.detail = { value }  |
 
 ### Radio Attributes
 

@@ -21,9 +21,9 @@ Page({
   data: {
     value: 1
   },
-  handleChange ({ detail }) {
+  handleChange (event) {
     this.setData({
-      value: detail
+      value: event.detail.value
     })
   }
 })
@@ -98,14 +98,15 @@ Page({
 | disabled | 禁用 | boolean | - | false |
 | without-input | 不显示输入框 | boolean | - | false |
 | input-width | 输入框宽度 | string | - | 36px |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 值修改事件 | event.detail = value,value为当前值 |
-| bind:focus | 输入框获取焦点事件 | - |
-| bind:blur | 输入框失去焦点事件 | event.detail = value,value为当前值 |
+| bind:change | 值修改事件 | event.detail = { value } |
+| bind:focus | 输入框获取焦点事件 | event.detail = { value, height } |
+| bind:blur | 输入框失去焦点事件 | event.detail = { value } |
 
 ### 外部样式类
 

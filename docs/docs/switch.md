@@ -12,18 +12,20 @@
 
 ### 基本用法
 
-设置 `value` 值，监听 `change` 事件修改值。
+设置 `value` 值，监听 `bind:change` 事件修改值。
 
 ```html
 <wd-switch value="{{ checked }}" bind:change="handleChange" />
+```
 
+```javascript
 Page({
   data: {
     checked: true
   },
-  handleChange ({ detail }) {
+  handleChange (event) {
     this.setData({
-      checked: detail
+      checked: event.detail.value
     })
   }
 })
@@ -68,12 +70,13 @@ Page({
 | active-color | 打开时的背景色 | string | - | '#0083ff' |
 | inactive-color | 关闭时的背景色，默认为白色，所以有灰色边框，如果设置了该值，则会自动去除灰色边框 | string | - | '#fff' |
 | size | 开关大小，可以为任何单位的字符串尺寸 | string | - | '28px' |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 值修改事件 | event.detail = value的当前值 |
+| bind:change | 值修改事件 | event.detail = { value } |
 
 ### 外部样式类
 

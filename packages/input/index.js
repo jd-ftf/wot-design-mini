@@ -7,7 +7,7 @@ VueComponent({
     'custom-input-class',
     'custom-label-class'
   ],
-  behaviors: [cell],
+  behaviors: [cell, 'jd://form-field'],
   relations: {
     '../cellGroup/index': {
       type: 'ancestor',
@@ -176,24 +176,30 @@ VueComponent({
         .then(() => {
           this.setData({ focus: true }, () => {
             this.$emit('clear')
-            this.$emit('change', '')
+            this.$emit('change', {
+              value: ''
+            })
           })
         })
     },
     // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发 change 只触发 blur
     handleBlur () {
       this.setData({ focus: false })
-      this.$emit('change', this.data.value)
-      this.$emit('blur', this.data.value)
+      this.$emit('change', {
+        value: this.data.value
+      })
+      this.$emit('blur', {
+        value: this.data.value
+      })
     },
-    handleFocus () {
+    handleFocus ({ detail }) {
       if (this.data.clearing) {
         this.data.clearing = false
         return
       }
       this.setData(
         { focus: true },
-        () => this.$emit('focus', this.data.value)
+        () => this.$emit('focus', detail)
       )
     },
     // input事件需要传入
@@ -202,16 +208,13 @@ VueComponent({
       this.$emit('input', detail)
     },
     handleKeyboardheightchange (event) {
-      this.$emit('keyboardheightchange', event)
+      this.$emit('keyboardheightchange', event.detail)
     },
-    handleConfirm (event) {
-      this.$emit('confirm', event)
+    handleConfirm ({ detail }) {
+      this.$emit('confirm', detail)
     },
     handleLineChange (event) {
-      this.$emit('linechange', event)
-    },
-    handleMapTextarea (event) {
-      this.$emit('linechange', event)
+      this.$emit('linechange', event.detail)
     },
     onClickSuffixIcon () {
       this.$emit('clicksuffixicon')

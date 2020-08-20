@@ -156,7 +156,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | event.detail = {index,name},index为tab下标，name为tab绑定的值 |
-| bind:click | 点击标题时触发 | event.detail = {index,name},index为tab下标，name为tab绑定的值 |
-| bind:disabled | 点击禁用的标题时触发| event.detail = {index,name},index为tab下标，name为tab绑定的值 |
+| bind:change | 绑定值变化时触发 | event.detail = { index, name },index为tab下标，name为tab绑定的值 |
+| bind:click | 点击标题时触发 | event.detail = { index, name },index为tab下标，name为tab绑定的值 |
+| bind:disabled | 点击禁用的标题时触发| event.detail = { index, name },index为tab下标，name为tab绑定的值 |
 

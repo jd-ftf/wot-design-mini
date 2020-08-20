@@ -20,24 +20,24 @@ page({
   data: {
     value: [ 'item1' ]
   },
-  handleChange ({ detail }) {
+  handleChange (event) {
     this.setData({
-      value: detail
+      value: event.detail.value
     })
   }
 })
 ```
 ```html
 <wd-collapse value="{{ value }}" bind:change="handleChange1">
-    <wd-collapse-item title="标签1" name="item1">
+  <wd-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
-    </wd-collapse-item>
-    <wd-collapse-item title="标签2" name="item2">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签2" name="item2">
     这是一条简单的示例文字。
-    </wd-collapse-item>
-    <wd-collapse-item title="标签3" name="item3">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签3" name="item3">
     这是一条简单的示例文字。
-    </wd-collapse-item>
+  </wd-collapse-item>
 </wd-collapse>
 ```
 
@@ -99,6 +99,7 @@ Collapse 查看更多的模式下，可以使用插槽定义自己想要的折�
   <view slot="more">显示全部</view>
 </wd-collapse>
 ```
+
 ### CollapseItem Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -106,6 +107,7 @@ Collapse 查看更多的模式下，可以使用插槽定义自己想要的折�
 | name | 折叠栏的标识符 | string | - | - |
 | title | 折叠栏的标题 | string | - | - |
 | disabled | 禁用折叠栏 | boolean | - | false |
+
 ### Collapse Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -120,7 +122,7 @@ Collapse 查看更多的模式下，可以使用插槽定义自己想要的折�
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | value |
+| bind:change | 绑定值变化时触发 | event.detail = { value } |
 
 ### Collapse Slot
 

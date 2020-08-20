@@ -74,7 +74,7 @@ VueComponent({
       if (url) {
         jd[linkType]({ url })
       }
-      this.$emit('itemclick', event)
+      this.$emit('itemclick')
     },
     set (key, value) {
       this.setData({ [key]: value })

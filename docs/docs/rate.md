@@ -12,10 +12,23 @@
 
 ### 基本用法
 
-设置`value`分数，设置`num`总分数。
+设置`value`分数，设置`num`总分数，默认为5分，监听 `bind:change` 事件获取新值。
 
 ```html
-<wd-rate value="{{5}}" num="{{6}}" />
+<wd-rate value="{{value}}" bind:change="handleChange" />
+```
+
+```javascript
+Page({
+  data: {
+    value: 1
+  },
+  handleChange (event) {
+    this.setData({
+      value: event.detail.value
+    })
+  }
+})
 ```
 
 ### 只读
@@ -59,26 +72,8 @@
 <wd-rate value="{{3}}" size="30px" space="10px"/>
 ```
 
-### 监听change事件
-
-可以通过监听 `change` 实现点击修改分值。
-
-```html
-  <wd-rate value="{{value}}" bind:change="changeValue"/>
-```
-```javascript
-Page({
-  data: {
-    value: 1
-  },
-  changeValue ({ detail }) {
-    this.setData({ value: detail })
-  }
-})
-```
-
-
 ### Attributes
+
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value     |	当前分数                |	number    |	—           |	—       |
@@ -92,12 +87,13 @@ Page({
 | active-icon    | 选中的图标类名                  | string | - | 'wd-icon-star-on' |
 | disabled           | 是否禁用                  | boolean | - | false |
 | disabled-color    | 禁用的图标颜色                  | string | - | 'linear-gradient(315deg, rgba(177,177,177,1) 0%,rgba(199,199,199,1) 100%)' |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change       | 点击icon，修改分值事件              | event.detail = 被点击icon的节点顺序下标  |
+| bind:change       | 点击icon，修改分值事件              | event.detail = { value }  |
 
 ### 外部样式类
 

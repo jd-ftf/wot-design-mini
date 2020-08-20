@@ -90,6 +90,9 @@ Page({
             id: 'selectPicker',
             name: 'SelectPicker 单复选选择器'
           }, {
+            id: 'slider',
+            name: 'Slider 滑块'
+          }, {
             id: 'switch',
             name: 'Switch 开关'
           }, {
@@ -114,9 +117,6 @@ Page({
           }, {
             id: 'messageBox',
             name: 'MessageBox 弹框'
-          }, {
-            id: 'slider',
-            name: 'Slider 滑块'
           }, {
             id: 'swipeAction',
             name: 'SwipeAction 滑动操作'

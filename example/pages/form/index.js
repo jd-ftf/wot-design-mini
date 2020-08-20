@@ -1,98 +1,134 @@
-import MessageBox from '../../dist/messageBox/messageBox'
 import Toast from '../../dist/toast/toast.js'
+import areaData from '../../utils/area'
 
 Page({
   data: {
-    username: '',
-    usernameError: false,
-    password: '',
-    passwordError: false,
-    gender: 1,
-    subscribe: true,
-    typeList: [
+    couponName: '',
+    couponNameErr: false,
+    platform: '',
+    platformList: [
       {
-        label: '类型1',
-        value: 1
+        value: '1',
+        label: '京东'
       }, {
-        label: '类型2',
-        value: 2
+        value: '2',
+        label: '开普勒'
       }, {
-        label: '类型3',
-        value: 3
+        value: '3',
+        label: '手Q'
+      }, {
+        value: '4',
+        label: '微信'
+      }, {
+        value: '5',
+        label: '1号店'
+      }, {
+        value: '6',
+        label: '十元街'
+      }, {
+        value: '7',
+        label: '京东极速版'
       }
     ],
-    userType: '',
-    userTypeError: false,
-    birthday: '',
-    birthdayDate: '',
-    birthdayError: false,
-    birthdayFormat (type, value) {
-      switch (type) {
-        case 'year':
-          return value + '年'
-        case 'month':
-          return value + '月'
-        case 'date':
-          return value + '日'
-        default:
-          return value
+    promotion: '1',
+    promotionlist: [
+      {
+        value: '1',
+        label: '满减'
+      }, {
+        value: '2',
+        label: '无门槛'
       }
-    }
+    ],
+    threshold: '',
+    price: '',
+    date: Date.now(),
+    address: [],
+    area: [Object.keys(areaData[86]).map(key => {
+      return {
+        value: key,
+        label: areaData[86][key]
+      }
+    })],
+    areaChange ({ selectedItem, resolve, finish }) {
+      if (areaData[selectedItem.value]) {
+        resolve(Object.keys(areaData[selectedItem.value]).map(key => {
+          return {
+            value: key,
+            label: areaData[selectedItem.value][key]
+          }
+        }))
+      } else {
+        finish()
+      }
+    },
+    content: '',
+    count: 1,
+    read: false,
+    switchVal: true,
+    cardId: '',
+    phone: ''
   },
-  handleUsername ({ detail }) {
+  handleCouponName ({ detail: { value } }) {
     this.setData({
-      username: detail,
-      usernameError: false
+      couponName: value,
+      couponNameErr: false
     })
   },
-  handlePassword ({ detail }) {
+  handlePlatform ({ detail: { value } }) {
     this.setData({
-      password: detail,
-      passwordError: false
+      platform: value
     })
   },
-  handleGender ({ detail }) {
+  handleThreshold ({ detail: { value } }) {
     this.setData({
-      gender: detail
+      threshold: value
     })
   },
-  handleSubscribe ({ detail }) {
+  handlePrice ({ detail: { value } }) {
     this.setData({
-      subscribe: detail
+      price: value
     })
   },
-  handleUserType ({ detail }) {
+  handleAddress ({ detail: { value } }) {
     this.setData({
-      userType: detail,
-      userTypeError: false
+      address: value
     })
   },
-  handleBirthday ({ detail }) {
-    let date = new Date(detail)
+  handleContent ({ detail: { value } }) {
     this.setData({
-      birthday: detail,
-      birthdayDate: date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(),
-      birthdayError: false
+      content: value
     })
   },
-  handleClick () {
-    const { username, password, userType, birthday } = this.data
-
-    if (!username || !password || !userType || !birthday) {
-      this.setData({
-        usernameError: !username,
-        passwordError: !password,
-        userTypeError: !userType,
-        birthdayError: !birthday
-      })
-      
-      Toast.error('有未填的选项')
-      return
-    }
-
-    MessageBox.alert({
-      title: '提交提示',
-      msg: '提交成功'
+  handleCount ({ detail: { value } }) {
+    this.setData({
+      count: value
     })
+  },
+  handleSwitch ({ detail: { value } }) {
+    this.setData({
+      switchVal: value
+    })
+  },
+  handleRead ({ detail: { value } }) {
+    this.setData({
+      read: value
+    })
+  },
+  handleCardId ({ detail: { value } }) {
+    this.setData({
+      cardId: value
+    })
+  },
+  handlePhone ({ detail: { value } }) {
+    this.setData({
+      phone: value
+    })
+  },
+  formSubmit ({ detail }) {
+    console.log(detail)
+  },
+  handleIconClick () {
+    Toast.info('优惠券提示信息')
   }
 })

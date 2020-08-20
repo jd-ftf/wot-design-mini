@@ -14,47 +14,45 @@
     </view>
   </view>
   <!-- 文本域 -->
-	<view jd:if="{{ type === 'textarea' }}">
-  	<view class="wd-input__textarea {{ showWordCount ? 'is-show-limit' : '' }}">
-      <!-- readonly -->
-    	<view jd:if="{{ readonly }}" class="wd-input__textarea-inner">{{ value }}</view>
-      <block jd:else>
-        <textarea
-          class="wd-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} custom-textarea-class"
-          value="{{ value }}"
-          placeholder="{{ placeholder }}"
-          disabled="{{ disabled }}"
-          minlength="{{ minlength }}"
-          maxlength="{{ maxlength }}"
-          focus="{{ focus }}"
-          placeholder-style="{{ placeholderStyle }}"
-          placeholder-class="wd-input__placeholder {{ placeholderClass }}"
-          auto-height="{{ autoHeight }}"
-          cursor-spacing="{{ cursorSpacing }}"
-          fixed="{{ fixed }}"
-          cursor="{{ cursor }}"
-          show-confirm-barb="{{ showConfirmBar }}"
-          selection-start="{{ selectionStart }}"
-          selection-end="{{ selectionEnd }}"
-          adjust-position="{{ adjustPosition }}"
-          hold-keyboard="{{ holdKeyboard }}"
-          bindinput="handleInput"
-          bindfocus="handleFocus"
-          bindblur="handleBlur"
-          bindconfirm="handleConfirm"
-          bindlinechange="handleLineChange"
-          bindkeyboardheightchange="handleKeyboardheightchange"
-        />
-        <view class="wd-input__textarea-suffix">
-          <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__textarea-icon" name="error-fill" catchtap="clear"/>
-          <view jd:if="{{ showWordCount }}" class="wd-input__textarea-count">
-            <text
-              class="{{ value && value.length > 0 ? 'wd-input__textarea-count-current' : '' }} {{ value.length > parseInt(maxlength) ? 'is-error' : '' }}"
-            >{{ value.length }}</text>/{{ maxlength }}
-          </view>
+  <view jd:if="{{ type === 'textarea' }}" class="wd-input__textarea {{ showWordCount ? 'is-show-limit' : '' }}">
+    <!-- readonly -->
+    <view jd:if="{{ readonly }}" class="wd-input__textarea-inner">{{ value }}</view>
+    <block jd:else>
+      <textarea
+        class="wd-input__textarea-inner {{ showClear ? 'is-suffix' : '' }} custom-textarea-class"
+        value="{{ value }}"
+        placeholder="{{ placeholder }}"
+        disabled="{{ disabled }}"
+        minlength="{{ minlength }}"
+        maxlength="{{ maxlength }}"
+        focus="{{ focus }}"
+        placeholder-style="{{ placeholderStyle }}"
+        placeholder-class="wd-input__placeholder {{ placeholderClass }}"
+        auto-height="{{ autoHeight }}"
+        cursor-spacing="{{ cursorSpacing }}"
+        fixed="{{ fixed }}"
+        cursor="{{ cursor }}"
+        show-confirm-barb="{{ showConfirmBar }}"
+        selection-start="{{ selectionStart }}"
+        selection-end="{{ selectionEnd }}"
+        adjust-position="{{ adjustPosition }}"
+        hold-keyboard="{{ holdKeyboard }}"
+        bindinput="handleInput"
+        bindfocus="handleFocus"
+        bindblur="handleBlur"
+        bindconfirm="handleConfirm"
+        bindlinechange="handleLineChange"
+        bindkeyboardheightchange="handleKeyboardheightchange"
+      />
+      <view class="wd-input__textarea-suffix">
+        <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__textarea-icon" name="error-fill" catchtap="clear"/>
+        <view jd:if="{{ showWordCount }}" class="wd-input__textarea-count">
+          <text
+            class="{{ value && value.length > 0 ? 'wd-input__textarea-count-current' : '' }} {{ value.length > parseInt(maxlength) ? 'is-error' : '' }}"
+          >{{ value.length }}</text>/{{ maxlength }}
         </view>
-      </block>
-    </view>
+      </view>
+    </block>
   </view>
   <!-- 输入域 -->
   <view jd:else class="wd-input__block">

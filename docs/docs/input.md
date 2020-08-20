@@ -21,9 +21,9 @@ page({
   data: {
     value: '',
   },
-  handleChange ({ detail }) {
+  handleChange (event) {
     this.setData({
-      value: detail
+      value: event.detail.value
     })
   }
 })
@@ -186,18 +186,20 @@ page({
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | use-label-slot | 使用 label 插槽 | boolean | - | false |
 | required | cell 类型下必填样式 | boolean | - | false |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
 | bind:input        | 监听输入框focus事件                    | event.detail = {value, cursor, keyCode}       |
-| bind:focus        | 监听输入框focus事件                    | event.detail = { value, height }       |
-| bind:blur         | 监听输入框blur事件                     | 搜索输入框文本value       |
-| bind:change       | 监听输入框修改事件                      | 搜索输入框文本value       |
+| bind:focus        | 监听输入框focus事件                    | event.detail = { value, height }, height 为键盘高度 |
+| bind:blur         | 监听输入框blur事件                     | event.detail = { value }       |
+| bind:change       | 监听输入框修改事件                      | event.detail = { value }      |
 | bind:clear        | 监听输入框清空按钮事件                   | -       |
-| bind:linechange        | 监听输入框行数变化(仅限textarea)                   | event.detail = {height: 0, heightRpx: 0, lineCount: 0}       |
-| bind:confirm        | 点击完成时， 触发 confirm 事件                   | event.detail = {value: value}       |
+| bind:linechange   | 监听输入框行数变化(仅限textarea)         | event.detail = { height: 0, heightRpx: 0, lineCount: 0 }       |
+| bind:confirm        | 点击完成时， 触发 confirm 事件         | event.detail = { value }       |
+| bind:keyboardheightchange | 键盘高度发生变化的时候触发此事件 | event.detail = { height, duration } |
 | bind:clickprefixicon | 点击前置图标时触发 | - |
 | bind:clicksuffixicon | 点击后置图标时触发 | - |
 

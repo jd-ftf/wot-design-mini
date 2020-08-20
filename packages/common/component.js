@@ -74,6 +74,10 @@ function VueComponent (vueOptions) {
   // 京东小程序暂时不支持behaviors，因此手动实现mixins
   vueOptions.mixins.forEach(mixinOptions => {
     mergeData(mixinOptions, vueOptions, ['data', 'props', 'methods', 'relations'])
+    if (vueOptions.methods && vueOptions.methods.onChange) {
+      console.log(mixinOptions)
+      console.log(vueOptions)
+    }
   })
   mergeLifeCycle(vueOptions.mixins, vueOptions, ['beforeCreate', 'created', 'mounted', 'destroyed'])
 
@@ -100,6 +104,9 @@ function VueComponent (vueOptions) {
   }
   // 调用原生api注册自定义组件
   Component(options)
+  if (options.methods.onChange) {
+    console.log(options)
+  }
 }
 
 export default VueComponent

@@ -90,7 +90,7 @@ Page({
 ```html
 <wd-drop-menu>
   <wd-drop-menu-item value="0" options="{{ option1 }}" />
-  <wd-drop-menu-item title="筛选" id="drop-menu" use-drop-item-slot>
+  <wd-drop-menu-item options="筛选" id="drop-menu" use-drop-item-slot>
     <view slot="custom">
       <wd-cell title="标题文字" value="内容" icon="setting" />
       <wd-cell title="标题文字" value="内容" icon="collect" />
@@ -194,7 +194,6 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | value |
 
 ### DropdownItem Events
 
@@ -202,6 +201,7 @@ Page({
 
 | 方法名 | 说明 | 参数 | 返回值 |
 |------|------|------|------|
+| bind:change | 绑定值变化时触发 | event.detail = { value, selectedItem }, value 为选中值，selectedItem 为选中项 |
 | close | 关闭菜单 | - | - |
 | open | 展开菜单 | - | - |
 

@@ -10,7 +10,7 @@ VueComponent({
     'custom-label-class',
     'custom-value-class'
   ],
-  behaviors: [cell],
+  behaviors: [cell, 'jd://form-field'],
   relations: {
     '../cellGroup/index': {
       type: 'ancestor',
@@ -108,6 +108,14 @@ VueComponent({
     resetColumns: [] // 保存之前的 columns，当取消时，将数据源回滚，避免多级联动数据源不正确的情况
   },
   methods: {
+    // 对外暴露方法，打开弹框
+    open () {
+      this.showPopup()
+    },
+    // 对外暴露方法，关闭弹框
+    close () {
+      this.onCancel()
+    },
     /**
      * @description 展示popup，小程序有个bug，在picker-view弹出时设置value，会触发change事件，而且会将picker-view的value多次触发change重置为第一项
      */

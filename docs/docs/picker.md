@@ -26,9 +26,9 @@ Page({
     columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
     value: ''
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value: value
+      value: event.detail.value
     })
   }
 })
@@ -212,9 +212,9 @@ Page({
       }, 2000)
     }
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail
+      value: event.detail.detail
     })
   }
 })
@@ -257,14 +257,22 @@ Page({
 | use-label-slot | label 使用插槽 | boolean | - | false |
 | use-default-slot | 使用默认插槽 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:confirm | 点击右侧按钮触发 | event.detail = { value, selectedItems } |
+| bind:confirm | 点击右侧按钮触发 | event.detail = { value, selectedItems }， value 为选中值(多列则为数组)，selectedItems为选中项(多列则为数组) |
 | bind:cancel | 点击左侧按钮触发 | - |
 | bind:open | 打开选择器弹出层时触发 | - |
+
+### Methods
+
+| 方法名称      | 说明       | 参数   |
+|------------- |----------- |---------  |
+| open | 打开picker弹框 |
+| close | 关闭picker弹框 |
 
 ### Slot
 
