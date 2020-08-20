@@ -35,7 +35,6 @@ VueComponent({
     }
   },
   mounted () {
-    console.log(this.data.bgColor)
     if (!this.data.border) return
     const { length } = this.children
     this.children.forEach((item, index) => {
