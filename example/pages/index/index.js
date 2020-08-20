@@ -41,6 +41,9 @@ Page({
             id: 'layout',
             name: 'Layout 布局'
           }, {
+            id: 'pagination',
+            name: 'Pagination 分页'
+          }, {
             id: 'tabs',
             name: 'Tabs 标签页'
           }
