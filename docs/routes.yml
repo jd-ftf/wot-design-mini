@@ -58,6 +58,8 @@
               title: Grid 宫格
             - name: layout
               title: Layout 布局
+            - name: pagination
+              title: Pagination 布局
             - name: tabs
               title: Tabs 标签页
         - type: group
