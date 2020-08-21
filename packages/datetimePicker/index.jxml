@@ -12,6 +12,7 @@
   cancel-button-text="{{cancelButtonText}}"
   confirm-button-text="{{confirmButtonText}}"
   loading="{{loading}}"
+  loading-color="{{loadingColor}}"
   required="{{required}}"
   value="{{pickerValue}}"
   columns-height="{{columnsHeight}}"

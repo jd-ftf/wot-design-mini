@@ -145,6 +145,7 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 | size | 设置大小 | string | 'large' | - |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
+| max-width | 文字位置最大宽度 | string | - | '' |
 | inline | 同行展示 | boolean | - | false |
 | cell | 表单模式 | boolean | - | false |
 | name | form 表单中的字段名 | string | - | - |

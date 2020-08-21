@@ -16,6 +16,14 @@ export default {
     type: Boolean,
     value: false
   },
+  loading: {
+    type: Boolean,
+    value: false
+  },
+  loadingColor: {
+    type: String,
+    value: '#4D80F0'
+  },
   /* popup */
   // 弹出层标题
   title: String,

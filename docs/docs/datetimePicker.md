@@ -233,6 +233,7 @@ Page({
 | value | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
 | type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
 | loading | 加载中 | boolean | - | false |
+| loading-color | 加载的颜色 | string | - | '#4D80F0' |
 | columns-height | picker内部滚筒高 | number | - | 231 |
 | title | 弹出层标题 | string | - | - |
 | cancel-button-text | 取消按钮文案 | string | - | '取消' |

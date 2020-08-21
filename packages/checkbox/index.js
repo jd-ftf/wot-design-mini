@@ -89,7 +89,8 @@ VueComponent({
     size: {
       type: String,
       value: null
-    }
+    },
+    maxWidth: String
   },
   data: {
     isChecked: false,

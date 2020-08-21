@@ -130,6 +130,7 @@ Page({
 | value | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
 | type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
 | loading | 加载中 | boolean | - | false |
+| loading-color | 加载的颜色 | string | - | '#4D80F0' |
 | columns-height | picker内部滚筒高 | number | - | 231 |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |

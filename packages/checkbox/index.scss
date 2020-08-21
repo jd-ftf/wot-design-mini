@@ -48,7 +48,6 @@
     display: inline-block;
     vertical-align: middle;
     line-height: 20px;
-    max-width: 112px;
     @include lineEllipsis;
   }
   @include e(label) {
@@ -103,7 +102,6 @@
       justify-content: center;
       align-items: center;
       min-width: $-checkbox-button-min-width;
-      max-width: $-checkbox-button-max-width;
       height: $-checkbox-button-height;
       font-size: $-checkbox-button-font-size;
       margin-left: 0;

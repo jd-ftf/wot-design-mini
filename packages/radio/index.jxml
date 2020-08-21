@@ -4,7 +4,7 @@
 >
   <view
       class="wd-radio__label"
-      style="{{(isChecked && shape === 'button' && !disabled ) ? 'color :' + checkedColor : '' }}"
+      style="{{ maxWidth ? 'max-width:'+ maxWidth : '' }}; {{(isChecked && shape === 'button' && !disabled ) ? 'color :' + checkedColor : '' }} "
     >
     <slot></slot>
   </view>
