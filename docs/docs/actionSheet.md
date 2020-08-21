@@ -228,3 +228,10 @@ page({
 |----- |----- |----- |
 | iconUrl | 图片地址 | string |
 | title | 标题内容 | string |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |
+| custom-header-class | header头部样式 |

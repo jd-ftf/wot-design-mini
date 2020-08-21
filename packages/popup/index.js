@@ -54,6 +54,9 @@ VueComponent({
     },
     close () {
       this.$emit('close')
+    },
+    noop () {
+
     }
   },
   created () {
