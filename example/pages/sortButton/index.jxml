@@ -13,14 +13,14 @@
 </demo-block>
 
 <demo-block title="修改选中颜色">
-  <wd-sort-button title="价格" color="#00c740" bind:click="handleClick"/>
+  <wd-sort-button title="价格" color="#34d19d" bind:click="handleClick"/>
 </demo-block>
 
 <demo-block title="修改文案选中颜色">
   <wd-sort-button
     title="价格"
     allow-reset
-    color="#00c740"
-    title-color="#ff0000"
+    color="#34d19d"
+    title-color="#fa4350"
     bind:click="handleClick"/>
 </demo-block>
