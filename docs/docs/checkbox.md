@@ -92,7 +92,7 @@ Page({
 
 ### 复选框组
 
-`value` 为数组，单个复选框的值通过 `value` 进行设置。通过监听 `bind:change` 事件获取当前选中值。
+`value` 为数组，单个复选框的值通过 `value` 进行设置。通过监听 `change` 事件获取当前选中值。
 
 ```html
 <wd-checkbox-group value="{{value}}"  bind:change="handleChange">

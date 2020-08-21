@@ -2,9 +2,9 @@
 <wd-toast id="wd-toast"/>
 <form bindsubmit="formSubmit">
   <wd-cell-group custom-class="group" title="基础信息" border>
-    <wd-input label="优惠券名称" label-width="120px" maxlength="20" show-word-limit name="a[couponName]" required suffix-icon="warn-bold" error="{{ couponNameError }}" clearable value="{{ couponName }}" placeholder="请输入优惠券名称" bind:change="handleCouponName" bind:clicksuffixicon="handleIconClick" />
-    <wd-picker label="推广平台" label-width="120px" name="a[platform]" value="{{platform}}" columns="{{platformList}}" placeholder="请选择平台名称" bind:change="handlePlatform" />
-    <wd-picker label="优惠方式" label-width="120px" name="promotion" align-right value="{{promotion}}" columns="{{promotionlist}}" bind:change="handlePromotion" />
+    <wd-input label="优惠券名称" label-width="120px" maxlength="20" show-word-limit name="couponName" required suffix-icon="warn-bold" error="{{ couponNameError }}" clearable value="{{ couponName }}" placeholder="请输入优惠券名称" bind:change="handleCouponName" bind:clicksuffixicon="handleIconClick" />
+    <wd-select-picker label="推广平台" label-width="120px" name="platform" value="{{platform}}" columns="{{platformList}}" placeholder="请选择推广平台" bind:confirm="handlePlatform" />
+    <wd-picker label="优惠方式" label-width="120px" name="promotion" align-right value="{{promotion}}" columns="{{promotionlist}}" bind:confirm="handlePromotion" />
     <wd-cell title="券面额" required title-width="120px" custom-value-class="cell-left">
       <view style="text-align: left;">
         <view class="inline-txt" style="margin-left: 0;">满</view>
@@ -29,7 +29,7 @@
     </wd-cell>
   </wd-cell-group>
   <wd-cell-group custom-class="group" title="时间和地址" border>
-    <wd-datetime-picker label="时间" label-width="120px" name="date" value="{{date}}" />
+    <wd-datetime-picker label="时间" label-width="120px" name="date" value="{{date}}" bind:confirm="handleDate" />
     <wd-col-picker label="地址" label-width="120px" name="address" value="{{address}}" columns="{{area}}" column-change="{{areaChange}}" bind:confirm="handleAddress" />
   </wd-cell-group>
   <wd-cell-group custom-class="group" title="其他信息" border>
@@ -55,12 +55,9 @@
     <wd-input label="手机号" label-width="120px" name="phone" placeholder="请输入手机号" clearable value="{{ phone }}" bind:change="handlePhone" />
   </wd-cell-group>
   <view class="tip">
-    <view style="display: inline-block; vertical-align: middle;">
-      <wd-checkbox value="{{read}}" name="read" bind:change="handleRead" />
-    </view>
-    <view style="display: inline-block; vertical-align: middle;">
+    <wd-checkbox value="{{read}}" name="read" bind:change="handleRead">
       已阅读并同意<text style="color: #4D80F0">《借款额度合同及相关授权》</text>
-    </view>
+    </wd-checkbox>
   </view>
-  <button class="wd-button is-primary is-suck" formType="submit">提交</button>
+  <button class="wd-button is-primary is-suck" form-type="submit">提交</button>
 </form>

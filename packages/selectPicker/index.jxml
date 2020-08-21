@@ -5,7 +5,7 @@
       <view
         jd:if="{{ label || useLabelSlot }}"
         class="wd-select-picker__label {{ required && 'is-required' }} custom-label-class"
-        style="{{ abelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}"
+        style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}"
       >
         <block jd:if="label">{{ label }}</block>
         <slot jd:else name="label"></slot>

@@ -13,7 +13,7 @@
   session-message-img="{{sessionMessageImg}}"
   lang="{{lang}}"
   hover-stop-propagation="{{hoverStopPropagation}}"
-  formType="{{formType}}"
+  form-type="{{formType}}"
   bindtap="handleClick"
   bindgetuserinfo="handleGetuserinfo"
   bindcontact="handleConcat"

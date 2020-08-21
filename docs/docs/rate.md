@@ -12,7 +12,7 @@
 
 ### 基本用法
 
-设置`value`分数，设置`num`总分数，默认为5分，监听 `bind:change` 事件获取新值。
+设置`value`分数，设置`num`总分数，默认为5分，监听 `change` 事件获取新值。
 
 ```html
 <wd-rate value="{{value}}" bind:change="handleChange" />

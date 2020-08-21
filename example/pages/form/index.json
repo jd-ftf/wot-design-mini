@@ -13,6 +13,7 @@
     "wd-toast": "../../dist/toast/index",
     "wd-message-box": "../../dist/messageBox/index",
     "wd-input-number": "../../dist/inputNumber/index",
-    "wd-col-picker": "../../dist/colPicker/index"
+    "wd-col-picker": "../../dist/colPicker/index",
+    "wd-select-picker": "../../dist/selectPicker/index"
   }
 }

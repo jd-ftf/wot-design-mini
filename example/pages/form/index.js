@@ -1,11 +1,12 @@
 import Toast from '../../dist/toast/toast.js'
+import MessageBox from '../../dist/messageBox/messageBox.js'
 import areaData from '../../utils/area'
 
 Page({
   data: {
     couponName: '',
     couponNameErr: false,
-    platform: '',
+    platform: [],
     platformList: [
       {
         value: '1',
@@ -126,9 +127,14 @@ Page({
     })
   },
   formSubmit ({ detail }) {
-    console.log(detail)
+    MessageBox.alert(`获取的数据为 ${JSON.stringify(detail.value)}`)
   },
   handleIconClick () {
     Toast.info('优惠券提示信息')
+  },
+  handleDate ({ detail }) {
+    this.setData({
+      date: detail.value
+    })
   }
 })

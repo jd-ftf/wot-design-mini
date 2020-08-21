@@ -12,7 +12,7 @@
 
 ### 基本用法
 
-设置 `value` 值，监听 `bind:change` 事件修改值。
+设置 `value` 值，监听 `change` 事件修改值。
 
 ```html
 <wd-switch value="{{ checked }}" bind:change="handleChange" />

@@ -20,7 +20,7 @@
 
 `value` 设置选中项的值，数据类型为数组；
 
-监听 `bind:change` 事件，获取选中值，`event.detail` 是个对象，包含 `value`(选中值数组)、`selectedItems`（选中项对象数组）两个属性。
+监听 `change` 事件，获取选中值，`event.detail` 是个对象，包含 `value`(选中值数组)、`selectedItems`（选中项对象数组）两个属性。
 
 传入 `column-change` 属性，其类型为 `function`，接收参数 options: object；options 的结构如下：
 
