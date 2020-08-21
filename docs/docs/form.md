@@ -42,7 +42,7 @@ html 文件代码：
 <wd-toast id="wd-toast"/>
 <form bindsubmit="formSubmit">
   <wd-cell-group custom-class="group" title="基础信息" border>
-    <wd-input label="优惠券名称" label-width="120px" maxlength="20" show-word-limit name="couponName" required suffix-icon="warn-bold" error="{{ couponNameError }}" clearable value="{{ couponName }}" placeholder="请输入优惠券名称" bind:change="handleCouponName" bind:clicksuffixicon="handleIconClick" />
+    <wd-input label="优惠券名称" label-width="120px" maxlength="20" show-word-limit name="couponName" required suffix-icon="warn-bold" clearable value="{{ couponName }}" placeholder="请输入优惠券名称" bind:change="handleCouponName" bind:clicksuffixicon="handleIconClick" />
     <wd-select-picker label="推广平台" label-width="120px" name="platform" value="{{platform}}" columns="{{platformList}}" placeholder="请选择推广平台" bind:confirm="handlePlatform" />
     <wd-picker label="优惠方式" label-width="120px" name="promotion" align-right value="{{promotion}}" columns="{{promotionlist}}" bind:confirm="handlePromotion" />
     <wd-cell title="券面额" required title-width="120px" custom-value-class="cell-left">
@@ -115,7 +115,6 @@ import areaData from '../../utils/area'
 Page({
   data: {
     couponName: '',
-    couponNameErr: false,
     platform: [],
     platformList: [
       {
@@ -237,6 +236,10 @@ Page({
     })
   },
   formSubmit (event) {
+    if (!detail.value.couponName) {
+      Toast.error('请填写优惠券名称')
+      return
+    }
     MessageBox.alert(`获取的数据为 ${JSON.stringify(event.detail.value)}`)
   },
   handleIconClick () {

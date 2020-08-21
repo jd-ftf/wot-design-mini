@@ -127,6 +127,10 @@ Page({
     })
   },
   formSubmit ({ detail }) {
+    if (!detail.value.couponName) {
+      Toast.error('请填写优惠券名称')
+      return
+    }
     MessageBox.alert(`获取的数据为 ${JSON.stringify(detail.value)}`)
   },
   handleIconClick () {
