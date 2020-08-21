@@ -17,7 +17,7 @@
         class="wd-sort-button__icon--top"
       >
         <wd-icon
-          name="caret-top"
+          name="arrow-up"
           color="{{top.color}}"
           custom-class="wd-sort-button__icon"
         />
@@ -27,7 +27,7 @@
         class="wd-sort-button__icon--bottom"
       >
         <wd-icon
-          name="caret-bottom"
+          name="arrow-down"
           color="{{bottom.color}}"
           custom-class="wd-sort-button__icon"
         />

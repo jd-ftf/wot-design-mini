@@ -22,7 +22,7 @@ VueComponent({
     },
     color: {
       type: String,
-      value: '#0083ff'
+      value: '#4d80f0'
     },
     allowReset: Boolean
   },
