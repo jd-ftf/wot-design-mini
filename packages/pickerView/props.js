@@ -1,6 +1,10 @@
 export default {
   // 加载中
   loading: Boolean,
+  loadingColor: {
+    type: String,
+    value: '#4D80F0'
+  },
   // 选项总高度
   columnsHeight: {
     type: Number,

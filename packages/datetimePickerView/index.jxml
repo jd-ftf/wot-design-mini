@@ -7,5 +7,6 @@
   cancel-button-text="{{cancelButtonText}}"
   confirm-button-text="{{confirmButtonText}}"
   loading="{{loading}}"
+  loading-color="{{loadingColor}}"
   bind:change="onChange"
 ></wd-picker-view>

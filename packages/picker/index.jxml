@@ -48,6 +48,7 @@
       value="{{pickerValue}}"
       columns="{{displayColumns}}"
       loading="{{loading}}"
+      loading-color="{{loadingColor}}"
       columns-height="{{columnsHeight}}"
       value-key="{{valueKey}}"
       label-key="{{labelKey}}"

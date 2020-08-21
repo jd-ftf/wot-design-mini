@@ -28,7 +28,7 @@
       size="14px"
     />
     <!--文案-->
-    <view class="wd-checkbox__txt">
+    <view class="wd-checkbox__txt" style="{{ maxWidth ? 'max-width:'+ maxWidth : '' }}">
       <slot></slot>
     </view>
   </view>

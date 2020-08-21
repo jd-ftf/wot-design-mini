@@ -50,7 +50,8 @@ VueComponent({
     inline: {
       type: Boolean,
       value: null
-    }
+    },
+    maxWidth: String
   },
   relations: {
     '../radioGroup/index': {

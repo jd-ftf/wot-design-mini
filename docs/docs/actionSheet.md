@@ -101,8 +101,9 @@ page({
 ```
 
 ### 自定义面板
-#### 单行展示
+
 可以设置 图片、文案。
+
 ```html
 <wd-button bind:click="showActions">弹出菜单</wd-button>
 <wd-action-sheet show="{{ show }}" panels="{{ panels }}" bind:close="close" bind:select="select" />
@@ -136,6 +137,7 @@ page({
 ```
 
 #### 多行展示
+
 ```html
 <wd-button bind:click="showActions">弹出菜单</wd-button>
 <wd-action-sheet show="{{ show }}" panels="{{ panels }}" bind:close="close" bind:select="select" />
