@@ -8,6 +8,7 @@ Page({
     value3: ['item1'],
     value4: false,
     value5: false,
+    value6: false,
     accordion: true,
     name: 'item1'
   },
@@ -25,5 +26,8 @@ Page({
   },
   handleChange5 ({ detail }) {
     this.setData({ value5: detail })
+  },
+  handleChange6 ({ detail }) {
+    this.setData({ value6: detail })
   }
 })
