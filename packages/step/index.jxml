@@ -8,17 +8,18 @@
       <view jd:if="{{ dot }}" class="wd-step__dot"></view>
       <slot jd:elif="{{ iconSlot }}" name="icon"/>
       <wd-icon jd:elif="{{ icon }}" class="wd-step__icon-inner" name="{{ icon }}"/>
-      <view
-        jd:elif="{{ currentStatus !== 'finished' && currentStatus !== 'error' }}"
-        class="wd-step__icon-outer"
-      >
-        {{ index + 1 }}
+      <view jd:else class="wd-step__icon-outer">
+        <wd-icon
+          jd:if="{{ currentStatus === 'finished' }}"
+          name="check-bold"
+        />
+        <wd-icon
+          jd:elif="{{ currentStatus === 'error' }}"
+          name="close-bold"
+        />
+        <text jd:else>{{ index + 1 }}</text>
       </view>
-      <wd-icon
-        jd:else
-        class="wd-step__icon-inner"
-        name="{{ currentStatus === 'finished' ? 'success' : 'close' }}"
-      />
+      
     </view>
     <view jd:if="{{ index < childrenLength - 1 }}" class="wd-step__line"></view>
   </view>
