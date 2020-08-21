@@ -37,7 +37,7 @@
 	<view class="default-slot">
 		<view style="margin-bottom: 10px;color: rgba(0,0,0,0.45)">选中值：<text style="color: #34d19d">{{ value8 }}</text></view>
 		<wd-picker columns="{{columns0}}" value="{{value8}}" use-default-slot bind:confirm="handleConfirm">
-			<wd-button type="primary">插槽唤起</wd-button>
+			<wd-button>插槽唤起</wd-button>
 		</wd-picker>
 	</view>
 </demo-block>

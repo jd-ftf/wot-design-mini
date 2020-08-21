@@ -45,7 +45,7 @@
 			<wd-input type="text" label="必填" value="{{ value16 }}" placeholder="请输入用户名" required />
 			<wd-input type="text" label="图标" value="{{ value17 }}" placeholder="请输入..." prefix-icon="dong" suffix-icon="list" />
 			<wd-input type="text" label="自定义插槽" value="{{ value18 }}" placeholder="请输入..." use-suffix-slot clearable>
-				<wd-button slot="suffix" type="primary" size="small" custom-class="button">获取验证码</wd-button>
+				<wd-button slot="suffix" size="small" custom-class="button">获取验证码</wd-button>
 			</wd-input>
 			<wd-input type="text" label="大尺寸" size="large" value="{{ value19 }}" placeholder="请输入..." />
 		</wd-cell-group>

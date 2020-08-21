@@ -16,7 +16,7 @@
       color: $disabledcolor;
     }
 
-    opacity: 0.6;
+    // opacity: 0.6;
     background: $disabled;
     border-color: $disabled;
     color: $disabledcolor;
@@ -239,14 +239,15 @@
       border: 1px solid;
       box-shadow: none;
       &.wd-button--active {
-        background-color: $-button-primary-plain-active-color;
+        background-color: $-button-primary-plain-active-bg-color;
       }
       @include when(disabled) {
         &.wd-button--active {
-          background-color: $-button-primary-plain-active-color;
+          background-color: $-button-primary-plain-active-bg-color;
         }
         opacity: 1;
-        background-color: $-button-primary-plain-active-color;
+        background-color: $-button-primary-plain-active-bg-color;
+        color: $-button-primary-plain-disabled-color;
       }
     }
     @include when(success) {
@@ -259,12 +260,12 @@
     }
     @include when(info) {
       @include button-plain-style(
-        $-button-info-color,
+        $-button-info-plain-normal-color,
         $-button-info-bg-color,
         $-button-info-active-color,
         $-button-info-disabled-color
       );
-      border-color: $-button-info-plain-color;
+      border-color: $-button-info-plain-border-color;
       &.wd-button--active {
         background-color: $-button-info-plain-active-bg-color;
         border-color: $-button-info-plain-active-color;
@@ -273,12 +274,13 @@
         &,
         &.wd-button--active {
           background-color: $-button-info-plain-disabled-bg-color;
+          border-color: $-button-info-plain-disabled-bg-color;
         }
       }
       @include when(loading) {
         &,
         &.wd-button--active {
-          border-color: $-button-info-plain-color;
+          border-color: $-button-info-plain-border-color;
         }
       }
     }

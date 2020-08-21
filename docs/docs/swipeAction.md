@@ -86,9 +86,9 @@ Page({
 </wd-swipe-action>
 
 <view class="button-group">
-  <wd-button data-value='left' type="primary" bindclick="changeState">打开左边</wd-button>
-  <wd-button data-value='close' type="primary" bindclick="changeState">关闭所有</wd-button>
-  <wd-button data-value='right' type="primary" bindclick="changeState">打开右边</wd-button>
+  <wd-button data-value='left' bindclick="changeState">打开左边</wd-button>
+  <wd-button data-value='close' bindclick="changeState">关闭所有</wd-button>
+  <wd-button data-value='right' bindclick="changeState">打开右边</wd-button>
 </view>
 ```
 ```javascript
@@ -128,9 +128,9 @@ Page({
   </wd-swipe-action>
 
   <view class="button-group">
-    <wd-button data-value='left' type="primary" bindclick="changeState">打开左边</wd-button>
-    <wd-button data-value='close' type="primary" bindclick="changeState">关闭所有</wd-button>
-    <wd-button data-value='right' type="primary" bindclick="changeState">打开右边</wd-button>
+    <wd-button data-value='left' bindclick="changeState">打开左边</wd-button>
+    <wd-button data-value='close' bindclick="changeState">关闭所有</wd-button>
+    <wd-button data-value='right' bindclick="changeState">打开右边</wd-button>
   </view>
 </demo-block>
 ```

@@ -2,60 +2,60 @@
 <demo-block title="基本用法">
   <view class="top">
     <wd-tooltip placement="bottom-start" content="bottom-start 提示文字">
-      <wd-button type="primary">bottom-start</wd-button>
+      <wd-button>bottom-start</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="bottom" content="bottom 提示文字">
-      <wd-button type="primary">bottom</wd-button>
+      <wd-button>bottom</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="bottom-end" content="bottom-end 提示文字">
-      <wd-button type="primary">bottom-end</wd-button>
+      <wd-button>bottom-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="left">
     <wd-tooltip placement="right-start" content="right-start 提示文字">
-      <wd-button type="primary">right-start</wd-button>
+      <wd-button>right-start</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="right" content="right 提示文字" style="margin: 20px 0;">
-      <wd-button type="primary">right</wd-button>
+      <wd-button>right</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="right-end" content="right-end 提示文字">
-      <wd-button type="primary">right-end</wd-button>
+      <wd-button>right-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="right">
     <wd-tooltip placement="left-start" content="left-start 提示文字">
-      <wd-button type="primary">left-start</wd-button>
+      <wd-button>left-start</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="left" content="left 提示文字" style="margin: 20px 0;">
-      <wd-button type="primary">left</wd-button>
+      <wd-button>left</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="left-end" content="left-end 提示文字">
-      <wd-button type="primary">left-end</wd-button>
+      <wd-button>left-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="bottom">
     <wd-tooltip placement="top-start" content="top-start 提示文字">
-      <wd-button type="primary">top-start</wd-button>
+      <wd-button>top-start</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="top" content="top 提示文字">
-      <wd-button type="primary">top</wd-button>
+      <wd-button>top</wd-button>
     </wd-tooltip>
     <wd-tooltip placement="top-end" content="top-end 提示文字">
-      <wd-button type="primary">top-end</wd-button>
+      <wd-button>top-end</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="显示关闭按钮">
   <view class="demo-left">
     <wd-tooltip content="显示关闭按钮" placement="right" show-close>
-      <wd-button type="primary">显示关闭按钮</wd-button>
+      <wd-button>显示关闭按钮</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="多行文本">
   <view class="demo-left lines-demo">
     <wd-tooltip placement="right" useContentSlot>
-      <wd-button type="primary">多行文本</wd-button>
+      <wd-button>多行文本</wd-button>
       <view slot="content" class="lines-content">
         <view>多行文本1</view>
         <view>多行文本2</view>
@@ -65,24 +65,24 @@
   </view>
 </demo-block>
 <demo-block title="控制显隐">
-  <wd-button type="primary" bind:tap="hide" class="button-control">控制开关</wd-button>
+  <wd-button bind:tap="hide" class="button-control">控制开关</wd-button>
   <view class="demo-left demo-control">
     <wd-tooltip placement="top" content="控制显隐" show="{{ show }}">
-      <wd-button type="primary">top</wd-button>
+      <wd-button>top</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="绑定事件">
   <view class="demo-left">
     <wd-tooltip placement="right-end" content="{{ content }}" bind:show="onShow" bind:hide="onHide">
-      <wd-button type="primary">事件</wd-button>
+      <wd-button>事件</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="禁用">
   <view class="demo-left">
     <wd-tooltip placement="right-end" content="禁用" disabled>
-      <wd-button type="primary">禁用</wd-button>
+      <wd-button>禁用</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>

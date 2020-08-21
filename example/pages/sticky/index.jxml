@@ -11,7 +11,7 @@
   <view class="demo-title">吸顶距离</view>
   <view class="demo-container">
     <wd-sticky offset-top="{{50}}" style="margin-left: 120px;">
-      <wd-button type="primary">吸顶距离</wd-button>
+      <wd-button>吸顶距离</wd-button>
     </wd-sticky>
   </view>
 </view>

@@ -1,22 +1,22 @@
 <view>
   <demo-block title="Fade 动画">
-    <wd-button type="primary" bind:click="fade">fade</wd-button>
-    <wd-button type="primary" bind:click="fadeUp">fade-up</wd-button>
-    <wd-button type="primary" bind:click="fadeDown">fade-down</wd-button>
-    <wd-button type="primary" bind:click="fadeLeft">fade-left</wd-button>
-    <wd-button type="primary" bind:click="fadeRight">fade-right</wd-button>
+    <wd-button bind:click="fade">fade</wd-button>
+    <wd-button bind:click="fadeUp">fade-up</wd-button>
+    <wd-button bind:click="fadeDown">fade-down</wd-button>
+    <wd-button bind:click="fadeLeft">fade-left</wd-button>
+    <wd-button bind:click="fadeRight">fade-right</wd-button>
   </demo-block>
   <demo-block title="Slide 动画">
-    <wd-button type="primary" bind:click="slideUp">slide-up</wd-button>
-    <wd-button type="primary" bind:click="slideDown">slide-down</wd-button>
-    <wd-button type="primary" bind:click="slideLeft">slide-left</wd-button>
-    <wd-button type="primary" bind:click="slideRight">slide-right</wd-button>
+    <wd-button bind:click="slideUp">slide-up</wd-button>
+    <wd-button bind:click="slideDown">slide-down</wd-button>
+    <wd-button bind:click="slideLeft">slide-left</wd-button>
+    <wd-button bind:click="slideRight">slide-right</wd-button>
   </demo-block>
   <demo-block title="Zoom 动画">
-    <wd-button type="primary" bind:click="zoomIn">zoom-in</wd-button>
+    <wd-button bind:click="zoomIn">zoom-in</wd-button>
   </demo-block>
   <demo-block title="自定义动画">
-    <wd-button type="primary" bind:click="custom">custom</wd-button>
+    <wd-button bind:click="custom">custom</wd-button>
   </demo-block>
 
   <wd-transition

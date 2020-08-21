@@ -67,7 +67,7 @@ page{
 
 ```html
 <wd-sticky offset-top="{{50}}">
-  <wd-button type="primary">吸顶距离</wd-button>
+  <wd-button>吸顶距离</wd-button>
 </wd-sticky>
 ```
 

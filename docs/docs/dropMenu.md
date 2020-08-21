@@ -95,7 +95,7 @@ Page({
       <wd-cell title="标题文字" value="内容" icon="setting" />
       <wd-cell title="标题文字" value="内容" icon="collect" />
       <wd-cell is-link to="/pages/button/index" title="设置" value="内容" bind:click="onClick" />
-      <wd-button type="primary" block size="large" suck bind:tap="confirm">主要按钮</wd-button>
+      <wd-button block size="large" suck bind:tap="confirm">主要按钮</wd-button>
     </view>
 </wd-drop-menu>
 ```

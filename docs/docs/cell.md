@@ -158,7 +158,7 @@ Page({
 ```html
 <wd-cell-group>
   <wd-cell title="标题文字" center>
-    <wd-button custom-class="custom-value" size="small" type="primary" plain>按钮</wd-button>
+    <wd-button custom-class="custom-value" size="small" plain>按钮</wd-button>
   </wd-cell>
   <wd-cell title="标题文字" center>
     <view class="custom-value" style="height: 32px;">

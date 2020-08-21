@@ -15,7 +15,7 @@
 通过 `show` 属性设置显示隐藏，监听 `bind:close` 事件，隐藏菜单。
 
 ```html
-<wd-button type="primary" bind:click="showActions">弹出菜单</wd-button>
+<wd-button bind:click="showActions">弹出菜单</wd-button>
 <wd-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
 ```
 
@@ -55,7 +55,7 @@ page({
 可以设置 颜色、禁用、加载 等状态。
 
 ```html
-<wd-button type="primary" bind:click="showActions">弹出菜单</wd-button>
+<wd-button bind:click="showActions">弹出菜单</wd-button>
 <wd-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
 ```
 
@@ -104,7 +104,7 @@ page({
 #### 单行展示
 可以设置 图片、文案。
 ```html
-<wd-button type="primary" bind:click="showActions">弹出菜单</wd-button>
+<wd-button bind:click="showActions">弹出菜单</wd-button>
 <wd-action-sheet show="{{ show }}" panels="{{ panels }}" bind:close="close" bind:select="select" />
 ```
 
@@ -137,7 +137,7 @@ page({
 
 #### 多行展示
 ```html
-<wd-button type="primary" bind:click="showActions">弹出菜单</wd-button>
+<wd-button bind:click="showActions">弹出菜单</wd-button>
 <wd-action-sheet show="{{ show }}" panels="{{ panels }}" bind:close="close" bind:select="select" />
 ```
 

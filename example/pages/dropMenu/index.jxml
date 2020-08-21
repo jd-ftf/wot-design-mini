@@ -12,7 +12,7 @@
 			<wd-drop-menu-item value="{{ value2 }}" options="{{ option1 }}" bindchange="choose2" />
 			<wd-drop-menu-item value="{{ value3 }}" options="{{ option2 }}" bindchange="choose3" />
 		</wd-drop-menu>
-		<wd-button bindtap="click" type="primary" size="small" style="margin: 10px;display: block;">选中第一个</wd-button>
+		<wd-button bindtap="click" size="small" style="margin: 10px;display: block;">选中第一个</wd-button>
 	</demo-block>
 	<demo-block title="自定义菜单内容" transparent>
 		<wd-drop-menu>
@@ -22,7 +22,7 @@
 					<wd-cell title="标题文字" value="内容" icon="setting" />
 					<wd-cell title="标题文字" value="内容" icon="collect" />
 					<wd-cell is-link to="/pages/button/index" title="设置" value="内容" bind:click="onClick" />
-					<wd-button type="primary" block size="large" suck bind:tap="confirm">主要按钮</wd-button>
+					<wd-button block size="large" suck bind:tap="confirm">主要按钮</wd-button>
 				</view>
 			</wd-drop-menu-item>
 		</wd-drop-menu>

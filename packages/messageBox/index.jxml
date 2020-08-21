@@ -52,7 +52,6 @@
         {{ cancelButtonText || '取消'}}
       </wd-button>
       <wd-button
-        type="primary"
         round
         block
         custom-class="wd-message-box__button--confirm"
