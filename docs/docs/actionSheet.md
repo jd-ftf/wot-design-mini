@@ -14,6 +14,14 @@
 
 通过 `show` 属性设置显示隐藏，监听 `bind:close` 事件，隐藏菜单。
 
+`actions` 类型为 `Array`，数组内部对象结构如下：
+
+| 参数      | 类型 | 说明 |
+|---------- |---- |---------- |
+| name | string | 选项名称 |
+| subname | string | 描述信息 |
+| color | string | 颜色 |
+
 ```html
 <wd-button bind:click="showActions">弹出菜单</wd-button>
 <wd-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="close" />
@@ -100,9 +108,15 @@ page({
   cancel-text="取消" />
 ```
 
-### 自定义面板
+### 自定义单行面板
 
-可以设置 图片、文案。
+自定义单行面板时，`panels` 类型为一维数组， 数组内部对象结构如下：
+
+| 参数      | 类型 | 说明 |
+|---------- |---- |---------- |
+| iconUrl | string | 图片地址 |
+| title | string | 标题 |
+
 
 ```html
 <wd-button bind:click="showActions">弹出菜单</wd-button>
@@ -137,6 +151,13 @@ page({
 ```
 
 #### 多行展示
+
+自定义多行面板时， `panels` 类型为多维数组， 每个数组内部对象结构如下：
+
+| 参数      | 类型 | 说明 |
+|---------- |---- |---------- |
+| iconUrl | string | 图片地址 |
+| title | string | 标题 |
 
 ```html
 <wd-button bind:click="showActions">弹出菜单</wd-button>

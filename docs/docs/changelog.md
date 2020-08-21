@@ -24,6 +24,8 @@
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
+  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
 - DatetimePickerView
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
@@ -44,6 +46,8 @@
 - Picker
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
+  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
 - PickerView
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
