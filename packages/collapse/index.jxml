@@ -16,7 +16,9 @@
 			<!-- 显示展开或折叠按钮 -->
 			<block jd:else>
 				<span class="wd-collapse__more-txt ">{{ !value ? '展开' : '折叠' }}</span>
-				<wd-icon name="arrow-down" class="wd-collapse-item__arrow wd-icon-arrow-down {{ isExpand ? 'is-retract' : '' }} "></wd-icon>
+        <view class="wd-collapse__arrow {{ value ? 'is-retract' : '' }}">
+          <wd-icon name="arrow-down"></wd-icon>
+        </view>
 			</block>
 		</view>
 	</view>

@@ -1,11 +1,11 @@
-@import '../common/abstracts/variable';
-@import '../common/abstracts/mixin';
+@import "../common/abstracts/variable";
+@import "../common/abstracts/mixin";
 
 @include b(collapse) {
-  background: #fff;
+  background: $-color-white;
 
   @include when(viewmore) {
-    padding: $-collapse-body-padding;
+    padding: $-collapse-side-padding;
   }
   @include e(content) {
     font-size: $-collapse-body-fs;
@@ -13,22 +13,30 @@
 
     @include when(retract) {
       display: -webkit-box;
+      -webkit-box-orient: vertical;
       overflow: hidden;
+      font-size: $-collapse-retract-fs;
     }
   }
   @include e(more) {
-    margin-top: 4px;
-    font-size: $-collapse-more-fs;
+    font-size: $-collapse-retract-fs;
+    margin-top: 8px;
     color: $-collapse-more-color;
     user-select: none;
   }
   @include e(more-txt) {
     display: inline-block;
     vertical-align: middle;
+    margin-right: 4px;
   }
   @include e(arrow) {
     display: inline-block;
     vertical-align: middle;
+    transition: transform 0.1s;
+    font-size: $-collapse-arrow-size;
+    height: $-collapse-arrow-size;
+    line-height: $-collapse-arrow-size;
+
     @include when(retract) {
       transform: rotate(-180deg);
     }
