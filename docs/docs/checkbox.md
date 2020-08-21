@@ -26,7 +26,9 @@ Page({
     value: true
   },
   handleChange (event) {
-    this.setData({value: event.detail})
+    this.setData({
+      value: event.detail.value
+    })
   }
 })
 ```
@@ -59,7 +61,9 @@ Page({
     value: true
   },
   handleChange (event) {
-    this.setData({value: event.detail})
+    this.setData({
+      value: event.detail.value
+    })
   }
 })
 ```
@@ -81,14 +85,14 @@ Page({
 ```javascript
 Page({
   handleChange (event) {
-    console.log(event.detail)
+    console.log(event.detail.value)
   }
 })
 ```
 
 ### 复选框组
 
-`value` 为数组，单个复选框的值通过 `value` 进行设置。通过监听 `bind:change` 事件获取当前选中值。
+`value` 为数组，单个复选框的值通过 `value` 进行设置。通过监听 `change` 事件获取当前选中值。
 
 ```html
 <wd-checkbox-group value="{{value}}"  bind:change="handleChange">
@@ -129,7 +133,9 @@ Page({
     value2: ['1']
   },
   handleChange (event) {
-    this.setData({value: event.detail})
+    this.setData({
+      value: event.detail.value
+    })
   }
 })
 ```
@@ -151,7 +157,9 @@ Page({
     value: ['jingmai']
   },
   handleChange (event) {
-    this.setData({value: event.detail})
+    this.setData({
+      value: event.detail.value
+    })
   }
 })
 ```
@@ -173,7 +181,9 @@ Page({
     value: ['jingmai']
   },
   handleChange (event) {
-    this.setData({value: event.detail})
+    this.setData({
+      value: event.detail.value
+    })
   }
 })
 ```
@@ -195,7 +205,9 @@ Page({
     value: ['jd']
   },
   handleChange (event) {
-    this.setData({value: event.detail})
+    this.setData({
+      value: event.detail.value
+    })
   }
 })
 ```
@@ -222,6 +234,7 @@ Page({
 | true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | true |
 | false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | false |
 | size | 设置大小 | string | 'large' | - |
+| name | form 表单中的字段名 | string | - | - |
 
 ### CheckboxGroup Attributes
 
@@ -236,6 +249,7 @@ Page({
 | max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 |
 | inline | 同行展示 | boolean | - | false |
 | size | 设置大小 | string | 'large' | - |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Checkbox Methods
 
@@ -247,13 +261,13 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发，当为复选框组时参数为boolean，表示该复选框是否选中 | event.detail = true-value、false-value（true-value的值默认为true、false-value的值默认为false） |
+| bind:change | 绑定值变化时触发，当为复选框组时参数为boolean，表示该复选框是否选中 | event.detail = { value } |
 
 ### CheckboxGroup Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | event.detail = Array<number \| value>,复选框设置value时统一返回选中的value，否则返回节点下标 |
+| bind:change | 绑定值变化时触发 | event.detail = { value } |
 
 ### Checkbox 外部样式类
 

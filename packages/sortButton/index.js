@@ -133,7 +133,9 @@ VueComponent({
         // 不管是否允许重置，只要点击就应该由 重置状态 切换到升序
         value = 1
       }
-      this.$emit('click', value)
+      this.$emit('click', {
+        value
+      })
       this.changeState(value)
     }
   },

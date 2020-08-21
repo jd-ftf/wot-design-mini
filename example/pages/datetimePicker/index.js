@@ -61,7 +61,7 @@ Page({
   },
   handleConfirm ({ detail }) {
     this.setData({
-      value6: detail
+      value6: detail.value
     })
   }
 })

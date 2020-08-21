@@ -1,13 +1,20 @@
-page .radio-inline {
+@import "../../dist/button/index.jxss";
+
+page {
+  padding-bottom: 16px;
+}
+.inline-txt {
   display: inline-block;
-  margin-left: 15px;
-  margin-bottom: 0;
+  font-size: 14px;
+  margin: 0 8px;
+  color: rgba(0, 0, 0, 0.45);
+  vertical-align: middle;
 }
-.wrapper {
-  padding: 15px;
+.group {
+  margin-top: 12px;
 }
-.display-item {
-  padding: 0 15px;
-  margin-bottom: 10px;
+.tip {
+  margin: 10px 15px 25px;
   color: #999;
+  font-size: 12px;
 }

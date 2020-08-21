@@ -26,7 +26,7 @@
 </demo-block>
 <demo-block title="自定义选择器" transparent>
   <view style="margin-left: 15px;">
-    <view style="margin-bottom: 10px;">当前选中项: {{ value16 }}</view>
+    <view style="margin-bottom: 10px;">当前选中项: {{ customShow }}</view>
     <wd-select-picker value="{{value16}}" use-default-slot columns="{{columns1}}" bindconfirm="handleConfirm16" style="display: inline-block;">
       <wd-button>唤起多选</wd-button>
     </wd-select-picker>

@@ -15,7 +15,7 @@ VueComponent({
     'custom-value-class'
   ],
   mixins: [datetimePickerView()],
-  behaviors: [cell],
+  behaviors: [cell, 'jd://form-field'],
   relations: {
     '../cellGroup/index': {
       type: 'ancestor',
@@ -62,12 +62,22 @@ VueComponent({
     pickerId: 'wd-picker'
   },
   methods: {
+    // 对外暴露接口，打开弹框
+    open () {
+      this.picker.open()
+    },
+    // 对外暴露接口，关闭弹框
+    close () {
+      this.picker.close()
+    },
     /** picker触发confirm事件，同步触发confirm事件 */
     onConfirm () {
       this.setData({
         value: this.data.innerValue
       })
-      this.$emit('confirm', this.data.innerValue)
+      this.$emit('confirm', {
+        value: this.data.innerValue
+      })
     },
     /** picker触发cancel事件，同步触发cancel事件 */
     onCancel () {

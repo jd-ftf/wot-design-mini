@@ -120,7 +120,7 @@
 | loading | 加载中按钮 | boolean | - | - |
 | loading-color | 加载图标颜色 | string | - | - |
 | open-type | 微信开放能力 | string | - | - |
-| form-type | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 | string | 'submit' / 'reset' | - |
+| <s>form-type</s> | <s>用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件</s>，该属性暂时不可用 | string | 'submit' / 'reset' | - |
 | hover-stop-propagation | 指定是否阻止本节点的祖先节点出现点击态 | boolean | - | false |
 | lang | 指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文 | string | 'zh_CN' / 'zh_TW' | 'en' |
 | session-from | 会话来源，open-type="contact"时有效 | string | - | - |

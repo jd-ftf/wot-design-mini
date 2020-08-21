@@ -1,6 +1,7 @@
 import VueComponent from '../common/component'
 
 VueComponent({
+  behaviors: ['jd://form-field'],
   relations: {
     '../radio/index': {
       type: 'descendant',
@@ -143,7 +144,9 @@ VueComponent({
      * @description 处理radio子节点通知
      */
     handleClick (value) {
-      this.$emit('change', value)
+      this.$emit('change', {
+        value
+      })
     }
   }
 })

@@ -24,9 +24,9 @@ Page({
   data: {
     value: Date.now(),
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail
+      value: event.detail.value
     })
   }
 })
@@ -89,7 +89,7 @@ Page({
   data: {
     value: new Date(),
     displayFormat (items) {
-        return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
+      return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
     }
   }
 })
@@ -208,9 +208,9 @@ Page({
       }, 2000)
     }
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail
+      value: event.detail.value
     })
   }
 })
@@ -258,13 +258,21 @@ Page({
 | use-label-slot | label 使用插槽 | boolean | - | false |
 | use-default-slot | 使用默认插槽 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:confirm | 点击右侧按钮触发 | 当前选中日期的时间戳，'time' 类型则为字符串 |
+| bind:confirm | 点击右侧按钮触发 | event.detail = { value }, value 为当前选中日期的时间戳，'time' 类型则为字符串 |
 | bind:cancel | 点击左侧按钮触发 | - |
+
+### Methods
+
+| 方法名称      | 说明       | 参数   |
+|------------- |----------- |---------  |
+| open | 打开picker弹框 |
+| close | 关闭picker弹框 |
 
 ### Slot
 

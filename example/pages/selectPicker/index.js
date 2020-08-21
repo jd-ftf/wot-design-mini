@@ -71,6 +71,7 @@ Page({
     value14: ['1'],
     value15: ['3'],
     value16: ['2'],
+    customShow: '京东金融',
 
     displayFormat (items, columns) {
       let showValue = ''
@@ -174,7 +175,10 @@ Page({
   },
   handleConfirm16 ({ detail }) {
     this.setData({
-      value16: detail.value
+      value16: detail.value,
+      customShow: detail.selectedItems.map(item => {
+        return item.label
+      }).join(', ')
     })
   }
 })

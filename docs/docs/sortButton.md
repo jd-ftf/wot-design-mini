@@ -13,11 +13,25 @@
 
 ### 基本用法
 
-`value` 为选中的箭头方向，值：1 升序，0 重置状态，-1 降序。 `title` 为展示文案，按钮默认处于未选中状态。
+`value` 为选中的箭头方向，值：1 升序，0 重置状态，-1 降序。 `title` 为展示文案，按钮默认处于未选中状态，监听 `bind:click` 事件获取新值。
 
 ```html
-<wd-sort-button title="价格" value="{{-1}}"/>
+<wd-sort-button title="价格" value="{{value}}" bind:click="handleClick" />
 ```
+
+```javascript
+Page({
+  data: {
+    value: -1
+  },
+  handleClick (event) {
+    this.setData({
+      value: event.detail.value
+    })
+  }
+})
+```
+
 ### 按钮重置
 
 双箭头状态下(默认状态)通过设置 `allow-reset` 允许重置按钮为未选中状态
@@ -50,6 +64,7 @@
 ```
 
 ### Attributes
+
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 选中的箭头方向：1 升序，0 重置状态，-1 降序。 | number | -1,0,1 | 0或-1 |
@@ -63,7 +78,7 @@
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |-------- |
-| bind:click | 排序按钮的点击事件 | event.detail = value |
+| bind:click | 排序按钮的点击事件 | event.detail = { value } |
 
 ### 外部样式类
 | 类名     | 说明                |

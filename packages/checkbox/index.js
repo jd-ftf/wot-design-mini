@@ -2,6 +2,7 @@ import VueComponent from '../common/component'
 import { renderData } from '../common/util'
 
 VueComponent({
+  behaviors: ['jd://form-field'],
   relations: {
     '../checkboxGroup/index': {
       type: 'ancestor',
@@ -127,14 +128,18 @@ VueComponent({
       if (finalDisabled) return
       // 复选框单独使用时点击反选，并且在checkbox上触发change事件
       if (this.parent) {
-        this.$emit('change', !isChecked)
+        this.$emit('change', {
+          value: !isChecked
+        })
         this.parent.changeSelectState(value)
       } else {
         const newVal = value === trueValue ? falseValue : trueValue
         this.setData({
           value: newVal
         })
-        this.$emit('change', newVal)
+        this.$emit('change', {
+          value: newVal
+        })
       }
     },
     /**

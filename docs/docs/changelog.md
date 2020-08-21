@@ -1,5 +1,95 @@
 ## 更新日志
 
+### 2.0.0-beta2
+
+*2020-08-21*
+
+#### 新特性
+
+- Card
+  - 新增卡片组件 Card  (by [@awjing](https://github.com/awjing) )
+- Checkbox
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- CheckboxGroup
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Collapse
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePicker
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePickerView
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DropMenuItem
+  - `change` 事件传参方式修改为与小程序官方组件一致，新增 `selectedItem` 参数 (by [@yawuling](https://github.com/yawuling) ) )
+- Input
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- InputNumber
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Pagination
+  - 新增分页组件 Pagination (by [@awjing](https://github.com/awjing) )
+- Picker
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+- PickerView
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- RadioGrouo
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Rate
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Search
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- SelectPicker
+  - 新增单复选选择器组件 selectPicker (by [@HXCStudio123](https://github.com/HXCStudio123))
+- Slider
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Switch
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+
+#### 优化
+
+- Checkbox
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- CheckboxGroup
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Collapse
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePicker
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePickerView
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DropMenuItem
+  - `change` 事件传参方式修改为与小程序官方组件一致，新增 `selectedItem` 参数 (by [@yawuling](https://github.com/yawuling) ) )
+- Input
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- InputNumber
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- PickerView
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- RadioGrouo
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Rate
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Search
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Slider
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Switch
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+
 ### 2.0.0-beta1
 
 *2020-08-14*
@@ -75,8 +165,6 @@
 - RadioGroup
   - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- selectPicker
-  - 新增组件 selectPicker 。 (by [@HXCStudio123](https://github.com/HXCStudio123))
 - StatusTip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改 (by [@awjing](https://github.com/awjing) )
 - Sticky

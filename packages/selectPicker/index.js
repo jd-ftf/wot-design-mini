@@ -91,13 +91,31 @@ VueComponent({
 
   methods: {
     noop () { },
+
+    getSelectedItem (value) {
+      const { valueKey, labelKey, columns } = this.data
+
+      const selecteds = columns.filter(item => {
+        return item[valueKey] === value
+      })
+
+      if (selecteds.length > 0) {
+        return selecteds[0]
+      }
+
+      return {
+        [valueKey]: value,
+        [labelKey]: ''
+      }
+    },
+
     valueFormat (value) {
       return this.data.type === 'checkbox' ? Array.prototype.slice.call(value) : value
     },
 
     handleChange (event) {
       this.setData({
-        selectList: event.detail
+        selectList: event.detail.value
       })
       this.$emit('change', event.detail)
     },
@@ -147,8 +165,17 @@ VueComponent({
         pickerShow: false,
         lastSelectList: this.valueFormat(this.data.selectList)
       })
+      let selectedItems
+      if (this.data.type === 'checkbox') {
+        selectedItems = this.data.lastSelectList.map(item => {
+          return this.getSelectedItem(item)
+        })
+      } else {
+        selectedItems = this.getSelectedItem(this.data.lastSelectList)
+      }
       this.$emit('confirm', {
-        value: this.data.lastSelectList
+        value: this.data.lastSelectList,
+        selectedItems
       })
       this.setShowValue(this.data.lastSelectList)
     },
@@ -159,21 +186,17 @@ VueComponent({
       if (this.data.displayFormat) {
         showValue = this.data.displayFormat(value, this.data.columns)
       } else {
-        const { type, columns, valueKey, labelKey } = this.data
+        const { type, labelKey } = this.data
         if (type === 'checkbox') {
-          value.length > 0 && value.forEach((item, index) => {
-            columns.forEach((column) => {
-              if (column[valueKey] === item) {
-                showValue += column[labelKey] + ' '
-              }
-            })
+          const selectedItems = value.map(item => {
+            return this.getSelectedItem(item)
           })
+          showValue = selectedItems.map(item => {
+            return item[labelKey]
+          }).join(', ')
         } else if (type === 'radio') {
-          columns.forEach((column) => {
-            if (column[valueKey] === value) {
-              showValue = column[labelKey]
-            }
-          })
+          const selectedItem = this.getSelectedItem(value)
+          showValue = selectedItem[labelKey]
         } else {
           showValue = value
         }

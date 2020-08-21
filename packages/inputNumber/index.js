@@ -5,6 +5,7 @@ VueComponent({
     minDisabled: false,
     maxDisabled: false
   },
+  behaviors: ['jd://form-field'],
   props: {
     value: {
       type: null,
@@ -109,11 +110,15 @@ VueComponent({
     handleBlur () {
       const value = this.formatValue(this.data.value)
       this.setValue(value)
-      this.$emit('blur', value)
+      this.$emit('blur', {
+        value
+      })
     },
     dispatchChangeEvent (value) {
       this.setData({ value })
-      this.$emit('change', value)
+      this.$emit('change', {
+        value
+      })
     },
     formatValue (value) {
       value = Number(value)

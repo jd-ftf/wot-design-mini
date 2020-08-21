@@ -48,8 +48,10 @@ Page({
     console.log('取消')
   },
   change (event) {
-    console.log('输入', event.detail)
-    this.setData({ value: event.detail })
+    console.log('输入', event.detail.value)
+    this.setData({
+      value: event.detail.value
+    })
   },
 })
 ```
@@ -111,9 +113,9 @@ Page({
     value: '',
     searchType: '全部'
   },
-  changeSearchType ({ detail: { item } }) {
+  changeSearchType (event) {
     this.setData({
-      searchType: item.content
+      searchType: event.detail.item.content
     })
   }
 })
@@ -170,17 +172,18 @@ Page({
 | maxlength | 原生属性，设置最大长度。-1表示无限制 | string/number | - | -1 |
 | value | 输入框文案，单向数据绑定 | string | - | - |
 | use-suffix-slot | 是否使用输入框右侧插槽 | boolean | - | false |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:focus        | 输入框聚焦事件                    | event.detail = 输入框内容 |
-| bind:blur         | 监听输入框失焦事件                     | event.detail = 输入框内容 |
-| bind:search       | 监听输入框搜索事件                      | event.detail = 输入框内容 |
+| bind:focus        | 输入框聚焦事件                    | event.detail = { value } |
+| bind:blur         | 监听输入框失焦事件                     | event.detail = { value } |
+| bind:search       | 监听输入框搜索事件                      | event.detail = { value } |
 | bind:clear        | 监听输入框清空按钮事件                   | - |
-| bind:cancel       | 监听输入框右侧文本点击事件               | event.detail = 输入框内容 |
-| bind:change       | 监听输入框内容变化事件                   | event.detail = 输入框内容 |
+| bind:cancel       | 监听输入框右侧文本点击事件               | event.detail = { value } |
+| bind:change       | 监听输入框内容变化事件                   | event.detail = { value } |
 
 ### Slots
 

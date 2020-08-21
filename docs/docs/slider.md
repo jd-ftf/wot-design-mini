@@ -23,15 +23,17 @@ page({
   data: {
    value: 30,
   },
-  handleChange ({ detail }) {
+  handleChange (event) {
     this.setData({
-      value: detail
+      value: event.detail.value
     })
   }
 })
 ```
 ### 双滑块
-双滑块模式下 `value` 为 `二元数组` 类型
+
+双滑块模式下 `value` 为 `二元数组` 类型。
+
 ```html
 <wd-slider value="{{ value }}" bind:dragend="handleChange"/>
 ```
@@ -40,9 +42,9 @@ page({
   data: {
    value: [10, 30],
   },
-  handleChange ({ detail }) {
+  handleChange (event) {
     this.setData({
-      value: detail
+      value: event.detail.value
     })
   }
 })
@@ -89,13 +91,15 @@ page({
 | step           | 步进值        | number | - | 1 |
 | active-color           | 进度条激活背景颜色        | string | - | 'linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%)' |
 | inactive-color           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
+| name | form 表单中的字段名 | string | - | - |
+
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:dragstart | 开始移动时触发 | value |
-| bind:dragmove | 移动滑块时触发 | value |
-| bind:dragend | 移动结束时触发 | value |
+| bind:dragstart | 开始移动时触发 | event.detail = { value } |
+| bind:dragmove | 移动滑块时触发 | event.detail = { value } |
+| bind:dragend | 移动结束时触发 | event.detail = { value } |
 
 ### 外部样式类
 | 类名     | 说明                |

@@ -20,20 +20,7 @@ Page({
         value: '标签三'
       }
     ],
-    dynamicTags: [
-      {
-        plain: true,
-        closable: true,
-        type: 'primary',
-        value: '标签一'
-      },
-      {
-        plain: true,
-        closable: true,
-        type: 'primary',
-        value: '标签二'
-      }
-    ]
+    dynamicTags: ['标签一', '标签二']
   },
   handleClick ({ currentTarget: { dataset: { index } } }) {
     console.log('click:index' + index)
@@ -46,19 +33,18 @@ Page({
   },
   handleClose1 ({ currentTarget: { dataset: { index: order } } }) {
     this.setData({
-      dynamicTags: this.data.dynamicTags.filter((value, index) => index !== order)
+      dynamicTags: this.data.dynamicTags.filter((item, index) => {
+        return index !== order
+      })
     })
   },
   handleConfirm (event) {
-    if (event.detail) {
-      this.setData({
-        dynamicTags: this.data.dynamicTags.concat([{
-          plain: true,
-          closable: true,
-          type: 'primary',
-          value: event.detail
-        }])
-      })
-    }
+    const { value } = event.detail
+
+    if (!value) return
+
+    this.setData({
+      dynamicTags: [...this.data.dynamicTags, value]
+    })
   }
 })

@@ -209,16 +209,26 @@ VueComponent({
       const index = selectedIndex.length === 1 ? diffRow : diffCol
       // 执行多级联动
       if (this.data.columnChange) {
-        // columnsChange 可能有异步操作，需要添加 resolve 进行回调通知
-        this.data.columnChange(picker, this.getSelects(), index, () => {
-          // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
+        // columnsChange 可能有异步操作，需要添加 resolve 进行回调通知，形参小于4个则为同步
+        if (this.data.columnChange.length < 4) {
+          this.data.columnChange(picker, this.getSelects(), index)
           value = this.getValues()
           this.$emit('change', {
             picker,
             value,
             index
           })
-        })
+        } else {
+          this.data.columnChange(picker, this.getSelects(), index, () => {
+            // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
+            value = this.getValues()
+            this.$emit('change', {
+              picker,
+              value,
+              index
+            })
+          })
+        }
       } else {
         // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
         value = this.getValues()

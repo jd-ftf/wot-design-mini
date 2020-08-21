@@ -11,42 +11,42 @@ Page({
   },
   handleChange1 ({ detail }) {
     this.setData({
-      value1: detail
+      value1: detail.value
     })
   },
   handleChange2 ({ detail }) {
     this.setData({
-      value2: detail
+      value2: detail.value
     })
   },
   handleChange3 ({ detail }) {
     this.setData({
-      value3: detail
+      value3: detail.value
     })
   },
   handleChange4 ({ detail }) {
     this.setData({
-      value4: detail
+      value4: detail.value
     })
   },
   handleChange5 ({ detail }) {
     this.setData({
-      value5: detail
+      value5: detail.value
     })
   },
   handleChange6 ({ detail }) {
     this.setData({
-      value6: detail
+      value6: detail.value
     })
   },
   handleChange7 ({ detail }) {
     this.setData({
-      value7: detail
+      value7: detail.value
     })
   },
   handleChange8 ({ detail }) {
     this.setData({
-      value8: detail
+      value8: detail.value
     })
   }
 })

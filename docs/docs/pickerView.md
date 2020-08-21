@@ -126,12 +126,13 @@ Page({
 | value-key | 选项对象中，value对应的 key | string | - | 'label' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+| name | form 表单中的字段名 | string | - | - |
 
 ### Methods
 
 | 方法名称      | 说明       | 参数   |
 |------------- |----------- |---------  |
-| getLabels | 获取所有列选中项的文本，返回值为一个数组
+| getLabels | 获取所有列选中项的文本，返回值为一个数组 |
 | getColumnIndex | 获取某一列的选中项下标 | columnIndex |
 | getColumnData | 获取某一列的选项 | columnIndex |
 | setColumnData | 设置某一列的选项 | columnIndex, values |
@@ -140,7 +141,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 选项值修改时触发 | 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
+| bind:change | 选项值修改时触发 | event.detail = { value, picker, index }, 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
 
 ### 外部样式类
 

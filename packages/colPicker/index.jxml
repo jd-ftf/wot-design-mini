@@ -5,7 +5,7 @@
       <view
         jd:if="{{ label || useLabelSlot }}"
         class="wd-col-picker__label {{ required && 'is-required' }} custom-label-class"
-        style="{{ abelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}"
+        style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}"
       >
         <block jd:if="label">{{ label }}</block>
         <slot jd:else name="label"></slot>
@@ -49,7 +49,7 @@
       >
         <view
           jd:for="{{ col }}"
-          jd:key="{{ index }}"
+          jd:key="index"
           class="wd-col-picker__list-item {{ pickerColSelected[colIndex] && item[valueKey] === pickerColSelected[colIndex] && 'is-selected' }} {{ item.disabled && 'is-disabled' }}"
           data-col-index="{{ colIndex }}"
           data-index="{{ index }}"

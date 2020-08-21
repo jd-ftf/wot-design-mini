@@ -103,12 +103,55 @@
 
 ### 新增标签
 
-设置 `dynamic` 属性，该标签为新增，输入内容确定后触发 `confirm` 事件。
+设置 `dynamic` 属性，该标签为新增样式，输入内容确定后触发 `confirm` 事件。
+
 ```html
-<wd-tag dynamic round></wd-tag>
+<wd-tag
+  jd:for="{{ tags }}"
+  jd:key="$this"
+  custom-class="space"
+  round
+  closable
+  data-index="{{ index }}"
+  bind:close="handleClose"
+>
+  {{item}}
+</wd-tag>
+<wd-tag
+  custom-class="space"
+  round
+  dynamic
+  bind:confirm="handleConfirm"
+></wd-tag>
+```
+
+```javascript
+Page({
+  data: {
+    tags: ['标签一', '标签二']
+  },
+  handleClose (event) {
+    const { index } = event.currentTarget.dataset
+    this.setData({
+      tags: this.data.tags.filter((item, i) => {
+        return i !== index
+      })
+    })
+  },
+  handleConfirm (event) {
+    const { value } = event.detail.value
+
+    if (!value) return
+
+    this.setData({
+      tags: [...this.data.tags, value]
+    })
+  }
+})
 ```
 
 ### 事件
+
 ```html
 <wd-tag
   jd:for="{{tags}}"
@@ -123,6 +166,7 @@
   {{tag.value}}
 </wd-tag>
 ```
+
 ```javascript
 Page({
   data: {
@@ -162,15 +206,13 @@ Page({
 | use-icon-slot | 开启图标插槽 | Boolean | - | false |
 | dynamic | 新增标签 | Boolean | - | false |
 
-
-
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:click | 标签点击时触发 | - |
-| bind:close | 点击关闭按钮时触发 | - |
-| bind:confirm | 新增标签输入内容确定后触发 | - |
+| bind:click | 标签点击时触发 | event |
+| bind:close | 点击关闭按钮时触发 | event |
+| bind:confirm | 新增标签输入内容确定后触发 | event.detail = { value } |
 
 ### Slots
 

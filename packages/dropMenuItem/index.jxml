@@ -8,7 +8,7 @@
 				jd:for="{{ options }}" 
 				jd:key="index" 
 				bindtap="choose" 
-				data-value="{{ item }}"
+				data-index="{{ index }}"
 				class="wd-drop-item__pop"
 				style="color: {{ (item.value ? item.value : item) === value ? activeColor : '#333' }}"
 				>
@@ -32,4 +32,4 @@
 	name="fade" 
 	bind:tap="handleClickModal" 
 	catch:touchmove="noop" 
-	/>
+/>

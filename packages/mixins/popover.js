@@ -75,7 +75,6 @@ export default function () {
     },
 
     created () {
-      console.log(this.data.selector)
       this.setData({ showStyle: this.data.show ? 'opacity: 1;' : 'opacity: 0;' })
     },
 

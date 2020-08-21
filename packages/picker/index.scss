@@ -49,16 +49,6 @@
     }
   }
 
-  @include when(cell) {
-    .wd-picker__field {
-      @include halfPixelBorder("bottom", $-cell-padding);
-    }
-
-    &:last-child .wd-picker__field::after {
-      display: none;
-    }
-  }
-
   @include when(disabled) {
     .wd-picker__value {
       color: $-picker-column-disabled-color;

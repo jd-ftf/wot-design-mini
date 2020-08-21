@@ -11,7 +11,7 @@ VueComponent({
     'custom-label-class',
     'custom-value-class'
   ],
-  behaviors: [cell],
+  behaviors: [cell, 'jd://form-field'],
   relations: {
     '../cellGroup/index': {
       type: 'ancestor',
@@ -130,6 +130,14 @@ VueComponent({
     loadingColor: String
   },
   methods: {
+    // 对外暴露方法，打开弹框
+    open () {
+      this.showPicker()
+    },
+    // 对外暴露方法，关闭弹框
+    close () {
+      this.handlePickerClose()
+    },
     handlePickerClose () {
       this.setData({
         pickerShow: false

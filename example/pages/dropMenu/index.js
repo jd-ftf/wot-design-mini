@@ -27,14 +27,13 @@ Page({
     this.setData({ value1: '0' })
   },
   choose1 ({ detail }) {
-    this.setData({ value1: detail })
+    this.setData({ value1: detail.value })
   },
   choose2 ({ detail }) {
-    this.setData({ value2: detail })
+    this.setData({ value2: detail.value })
   },
   choose3 ({ detail }) {
-    console.log(detail)
-    this.setData({ value3: detail })
+    this.setData({ value3: detail.value })
   },
   confirm () {
     // 关闭下拉框

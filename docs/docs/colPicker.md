@@ -20,7 +20,7 @@
 
 `value` 设置选中项的值，数据类型为数组；
 
-监听 `bind:change` 事件，获取选中值，`event.detail` 是个对象，包含 `value`(选中值数组)、`selectedItems`（选中项对象数组）两个属性。
+监听 `change` 事件，获取选中值，`event.detail` 是个对象，包含 `value`(选中值数组)、`selectedItems`（选中项对象数组）两个属性。
 
 传入 `column-change` 属性，其类型为 `function`，接收参数 options: object；options 的结构如下：
 
@@ -61,9 +61,9 @@ Page({
       }
     }
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value
+      value: event.detail.value
     })
   }
 })
@@ -119,9 +119,9 @@ Page({
       }, 300)
     }
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value
+      value: event.detail.value
     })
   }
 })
@@ -171,9 +171,9 @@ Page({
       }
     }
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value
+      value: event.detail.value
     })
   }
 })
@@ -230,9 +230,9 @@ Page({
       }
     }
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value
+      value: event.detail.value
     })
   }
 })
@@ -273,9 +273,9 @@ Page({
       }
     }
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value
+      value: event.detail.value
     })
   }
 })
@@ -328,9 +328,9 @@ Page({
       return selectedItems[selectedItems.length - 2].label + '-' + selectedItems[selectedItems.length - 1].label
     }
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value
+      value: event.detail.value
     })
   }
 })
@@ -386,9 +386,9 @@ Page({
       }
     }
   },
-  handleConfirm ({ detail: { value } }) {
+  handleConfirm (event) {
     this.setData({
-      value
+      value: event.detail.value
     })
   }
 })
@@ -464,9 +464,10 @@ Page({
       }
     }
   },
-  handleConfirm ({ detail: { value, selectedItems } }) {
+  handleConfirm (event) {
+    const { value, selectedItems } = event.detail
     this.setData({
-      value,
+      value: value,
       displayValue: selectedItems.map(item => {
         return item.label
       }).join('')
@@ -500,6 +501,7 @@ Page({
 | loading-color | loading 图标的颜色 | string | - | '#4d80f0' |
 | use-default-slot | 使用默认插槽时设置该选项 | boolean | - | false |
 | use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false |
+| name | form 表单中的字段名 | string | - | - |
 
 ### 选项数据结构
 
@@ -521,7 +523,8 @@ Page({
 
 | 方法名称      | 说明       | 参数   |
 |------------- |----------- |---------  |
-| showPicker    | 展示弹窗 | —  |
+| open | 打开picker弹框 |
+| close | 关闭picker弹框 |
 
 ### Slots
 

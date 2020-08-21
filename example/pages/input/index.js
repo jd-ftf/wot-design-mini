@@ -24,31 +24,24 @@ Page({
     value18: '',
     value19: ''
   },
-  handleInput ({ detail }) {
-    var value = detail.value
-
-    this.setData({
-      value1: value.replace(/11/g, '2')
-    })
-  },
   handleChange ({ detail }) {
     this.setData({
-      value: detail
+      value: detail.value
     })
   },
   handleChange1 ({ detail }) {
     this.setData({
-      value4: detail
+      value4: detail.value
     })
   },
   handleChange2 ({ detail }) {
     this.setData({
-      value5: detail
+      value5: detail.value
     })
   },
   handleChange3 ({ detail }) {
     this.setData({
-      value6: detail
+      value6: detail.value
     })
   }
 })

@@ -172,7 +172,7 @@ import Toast from '../../dist/toast/toast'
 
 Page({
   handleClick (event) {
-    Toast(`点击${event.detail}关闭操作按钮`)
+    Toast(`点击${event.detail.value}关闭操作按钮`)
   }
 })
 ```
@@ -204,7 +204,7 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:click | 当滑动按钮打开时，点击整个滑动操作容器触发click事件 | event.detail='left'、'inside'、'right' |
+| bind:click | 当滑动按钮打开时，点击整个滑动操作容器触发click事件 | event.detail= {value}, value 可能为 'left'、'inside'、'right' |
 
 ### Slot
 

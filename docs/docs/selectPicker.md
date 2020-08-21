@@ -13,9 +13,11 @@ Vue.use(SelectPicker)
 
 `label` 设置左侧文本内容；
 
-`columns` 设置数据源，为二维数组，每一列为一个一维数组，每个选项包含 `value`(选项值) 和 `label`(选项名称)。
+`columns` 设置数据源，为二维数组，每一列为一个一维数组，每个选项包含 `value`(选项值) 和 `label`(选项名称)；
 
 `value` 设置选中项的值，数据类型为 `Array` | `String` `Number` 或 `Boolean`；
+
+监听 `bind:confirm` 事件，获取新值。
 
 ```html
 <wd-select-picker label="基本用法" value="{{ value }}" columns="{{ columns }}" bindchange="handleChange" binconfirm="handleConfirm"></wd-select-picker>
@@ -40,12 +42,12 @@ Page({
     ],
     value: ['1']
   },
-  handleChange ({ detail }) {
-    Toast('选择了' + detail)
+  handleChange (event) {
+    Toast('选择了' + event.detail.value)
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail.value
+      value: event.detail.value
     })
   }
 })
@@ -80,9 +82,9 @@ Page({
     ],
     value: '1'
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail.value
+      value: event.detail.value
     })
   }
 })
@@ -132,9 +134,9 @@ Page({
     ],
     value: ['1']
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail.value
+      value: event.detail.value
     })
   }
 })
@@ -179,9 +181,9 @@ Page({
       return showValue
     }
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail.value
+      value: event.detail.value
     })
   }
 })
@@ -223,9 +225,9 @@ Page({
       }
     }
   },
-  handleConfirm ({ detail }) {
+  handleConfirm (event) {
     this.setData({
-      value: detail.value
+      value: event.detail.value
     })
   }
 })
@@ -276,10 +278,41 @@ Page({
 如果默认的 cell 类型的展示格式不满足需求，可以通过默认插槽进行自定义选择器样式。
 
 ```html
-<div class="text">当前选中项：<span>{{value}}</span></div>
+<veiw>当前选中项：{{customShow}}</view>
 <wd-select-picker value="{{ value }}" columns="{{ columns }}" binconfirm="handleConfirm">
   <wd-button>默认唤起项</wd-button>
 </wd-select-picker>
+```
+
+```javascript
+Page({
+  data: {
+   columns: [
+      {
+        value: '1',
+        label: '京麦'
+      },
+      {
+        value: '2',
+        label: '京东金融'
+      },
+      {
+        value: '3',
+        label: '京me'
+      }
+    ],
+    value: [],
+    customShow: ''
+  },
+  handleConfirm (event) {
+    this.setData({
+      value: event.detail.value,
+      customShow: event.detail.selectedItems.map(item => {
+        return item.label
+      }).join(', ')
+    })
+  }
+})
 ```
 
 ### Attributes
@@ -325,8 +358,8 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| confirm | 点击确认时触发 | event.detail = { value(选中值) } |
-| change | picker内选项更改时触发 |  event.detail = { value(选项值) } |
+| confirm | 点击确认时触发 | event.detail = { value, selectedItems }, checkbox 类型时 value 和 selectedItems 为数组，radio 类型为非数组 |
+| change | picker内选项更改时触发 |  event.detail = { value }, checkbox 类型时 value 为数组，radio 类型为非数组 |
 | cancel | 点击关闭按钮或者蒙层时触发 | - |
 
 ### Methods

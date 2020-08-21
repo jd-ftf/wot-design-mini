@@ -8,10 +8,12 @@
     "wd-datetime-picker": "../../dist/datetimePicker/index",
     "wd-input": "../../dist/input/index",
     "wd-picker": "../../dist/picker/index",
-    "wd-radio": "../../dist/radio/index",
-    "wd-radio-group": "../../dist/radioGroup/index",
+    "wd-checkbox": "../../dist/checkbox/index",
     "wd-switch": "../../dist/switch/index",
     "wd-toast": "../../dist/toast/index",
-    "wd-message-box": "../../dist/messageBox/index"
+    "wd-message-box": "../../dist/messageBox/index",
+    "wd-input-number": "../../dist/inputNumber/index",
+    "wd-col-picker": "../../dist/colPicker/index",
+    "wd-select-picker": "../../dist/selectPicker/index"
   }
 }

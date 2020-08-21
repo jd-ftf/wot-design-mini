@@ -3,14 +3,9 @@ Page({
     value1: '京麦',
     value2: [1]
   },
-  handleChange1 (event) {
+  handleChange1 ({ detail }) {
     this.setData({
-      value1: event.detail
-    })
-  },
-  handleChange2 (event) {
-    this.setData({
-      value2: event.detail
+      value1: detail.value
     })
   }
 })
