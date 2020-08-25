@@ -8,7 +8,7 @@ export default {
   // 选项总高度
   columnsHeight: {
     type: Number,
-    value: 231
+    value: 217
   },
   // 选项对象中，value对应的 key
   valueKey: {

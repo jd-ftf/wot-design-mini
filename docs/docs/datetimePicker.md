@@ -226,11 +226,58 @@ Page({
 </wd-datetime-picker>
 ```
 
+### 时间范围选择
+
+当 `value` 为 `Array` 类型, 时间范围选择开启。
+
+```html
+<wd-datetime-picker label="日期选择" value="{{value}}" bind:confirm="handleConfirm" />
+
+```
+
+```javascript
+Page({
+  data: {
+    value: ['', Date.now()]
+  },
+  handleConfirm (event) {
+    this.setData({
+      value: event.detail.value
+    })
+  }
+})
+```
+
+### 范围选择tab标签展示格式
+
+给 `display-format-tab-label` 属性传入一个函数，接收所有选中项数组，返回展示的文本内容。
+> 自定义函数必须写在data中
+
+```html
+<wd-datetime-picker value="{{value}}" label="范围tab展示格式" display-format-tab-label="{{displayFormatTabLabel}}" bind:confirm="handleConfirm"></wd-datetime-picker>
+```
+
+```javascript
+Page({
+  data: {
+    value: ['', Date.now()],
+    displayFormatTabLabel (items) {
+      return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
+    }
+  },
+  handleConfirm (event) {
+    this.setData({
+      value: event.detail.value
+    })
+  }
+})
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
+| value | 选中项，当 type 为 time 时，类型为字符串；当 type 为 Array 时，类型为范围选择；否则为 Date | string / date / array | - |
 | type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
 | loading | 加载中 | boolean | - | false |
 | loading-color | 加载的颜色 | string | - | '#4D80F0' |
@@ -245,6 +292,7 @@ Page({
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
+| display-format-tab-label | 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 | function | - | - |
 | minDate | 最小日期 | date | - | 当前日期 - 10年 |
 | maxDate | 最大日期 | date | - | 当前日志 + 10年 |
 | minHour | 最小小时，time类型时生效 | number | - | 0 |
@@ -267,6 +315,7 @@ Page({
 |------------- |------------------------------------ |--------- |
 | bind:confirm | 点击右侧按钮触发 | event.detail = { value }, value 为当前选中日期的时间戳，'time' 类型则为字符串 |
 | bind:cancel | 点击左侧按钮触发 | - |
+| bind:toggle | 在区域选择模式下，tab标签切换时触发 | 切换到当前picker选中的值 |
 
 ### Methods
 

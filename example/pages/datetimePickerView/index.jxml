@@ -1,9 +1,8 @@
 <wd-toast id="wd-toast"/>
-
 <demo-block title="日期选择" transparent>
   <wd-datetime-picker-view
     value="{{value1}}"
-    bind:change="onChange"
+    bind:change="onChange1"
   />
 </demo-block>
 
@@ -11,7 +10,7 @@
   <wd-datetime-picker-view
     type="date"
     value="{{value2}}"
-    bind:change="onChange"
+    bind:change="onChange2"
   />
 </demo-block>
 
@@ -19,7 +18,7 @@
   <wd-datetime-picker-view
     type="year-month"
     value="{{value3}}"
-    bind:change="onChange"
+    bind:change="onChange3"
   />
 </demo-block>
 
@@ -27,7 +26,7 @@
   <wd-datetime-picker-view
     type="time"
     value="{{value4}}"
-    bind:change="onChange"
+    bind:change="onChange4"
   />
 </demo-block>
 
@@ -35,7 +34,7 @@
   <wd-datetime-picker-view
     value="{{value5}}"
     formatter="{{formatter}}"
-    bind:change="onChange"
+    bind:change="onChange5"
   />
 </demo-block>
 
@@ -43,7 +42,6 @@
   <wd-datetime-picker-view
     value="{{value6}}"
     filter="{{filter}}"
-    bind:change="onChange"
+    bind:change="onChange6"
   />
 </demo-block>
-

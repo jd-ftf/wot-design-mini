@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { getType } from '../common/util'
+import { getType, range, isEqual } from '../common/util'
 import selfProps from './props'
 
 VueComponent({
@@ -20,7 +20,7 @@ VueComponent({
         this.setData({ formatColumns: this.formatArray(columns) })
         /**
          * 每次改变都要重置选中项
-         * ∅ 1.选中每列的第一个
+         * 1.选中每列的第一个
          * 2.原来的value再选一次
          */
         // this.data.formatColumns.forEach((no, col) => this.selectWithIndex(col, 0))
@@ -36,15 +36,25 @@ VueComponent({
           throw Error('The type of columnChange must be Function')
         }
       }
+    },
+    // 格式化之后，每列选中的下标集合
+    selectedIndex: {
+      type: Array,
+      observer (val) {
+        if (isEqual(val, this.preSelectedIndex)) return
+        if (!isEqual(this.getValues(), this.data.value)) {
+          this.handleChange(this, 0)
+        }
+      }
     }
   },
+
   data: {
     // 格式化之后，用于render 列表的数据
     formatColumns: [],
-    // 格式化之后，每列选中的下标集合
-    selectedIndex: [],
     itemHeight: 33
   },
+
   methods: {
     /**
      * @description 根据传入的value，寻找对应的索引，并传递给原生选择器。
@@ -78,7 +88,9 @@ VueComponent({
       value = value.slice(0, this.data.formatColumns.length)
       let selectedIndex = this.data.selectedIndex
       value.forEach((target, col) => {
-        let row = this.data.formatColumns[col].findIndex(row => row[this.data.valueKey] === target)
+        let row = this.data.formatColumns[col].findIndex(row => {
+          return row[this.data.valueKey].toString() === target.toString()
+        })
         row = row === -1 ? 0 : row
         selectedIndex = this.selectWithIndex(col, row)
       })
@@ -89,6 +101,7 @@ VueComponent({
         selectedIndex: selectedIndex.slice(0, value.length)
       })
     },
+
     /**
      * @description 根据传入的col,row，传递给原生选择器
      * @param {Number} columnIndex 要操作的列索引
@@ -118,6 +131,7 @@ VueComponent({
       }
       return selectedIndex
     },
+
     /**
      * @description 为props的value为array类型时提供format
      * @param {Array<String|Number|Boolean|Object>} array
@@ -178,73 +192,87 @@ VueComponent({
         return row
       }))
     },
+
     /**
      * @description 滚动选中时更新选中的索引、触发change事件
      * @return {Number|Array<Number>}选中项的下标或者集合
      * @return {Object}实例本身
      */
-    handleChange ({ detail: { value } }) {
-      // 小程序bug，修改原生pickerView的columns，滑动触发change事件回传的数组长度为未改变columns之前的,并不会缩减
-      value = value.slice(0, this.data.formatColumns.length)
-      // 保留选中前的
-      const origin = this.data.selectedIndex.slice(0)
-      let selectedIndex = this.data.selectedIndex
-      // 开始应用最新的值
-      value.forEach((row, col) => {
-        if (row === origin[col]) return
-        selectedIndex = this.selectWithIndex(col, row)
-      })
-      this.setData({
-        selectedIndex
-      })
-      // diff出变化的列
-      const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index])
-      if (diffCol === -1) return
-      // 获取变化的的行
-      const diffRow = selectedIndex[diffCol]
+    onChange ({ detail: { value } }) {
+      const index = this.getChangeDiff(value)
       const picker = this
-
-      // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
-      const index = selectedIndex.length === 1 ? diffRow : diffCol
       // 执行多级联动
       if (this.data.columnChange) {
         // columnsChange 可能有异步操作，需要添加 resolve 进行回调通知，形参小于4个则为同步
         if (this.data.columnChange.length < 4) {
           this.data.columnChange(picker, this.getSelects(), index)
-          value = this.getValues()
-          this.$emit('change', {
-            picker,
-            value,
-            index
-          })
+          this.handleChange(picker, index)
         } else {
           this.data.columnChange(picker, this.getSelects(), index, () => {
             // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
-            value = this.getValues()
-            this.$emit('change', {
-              picker,
-              value,
-              index
-            })
+            this.handleChange(picker, index)
           })
         }
       } else {
         // 如果selectedIndex只有一列，返回此项；如果是多项，返回所有选中项。
-        value = this.getValues()
-        this.$emit('change', {
-          picker,
-          value,
-          index
-        })
+        this.handleChange(picker, index)
       }
     },
+
+    getChangeIndex (now, origin) {
+      if (!now || !origin) return
+      const index = now.findIndex((row, index) => row !== origin[index])
+      return index
+    },
+
+    getChangeDiff (value) {
+      // 小程序bug 1. 修改原生pickerView的columns，滑动触发change事件回传的数组长度为未改变columns之前的,并不会缩减
+      // 小程序bug 2. 当点击速度过快时，会出现负数列项的操作，需要将value进行限制
+      value = value.slice(0, this.data.formatColumns.length)
+
+      // 保留选中前的
+      const origin = this.data.selectedIndex.slice(0)
+      // 存储赋值旧值，便于外部比较
+      let selectedIndex = this.data.selectedIndex
+      // 开始应用最新的值
+      value.forEach((row, col) => {
+        row = range(row, 0, this.data.formatColumns[col].length - 1)
+        if (row === origin[col]) return
+        selectedIndex = this.selectWithIndex(col, row)
+      })
+
+      this.setData({
+        selectedIndex
+      })
+      this.preSelectedIndex = origin
+
+      // diff出变化的列
+      // const diffCol = selectedIndex.findIndex((row, index) => row !== origin[index])
+      const diffCol = this.getChangeIndex(selectedIndex, origin)
+      if (diffCol === -1) return
+
+      // 获取变化的的行
+      const diffRow = selectedIndex[diffCol]
+
+      // 如果selectedIndex只有一列，返回选中项的索引；如果是多项，返回选中项所在的列。
+      return selectedIndex.length === 1 ? diffRow : diffCol
+    },
+
+    handleChange (picker, index) {
+      const value = this.getValues()
+      this.$emit('change', {
+        picker,
+        value,
+        index
+      })
+    },
+
     /**
      * @description 获取所有列选中项，返回值为一个数组
      */
     getSelects () {
       const { selectedIndex, formatColumns } = this.data
       const selects = selectedIndex.map((row, col) => formatColumns[col][row])
-
       // 单列选择器，则返回单项
       if (selects.length === 1) {
         return selects[0]
@@ -252,6 +280,7 @@ VueComponent({
 
       return selects
     },
+
     /**
      * @description 获取所有列选中项的value，返回值为一个数组
      */
@@ -265,6 +294,7 @@ VueComponent({
 
       return values
     },
+
     /**
      * @description 获取所有列选中项的label，返回值为一个数组
      * @return {Array} 每列选中的label
@@ -273,6 +303,7 @@ VueComponent({
       const { selectedIndex, formatColumns, labelKey } = this.data
       return selectedIndex.map((row, col) => formatColumns[col][row][labelKey])
     },
+
     /**
      * @description 获取某一列的选中项下标
      * @param {Number} columnIndex 列的下标
@@ -281,6 +312,7 @@ VueComponent({
     getColumnIndex (columnIndex) {
       return this.data.selectedIndex[columnIndex]
     },
+
     /**
      * @description 获取某一列的选项
      * @param {Number} columnIndex 列的下标
@@ -289,6 +321,7 @@ VueComponent({
     getColumnData (columnIndex) {
       return this.data.formatColumns[columnIndex]
     },
+
     /**
      * @description 获取某一列的选项
      * @param {Number} columnIndex 列的下标
@@ -314,10 +347,12 @@ VueComponent({
         formatColumns: formatColumns
       })
     },
+
     getColumnsData () {
       return this.data.formatColumns.slice(0)
     }
   },
+
   created () {
     // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
     if (

@@ -2,15 +2,24 @@ import Toast from '../../dist/toast/toast.js'
 
 Page({
   data: {
+    type: 'date',
+    value: Date.now(),
     value1: Date.now(),
     value2: Date.now(),
-    value3: '09:20',
-    value4: Date.now(),
+    value3: Date.now(),
+    value4: '09:20',
     value5: Date.now(),
     value6: Date.now(),
     value7: Date.now(),
     value8: Date.now(),
     value9: Date.now(),
+    value10: Date.now(),
+    value11: '',
+    value12: '',
+    value13: Date.now(),
+    value14: ['', Date.now()],
+    value15: ['', Date.now()],
+    showstart: false,
     formatter (type, value) {
       switch (type) {
       case 'year':
@@ -51,17 +60,89 @@ Page({
           resolve(true)
         }
       }, 2000)
+    },
+    displayFormatTabLabel (items) {
+      return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
     }
   },
   /** picker触发confirm事件，同步触发confirm事件 */
-  onConfirm ({ detail }) {
+  handleConfirm1 (event) {
+    this.setData({
+      value1: event.detail.value
+    })
+  },
+  handleConfirm2 (event) {
+    this.setData({
+      value2: event.detail.value
+    })
+  },
+  handleConfirm3 (event) {
+    this.setData({
+      value3: event.detail.value
+    })
+  },
+  handleConfirm4 (event) {
+    this.setData({
+      value4: event.detail.value
+    })
+  },
+  handleConfirm5 (event) {
+    this.setData({
+      value5: event.detail.value
+    })
+  },
+  handleConfirm6 (event) {
+    this.setData({
+      value6: event.detail.value
+    })
+  },
+  handleConfirm7 (event) {
+    this.setData({
+      value7: event.detail.value
+    })
+  },
+
+  handleConfirm8 (event) {
+    this.setData({
+      value8: event.detail.value
+    })
+  },
+  handleConfirm9 (event) {
+    this.setData({
+      value9: event.detail.value
+    })
+  },
+  handleConfirm10 (event) {
+    this.setData({
+      value10: event.detail.value
+    })
+  },
+  handleConfirm11 (event) {
+    this.setData({
+      value11: event.detail.value
+    })
+  },
+  handleConfirm12 (event) {
+    this.setData({
+      value12: event.detail.value
+    })
+  },
+  handleConfirm13 (event) {
+    this.setData({
+      value13: event.detail.value
+    })
+  },
+  handleConfirm14 (event) {
+    this.setData({
+      value14: event.detail.value
+    })
+  },
+  handleConfirm15 (event) {
+    this.setData({
+      value15: event.detail.value
+    })
   },
   /** picker触发cancel事件，同步触发cancel事件 */
   onCancel () {
-  },
-  handleConfirm ({ detail }) {
-    this.setData({
-      value6: detail.value
-    })
   }
 })

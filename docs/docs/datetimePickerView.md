@@ -70,6 +70,7 @@ Page({
 ```
 
 ### 修改内部格式
+
 > 自定义函数必须写在data中
 
 给 `formatter` 属性传入一个函数，接收 `type` 和 `value` 值，返回展示的文本内容。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`value` 为 `number` 类型。
@@ -78,10 +79,11 @@ Page({
 ```html
 <wd-datetime-picker-view value="{{value}}" label="内部格式" formatter="{{formatter}}" />
 ```
+
 ```javascript
 Page({
   data: {
-    value: new Date(),
+    value: Date.now(),
     formatter (type, value) {
       switch (type) {
         case 'year':
@@ -101,8 +103,8 @@ Page({
   }
 })
 ```
-### 过滤选项
 
+### 过滤选项
 
 给 `filter` 属性传入一个函数，接收 `type` 和 `values` 值，返回列的选项列表。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`values` 为 number数组。
 > 自定义函数必须写在data中
@@ -112,7 +114,7 @@ Page({
 ```javascript
 Page({
   data: {
-    value: new Date(),
+    value: Date.now(),
     filter (type, values) {
       if (type === 'minute') {
         return values.filter(value => value % 5 === 0)
@@ -134,6 +136,7 @@ Page({
 | columns-height | picker内部滚筒高 | number | - | 231 |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
+| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | minDate | 最小日期 | date | - | 当前日期 - 10年 |
 | maxDate | 最大日期 | date | - | 当前日志 + 10年 |
 | minHour | 最小小时，time类型时生效 | number | - | 0 |
@@ -145,4 +148,4 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:change | 切换选项时触发 | 数组，为所有选中项的值 |
+| bind:change | 切换选项时触发 | 选中的值 event.detail = { value }，value 为当前选中日期的时间戳，'time' 类型则为字符串 |
