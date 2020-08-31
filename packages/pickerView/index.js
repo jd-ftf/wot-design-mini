@@ -17,7 +17,6 @@ VueComponent({
       value: [],
       observer (columns) {
         // props初始化的时候格式化formatColumns交给value的observer来做
-        if (this.data.selectedIndex.length === 0) return
         this.setData({ formatColumns: this.formatArray(columns) })
         /**
          * 每次改变都要重置选中项
