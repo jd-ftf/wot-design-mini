@@ -80,6 +80,22 @@ VueComponent({
           displayColumns: val,
           resetColumns: val
         })
+        // 为picker的displayFormat设置默认值
+        this.data.displayFormat || this.setData({
+          displayFormat: defaultDisplayFormat
+        })
+        // JM小程序无法透传function类型的props，此处手动透传
+        this.data.columnChange && this.picker.setData({
+          columnChange: this.data.columnChange
+        })
+        // 获取初始选中项,并展示初始选中文案
+        if (this.data.value) {
+          this.setShowValue(this.picker.getSelects())
+        } else {
+          this.setData({
+            showValue: ''
+          })
+        }
       }
     },
     ...pickerViewProps,
