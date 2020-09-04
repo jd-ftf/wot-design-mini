@@ -5,6 +5,7 @@
   bind:clickmodal="toggleModal"
   data-action="modal"
   z-index="{{ zIndex }}"
+  duration="{{ 200 }}"
 >
   <view class="wd-message-box__container custom-class">
     <!--内容部分-->
