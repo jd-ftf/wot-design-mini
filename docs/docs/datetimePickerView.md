@@ -136,7 +136,6 @@ Page({
 | columns-height | picker内部滚筒高 | number | - | 231 |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
-| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | minDate | 最小日期 | date | - | 当前日期 - 10年 |
 | maxDate | 最大日期 | date | - | 当前日志 + 10年 |
 | minHour | 最小小时，time类型时生效 | number | - | 0 |
