@@ -1,5 +1,6 @@
 @import '../common/abstracts/variable';
 @import '../common/abstracts/mixin';
+@import '../actionSheet/index.scss';
 
 @include b(col-picker) {
   @include when(border) {

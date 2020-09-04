@@ -52,9 +52,9 @@ VueComponent({
     loadingIconSvg: ''
   },
   methods: {
-    handleClick () {
+    handleClick (event) {
       if (!this.data.disabled && !this.data.loading) {
-        this.$emit('click')
+        this.$emit('click', event.detail)
       }
     },
     handleGetuserinfo (event) {
