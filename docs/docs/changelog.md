@@ -6,10 +6,23 @@
 
 #### 新特性
 
+- Button
+  - click 事件抛出event对象 (by [@yawuling](https://github.com/yawuling)） )
 - DatetimePicker
   - 新增方法 `toggle`, 在区域选择模式下，tab标签切换时触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `display-format-tab-label`, 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增范围选择 交互样式 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- DatetimePickerView
+  - `change` 事件返回参数由数组类型改为时间类型 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
+#### 优化
+
+- Grid
+  - 支持动态渲染GridItem （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - 支持列项修改后内部GridItem重排 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - GridItem 内容padding移除，兼容小屏幕展示四字标题 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- MessageBox
+  - 动画时间由300ms改为200ms，减少等待时间 (by [@yawuling](https://github.com/yawuling)） )
 
 #### Bug 修复
 
@@ -19,7 +32,19 @@
 - PickerView
   - 修复点击过快时，出现限定范围外的列项数据（by [@HXCStudio123](https://github.com/HXCStudio123) ）
 - MessageBox
-  - MessageBox.prompt 获取不到value值（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - MessageBox.prompt 获取不到value值 [#166](https://github.com/jd-ftf/wot-design-mini/issues/166)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- Toast
+  - toast文案过长样式展示左侧挤压问题 [#169](https://github.com/jd-ftf/wot-design-mini/issues/169)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- Button
+  - 圆角按钮圆角还原度，修复2px偏差 (by [@yawuling](https://github.com/yawuling)） )
+- Cell
+  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling)） )
+- ColPicker
+  - 修复按需引入缺少actionSheet样式问题 (by [@yawuling](https://github.com/yawuling)） )
+- Popup
+  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
+- StatusTip
+  - 去掉占位图的白色背景，将图片从base64改为图片链接以减少包大小 (by [@yawuling](https://github.com/yawuling)） )
 
 ### 2.0.0-beta2
 

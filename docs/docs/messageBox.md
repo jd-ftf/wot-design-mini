@@ -108,7 +108,7 @@ Page({
       title: '邮箱',
       inputPattern: /.+@.+\..+/i
     }).then(({ value }) => {
-      console.log(`你输入的又想是： ${value}`)
+      console.log(`您输入的是： ${value}`)
     })
   }
 })

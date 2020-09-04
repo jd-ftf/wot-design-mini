@@ -10,8 +10,15 @@
         <block jd:if="{{label}}">{{ label }}</block>
         <slot jd:else name="label"></slot>
       </view>
-      <view class="wd-picker__value custom-value-class {{ showValue ? '' : 'wd-picker__placeholder' }}">
-        {{ showValue ? showValue : placeholder }}
+      <view class="wd-picker__value custom-value-class">
+        <view jd:if="{{region}}">
+          <text class="{{ showValue[0] ? '' : 'wd-picker__placeholder' }}">{{showValue[0] ? showValue[0] : placeholder}}</text>
+          至
+          <text class="{{ showValue[1] ? '' : 'wd-picker__placeholder' }}">{{showValue[1] ? showValue[1] : placeholder}}</text>
+        </view>
+        <view jd:else class="{{ showValue ? '' : 'wd-picker__placeholder' }}">
+          {{ showValue ? showValue : placeholder }}
+        </view>
       </view>
       <wd-icon
         jd:if="{{!disabled && !readonly}}"

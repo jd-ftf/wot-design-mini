@@ -45,7 +45,11 @@ const MessageBox = (MessageBoxOptions) => {
   // 返回一个promise
   return new Promise((resolve, reject) => {
     Object.assign(options, {
-      onConfirm: resolve,
+      onConfirm: () => {
+        resolve({
+          value: instance.data.inputValue
+        })
+      },
       onCancel: reject
     })
     instance.setData(options)
@@ -71,6 +75,7 @@ const createMethod = (type) => {
     return MessageBox(Object.assign({}, defaultOptions, MessageBoxOptions, parseOptions(options)))
   }
 }
+
 MessageBox.alert = createMethod('alert')
 MessageBox.confirm = createMethod('confirm')
 MessageBox.prompt = createMethod('prompt')

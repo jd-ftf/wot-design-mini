@@ -178,9 +178,11 @@ VueComponent({
         [key]: fn
       })
 
-      this.picker1 && this.picker1.setData({
-        [key]: fn
-      })
+      if (this.data.region) {
+        this.picker1 && this.picker1.setData({
+          [key]: fn
+        })
+      }
     },
 
     /**
@@ -343,9 +345,10 @@ VueComponent({
         this.setData({
           showValue: tab
             ? this.data.showValue
-            : (value[0] || isConfirm ? this.defaultDisplayFormat(items) : '') + '至' + (value[1] || isConfirm ? this.defaultDisplayFormat(endItems) : ''),
+            : [(value[0] || isConfirm ? this.defaultDisplayFormat(items) : ''), (value[1] || isConfirm ? this.defaultDisplayFormat(endItems) : '')],
           showTabLabel: [this.defaultDisplayFormat(items, true), this.defaultDisplayFormat(endItems, true)]
         })
+        console.log(this.data.showValue)
       } else {
         const items = this.picker.picker.getSelects()
         this.setData({

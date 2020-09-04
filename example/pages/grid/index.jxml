@@ -49,14 +49,14 @@
 		</wd-grid>
 	</demo-block>
 	<demo-block title="图标插槽" transparent>
-		<wd-grid icon-size="36px">
-			<wd-grid-item use-icon-slot text="文字">
+		<wd-grid>
+			<wd-grid-item use-icon-slot text="文字" icon-size="36px">
 				<image slot="icon" class="slot-img" src="{{ joy }}" />
 			</wd-grid-item>
-			<wd-grid-item use-icon-slot text="文字">
+			<wd-grid-item use-icon-slot text="文字" icon-size="36px">
 				<image slot="icon" class="slot-img" src="{{ joy }}" />
 			</wd-grid-item>
-			<wd-grid-item use-icon-slot text="文字">
+			<wd-grid-item use-icon-slot text="文字" icon-size="36px">
 				<image slot="icon" class="slot-img" src="{{ joy }}" />
 			</wd-grid-item>
 		</wd-grid>

@@ -2,6 +2,7 @@ import VueComponent from '../common/component'
 
 VueComponent({
   externalClasses: ['custom-text', 'custom-icon'],
+
   data: {
     style: '',
     gutterContentStyle: '',
@@ -11,6 +12,7 @@ VueComponent({
     square: false,
     border: true
   },
+
   props: {
     icon: {
       type: String,
@@ -35,6 +37,7 @@ VueComponent({
     value: null,
     max: Number
   },
+
   relations: {
     '../grid/index': {
       type: 'parent',
@@ -46,11 +49,14 @@ VueComponent({
       }
     }
   },
+
   mounted () {
     this.init()
   },
+
   methods: {
     init () {
+      if (!this.parent) return
       const { children, data } = this.parent
       const { column, gutter, square, border, bgColor } = data
       const width = column ? 100 / column + '%' : 100 / children.length + '%'

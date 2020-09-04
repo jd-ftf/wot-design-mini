@@ -10,19 +10,17 @@
     box-sizing: border-box;
   }
   @include e(body) {
-    background-color: #fff;
+    background-color: $-message-box-bg;
     padding: $-message-box-padding;
 
     @include when(no-title) {
       padding: 25px 24px 0px;
     }
-    @include when(prompt) {
-    }
   }
   @include e(title) {
     text-align: center;
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.85);
+    font-size: $-message-box-title-fs;
+    color: $-message-box-title-color;
     line-height: 20px;
     font-weight: 500;
     padding-top: 5px;
@@ -46,34 +44,7 @@
       border-radius: $-message-box-content-scrollbar-width / 2;
     }
   }
-  @include e(input-container) {
-    position: relative;
-    margin-top: 12px ;
 
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      transform: scaleY(0.5);
-      background: #c5c5c5;
-    }
-
-    &-placeholder {
-      color: #d2d2d2;
-      font-size: 16px;
-      font-weight: normal;
-    }
-  }
-  @include e(input-inner){
-    text-align: left;
-  }
-  @include e(input-placeholder){
-    text-align: left;
-  }
   @include e(input-error) {
     min-height: 18px;
     margin-top: 2px;
@@ -93,25 +64,8 @@
   @include e(block) {
     display: block;
   }
-  @include e(button) {
-    display: block;
-    flex: 1;
-    text-align: center;
-    height: 36px;
-    line-height: 36px;
-    outline: none;
-    -webkit-appearance: none;
-    border: none;
-    min-width: 118px;
-    border-radius: 22PX;
-    
-    @include m(cancel) {
-      box-sizing: border-box;
-      margin-right: 16px;
-      border-top: 1px solid #f4f4f4;
-    }
-    @include m(confirm) {
-    }
+  @include e(cancel) {
+    margin-right: 16px;
   }
 }
 

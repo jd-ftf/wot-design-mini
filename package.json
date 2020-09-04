@@ -1,6 +1,6 @@
 {
   "name": "wot-design-mini",
-  "version": "2.0.0-beta2",
+  "version": "2.0.0-beta3",
   "description": "A ui component library for mini program",
   "scripts": {
     "dev": "npm run build:icon && cross-env EFF_ABSOLUTE_PATHS=true NODE_ENV=development gulp dev --gulpfile build/gulpfile.js",

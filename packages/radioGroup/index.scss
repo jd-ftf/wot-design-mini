@@ -3,7 +3,7 @@
 
 @include b(radio-group) {
   background-color: $-radio-bg;
-  // font-size: 0;
+  font-size: 0;
 
   // 上下20px 左右15px 内部间隔12px
   @include when(button) {
