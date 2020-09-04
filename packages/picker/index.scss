@@ -101,10 +101,10 @@
     position: relative;
     display: flex;
     font-size: $-picker-toolbar-fs;
+    height: $-picker-toolbar-height;
+    line-height: $-picker-action-height;
     justify-content: space-between;
     align-items: center;
-    height: 56px;
-    line-height: 1.1;
     box-sizing: border-box;
   }
 
@@ -115,7 +115,7 @@
     font-size: $-picker-toolbar-fs;
     color: $-picker-toolbar-finish-color;
     background: transparent;
-    padding: 22px 15px 12px;
+    padding: 24px 15px 14px 15px;
 
     @include m(cancel) {
       color: $-picker-toolbar-cancel-color;

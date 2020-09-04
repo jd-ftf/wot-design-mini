@@ -91,6 +91,7 @@ export const checkPixelRange = (num, label = 'value') => {
     throw Error(`${label} should be greater than zero`)
   }
 }
+
 /**
  * @default 渲染视图
  * @param {this} node 节点
@@ -122,7 +123,14 @@ function hexToRgb (hex) {
   return rgb
 }
 
-export const gradient = (startColor, endColor, step) => {
+/**
+ * @default 计算渐变色的中间变量
+ * @param {String} startColor 开始颜色
+ * @param {String} endColor 结束颜色
+ * @param {Number} step 获取渲染位置，默认为中间位置
+ * @return {String} 渐变色中间颜色变量
+ */
+export const gradient = (startColor, endColor, step = 2) => {
   // 将hex转换为rgb
   const sColor = hexToRgb(startColor)
   const eColor = hexToRgb(endColor)
@@ -140,6 +148,33 @@ export const gradient = (startColor, endColor, step) => {
   return gradientColorArr
 }
 
+/** @description 保证num不超出min和max的范围 */
+export const range = (num, min, max) => Math.min(Math.max(num, min), max)
+
+/** @description 比较数值是否相等 */
+export const isEqual = (value1, value2) => {
+  if (value1 === value2) return true
+  if (!(value1 instanceof Array)) return false
+  if (!(value2 instanceof Array)) return false
+  if (value1.length !== value2.length) return false
+  for (let i = 0; i !== value1.length; ++i) {
+    if (value1[i] !== value2[i]) return false
+  }
+  return true
+}
+
+/** @description 不满10补0 */
+export const padZero = (number, length = 2) => {
+  number = number + ''
+
+  while (number.length < length) {
+    number = '0' + number
+  }
+
+  return number
+}
+
+/** @description 全局变量id */
 export const context = {
   id: 1000
 }

@@ -2,7 +2,8 @@ import MessageBox from '../../dist/messageBox/messageBox'
 
 Page({
   data: {
-    value: 1
+    value: 1,
+    value1: ''
   },
   changeValue ({ detail }) {
     this.setData({ value: detail })
@@ -25,7 +26,15 @@ Page({
   prompt () {
     MessageBox.prompt({
       title: '请输入邮箱',
+      inputValue: this.data.value1,
       inputPattern: /.+@.+\..+/i
+    }).then(({ value }) => {
+      this.setData({
+        value1: value
+      })
+      console.log('当前值', this.data.value1)
+    }).catch(e => {
+      console.log(e)
     })
   },
   alertWithLongChar () {

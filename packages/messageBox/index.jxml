@@ -19,16 +19,13 @@
         <!--prompt类型-->
         <block jd:if="{{type === 'prompt'}}">
           <!--输入框-->
-          <view class="wd-message-box__input-container">
-                <wd-input
-                  custom-class="wd-message-box__input-inner"
-                  value="{{ inputValue }}"
-                  type="{{inputType}}"
-                  size="large"
-                  placeholder="{{ inputPlaceholder || '请输入' }}"
-                  placeholder-class="wd-message-box__input-container-placeholder"
-                  bindinput="inputValChange"/>
-          </view>
+          <wd-input
+            value="{{ inputValue }}"
+            type="{{inputType}}"
+            size="large"
+            placeholder="{{ inputPlaceholder || '请输入' }}"
+            bindinput="inputValChange"
+          />
           <!--错误提示-->
           <view jd:if="{{showErr}}" class="wd-message-box__input-error">
             {{ inputError || '输入的数据不合法' }}
@@ -47,7 +44,7 @@
         round
         block
         jd:if="{{showCancelButton}}"
-        custom-class="wd-message-box__button--cancel"
+        custom-class="wd-message-box__cancel"
         data-action="cancel"
         bind:tap="toggleModal">
         {{ cancelButtonText || '取消'}}
@@ -55,7 +52,6 @@
       <wd-button
         round
         block
-        custom-class="wd-message-box__button--confirm"
         data-action="confirm"
         bind:tap="toggleModal">
         {{ confirmButtonText || '确定'}}

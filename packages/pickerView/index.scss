@@ -1,9 +1,9 @@
 @import "./../common/abstracts/_mixin.scss";
 @import "./../common/abstracts/variable.scss";
 
-
 @include b(picker-view) {
   position: relative;
+  padding: 10px 0;
 
   @include e(columns) {
     position: relative;
@@ -12,7 +12,7 @@
     overflow: hidden;
     align-items: center;
   }
-  
+
   @include e(mask) {
     position: absolute;
     top: 0;

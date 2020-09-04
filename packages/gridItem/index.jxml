@@ -1,4 +1,4 @@
-<view 
+<view
 	class="wd-grid-item {{ border && !gutter ? itemClass : '' }} custom-class" 
 	bindtap="click" 
 	style="{{ style }}"

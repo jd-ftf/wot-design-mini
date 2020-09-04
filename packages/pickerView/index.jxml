@@ -1,4 +1,4 @@
-<view class="wd-picker-view custom-class" >
+<view class="wd-picker-view custom-class">
   <view
     class="wd-picker-view__loading"
     jd:if="{{loading}}"
@@ -9,9 +9,9 @@
     mask-class="wd-picker-view__mask"
     indicator-class=""
     indicator-style="height: {{itemHeight}}px;"
-    style="height: {{columnsHeight}}px;"
+    style="height: {{columnsHeight - 20}}px;"
     value="{{selectedIndex}}"
-    bindchange="handleChange"
+    bindchange="onChange"
   >
     <picker-view-column
       jd:for="{{formatColumns}}"

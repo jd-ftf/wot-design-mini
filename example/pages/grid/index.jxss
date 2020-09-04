@@ -1,8 +1,10 @@
 
 .custom-item{
-  height: 80px !important;
+  height: 80px!important;
   color: #e2231a;
-  text-align: left !important;
+  text-align: left!important;
+  padding: 0 10px;
+  background: #fff;
 }
 .img{
   width: 100%;
