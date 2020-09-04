@@ -101,11 +101,10 @@
     position: relative;
     display: flex;
     font-size: $-picker-toolbar-fs;
-    height: $-picker-toolbar-height;
-    line-height: $-picker-toolbar-height;
     justify-content: space-between;
     align-items: center;
     height: 56px;
+    line-height: 1.1;
     box-sizing: border-box;
   }
 
@@ -116,7 +115,7 @@
     font-size: $-picker-toolbar-fs;
     color: $-picker-toolbar-finish-color;
     background: transparent;
-    padding: 25px 15px 15px 15px;
+    padding: 22px 15px 12px;
 
     @include m(cancel) {
       color: $-picker-toolbar-cancel-color;
@@ -124,7 +123,8 @@
   }
   @include e(title) {
     display: block;
-    float: 1;
+    padding-top: 10px;
     color: $-picker-toolbar-title-color;
+    font-weight: $-action-sheet-weight;
   }
 }
