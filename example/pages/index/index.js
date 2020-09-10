@@ -137,6 +137,9 @@ Page({
             id: 'collapse',
             name: 'Collapse 折叠面板'
           }, {
+            id: 'divider',
+            name: 'Divider 分割线'
+          }, {
             id: 'loadmore',
             name: 'Loadmore 加载更多'
           }, {
