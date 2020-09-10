@@ -117,6 +117,8 @@
               title: Card 卡片
             - name: collapse
               title: Collapse 折叠面板
+            - name: divider
+              title: Divider 分割线
             - name: loadmore
               title: Loadmore 加载更多
             - name: noticeBar
