@@ -16,16 +16,13 @@ VueComponent({
     },
     loadingText: {
       type: String,
-      value: '加载中...'
+      value: '正在努力加载中...'
     },
     finishedText: {
       type: String,
-      value: '没有更多了'
+      value: '已加载完毕'
     },
-    errorText: {
-      type: String,
-      value: '加载失败，点击重试'
-    }
+    errorText: String
   },
   data: {
     showText: ''

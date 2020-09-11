@@ -341,11 +341,11 @@ $-input-icon-size: 16px !default; // 图标大小
 $-input-icon-size-large: 18px !default; // 大尺寸图标大小
 $-input-textarea-padding: 15px !default; // textarea下的padding
 
-/* load-more */
-$-load-more-height: 50px !default; // 高度
-$-load-more-color: $-color-secondary !default; // 颜色
-$-load-more-loading-size: 20px !default; // loading 大小
-$-load-more-fs: 10px !default; // 字号
+/* loadmore */
+$-loadmore-height: 48px !default; // 高度
+$-loadmore-color: rgba($-color-black, 0.45) !default; // 颜色
+$-loadmore-fs: 14px !default; // 字号
+$-loadmore-error-color: $-color-theme !default; // 点击重试颜色
 
 /* message-box */
 $-message-box-width: 300px !default; // 宽度
