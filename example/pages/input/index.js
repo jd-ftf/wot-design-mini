@@ -43,5 +43,8 @@ Page({
     this.setData({
       value6: detail.value
     })
+  },
+  handleBlur ({ detail }) {
+    console.log(detail)
   }
 })

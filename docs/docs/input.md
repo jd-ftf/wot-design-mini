@@ -192,9 +192,9 @@ page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| bind:input        | 监听输入框focus事件                    | event.detail = {value, cursor, keyCode}       |
+| bind:input        | 监听输入框input事件                    | event.detail = {value, cursor, keyCode}       |
 | bind:focus        | 监听输入框focus事件                    | event.detail = { value, height }, height 为键盘高度 |
-| bind:blur         | 监听输入框blur事件                     | event.detail = { value }       |
+| bind:blur         | 监听输入框blur事件                     | event.detail = { value, cursor }，仅在type="textarea"时存在cursor       |
 | bind:change       | 监听输入框修改事件                      | event.detail = { value }      |
 | bind:clear        | 监听输入框清空按钮事件                   | -       |
 | bind:linechange   | 监听输入框行数变化(仅限textarea)         | event.detail = { height: 0, heightRpx: 0, lineCount: 0 }       |
