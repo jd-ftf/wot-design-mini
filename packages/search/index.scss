@@ -83,6 +83,10 @@
     position: absolute;
     right: 0;
     padding: 6px 9px 6px 7px;
+    color: $-search-cancel-color;
+  }
+  @include e(clear-icon) {
+    vertical-align: middle;
   }
   @include e(cancel) {
     padding: $-search-cancel-padding;

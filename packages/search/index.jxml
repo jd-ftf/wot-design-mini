@@ -33,6 +33,7 @@
       <!--icon:clear-->
       <wd-icon
         jd:if="{{str}}"
+        custom-class="wd-search__clear-icon"
         name="error-fill"
         size="16px"
         class="wd-search__clear"

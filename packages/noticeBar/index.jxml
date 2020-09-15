@@ -3,7 +3,7 @@
   class="wd-notice-bar custom-class {{ noticeBarClass }}"
   style="color: {{ color }}; background: {{ backgroundColor }};"
 >
-  <wd-icon jd:if="{{ prefix }}" class="wd-notice-bar__prefix" name="{{ prefix }}"></wd-icon>
+  <wd-icon jd:if="{{ prefix }}" class="wd-notice-bar__prefix" size="18px" name="{{ prefix }}"></wd-icon>
   <slot jd:else name="prefix"></slot>
   <view class="wd-notice-bar__wrap">
     <view
@@ -15,6 +15,6 @@
       <slot></slot>
     </view>
   </view>
-  <wd-icon jd:if="{{ closable }}" class="wd-notice-bar__suffix" name="close-bold" bindtap="handleClose"></wd-icon>
+  <wd-icon jd:if="{{ closable }}" class="wd-notice-bar__suffix" size="18px" name="close-bold" bindtap="handleClose"></wd-icon>
   <slot jd:else name="suffix"></slot>
 </view>
