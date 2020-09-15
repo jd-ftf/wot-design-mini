@@ -183,13 +183,15 @@ VueComponent({
         })
     },
     // 失去焦点时会先后触发change、blur，未输入内容但失焦不触发 change 只触发 blur
-    handleBlur () {
+    handleBlur ({ detail }) {
       this.setData({ focus: false })
       this.$emit('change', {
         value: this.data.value
       })
       this.$emit('blur', {
-        value: this.data.value
+        value: this.data.value,
+        // textarea 有 cursor
+        cursor: detail.cursor ? detail.cursor : null
       })
     },
     handleFocus ({ detail }) {

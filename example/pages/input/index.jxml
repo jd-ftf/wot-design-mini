@@ -1,6 +1,6 @@
 <view>
 	<demo-block title="基本用法">
-		<wd-input type="text" value="{{ value }}" placeholder="请输入用户名" bind:change="handleChange" />
+		<wd-input type="text" value="{{ value }}" placeholder="请输入用户名" bind:change="handleChange" bind:blur="handleBlur" />
 	</demo-block>
 	<demo-block title="禁用状态">
 		<wd-input type="text" value="{{ value1 }}" disabled="true" />
@@ -28,7 +28,7 @@
 		<text style="display: inline-block; vertical-align: middle; font-size: 14px;">元</text>
 	</demo-block>
 	<demo-block title="textarea" transparent>
-		<wd-input type="textarea" value="{{ value9 }}" placeholder="请填写评价" />
+		<wd-input type="textarea" value="{{ value9 }}" placeholder="请填写评价" bind:blur="handleBlur" />
 	</demo-block>
 	<demo-block title="textarea 清空按钮 和 字数限制" transparent>
 		<wd-input type="textarea" value="{{ value10 }}" maxlength="120" clearable show-word-limit />

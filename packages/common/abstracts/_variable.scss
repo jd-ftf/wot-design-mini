@@ -299,7 +299,7 @@ $-drop-menu-item-fs: $-fs-secondary !default; // 选项字号
 $-drop-menu-item-modal-bg: $-modal-bg !default; // 蒙层颜色
 
 /* input-number */
-$-input-number-color: rgba($-color-black, 0.85) !default; // 文字颜色
+$-input-number-color: #262626 !default; // 文字颜色
 $-input-number-border-color: #e8e8e8 !default; // 边框颜色
 $-input-number-disabled-color: rgba($-color-black, 0.25) !default; // 禁用颜色
 $-input-number-height: 24px !default; // 加减号按钮高度
@@ -316,13 +316,13 @@ $-input-not-empty-border-color: rgba($-color-black, 0.85) !default; // 无label�
 $-input-fs: $-cell-title-fs !default; // 字号
 $-input-fs-large: $-cell-title-fs-large !default; // 大尺寸字号
 $-input-icon-margin: 8px !default; // 图标距离
-$-input-color: rgba($-color-black, 0.85) !default; // 文字颜色
-$-input-placeholder-color: rgba($-color-black, 0.25) !default; // 占位符颜色
-$-input-disabled-color: rgba($-color-black, 0.15) !default; // 输入框禁用颜色
+$-input-color: #262626 !default; // 文字颜色
+$-input-placeholder-color: #bfbfbf !default; // 占位符颜色
+$-input-disabled-color: #d9d9d9 !default; // 输入框禁用颜色
 $-input-error-color: $-color-danger !default; // 输入框错误颜色
-$-input-icon-color: rgba($-color-black, 0.65) !default; // 图标颜色
-$-input-count-color: rgba($-color-black, 0.25) !default; // 计数文字颜色
-$-input-count-current-color: rgba($-color-black, 0.85) !default; // 当前长度颜色
+$-input-icon-color: #585858 !default; // 图标颜色
+$-input-count-color: #bfbfbf !default; // 计数文字颜色
+$-input-count-current-color: #262626 !default; // 当前长度颜色
 $-input-label-padding: 11px 10px 11px 0 !default; // label padding
 $-input-bg: $-color-white !default; // 默认背景颜色
 // TODO cell模式下 待设计改
@@ -516,9 +516,9 @@ $-search-input-bg: $-color-bg !default; // 输入框背景色
 $-search-input-height: 30px !default; // 输入框高度
 $-search-input-padding: 0 32px 0 42px !default; // 输入框间距
 $-search-input-fs: $-fs-content !default; // 输入框字号
-$-search-input-color: $-color-title !default; // 输入框文字颜色
+$-search-input-color: #262626 !default; // 输入框文字颜色
 $-search-icon-color: $-color-icon !default; // 图标颜色
-$-search-placeholder-color: $-color-secondary !default; // placeholder 颜色
+$-search-placeholder-color: #585858 !default; // placeholder 颜色
 $-search-cancel-padding: 0 $-search-side-padding 0 10px !default; // 取消按钮间距
 $-search-cancel-fs: $-fs-title !default; // 取消按钮字号
 $-search-cancel-color: rgba($-color-black, 0.65) !default; // 取消按钮颜色
@@ -628,7 +628,7 @@ $-tabs-nav-map-modal-bg: $-modal-bg !default; // map 类型蒙层背景色
 $-tag-fs: $-fs-secondary !default; // 字号
 $-tag-color: $-color-white !default; // 字体颜色
 $-tag-small-fs: $-fs-aid !default; // 小尺寸字号
-$-tag-info-color: rgba($-color-black, 0.65) !default; // info 颜色
+$-tag-info-color: #585858 !default; // info 颜色
 $-tag-primary-color: $-color-theme !default; // 主颜色
 $-tag-danger-color: rgba(250,67,80,1) !default; // danger 颜色
 $-tag-warning-color: rgba(255,144,0,1) !default; // warning 颜色
