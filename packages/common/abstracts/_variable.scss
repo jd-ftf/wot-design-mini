@@ -312,7 +312,7 @@ $-input-number-icon-color: rgba($-color-black, 0.65) !default; // icon颜色
 
 /* input */
 $-input-border-color: #dadada !default; // 无label边框颜色
-$-input-not-empty-border-color: rgba($-color-black, 0.85) !default; // 无label边框颜色
+$-input-not-empty-border-color: #262626 !default; // 无label边框颜色
 $-input-fs: $-cell-title-fs !default; // 字号
 $-input-fs-large: $-cell-title-fs-large !default; // 大尺寸字号
 $-input-icon-margin: 8px !default; // 图标距离
@@ -325,7 +325,7 @@ $-input-count-color: #bfbfbf !default; // 计数文字颜色
 $-input-count-current-color: #262626 !default; // 当前长度颜色
 $-input-label-padding: 11px 10px 11px 0 !default; // label padding
 $-input-bg: $-color-white !default; // 默认背景颜色
-// TODO cell模式下 待设计改
+
 $-input-cell-bg: $-color-white !default; // cell 类型背景色
 $-input-cell-border-color: $-color-border-light !default; // cell 类型边框颜色
 $-input-cell-padding: $-size-side-padding !default; // cell 类型左右间距
@@ -549,7 +549,10 @@ $-slider-line-color: resultColor(
 $-slider-disabled-color: rgba($-color-black, 0.25) !default; // 禁用状态下字体颜色
 
 /* sort-button */
-$-sort-button-fs: $-fs-content !default; // 字号
+$-sort-button-fs: 14px !default; // 字号
+$-sort-button-color: rgba($-color-black, 0.85) !default; // 左侧文字颜色
+$-sort-button-icon-fs: 16px !default; // 右侧箭头字号
+$-sort-button-icon-color: rgba($-color-black, 0.65) !default; // 右侧箭头颜色
 $-sort-button-height: 34px !default; // 高度
 
 /* steps */

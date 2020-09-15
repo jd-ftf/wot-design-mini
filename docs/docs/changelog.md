@@ -1,5 +1,31 @@
 ## 更新日志
 
+### 2.0.0
+
+*2020-09-15*
+
+#### 新特性
+
+- ImgPreview
+  - 新增组件 `ImgPreview` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Upload
+  - 新增组件 `Upload` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
+#### Bug 修复
+
+- Cell
+  - Cell 右侧icon和右侧value未对齐 [#167](https://github.com/jd-ftf/wot-design-mini/issues/167)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- SortButton
+  - SortButton 的上下箭头不符合预期 [#168](https://github.com/jd-ftf/wot-design-mini/issues/168)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- ColPicker
+  - ColPicker 多列选择器文档错误 [#172](https://github.com/jd-ftf/wot-design-mini/issues/172)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- Search
+  - Search 组件 clear 按钮不符合预期 [#175](https://github.com/jd-ftf/wot-design-mini/issues/175)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- Input
+  - Input 输入时不显示文字，仅在失焦后显示文字(不支持rgba色值) [#176](https://github.com/jd-ftf/wot-design-mini/issues/176) (by [@yawuling](https://github.com/yawuling)） )
+- NoticeBar
+  - NoticeBar 图标与文字未垂直居中对齐 [#177](https://github.com/jd-ftf/wot-design-mini/issues/177)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+
 ### 2.0.0-beta3
 
 *2020-09-04*

@@ -32,7 +32,7 @@
 | finish | function | 结束 picker 选择，若无法正常关闭如数据获取失败，则执行 `finish(false)` |
 
 ```html
-<wd-col-picker label="选择地址" value="{{value}}" :columns="areaData" :column-change="columnChange" bind:confirm="handleConfirm"></wd-col-picker>
+<wd-col-picker label="选择地址" value="{{value}}" columns="{{ areaData }}" column-change="{{ columnChange }}" bind:confirm="handleConfirm"></wd-col-picker>
 ```
 
 ```javascript

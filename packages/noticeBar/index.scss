@@ -22,10 +22,10 @@
     color: $-notice-bar-danger-color;
   }
   @include e(prefix) {
-    font-size: $-notice-bar-prefix-size;
     padding-right: 4px;
     width: $-notice-bar-prefix-size;
     height: $-notice-bar-prefix-size;
+    line-height: $-notice-bar-prefix-size;
   }
   @include e(suffix) {
     text-align: center;
@@ -40,7 +40,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    font-size: $-notice-bar-close-size;
 
     i {
       font-size: 14px;
@@ -59,7 +58,6 @@
   @include e(content) {
     position: absolute;
     white-space: nowrap;
-    line-height: 1.58;
 
     @include m(play) {
       animation: notice-bar-play linear both;
