@@ -749,3 +749,17 @@ $-card-content-color: rgba($-color-black, 0.45) !default; // 文本内容颜色
 $-card-content-line-height: 20px !default; // 文本内容行高
 $-card-content-margin: 13px 0 12px !default; // 内容外边距
 $-card-content-rectangle-margin: 14px 0 12px !default; // 矩形卡片内容外边距
+
+/* upload */
+$-upload-size: 80px !default; // upload的外边框默认尺寸
+$-upload-evoke-icon-size: 32px !default; // 唤起项的图标大小
+$-upload-evoke-bg: rgba($-color-black, 0.04) !default; // 唤起项的背景色
+$-upload-evoke-color: rgba($-color-black, 0.25) !default; // 唤起项的图标颜色
+$-upload-evoke-disabled-color: rgba($-color-black, 0.09) !default; // 唤起项禁用颜色
+$-upload-close-icon-size: 16px !default; // 移除按钮尺寸
+$-upload-close-icon-color: rgba($-color-black, 0.65) !default; // 移除按钮颜色
+$-upload-progress-fs: 14px !default; // 进度文字字号
+$-upload-preview-name-fs: 12px !default; // 预览图片名字号
+$-upload-preview-icon-size: 24px !default; // 预览内部图标尺寸
+$-upload-preview-name-bg: rgba($-color-black, 0.6) !default; // 预览文件名背景色
+$-upload-preview-name-height: 22px !default; // 预览文件名背景高度

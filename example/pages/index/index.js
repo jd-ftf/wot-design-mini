@@ -98,6 +98,9 @@ Page({
           }, {
             id: 'form',
             name: 'Form 表单组件组合'
+          }, {
+            id: 'upload',
+            name: 'Upload 上传'
           }
         ]
       }, {
