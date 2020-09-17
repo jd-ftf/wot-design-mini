@@ -1,10 +1,22 @@
-import Toast from '../../dist/toast/toast'
-
 Page({
   data: {
-    value: 0
+    value1: 0,
+    value2: 0,
+    value3: 0
   },
-  handleClick (event) {
-    Toast(`当前状态：${event.detail.value}`)
+  handleChange1 (event) {
+    this.setData({
+      value1: event.detail.value
+    })
+  },
+  handleChange2 (event) {
+    this.setData({
+      value2: event.detail.value
+    })
+  },
+  handleChange3 (event) {
+    this.setData({
+      value3: event.detail.value
+    })
   }
 })

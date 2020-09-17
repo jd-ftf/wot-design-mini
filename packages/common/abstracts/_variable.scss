@@ -549,11 +549,18 @@ $-slider-line-color: resultColor(
 $-slider-disabled-color: rgba($-color-black, 0.25) !default; // 禁用状态下字体颜色
 
 /* sort-button */
-$-sort-button-fs: 14px !default; // 字号
-$-sort-button-color: rgba($-color-black, 0.85) !default; // 左侧文字颜色
-$-sort-button-icon-fs: 16px !default; // 右侧箭头字号
-$-sort-button-icon-color: rgba($-color-black, 0.65) !default; // 右侧箭头颜色
-$-sort-button-height: 34px !default; // 高度
+$-sort-button-fs: $-fs-content !default; // 字号
+$-sort-button-color: $-color-content !default; // 颜色
+$-sort-button-height: 48px !default; // 高度
+$-sort-button-line-height: 3px !default; // 下划线高度
+$-sort-button-line-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
+  0% 100%
+) !default; // 下划线颜色
 
 /* steps */
 $-steps-icon-size: 22px !default; // 图标尺寸
