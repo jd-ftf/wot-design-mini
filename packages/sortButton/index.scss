@@ -32,7 +32,7 @@
   }
 
   @include e(icon){
-    display: block;
+    display: block !important;
     transform: scale((0.5));
     color: $-sort-button-icon-color;
     font-size: $-sort-button-icon-fs;
