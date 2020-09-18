@@ -8,20 +8,20 @@ VueComponent({
     round: Boolean,
     mode: String,
     lazyLoad: Boolean,
-    width: String,
-    height: String
+    width: {
+      type: String,
+      observer: 'setStyle'
+    },
+    height: {
+      type: String,
+      observer: 'setStyle'
+    }
   },
   data: {
     style: ''
   },
   created () {
-    const { width, height } = this.data
-    let style = ''
-
-    style = isDef(width) && `width: ${addUnit(width)};`
-    style = isDef(height) ? style + `height: ${addUnit(height)}` : style
-
-    this.setData({ style })
+    this.setStyle()
   },
   methods: {
     handleError ({ detail }) {
@@ -32,6 +32,15 @@ VueComponent({
     },
     handleLoad ({ detail }) {
       this.$emit('load', detail)
+    },
+    setStyle () {
+      const { width, height } = this.data
+      let style = ''
+
+      style = isDef(width) && `width: ${addUnit(width)};`
+      style = isDef(height) ? style + `height: ${addUnit(height)}` : style
+
+      this.setData({ style })
     }
   }
 })
