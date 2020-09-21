@@ -44,12 +44,12 @@ Page({
       { label: '上架时间', value: 2 }
     ]
   },
-  bindChange1 (event) {
+  handleChange1 (event) {
     this.setData({
       value1: event.detail.value
     })
   },
-  bindChange2 (event) {
+  handleChange2 (event) {
     this.setData({
       value1: event.detail.value
     })
@@ -88,10 +88,15 @@ Page({
       { label: '活动商品', value: 2 }
     ]
   },
-  bindChange (event) {
+  handleChange (event) {
     this.setData({
       value: event.detail.value
     })
+  },
+  confirm () {
+    // 关闭下拉框
+    const drop = this.selectComponent('#drop-menu1')
+    drop.close()
   }
 })
 ```
@@ -135,7 +140,7 @@ Page({
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| direction | 菜单展开方向，可选值为`up` 或 `down` | string | - | 'down' |
+| direction | 菜单展开方向，可选值为`up` 或 `down` | string | 'up' / 'down' | 'down' |
 | modal | 是否展示蒙层 | boolean | - | true |
 | close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true |
 | duration | 菜单展开收起动画时间，单位 ms | number | - | 200 |

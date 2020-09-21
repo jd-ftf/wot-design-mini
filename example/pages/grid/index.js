@@ -1,4 +1,5 @@
 import { joy } from '../images/joy'
+import Toast from '../../dist/toast/toast'
 
 Page({
   data: {
@@ -8,6 +9,6 @@ Page({
     multipleSlots: true
   },
   click (event) {
-    console.log('跳转成功', event)
+    Toast('成功跳转')
   }
 })

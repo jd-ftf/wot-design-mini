@@ -7,12 +7,13 @@
   overflow: visible !important;
   padding: 10px;
 }
-.tag-wrapper{
-  background: #fff;
-z-index: 100;
-position: relative;
-z-index: 500;
-line-height: ;
-padding-top: 7px;
-
+.wrapper{
+  width: 100%;
+  height: 100vh;
+}
+.pop-content{
+  color: #8268de;
+  font-weight: bolder;
+  padding: 10px;
+  width: 150px;
 }

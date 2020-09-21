@@ -8,12 +8,14 @@
       class="wd-drop-menu__item {{ item.disabled ? 'is-disabled' : '' }} {{ currentIndex === index ? 'is-active' : '' }}"
     >
       <view class="wd-drop-menu__item-title">
-        <view class="wd-drop-menu__item-title-text">
-          {{ item.title }}
-        </view>
-        <wd-icon name="arrow-down" size="14px" custom-class="wd-drop-menu__arrow" />
+        <view class="wd-drop-menu__item-title-text">{{ item.title }}</view>
+        <wd-icon
+          name="arrow-down"
+          size="14px"
+          custom-class="wd-drop-menu__arrow"
+        />
       </view>
     </view>
   </view>
-	<slot />
+  <slot />
 </view>

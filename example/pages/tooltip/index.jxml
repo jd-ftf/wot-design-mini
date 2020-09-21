@@ -1,62 +1,138 @@
 <wd-toast id="wd-toast" />
 <demo-block title="基本用法">
   <view class="top">
-    <wd-tooltip placement="bottom-start" content="bottom-start 提示文字">
+    <wd-tooltip
+      show="{{ show1 }}"
+      placement="bottom-start"
+      content="bottom-start 提示文字"
+      bind:change="handleChange1"
+    >
       <wd-button>bottom-start</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="bottom" content="bottom 提示文字">
+    <wd-tooltip
+      show="{{ show2 }}"
+      placement="bottom"
+      content="bottom 提示文字"
+      bind:change="handleChange2"
+    >
       <wd-button>bottom</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="bottom-end" content="bottom-end 提示文字">
+    <wd-tooltip
+      show="{{ show3 }}"
+      placement="bottom-end"
+      content="bottom-end 提示文字"
+      bind:change="handleChange3"
+    >
       <wd-button>bottom-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="left">
-    <wd-tooltip placement="right-start" content="right-start 提示文字">
+    <wd-tooltip
+      show="{{ show4 }}"
+      placement="right-start"
+      content="right-start 提示文字"
+      bind:change="handleChange4"
+    >
       <wd-button>right-start</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="right" content="right 提示文字" style="margin: 20px 0;">
+    <wd-tooltip
+      show="{{ show5 }}"
+      placement="right"
+      content="right 提示文字"
+      style="margin: 20px 0;"
+      bind:change="handleChange5"
+    >
       <wd-button>right</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="right-end" content="right-end 提示文字">
+    <wd-tooltip
+      show="{{ show6 }}"
+      placement="right-end"
+      content="right-end 提示文字"
+      bind:change="handleChange6"
+    >
       <wd-button>right-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="right">
-    <wd-tooltip placement="left-start" content="left-start 提示文字">
+    <wd-tooltip
+      show="{{ show7 }}"
+      placement="left-start"
+      content="left-start 提示文字"
+      bind:change="handleChange7"
+    >
       <wd-button>left-start</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="left" content="left 提示文字" style="margin: 20px 0;">
+    <wd-tooltip
+      show="{{ show8 }}"
+      placement="left"
+      content="left 提示文字"
+      style="margin: 20px 0;"
+      bind:change="handleChange8"
+    >
       <wd-button>left</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="left-end" content="left-end 提示文字">
+    <wd-tooltip
+      show="{{ show9 }}"
+      placement="left-end"
+      content="left-end 提示文字"
+      bind:change="handleChange9"
+    >
       <wd-button>left-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="bottom">
-    <wd-tooltip placement="top-start" content="top-start 提示文字">
+    <wd-tooltip
+      show="{{ show10 }}"
+      placement="top-start"
+      content="top-start 提示文字"
+      bind:change="handleChange10"
+    >
       <wd-button>top-start</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="top" content="top 提示文字">
+    <wd-tooltip
+      show="{{ show11 }}"
+      placement="top"
+      content="top 提示文字"
+      bind:change="handleChange11"
+    >
       <wd-button>top</wd-button>
     </wd-tooltip>
-    <wd-tooltip placement="top-end" content="top-end 提示文字">
+    <wd-tooltip
+      show="{{ show12 }}"
+      placement="top-end"
+      content="top-end 提示文字"
+      bind:change="handleChange12"
+    >
       <wd-button>top-end</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="显示关闭按钮">
   <view class="demo-left">
-    <wd-tooltip content="显示关闭按钮" placement="right" show-close>
+    <wd-tooltip
+      show="{{show13}}"
+      content="显示关闭按钮"
+      placement="right"
+      show-close
+      bind:change="handleChange13"
+    >
       <wd-button>显示关闭按钮</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="多行文本">
   <view class="demo-left lines-demo">
-    <wd-tooltip placement="right" useContentSlot>
+    <wd-tooltip
+      show="{{ show14 }}"
+      placement="right"
+      use-content-slot
+      bind:change="handleChange14"
+    >
       <wd-button>多行文本</wd-button>
-      <view slot="content" class="lines-content">
+      <view
+        slot="content"
+        class="lines-content"
+      >
         <view>多行文本1</view>
         <view>多行文本2</view>
         <view>多行文本3</view>
@@ -65,23 +141,43 @@
   </view>
 </demo-block>
 <demo-block title="控制显隐">
-  <wd-button bind:tap="hide" class="button-control">控制开关</wd-button>
+  <wd-button
+    bind:tap="control"
+    class="button-control"
+  >控制开关</wd-button>
   <view class="demo-left demo-control">
-    <wd-tooltip placement="top" content="控制显隐" show="{{ show }}">
+    <wd-tooltip
+      placement="top"
+      content="控制显隐"
+      show="{{ show15 }}"
+    >
       <wd-button>top</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="绑定事件">
   <view class="demo-left">
-    <wd-tooltip placement="right-end" content="{{ content }}" bind:show="onShow" bind:hide="onHide">
+    <wd-tooltip
+      show="{{ show16 }}"
+      placement="right-end"
+      content="{{ content }}"
+      bind:open="onShow"
+      bind:close="onHide"
+      bind:change="handleChange16"
+    >
       <wd-button>事件</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
 <demo-block title="禁用">
   <view class="demo-left">
-    <wd-tooltip placement="right-end" content="禁用" disabled>
+    <wd-tooltip
+      show="{{ show17 }}"
+      placement="right-end"
+      content="禁用"
+      disabled
+      bind:change="handleChange17"
+    >
       <wd-button>禁用</wd-button>
     </wd-tooltip>
   </view>

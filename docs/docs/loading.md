@@ -56,12 +56,12 @@
 
 ### 修改指示器大小
 
-通过 `size` 属性设置指示器的大小，默认为大小 '32'，单位固定为 `px`。
+通过 `size` 属性设置指示器的大小，默认为大小 '32px'，属性支持 `number`/`string` 类型。
 
 ```html
-<wd-loading size="20" />
-<wd-loading size="30" />
-<wd-loading size="50" />
+<wd-loading size="{{20}}" />
+<wd-loading size="{{30}}" />
+<wd-loading size="50px" />
 ```
 
 ### Attributes
@@ -70,7 +70,7 @@
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | type | 加载指示器类型 | string | 'spinner'/'circle-outline'/'circle'/'circular-ring' | 'circle-outline' |
 | color | 设置加载指示器颜色 | string | - | '#4D80F0' |
-| size | 设置加载指示器大小 | number | - | 32 |
+| size | 设置加载指示器大小 | number / string | - | '32px' |
 
 ### 外部样式类
 

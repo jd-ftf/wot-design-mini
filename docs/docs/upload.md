@@ -293,6 +293,7 @@ export default {
 | loading-color | [加载中图标颜色](/docs#/components/loading) | string | — | '#ffffff' |
 | loading-size | [加载中图标尺寸](/docs#/components/loading) | string | — | '24px' |
 | use-default-slot | 开启默认唤起项插槽 | boolean | — | false |
+| name | form 表单中的字段名 | string | - | - |
 
 ### file 数据结构
 

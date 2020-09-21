@@ -1,8 +1,8 @@
 <view class="demo-body">
-	<demo-block title="基本用法" transparent>
-		<wd-drop-menu>
-			<wd-drop-menu-item value="{{ value1 }}" options="{{ option1 }}" bind:change="handleChange1" />
-			<wd-drop-menu-item value="{{ value2 }}" options="{{ option2 }}" bind:change="handleChange2" />
+  <demo-block title="基本用法" transparent>
+    <wd-drop-menu>
+      <wd-drop-menu-item value="{{ value1 }}" options="{{ option1 }}" bind:change="handleChange1" />
+      <wd-drop-menu-item value="{{ value2 }}" options="{{ option2 }}" bind:change="handleChange2" />
 		</wd-drop-menu>
 	</demo-block>
 	<demo-block title="自定义菜单内容" transparent>

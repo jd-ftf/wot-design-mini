@@ -4,6 +4,7 @@
     "demo-block": "../../components/demo-block/index",
     "wd-message-box": "../../dist/messageBox/index",
     "wd-button": "../../dist/button/index",
+    "wd-toast": "../../dist/toast/index",
     "wd-rate": "../../dist/rate/index"
   }
 }

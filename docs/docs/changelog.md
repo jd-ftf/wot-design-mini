@@ -2,7 +2,7 @@
 
 ### 2.0.0
 
-*2020-09-21*
+*2020-09-23*
 
 #### 新特性
 
@@ -72,6 +72,7 @@
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - Loading
   - 属性 `type` 新增类型 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+  - 属性 `size` 新增支持类型 `string` (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
 - MessageBox
   - 新增属性 `context`, 引用 wd-message-box 的页面实例或自定义组件实例 (by [@wulin](https://github.com/wlin00) )
 - NoticeBar
@@ -143,6 +144,11 @@
   - 新增方法 `info` ，支持展示常规Toast样式 (by zhongjiju )
 - Tooltip
   - 新增属性 `show-close`， 支持设置显示 Tooltip 内部右侧的关闭按钮 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增方法 `open`， 支持外部打开文字提示弹框 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增方法 `close`， 支持外部关闭文字提示弹框 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增事件 `change`， 在pop显隐值变化时触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 事件 `show` 更名为 `open` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 事件 `hide` 更名为 `close` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `effect` ，文字提示 2.0 起 不再支持主题设置，将主题白色样式迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `mode` ，文字提示 2.0 起 不再支持模式设置，将模式设置迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除事件 `menu-click` 该事件已迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -169,6 +175,8 @@
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - InputNumber
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 属性 `min` 支持动态修改重算value （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - 属性 `max` 支持动态修改重算value （by [@HXCStudio123](https://github.com/HXCStudio123) ）
 - PickerView
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - RadioGrouo
@@ -190,21 +198,20 @@
 
 #### Bug 修复
 
-- Input
-  - 修复input 清空后无法再次弹起 （by [@Gkxie](https://github.com/Gkxie) ）
+- Cell
+  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling)） )
 - DatetimePickerView
   - 修复绑定值更改后，未更新绑定数据 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
   - type类型为 `time` 时，修复绑定值以及展示值 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- PickerView
-  - 修复点击过快时，出现限定范围外的列项数据（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- MessageBox
-  - MessageBox.prompt 获取不到value值 [#166](https://github.com/jd-ftf/wot-design-mini/issues/166)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- Cell
-  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling)） )
-- Popup
-  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
 - Input
   - Input 输入时不显示文字，仅在失焦后显示文字(不支持rgba色值) [#176](https://github.com/jd-ftf/wot-design-mini/issues/176) (by [@yawuling](https://github.com/yawuling)） )
+  - 修复input 清空后无法再次弹起 （by [@Gkxie](https://github.com/Gkxie) ）
+- MessageBox
+  - MessageBox.prompt 获取不到value值 [#166](https://github.com/jd-ftf/wot-design-mini/issues/166)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- PickerView
+  - 修复点击过快时，出现限定范围外的列项数据（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- Popup
+  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
 
 ### 2.0.0-beta3
 

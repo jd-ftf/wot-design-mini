@@ -1,4 +1,5 @@
 import MessageBox from '../../dist/messageBox/messageBox'
+import Toast from '../../dist/toast/toast'
 
 Page({
   data: {
@@ -32,9 +33,9 @@ Page({
       this.setData({
         value1: value
       })
-      console.log('当前值', this.data.value1)
+      Toast('当前值' + this.data.value1)
     }).catch(e => {
-      console.log(e)
+      Toast.error(e)
     })
   },
   alertWithLongChar () {

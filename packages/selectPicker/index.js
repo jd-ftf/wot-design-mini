@@ -10,7 +10,9 @@ VueComponent({
     'custom-label-class',
     'custom-value-class'
   ],
-  behaviors: [cell],
+
+  behaviors: [cell, 'jd://form-field'],
+
   relations: {
     '../cellGroup/index': {
       type: 'ancestor',
@@ -22,6 +24,7 @@ VueComponent({
       }
     }
   },
+
   data: {
     pickerShow: false,
     selectList: '',
@@ -29,6 +32,7 @@ VueComponent({
     isConfirm: false,
     lastSelectList: []
   },
+
   props: {
     value: {
       type: null,
@@ -90,8 +94,6 @@ VueComponent({
   },
 
   methods: {
-    noop () { },
-
     getSelectedItem (value) {
       const { valueKey, labelKey, columns } = this.data
 

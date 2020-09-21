@@ -1,5 +1,5 @@
-<view class="wd-popover custom-class" id="popover">
-  <!-- 用于为渲染获取宽高的元素 -->
+<view class="wd-popover custom-class" id="popover" catchtap="noop">
+  <!-- TODO 插槽情况监听会有问题 待调整， 用于为渲染获取宽高的元素 -->
   <view class="wd-popover__pos wd-popover__hidden" id="pos">
     <view class="wd-popover__container custom-pop">
       <view jd:if="{{ !useContentSlot && mode === 'normal' }}" class="wd-popover__inner">
@@ -43,7 +43,7 @@
       <wd-icon jd:if="{{ showClose }}" name="close" class="wd-popover__close-icon" bindtap="toggle"></wd-icon>
     </view>
   </wd-transition>
-  <view bindtap="toggle" class="wd-popover__target" id="target">
+  <view catchtap="toggle" class="wd-popover__target" id="target">
     <slot />
   </view>
 </view>
