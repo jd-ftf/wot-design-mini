@@ -2,107 +2,68 @@
 
 ### 2.0.0
 
-*2020-09-15*
+*2020-09-21*
 
 #### 新特性
 
-- Upload
-  - 新增组件 `Upload` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-
-#### Bug 修复
-
-- Cell
-  - Cell 右侧icon和右侧value未对齐 [#167](https://github.com/jd-ftf/wot-design-mini/issues/167)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- SortButton
-  - SortButton 的上下箭头不符合预期 [#168](https://github.com/jd-ftf/wot-design-mini/issues/168)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- ColPicker
-  - ColPicker 多列选择器文档错误 [#172](https://github.com/jd-ftf/wot-design-mini/issues/172)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- Search
-  - Search 组件 clear 按钮不符合预期 [#175](https://github.com/jd-ftf/wot-design-mini/issues/175)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- Input
-  - Input 输入时不显示文字，仅在失焦后显示文字(不支持rgba色值) [#176](https://github.com/jd-ftf/wot-design-mini/issues/176) (by [@yawuling](https://github.com/yawuling)） )
-- NoticeBar
-  - NoticeBar 图标与文字未垂直居中对齐 [#177](https://github.com/jd-ftf/wot-design-mini/issues/177)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-
-### 2.0.0-beta3
-
-*2020-09-04*
-
-#### 新特性
-
-- Button
-  - click 事件抛出event对象 (by [@yawuling](https://github.com/yawuling)） )
-- DatetimePicker
-  - 新增方法 `toggle`, 在区域选择模式下，tab标签切换时触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `display-format-tab-label`, 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增范围选择 交互样式 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- DatetimePickerView
-  - `change` 事件返回参数由数组类型改为时间类型 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-
-#### 优化
-
-- Grid
-  - 支持动态渲染GridItem （by [@HXCStudio123](https://github.com/HXCStudio123) ）
-  - 支持列项修改后内部GridItem重排 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
-  - GridItem 内容padding移除，兼容小屏幕展示四字标题 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- MessageBox
-  - 动画时间由300ms改为200ms，减少等待时间 (by [@yawuling](https://github.com/yawuling)） )
-
-#### Bug 修复
-
-- DatetimePickerView
-  - 修复绑定值更改后，未更新绑定数据 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
-  - type类型为 `time` 时，修复绑定值以及展示值 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- PickerView
-  - 修复点击过快时，出现限定范围外的列项数据（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- MessageBox
-  - MessageBox.prompt 获取不到value值 [#166](https://github.com/jd-ftf/wot-design-mini/issues/166)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- Toast
-  - toast文案过长样式展示左侧挤压问题 [#169](https://github.com/jd-ftf/wot-design-mini/issues/169)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- Button
-  - 圆角按钮圆角还原度，修复2px偏差 (by [@yawuling](https://github.com/yawuling)） )
-- Cell
-  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling)） )
-- ColPicker
-  - 修复按需引入缺少actionSheet样式问题 (by [@yawuling](https://github.com/yawuling)） )
-- Popup
-  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
-- StatusTip
-  - 去掉占位图的白色背景，将图片从base64改为图片链接以减少包大小 (by [@yawuling](https://github.com/yawuling)） )
-
-### 2.0.0-beta2
-
-*2020-08-21*
-
-#### 新特性
-
+- 综合
+  - 组件样式升级，主题色更改
+  - 重绘了全部图标，并新增了部分图标
+- ActionSheet
+  - 新增属性 `panels` 自定义面板，支持一维数组和二维数组，panel数据结构支持设置显示的图片地址和标题内容 (by [@awjing](https://github.com/awjing) )
 - Button
   - 属性 `type` 默认值为 `primary` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Badge
+  - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
+  - 新增属性 `right` 为正时表示角标向左偏移对应的像素 (by [@awjing](https://github.com/awjing) )
 - Card
   - 新增卡片组件 Card  (by [@awjing](https://github.com/awjing) )
+- Cell
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `vertical`, 支持表单属性展示为上下结构 (by [@yawuling](https://github.com/yawuling) )
+- CellGroup
+  - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@yawuling](https://github.com/yawuling) )
 - Checkbox
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- CheckboxGroup
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - Collapse
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- CheckboxGroup
+  - 新增属性 `cell`, 支持复选框组下的表单模式事件 (by [@Gkxie](https://github.com/Gkxie) )
+  - 新增属性 `size`，支持单选框尺寸更改（large） (by [@yawuling](https://github.com/yawuling) )
+- ColPicker
+  - 新增 ColPicker 多列选择组件 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
+  - 新增属性 `columns-height`, 支持设置 picker 内部的单个 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `use-default-slot`, 使用默认插槽 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
   - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
 - DatetimePickerView
+  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- DropMenuItem
-  - `change` 事件传参方式修改为与小程序官方组件一致，新增 `selectedItem` 参数 (by [@yawuling](https://github.com/yawuling) ) )
+- Grid
+  - 新增属性 `bg-color`, 支持宫格设置背景颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Icon
+  - 新增属性 `custom-style`  设置根节点样式  (by [@awjing](https://github.com/awjing) )
 - Input
+  - 新增属性 `no-border`, 支持设置取消底部边框 (by [@yawuling](https://github.com/yawuling) )
+  - 移除属性 `autofocus` (by [@yawuling](https://github.com/yawuling) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) )
+  - 新增事件 `clickprefixicon`, 点击前置图标时触发 (by [@yawuling](https://github.com/yawuling) )
+  - 新增事件 `clicksuffixicon`, 点击后置图标时触发 (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
@@ -110,21 +71,43 @@
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - Loading
-  - 属性 `type` 新增类型 ``circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+  - 属性 `type` 新增类型 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+- MessageBox
+  - 新增属性 `context`, 引用 wd-message-box 的页面实例或自定义组件实例 (by [@wulin](https://github.com/wlin00) )
+- NoticeBar
+  - 新增属性 `type`， 新增默认插槽，支持设置通知栏类型 (by [@awjing](https://github.com/awjing) )
+  - 属性 `left-icon` 更名为 `prefix` (by [@awjing](https://github.com/awjing) )
+  - 插槽 `left-icon` 更名为 `prefix` (by [@awjing](httpradios://github.com/awjing) )
+  - 插槽 `right-icon` 更名为 `suffix` (by [@awjing](https://github.com/awjing) )
 - Pagination
-  - 新增分页组件 Pagination (by [@awjing](https://github.com/awjing) )
+  - 新增分页组件 Pagination (by [@wlin00](https://github.com/wlin00) )
 - Picker
+  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `use-default-slot`, 使用默认插槽 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
   - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
 - PickerView
+  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Progress
+  - 新增属性 `status` 设置进度条状态，支持sucess和danger (by [@awjing](https://github.com/awjing) )
+- Popover
+  - 新增组件 `Popover` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Radio
   - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- RadioGrouo
+- RadioGroup
+  - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - Rate
@@ -138,114 +121,13 @@
 - Slider
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- Switch
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-
-#### 优化
-
-- Checkbox
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- CheckboxGroup
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- Collapse
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- DatetimePicker
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- DatetimePickerView
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- DropMenuItem
-  - `change` 事件传参方式修改为与小程序官方组件一致，新增 `selectedItem` 参数 (by [@yawuling](https://github.com/yawuling) ) )
-- Input
-  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- InputNumber
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- PickerView
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- RadioGrouo
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- Rate
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- Search
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- Slider
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-- Switch
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-
-### 2.0.0-beta1
-
-*2020-08-14*
-
-#### 新特性
-
-- ActionSheet
-  - 新增属性 `panels` 自定义面板，支持一维数组和二维数组，panel数据结构支持设置显示的图片地址和标题内容 (by [@awjing](https://github.com/awjing) )
-- Badge
-  - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
-  - 新增属性 `right` 为正时表示角标向左偏移对应的像素 (by [@awjing](https://github.com/awjing) )
-- Cell
-  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增属性 `vertical`, 支持表单属性展示为上下结构 (by [@yawuling](https://github.com/yawuling) )
-- CellGroup
-  - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@yawuling](https://github.com/yawuling) )
-- CheckboxGroup
-  - 新增属性 `cell`, 支持复选框组下的表单模式事件 (by [@Gkxie](https://github.com/Gkxie) )
-  - 新增属性 `size`，支持单选框尺寸更改（large） (by [@yawuling](https://github.com/yawuling) )
-- ColPicker
-  - 新增 ColPicker 多列选择组件 (by [@yawuling](https://github.com/yawuling) )
-- DatetimePicker
-  - 新增属性 `columns-height`, 支持设置 picker 内部的单个 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `use-default-slot`, 使用默认插槽 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
-- DatetimePickerView
-  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- Grid
-  - 新增属性 `bg-color`, 支持宫格设置背景颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- Icon
-  - 新增属性 `custom-style`  设置根节点样式  (by [@awjing](https://github.com/awjing) )
-- Input
-  - 新增属性 `no-border`, 支持设置取消底部边框 (by [@yawuling](https://github.com/yawuling) )
-  - 移除属性 `autofocus` (by [@yawuling](https://github.com/yawuling) )
-  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) )
-  - 新增事件 `clickprefixicon`, 点击前置图标时触发 (by [@yawuling](https://github.com/yawuling) )
-  - 新增事件 `clicksuffixicon`, 点击后置图标时触发 (by [@yawuling](https://github.com/yawuling) )
-- MessageBox
-  - 新增属性 `context`, 引用 wd-message-box 的页面实例或自定义组件实例 (by [@wulin](https://github.com/wlin00) )
-- NoticeBar
-  - 新增属性 `type`， 新增默认插槽，支持设置通知栏类型 (by [@awjing](https://github.com/awjing) )
-  - 属性 `left-icon` 更名为 `prefix` (by [@awjing](https://github.com/awjing) )
-  - 插槽 `left-icon` 更名为 `prefix` (by [@awjing](httpradios://github.com/awjing) )
-  - 插槽 `right-icon` 更名为 `suffix` (by [@awjing](https://github.com/awjing) )
-- Picker
-  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `use-default-slot`, 使用默认插槽 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
-- PickerView
-  - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- Progress
-  - 新增属性 `status` 设置进度条状态，支持sucess和danger (by [@awjing](https://github.com/awjing) )
-- Popover
-  - 新增组件 `Popover` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- RadioGroup
-  - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - StatusTip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改 (by [@awjing](https://github.com/awjing) )
 - Sticky
   - 新增粘性布局组件 Sticky （by [@Gkxie](https://github.com/Gkxie) ）
+- Switch
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - Tabs
   - 移除属性 `color` (by [@Gkxie](https://github.com/Gkxie) )
   - 移除属性 `inactive-color` (by [@Gkxie](https://github.com/Gkxie) )
@@ -264,11 +146,69 @@
   - 移除属性 `effect` ，文字提示 2.0 起 不再支持主题设置，将主题白色样式迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `mode` ，文字提示 2.0 起 不再支持模式设置，将模式设置迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除事件 `menu-click` 该事件已迁移至组件[Popover](/#/components/popover) (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Upload
+  - 新增组件 `Upload` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
+#### 优化
+
+- Checkbox
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- CheckboxGroup
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Collapse
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePicker
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePickerView
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- DropMenuItem
+  - `change` 事件传参方式修改为与小程序官方组件一致，新增 `selectedItem` 参数 (by [@yawuling](https://github.com/yawuling) ) )
+- Input
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- InputNumber
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- PickerView
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- RadioGrouo
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Rate
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Search
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Slider
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Switch
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+- Grid
+  - 支持动态渲染GridItem （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - 支持列项修改后内部GridItem重排 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - GridItem 内容padding移除，兼容小屏幕展示四字标题 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- MessageBox
+  - 动画时间由300ms改为200ms，减少等待时间 (by [@yawuling](https://github.com/yawuling)） )
 
 #### Bug 修复
 
 - Input
   - 修复input 清空后无法再次弹起 （by [@Gkxie](https://github.com/Gkxie) ）
+- DatetimePickerView
+  - 修复绑定值更改后，未更新绑定数据 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - type类型为 `time` 时，修复绑定值以及展示值 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- PickerView
+  - 修复点击过快时，出现限定范围外的列项数据（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- MessageBox
+  - MessageBox.prompt 获取不到value值 [#166](https://github.com/jd-ftf/wot-design-mini/issues/166)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- Cell
+  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling)） )
+- Popup
+  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
+- Input
+  - Input 输入时不显示文字，仅在失焦后显示文字(不支持rgba色值) [#176](https://github.com/jd-ftf/wot-design-mini/issues/176) (by [@yawuling](https://github.com/yawuling)） )
+
+### 2.0.0-beta3
+
+该版本为测试版，推荐使用2.0 正式版
 
 ### 1.5.0
 
