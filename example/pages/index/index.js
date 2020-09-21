@@ -140,6 +140,9 @@ Page({
             id: 'collapse',
             name: 'Collapse 折叠面板'
           }, {
+            id: 'curtain',
+            name: 'Curtain 幕帘'
+          }, {
             id: 'divider',
             name: 'Divider 分割线'
           }, {

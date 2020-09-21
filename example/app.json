@@ -8,6 +8,7 @@
     "pages/card/index",
     "pages/collapse/index",
     "pages/colPicker/index",
+    "pages/curtain/index",
     "pages/divider/index",
     "pages/selectPicker/index",
     "pages/button/index",
