@@ -6,8 +6,6 @@
 
 #### 新特性
 
-- ImgPreview
-  - 新增组件 `ImgPreview` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Upload
   - 新增组件 `Upload` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 

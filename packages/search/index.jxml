@@ -11,7 +11,7 @@
         bindtap="closeCover"
       >
         <wd-icon name="search" size="18px" class="wd-search__search-icon"></wd-icon>
-        <text>{{ placeholder || '搜索' }}</text>
+        <text class="wd-search__placeholder-txt">{{ placeholder || '搜索' }}</text>
       </view>
       <!--icon:search-->
       <wd-icon name="search" size="18px" class="wd-search__search-left-icon"></wd-icon>

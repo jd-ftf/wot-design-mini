@@ -95,6 +95,8 @@
               title: Slider 滑块
             - name: switch
               title: Switch 开关
+            - name: upload
+              title: Upload 上传
         - type: group
           title: 交互
           children:
