@@ -763,3 +763,8 @@ $-upload-preview-name-fs: 12px !default; // 预览图片名字号
 $-upload-preview-icon-size: 24px !default; // 预览内部图标尺寸
 $-upload-preview-name-bg: rgba($-color-black, 0.6) !default; // 预览文件名背景色
 $-upload-preview-name-height: 22px !default; // 预览文件名背景高度
+
+/* curtain */
+$-curtain-content-radius: 24px !default; // 内容圆角
+$-curtain-content-close-color: $-color-white !default; // 关闭按钮颜色
+$-curtain-content-close-fs: $-fs-big !default; // 关闭按钮大小
