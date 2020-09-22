@@ -3,6 +3,7 @@
   show="{{ show }}"
   z-index="{{ zIndex }}"
   duration="{{ duration }}"
+  custom-style="{{ modalStyle }}"
   bind:click="handleClickModal"
   catchtouchmove="noop"
 />

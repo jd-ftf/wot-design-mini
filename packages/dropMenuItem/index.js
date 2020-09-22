@@ -1,49 +1,51 @@
 import VueComponent from '../common/component'
+import { debounce } from '../common/util'
 
 VueComponent({
   externalClasses: ['custom-title', 'custom-icon'],
   data: {
+    showWrapper: false,
     showPop: false,
+    position: '',
     positionStyle: '',
     transName: '',
-    title: '',
-    activeColor: '',
-    zIndex: '12'
+    zIndex: '12',
+    displayTitle: '',
+    modal: true,
+    closeOnClickModal: true,
+    duration: 0
   },
   props: {
     // 当前选中的value
     value: {
-      type: String,
-      observer (newValue, oldValue) {
-        this.checkValueExist()
-        if (newValue && this.parent && newValue !== oldValue) {
-          // 如果更新值
-          this.parent.resetChooseValue()
+      type: null,
+      observer (val) {
+        if (typeof val !== 'number' && typeof val !== 'string') {
+          console.warn('[wot-design warning]the type of value should be a number or a string.')
+          return
         }
+
+        this.updateTitle()
       }
     },
     // 可能是 array || String
-    options: null,
+    options: {
+      type: Array,
+      observer () {
+        this.updateTitle()
+      }
+    },
     useDropItemSlot: Boolean,
-    closeOnClickModal: {
-      type: Boolean,
-      value: true
-    },
-    modal: {
-      type: Boolean,
-      value: true
-    },
-    duration: {
-      type: null,
-      value: { enter: 300, leave: 300 }
-    },
-    disabled: {
-      type: Boolean,
-      value: false
-    },
+    disabled: Boolean,
     iconName: {
       type: String,
-      value: 'check-round'
+      value: 'check'
+    },
+    title: {
+      type: String,
+      observer () {
+        this.updateTitle()
+      }
     }
   },
   relations: {
@@ -57,29 +59,36 @@ VueComponent({
       }
     }
   },
+  beforeCreate () {
+    this.updateTitle = debounce(this.updateTitle, 50)
+  },
   mounted () {
-    this.checkValueExist()
-    this.init()
+    this.setDisplayTitle()
   },
   methods: {
-    init () {
-      this.setData({
-        zIndex: this.parent.data.zIndex,
-        activeColor: this.parent.data.activeColor,
-        transName: this.parent.data.direction === 'up' ? 'slide-up' : 'slide-down'
-      })
-    },
-    checkValueExist () {
-      const { value, options } = this.data
-      if (options instanceof Array) {
-        let count = 0
-        options.forEach(item => {
-          (item.value !== value) && count++
-          if (count === options.length) {
-            throw Error('There is no matching value in the option')
-          }
+    setDisplayTitle () {
+      const { title, value, options } = this.data
+
+      if (title) {
+        this.setData({
+          displayTitle: title
         })
+        return
       }
+      for (let i = 0, len = options.length; i < len; i++) {
+        if (value === options[i].value) {
+          this.setData({
+            displayTitle: options[i].label
+          })
+          return
+        }
+      }
+
+      console.warn('[wot-design warning]no value is matched in the options option.')
+    },
+    updateTitle () {
+      this.setDisplayTitle()
+      this.parent && this.parent.updateTitle()
     },
     /**
      * 父组件更改子组件内部 data 值
@@ -91,10 +100,6 @@ VueComponent({
         [key]: value
       })
     },
-    handleClickModal () {
-      if (!this.data.closeOnClickModal) return
-      this.close()
-    },
     // 模拟单选操作 默认根据 value 选中操作
     choose (event) {
       if (this.data.disabled) return
@@ -105,21 +110,44 @@ VueComponent({
       })
       this.close()
       this.$emit('change', {
-        value: item.value || item,
+        value: (item.value !== '' && item.value !== undefined) ? item.value : item,
         selectedItem: item
       })
-      this.parent.resetChooseValue()
+      this.parent.updateTitle()
     },
     // 外部关闭弹出框
     close () {
+      console.log('drop-menu-item', Date.now())
       this.setData({ showPop: false })
       this.parent.fold(-1)
-      this.$emit('close')
     },
     open () {
-      this.setData({ showPop: true })
+      const { direction, modal, closeOnClickModal, duration, offset } = this.parent.data
+      this.setData({
+        showWrapper: true,
+        showPop: true,
+        duration,
+        modal,
+        closeOnClickModal,
+        position: direction === 'down' ? 'top' : 'bottom',
+        positionStyle: direction === 'down' ? `top: ${offset}px; bottom: 0;` : `top: 0; bottom: ${offset}px`
+      })
       this.$emit('open')
     },
-    noop () {}
+    onPopupClose () {
+      this.setData({
+        showWrapper: false
+      })
+      this.$emit('closed')
+    },
+    handleOpen () {
+      this.$emit('open')
+    },
+    handleOpened () {
+      this.$emit('opened')
+    },
+    handleClose () {
+      this.$emit('close')
+    }
   }
 })

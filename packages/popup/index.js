@@ -29,14 +29,15 @@ VueComponent({
     hideWhenClose: {
       type: Boolean,
       value: true
-    }
+    },
+    modalStyle: String
   },
   methods: {
     handleClickModal () {
       this.$emit('clickmodal')
 
       if (this.data.closeOnClickModal) {
-        this.$emit('close')
+        this.close()
       }
     },
     observerTransition () {
@@ -53,6 +54,9 @@ VueComponent({
       this.setData(data)
     },
     close () {
+      this.setData({
+        show: false
+      })
       this.$emit('close')
     },
     noop () {

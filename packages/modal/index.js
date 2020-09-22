@@ -12,7 +12,8 @@ VueComponent({
     zIndex: {
       type: Number,
       value: 10
-    }
+    },
+    customStyle: String
   },
   methods: {
     handleClick () {

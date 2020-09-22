@@ -44,7 +44,9 @@
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
 | duration | 动画持续时间 | number / boolean | - | 300(ms) |
 | z-index | 设置层级 | number | - | 10 |
+| custom-style | 自定义弹出层样式 | string | - | - |
 | modal | 是否显示遮罩 | boolean | - | true |
+| modal-style | 自定义modal蒙层样式 | string | - | - |
 | hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true |
 
 ### Events

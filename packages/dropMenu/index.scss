@@ -2,58 +2,72 @@
 @import '../common/abstracts/mixin';
 
 @include b(drop-menu) {
-  display: flex;
-  background-color: #fff;
   box-sizing: border-box;
   color: $-drop-menu-color;
   font-size: $-drop-menu-fs;
+  position: relative;
 
-  @include e(title) {
+  @include e(list) {
+    display: flex;
+    text-align: center;
+    background-color: #fff;
+  }
+  @include e(item) {
     flex: 1;
-    padding: 0 $-drop-menu-side-padding;
+    min-width: 0;
     height: $-drop-menu-height;
     line-height: $-drop-menu-height;
-    position: relative;
     text-align: center;
-    @include lineEllipsis;
 
-    &::before{
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 1px;
-      left: 0;
-      top: 0;
-      background: $-color-border-light;
-      transform: scaleY(.5);
-      transform-origin: center top;
-      z-index: 100;
-    }
-    &::after{
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 1px;
-      left: 0;
-      top: $-drop-menu-height - 1;
-      background: $-color-border-light;
-      transform: scaleY(.5);
-      transform-origin: center bottom;
-      z-index: 100;
+    @include when(active) {
+      font-weight: $-fw-medium;
+
+      .wd-drop-menu__item-title::after {
+        opacity: 1;
+      }
+      .wd-drop-menu__arrow {
+        transform: scale(0.6) rotate(-180deg);
+        transform-origin: center center;
+      }
     }
     @include when(disabled) {
       color: $-drop-menu-disabled-color;
     }
   }
 
-  @include e(arrow) {
+  @include e(item-title) {
+    position: relative;
     display: inline-block;
-    transition: transform .3s;
-    transform: scale(.6);
+    max-width: 100%;
+    padding: 0 $-drop-menu-side-padding;
+    box-sizing: border-box;
 
-    @include when(retract) {
-      transform: scale(.6) rotate(-180deg);
-      transform-origin: center center;
+    &::after {
+      position: absolute;
+      content: '';
+      width: 19px;
+      height: $-drop-menu-line-height;
+      bottom: 6px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: $-drop-menu-line-color;
+      border-radius: $-drop-menu-line-height;
+      transition: opacity .15s;
+      opacity: 0;
     }
+  }
+
+  @include e(item-title-text) {
+    position: relative;
+    @include lineEllipsis;
+  }
+
+  @include e(arrow) {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: -4px;
+    transition: transform 0.3s;
+    transform: scale(0.6);
   }
 }

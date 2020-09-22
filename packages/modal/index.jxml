@@ -3,7 +3,7 @@
   name="fade"
   custom-class="wd-modal"
   duration="{{ duration }}"
-  custom-style="z-index: {{ zIndex }}"
+  custom-style="z-index: {{ zIndex }}; {{ customStyle }}"
   bind:tap="handleClick"
   catch:touchmove="noop"
 />

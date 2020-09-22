@@ -59,12 +59,12 @@
   }
 
   @include e(icon-up){
-    display: block;
+    display: block !important;
     line-height: 1.1;
     transform: scale((4/7)) translate(0, 7px);
   }
   @include e(icon-down) {
-    display: block;
+    display: block !important;
     line-height: 1.1;
     transform: scale((4/7)) translate(0, -7px);
   }
