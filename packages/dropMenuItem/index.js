@@ -117,7 +117,6 @@ VueComponent({
     },
     // 外部关闭弹出框
     close () {
-      console.log('drop-menu-item', Date.now())
       this.setData({ showPop: false })
       this.parent.fold(-1)
     },

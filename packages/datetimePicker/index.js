@@ -348,7 +348,6 @@ VueComponent({
             : [(value[0] || isConfirm ? this.defaultDisplayFormat(items) : ''), (value[1] || isConfirm ? this.defaultDisplayFormat(endItems) : '')],
           showTabLabel: [this.defaultDisplayFormat(items, true), this.defaultDisplayFormat(endItems, true)]
         })
-        console.log(this.data.showValue)
       } else {
         const items = this.picker.picker.getSelects()
         this.setData({
