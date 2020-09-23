@@ -210,6 +210,7 @@ VueComponent({
       columnChange({
         selectedItem: item,
         index: colIndex,
+        rowIndex: index,
         resolve: (nextColumn) => {
           if (!(nextColumn instanceof Array)) {
             console.error('[Wot Design] error: the data of each column of wd-col-picker should be an array')
