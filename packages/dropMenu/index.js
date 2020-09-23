@@ -5,20 +5,14 @@ VueComponent({
   data: {
     // 保存的永远是当前选中的值
     titleList: [],
-    disabled: false,
     // -1表示折叠
-    currentIndex: -1
+    currentIndex: -1,
+    offset: 0
   },
   props: {
-    activeColor: {
-      type: String,
-      value: '#0083ff',
-      observer: 'updateChildData'
-    },
     zIndex: {
       type: Number,
-      value: 12,
-      observer: 'updateChildData'
+      value: 12
     },
     direction: {
       type: String,
@@ -28,10 +22,20 @@ VueComponent({
           this.setData({ direction: 'down' })
           console.warn('direction must be \'up\' or \'down\'')
         }
-        this.updateChildData()
       }
     },
-    useDropMenuSlot: Boolean
+    modal: {
+      type: Boolean,
+      value: true
+    },
+    closeOnClickModal: {
+      type: Boolean,
+      value: true
+    },
+    duration: {
+      type: Number,
+      value: 200
+    }
   },
   relations: {
     '../dropMenuItem/index': {
@@ -55,33 +59,9 @@ VueComponent({
     ARRAY = ARRAY.filter(item => item !== this)
   },
   mounted () {
-    const { direction } = this.data
-
-    this.resetChooseValue()
-
-    this.getRect('.wd-drop-menu').then(rect => {
-      if (!rect) return
-      const { top, bottom } = rect
-
-      this.children.forEach(item => {
-        if (direction === 'up') {
-          item.set('positionStyle', `bottom: ${this.windowHeight - top}px`)
-        } else {
-          item.set('positionStyle', `top: ${bottom}px`)
-        }
-      })
-    })
+    this.updateTitle()
   },
   methods: {
-    checkType (value) {
-      return Object.prototype.toString.call(value).slice(8, -1)
-    },
-    updateChildData () {
-      // 更改后触发子节点全部更新
-      this.children && this.children.forEach((item, index) => {
-        item.init()
-      })
-    },
     toggle (event) {
       // 如果重复展开相同的选项，则折叠选项卡
       const { index } = event.currentTarget.dataset
@@ -105,23 +85,42 @@ VueComponent({
       currentIndex = currentIndex === this.data.currentIndex ? -1 : currentIndex
       this.setData({ currentIndex })
 
-      // 选中当前关掉其他的
-      this.children.forEach((item, index) => {
-        currentIndex === index ? item.set('showPop', !item.data.showPop) : item.set('showPop', false)
+      if (currentIndex === -1) {
+        this.children.forEach((item, index) => {
+          item.set('showPop', false)
+        })
+        return
+      }
+
+      this.getRect('.wd-drop-menu').then(rect => {
+        if (!rect) return
+        const { top, bottom } = rect
+
+        if (this.data.direction === 'down') {
+          this.setData({
+            offset: bottom
+          })
+        } else {
+          this.setData({
+            offset: this.windowHeight - top
+          })
+        }
+
+        // 选中当前关掉其他的
+        this.children.forEach((item, index) => {
+          currentIndex === index ? item.open() : item.set('showPop', false)
+        })
       })
     },
     // 重设选中的 value 菜单列表
-    resetChooseValue () {
+    updateTitle () {
       const titleList = []
       this.children.forEach((item, index) => {
-        const { options, disabled } = item.data
-        if (this.checkType(options) === 'Array') {
-          options.forEach(option => option.value === item.data.value && titleList.push({ title: option.text, disabled: disabled }))
-        } else if (this.checkType(options) === 'String') {
-          titleList.push({ title: options, disabled: disabled })
-        } else {
-          throw Error('options must be \'String\' or \'Array\'')
-        }
+        const { displayTitle, disabled } = item.data
+        titleList.push({
+          title: displayTitle,
+          disabled: disabled
+        })
       })
       this.setData({ titleList })
     }

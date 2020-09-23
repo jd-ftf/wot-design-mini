@@ -288,15 +288,27 @@ $-divider-line-color: rgba($-color-black, 0.15) !default; // 线条颜色
 $-divider-fs: 14px !default; // 字体大小
 
 /* drop-menu */
-$-drop-menu-height: 34px; // 展示选中项的高度
-$-drop-menu-color: $-color-title !default; // 展示选中项的颜色
+$-drop-menu-height: 48px; // 展示选中项的高度
+$-drop-menu-color: $-color-content !default; // 展示选中项的颜色
 $-drop-menu-fs: $-fs-content !default; // 展示选中项的字号
 $-drop-menu-side-padding: $-size-side-padding !default; // 两边留白间距
-$-drop-menu-disabled-color: $-color-aid !default; // 禁用颜色
-$-drop-menu-item-height: 30px; // 选项高度
-$-drop-menu-item-color: $-color-title !default; // 选项颜色
-$-drop-menu-item-fs: $-fs-secondary !default; // 选项字号
-$-drop-menu-item-modal-bg: $-modal-bg !default; // 蒙层颜色
+$-drop-menu-disabled-color: rgba($-color-black, 0.25) !default; // 禁用颜色
+$-drop-menu-item-height: 48px; // 选项高度
+$-drop-menu-item-color: $-color-content !default; // 选项颜色
+$-drop-menu-item-fs: $-fs-content !default; // 选项字号
+$-drop-menu-item-color-active: $-color-theme !default; // 选中颜色
+$-drop-menu-item-color-tip: rgba($-color-black, 0.45) !default; // 提示文字颜色
+$-drop-menu-item-fs-tip: $-fs-secondary !default; // 提示文字字号
+$-drop-menu-option-check-size: 20px !default; // check 图标大小
+$-drop-menu-line-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
+  0% 100%
+) !default; // 下划线颜色
+$-drop-menu-line-height: 3px !default; // 下划线高度
 
 /* input-number */
 $-input-number-color: #262626 !default; // 文字颜色
@@ -549,11 +561,18 @@ $-slider-line-color: resultColor(
 $-slider-disabled-color: rgba($-color-black, 0.25) !default; // 禁用状态下字体颜色
 
 /* sort-button */
-$-sort-button-fs: 14px !default; // 字号
-$-sort-button-color: rgba($-color-black, 0.85) !default; // 左侧文字颜色
-$-sort-button-icon-fs: 16px !default; // 右侧箭头字号
-$-sort-button-icon-color: rgba($-color-black, 0.65) !default; // 右侧箭头颜色
-$-sort-button-height: 34px !default; // 高度
+$-sort-button-fs: $-fs-content !default; // 字号
+$-sort-button-color: $-color-content !default; // 颜色
+$-sort-button-height: 48px !default; // 高度
+$-sort-button-line-height: 3px !default; // 下划线高度
+$-sort-button-line-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
+  0% 100%
+) !default; // 下划线颜色
 
 /* steps */
 $-steps-icon-size: 22px !default; // 图标尺寸

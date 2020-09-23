@@ -5,7 +5,7 @@
   background: $normal;
   color: $color;
   border-color: $normal;
-  font-weight: 700;
+  font-weight: $-fw-medium;
 
   &.wd-button--active {
     background: $active;

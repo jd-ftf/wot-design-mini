@@ -1,24 +1,19 @@
 <view class="wd-drop-menu custom-class">
-  <!-- 默认向下折叠 -->
-	<!-- 显示需要选择的几大类别 -->
-	<view 
-    class="wd-drop-menu__title {{ item.disabled ? 'is-disabled' : '' }}"
-    jd:for="{{ titleList }}" 
-    jd:key="index"
-    bindtap="toggle"
-    data-index="{{ index }}"
-    style="color: {{ currentIndex === index ? activeColor : ''}}" 
+  <view class="wd-drop-menu__list">
+    <view
+      jd:for="{{ titleList }}"
+      jd:key="index"
+      bindtap="toggle"
+      data-index="{{ index }}"
+      class="wd-drop-menu__item {{ item.disabled ? 'is-disabled' : '' }} {{ currentIndex === index ? 'is-active' : '' }}"
     >
-    {{ item.title }} 
-    <wd-icon 
-      name="caret-bottom" 
-      size="12px" 
-      class="wd-drop-menu__arrow {{ currentIndex === index ? 'is-retract' : '' }}" 
-      />
-  </view>
-  <!-- 自定义菜单头部插槽 -->
-  <view class="wd-drop-menu__title" jd:if="{{ useDropMenuSlot }}">
-    <slot name="menu"/>
+      <view class="wd-drop-menu__item-title">
+        <view class="wd-drop-menu__item-title-text">
+          {{ item.title }}
+        </view>
+        <wd-icon name="arrow-down" size="14px" custom-class="wd-drop-menu__arrow" />
+      </view>
+    </view>
   </view>
 	<slot />
 </view>

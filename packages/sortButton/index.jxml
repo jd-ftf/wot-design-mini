@@ -1,37 +1,21 @@
-<view
-  class="wd-sort-button custom-class"
-  bindtap="handleClick"
->
-  <view
-    class="wd-sort-button__wrapper"
-  >
-    <view
-      class="wd-sort-button__left"
-      style="color : {{  value !==0 ? (titleColor || color) : '' }}"
-    >
+<view class="wd-sort-button custom-class" bindtap="handleClick">
+  <view class="wd-sort-button__wrapper">
+    <view class="wd-sort-button__left {{ value !== 0 ? 'is-active' : '' }}">
       {{title}}
     </view>
-    <view class="wd-sort-button__right {{ oneArrow ? 'is-only' :'' }}">
-      <view
-        jd:if="{{ top.display }}"
-        class="wd-sort-button__icon--top"
-      >
-        <wd-icon
-          name="arrow-up"
-          color="{{top.color}}"
-          custom-class="wd-sort-button__icon"
-        />
-      </view>
-      <view
-        jd:if="{{ bottom.display }}"
-        class="wd-sort-button__icon--bottom"
-      >
-        <wd-icon
-          name="arrow-down"
-          color="{{bottom.color}}"
-          custom-class="wd-sort-button__icon"
-        />
-      </view>
+    <view class="wd-sort-button__right {{ value !== 0 ? 'is-active' : '' }}">
+      <wd-icon
+        jd:if="{{ value !== 1 }}"
+        name="arrow-up"
+        color="{{top.color}}"
+        custom-class="wd-sort-button__icon-up"
+      />
+      <wd-icon
+        jd:if="{{ value !== -1 }}"
+        name="arrow-down"
+        color="{{bottom.color}}"
+        custom-class="wd-sort-button__icon-down"
+      />
     </view>
   </view>
 </view>

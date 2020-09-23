@@ -18,7 +18,17 @@ const getClassNames = name => {
   }
 }
 
-const nextTick = () => new Promise(resolve => setTimeout(resolve, 30))
+const requestAnimationFrame = (cb = () => void 0) => {
+  return new Promise((resolve, reject) => {
+    jd.createSelectorQuery()
+      .selectViewport()
+      .boundingClientRect()
+      .exec(() => {
+        resolve()
+        cb()
+      })
+  })
+}
 
 export default function () {
   return {
@@ -55,29 +65,26 @@ export default function () {
         this.status = 'enter'
         this.$emit('beforeenter')
 
-        Promise.resolve()
-          .then(nextTick)
-          .then(() => {
-            this.checkStatus('enter')
-            this.$emit('enter')
+        requestAnimationFrame(() => {
+          this.checkStatus('enter')
+          this.$emit('enter')
 
-            this.setData({
-              inited: true,
-              display: true,
-              classes: classNames.enter,
-              currentDuration
+          this.setData({
+            inited: true,
+            display: true,
+            classes: classNames.enter,
+            currentDuration
+          }, () => {
+            requestAnimationFrame(() => {
+              this.checkStatus('enter')
+              this.transitionEnded = false
+
+              this.setData({
+                classes: classNames['enter-to']
+              })
             })
           })
-          .then(nextTick)
-          .then(() => {
-            this.checkStatus('enter')
-            this.transitionEnded = false
-
-            this.setData({
-              classes: classNames['enter-to']
-            })
-          })
-          .catch(() => {})
+        })
       },
       leave () {
         if (!this.data.display) return
@@ -89,19 +96,16 @@ export default function () {
         this.status = 'leave'
         this.$emit('beforeleave')
 
-        Promise.resolve()
-          .then(nextTick)
-          .then(() => {
-            this.checkStatus('leave')
-            this.$emit('leave')
+        requestAnimationFrame(() => {
+          this.checkStatus('leave')
+          this.$emit('leave')
 
-            this.setData({
-              classes: classNames.leave,
-              currentDuration
-            })
+          this.setData({
+            classes: classNames.leave,
+            currentDuration
           })
-          .then(nextTick)
-          .then(() => {
+
+          requestAnimationFrame(() => {
             this.checkStatus('leave')
             this.transitionEnded = false
             setTimeout(() => this.onTransitionEnd(), currentDuration)
@@ -110,7 +114,7 @@ export default function () {
               classes: classNames['leave-to']
             })
           })
-          .catch(() => {})
+        })
       },
       checkStatus (status) {
         if (status !== this.status) {

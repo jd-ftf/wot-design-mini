@@ -11,8 +11,7 @@ Page({
   data: {
     icons: {{list}}
   }
-});
-`
+})`
 
 nodes.forEach((node) => {
   var selector = node.selector || ''
@@ -25,7 +24,7 @@ nodes.forEach((node) => {
 })
 
 template = render(template, {
-  list: JSON.stringify(classList)
+  list: JSON.stringify(classList).replace(/,"/g, ', \'').replace(/"/g, '\'')
 })
 
 fs.writeFile(path.resolve(__dirname, '../example/pages/icon/index.js'), template, () => { })

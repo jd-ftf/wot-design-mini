@@ -1,35 +1,34 @@
-<view class="wd-drop-item custom-class" style="z-index: {{ zIndex }}; {{ positionStyle }}">
-	<wd-transition name="{{ transName }}" show="{{ showPop }}" duration="{{ duration }}">
-		<view class="wd-drop-item__pop" jd:if="{{ useDropItemSlot }}">
-			<slot name="custom"/>
-		</view>
-		<view jd:else style="background-color: #fff">
+<view jd:if="{{ showWrapper }}" class="wd-drop-item custom-class" style="z-index: {{ zIndex }}; {{ positionStyle }}">
+	<wd-popup
+		show="{{ showPop }}"
+		z-index="{{ zIndex }}"
+		duration="{{ duration }}"
+		position="{{ position }}"
+		custom-style="position: absolute; max-height: 80%;"
+		modal-style="position: absolute;"
+		modal="{{ modal }}"
+		close-on-click-modal="{{ closeOnClickModal }}"
+		bind:clickmodal="close"
+		bind:beforeenter="handleOpen"
+		bind:afterenter="handleOpened"
+		bind:beforeleave="handleClose"
+		bind:afterleave="onPopupClose"
+	>
+		<view jd:if="{{ options.length }}" style="background-color: #fff">
 			<view 
 				jd:for="{{ options }}" 
 				jd:key="index" 
 				bindtap="choose" 
 				data-index="{{ index }}"
-				class="wd-drop-item__pop"
-				style="color: {{ (item.value ? item.value : item) === value ? activeColor : '#333' }}"
+				class="wd-drop-item__option {{ (item.value !== '' ? item.value : item) === value ? 'is-active' : '' }}"
 				>
-				<!-- 左侧文字 -->
 				<view class="wd-drop-item__title custom-title">
-					{{ item.text ? item.text : item }}
+					<text>{{ item.label ? item.label : item }}</text>
+					<text jd:if="{{ item.tip }}" class="wd-drop-item__tip">{{ item.tip }}</text>
 				</view>
-				<!-- 按钮 -->
-				<wd-icon jd:if="{{ (item.value ? item.value : item) === value }}" name="{{ iconName }}" size="8px" class="wd-drop-item__icon custom-icon"/>
+				<wd-icon jd:if="{{ (item.value !== '' ? item.value : item) === value }}" name="{{ iconName }}" size="20px" class="wd-drop-item__icon custom-icon"/>
 			</view>
 		</view>
-	</wd-transition>
+		<slot jd:else />
+	</wd-popup>
 </view>
-<!-- 遮罩层 -->
-<wd-transition 
-	jd:if="{{ modal }}" 
-	show="{{ showPop }}" 
-	custom-class="wd-drop-item__modal" 
-	custom-style="z-index: {{ zIndex - 1 }};{{ positionStyle }}" 
-	duration="{{ duration }}" 
-	name="fade" 
-	bind:tap="handleClickModal" 
-	catch:touchmove="noop" 
-/>

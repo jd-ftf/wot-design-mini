@@ -72,7 +72,8 @@ Page({
         tip: key === '140000' ? '该地区无货，暂时无法选择' : (key === '150000' ? '该地区配送时间可能较长' : '')
       }
     })],
-    columnChange1 ({ selectedItem, resolve, finish }) {
+    columnChange1 ({ selectedItem, resolve, finish, index, rowIndex }) {
+      console.log(index, rowIndex)
       if (areaData[selectedItem.value]) {
         resolve(Object.keys(areaData[selectedItem.value]).map(key => {
           return {
