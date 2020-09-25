@@ -123,7 +123,7 @@ Page({
 
 - 1. 唤起项使用`catch`绑定展示逻辑，可以手动操作popover组件展示。
 - 2. 给展示的组件 popover 绑定id，通过this.selectComponent(idSelector)获取到当前展开的节点
-- 3. 可以通过组件内部的  `show()`/`hide()` 方法控制弹框的显隐。
+- 3. 可以通过组件内部的  `open()`/`close()` 方法控制弹框的显隐。
 - 4. 在当前页面的最外层添加点击外部关闭事件，查看当前是否有展开的弹框。
 - 5. 通过`pop.data.show`或与pop绑定的`show`变量，可以获取该id下pop的展开情况
 
@@ -152,7 +152,7 @@ Page({
   // 关闭当前页面展开的其他pop
   closeOtherPop () {
     if (this.pop && this.pop.data.show) {
-      this.pop.hide()
+      this.pop.close()
       this.pop = null
     }
   },

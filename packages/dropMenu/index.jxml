@@ -1,4 +1,4 @@
-<view class="wd-drop-menu custom-class">
+<view class="wd-drop-menu custom-class" catchtap="noop">
   <view class="wd-drop-menu__list">
     <view
       jd:for="{{ titleList }}"

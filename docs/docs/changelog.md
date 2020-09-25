@@ -213,8 +213,6 @@
   - 修复input 清空后无法再次弹起 （by [@Gkxie](https://github.com/Gkxie) ）
 - MessageBox
   - MessageBox.prompt 获取不到value值 [#166](https://github.com/jd-ftf/wot-design-mini/issues/166)（by [@HXCStudio123](https://github.com/HXCStudio123) ）
-- PickerView
-  - 修复点击过快时，出现限定范围外的列项数据（by [@HXCStudio123](https://github.com/HXCStudio123) ）
 - Popup
   - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
 

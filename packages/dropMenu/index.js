@@ -62,6 +62,7 @@ VueComponent({
     this.updateTitle()
   },
   methods: {
+    noop () { },
     toggle (event) {
       // 如果重复展开相同的选项，则折叠选项卡
       const { index } = event.currentTarget.dataset
