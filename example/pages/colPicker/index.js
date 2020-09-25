@@ -73,7 +73,6 @@ Page({
       }
     })],
     columnChange1 ({ selectedItem, resolve, finish, index, rowIndex }) {
-      console.log(index, rowIndex)
       if (areaData[selectedItem.value]) {
         resolve(Object.keys(areaData[selectedItem.value]).map(key => {
           return {

@@ -9,6 +9,8 @@ VueComponent({
     'custom-preview-class'
   ],
 
+  behaviors: ['jd://form-field'],
+
   props: {
     ...chooseImageProps,
     ...uploadProps,

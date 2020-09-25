@@ -25,6 +25,6 @@
   <view jd:if="{{loading}}" class="wd-button__loading">
     <view class="wd-button__loading-svg" style="background-image: url({{loadingIconSvg}});"></view>
   </view>
-  <wd-icon jd:if="{{icon}}" class="wd-button__icon" name="{{icon}}" size="1.28em"></wd-icon>
+  <wd-icon jd:if="{{icon}}" class="wd-button__icon" name="{{icon}}" ></wd-icon>
   <view class="wd-button__text"><slot/></view>
 </button>

@@ -14,95 +14,35 @@
 
 ### 基本用法
 
-在这里我们提供 12 种不同方向的展示方式，可以通过以下完整示例来理解，选择你要的效果。
+在这里我们提供 12 种不同方向的展示方式，可以通过以下完整示例来理解。
+
+`show` 控制是否展示文字提示。监听 `bind:change` 事件获取新值。
 
 使用`content`属性来决定显示时的提示信息。
-由`placement`属性决定展示效果：`placement`属性值为：`方向-对齐位置`；四个方向：`top`、`left`、`right`、`bottom`；三种对齐位置：`start`, `end`，默认为空。如`placement="left-end"`，则提示信息出现在目标元素的左侧，且提示信息的底部与目标元素的底部对齐。
+
+由`placement`属性决定展示效果：
+
+- `placement`属性值为：`方向-对齐位置`；
+- 四个方向：`top`、`left`、`right`、`bottom`；
+- 三种对齐位置：`start`、''(默认空为居中)、 `end`；
+
+如 `placement="left-end"`，则提示信息出现在目标元素的左侧，且提示信息的底部与目标元素的底部对齐。
 
 ```html
-<view>
-  <view class="top">
-    <wd-tooltip placement="top" content="top 提示文字">
-      <wd-button>top</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="top">
-    <wd-tooltip placement="top-start" content="top-start 提示文字">
-      <wd-button>top-start</wd-button>
-    </wd-tooltip>
-  </view>
-</demo-block>
-  <view class="top">
-    <wd-tooltip placement="top-end" content="top-end 提示文字">
-      <wd-button >top-end</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="bottom">
-    <wd-tooltip placement="bottom" content="bottom 提示文字">
-      <wd-button >bottom</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="bottom">
-    <wd-tooltip placement="bottom-start" content="bottom-start 提示文字">
-      <wd-button >bottom-start</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="bottom">
-    <wd-tooltip placement="bottom-end" content="bottom-end 提示文字">
-      <wd-button >bottom-end</wd-button>
-    </wd-tooltip>
-  </view>
-</demo-block>
-  <view class="left">
-    <wd-tooltip placement="left" content="left 提示文字">
-      <wd-button >left</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="left">
-    <wd-tooltip placement="left-start" content="left-start 提示文字">
-      <wd-button >left-start</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="left">
-    <wd-tooltip placement="left-end" content="left-end 提示文字">
-      <wd-button >left-end</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="right">
-    <wd-tooltip placement="right" content="right 提示文字">
-      <wd-button >right</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="right">
-    <wd-tooltip placement="right-start" content="right-start 提示文字">
-      <wd-button >right-start</wd-button>
-    </wd-tooltip>
-  </view>
-  <view class="right">
-    <wd-tooltip placement="right-end" content="right-end 提示文字">
-      <wd-button >right-end</wd-button>
-    </wd-tooltip>
-  </view>
-</view>
+<wd-tooltip show="{{ show }}" bind:change="handleChange" placement="top" content="top 提示文字">
+  <wd-button>top</wd-button>
+</wd-tooltip>
 ```
 
-```css
-.top{
-  margin: 40px auto 0;
-  width: 80%;
-  text-align: center;
-}
-.bottom {
-  width: 80%;
-  text-align: center;
-  margin: 0 auto 90px;
-}
-.left,
-.right{
-  width: 80%;
-  text-align: center;
-  margin: 40px;
-}
+```javascript
+Page({
+  data: {
+    show: false
+  },
+  handleChange (event) {
+    this.setData({ show: event.detail.show })
+  }
+})
 ```
 
 ### 更多 Content
@@ -110,10 +50,11 @@
 展示多行文本或者是设置文本内容的格式
 
 用具名 slot 分发`content`，替代 `tooltip` 中的 `content` 属性。
+
 使用插槽时，请使用 `useContentSlot` 属性，确定 `content` 插槽开启。
 
 ```html
-<wd-tooltip placement="right" useContentSlot>
+<wd-tooltip show="{{ show }}" bind:change="handleChange" placement="right" useContentSlot>
   <wd-button >多行文本</wd-button>
   <view slot="content" style="color: red; padding: 5px; width: 90px">
     <view>多行文本1</view>
@@ -123,14 +64,36 @@
 </wd-tooltip>
 ```
 
+```javascript
+Page({
+  data: {
+    show: false
+  },
+  handleChange (event) {
+    this.setData({ show: event.detail.show })
+  }
+})
+```
+
 ### 显示关闭按钮
 
 Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 
 ```html
-<wd-tooltip content="显示关闭按钮" show-close>
+<wd-tooltip show="{{show}}" content="显示关闭按钮" show-close bind:change="handleChange">
   <wd-button >显示关闭按钮</wd-button>
 </wd-tooltip>
+```
+
+```javascript
+Page({
+  data: {
+    show: false
+  },
+  handleChange (event) {
+    this.setData({ show: event.detail.show })
+  }
+})
 ```
 
 ### 高级扩展
@@ -140,7 +103,7 @@ Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 如果需要关闭 `tooltip` 功能，`disabled` 属性可以满足这个需求，它接受一个`Boolean`，设置为`true`即可。
 
 ```html
-<wd-tooltip placement="right-end" content="禁用" disabled>
+<wd-tooltip show="{{ show }}" bind:change="handleChange" placement="right-end" content="禁用" disabled>
   <wd-button >禁用</wd-button>
 </wd-tooltip>
 ```
@@ -186,8 +149,16 @@ Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 
 | 事件名称           | 说明             | 回调参数                                     |
 | -------------- | -------------- | ---------------------------------------- |
-| show     |显示时触发       | - |
-| hide | 隐藏时触发 | - |
+| open     |显示时触发       | - |
+| close | 隐藏时触发 | - |
+| change | 显隐值变化时触发 | - |
+
+### Methods
+
+| 方法名称      | 说明       | 参数   |
+|------------- |----------- |---------  |
+| open | 打开文字提示弹框 |
+| close | 关闭文字提示弹框 |
 
 ### Slot
 

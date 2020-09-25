@@ -9,7 +9,7 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="修改形状">
+<demo-block title="修改形状--button">
   <wd-radio-group
     shape="button"
     data-index="{{1}}"
@@ -21,7 +21,22 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="表单---单选组" transparent>
+<demo-block title="修改形状--dot">
+  <wd-radio-group
+    shape="dot"
+    data-index="{{9}}"
+    value="{{value9}}"
+    bind:change="change"
+  >
+    <wd-radio value="{{1}}">京麦</wd-radio>
+    <wd-radio value="{{2}}">商家后台</wd-radio>
+  </wd-radio-group>
+</demo-block>
+
+<demo-block
+  title="表单---单选组"
+  transparent
+>
   <wd-radio-group
     cell
     data-index="{{2}}"
@@ -33,8 +48,16 @@
   </wd-radio-group>
 </demo-block>
 
-<demo-block title="表单--单选按钮组" transparent>
-  <wd-radio-group data-index="{{3}}" value="{{value3}}" cell shape="button">
+<demo-block
+  title="表单--单选按钮组"
+  transparent
+>
+  <wd-radio-group
+    data-index="{{3}}"
+    value="{{value3}}"
+    cell
+    shape="button"
+  >
     <wd-radio value="{{1}}">选项一</wd-radio>
     <wd-radio value="{{2}}">选项二</wd-radio>
     <wd-radio value="{{3}}">选项三</wd-radio>
@@ -44,8 +67,13 @@
     <wd-radio value="{{7}}">选项七</wd-radio>
   </wd-radio-group>
 </demo-block>
+
 <demo-block title="同行展示">
-  <wd-radio-group data-index="{{4}}" value="{{value4}}" inline>
+  <wd-radio-group
+    data-index="{{4}}"
+    value="{{value4}}"
+    inline
+  >
     <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
@@ -57,30 +85,61 @@
     value="{{value5}}"
     bind:change="change"
   >
-    <wd-radio value="{{1}}" checked-color="#fa4350">京麦</wd-radio>
-    <wd-radio value="{{2}}" checked-color="#fa4350">商家后台</wd-radio>
+    <wd-radio
+      value="{{1}}"
+      checked-color="#fa4350"
+    >京麦</wd-radio>
+    <wd-radio
+      value="{{2}}"
+      checked-color="#fa4350"
+    >商家后台</wd-radio>
   </wd-radio-group>
 </demo-block>
 
 <demo-block title="禁用">
+  <wd-radio-group
+    value="{{1}}"
+    disabled
+    shape="dot"
+  >
+    <wd-radio value="{{1}}">京麦</wd-radio>
+    <wd-radio value="{{2}}">商家后台</wd-radio>
+  </wd-radio-group>
   <view style="margin-bottom: 10px;">
-    <wd-radio-group value="{{1}}" disabled>
+    <wd-radio-group
+      value="{{1}}"
+      disabled
+    >
       <wd-radio value="{{1}}">京麦</wd-radio>
       <wd-radio value="{{2}}">商家后台</wd-radio>
     </wd-radio-group>
   </view>
-  <wd-radio-group value="{{1}}" disabled shape="button">
+  <wd-radio-group
+    value="{{1}}"
+    disabled
+    shape="button"
+  >
     <wd-radio value="{{1}}">京麦</wd-radio>
     <wd-radio value="{{2}}">商家后台</wd-radio>
   </wd-radio-group>
 </demo-block>
 
 <demo-block title="大尺寸">
-  <wd-radio-group data-index="{{6}}" value="{{value6}}" size="large">
+  <wd-radio-group
+    data-index="{{6}}"
+    value="{{value6}}"
+    size="large"
+  >
     <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
-  <wd-radio-group data-index="{{7}}" value="{{value7}}" size="large" inline class="group">
+  <wd-radio-group
+    data-index="{{7}}"
+    value="{{value7}}"
+    size="large"
+    inline
+    class="group"
+  >
     <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
@@ -99,18 +158,11 @@
       value="{{1}}"
       checked-color="#000"
       disabled="{{false}}"
-    >
-      商家前端
-    </wd-radio>
+    >商家前端</wd-radio>
     <wd-radio
       value="{{2}}"
       disabled="{{false}}"
-    >京麦
-    </wd-radio>
-    <wd-radio
-      value="{{3}}"
-    >
-      商家智能
-    </wd-radio>
+    >京麦</wd-radio>
+    <wd-radio value="{{3}}">商家智能</wd-radio>
   </wd-radio-group>
 </demo-block>

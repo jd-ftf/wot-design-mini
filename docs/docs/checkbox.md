@@ -275,6 +275,8 @@ Page({
 | 类名     | 说明                 |
 |---------|---------------------|
 | custom-class | 根结点样式 |
+| custom-label-class | 文字结点样式 |
+| custom-shape-class | 单选图标结点样式 |
 
 ### CheckboxGroup 外部样式类
 

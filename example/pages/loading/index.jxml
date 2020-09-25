@@ -27,8 +27,8 @@
 
 <demo-block title="修改指示器大小">
   <view class="flex">
-    <wd-loading custom-class="loading" size="20" />
-    <wd-loading custom-class="loading" size="30" />
-    <wd-loading custom-class="loading" size="50" />
+    <wd-loading custom-class="loading" size="{{20}}" />
+    <wd-loading custom-class="loading" size="{{30}}" />
+    <wd-loading custom-class="loading" size="50px" />
   </view>
 </demo-block>

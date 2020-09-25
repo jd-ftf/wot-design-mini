@@ -1,34 +1,46 @@
-<view jd:if="{{ showWrapper }}" class="wd-drop-item custom-class" style="z-index: {{ zIndex }}; {{ positionStyle }}">
-	<wd-popup
-		show="{{ showPop }}"
-		z-index="{{ zIndex }}"
-		duration="{{ duration }}"
-		position="{{ position }}"
-		custom-style="position: absolute; max-height: 80%;"
-		modal-style="position: absolute;"
-		modal="{{ modal }}"
-		close-on-click-modal="{{ closeOnClickModal }}"
-		bind:clickmodal="close"
-		bind:beforeenter="handleOpen"
-		bind:afterenter="handleOpened"
-		bind:beforeleave="handleClose"
-		bind:afterleave="onPopupClose"
-	>
-		<view jd:if="{{ options.length }}" style="background-color: #fff">
-			<view 
-				jd:for="{{ options }}" 
-				jd:key="index" 
-				bindtap="choose" 
-				data-index="{{ index }}"
-				class="wd-drop-item__option {{ (item.value !== '' ? item.value : item) === value ? 'is-active' : '' }}"
-				>
-				<view class="wd-drop-item__title custom-title">
-					<text>{{ item.label ? item.label : item }}</text>
-					<text jd:if="{{ item.tip }}" class="wd-drop-item__tip">{{ item.tip }}</text>
-				</view>
-				<wd-icon jd:if="{{ (item.value !== '' ? item.value : item) === value }}" name="{{ iconName }}" size="20px" class="wd-drop-item__icon custom-icon"/>
-			</view>
-		</view>
-		<slot jd:else />
-	</wd-popup>
+<view
+  jd:if="{{ showWrapper }}"
+  class="wd-drop-item custom-class"
+  style="z-index: {{ zIndex }}; {{ positionStyle }}"
+>
+  <wd-popup
+    show="{{ showPop }}"
+    z-index="{{ zIndex }}"
+    duration="{{ duration }}"
+    position="{{ position }}"
+    custom-style="position: absolute; max-height: 80%;"
+    modal-style="position: absolute;"
+    modal="{{ modal }}"
+    close-on-click-modal="{{ closeOnClickModal }}"
+    bind:clickmodal="close"
+    bind:beforeenter="handleOpen"
+    bind:afterenter="handleOpened"
+    bind:beforeleave="handleClose"
+    bind:afterleave="onPopupClose"
+  >
+    <view
+      jd:if="{{ options.length }}"
+      style="background-color: #fff"
+    >
+      <view
+        jd:for="{{ options }}"
+        jd:key="index"
+        bindtap="choose"
+        data-index="{{ index }}"
+        class="wd-drop-item__option {{ (item.value !== '' ? item.value : item) === value ? 'is-active' : '' }}"
+      >
+        <view class="wd-drop-item__title custom-title">
+          <text>{{ item.label ? item.label : item }}</text>
+          <text jd:if="{{ item.tip }}" class="wd-drop-item__tip">{{ item.tip }}</text>
+        </view>
+        <wd-icon
+          jd:if="{{ (item.value !== '' ? item.value : item) === value }}"
+          name="{{ iconName }}"
+          size="20px"
+          class="wd-drop-item__icon custom-icon"
+        />
+      </view>
+    </view>
+    <slot jd:else />
+  </wd-popup>
 </view>

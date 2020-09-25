@@ -21,6 +21,26 @@ Page({
       { label: '上架时间', value: 2 }
     ]
   },
+
+  clickOutside () {
+    this.closeOtherDrop()
+  },
+
+  closeOtherDrop () {
+    if (this.drop && this.drop.data.showWrapper && this.drop.data.showPop) {
+      this.drop.close()
+      this.drop = null
+    }
+  },
+
+  showDropMenu (event) {
+    const id = event.currentTarget.id
+    if (this.drop && (this.drop.id !== id)) {
+      this.closeOtherDrop()
+    }
+    this.drop = this.selectComponent('#' + id)
+  },
+
   click () {
     this.setData({ value1: '0' })
   },
@@ -48,7 +68,7 @@ Page({
     this.setData({
       value5: detail.value
     })
-    const drop = this.selectComponent('#drop-menu2')
+    const drop = this.selectComponent('#drop-menu5')
     drop.close()
   },
   handleChange6 ({ detail }) {
@@ -73,7 +93,7 @@ Page({
   },
   confirm () {
     // 关闭下拉框
-    const drop = this.selectComponent('#drop-menu1')
+    const drop = this.selectComponent('#drop-menu4')
     drop.close()
   }
 })

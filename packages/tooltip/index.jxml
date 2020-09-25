@@ -1,4 +1,4 @@
-<view class="wd-tooltip custom-class" id="tooltip">
+<view class="wd-tooltip custom-class" id="tooltip" catchtap="noop">
   <!-- 用于为渲染获取宽高的元素 -->
   <view class="wd-tooltip__pos wd-tooltip__hidden" id="pos">
     <view class="wd-tooltip__container custom-pop">
@@ -20,7 +20,7 @@
       <wd-icon jd:if="{{ showClose }}" name="close" class="wd-tooltip__close-icon" bindtap="toggle"></wd-icon>
     </view>
   </wd-transition>
-  <view bindtap="toggle" class="wd-tooltip__target" id="target">
+  <view catchtap="toggle" class="wd-tooltip__target" id="target">
     <slot />
   </view>
 </view>

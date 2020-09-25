@@ -55,9 +55,11 @@
     <wd-input label="手机号" label-width="100px" name="phone" placeholder="请输入手机号" clearable value="{{ phone }}" bind:change="handlePhone" />
   </wd-cell-group>
   <view class="tip">
-    <wd-checkbox value="{{read}}" name="read" bind:change="handleRead">
+    <wd-checkbox value="{{read}}" name="read" bind:change="handleRead" custom-label-class="label-class">
       已阅读并同意<text style="color: #4D80F0">《借款额度合同及相关授权》</text>
     </wd-checkbox>
   </view>
-  <button class="wd-button is-primary is-suck" form-type="submit">提交</button>
+  <view class="footer">
+    <button class="wd-button is-primary is-block is-round is-large" form-type="submit">提交</button> 
+  </view>
 </form>

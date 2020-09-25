@@ -1,6 +1,6 @@
 import VueComponent from '../common/component'
 import base64 from '../common/base64'
-import { gradient, context } from '../common/util'
+import { gradient, context, getType } from '../common/util'
 
 const svgDefineId = context.id++
 const svgDefineId1 = context.id++
@@ -21,7 +21,8 @@ const icon = {
 VueComponent({
   data: {
     svg: '',
-    intermediateColor: ''
+    intermediateColor: '',
+    iconSize: '32px'
   },
   props: {
     type: {
@@ -34,8 +35,19 @@ VueComponent({
       observer: 'buildSvg'
     },
     size: {
-      type: Number,
-      value: 32
+      type: null,
+      value: '32px',
+      observer (val) {
+        const type = getType(val)
+
+        if (type !== 'string' && (type !== 'number')) {
+          console.warn('[Wot Design]warning: prop size type must be number or string.')
+          return
+        }
+
+        const iconSize = type === 'string' ? val : (type === 'number' ? val + 'px' : '32px')
+        this.setData({ iconSize })
+      }
     }
   },
   methods: {

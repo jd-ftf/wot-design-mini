@@ -11,7 +11,6 @@ import popover from '../mixins/popover'
 VueComponent({
   mixins: [popover()],
   data: {
-    selector: 'tooltip',
-    arrowClass: 'wd-tooltip__arrow'
+    selector: 'tooltip'
   }
 })

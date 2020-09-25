@@ -123,7 +123,7 @@
       >
       </input>
       <view jd:if="{{ showClear || showPassword || suffixIcon || showWordCount || useSuffixSlot }}" class="wd-input__suffix">
-        <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__icon" name="error-fill"  bindtap="clear"/>
+        <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__clear" name="error-fill"  bindtap="clear"/>
         <wd-icon
           jd:if="{{ showPassword }}"
           custom-class="wd-input__icon"

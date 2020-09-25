@@ -116,6 +116,32 @@ $-badge-dot-size: 6px !default; // dot 类型大小
 $-badge-border: 2px solid $-badge-color; // 边框样式
 
 /* button */
+$-button-small-height: 28px !default; // 小型按钮高度
+$-button-small-padding: 0 11px !default; // 小型按钮padding
+$-button-small-fs: $-fs-secondary !default; // 小型按钮字号
+$-button-small-radius: 2px !default; // 小型按钮圆角大小
+$-button-small-loading: 14px !default; // 小型按钮loading图标大小
+
+$-button-medium-height: 36px !default; // 中型按钮高度
+$-button-medium-padding: 0 15px !default; // 中型按钮padding
+$-button-medium-fs: $-fs-content !default; // 中型按钮字号
+$-button-medium-radius: 4px !default; // 中型按钮圆角大小
+$-button-medium-loading: 18px !default; // 中型按钮loading图标大小
+$-button-medium-box-shadow-size: 0px 2px 4px 0px !default; // 中尺寸阴影尺寸
+
+$-button-large-height: 44px !default; // 大型按钮高度
+$-button-large-padding: 0 36px !default; // 大型按钮padding
+$-button-large-fs: $-fs-title !default; // 大型按钮字号
+$-button-large-radius: 8px !default; // 大型按钮圆角大小
+$-button-large-loading: 24px !default; // 大小按钮loading图标大小
+$-button-large-box-shadow-size: 0px 4px 8px 0px !default; // 大尺寸阴影尺寸
+
+$-button-icon-fs: 18px !default; // 带图标的按钮的图标大小
+$-button-icon-size: 40px !default; // icon 类型按钮尺寸
+$-button-icon-color: rgba($-color-black, 0.65) !default; // icon 类型按钮颜色
+$-button-icon-active-color: $-color-icon-active !default; // icon 类型按钮点击态颜色
+$-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按钮禁用颜色
+
 $-button-normal-bg: $-color-white !default; // 默认按钮禁用背景色
 $-button-normal-color: $-color-title !default; // 文字颜色
 $-button-normal-active-color: $-color-black !default; // 文字点击态颜色
@@ -124,9 +150,9 @@ $-button-normal-border-active-color: rgba($-color-black, 0.45) !default; // 默�
 $-button-normal-disabled-color: rgba($-color-black, 0.25) !default; // 默认按钮禁用文字色
 $-button-normal-disabled-bg: $-color-white !default; // 默认按钮禁用背景色
 $-button-normal-border-disabled-color: $-color-bg !default; // 默认按钮禁用边框色
+$-button-border-color: mix($-color-black, $-color-white, 0.65) !default; // 默认按钮边框色
 
 $-button-primary-color: $-color-theme !default; // 主要按钮颜色
-$-button-primary-box-shadow: 0px 2px 4px 0px rgba($-color-theme, 0.25) !default; // 主要按钮颜色
 $-button-primary-bg-color: resultColor(
   $open-linear,
   315deg,
@@ -138,8 +164,8 @@ $-button-primary-bg-color: resultColor(
 $-button-primary-active-color: resultColor(
   $open-linear,
   315deg,
-  $-color-theme,
-  "dark" "dark",
+  darken($-color-theme, 7%),
+  "dark" "light",
   #416bdf #4e79ee,
   0% 100%
 ) !default; // 主要按钮点击态颜色
@@ -147,15 +173,18 @@ $-button-primary-plain-active-bg-color: #eff4fe !default; // 主要按钮点击�
 $-button-primary-disabled-color: resultColor(
   $open-linear,
   315deg,
-  $-color-theme,
+  rgba($-color-theme, 0.6),
   "dark" "light",
   #8FADFF #9FB8FE,
   0% 100%
 ) !default; // 主要按钮禁用颜色
 $-button-primary-plain-disabled-color: themeColor($-color-theme, "light", #9DB9F6) !default; // 主要按钮点击态文字颜色
+$-button-primary-box-shadow-color: rgba($-color-theme, 0.25) !default; // 主要按钮阴影颜色
+
 $-button-success-color: $-color-success !default; // 成功按钮颜色
 $-button-success-active-color: mix($-color-black, $-button-success-color, 18%) !default; // 成功按钮点击态颜色
 $-button-success-disabled-color: mix($-color-white, $-button-success-color, 42%) !default; // 成功按钮禁用颜色
+$-button-success-box-shadow-color: rgba($-color-success, 0.25) !default; // 主要按钮阴影颜色
 
 $-button-info-bg-color: #F0F0F0 !default; // 信息按钮背景颜色
 $-button-info-color: $-color-title !default; // 信息按钮颜色
@@ -174,34 +203,15 @@ $-button-info-plain-normal-color: rgba($-color-black, 0.85) !default; // 信息�
 $-button-warning-color: $-color-warning !default; // 警告按钮颜色
 $-button-warning-active-color: mix($-color-black, $-button-warning-color, 18%) !default; // 警告按钮点击颜色
 $-button-warning-disabled-color: mix($-color-white, $-button-warning-color, 42%) !default; // 警告按钮禁用颜色
+$-button-warning-box-shadow-color: rgba($-color-warning, 0.25) !default; // 主要按钮阴影颜色
 
 $-button-error-color: $-color-danger !default; // 错误按钮颜色
 $-button-error-active-color: mix($-color-black, $-button-error-color, 18%) !default; // 错误按钮点击颜色
 $-button-error-disabled-color: mix($-color-white, $-button-error-color, 42%) !default; // 错误按钮禁用颜色
-$-button-suck-active-color: $-button-primary-plain-active-bg-color !default; // 错误按钮禁用颜色
+$-button-error-box-shadow-color: rgba($-color-danger, 0.25) !default; // 主要按钮阴影颜色
 
-$-button-border-color: mix($-color-black, $-color-white, 65%) !default; // 默认按钮边框色
-$-button-small-height: 28px !default; // 小型按钮高度
-$-button-small-padding: 0 11px !default; // 小型按钮padding
-$-button-small-fs: $-fs-secondary !default; // 小型按钮字号
-$-button-small-radius: 2px !default; // 小型按钮圆角大小
-$-button-small-loading: 14px !default; // 小型按钮loading图标大小
-$-button-medium-height: 36px !default; // 中型按钮高度
-$-button-medium-padding: 0 15px !default; // 中型按钮padding
-$-button-medium-fs: $-fs-content !default; // 中型按钮字号
-$-button-medium-radius: 4px !default; // 中型按钮圆角大小
-$-button-medium-loading: 18px !default; // 中型按钮loading图标大小
-$-button-large-height: 44px !default; // 大型按钮高度
-$-button-large-padding: 0 36px !default; // 大型按钮padding
-$-button-large-fs: $-fs-title !default; // 大型按钮字号
-$-button-large-radius: 8px !default; // 大型按钮圆角大小
-$-button-large-loading: 24px !default; // 大小按钮loading图标大小
 $-button-suck-height: 50px !default; // suck 类型按钮高度
-$-button-icon-fs: 18px !default; // 带图标的按钮的图标大小
-$-button-icon-size: 40px !default; // icon 类型按钮尺寸
-$-button-icon-color: mix($-color-black, $-color-white, 65%) !default; // icon 类型按钮颜色
-$-button-icon-active-color: $-color-icon-active !default; // icon 类型按钮点击态颜色
-$-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按钮禁用颜色
+$-button-suck-active-color: $-button-primary-plain-active-bg-color !default; // 错误按钮禁用颜色
 
 /* cell */
 $-cell-padding: $-size-side-padding !default; // cell 左右padding距离
@@ -332,7 +342,8 @@ $-input-color: #262626 !default; // 文字颜色
 $-input-placeholder-color: #bfbfbf !default; // 占位符颜色
 $-input-disabled-color: #d9d9d9 !default; // 输入框禁用颜色
 $-input-error-color: $-color-danger !default; // 输入框错误颜色
-$-input-icon-color: #585858 !default; // 图标颜色
+$-input-icon-color: #bfbfbf !default; // 图标颜色
+$-input-clear-color: #585858 !default; // 关闭按钮颜色
 $-input-count-color: #bfbfbf !default; // 计数文字颜色
 $-input-count-current-color: #262626 !default; // 当前长度颜色
 $-input-label-padding: 11px 10px 11px 0 !default; // label padding
@@ -418,6 +429,7 @@ $-picker-column-active-fs: 18px !default; // 选择器选项被选中的字号
 $-picker-column-color: rgba($-color-black, 0.85) !default; // 选择器选项的颜色
 $-picker-column-height: 210px !default; // 列高 滚筒外部的高度
 $-picker-column-item-height: 33px !default; // 列高 滚筒外部的高度
+$-picker-loading-button-color: rgba($-color-black, 0.25) !default; // loading 背景颜色
 
 $-picker-column-disabled-color: rgba($-color-black, 0.25) !default; // 选择器选项禁用的颜色
 $-picker-mask: linear-gradient(180deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)),
@@ -519,6 +531,14 @@ $-radio-button-bg: $-checkbox-button-bg !default; // 按钮模式背景颜色
 $-radio-button-fs: $-checkbox-button-font-size !default; // 按钮模式字号
 $-radio-button-border: $-checkbox-button-border !default; // 按钮边框颜色
 $-radio-button-disabled-border: $-checkbox-button-disabled-border !default; // 按钮禁用边框颜色
+
+$-radio-dot-size: 8px !default; // 单选dot模式圆点尺寸
+$-radio-dot-large-size: 10px !default; // 单选dot模式大尺寸圆点尺寸
+$-radio-dot-checked-bg: $-color-theme !default; // 单选dot模式选中背景色
+$-radio-dot-checked-border-color: $-color-theme !default; // 单选dot模式选中边框色
+$-radio-dot-border-color: #dcdcdc !default; // 单选dot模式边框色
+$-radio-dot-disabled-border: #d9d9d9 !default; // 单选dot模式禁用边框颜色
+$-radio-dot-disabled-bg: #d9d9d9 !default; // 单选dot模式禁用背景颜色
 
 /* search */
 $-search-side-padding: $-size-side-padding !default; // 左右间距

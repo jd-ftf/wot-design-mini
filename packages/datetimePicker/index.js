@@ -292,6 +292,7 @@ VueComponent({
 
     /** picker触发confirm事件，同步触发confirm事件 */
     onConfirm () {
+      if (this.data.loading) return
       const { beforeConfirm } = this.data
       if (beforeConfirm) {
         beforeConfirm(this.data.innerValue, isPass => {

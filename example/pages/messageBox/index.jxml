@@ -1,4 +1,5 @@
 <wd-message-box id="wd-message-box"></wd-message-box>
+<wd-toast id="wd-toast"></wd-toast>
 <wd-message-box id="wd-message-box-slot" use-slot>
   <wd-rate
     custom-class="custom-rate-class"

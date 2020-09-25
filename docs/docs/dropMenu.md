@@ -44,12 +44,12 @@ Page({
       { label: '上架时间', value: 2 }
     ]
   },
-  bindChange1 (event) {
+  handleChange1 (event) {
     this.setData({
       value1: event.detail.value
     })
   },
-  bindChange2 (event) {
+  handleChange2 (event) {
     this.setData({
       value1: event.detail.value
     })
@@ -88,10 +88,15 @@ Page({
       { label: '活动商品', value: 2 }
     ]
   },
-  bindChange (event) {
+  handleChange (event) {
     this.setData({
       value: event.detail.value
     })
+  },
+  confirm () {
+    // 关闭下拉框
+    const drop = this.selectComponent('#drop-menu1')
+    drop.close()
   }
 })
 ```
@@ -131,11 +136,92 @@ Page({
 </wd-drop-menu>
 ```
 
+### 点击外部关闭
+
+微信小程序的逻辑层运行在JSCore中，因而缺少相关的DOM API和BOM API，无法监听全局点击事件，因此微信小程序的点击外部关闭需要在实际页面中进行手动处理。
+
+大致思路：
+
+- 1. `drop-menu-item`使用`bind:open`捕获下拉菜单的展开动作
+- 2. 给展示的组件 `drop-menu-item` 绑定id，通过this.selectComponent(idSelector)获取到当前展开的节点
+- 3. 可以通过组件内部的  `open()`/`close()` 方法控制弹出下拉菜单的显隐。
+- 4. 在当前页面的最外层添加点击外部关闭事件，查看当前是否有展开的弹框。
+- 5. 通过`pop.data.showWrapper` 与 `pop.data.showPop`，可以获取该id下下拉菜单的展开情况
+
+```html
+<!-- 当前子页面的最外层 -->
+<view catchtap="clickOutside">
+  <wd-drop-menu>
+    <wd-drop-menu-item
+      id="drop-menu1"
+      value="{{ value1 }}"
+      options="{{ option1 }}"
+      bind:change="handleChange1"
+      bind:open="showDropMenu"
+    />
+    <wd-drop-menu-item
+      id="drop-menu2"
+      value="{{ value2 }}"
+      options="{{ option2 }}"
+      bind:change="handleChange2"
+      bind:open="showDropMenu"
+    />
+  </wd-drop-menu>
+</view>
+```
+
+```JavaScript
+Page({
+  data: {
+    value1: 1,
+    value2: 0,
+    option1: [
+      { label: '全部商品', value: 0 },
+      { label: '新款商品', value: 1, tip: '这是补充信息' },
+      { label: '这是比较长的筛选条件这是比较长的筛选条件', value: 2 }
+    ],
+    option2: [
+      { label: '综合', value: 0 },
+      { label: '销量', value: 1 },
+      { label: '上架时间', value: 2 }
+    ]
+  },
+
+  clickOutside () {
+    this.closeOtherDrop()
+  },
+
+  closeOtherDrop () {
+    if (this.drop && this.drop.data.showWrapper && this.drop.data.showPop) {
+      this.drop.close()
+      this.drop = null
+    }
+  },
+  showDropMenu (event) {
+    const id = event.currentTarget.id
+    if (this.drop && (this.drop.id !== id)) {
+      this.closeOtherDrop()
+    }
+    this.drop = this.selectComponent('#' + id)
+  },
+  handleChange1 ({ detail }) {
+    this.setData({
+      value1: detail.value
+    })
+  },
+  handleChange2 ({ detail }) {
+    this.setData({
+      value2: detail.value
+    })
+  }
+})
+```
+
 ### DropMenu Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| direction | 菜单展开方向，可选值为`up` 或 `down` | string | - | 'down' |
+| direction | 菜单展开方向，可选值为`up` 或 `down` | string | 'up' / 'down' | 'down' |
 | modal | 是否展示蒙层 | boolean | - | true |
 | close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true |
 | duration | 菜单展开收起动画时间，单位 ms | number | - | 200 |

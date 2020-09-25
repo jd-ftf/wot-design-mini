@@ -8,18 +8,15 @@
           <page-controller></page-controller>
         </div>
         <div class="demo-preview" ref="phone">
-          <div class="demo-iframe">
-            <div class="phone-header">
-              <img class="phone-title" src="../assets/img/phtitle.png" />
-              <input readonly v-model="demoLink" class="phone-link" />
+          <div class="demo-iframe" v-show="$route.meta.demo">
+            <div class="iframe-wrapper">
+              <div class="input-wrapper">
+                <input readonly v-model="demoLink" class="phone-link" />
+              </div>
+              <div class="wrapper">
+                <iframe frameborder="0" :src="demoLink" ref="iframe"></iframe>
+              </div>
             </div>
-            <iframe frameborder="0" :src="demoLink" ref="iframe"></iframe>
-          </div>
-          <div class="demo-preview-item">
-            <p>京东app扫码预览</p>
-            <img class="phone-title" src="../assets/img/jd.jpg" />
-            <p style="margin-top: 40px;">京麦app扫码预览</p>
-            <img class="phone-title" src="../assets/img/jm.jpg" />
           </div>
         </div>
       </div>
@@ -47,7 +44,7 @@ export default {
     }
   },
   methods: {
-    renderAnchorHref() {
+    renderAnchorHref () {
       const anchors = document.querySelectorAll('h2 a,h3 a,h4 a,h5 a')
       const basePath = location.href.split('#').splice(0, 2).join('#')
 
@@ -95,7 +92,7 @@ export default {
 </script>
 
 <style lang="scss">
-.tab-content{
+.tab-content {
   margin: 0 530px 100px 375px;
 
   .content-flex {
@@ -105,7 +102,12 @@ export default {
     padding-top: 10px;
     margin-top: 10px;
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       position: relative;
 
       &:hover {
@@ -127,70 +129,77 @@ export default {
     padding: 10px 10px 12px 10px;
     background: #545456;
   }
-  .phone-link {
-    margin-top: 10px;
+  .phone-title {
     width: 100%;
-    padding: 0 6px;
-    height: 28px;
-    line-height: 28px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    background: #a2a2a2;
-    color: #fff;
-    overflow: auto;
-    line-height: 1.1;
   }
 
-  .demo-iframe{
+  .input-wrapper {
+    position: absolute;
+    top: 69px;
+    width: 368px;
+    height: 46px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #fafafa;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+  .phone-link {
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(142, 142, 147, 0.12);
+    border: none;
+    width: 355px;
+    outline: none;
+    height: 36px;
+    box-sizing: border-box;
+    color: #030303;
+    text-align: center;
+  }
+
+  .demo-iframe {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    width: 425px;
+    height: 820px;
+    margin-top: 30px;
     font-size: 0;
 
-    .phone-title{
+    .iframe-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-image: url('../assets/img/phone-case.png');
+      background-size: 100% 100%;
+    }
+    iframe {
+      height: 100%;
       width: 100%;
     }
-    iframe{
-      width: 100%;
-      height: 597px;
-    }
-  }
-  .demo-preview {
-    position: fixed;
-    top: 60px;
-    right: 120px;
-    width: 375px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 18px;
-    box-shadow: 0 0 10px #cecece;
-    overflow: hidden;
-
-    .demo-preview-item {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding-top: 40px;
-      z-index: 1;
-      text-align: center;
-      background-color: hsla(0,0%,100%,.95);
-      opacity: 0;
-      transition: .3s;
-
-      &:last-child{
-        margin-bottom: 0;
-      }
-
-      &:hover{
-        opacity: 1;
-      }
-    }
-    .demo-preview-item--jm {
-      top: 150px;
-    }
-    img {
-      width: 150px;
+    .wrapper {
+      position: relative;
+      width: 368px;
+      height: 676px;
+      margin-top: 115px;
+      overflow: hidden;
+      box-sizing: border-box;
+      border-radius: 0 0 22px 22px;
+      border: 1px solid rgba(0, 0, 0, 0.02);
     }
   }
 }
@@ -200,14 +209,21 @@ export default {
     margin-right: 460px;
     margin-bottom: 0;
 
-    .demo-preview {
+    .demo-iframe {
       right: 80px;
       width: 360px;
+      height: 651px;
       margin-top: 20px;
-
-      iframe {
-        height: 550px;
+      .wrapper {
+        width: 313px;
+        height: 517px;
       }
+    }
+    .phone-link {
+      width: 290px;
+    }
+    .input-wrapper {
+      width: 313px;
     }
   }
 }
@@ -215,16 +231,25 @@ export default {
   .tab-content {
     margin-left: 275px;
     margin-right: 420px;
+    height: 610px;
     margin-bottom: 0;
 
-    .demo-preview {
+    .demo-iframe {
       right: 80px;
       width: 320px;
       margin-top: 20px;
-
-      iframe {
-        height: 460px;
+      .wrapper {
+        margin-top: 101px;
+        width: 280px;
+        height: 527px;
       }
+    }
+    .phone-link {
+      width: 260px;
+    }
+    .input-wrapper {
+      width: 280px;
+      top: 55px;
     }
   }
 }
@@ -233,7 +258,7 @@ export default {
     margin-left: 275px;
     margin-right: 30px;
 
-    .demo-preview {
+    .demo-iframe {
       display: none;
     }
   }

@@ -1,3 +1,5 @@
+import Toast from '../../dist/toast/toast'
+
 Page({
   data: {
     value1: '',
@@ -14,27 +16,23 @@ Page({
       }
     ]
   },
-  focus () {
-    console.log('聚焦')
-  },
-  blur () {
-    console.log('失焦')
-  },
   search (e) {
-    console.log('搜索', e)
+    Toast('搜索' + e.detail.value)
   },
   clear () {
-    console.log('重置')
+    Toast('清空')
   },
   cancel () {
-    console.log('取消')
+    Toast('取消')
   },
   change (e) {
-    console.log('输入', e)
-  },
-  changeSearchType ({ detail: { item } }) {
     this.setData({
-      searchType: item.content
+      value1: e.detail.value
+    })
+  },
+  changeSearchType (e) {
+    this.setData({
+      searchType: e.detail.item.content
     })
   }
 })

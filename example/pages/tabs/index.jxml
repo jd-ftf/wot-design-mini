@@ -1,6 +1,6 @@
 <wd-toast id="wd-toast"/>
 <demo-block title="基本用法" transparent>
-  <wd-tabs value="{{0}}">
+  <wd-tabs value="{{0}}" bind:change="handleChange">
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}">
         <view class="content">内容{{item + 1}}</view>

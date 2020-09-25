@@ -1,4 +1,9 @@
 /**
+ * @description 注意点：
+ * 1. 需要控制的位置： 12个
+ * 2. 每一个位置改变都需要控制：
+ * popLeft(弹出坐标x)/ popTop(弹出坐标Y)/ arrowStyle(三角形位置以及尖角朝向)
+ * 尖角样式朝向class控制，位置用js控制
  * @param {String} [placement=bottom] - Placement of the popper accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
  * @param {Number} [offset=5] - Amount of pixels the popper will be shifted (can be negative).
  * @param {Boolean} [visibleArrow=false] Visibility of the arrow
@@ -65,7 +70,8 @@ export default function () {
         observer (newValue, oldValue) {
           newValue && this.control()
           this.setData({ showStyle: newValue ? 'display: inline-block;' : 'display: none;' })
-          this.$emit(`${newValue ? 'show' : 'hide'}`)
+          this.$emit('change', { show: newValue })
+          this.$emit(`${newValue ? 'open' : 'close'}`)
         }
       }
     },
@@ -79,6 +85,12 @@ export default function () {
     },
 
     methods: {
+      noop () { },
+
+      open () { this.setData({ show: true }) },
+
+      close () { this.setData({ show: false }) },
+
       init () {
         // 初始化 class
         const { placement, visibleArrow, selector } = this.data

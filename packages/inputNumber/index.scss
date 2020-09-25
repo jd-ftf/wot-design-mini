@@ -79,6 +79,8 @@
     position: absolute;
     display: inline-block;
     font-size: $-input-number-icon-size;
+    width: $-input-number-icon-size;
+    height: $-input-number-icon-size;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);

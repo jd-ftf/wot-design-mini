@@ -1,8 +1,5 @@
 @import "../../dist/button/index.jxss";
 
-page {
-  padding-bottom: 16px;
-}
 .inline-txt {
   display: inline-block;
   font-size: 14px;
@@ -14,7 +11,14 @@ page {
   margin-top: 12px;
 }
 .tip {
-  margin: 10px 15px 25px;
+  margin: 10px 15px 21px;
   color: #999;
   font-size: 12px;
+}
+.footer {
+  padding: 0 25px 21px;
+}
+.label-class {
+  color: #999 !important;
+  font-size: 12px !important;
 }

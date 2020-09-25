@@ -159,6 +159,7 @@ VueComponent({
      * @description 点击确定按钮触发。展示选中值，触发cancel事件。
      */
     onConfirm () {
+      if (this.data.loading) return
       const { beforeConfirm } = this.data
       if (beforeConfirm && getType(beforeConfirm) === 'function') {
         beforeConfirm(this.data.pickerValue, isPass => {
@@ -213,7 +214,7 @@ VueComponent({
         showValue: this.data.displayFormat(items, { valueKey, labelKey })
       })
     },
-    noop () {}
+    noop () { }
   },
   beforeCreate () {
     // pickerView挂载到全局

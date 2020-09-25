@@ -1,5 +1,6 @@
+<wd-toast id="wd-toast"/>
 <demo-block title="基本用法" transparent>
-  <wd-search value="{{value1}}"/>
+  <wd-search value="{{value1}}" bind:search="search" bind:change="change" bind:cancel="cancel" bind:clear="clear"/>
 </demo-block>
 
 <demo-block title="白色输入框" transparent>

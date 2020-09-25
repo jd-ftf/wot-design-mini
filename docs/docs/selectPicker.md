@@ -345,6 +345,7 @@ Page({
 | checked-color | 选中的颜色（单/复选框） | string | - | '#4D80F0' |
 | use-default-slot | 使用默认插槽时设置该选项 | boolean | - | false |
 | use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false |
+| name | form 表单中的字段名 | string | - | - |
 
 ### 选项数据结构
 
@@ -371,7 +372,7 @@ Page({
 
 ### Slots
 
-| name      | 说明       |
+| 插槽名称      | 说明       |
 |------------- |----------- |
 | default | 自定义展示 |
 | label | 左侧插槽 |

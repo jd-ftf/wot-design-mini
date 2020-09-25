@@ -1,7 +1,7 @@
 <view
   class="wd-input-number custom-class {{ disabled ? 'is-disabled' : '' }} {{ withoutInput ? 'is-without-input' : '' }}">
   <view class="wd-input-number__action {{ minDisabled ? 'is-disabled' : '' }}" bindtap="sub">
-     <wd-icon name="decrease" class="wd-input-number__action-icon"></wd-icon>
+    <wd-icon name="decrease" custom-class="wd-input-number__action-icon"></wd-icon>
   </view>
   <view jd:if="{{!withoutInput}}" class="wd-input-number__inner">
     <input
@@ -17,6 +17,6 @@
     <view class="wd-input-number__input-border"></view>
   </view>
   <view class="wd-input-number__action {{ maxDisabled ? 'is-disabled' : '' }}" bindtap="add">
-    <wd-icon name="add" class="wd-input-number__action-icon"></wd-icon>
+    <wd-icon name="add" custom-class="wd-input-number__action-icon"></wd-icon>
   </view>
 </view>

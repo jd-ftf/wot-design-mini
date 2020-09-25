@@ -1,28 +1,30 @@
 import VueComponent from '../common/component'
+import { debounce } from '../common/util'
 
 VueComponent({
   data: {
     minDisabled: false,
     maxDisabled: false
   },
+
   behaviors: ['jd://form-field'],
+
   props: {
     value: {
       type: null,
-      observer (value) {
-        this.setData({
-          minDisabled: this.data.disabled || value <= this.data.min || this.changeStep(value, -this.data.step) < this.data.min,
-          maxDisabled: this.data.disabled || value >= this.data.max || this.changeStep(value, this.data.step) > this.data.max
-        })
+      observer (value, oldValue) {
+        this.splitDisabled(value)
       }
     },
     min: {
       type: Number,
-      value: 1
+      value: 1,
+      observer: 'updateBoundary'
     },
     max: {
       type: Number,
-      value: Number.MAX_SAFE_INTEGER
+      value: Number.MAX_SAFE_INTEGER,
+      observer: 'updateBoundary'
     },
     step: {
       type: Number,
@@ -45,13 +47,29 @@ VueComponent({
     withoutInput: Boolean,
     inputWidth: String
   },
-  created () {
-    this.dispatchChangeEvent(this.formatValue(this.data.value))
-  },
+
   methods: {
+    updateBoundary () {
+      const _this = this
+      debounce(function () {
+        const value = _this.formatValue(_this.data.value)
+        _this.setValue(value)
+        _this.splitDisabled(value)
+      }, 30)()
+    },
+
+    splitDisabled (value) {
+      const { disabled, min, max, step } = this.data
+      this.setData({
+        minDisabled: disabled || value <= min || this.changeStep(value, -step) < min,
+        maxDisabled: disabled || value >= max || this.changeStep(value, step) > max
+      })
+    },
+
     toPrecision (value) {
       return parseFloat(Math.round(value * Math.pow(10, this.data.precision)) / Math.pow(10, this.data.precision)).toFixed(this.data.precision)
     },
+
     getPrecision (value) {
       if (value === undefined) return 0
       const valueString = value.toString()
@@ -62,12 +80,14 @@ VueComponent({
       }
       return precision
     },
+
     toStrictlyStep (value) {
       const stepPrecision = this.getPrecision(this.data.step)
       const precisionFactory = Math.pow(10, stepPrecision)
       return Math.round(value / this.data.step) * precisionFactory * this.data.step / precisionFactory
     },
-    setValue (value) {
+
+    setValue (value, change = true) {
       if (this.data.stepStrictly) {
         value = this.toStrictlyStep(value)
       }
@@ -76,8 +96,9 @@ VueComponent({
       }
       if (value > this.data.max) value = this.toPrecision(this.data.max)
       if (value < this.data.min) value = this.toPrecision(this.data.min)
-      this.dispatchChangeEvent(value)
+      this.dispatchChangeEvent(value, change)
     },
+
     changeStep (val, step) {
       val = Number(val)
 
@@ -88,25 +109,30 @@ VueComponent({
       const precisionFactory = Math.pow(10, this.data.precision)
       return this.toPrecision((val * precisionFactory + step * precisionFactory) / precisionFactory)
     },
+
     sub () {
       if (this.data.minDisabled) return
 
       const newValue = this.changeStep(this.data.value, -this.data.step)
       this.dispatchChangeEvent(newValue)
     },
+
     add () {
       if (this.data.maxDisabled) return
 
       const newValue = this.changeStep(this.data.value, this.data.step)
       this.dispatchChangeEvent(newValue)
     },
+
     handleInput (event) {
       const value = event.detail.value || ''
       this.dispatchChangeEvent(value)
     },
+
     handleFocus (event) {
       this.$emit('focus', event.detail)
     },
+
     handleBlur () {
       const value = this.formatValue(this.data.value)
       this.setValue(value)
@@ -114,12 +140,12 @@ VueComponent({
         value
       })
     },
-    dispatchChangeEvent (value) {
+
+    dispatchChangeEvent (value, change = true) {
       this.setData({ value })
-      this.$emit('change', {
-        value
-      })
+      change && this.$emit('change', { value })
     },
+
     formatValue (value) {
       value = Number(value)
 
@@ -137,5 +163,9 @@ VueComponent({
 
       return value
     }
+  },
+
+  created () {
+    this.dispatchChangeEvent(this.formatValue(this.data.value))
   }
 })

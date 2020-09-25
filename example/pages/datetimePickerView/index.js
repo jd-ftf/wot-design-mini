@@ -48,7 +48,6 @@ Page({
     })
   },
   onChange4 (event) {
-    console.log(event)
     this.setData({
       value4: event.detail.value
     })

@@ -24,27 +24,27 @@ Page({
     value18: '',
     value19: ''
   },
-  handleChange ({ detail }) {
+  handleChange (event) {
     this.setData({
-      value: detail.value
+      value: event.detail.value
     })
   },
-  handleChange1 ({ detail }) {
+  handleChange1 (event) {
     this.setData({
-      value4: detail.value
+      value4: event.detail.value
     })
   },
-  handleChange2 ({ detail }) {
+  handleChange2 (event) {
     this.setData({
-      value5: detail.value
+      value5: event.detail.value
     })
   },
-  handleChange3 ({ detail }) {
+  handleChange3 (event) {
     this.setData({
-      value6: detail.value
+      value6: event.detail.value
     })
   },
-  handleBlur ({ detail }) {
-    console.log(detail)
+  handleBlur (event) {
+    console.log('失焦', event.detail.value)
   }
 })

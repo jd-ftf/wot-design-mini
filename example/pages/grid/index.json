@@ -2,6 +2,7 @@
   "navigationBarTitleText": "Grid 宫格",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
+    "wd-toast": "../../dist/toast/index",
     "wd-grid": "../../dist/grid/index",
     "wd-grid-item": "../../dist/gridItem/index"
   }

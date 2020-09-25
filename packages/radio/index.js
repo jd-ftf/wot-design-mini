@@ -26,8 +26,8 @@ VueComponent({
       type: String,
       value: null,
       observer (target) {
-        // type: 'dot', 'button'
-        const type = ['dot', 'button']
+        // type: 'dot', 'button', 'check'
+        const type = ['check', 'dot', 'button']
         if (type.indexOf(target) === -1) throw Error(`shape must be one of ${type.toString()}`)
       }
     },
@@ -41,10 +41,6 @@ VueComponent({
     },
     cell: {
       type: Boolean,
-      value: null
-    },
-    size: {
-      type: String,
       value: null
     },
     inline: {
