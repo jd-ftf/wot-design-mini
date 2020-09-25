@@ -9,7 +9,10 @@ VueComponent({
   props: {
     plain: Boolean,
     disabled: Boolean,
-    round: Boolean,
+    round: {
+      type: Boolean,
+      value: true
+    },
     suck: Boolean,
     block: Boolean,
     type: {

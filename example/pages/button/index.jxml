@@ -27,13 +27,6 @@
     <wd-button type="warning" plain disabled>警告按钮</wd-button>
     <wd-button type="error" plain disabled>危险按钮</wd-button>
   </demo-block>
-  <demo-block title="圆角按钮">
-    <wd-button round>主要按钮</wd-button>
-    <wd-button type="success" round>成功按钮</wd-button>
-    <wd-button type="info" round>信息按钮</wd-button>
-    <wd-button type="warning" round>警告按钮</wd-button>
-    <wd-button type="error" round>危险按钮</wd-button>
-  </demo-block>
   <demo-block title="按钮大小">
     <wd-button size="small">小型按钮</wd-button>
     <wd-button size="medium">普通按钮</wd-button>
@@ -57,13 +50,6 @@
   <demo-block title="带图标的基本按钮">
     <wd-button icon="download">下载</wd-button>
     <wd-button icon="setting">设置</wd-button>
-  </demo-block>
-  <demo-block title="吸顶按钮" transparent>
-    <wd-button suck custom-class="button-block">主要按钮</wd-button>
-    <wd-button type="success" suck custom-class="button-block">成功按钮</wd-button>
-    <wd-button type="info" suck custom-class="button-block">信息按钮</wd-button>
-    <wd-button type="warning" suck custom-class="button-block">警告按钮</wd-button>
-    <wd-button type="error" suck custom-class="button-block">危险按钮</wd-button>
   </demo-block>
   <demo-block title="块状按钮，宽度100%">
     <wd-button block size="large">主要按钮</wd-button>

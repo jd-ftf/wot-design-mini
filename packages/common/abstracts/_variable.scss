@@ -138,7 +138,7 @@ $-button-large-box-shadow-size: 0px 4px 8px 0px !default; // 大尺寸阴影尺�
 
 $-button-icon-fs: 18px !default; // 带图标的按钮的图标大小
 $-button-icon-size: 40px !default; // icon 类型按钮尺寸
-$-button-icon-color: mix($-color-black, $-color-white, 0.65) !default; // icon 类型按钮颜色
+$-button-icon-color: rgba($-color-black, 0.65) !default; // icon 类型按钮颜色
 $-button-icon-active-color: $-color-icon-active !default; // icon 类型按钮点击态颜色
 $-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按钮禁用颜色
 
@@ -428,6 +428,7 @@ $-picker-column-active-fs: 18px !default; // 选择器选项被选中的字号
 $-picker-column-color: rgba($-color-black, 0.85) !default; // 选择器选项的颜色
 $-picker-column-height: 210px !default; // 列高 滚筒外部的高度
 $-picker-column-item-height: 33px !default; // 列高 滚筒外部的高度
+$-picker-loading-button-color: rgba($-color-black, 0.25) !default; // loading 背景颜色
 
 $-picker-column-disabled-color: rgba($-color-black, 0.25) !default; // 选择器选项禁用的颜色
 $-picker-mask: linear-gradient(180deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)),
