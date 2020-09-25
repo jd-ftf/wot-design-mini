@@ -72,6 +72,15 @@ VueComponent({
         if (!rect) return
         const { height } = rect
         if (this.data.isExpand) {
+          if (height === 0) {
+            this.setData({
+              height: 'auto',
+              show: true,
+              transD
+            })
+            return
+          }
+
           this.setData({ height: 0, show: true, transD })
           setTimeout(() => {
             this.setData({ height: height + 'px' })
