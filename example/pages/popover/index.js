@@ -6,7 +6,6 @@ Page({
     show1: false,
     show2: false,
     show3: false,
-    pop: null,
     menu: [
       {
         iconClass: 'read',

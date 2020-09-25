@@ -140,10 +140,6 @@ Page({
 
 ```JavaScript
 Page({
-  data: {
-    pop: null
-  },
-
   // 点击外部触发的事件
   clickOutside () {
     this.closeOtherPop()
@@ -186,10 +182,6 @@ Page({
 
 ```JavaScript
 Page({
-  data: {
-    pop: null
-  },
-
   clickOutside () {
     this.closeOtherPop()
   },

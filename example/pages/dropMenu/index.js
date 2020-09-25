@@ -1,6 +1,5 @@
 Page({
   data: {
-    drop: null,
     show: false,
     value1: 1,
     value2: 0,

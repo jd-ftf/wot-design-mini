@@ -173,7 +173,6 @@ Page({
 ```JavaScript
 Page({
   data: {
-    drop: null，
     value1: 1,
     value2: 0,
     option1: [
