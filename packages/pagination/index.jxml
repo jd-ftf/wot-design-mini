@@ -2,7 +2,6 @@
   <view class="wd-pager__content">
       <wd-button
         plain="{{ value > 1 }}"
-        round
         type="info"
         size="small"
         disabled="{{ value <= 1 }}"
@@ -24,7 +23,6 @@
       </view>
       <wd-button
         plain="{{ value < totalPage }}"
-        round
         type="info"
         size="small"
         disabled="{{value >= totalPage}}"

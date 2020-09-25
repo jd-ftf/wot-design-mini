@@ -41,7 +41,6 @@
     <view class="wd-message-box__actions {{showCancelButton ? 'wd-message-box__flex' : 'wd-message-box__block'}}">
       <wd-button
         type="info"
-        round
         block
         jd:if="{{showCancelButton}}"
         custom-class="wd-message-box__cancel"
@@ -50,7 +49,6 @@
         {{ cancelButtonText || '取消'}}
       </wd-button>
       <wd-button
-        round
         block
         data-action="confirm"
         bind:tap="toggleModal">

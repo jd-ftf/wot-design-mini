@@ -28,6 +28,8 @@
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增自定义样式类 `custom-label-class` 自定义文字结点样式(by [@yawuling](https://github.com/yawuling) ) )
+  - 新增自定义样式类 `custom-shape-class` 自定义单选图标结点样式(by [@yawuling](https://github.com/yawuling) ) )
 - Collapse
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
   - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )

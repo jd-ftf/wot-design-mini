@@ -6,5 +6,8 @@ Page({
   },
   handleClick ({ detail: { index } }) {
     Toast(`点击了标签${index}`)
+  },
+  handleChange (event) {
+    console.log('change', event)
   }
 })

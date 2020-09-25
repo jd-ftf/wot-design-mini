@@ -7,7 +7,7 @@
       content="bottom-start 提示文字"
       bind:change="handleChange1"
     >
-      <wd-button>bottom-start</wd-button>
+      <wd-button round="{{false}}">bottom-start</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show2 }}"
@@ -15,7 +15,7 @@
       content="bottom 提示文字"
       bind:change="handleChange2"
     >
-      <wd-button>bottom</wd-button>
+      <wd-button round="{{false}}">bottom</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show3 }}"
@@ -23,7 +23,7 @@
       content="bottom-end 提示文字"
       bind:change="handleChange3"
     >
-      <wd-button>bottom-end</wd-button>
+      <wd-button round="{{false}}">bottom-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="left">
@@ -33,7 +33,7 @@
       content="right-start 提示文字"
       bind:change="handleChange4"
     >
-      <wd-button>right-start</wd-button>
+      <wd-button round="{{false}}">right-start</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show5 }}"
@@ -42,7 +42,7 @@
       style="margin: 20px 0;"
       bind:change="handleChange5"
     >
-      <wd-button>right</wd-button>
+      <wd-button round="{{false}}">right</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show6 }}"
@@ -50,7 +50,7 @@
       content="right-end 提示文字"
       bind:change="handleChange6"
     >
-      <wd-button>right-end</wd-button>
+      <wd-button round="{{false}}">right-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="right">
@@ -60,7 +60,7 @@
       content="left-start 提示文字"
       bind:change="handleChange7"
     >
-      <wd-button>left-start</wd-button>
+      <wd-button round="{{false}}">left-start</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show8 }}"
@@ -69,7 +69,7 @@
       style="margin: 20px 0;"
       bind:change="handleChange8"
     >
-      <wd-button>left</wd-button>
+      <wd-button round="{{false}}">left</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show9 }}"
@@ -77,7 +77,7 @@
       content="left-end 提示文字"
       bind:change="handleChange9"
     >
-      <wd-button>left-end</wd-button>
+      <wd-button round="{{false}}">left-end</wd-button>
     </wd-tooltip>
   </view>
   <view class="bottom">
@@ -87,7 +87,7 @@
       content="top-start 提示文字"
       bind:change="handleChange10"
     >
-      <wd-button>top-start</wd-button>
+      <wd-button round="{{false}}">top-start</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show11 }}"
@@ -95,7 +95,7 @@
       content="top 提示文字"
       bind:change="handleChange11"
     >
-      <wd-button>top</wd-button>
+      <wd-button round="{{false}}">top</wd-button>
     </wd-tooltip>
     <wd-tooltip
       show="{{ show12 }}"
@@ -103,7 +103,7 @@
       content="top-end 提示文字"
       bind:change="handleChange12"
     >
-      <wd-button>top-end</wd-button>
+      <wd-button round="{{false}}">top-end</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
@@ -116,7 +116,7 @@
       show-close
       bind:change="handleChange13"
     >
-      <wd-button>显示关闭按钮</wd-button>
+      <wd-button round="{{false}}">显示关闭按钮</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
@@ -128,7 +128,7 @@
       use-content-slot
       bind:change="handleChange14"
     >
-      <wd-button>多行文本</wd-button>
+      <wd-button round="{{false}}">多行文本</wd-button>
       <view
         slot="content"
         class="lines-content"
@@ -143,15 +143,16 @@
 <demo-block title="控制显隐">
   <wd-button
     bind:tap="control"
+    size="small"
     class="button-control"
-  >控制开关</wd-button>
+  >开关</wd-button>
   <view class="demo-left demo-control">
     <wd-tooltip
       placement="top"
       content="控制显隐"
       show="{{ show15 }}"
     >
-      <wd-button>top</wd-button>
+      <wd-button round="{{false}}">top</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
@@ -165,7 +166,7 @@
       bind:close="onHide"
       bind:change="handleChange16"
     >
-      <wd-button>事件</wd-button>
+      <wd-button round="{{false}}">事件</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>
@@ -178,7 +179,7 @@
       disabled
       bind:change="handleChange17"
     >
-      <wd-button>禁用</wd-button>
+      <wd-button round="{{false}}">禁用</wd-button>
     </wd-tooltip>
   </view>
 </demo-block>

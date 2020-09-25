@@ -342,7 +342,8 @@ $-input-color: #262626 !default; // 文字颜色
 $-input-placeholder-color: #bfbfbf !default; // 占位符颜色
 $-input-disabled-color: #d9d9d9 !default; // 输入框禁用颜色
 $-input-error-color: $-color-danger !default; // 输入框错误颜色
-$-input-icon-color: #585858 !default; // 图标颜色
+$-input-icon-color: #bfbfbf !default; // 图标颜色
+$-input-clear-color: #585858 !default; // 关闭按钮颜色
 $-input-count-color: #bfbfbf !default; // 计数文字颜色
 $-input-count-current-color: #262626 !default; // 当前长度颜色
 $-input-label-padding: 11px 10px 11px 0 !default; // label padding

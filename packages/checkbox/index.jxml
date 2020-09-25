@@ -5,7 +5,7 @@
   <!--shape为button时，移除wd-checkbox__shape，只保留wd-checkbox__label-->
   <view
     jd:if="{{shape !== 'button' }}"
-    class="wd-checkbox__shape {{shape === 'square' ? 'is-square' : ''}}"
+    class="wd-checkbox__shape {{shape === 'square' ? 'is-square' : ''}} custom-shape-class"
     style="{{(isChecked && !finalDisabled && checkedColor) ? 'color :' + checkedColor : '' }}"
   >
     <wd-icon
@@ -17,7 +17,7 @@
   </view>
   <!--shape为button时只保留wd-checkbox__label-->
   <view
-    class="wd-checkbox__label"
+    class="wd-checkbox__label custom-label-class"
     style="{{(isChecked && shape === 'button' && !finalDisabled && checkedColor) ? 'color:' + checkedColor : ''}}"
   >
     <!--button选中时展示的icon-->

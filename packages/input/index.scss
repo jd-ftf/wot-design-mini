@@ -1,5 +1,5 @@
-@import '../common/abstracts/variable';
-@import '../common/abstracts/mixin';
+@import "../common/abstracts/variable";
+@import "../common/abstracts/mixin";
 
 @include b(input) {
   position: relative;
@@ -8,7 +8,7 @@
 
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     bottom: 0;
     left: 0;
     right: 0;
@@ -47,7 +47,7 @@
         position: absolute;
         left: 0;
         top: $-cell-wrapper-padding + 2px;
-        content: '*';
+        content: "*";
         font-size: $-cell-required-size;
         line-height: 1.1;
         color: $-cell-required-color;
@@ -59,7 +59,7 @@
     padding: $-cell-wrapper-padding 0;
     font-size: $-input-fs;
   }
-  @include e(block){
+  @include e(block) {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -70,7 +70,8 @@
     margin-right: $-input-icon-margin;
     font-size: $-input-fs;
 
-    .wd-input__icon {
+    .wd-input__icon,
+    .wd-input__clear {
       margin-left: 0;
     }
   }
@@ -115,7 +116,8 @@
     .wd-input__block {
       flex: 1;
     }
-    .wd-input__icon {
+    .wd-input__icon,
+    .wd-input__clear {
       height: $-input-cell-height;
       line-height: $-input-cell-height;
     }
@@ -138,12 +140,12 @@
     .wd-input__textarea-suffix {
       right: 0;
     }
-    
+
     @include when(center) {
       align-items: center;
     }
     @include when(border) {
-      @include halfPixelBorder('top', $-input-cell-padding);
+      @include halfPixelBorder("top", $-input-cell-padding);
     }
   }
   @include when(large) {
@@ -166,7 +168,8 @@
     .wd-input__textarea-count {
       font-size: $-input-count-fs-large;
     }
-    .wd-input__icon {
+    .wd-input__icon,
+    .wd-input__clear {
       height: $-input-cell-height-large;
       font-size: $-input-icon-size-large;
       line-height: $-input-cell-height-large;
@@ -205,6 +208,15 @@
     margin-left: 8px;
     font-size: $-input-icon-size;
     color: $-input-icon-color;
+    vertical-align: middle;
+    height: $-input-inner-height;
+    line-height: $-input-inner-height;
+    background: $-input-bg;
+  }
+  @include e(clear) {
+    margin-left: 8px;
+    font-size: $-input-icon-size;
+    color: $-input-clear-color;
     vertical-align: middle;
     height: $-input-inner-height;
     line-height: $-input-inner-height;
@@ -275,7 +287,7 @@
     margin-left: 8px;
     font-size: $-input-icon-size;
     line-height: 20px;
-    color: $-input-icon-color;
+    color: $-input-clear-color;
     background: $-input-bg;
   }
   @include e(textarea-count) {
@@ -303,10 +315,10 @@
   }
   .wd-input__textarea-count,
   .wd-input__count,
-  .wd-input__count-current{
+  .wd-input__count-current {
     display: inline-block;
   }
-  @include e(textarea-map){
+  @include e(textarea-map) {
     position: absolute;
     width: 100%;
     height: 100%;

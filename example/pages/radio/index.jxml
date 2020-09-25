@@ -23,8 +23,6 @@
 
 <demo-block title="修改形状--dot">
   <wd-radio-group
-  size="large"
-  inline
     shape="dot"
     data-index="{{9}}"
     value="{{value9}}"

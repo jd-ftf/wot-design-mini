@@ -18,7 +18,7 @@
 ```html
 <wd-card title="经营分析">
   一般的，检举内容由承办的党的委员会或纪律检查委员会将处理意见或复议、复查结论同申诉人见面，听取其意见。复议、复查的结论和决定，应交给申诉人一份。
-  <wd-button slot="footer" size="small" plain round>查看详情</wd-button>
+  <wd-button slot="footer" size="small" plain>查看详情</wd-button>
 </wd-card>
 ```
 
@@ -40,8 +40,8 @@
     </view>
   </view>
   <view slot="footer">
-    <wd-button size="small" round style="margin-right: 8px;">评价</wd-button>
-    <wd-button size="small" plain round>立即使用</wd-button>
+    <wd-button size="small" style="margin-right: 8px;">评价</wd-button>
+    <wd-button size="small" plain>立即使用</wd-button>
   </view>
 </wd-card>
 ```

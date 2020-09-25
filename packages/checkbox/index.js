@@ -3,6 +3,10 @@ import { renderData } from '../common/util'
 
 VueComponent({
   behaviors: ['jd://form-field'],
+  externalClasses: [
+    'custom-label-class',
+    'custom-shape-class'
+  ],
   relations: {
     '../checkboxGroup/index': {
       type: 'ancestor',
