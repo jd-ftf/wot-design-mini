@@ -531,6 +531,14 @@ $-radio-button-fs: $-checkbox-button-font-size !default; // 按钮模式字号
 $-radio-button-border: $-checkbox-button-border !default; // 按钮边框颜色
 $-radio-button-disabled-border: $-checkbox-button-disabled-border !default; // 按钮禁用边框颜色
 
+$-radio-dot-size: 8px !default; // 单选dot模式圆点尺寸
+$-radio-dot-large-size: 10px !default; // 单选dot模式大尺寸圆点尺寸
+$-radio-dot-checked-bg: $-color-theme !default; // 单选dot模式选中背景色
+$-radio-dot-checked-border-color: $-color-theme !default; // 单选dot模式选中边框色
+$-radio-dot-border-color: #dcdcdc !default; // 单选dot模式边框色
+$-radio-dot-disabled-border: #d9d9d9 !default; // 单选dot模式禁用边框颜色
+$-radio-dot-disabled-bg: #d9d9d9 !default; // 单选dot模式禁用背景颜色
+
 /* search */
 $-search-side-padding: $-size-side-padding !default; // 左右间距
 $-search-padding: 10px 0 10px $-search-side-padding !default; // 不包含取消按钮的间距

@@ -40,16 +40,41 @@ Page({
 
 ### 修改图标形状
 
-修改 `shape` 属性，可选值为 'dot'、'button'，默认为 'dot'。
+修改 `shape` 属性，可选值为 'dot'、'button'、'check'，默认为 'check'。
 
 ```html
-<demo-block title="基本用法">
-  <wd-radio-group value="{{value}}" shape="button" bind:change="change">
-    <wd-radio value="{{1}}">京麦</wd-radio>
-    <wd-radio value="{{2}}">商家后台</wd-radio>
-  </wd-radio-group>
-</demo-block>
+<!-- button 按钮式单选 -->
+<wd-radio-group value="{{value}}" shape="button" bind:change="change">
+  <wd-radio value="{{1}}">京麦</wd-radio>
+  <wd-radio value="{{2}}">商家后台</wd-radio>
+</wd-radio-group>
 ```
+
+```javascript
+Page({
+  data: {
+    value: 1
+  },
+  change (event) {
+    this.setData({
+      value: event.detail.value
+    })
+  }
+})
+```
+
+> <div style="color: #FA4350;font-weight: 500;">注意：</div>
+> <div>内容项在3项以内，且有比较重要的信息备选（如付款类型选择等）可考虑采用圆形组件。因为会跟圆形复选框容易混淆，且会造成当前表单页页面结构不统一，<span style="color: #FA4350;font-weight: 500;">一般情况不建议使用点状单选。</span></div>
+
+```html
+<!-- dot 点状单选 -->
+<wd-radio-group value="{{value}}" shape="dot" bind:change="change">
+  <wd-radio value="{{1}}">京麦</wd-radio>
+  <wd-radio value="{{2}}">商家后台</wd-radio>
+</wd-radio-group>
+```
+
+
 ```javascript
 Page({
   data: {
@@ -138,10 +163,11 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 ```
 
 ### RadioGroup Attributes
+
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 会自动选中value对应的单选框 | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
+| shape | 单选框形状 | string | 'dot', 'button', 'check' | 'check' |
 | size | 设置大小 | string | 'large' | - |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
@@ -161,7 +187,6 @@ radio设置的props优先级比radioGroup上设置的props优先级更高
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 单选框选中时的值。会自动匹配radioGroup的value | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
+| shape | 单选框形状 | string | 'dot', 'button', 'check' | 'check' |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
-| size | 设置大小 | string | 'large' | - |

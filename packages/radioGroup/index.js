@@ -40,17 +40,17 @@ VueComponent({
     },
     shape: {
       type: String,
-      value: 'dot',
+      value: 'check',
       observer (value) {
-        // type: 'dot', 'button'
-        const type = ['dot', 'button']
+        // type: 'dot', 'button', 'check'
+        const type = ['check', 'dot', 'button']
         if (type.indexOf(value) === -1) throw Error(`shape must be one of ${type.toString()}`)
         this.updateAllChild({ shape: value })
       }
     },
     checkedColor: {
       type: String,
-      value: '#0083ff',
+      value: '#4d80f0',
       observer (value) {
         this.updateAllChild({ checkedColor: value })
       }

@@ -9,6 +9,7 @@ Page({
     value5: 1,
     value6: 1,
     value7: 1,
+    value9: 1,
     value8: 1
   },
   change (event) {

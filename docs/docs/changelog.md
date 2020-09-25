@@ -2,7 +2,7 @@
 
 ### 2.0.0
 
-*2020-09-23*
+*2020-09-25*
 
 #### 新特性
 
@@ -13,6 +13,7 @@
   - 新增属性 `panels` 自定义面板，支持一维数组和二维数组，panel数据结构支持设置显示的图片地址和标题内容 (by [@awjing](https://github.com/awjing) )
 - Button
   - 属性 `type` 默认值为 `primary` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - round 默认值改为 `true` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Badge
   - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
   - 新增属性 `right` 为正时表示角标向左偏移对应的像素 (by [@awjing](https://github.com/awjing) )
@@ -72,7 +73,7 @@
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
 - Loading
   - 属性 `type` 新增类型 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
-  - 属性 `size` 新增支持类型 `string` (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+  - 属性 `size` 新增支持类型 `string`，兼容之前版本，推荐使用string类型 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
 - MessageBox
   - 新增属性 `context`, 引用 wd-message-box 的页面实例或自定义组件实例 (by [@wulin](https://github.com/wlin00) )
 - NoticeBar
@@ -106,11 +107,13 @@
   - 新增组件 `Popover` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Radio
   - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 属性 `type` 新增可选值 `check`，默认值变更为 `check` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - RadioGroup
   - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 属性 `type` 新增可选值 `check`，默认值变更为 `check` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Rate
   - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
   - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
