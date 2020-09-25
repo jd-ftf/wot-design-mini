@@ -37,7 +37,7 @@
       <!--标题-->
       <view jd:if="{{title}}" class="wd-picker__title">{{ title }}</view>
       <!--确定按钮-->
-      <view class="wd-picker__action" bindtap="onConfirm">
+      <view class="wd-picker__action {{loading ? 'is-loading' : ''}}" bindtap="onConfirm">
         {{ confirmButtonText }}
       </view>
     </view>
