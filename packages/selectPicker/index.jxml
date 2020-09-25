@@ -61,6 +61,8 @@
       </view>
     </view>
     <!-- 确认按钮 -->
-    <wd-button suck bind:tap="onConfirm" disabled="{{ loading }}">{{confirmButtonText}}</wd-button>
+    <view class="wd-select-picker__footer">
+      <wd-button block size="large" bind:tap="onConfirm" disabled="{{ loading }}">{{confirmButtonText}}</wd-button>
+    </view>
   </wd-action-sheet>
 </view>
