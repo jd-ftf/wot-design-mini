@@ -50,18 +50,10 @@ VueComponent({
         .then(() => this.requestAnimationFrame())
         .then(() => this.requestAnimationFrame())
         .then(() => {
-          this.setData({ showPlaceHolder: false })
-          return this.requestAnimationFrame()
-        })
-        .then(() => {
-          this.setData(
-            {
-              focus: true
-            },
-            () => {
-              this.$emit('other')
-            }
-          )
+          this.setData({
+            showPlaceHolder: false,
+            focus: true
+          })
         })
     },
     /**
@@ -83,7 +75,12 @@ VueComponent({
       this.setData({ str: '' })
       this.requestAnimationFrame()
         .then(() => this.requestAnimationFrame())
-        .then(() => this.requestAnimationFrame())
+        .then(() => {
+          this.setData({
+            showPlaceHolder: false
+          })
+          return this.requestAnimationFrame()
+        })
         .then(() => {
           this.setData({ focus: true }, () => {
             this.$emit('clear')
