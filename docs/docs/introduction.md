@@ -8,9 +8,9 @@
 
 ### 扫码体验
 
-<div style="display: inline-block; margin-right: 20px;">
-  <img style="width: 150px; height: 150px;" :src="JdQrcode" />
-  <div style="text-align: center;">京东app扫码</div>
+<div style="display: inline-block; margin-right: 60px;">
+  <img style="width: 150px; height: 150px;" :src="WxQrcode" />
+  <div style="text-align: center;">微信扫码</div>
 </div>
 
 <div style="display: inline-block;">
@@ -23,6 +23,7 @@
 * 40+ 组件
 * 京东小程序和微信小程序2个版本
 
+> 京东系app都可以使用，如京东app、京麦app、京东金融app
 
 ### 链接
 
@@ -35,13 +36,13 @@
 本项目遵循 MIT 协议。
 
 <script>
-import JdQrcode from '../assets/img/jd.jpg'
+import WxQrcode from '../assets/img/wx.jpg'
 import JmQrcode from '../assets/img/jm.jpg'
 
 export default {
   data () {
     return {
-      JdQrcode,
+      WxQrcode,
       JmQrcode
     }
   }

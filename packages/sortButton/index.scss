@@ -3,6 +3,8 @@
 
 @include b(sort-button){
   display: inline-block;
+  height: $-sort-button-height;
+  line-height: $-sort-button-height;
 
   @include e(wrapper){
     font-size: $-sort-button-fs;
@@ -14,8 +16,6 @@
   @include e(left) {
     position: relative;
     display: inline-block;
-    height: $-sort-button-height;
-    line-height: $-sort-button-height;
     vertical-align: middle;
 
     &::after {
@@ -50,6 +50,7 @@
     min-width: 14px;
     margin-left: 2px;
     vertical-align: middle;
+    line-height: 1.1;
 
     @include when(active) {
       .wd-sort-button__icon-up, .wd-sort-button__icon-down {
@@ -69,4 +70,3 @@
     transform: scale((4/7)) translate(0, -7px);
   }
 }
-
