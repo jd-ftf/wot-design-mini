@@ -199,7 +199,7 @@ export default {
       overflow: hidden;
       box-sizing: border-box;
       border-radius: 0 0 22px 22px;
-      border: 1px solid rgba(0, 0, 0, 0.02);
+      border: 1px solid #fafafa;
     }
   }
 }

@@ -1,5 +1,20 @@
 ## 更新日志
 
+### 2.0.1
+
+*待定*
+
+#### 新特性
+
+#### Bug 修复
+
+- Search
+  - Search 组件点击清除按钮后，出现两个“搜索”文案 [#193](https://github.com/jd-ftf/wot-design-mini/issues/193) (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- SortButton
+  - 修复文档中 SortButton 的事件未对齐组件实际触发的事件 [#192](https://github.com/jd-ftf/wot-design-mini/issues/192) (by [@awjing](https://github.com/awjing) )
+- Input
+  - 修复 label 插槽未生效问题 [#191](https://github.com/jd-ftf/wot-design-mini/issues/191) (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
 ### 2.0.0
 
 *2020-09-25*
