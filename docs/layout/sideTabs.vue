@@ -136,7 +136,7 @@ export default {
   .input-wrapper {
     position: absolute;
     top: 69px;
-    width: 368px;
+    width: 370px;
     height: 46px;
     padding-bottom: 10px;
     display: flex;
@@ -152,7 +152,7 @@ export default {
       position: absolute;
       left: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: rgba(0, 0, 0, 0.02);
     }
   }
   .phone-link {
