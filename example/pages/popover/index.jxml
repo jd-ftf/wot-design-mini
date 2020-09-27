@@ -31,8 +31,8 @@
         use-content-slot
         bind:change="handleChange2"
       >
-        <view slot="content">
-          <view class="pop-content">这是一段自定义样式的内容。</view>
+        <view class="pop-content" slot="content">
+          这是一段自定义样式的内容。
         </view>
         <wd-button
           bind:tap="showPop"
