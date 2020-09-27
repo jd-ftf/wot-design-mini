@@ -9,7 +9,7 @@
       <slot name="prefix"></slot>
     </view>
     <view class="wd-input__label-inner">
-      <block jd:if="label">{{ label }}</block>
+      <block jd:if="{{label && !useLabelSlot}}">{{ label }}</block>
       <slot jd:else name="label"></slot>
     </view>
   </view>
