@@ -99,20 +99,29 @@ Page({
 
 ```html
 <wd-popover use-content-slot>
-  <view slot="content">
-    <view class="pop-content">这是一段自定义样式的内容。</view>
+  <view class="pop-content" slot="content">
+    这是一段自定义样式的内容。
   </view>
   <wd-button>点击展示</wd-button>
 </wd-popover>
 ```
 
+小程序中组件插槽内部样式不生效，因此需要在外手动设置样式，在content插槽使用过程中，插槽最外层样式需要添加 `position: relative;z-index: 500;border-radius: 4px;` 保证位置不受影响，其余样式可随意添加。
+
 ```css
-.pop-content{
+.pop-content {
+  /* 必填 开始 */
+  position: relative;
+  z-index: 500;
+  border-radius: 4px;
+  /* 必填 结束 */
+  background: #fff;
   color: #8268de;
   font-weight: bolder;
   padding: 10px;
   width: 150px;
 }
+
 ```
 
 ### 点击外部关闭

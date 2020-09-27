@@ -23,45 +23,47 @@
 
 ```html
 <wd-row>
-  <wd-col span="24" custom-class="dark">span: 24</wd-col>
+  <wd-col span="24"><view class="bg-dark1">span: 24</view></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="12" custom-class="dark">span: 12</wd-col>
-  <wd-col span="12" custom-class="light">span: 12</wd-col>
+  <wd-col span="12"><view class="bg-dark">span: 12</view></wd-col>
+  <wd-col span="12"><view class="bg-light">span: 12</view></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="8" custom-class="dark">span: 8</wd-col>
-  <wd-col span="8" custom-class="light">span: 8</wd-col>
-  <wd-col span="8" custom-class="dark">span: 8</wd-col>
+  <wd-col span="8"><view class="bg-dark">span: 8</view></wd-col>
+  <wd-col span="8"><view class="bg-light">span: 8</view></wd-col>
+  <wd-col span="8"><view class="bg-dark">span: 8</view></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="6" custom-class="dark">span: 6</wd-col>
-  <wd-col span="6" custom-class="light">span: 6</wd-col>
-  <wd-col span="6" custom-class="dark">span: 6</wd-col>
-  <wd-col span="6" custom-class="light">span: 6</wd-col>
+  <wd-col span="6"><view class="bg-dark">span: 6</view></wd-col>
+  <wd-col span="6"><view class="bg-light">span: 6</view></wd-col>
+  <wd-col span="6"><view class="bg-dark">span: 6</view></wd-col>
+  <wd-col span="6"><view class="bg-light">span: 6</view></wd-col>
 </wd-row>
 ```
 
 ```css
-.dark,
-.light {
-  color: #fff;
-  font-size: 12px;
-  line-height: 34px;
-  height: 34px;
+.bg-dark1,
+.bg-dark,
+.bg-light{
+  border-radius: 4px;
+  min-height: 30px;
   text-align: center;
+  line-height: 30px;
+  font-size: 12px;
   margin-bottom: 10px;
-  background-clip: content-box;
+  color: rgba(0, 0, 0, 0.45);
 }
-
-.dark {
-  background-color: #39a9ed;
+.bg-dark1 {
+  background: #99a9bf;
+  color: #fff;
 }
-
-.light {
-  background-color: #66c6f2;
+.bg-dark {
+  background: #d3dce6;
 }
-
+.bg-light {
+  background: #e5e9f2;
+}
 ```
 
 ### 分栏偏移
@@ -70,12 +72,12 @@
 
 ```html
 <wd-row>
-  <wd-col span="4" custom-class="dark">span: 4</wd-col>
-  <wd-col span="8" offset="4" custom-class="light">span: 8 offset: 4</wd-col>
+  <wd-col span="4"><view class="bg-dark">span: 4</view></wd-col>
+  <wd-col span="8" offset="4"><view class="bg-light">span: 8 offset: 4</view></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="8" offset="4" custom-class="dark">span: 8 offset: 4</wd-col>
-  <wd-col span="8" offset="4" custom-class="light">span: 8 offset: 4</wd-col>
+  <wd-col span="8" offset="4"><view class="bg-dark">span: 8 offset: 4</view></wd-col>
+  <wd-col span="8" offset="4"><view class="bg-dark">span: 8 offset: 4</view></wd-col>
 </wd-row>
 ```
 
@@ -85,11 +87,15 @@
 
 ```html
 <wd-row gutter="20">
-  <wd-col span="8" custom-class="dark">span: 8</wd-col>
-  <wd-col span="8" custom-class="light">span: 8</wd-col>
-  <wd-col span="8" custom-class="dark">span: 8</wd-col>
+  <wd-col span="8"><view class="bg-dark">span: 8</view></wd-col>
+  <wd-col span="8"><view class="bg-light">span: 8</view></wd-col>
+  <wd-col span="8"><view class="bg-dark">span: 8</view></wd-col>
 </wd-row>
 ```
+
+### flex 布局
+
+*注意：由于微信小程序使用插槽时，插槽会渲染到当前标签外部，因此在组件上设置flex布局属性，对插槽内部并不生效，因此flex布局效果需要用户参考[H5组件库 Layout](https://ftf.jd.com/wot-design/#/components/layout)自行实现。*
 
 ### Row Attributes
 
