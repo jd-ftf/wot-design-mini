@@ -1,18 +1,21 @@
-.dark,
-.light {
-  color: #fff;
-  font-size: 12px;
-  line-height: 34px;
-  height: 34px;
+.bg-dark1,
+.bg-dark,
+.bg-light{
+  border-radius: 4px;
+  min-height: 30px;
   text-align: center;
+  line-height: 30px;
+  font-size: 12px;
   margin-bottom: 10px;
-  background-clip: content-box;
+  color: rgba(0, 0, 0, 0.45);
 }
-
-.dark {
-  background-color: #39a9ed;
+.bg-dark1 {
+  background: #99a9bf;
+  color: #fff;
 }
-
-.light {
-  background-color: #66c6f2;
+.bg-dark {
+  background: #d3dce6;
+}
+.bg-light {
+  background: #e5e9f2;
 }

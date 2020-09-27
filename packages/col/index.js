@@ -35,7 +35,7 @@ VueComponent({
     },
     setGutter (gutter) {
       const padding = `${gutter / 2}px`
-      const style = gutter ? `padding-left: ${padding}; padding-right: ${padding};` : ''
+      const style = gutter > 0 ? `padding-left: ${padding}; padding-right: ${padding};background-clip: content-box;` : ''
 
       if (style !== this.data.style) {
         this.setData({ style })

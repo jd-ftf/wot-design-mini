@@ -10,18 +10,18 @@
 
 * 将下载的源码解压缩，将解压后得到到`wot-design` 文件夹复制到你的小程序工程中如下结构：
 
-```html
+```node
 .
 ├── app.js
 ├── app.json
 ├── app.wxss
-├── wot-design								 wot-design 组件库
-|   └── button						   button组件
+├── wot-design               # wot-design 组件库源码文件夹
+|   └── button               # button 组件源码
 |       ├── index.js
 |       ├── index.json
 |       ├── index.jxml
 |       └── index.jxss
-├── pages						         小程序项目页面使用目录
+├── pages                    # 小程序项目页面使用目录
 ├── project.config.json
 └── sitemap.json
 ```
