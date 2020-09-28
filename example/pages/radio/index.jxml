@@ -24,8 +24,8 @@
 <demo-block title="修改形状--dot">
   <wd-radio-group
     shape="dot"
-    data-index="{{9}}"
-    value="{{value9}}"
+    data-index="{{2}}"
+    value="{{value2}}"
     bind:change="change"
   >
     <wd-radio value="{{1}}">京麦</wd-radio>
@@ -39,8 +39,8 @@
 >
   <wd-radio-group
     cell
-    data-index="{{2}}"
-    value="{{value2}}"
+    data-index="{{3}}"
+    value="{{value3}}"
     bind:change="change"
   >
     <wd-radio value="{{1}}">京麦</wd-radio>
@@ -53,8 +53,8 @@
   transparent
 >
   <wd-radio-group
-    data-index="{{3}}"
-    value="{{value3}}"
+    data-index="{{4}}"
+    value="{{value4}}"
     cell
     shape="button"
   >
@@ -70,9 +70,19 @@
 
 <demo-block title="同行展示">
   <wd-radio-group
-    data-index="{{4}}"
-    value="{{value4}}"
+    data-index="{{5}}"
+    value="{{value5}}"
     inline
+  >
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
+  </wd-radio-group>
+  <view class="divider"></view>
+  <wd-radio-group
+    data-index="{{6}}"
+    value="{{value6}}"
+    inline
+    shape="dot"
   >
     <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
@@ -81,8 +91,8 @@
 
 <demo-block title="修改选中颜色">
   <wd-radio-group
-    data-index="{{5}}"
-    value="{{value5}}"
+    data-index="{{7}}"
+    value="{{value7}}"
     bind:change="change"
   >
     <wd-radio
@@ -105,15 +115,15 @@
     <wd-radio value="{{1}}">京麦</wd-radio>
     <wd-radio value="{{2}}">商家后台</wd-radio>
   </wd-radio-group>
-  <view style="margin-bottom: 10px;">
-    <wd-radio-group
-      value="{{1}}"
-      disabled
-    >
-      <wd-radio value="{{1}}">京麦</wd-radio>
-      <wd-radio value="{{2}}">商家后台</wd-radio>
-    </wd-radio-group>
-  </view>
+  <view class="divider"></view>
+  <wd-radio-group
+    value="{{1}}"
+    disabled
+  >
+    <wd-radio value="{{1}}">京麦</wd-radio>
+    <wd-radio value="{{2}}">商家后台</wd-radio>
+  </wd-radio-group>
+  <view class="divider"></view>
   <wd-radio-group
     value="{{1}}"
     disabled
@@ -126,19 +136,30 @@
 
 <demo-block title="大尺寸">
   <wd-radio-group
-    data-index="{{6}}"
-    value="{{value6}}"
+    data-index="{{8}}"
+    value="{{value8}}"
     size="large"
   >
     <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
   </wd-radio-group>
+  <view class="divider"></view>
   <wd-radio-group
-    data-index="{{7}}"
-    value="{{value7}}"
+    data-index="{{9}}"
+    value="{{value9}}"
+    size="large"
+    shape="dot"
+  >
+    <wd-radio value="{{1}}">单选框1</wd-radio>
+    <wd-radio value="{{2}}">单选框2</wd-radio>
+  </wd-radio-group>
+  <view class="divider"></view>
+  <wd-radio-group
+    data-index="{{10}}"
+    value="{{value10}}"
     size="large"
     inline
-    class="group"
+    custom-class="group"
   >
     <wd-radio value="{{1}}">单选框1</wd-radio>
     <wd-radio value="{{2}}">单选框2</wd-radio>
@@ -149,9 +170,9 @@
   <wd-radio-group
     hape="button"
     disabled
-    checked-color="#f00"
-    data-index="{{8}}"
-    value="{{value8}}"
+    checked-color="#fa4350"
+    data-index="{{11}}"
+    value="{{value11}}"
     bind:change="change"
   >
     <wd-radio
