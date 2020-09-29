@@ -1,17 +1,17 @@
-<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label || useLabelSlot ? 'is-cell' : '' }} {{ center ? 'is-center' : '' }} {{ border ? 'is-border' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ autoHeight ? 'is-auto-height' : '' }} {{ value && value.length > 0 ? 'is-not-empty' : '' }} {{ noBorder ? 'is-no-border' : '' }} custom-class">
+<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label ? 'is-cell' : '' }} {{ useLabelSlot ? 'is-custom' : '' }} {{ center ? 'is-center' : '' }} {{ border ? 'is-border' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ autoHeight ? 'is-auto-height' : '' }} {{ value && value.length > 0 ? 'is-not-empty' : '' }} {{ noBorder ? 'is-no-border' : '' }} custom-class">
   <view
     jd:if="{{ label || useLabelSlot }}"
     class="wd-input__label custom-label-class {{ required ? 'is-required' : '' }}"
     style="{{ labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : '' }}"
   >
     <view jd:if="{{ prefixIcon || usePrefixSlot }}" class="wd-input__prefix">
-      <wd-icon jd:if="{{ prefixIcon }}" custom-class="wd-input__icon" name="{{ prefixIcon }}" bind:tap="onClickPrefixIcon" />
-      <slot name="prefix"></slot>
+      <wd-icon jd:if="{{ prefixIcon && !usePrefixSlot }}" custom-class="wd-input__icon" name="{{ prefixIcon }}" bind:tap="onClickPrefixIcon" />
+      <slot jd:else name="prefix"></slot>
     </view>
-    <view class="wd-input__label-inner">
-      <block jd:if="{{label && !useLabelSlot}}">{{ label }}</block>
+    <block>
+      <view class="wd-input__label-inner" jd:if="{{label && !useLabelSlot}}">{{ label }}</view>
       <slot jd:else name="label"></slot>
-    </view>
+    </block>
   </view>
   <!-- 文本域 -->
   <view jd:if="{{ type === 'textarea' }}" class="wd-input__textarea {{ showWordCount ? 'is-show-limit' : '' }}">
@@ -66,7 +66,7 @@
     <block jd:else>
       <input
         jd:if="{{ showPassword && !isPwdVisible }}"
-        class="wd-input__inner {{ prefixIcon ? 'wd-input__inner--prefix' : '' }} {{ showWordCount ? 'wd-input__inner--count' : '' }} custom-input-class"
+        class="wd-input__inner {{ prefixIcon ? 'wd-input__inner--prefix' : '' }} {{ showWordCount ? 'wd-input__inner--count' : '' }} {{alignRight? 'is-align-right' : ''}}  custom-input-class"
         type="password"
         password="{{ isPwdVisible }}"
         value="{{ value }}"
@@ -96,7 +96,7 @@
       <!-- 密码不隐藏 -->
       <input
         jd:else
-        class="wd-input__inner {{ prefixIcon ? 'wd-input__inner--prefix' : '' }} {{ showWordCount ? 'wd-input__inner--count' : '' }} custom-input-class"
+        class="wd-input__inner {{ prefixIcon ? 'wd-input__inner--prefix' : '' }} {{ showWordCount ? 'wd-input__inner--count' : '' }} {{alignRight? 'is-align-right' : ''}} custom-input-class"
         type="{{ type }}"
         value="{{ value }}"
         placeholder="{{ placeholder }}"
@@ -126,11 +126,11 @@
         <wd-icon jd:if="{{ showClear }}" custom-class="wd-input__clear" name="error-fill"  bindtap="clear"/>
         <wd-icon
           jd:if="{{ showPassword }}"
-          custom-class="wd-input__icon"
+          class="wd-input__icon"
           name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
           bindtap="togglePwdVisible"
         />
-        <view jd:if="{{ showWordCount }}" class="wd-input__count">
+        <view jd:if="{{ showWordCount }}" custom-class="wd-input__count">
           <text
             class="{{ value && value.length > 0 ? 'wd-input__count-current' : '' }} {{  value.length > maxlength ?  'is-error' : '' }}"
           >{{ value.length }}</text>/{{ maxlength }}

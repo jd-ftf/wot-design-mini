@@ -148,6 +148,13 @@
       @include halfPixelBorder("top", $-input-cell-padding);
     }
   }
+
+  @include when(custom) {
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+    background-color: $-input-cell-bg;
+  }
   @include when(large) {
     .wd-input__prefix {
       font-size: $-input-fs-large;
@@ -203,14 +210,16 @@
     &::-webkit-input-placeholder {
       color: $-input-placeholder-color;
     }
+
+    @include when(align-right) {
+      text-align: right;
+    }
   }
   @include e(icon) {
     margin-left: 8px;
     font-size: $-input-icon-size;
     color: $-input-icon-color;
     vertical-align: middle;
-    height: $-input-inner-height;
-    line-height: $-input-inner-height;
     background: $-input-bg;
   }
   @include e(clear) {
@@ -218,8 +227,6 @@
     font-size: $-input-icon-size;
     color: $-input-clear-color;
     vertical-align: middle;
-    height: $-input-inner-height;
-    line-height: $-input-inner-height;
     background: $-input-bg;
   }
   @include e(count) {
@@ -227,8 +234,6 @@
     font-size: $-input-count-fs;
     color: $-input-count-color;
     vertical-align: middle;
-    height: $-input-inner-height;
-    line-height: $-input-inner-height;
     background: $-input-bg;
   }
   @include e(count-current) {
