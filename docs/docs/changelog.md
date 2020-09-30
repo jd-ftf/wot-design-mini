@@ -1,10 +1,13 @@
 ## 更新日志
 
-### 2.0.1
+### 2.1.0
 
-*待定*
+*2020-09-30*
 
 #### 新特性
+
+- Input
+  - 新增属性 `align-right`, 支持设置内容右对齐 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
 #### Bug 修复
 

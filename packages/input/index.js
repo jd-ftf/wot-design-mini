@@ -88,6 +88,7 @@ VueComponent({
       type: Boolean,
       value: false
     },
+    alignRight: Boolean,
     // 原生属性结束
     value: {
       type: null,
