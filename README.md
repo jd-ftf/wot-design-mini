@@ -4,6 +4,9 @@ An ui component library for mini program.
 
 [Documentation](https://ftf.jd.com/wot-design-mini/)
 
+# Build Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ae39edb4-45b5-4651-8d64-b57d78b42ad7/deploy-status)](https://app.netlify.com/sites/wot-design-mini/deploys)
 
 ## Quick Start
 
