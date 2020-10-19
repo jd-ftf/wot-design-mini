@@ -131,6 +131,8 @@
               title: Popover 气泡
             - name: progress
               title: Progress 进度条
+            - name: statusTip
+              title: StatusTip 缺省提示
             - name: sortButton
               title: SortButton 排序按钮
             - name: steps
