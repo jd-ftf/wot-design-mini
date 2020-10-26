@@ -24,7 +24,7 @@
       <wd-icon
         name="{{activeIcon}}"
         size="{{size}}"
-        custom-style="background:{{disabled ? disabledColor : activeColor}}; -webkit-background-clip: text; color: transparent"
+        custom-style="background:{{disabled ? disabledColor : activeValue}}; -webkit-background-clip: text; color: transparent"
       />
     </view>
   </view>

@@ -23,9 +23,7 @@
 通过 `type` 修改指示器的类型，可选值为 'spinner' / 'circle' / 'circle-outline' / 'circular-ring'，默认为 'circle-outline'。
 
 ```html
-<wd-loading type="spinner" />
 <wd-loading type="circular-ring"></wd-loading>
-<wd-loading type="circle" />
 ```
 
 ### 修改颜色

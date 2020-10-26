@@ -29,8 +29,14 @@ VueComponent({
       value: '#E8E8E8'
     },
     activeColor: {
-      type: String,
-      value: 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)'
+      type: [String, Array],
+      value: 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)',
+      observer (value) {
+        if (Array.isArray(value) && !value.length) {
+          throw Error('activeColor cannot be an empty array')
+        }
+        this.computeActiveValue()
+      }
     },
     icon: {
       type: String,
@@ -50,7 +56,8 @@ VueComponent({
     }
   },
   data: {
-    rateList: []
+    rateList: [],
+    activeValue: ''
   },
   methods: {
     /**
@@ -77,6 +84,20 @@ VueComponent({
         }
       }
       this.setData({ rateList })
+      this.computeActiveValue()
+    },
+    /**
+     * @description 计算当前应当展示的rate颜色
+     */
+    computeActiveValue () {
+      const { activeColor, value, num } = this.data
+      let activeValue = ''
+      if (Array.isArray(activeColor) && activeColor.length) {
+        activeValue = value <= num * 0.6 || !activeColor[1] ? activeColor[0] : activeColor[1]
+      } else {
+        activeValue = activeColor
+      }
+      this.setData({ activeValue })
     },
     /**
      * @description 点击icon触发组件的change事件

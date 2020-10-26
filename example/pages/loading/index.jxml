@@ -1,27 +1,13 @@
-<demo-block title="基本用法，circle-outline 类型">
+<demo-block title="基本用法，circle-outline 类型（适用于按钮加载状态和页面轻提示）">
   <view class="flex">
     <wd-loading custom-class="loading" />
   </view>
 </demo-block>
 
-<demo-block title="circle 类型，可以修改指示器颜色">
-  <view class="flex">
-    <wd-loading custom-class="loading" type="circle"/>
-    <wd-loading custom-class="loading-padding" type="circle" color="#fff"/>
-  </view>
-</demo-block>
-
-<demo-block title="circular-ring 类型，可以修改指示器颜色">
+<demo-block title="circular-ring 类型，可以修改指示器颜色（适用于通用模块加载）">
   <view class="flex">
     <wd-loading custom-class="loading" type="circular-ring"/>
     <wd-loading custom-class="loading" type="circular-ring" color="#fa34aa"/>
-  </view>
-</demo-block>
-
-<demo-block title="spinner类型">
-  <view class="flex">
-    <wd-loading custom-class="loading" type="spinner" />
-    <wd-loading custom-class="loading-padding" type="spinner" color="#fff" />
   </view>
 </demo-block>
 
