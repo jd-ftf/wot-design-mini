@@ -85,10 +85,10 @@ VueComponent({
      * @description 计算当前应当展示的rate颜色
      */
     computeActiveValue () {
-      const { activeColor, value } = this.data
+      const { activeColor, value, num } = this.data
       let activeValue = ''
       if (Array.isArray(activeColor) && activeColor.length) {
-        activeValue = value <= 3 || !activeColor[1] ? activeColor[0] : activeColor[1]
+        activeValue = value <= num * 0.6 || !activeColor[1] ? activeColor[0] : activeColor[1]
       } else {
         activeValue = activeColor
       }
