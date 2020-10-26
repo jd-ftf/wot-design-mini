@@ -31,7 +31,12 @@ VueComponent({
     activeColor: {
       type: [String, Array],
       value: 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)',
-      observer: 'computeActiveValue'
+      observer (value) {
+        if (Array.isArray(value) && !value.length) {
+          throw Error('activeColor cannot be an empty array')
+        }
+        this.computeActiveValue()
+      }
     },
     icon: {
       type: String,
