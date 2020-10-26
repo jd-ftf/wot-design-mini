@@ -26,7 +26,7 @@
       data-type = "action"
       bind:tap="select"
     >
-      <wd-loading jd:if="{{ item.loading }}" size="20"/>
+      <wd-loading jd:if="{{ item.loading }}" type="circular-ring" size="20px"/>
       <view jd:else class="wd-action-sheet__name">{{ item.name }}</view>
       <view jd:if="{{ !item.loading && item.subname }}" class="wd-action-sheet__subname">{{ item.subname }}</view>
     </button>

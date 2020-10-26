@@ -5,12 +5,6 @@
 .loading {
   margin-right: 20px;
 }
-.loading-padding {
-  padding: 10px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.7);
-}
-
 .shadow {
   padding: 10px;
   border-radius: 3px;

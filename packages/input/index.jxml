@@ -130,7 +130,7 @@
           name="{{ isPwdVisible ? 'view' : 'eye-close' }}"
           bindtap="togglePwdVisible"
         />
-        <view jd:if="{{ showWordCount }}" custom-class="wd-input__count">
+        <view jd:if="{{ showWordCount }}" class="wd-input__count">
           <text
             class="{{ value && value.length > 0 ? 'wd-input__count-current' : '' }} {{  value.length > maxlength ?  'is-error' : '' }}"
           >{{ value.length }}</text>/{{ maxlength }}

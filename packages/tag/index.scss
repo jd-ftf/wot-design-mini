@@ -77,7 +77,7 @@
     margin-right: 4px;
     font-size: $-tag-small-fs;
     line-height: $-tag-small-fs;
-    vertical-align: middle;
+    vertical-align: baseline;
   }
   @include e(text) {
     display: inline-block;

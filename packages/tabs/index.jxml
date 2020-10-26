@@ -38,7 +38,7 @@
             class="wd-tabs__map"
             jd:if="{{mapNum < items.length && mapNum !== 0}}"
           >
-            <view class="wd-tabs__map-btn" bindtap="toggleMap">
+            <view class="wd-tabs__map-btn {{ animating ? 'is-open' :''}}" bindtap="toggleMap">
               <view class="wd-tabs__map-arrow {{ animating ? 'is-open' :''}}">
                 <wd-icon name="arrow-down"/>
               </view>
