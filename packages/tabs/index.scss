@@ -76,7 +76,10 @@
     z-index: 3;
     background: $-tabs-nav-bg;
     -webkit-tap-highlight-color: transparent;
-    @include halfPixelBorder;
+
+    @include when(open) {
+      @include halfPixelBorder;
+    }
 
     &::before {
       position: absolute;
