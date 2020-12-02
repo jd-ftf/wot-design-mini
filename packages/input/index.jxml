@@ -1,4 +1,4 @@
-<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ label ? 'is-cell' : '' }} {{ useLabelSlot ? 'is-custom' : '' }} {{ center ? 'is-center' : '' }} {{ border ? 'is-border' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ autoHeight ? 'is-auto-height' : '' }} {{ value && value.length > 0 ? 'is-not-empty' : '' }} {{ noBorder ? 'is-no-border' : '' }} custom-class">
+<view class="wd-input {{ type === 'textarea' ? 'is-textarea' : '' }} {{ (label || useLabelSlot) ? 'is-cell' : '' }} {{ center ? 'is-center' : '' }} {{ border ? 'is-border' : '' }} {{ size ? 'is-' + size : '' }} {{ error ? 'is-error' : '' }} {{ disabled ? 'is-disabled' : '' }} {{ autoHeight ? 'is-auto-height' : '' }} {{ value && value.length > 0 ? 'is-not-empty' : '' }} {{ noBorder ? 'is-no-border' : '' }} custom-class">
   <view
     jd:if="{{ label || useLabelSlot }}"
     class="wd-input__label custom-label-class {{ required ? 'is-required' : '' }}"
@@ -9,8 +9,10 @@
       <slot jd:else name="prefix"></slot>
     </view>
     <block>
-      <view class="wd-input__label-inner" jd:if="{{label && !useLabelSlot}}">{{ label }}</view>
-      <slot jd:else name="label"></slot>
+      <view class="wd-input__label-inner">
+        <block jd:if="{{label}}">{{ label }}</block>
+        <slot jd:else name="label"></slot>
+      </view>
     </block>
   </view>
   <!-- 文本域 -->
