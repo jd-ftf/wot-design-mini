@@ -11,8 +11,13 @@
     name="{{icon}}"
     custom-class="wd-tag__icon"
   />
-  <view class="wd-tag__text" style="{{color?'color:'+color:''}}">
-    <slot/>
+  <view class="wd-tag__text-container">
+    <view class="wd-tag__text-hidden" style="width:{{width}}px;height:{{height}}px;"></view>
+    <view class="wd-tag__text wd-tag__text-real" style="color:{{color?color:''}};">
+      <wd-resize bind:size="resizeHandler" custom-container="wd-tag__text-transform">
+        <slot/>
+      </wd-resize>
+    </view>
   </view>
   <wd-icon
     jd:if="{{closable && round}}"
