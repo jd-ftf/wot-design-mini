@@ -50,7 +50,9 @@ VueComponent({
   data: {
     tagClass: '',
     dynamicValue: '',
-    dynamicInput: false
+    dynamicInput: false,
+    width: 0,
+    height: 0
   },
   observers: {
     'dynamicInput' () {
@@ -95,6 +97,13 @@ VueComponent({
     setDynamicInput () {
       this.setData({
         dynamicInput: false
+      })
+    },
+    resizeHandler ({ detail }) {
+      const { height, width } = detail
+      this.setData({
+        width,
+        height
       })
     }
   }

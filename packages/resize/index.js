@@ -2,6 +2,7 @@ import VueComponent from '../common/component'
 import { renderData } from '../common/util'
 
 VueComponent({
+  externalClasses: ['custom-container'],
   data: {
     expandScrollTop: 0,
     shrinkScrollTop: 0,

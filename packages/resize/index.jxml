@@ -3,7 +3,7 @@
   style="width:{{width}}px;height:{{height}}px;"
 >
   <!--插槽需要脱离父容器文档流，防止父容器固宽固高，进而导致插槽大小被被父容器限制-->
-  <view class="wd-resize__container">
+  <view class="wd-resize__container custom-container">
     <!--被监听的插槽-->
     <slot/>
     <!--监听插槽变大-->
