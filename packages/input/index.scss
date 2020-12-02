@@ -36,7 +36,7 @@
     color: $-cell-title-color;
     margin-right: $-cell-padding;
     box-sizing: border-box;
-    font-size: 0;
+    font-size: $-input-fs;
     flex-shrink: 0;
     line-height: $-cell-ling-height;
 
@@ -147,13 +147,6 @@
     @include when(border) {
       @include halfPixelBorder("top", $-input-cell-padding);
     }
-  }
-
-  @include when(custom) {
-    display: flex;
-    align-items: flex-start;
-    padding: 0;
-    background-color: $-input-cell-bg;
   }
   @include when(large) {
     .wd-input__prefix {

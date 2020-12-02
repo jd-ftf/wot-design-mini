@@ -60,7 +60,6 @@
   @include e(right) {
     position: relative;
     display: flex;
-    align-items: center;
     flex: 1;
   }
   @include e(title) {
@@ -91,16 +90,16 @@
     color: $-cell-value-color;
     text-align: right;
     line-height: $-cell-value-line-height;
+    vertical-align: top;
   }
   @include e(arrow-right) {
     display: inline-block;
     margin-left: 8px;
-    width: $-cell-icon-size;
-    height: $-cell-icon-size;
-    line-height: $-cell-icon-size;
-    font-size: $-cell-icon-size;
+    width: $-cell-arrow-size;
+    line-height: 1.22;
+    font-size: $-cell-arrow-size;
     color: $-cell-arrow-color;
-    vertical-align: middle;
+    vertical-align: top;
   }
   @include when(link) {
     -webkit-tap-highlight-color: $-cell-tap-bg;
@@ -115,16 +114,7 @@
     .wd-cell__label {
       font-size: $-cell-label-fs-large;
     }
-    .wd-cell__value {
-      font-size: $-cell-value-fs-large;
-      line-height: $-cell-value-line-height-large;
-    }
     .wd-cell__icon {
-      font-size: $-cell-icon-size-large;
-      width: $-cell-icon-size-large;
-      height: $-cell-icon-size-large;
-    }
-    .wd-cell__arrow-right {
       font-size: $-cell-icon-size-large;
       width: $-cell-icon-size-large;
       height: $-cell-icon-size-large;
