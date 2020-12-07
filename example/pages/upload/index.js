@@ -28,7 +28,7 @@ Page({
         Toast('取消选择操作')
       })
     },
-    beforePreview (file, resolve) {
+    beforePreview ({ file, resolve }) {
       MessageBox.confirm({
         msg: '是否预览图片',
         title: '提示'
@@ -38,7 +38,7 @@ Page({
         Toast('取消预览操作')
       })
     },
-    beforeUpload (file, resolve) {
+    beforeUpload ({ file, resolve }) {
       MessageBox.confirm({
         msg: '是否上传',
         title: '提示'
@@ -48,7 +48,7 @@ Page({
         Toast('取消上传操作')
       })
     },
-    beforeRemove (file, fileList, resolve) {
+    beforeRemove ({ file, fileList, resolve }) {
       MessageBox.confirm({
         msg: '是否删除',
         title: '提示'

@@ -17,20 +17,10 @@ export const chooseImageProps = {
 }
 
 export const uploadProps = {
-  header: {
-    type: Object,
-    value () {
-      return {}
-    }
-  },
+  header: Object,
   name: {
     type: String,
     value: 'file'
   },
-  formData: {
-    type: Object,
-    value () {
-      return {}
-    }
-  }
+  formData: Object
 }

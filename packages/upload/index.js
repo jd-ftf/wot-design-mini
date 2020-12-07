@@ -22,16 +22,21 @@ VueComponent({
     fileList: {
       type: Array,
       observer (val) {
+        const { statusKey } = this.data
         if (isEqual(val, this.data.uploadFiles)) return
         const uploadFiles = val.map(item => {
           item.uid = context.id++
-          item.status = item.status || 'success'
+          item[statusKey] = item[statusKey] || 'success'
           item.size = item.size || ''
           item.action = this.action || ''
           return item
         })
         this.setData({ uploadFiles })
       }
+    },
+    statusKey: {
+      type: String,
+      value: 'status'
     },
     maxSize: {
       type: Number,
@@ -143,14 +148,14 @@ VueComponent({
      * @param {Object} file 上传的文件
      */
     handleError (err, file) {
-      const { uploadFiles } = this.data
+      const { uploadFiles, statusKey } = this.data
       const index = uploadFiles.findIndex(item => item.uid === file.uid)
       if (index > -1) {
-        uploadFiles[index].status = 'fail'
+        uploadFiles[index][statusKey] = 'fail'
         uploadFiles[index].error = err.message
         uploadFiles[index].response = err
         this.setData({ uploadFiles })
-        this.$emit('fail', { err, file })
+        this.$emit('fail', { error: err, file })
       }
     },
 
@@ -160,10 +165,10 @@ VueComponent({
      * @param {Object} file 上传的文件
      */
     handleSuccess (res, file) {
-      const { uploadFiles } = this.data
+      const { uploadFiles, statusKey } = this.data
       const index = uploadFiles.findIndex(item => item.uid === file.uid)
       if (index > -1) {
-        uploadFiles[index].status = 'success'
+        uploadFiles[index][statusKey] = 'success'
         this.setData({ uploadFiles })
         this.$emit('change', { fileList: uploadFiles })
         this.$emit('success', { file, fileList: uploadFiles })
@@ -181,7 +186,7 @@ VueComponent({
       if (index > -1) {
         uploadFiles[index].percent = res.progress
         this.setData({ uploadFiles })
-        this.$emit('progress', { res, file })
+        this.$emit('progress', { response: res, file })
       }
     },
 
@@ -193,8 +198,8 @@ VueComponent({
       const {
         action,
         name,
-        formData,
-        header
+        formData = {},
+        header = {}
       } = this.data
 
       const _this = this
@@ -265,9 +270,20 @@ VueComponent({
 
           // 上传前的钩子
           if (beforeUpload) {
-            beforeUpload(files, isPass => {
-              isPass && mapFiles(files)
-            })
+            // 向下兼容原来的参数写法，2.2.0 向下兼容 2.1.0
+            if (beforeUpload.length === 2) {
+              beforeUpload(files, isPass => {
+                isPass && mapFiles(files)
+              })
+            } else {
+              beforeUpload({
+                files,
+                fileList: uploadFiles,
+                resolve: isPass => {
+                  isPass && mapFiles(files)
+                }
+              })
+            }
           } else {
             mapFiles(files)
           }
@@ -285,9 +301,19 @@ VueComponent({
       const { uploadFiles, beforeChoose } = this.data
       // 选择图片前的钩子
       if (beforeChoose) {
-        beforeChoose(uploadFiles, isPass => {
-          isPass && this.chooseFile()
-        })
+        // 向下兼容原来的参数写法，2.2.0 向下兼容 2.1.0
+        if (beforeChoose.length === 2) {
+          beforeChoose(uploadFiles, isPass => {
+            isPass && this.chooseFile()
+          })
+        } else {
+          beforeChoose({
+            fileList: uploadFiles,
+            resolve: isPass => {
+              isPass && this.chooseFile()
+            }
+          })
+        }
       } else {
         this.chooseFile()
       }
@@ -302,17 +328,33 @@ VueComponent({
       const { uploadFiles } = this.data
       uploadFiles.splice(uploadFiles.findIndex(item => item.uid === file.uid), 1)
       this.setData({ uploadFiles })
-      this.$emit('change', uploadFiles)
+      this.$emit('change', {
+        fileList: uploadFiles
+      })
       this.$emit('remove', { file })
     },
 
     removeFile (event) {
-      const { file } = event.currentTarget.dataset
+      const { index } = event.currentTarget.dataset
       const { beforeRemove, uploadFiles } = this.data
+      const intIndex = parseInt(index)
+      const file = uploadFiles[intIndex]
       if (beforeRemove) {
-        beforeRemove(file, uploadFiles, isPass => {
-          isPass && this.handleRemove(file)
-        })
+        // 向下兼容原来的参数写法，2.2.0 向下兼容 2.1.0
+        if (beforeRemove.length === 3) {
+          beforeRemove(file, uploadFiles, isPass => {
+            isPass && this.handleRemove(file)
+          })
+        } else {
+          beforeRemove({
+            file,
+            index: intIndex,
+            fileList: uploadFiles,
+            resolve: isPass => {
+              isPass && this.handleRemove(file)
+            }
+          })
+        }
       } else {
         this.handleRemove(file)
       }
@@ -326,7 +368,14 @@ VueComponent({
         current: lists[index],
         fail () {
           if (onPreviewFail) {
-            onPreviewFail(index, lists)
+            if (onPreviewFail.length === 2) {
+              onPreviewFail(index, lists)
+            } else {
+              onPreviewFail({
+                index,
+                imgList: lists
+              })
+            }
           } else {
             jd.showToast({ title: '预览图片失败', icon: 'none' })
           }
@@ -337,11 +386,22 @@ VueComponent({
     onPreviewImage (event) {
       const { index } = event.currentTarget.dataset
       const { uploadFiles, beforePreview } = this.data
-      const lists = uploadFiles.map(file => file.status === 'success' && file.url)
+      const lists = uploadFiles.map(file => file.url)
       if (beforePreview) {
-        beforePreview({ index, lists }, isPass => {
-          isPass && this.onPreview(index, lists)
-        })
+        // 向下兼容原来的参数写法，2.2.0 向下兼容 2.1.0
+        if (beforePreview.length === 2) {
+          beforePreview({ index, lists }, isPass => {
+            isPass && this.onPreview(index, lists)
+          })
+        } else {
+          beforePreview({
+            index,
+            imgList: lists,
+            resolve: isPass => {
+              isPass && this.onPreview(index, lists)
+            }
+          })
+        }
       } else {
         this.onPreview(index, lists)
       }
