@@ -142,10 +142,11 @@
 </demo-block>
 <demo-block title="控制显隐">
   <wd-button
+    plain
     bind:tap="control"
     size="small"
     class="button-control"
-  >开关</wd-button>
+  >{{ show15 ? '关闭' : '打开' }}</wd-button>
   <view class="demo-left demo-control">
     <wd-tooltip
       placement="top"
