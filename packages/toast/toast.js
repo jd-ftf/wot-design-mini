@@ -40,7 +40,7 @@ const Toast = (toastOptions) => {
   // 错误提示
   if (!toast) {
     const selector = toastOptions.selector ? toastOptions.selector : 'wd-toast'
-    console.warn(`未找到 ${selector} 节点，请确认 selector 是否正确`)
+    console.warn(`[wot design] warning: 未找到 ${selector} 节点，请确认 selector 是否正确`)
     return
   }
   // 删除无用字段

@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "wd-icon": "../icon/index",
-    "wd-resize": "../resize/index"
+    "wd-icon": "../icon/index"
   }
 }

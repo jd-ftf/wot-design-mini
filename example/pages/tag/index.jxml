@@ -42,7 +42,7 @@
   <wd-tag custom-class="space" icon="clock" mark>标签</wd-tag>
   <wd-tag custom-class="space" mark use-icon-slot>
     <text>插槽</text>
-    <wd-icon slot="icon" name="clock"/>
+    <wd-icon slot="icon" name="dong"/>
   </wd-tag>
 </demo-block>
 

@@ -483,8 +483,8 @@ Page({
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 选中项 | array | - | - |
 | columns | 选择器数据，二维数组 | array | - | - |
-| value-key | 选项对象中，value对应的 key | string | - | 'label' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
 | tip-key | 选项对象中，提示文案对应的 key | string | - | 'tip' |
 | title | 弹出层标题 | string | - | - |
 | label | 选择器左侧文案 | string | - | - |
@@ -517,8 +517,8 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| confirm | 最后一列选项选中时触发 | event.detail = { value(选项值数组), selectedItem(选项数组) } |
-| cancel | 点击关闭按钮或者蒙层时触发 | - |
+| bind:confirm | 最后一列选项选中时触发 | event.detail = { value(选项值数组), selectedItem(选项数组) } |
+| bind:cancel | 点击关闭按钮或者蒙层时触发 | - |
 
 ### Methods
 

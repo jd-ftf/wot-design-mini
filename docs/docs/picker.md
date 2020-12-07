@@ -239,8 +239,8 @@ Page({
 | loading | 加载中 | boolean | - | false |
 | loading-color | 加载的颜色 | string | - | '#4D80F0' |
 | columns-height | picker内部滚筒高 | number | - | 231 |
-| value-key | 选项对象中，value对应的 key | string | - | 'label' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
 | title | 弹出层标题 | string | - | - |
 | cancel-button-text | 取消按钮文案 | string | - | '取消' |
 | confirm-button-text | 确认按钮文案 | string | - | '完成' |

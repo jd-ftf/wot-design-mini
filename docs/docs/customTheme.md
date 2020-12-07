@@ -118,30 +118,6 @@ Wot Design Mini 每1个组件基本都有自定义类名 custom-class，可以�
   <li class="color-group-line" style="background: rgba(255,255,255,0.02);color: rgba(255,255,255,0.65)">2%<div>表头填充色</div></li>
 </ul>
 
-#### npm 项目中创建 SCSS 变量文件
-
-在自己的项目中创建 SCSS 文件，例如名字命名为 `customStyle.scss` ：
-
-```scss
-$-color-theme: #474a4f;
-
-@import "~wot-design/src/style/index.scss";
-```
-
-然后在 main.js 中引入：
-
-```javascript
-import Vue from 'vue'
-import WotDesign from 'wot-design'
-import './customStyle.scss'
-
-Vue.use(WotDesign)
-```
-
-#### CDN 引入的自定义样式
-
-CDN 引入要自定义样式，目前的方式是将 Wot Design 的项目源码 clone 到本地，开发者手动修改 src/style/abstracts/_variable.scss 文件中的样式变量，然后运行 `npm run build:theme` 命令，将 lib/theme-default/index.css 样式文件放到自己的项目中进行引入
-
 #### clone 组件库工程
 
 小程序组件库需要将工程clone到本地，开发者自己修改 `packages/common/abstracts/_variable.scss` 文件中的scss变量，通过本地打包重新构建一份自定义主题的组件库代码。

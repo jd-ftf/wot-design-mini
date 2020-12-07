@@ -1,12 +1,13 @@
 ## SelectPicker 单复选选择器
 
-### 按需引入
+### 引入
 
-```javascript
-import Vue from 'vue'
-import { SelectPicker } from 'wot-design'
-
-Vue.use(SelectPicker)
+```json
+{
+  "usingComponents": {
+    "wd-select-picker": "/wot-design/selectPicker/index"
+  }
+}
 ```
 
 ### 基本用法
@@ -322,8 +323,8 @@ Page({
 | value | 选中项，`type`类型为`checkbox`时，类型为 array；`type`为`radio` 时 ，类型为 number / boolean / string | array / number / boolean / string | - | - |
 | columns | 选择器数据，一维数组 | array | - | - |
 | type | 单复选选择器类型 | string | checkbox / radio | 'checkbox' |
-| value-key | 选项对象中，value对应的 key | string | - | 'label' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
 | title | 弹出层标题 | string | - | - |
 | label | 选择器左侧文案 | string | - | - |
 | placeholder | 选择器占位符 | string | - | '请选择' |
@@ -359,9 +360,9 @@ Page({
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| confirm | 点击确认时触发 | event.detail = { value, selectedItems }, checkbox 类型时 value 和 selectedItems 为数组，radio 类型为非数组 |
-| change | picker内选项更改时触发 |  event.detail = { value }, checkbox 类型时 value 为数组，radio 类型为非数组 |
-| cancel | 点击关闭按钮或者蒙层时触发 | - |
+| bind:confirm | 点击确认时触发 | event.detail = { value, selectedItems }, checkbox 类型时 value 和 selectedItems 为数组，radio 类型为非数组 |
+| bind:change | picker内选项更改时触发 |  event.detail = { value }, checkbox 类型时 value 为数组，radio 类型为非数组 |
+| bind:cancel | 点击关闭按钮或者蒙层时触发 | - |
 
 ### Methods
 

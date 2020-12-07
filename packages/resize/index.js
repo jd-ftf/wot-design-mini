@@ -2,7 +2,7 @@ import VueComponent from '../common/component'
 import { renderData } from '../common/util'
 
 VueComponent({
-  externalClasses: ['custom-container'],
+  externalClasses: ['custom-container-class'],
   data: {
     expandScrollTop: 0,
     shrinkScrollTop: 0,
@@ -48,7 +48,7 @@ VueComponent({
             ['bottom', 'top', 'left', 'right', 'height', 'width'].forEach(propName => {
               result[propName] = res[propName]
             })
-            this.$emit('size', result)
+            this.$emit('resize', result)
           }
           // 滚动条拉到底部会触发两次多余的事件，屏蔽掉。
           if (this.scrollEventCount < 3) return
@@ -76,7 +76,7 @@ VueComponent({
             ['bottom', 'top', 'left', 'right', 'height', 'width'].forEach(propName => {
               result[propName] = res[propName]
             })
-            this.$emit('size', result)
+            this.$emit('resize', result)
           }
           // 滚动条拉到底部（如果使用 nextTick 效果更佳）
           this.scrollToBottom({

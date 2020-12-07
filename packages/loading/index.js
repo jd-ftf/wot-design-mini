@@ -41,7 +41,7 @@ VueComponent({
         const type = getType(val)
 
         if (type !== 'string' && (type !== 'number')) {
-          console.warn('[Wot Design]warning: prop size type must be number or string.')
+          console.warn('[wot design] warning: prop size type must be number or string.')
           return
         }
 

@@ -30,7 +30,7 @@ VueComponent({
     check () {
       const { span, offset } = this.data
       if (span < 0 || offset < 0) {
-        console.warn('Attribute span/offset must be greater than or equal to 0')
+        console.warn('[wot-design] warning: attribute span/offset must be greater than or equal to 0')
       }
     },
     setGutter (gutter) {

@@ -83,10 +83,11 @@ VueComponent({
         imgSucc: true
       })
       this.computeImgStyle()
+      this.$emit('load')
     },
     imgErr () {
-      console.warn('幕帘图片加载失败！')
       this.setData({ imgSucc: false })
+      this.$emit('error')
     },
     clickImage () {
       if (this.data.to) {

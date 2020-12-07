@@ -43,7 +43,7 @@ VueComponent({
       const { isExpand, name } = this.data
       const { accordion, value } = this.parent.data
       if (!value) {
-        console.warn('[wot-design warning]there is no value with parent.')
+        console.warn('[wot-design] warning: there is no value with parent.')
         return
       }
       this.setData({

@@ -34,7 +34,7 @@
 }
 @include b(tag) {
   font-size: $-tag-small-fs;
-  display: inline-flex;
+  display: inline-block;
   color: $-tag-color;
   padding: 0 3px;
   border-radius: 2px;
@@ -83,25 +83,6 @@
     display: inline-block;
     vertical-align: text-top;
   }
-  @include e(text-container) {
-    display: inline-block;
-    position: relative;
-  }
-  @include e(text-transform) {
-    transform: translate(-25%, -25%);
-  }
-  @include e(text-hidden) {
-    opacity: 0;
-  }
-  @include e(text-real) {
-    font-size: 20px;
-    transform: scale(0.5) translate(-100%, -100%);
-    transform-origin: 50% 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    white-space: nowrap;
-  }
   @include e(add-text) {
     width: 60px;
     height: 14px;
@@ -117,6 +98,7 @@
     margin-right: -4px;
     font-size: $-tag-close-size;
     height: 14px;
+    line-height: 1.1;
     vertical-align: text-bottom;
     color: $-tag-close-color;
 
