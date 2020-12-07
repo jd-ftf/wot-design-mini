@@ -144,6 +144,7 @@ Page({
 | animated | 开启切换动画 | boolean | - | false |
 | swipeable | 开启手势滑动 | boolean | - | false |
 | lazy-render | 懒渲染标签页 | boolean | - | false |
+
 ### Tab Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |

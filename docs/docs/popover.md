@@ -234,10 +234,10 @@ Page({
 
 | 事件名称           | 说明             | 回调参数                                     |
 | -------------- | -------------- | ---------------------------------------- |
-| open     |显示时触发       | - |
-| close | 隐藏时触发 | - |
-| change | pop显隐值变化时触发 | - |
-| menuclick | menu 模式下点击某一选项触发 | event.detail = { item, index } |
+| bind:open     |显示时触发       | - |
+| bind:close | 隐藏时触发 | - |
+| bind:change | pop显隐值变化时触发 | - |
+| bind:menuclick | menu 模式下点击某一选项触发 | event.detail = { item, index } |
 
 ### Methods
 

@@ -1,5 +1,7 @@
 ## Curtain 幕帘
 
+一般用于公告类的图片弹窗。
+
 ### 引入
 
 ```json
@@ -138,7 +140,6 @@ Page({
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | false | 
 | hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true |
 
-
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
@@ -152,6 +153,8 @@ Page({
 | bind:beforeleave | 离开前触发 | - |
 | bind:leave | 离开时触发 | - |
 | bind:afterleave | 离开后触发| - |
+| bind:load | 图片加载完成事件 | - |
+| bind:error | 图片加载失败事件，若图片加载失败，则不会展示幕帘组件，即使设置 `value` 为 true | - |
 
 ### 外部样式类
 

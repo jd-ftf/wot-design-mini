@@ -242,8 +242,8 @@ Page({
 | 方法名 | 说明 | 参数 | 返回值 |
 |------|------|------|------|
 | bind:change | 绑定值变化时触发 | event.detail = { value, selectedItem }, value 为选中值，selectedItem 为选中项 |
-| close | 关闭菜单 | - | - |
-| open | 展开菜单 | - | - |
+| bind:close | 关闭菜单 | - | - |
+| bind:open | 展开菜单 | - | - |
 
 ### DropdownItem Methods
 

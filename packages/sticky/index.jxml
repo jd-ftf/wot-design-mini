@@ -10,7 +10,7 @@
     style="position:{{position}};top:{{top}}px;"
   >
     <!--监听元素尺寸变化-->
-    <wd-resize bind:size="resizeHandler" class="wd-sticky__container--wrapper">
+    <wd-resize bind:resize="resizeHandler" class="wd-sticky__container--wrapper">
       <!--需要吸顶的内容-->
       <slot/>
     </wd-resize>

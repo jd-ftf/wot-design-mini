@@ -21,7 +21,7 @@ VueComponent({
       type: null,
       observer (val) {
         if (typeof val !== 'number' && typeof val !== 'string') {
-          console.warn('[wot-design warning]the type of value should be a number or a string.')
+          console.warn('[wot-design] warning: the type of value should be a number or a string.')
           return
         }
 
@@ -84,7 +84,7 @@ VueComponent({
         }
       }
 
-      console.warn('[wot-design warning]no value is matched in the options option.')
+      console.warn('[wot-design] warning: no value is matched in the options option.')
     },
     updateTitle () {
       this.setDisplayTitle()
