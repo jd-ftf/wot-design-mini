@@ -38,7 +38,7 @@ VueComponent({
     zIndex: Number,
     loadingType: {
       type: String,
-      default: 'circle-outline'
+      default: 'outline'
     },
     loadingColor: {
       type: String,

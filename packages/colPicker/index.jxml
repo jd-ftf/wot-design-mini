@@ -62,7 +62,7 @@
           <wd-icon custom-class="wd-col-picker__checked" name="check"></wd-icon>
         </view>
         <view jd:if="{{ loading }}" class="wd-col-picker__loading">
-          <wd-loading type="circular-ring" color="{{ loadingColor }}" />
+          <wd-loading color="{{ loadingColor }}" />
         </view>
       </view>
     </view>

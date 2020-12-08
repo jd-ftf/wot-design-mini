@@ -57,7 +57,7 @@
         >{{item[labelKey]}}</wd-radio>
       </wd-radio-group>
       <view jd:if="{{ loading }}" class="wd-select-picker__loading" catchtouchmove="noop">
-        <wd-loading type="circular-ring" color="{{ loadingColor }}" />
+        <wd-loading color="{{ loadingColor }}" />
       </view>
     </view>
     <!-- 确认按钮 -->

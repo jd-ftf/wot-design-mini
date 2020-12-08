@@ -99,7 +99,7 @@ Toast.close()
 | customIcon |	自定义图标，开启后可以通过 custom-icon-class 类名自定义图标 |	Boolean   |	—	            | false   |
 | position   |	提示信息框的位置                      |	string   |	'top', 'middle', 'bottom'  |	'middle'  |
 | zIndex  	 | toast 层级                           |	number   |	—            |	100     |
-| loadingType | 加载指示器类型 | string | 'circle-outline', 'spinner','circle' | 'circle-outline' |
+| loadingType | 加载指示器类型 | string | 'outline' | 'ring' |
 | loadingColor | 加载icon的颜色 | string | '' | '#4D80F0' |
 
 ### Methods

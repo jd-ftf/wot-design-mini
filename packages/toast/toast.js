@@ -4,7 +4,7 @@ const defaultOptions = {
   msg: '',
   duration: 2000,
   iconName: '',
-  loadingType: 'circle-outline',
+  loadingType: 'ring',
   loadingColor: '#4D80F0',
   iconColor: '#4D80F0',
   iconSize: 42,

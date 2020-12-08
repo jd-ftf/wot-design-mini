@@ -28,7 +28,6 @@
         class="wd-upload__status-content"
       >
         <wd-loading
-          type="circular-ring"
           size="24"
           color="{{loadingColor}}"
         />
