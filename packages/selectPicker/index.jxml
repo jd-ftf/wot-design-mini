@@ -18,7 +18,14 @@
       />
     </view>
   </view>
-  <wd-action-sheet show="{{ pickerShow }}" duration="{{ 250 }}" title="{{ title || '请选择' }}" bind:close="close" custom-header-class="wd-select-picker__header">
+  <wd-action-sheet
+    show="{{ pickerShow }}"
+    duration="{{ 250 }}"
+    title="{{ title || '请选择' }}"
+    close-on-click-modal="{{ closeOnClickModal }}"
+    bind:close="close"
+    custom-header-class="wd-select-picker__header"
+  >
     <view class='wd-select-picker__wrapper custom-content-class'>
       <!-- 多选 -->
       <wd-checkbox-group

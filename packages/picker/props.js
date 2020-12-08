@@ -45,5 +45,9 @@ export default {
   useLabelSlot: Boolean,
   error: Boolean,
   alignRight: Boolean,
-  beforeConfirm: null
+  beforeConfirm: null,
+  closeOnClickModal: {
+    type: Boolean,
+    value: true
+  }
 }

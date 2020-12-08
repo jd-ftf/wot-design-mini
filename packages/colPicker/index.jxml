@@ -18,7 +18,13 @@
       />
     </view>
   </view>
-  <wd-action-sheet show="{{ pickerShow }}" duration="{{ 250 }}" title="{{ title || '请选择' }}" bind:close="handlePickerClose">
+  <wd-action-sheet
+    show="{{ pickerShow }}"
+    duration="{{ 250 }}"
+    title="{{ title || '请选择' }}"
+    close-on-click-modal="{{ closeOnClickModal }}"
+    bind:close="handlePickerClose"
+  >
     <view class="wd-col-picker__selected">
       <scroll-view
         scroll-x="true"
