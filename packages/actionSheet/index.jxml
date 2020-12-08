@@ -15,7 +15,7 @@
     {{ title }}
     <wd-icon custom-class="wd-action-sheet__close" name="add" bind:tap="close"/>
   </view> 
-  <view jd:if="actions && actions.length">
+  <view class="wd-action-sheet__actions" jd:if="actions && actions.length">
     <button
       jd:for="{{ actions }}"
       jd:key="rowIndex"
