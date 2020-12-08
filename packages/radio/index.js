@@ -47,7 +47,11 @@ VueComponent({
       type: Boolean,
       value: null
     },
-    maxWidth: String
+    maxWidth: String,
+    size: {
+      type: String,
+      value: null
+    }
   },
   relations: {
     '../radioGroup/index': {

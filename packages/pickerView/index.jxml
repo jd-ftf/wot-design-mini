@@ -3,7 +3,7 @@
     class="wd-picker-view__loading"
     jd:if="{{loading}}"
   >
-    <wd-loading type="circular-ring" color="{{ loadingColor }}" />
+    <wd-loading color="{{ loadingColor }}" />
   </view>
   <picker-view
     mask-class="wd-picker-view__mask"

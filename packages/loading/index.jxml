@@ -1,10 +1,10 @@
 <view
   class="wd-loading custom-class"
-  style="width:{{ iconSize }}; height:{{ iconSize }};color:{{color}}"
+  style="width:{{ iconSize }}; height:{{ iconSize }};"
 >
   <view
-    jd:if="{{type === 'circle-outline' }}"
-    class="wd-loading--circle-outline"
+    jd:if="{{ !type || type === 'ring' || type === 'circular-ring' }}"
+    class="wd-loading__body"
   >
     <view
       class="wd-loading__svg"
@@ -13,8 +13,8 @@
   </view>
 
   <view
-    jd:if="{{type === 'circular-ring' }}"
-    class="wd-loading--circle-outline"
+    jd:if="{{ type === 'circle-outline' || type === 'outline' }}"
+    class="wd-loading__body"
   >
     <view
       class="wd-loading__svg"
@@ -22,24 +22,4 @@
     ></view>
   </view>
 
-  <view
-    jd:if="{{type === 'circle'}}"
-    class="wd-loading__spinner wd-loading--circle"
-  >
-    <view
-      class="wd-loading__svg"
-      style="background-image: url({{svg}});"
-    ></view>
-  </view>
-
-  <view
-    jd:if="{{type === 'spinner'}}"
-    class="wd-loading__spinner wd-loading--spinner"
-  >
-    <view
-      jd:for="{{ 12 }}"
-      jd:key="$this"
-      class="wd-loading__spinner-dot wd-loading__spinner-dot-{{ index }}"
-    ></view>
-  </view>
 </view>

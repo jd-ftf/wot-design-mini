@@ -127,7 +127,10 @@ VueComponent({
       type: String,
       value: 'tip'
     },
-    loadingColor: String
+    loadingColor: {
+      type: String,
+      value: '#4D80F0'
+    }
   },
   methods: {
     // 对外暴露方法，打开弹框
