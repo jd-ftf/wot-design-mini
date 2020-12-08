@@ -1,4 +1,4 @@
-<view class="wd-sort-button custom-class" bindtap="handleClick">
+<view class="wd-sort-button {{ line ? 'wd-sort-button--line' : '' }} custom-class" bindtap="handleClick">
   <view class="wd-sort-button__wrapper">
     <view class="wd-sort-button__left {{ value !== 0 ? 'is-active' : '' }}">
       {{title}}
