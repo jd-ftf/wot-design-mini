@@ -42,10 +42,10 @@ VueComponent({
       observer (newValue) {
         if (newValue < 0) {
           this.setData({ max: 100 })
-          console.warn('[wot design] warning: max value must be greater than 0')
+          console.warn('[wot design] warning(wd-slider): max value must be greater than 0')
         } else if (newValue <= this.data.min) {
           this.setData({ max: 100 })
-          console.warn('[wot design] warning: max value must be greater than min value')
+          console.warn('[wot design] warning(wd-slider): max value must be greater than min value')
         }
       }
     },
@@ -55,10 +55,10 @@ VueComponent({
       observer (newValue) {
         if (newValue < 0) {
           this.setData({ min: 0 })
-          console.warn('[wot design] warning: min value must be greater than 0')
+          console.warn('[wot design] warning(wd-slider): min value must be greater than 0')
         } else if (newValue >= this.data.max) {
           this.setData({ min: 0 })
-          console.warn('[wot design] warning: min value must be less than max value')
+          console.warn('[wot design] warning(wd-slider): min value must be less than max value')
         }
       }
     },
@@ -68,7 +68,7 @@ VueComponent({
       observer (newValue) {
         if (newValue <= 0) {
           this.setData({ step: 1 })
-          console.warn('[wot design] warning: step must be greater than 0')
+          console.warn('[wot design] warning(wd-slider): step must be greater than 0')
         }
       }
     },
@@ -79,12 +79,12 @@ VueComponent({
         // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
         if (newValue === null || newValue === undefined) {
           this.setData({ value: oldValue })
-          console.warn('[wot design] warning: value can\'t be null or undefined')
+          console.warn('[wot design] warning(wd-slider): value can\'t be null or undefined')
         } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
-          throw Error('[wot design] warning: value must be dyadic array')
+          throw Error('[wot design] warning(wd-slider): value must be dyadic array')
         } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
           this.setData({ value: oldValue })
-          console.warn('[wot design] warning: value must be dyadic array Or Number')
+          console.warn('[wot design] warning(wd-slider): value must be dyadic array Or Number')
         }
         this.currentValue = newValue
         // 动态传值后修改

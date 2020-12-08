@@ -21,7 +21,7 @@ VueComponent({
       type: null,
       observer (val) {
         if (typeof val !== 'number' && typeof val !== 'string') {
-          console.warn('[wot-design] warning: the type of value should be a number or a string.')
+          console.warn('[wot-design] warning(wd-drop-menu-item): the type of value should be a number or a string.')
           return
         }
 
@@ -46,6 +46,18 @@ VueComponent({
       observer () {
         this.updateTitle()
       }
+    },
+    valueKey: {
+      type: String,
+      value: 'value'
+    },
+    labelKey: {
+      type: String,
+      value: 'label'
+    },
+    tipKey: {
+      type: String,
+      value: 'tip'
     }
   },
   relations: {
@@ -67,7 +79,7 @@ VueComponent({
   },
   methods: {
     setDisplayTitle () {
-      const { title, value, options } = this.data
+      const { title, value, options, valueKey, labelKey } = this.data
 
       if (title) {
         this.setData({
@@ -76,15 +88,15 @@ VueComponent({
         return
       }
       for (let i = 0, len = options.length; i < len; i++) {
-        if (value === options[i].value) {
+        if (value === options[i][valueKey]) {
           this.setData({
-            displayTitle: options[i].label
+            displayTitle: options[i][labelKey]
           })
           return
         }
       }
 
-      console.warn('[wot-design] warning: no value is matched in the options option.')
+      console.warn('[wot-design] warning(wd-drop-menu-item): no value is matched in the options option.')
     },
     updateTitle () {
       this.setDisplayTitle()
@@ -104,13 +116,14 @@ VueComponent({
     choose (event) {
       if (this.data.disabled) return
       const index = event.currentTarget.dataset.index
+      const { valueKey } = this.data
       const item = this.data.options[index]
       this.setData({
-        value: item.value || item
+        value: (item[valueKey] !== '' && item[valueKey] !== undefined) ? item[valueKey] : item
       })
       this.close()
       this.$emit('change', {
-        value: (item.value !== '' && item.value !== undefined) ? item.value : item,
+        value: (item[valueKey] !== '' && item[valueKey] !== undefined) ? item[valueKey] : item,
         selectedItem: item
       })
       this.parent.updateTitle()

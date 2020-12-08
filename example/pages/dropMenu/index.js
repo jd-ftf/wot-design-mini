@@ -40,10 +40,6 @@ Page({
     }
     this.drop = this.selectComponent('#' + id)
   },
-
-  click () {
-    this.setData({ value1: '0' })
-  },
   handleChange1 ({ detail }) {
     this.setData({
       value1: detail.value

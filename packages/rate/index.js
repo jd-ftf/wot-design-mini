@@ -68,7 +68,7 @@ VueComponent({
       // value和num都准备好才能计算
       if (value === null || !num) return
       if (typeof value !== 'number') {
-        console.error('[Wot Design] error: the value of wd-rate should be a number')
+        console.error('[Wot Design] error(wd-rate): the value of wd-rate should be a number')
         return
       }
       const rateList = []
