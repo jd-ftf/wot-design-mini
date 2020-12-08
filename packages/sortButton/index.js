@@ -8,7 +8,11 @@ VueComponent({
       value: 0
     },
     allowReset: Boolean,
-    descFirst: Boolean
+    descFirst: Boolean,
+    line: {
+      type: Boolean,
+      value: true
+    }
   },
   methods: {
     handleClick () {

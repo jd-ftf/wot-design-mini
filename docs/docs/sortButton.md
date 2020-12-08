@@ -48,6 +48,14 @@ Page({
 <wd-sort-button value="{{ value }}" desc-first title="价格" />
 ```
 
+### 取消展示下划线
+
+当只有一个排序按钮时，应该不展示下划线，设置 `line` 属性为 `false`。
+
+```html
+<wd-sort-button value="{{ value }}" line="{{false}}" title="价格" />
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -55,7 +63,8 @@ Page({
 | value | 选中的箭头方向：1 升序，0 重置状态，-1 降序。 | number | -1,0,1 | 0或-1 |
 | title | 排序按钮展示的文案。 | string | — |	— |
 | allow-reset | 展示双箭头时，允许手动重置按钮。 | boolean | - | false |
-| desc-first | 优先切换为降序，不开启则默认优先切换为升序 | boolean | - | false | 
+| desc-first | 优先切换为降序，不开启则默认优先切换为升序 | boolean | - | false |
+| line | 展示下划线，当只有一个排序按钮时，应该不展示下划线 | boolean | - | true | 
 
 ### Events
 
