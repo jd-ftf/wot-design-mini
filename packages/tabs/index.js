@@ -13,26 +13,30 @@ VueComponent({
         this.children = this.children || []
         // 在建立relations时tabs保存tab实例中的name的唯一性。
         this.children.push(child)
-        this.updateItems(this.children)
+        this.updateItems()
       },
       unlinked (target) {
         this.children = this.children.filter(child => child !== target)
-        this.updateItems(this.children)
+        this.updateItems()
       }
     }
   },
   props: {
     // 绑定值
     value: {
-      type: [Number, String],
+      type: null,
       value: 0,
       observer (value) {
+        if (getType(value) !== 'number' && getType(value) !== 'string') {
+          console.error('[wot design] error(wd-tabs): the type of value should be number or string')
+        }
+
         // 保证不为非空字符串，小于0的数字
-        if (value === '') {
-          throw Error('tabs\'s value cannot be null or undefined')
+        if (value === '' || value === undefined) {
+          console.error('[wot design] error(wd-tabs): tabs\'s value cannot be null or undefined')
         }
         if (getType(value) === 'number' && value < 0) {
-          throw Error('tabs\'s value cannot be less than zero')
+          console.error('[wot design] error(wd-tabs): tabs\'s value cannot be less than zero')
         }
         this.setActive && this.setActive(value)
       }
@@ -73,19 +77,11 @@ VueComponent({
     lineWidth: {
       type: Number,
       value: 19
-      // observer (value) {
-      //   checkNumRange(value)
-      //   this.updateLineStyle()
-      // }
     },
     // 底部条高度，单位像素
     lineHeight: {
       type: Number,
       value: 3
-      // observer (value) {
-      //   checkNumRange(value)
-      //   this.updateLineStyle()
-      // }
     }
   },
   data: {
@@ -122,11 +118,10 @@ VueComponent({
     },
     /**
      * @description 更新tab items
-     * @param {Array<Object>} children - 子元素列表
      */
-    updateItems (children) {
+    updateItems () {
       this.setData({
-        items: children.map(({ data }) => data)
+        items: this.children.map(({ data }) => data)
       })
     },
     /**

@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import { getType } from '../common/util'
 
 VueComponent({
   relations: {
@@ -17,22 +18,42 @@ VueComponent({
   props: {
     // 唯一标识符
     name: {
-      type: String,
+      type: null,
       observer (name) {
-        if (!name) {
-          throw Error('name must be set !')
+        if (name === '' || name === undefined) {
+          console.error('[wot design] error(wd-tab): name must be set !')
+          return
+        }
+        if (getType(name) !== 'number' && getType(name) !== 'string') {
+          console.error('[wot design] error(wd-tab): the type of name should be number or string')
+          return
         }
         // 当tab与tabs建立relations关系之后，tab的name改变,需要检测一下与其他tab的name是否冲突
         if (this.parent) {
           this.checkName(this)
           this.parent.setActive(this.parent.data.value)
+          this.parent.updateItems()
         }
       }
     },
     // tab的label
-    title: String,
+    title: {
+      type: String,
+      observer () {
+        if (this.parent) {
+          this.parent.updateItems()
+        }
+      }
+    },
     // tab禁用，无法点击
-    disabled: Boolean
+    disabled: {
+      type: Boolean,
+      observer () {
+        if (this.parent) {
+          this.parent.updateItems()
+        }
+      }
+    }
   },
   data: {
     /**
