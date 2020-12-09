@@ -25,22 +25,7 @@ Page({
         label: areaData[86][key]
       }
     })],
-    areaData2: [Object.keys(areaData[86]).map(key => {
-      return {
-        value: key,
-        label: areaData[86][key]
-      }
-    }), Object.keys(areaData[150000]).map(key => {
-      return {
-        value: key,
-        label: areaData[150000][key]
-      }
-    }), Object.keys(areaData[150100]).map(key => {
-      return {
-        value: key,
-        label: areaData[150100][key]
-      }
-    })],
+    areaData2: [],
     areaData3: [Object.keys(areaData[86]).map(key => {
       return {
         value: key,
@@ -73,11 +58,12 @@ Page({
       }
     })],
     columnChange1 ({ selectedItem, resolve, finish, index, rowIndex }) {
-      if (areaData[selectedItem.value]) {
-        resolve(Object.keys(areaData[selectedItem.value]).map(key => {
+      const value = index === -1 ? 86 : selectedItem.value
+      if (areaData[value]) {
+        resolve(Object.keys(areaData[value]).map(key => {
           return {
             value: key,
-            label: areaData[selectedItem.value][key]
+            label: areaData[value][key]
           }
         }))
       } else {

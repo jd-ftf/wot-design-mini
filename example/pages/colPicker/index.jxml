@@ -2,7 +2,7 @@
 <view style="margin: 20px 0">
   <wd-cell-group border>
     <wd-col-picker label="选择地址" value="{{value1}}" columns="{{areaData1}}" column-change="{{columnChange1}}" bind:confirm="handleValue" />
-    <wd-col-picker label="初始选项" value="{{value2}}" columns="{{areaData2}}" column-change="{{columnChange1}}" />
+    <wd-col-picker label="初始选项" value="{{value2}}" columns="{{areaData2}}" column-change="{{columnChange1}}" auto-complete />
     <wd-col-picker label="禁用" disabled value="{{value3}}" columns="{{areaData3}}" column-change="{{columnChange1}}" />
     <wd-col-picker label="只读" readonly value="{{value3}}" columns="{{areaData3}}" column-change="{{columnChange1}}" />
     <wd-col-picker label="禁用选项" value="{{value4}}" columns="{{areaData4}}" column-change="{{columnChange1}}" />
