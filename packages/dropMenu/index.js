@@ -20,7 +20,7 @@ VueComponent({
       observer (newValue) {
         if (newValue !== 'up' && newValue !== 'down') {
           this.setData({ direction: 'down' })
-          console.warn('[wot design] warning: direction must be \'up\' or \'down\'')
+          console.warn('[wot design] warning(wd-drop-menu): direction must be \'up\' or \'down\'')
         }
       }
     },

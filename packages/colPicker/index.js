@@ -57,7 +57,7 @@ VueComponent({
       type: Array,
       observer (val) {
         if (val.length && !(val[0] instanceof Array)) {
-          console.error('[wot design] error: the columns props of wd-col-picker should be a two-dimensional array')
+          console.error('[wot design] error(wd-col-picker): the columns props of wd-col-picker should be a two-dimensional array')
           return
         }
 
@@ -130,6 +130,10 @@ VueComponent({
     loadingColor: {
       type: String,
       value: '#4D80F0'
+    },
+    closeOnClickModal: {
+      type: Boolean,
+      value: true
     }
   },
   methods: {
@@ -216,7 +220,7 @@ VueComponent({
         rowIndex: index,
         resolve: (nextColumn) => {
           if (!(nextColumn instanceof Array)) {
-            console.error('[wot design] error: the data of each column of wd-col-picker should be an array')
+            console.error('[wot design] error(wd-col-picker): the data of each column of wd-col-picker should be an array')
             return
           }
 

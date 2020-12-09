@@ -297,7 +297,7 @@ VueComponent({
         getType(value) === 'number' &&
         value >= items.length
       ) {
-        console.warn('[wot design] warning: the type of tabs\' value is Number shouldn\'t be less than its children')
+        console.warn('[wot design] warning(wd-tabs): the type of tabs\' value is Number shouldn\'t be less than its children')
         value = 0
       }
       // 如果是字符串直接匹配，匹配不到用0兜底

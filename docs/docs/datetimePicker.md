@@ -308,6 +308,7 @@ Page({
 | use-default-slot | 使用默认插槽 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 | name | form 表单中的字段名 | string | - | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
 
 ### Events
 

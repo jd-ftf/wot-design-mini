@@ -27,14 +27,14 @@
         jd:key="index"
         bindtap="choose"
         data-index="{{ index }}"
-        class="wd-drop-item__option {{ (item.value !== '' ? item.value : item) === value ? 'is-active' : '' }}"
+        class="wd-drop-item__option {{ (item[valueKey] !== '' ? item[valueKey] : item) === value ? 'is-active' : '' }}"
       >
         <view class="wd-drop-item__title custom-title">
-          <text>{{ item.label ? item.label : item }}</text>
-          <text jd:if="{{ item.tip }}" class="wd-drop-item__tip">{{ item.tip }}</text>
+          <text>{{ item[labelKey] ? item[labelKey] : item }}</text>
+          <text jd:if="{{ item[tipKey] }}" class="wd-drop-item__tip">{{ item[tipKey] }}</text>
         </view>
         <wd-icon
-          jd:if="{{ (item.value !== '' ? item.value : item) === value }}"
+          jd:if="{{ (item[valueKey] !== '' ? item[valueKey] : item) === value }}"
           name="{{ iconName }}"
           size="20px"
           class="wd-drop-item__icon custom-icon"

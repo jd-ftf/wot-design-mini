@@ -19,6 +19,7 @@
     }
   }
   @include e(more) {
+    display: inline-block;
     font-size: $-collapse-retract-fs;
     margin-top: 8px;
     color: $-collapse-more-color;
