@@ -3,7 +3,7 @@
   style="width:{{ iconSize }}; height:{{ iconSize }};"
 >
   <view
-    jd:if="{{ !type || type === 'ring' || type === 'circular-ring' }}"
+    jd:if="{{ !type || type === 'ring' || type === 'circular-ring' || type === 'spinner' || type === 'circle' }}"
     class="wd-loading__body"
   >
     <view
