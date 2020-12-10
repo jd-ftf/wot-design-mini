@@ -59,7 +59,7 @@ VueComponent({
     // loading 相关
     loadingType: {
       type: String,
-      value: 'circular-ring'
+      value: 'ring'
     },
     loadingColor: {
       type: String,

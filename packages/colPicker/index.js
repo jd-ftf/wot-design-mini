@@ -47,19 +47,22 @@ VueComponent({
           pickerColSelected: val,
           selectShowList: val.map((item, colIndex) => {
             return this.getSelectedItem(item, colIndex, this.data.selectList)[this.data.labelKey]
-          }),
-          lastPickerColSelected: val
+          })
         })
         this.setShowValue(val)
+
+        this.handleAutoComplete()
       }
     },
     columns: {
       type: Array,
-      observer (val) {
+      observer (val, oldVal) {
         if (val.length && !(val[0] instanceof Array)) {
           console.error('[wot design] error(wd-col-picker): the columns props of wd-col-picker should be a two-dimensional array')
           return
         }
+
+        if (val.length === 0 && !oldVal) return
 
         const newSelectedList = val.slice(0)
         this.setData({
@@ -134,7 +137,8 @@ VueComponent({
     closeOnClickModal: {
       type: Boolean,
       value: true
-    }
+    },
+    autoComplete: Boolean
   },
   methods: {
     // 对外暴露方法，打开弹框
@@ -150,11 +154,12 @@ VueComponent({
         pickerShow: false
       })
       const { isChange, lastSelectList, lastPickerColSelected } = this.data
+      // 如果目前用户正在选择，需要在popup关闭时将数据重置回上次数据，popup 关闭时间 250
       if (isChange) {
         setTimeout(() => {
           this.setData({
-            selectList: lastSelectList,
-            pickerColSelected: lastPickerColSelected,
+            selectList: lastSelectList.slice(0),
+            pickerColSelected: lastPickerColSelected.slice(0),
             selectShowList: lastPickerColSelected.map((item, colIndex) => {
               return this.getSelectedItem(item, colIndex, lastSelectList)[this.data.labelKey]
             }),
@@ -171,7 +176,9 @@ VueComponent({
       if (disabled || readonly) return
 
       this.setData({
-        pickerShow: true
+        pickerShow: true,
+        lastPickerColSelected: this.data.pickerColSelected.slice(0),
+        lastSelectList: this.data.selectList.slice(0)
       }, () => {
         setTimeout(() => {
           this.updateLineAndScroll()
@@ -201,19 +208,25 @@ VueComponent({
       const item = this.data.selectList[colIndex][index]
       if (item.disabled) return
 
-      const { pickerColSelected, valueKey, selectList, columnChange, beforeConfirm } = this.data
+      const { pickerColSelected, valueKey, selectList } = this.data
 
       const newPickerColSelected = pickerColSelected.slice(0, colIndex)
       newPickerColSelected.push(item[valueKey])
       this.setData({
         isChange: true,
         pickerColSelected: newPickerColSelected,
+        selectList: selectList.slice(0, colIndex + 1),
         selectShowList: newPickerColSelected.map((item, colIndex) => {
           return this.getSelectedItem(item, colIndex, selectList)[this.data.labelKey]
-        }),
-        loading: true,
-        selectList: selectList.slice(0, colIndex + 1)
+        })
       })
+      this.handleColChange(colIndex, item, index)
+    },
+    handleColChange (colIndex, item, index, callback) {
+      this.setData({
+        loading: true
+      })
+      const { columnChange, beforeConfirm } = this.data
       columnChange({
         selectedItem: item,
         index: colIndex,
@@ -224,17 +237,36 @@ VueComponent({
             return
           }
 
-          const newSelectList = [...this.data.selectList, nextColumn]
+          const newSelectList = this.data.selectList.slice(0)
+          newSelectList[colIndex + 1] = nextColumn
           this.setData({
             selectList: newSelectList,
             loading: false,
             currentCol: colIndex + 1
+
           }, () => {
             this.updateLineAndScroll(true)
+            if (typeof callback === 'function') {
+              this.isCompleting = false
+              this.setData({
+                selectShowList: this.data.pickerColSelected.map((item, colIndex) => {
+                  return this.getSelectedItem(item, colIndex, this.data.selectList)[this.data.labelKey]
+                })
+              })
+              callback()
+            }
           })
         },
         finish: (isOk) => {
-          if (getType(isOk) === 'boolean' && !isOk) {
+        // 每设置展示数据回显
+          if (typeof callback === 'function') {
+            this.setData({
+              loading: false
+            })
+            this.isCompleting = false
+            return
+          }
+          if ((getType(isOk) === 'boolean' && !isOk)) {
             this.setData({
               loading: false
             })
@@ -264,8 +296,6 @@ VueComponent({
         isChange: false,
         loading: false,
         pickerShow: false,
-        lastPickerColSelected: this.data.pickerColSelected,
-        lastSelectList: this.data.selectList,
         value: this.data.pickerColSelected
       })
       this.setShowValue(this.data.pickerColSelected)
@@ -344,6 +374,33 @@ VueComponent({
             return item[this.data.labelKey]
           }).join('')
         })
+      }
+    },
+    // 递归列数据补齐
+    diffColumns (colIndex) {
+      // colIndex 为 -1 时，item 为空对象，>=0 时则具有 value 属性
+      const item = colIndex === -1 ? {} : { [this.data.valueKey]: this.data.value[colIndex] }
+      this.handleColChange(colIndex, item, -1, () => {
+        // 如果 columns 长度还小于 value 长度，colIndex + 1，继续递归补齐
+        if (this.data.selectList.length < this.data.value.length) {
+          this.diffColumns(colIndex + 1)
+        } else {
+          this.setShowValue(this.data.pickerColSelected)
+        }
+      })
+    },
+    handleAutoComplete () {
+      if (this.data.autoComplete) {
+        // 如果 columns 数组长度为空，或者长度小于 value 的长度，自动触发 columnChange 来补齐数据
+        if (this.data.selectList.length < this.data.value.length || this.data.selectList.length === 0) {
+          // isCompleting 是否在自动补全，锁操作
+          if (!this.isCompleting) {
+            // 如果 columns 长度为空，则传入的 colIndex 为 -1
+            const colIndex = this.data.selectList.length === 0 ? -1 : (this.data.selectList.length - 1)
+            this.diffColumns(colIndex)
+          }
+          this.isCompleting = true
+        }
       }
     }
   },
