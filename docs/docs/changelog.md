@@ -1,5 +1,69 @@
 ## 更新日志
 
+### 2.2.0
+
+*2020-12-10*
+
+#### 新特性
+
+- ColPicker
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `auto-complete` 属性，自动触发 `column-change` 补全列表初始数据 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePicker
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- DropMenu
+  - 新增 `value-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `label-key` 属性，支持自定义 options 中数据结构的 label 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `tip-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
+- Picker
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- Resize
+  - 新增 `wd-resize` 组件，支持监听 dom 宽高变化 (by [@Gkxie](https://github.com/Gkxie) )
+- SelectPicker
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- SortButton
+  - 新增 `line` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- Upload
+  - 新增 `name-key` 和 `status-key`，支持自定义 file 数据结构中的 name 字段和 status 字段 (by [@yawuling](https://github.com/yawuling) ) )
+
+#### 优化
+
+- ActionSheet
+  - 给列表添加最大高度限制，为选项过多的情况做展示兜底 (by [@yawuling](https://github.com/yawuling) ) )
+- Cell
+  - 将右侧value值的字号从12px调整为14px (by [@yawuling](https://github.com/yawuling) ) )
+- CheckBox
+  - `true-value` 和 `false-value` 支持空字符串 (by [@yawuling](https://github.com/yawuling) ) )
+- ColPicker
+  - 修改 loading 类型 (by [@yawuling](https://github.com/yawuling) ) )
+- Loading
+  - 去掉1.0中的 loading 类型，并做好向下兼容 (by [@yawuling](https://github.com/yawuling) ) )
+- Radio
+  - 优化 dot 类型的动画 (by [@yawuling](https://github.com/yawuling) ) )
+- Rate
+  - `active-color` 支持数组，支持设置两种颜色 (by [@awjing](https://github.com/awjing) )
+- StatusTip
+  - 更新占位图，清晰部分细节 (by [@yawuling](https://github.com/yawuling) ) )
+- Tabs
+  - 优化 `wd-tab` 组件 `name` 更新渲染问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Upload
+  - 修正事件传递和参数传递，向下兼容 (by [@yawuling](https://github.com/yawuling) ) )
+
+#### Bug 修复
+
+- Cell
+  - 修复 `value` 与 箭头顶对齐 (by [@yawuling](https://github.com/yawuling) ) )
+- Collapse
+  - 将展开收起设置为行内块 (by [@yawuling](https://github.com/yawuling) ) )
+- DropMenu
+  - 修复 `wd-drop-menu-itemn` 组件 `value` 为 0 时的赋值无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Input
+  - 修复 `label` 插槽展示问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Radio
+  - 修改 `size` 为 'large' 时无效的问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Search
+  - 修复垂直居中问题 (by [@yawuling](https://github.com/yawuling) ) )
+
 ### 2.1.0
 
 *2020-09-30*
