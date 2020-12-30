@@ -49,7 +49,7 @@ VueComponent({
     toggleModal ({ currentTarget: el }) {
       const { action } = el.dataset
       // closeOnClickModal为false，此时点击蒙层没任何效果
-      if (!action && !this.data.closeOnClickModal) {
+      if (action === 'modal' && !this.data.closeOnClickModal) {
         return
       }
       // prompt类型的弹窗 文案没有通过校验，点击了确定按钮没有任何效果

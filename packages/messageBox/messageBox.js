@@ -19,7 +19,7 @@ const defaultOptions = {
   selector: '#wd-message-box',
   zIndex: 99
 }
-// MessageBox注册的队列，此处使用队列方便后续边界管理
+
 /**
  * @description 转换msg为对象形式，方便处理
  * @param msg
@@ -38,8 +38,23 @@ const parseOptions = (msg) => {
  * @constructor
  */
 const MessageBox = (MessageBoxOptions) => {
+  if (MessageBoxOptions.type === 'alert' || !MessageBoxOptions.type) {
+    MessageBoxOptions = Object.assign({}, {
+      closeOnClickModal: false
+    }, MessageBoxOptions)
+  } else if (MessageBoxOptions.type === 'confirm') {
+    MessageBoxOptions = Object.assign({}, {
+      showCancelButton: true
+    }, MessageBoxOptions)
+  } else if (MessageBoxOptions.type === 'prompt') {
+    MessageBoxOptions = Object.assign({}, {
+      showCancelButton: true
+    }, MessageBoxOptions)
+  }
+
   // 覆盖模板中的选项
   const options = Object.assign({}, defaultOptions, parseOptions(MessageBoxOptions))
+
   // 获取页面栈中栈顶页面(当前显示的页面)
   const instance = options.context.selectComponent(options.selector)
   // 返回一个promise
@@ -59,25 +74,27 @@ const MessageBox = (MessageBoxOptions) => {
 const createMethod = (type) => {
   // 优先级：options->toastOptions->defaultOptions
   const MessageBoxOptions = { type }
-  switch (type) {
-  case 'alert':
-    break
-  case 'confirm':
-    MessageBoxOptions.showCancelButton = true
-    break
-  case 'prompt':
-    MessageBoxOptions.showCancelButton = true
-    break
-  default:
-    break
-  }
+
   return (options) => {
-    return MessageBox(Object.assign({}, defaultOptions, MessageBoxOptions, parseOptions(options)))
+    return MessageBox(Object.assign({}, MessageBoxOptions, parseOptions(options)))
   }
 }
 
 MessageBox.alert = createMethod('alert')
 MessageBox.confirm = createMethod('confirm')
 MessageBox.prompt = createMethod('prompt')
+
+MessageBox.close = (MessageBoxOptions) => {
+  // 覆盖模板中的选项
+  const options = Object.assign({}, defaultOptions, parseOptions(MessageBoxOptions))
+  // 获取页面栈中栈顶页面(当前显示的页面)
+  const instance = options.context.selectComponent(options.selector)
+
+  if (instance) {
+    instance.setData({
+      show: false
+    })
+  }
+}
 
 export default MessageBox

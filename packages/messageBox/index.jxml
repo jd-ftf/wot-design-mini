@@ -1,6 +1,7 @@
 <wd-popup
   transition="zoom-in"
   show="{{ show }}"
+  close-on-click-modal="{{ closeOnClickModal }}"
   custom-class="wd-message-box"
   bind:clickmodal="toggleModal"
   data-action="modal"
