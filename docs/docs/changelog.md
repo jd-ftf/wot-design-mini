@@ -1,5 +1,13 @@
 ## 更新日志
 
+### 2.2.1
+
+#### Bug 修复
+
+- MessageBox
+  - 修复closeOnClickModal 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 messageBox 使用 type 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+
 ### 2.2.0
 
 *2020-12-10*
