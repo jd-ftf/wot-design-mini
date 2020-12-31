@@ -16,7 +16,7 @@
     </block>
   </view>
   <!-- 文本域 -->
-  <view jd:if="{{ type === 'textarea' }}" class="wd-input__textarea {{ showWordCount ? 'is-show-limit' : '' }}">
+  <view jd:if="{{ type === 'textarea' }}" class="wd-input__textarea custom-textarea-container-class {{ showWordCount ? 'is-show-limit' : '' }}">
     <!-- readonly -->
     <view jd:if="{{ readonly }}" class="wd-input__textarea-inner">{{ value }}</view>
     <block jd:else>
