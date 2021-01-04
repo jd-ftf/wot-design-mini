@@ -3,6 +3,7 @@ import cell from '../mixins/cell'
 
 VueComponent({
   externalClasses: [
+    'custom-textarea-container-class',
     'custom-textarea-class',
     'custom-input-class',
     'custom-label-class'
