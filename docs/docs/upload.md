@@ -305,6 +305,7 @@ export default {
 | percent | number | 上传进度 |
 | size | number | 响文件尺寸应码 |
 | status | string | 当前图片上传状态 |
+| response | string / object | 后端返回的内容，可能是对象，也可能是字符串 |
 
 ### Slot
 
