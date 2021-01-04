@@ -169,6 +169,7 @@ VueComponent({
       const index = uploadFiles.findIndex(item => item.uid === file.uid)
       if (index > -1) {
         uploadFiles[index][statusKey] = 'success'
+        uploadFiles[index].response = res.data
         this.setData({ uploadFiles })
         this.$emit('change', { fileList: uploadFiles })
         this.$emit('success', { file, fileList: uploadFiles })

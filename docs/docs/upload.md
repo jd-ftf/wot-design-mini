@@ -299,12 +299,13 @@ export default {
 
 | 键名 | 类型 | 说明 |
 |---------- |---- |---------- |
-| uid | number | 当前上传文件在列表中的唯一表示 |
+| uid | number | 当前上传文件在列表中的唯一标识 |
 | url | string | 上传图片地址 |
 | action | string | 上传的地址 |
 | percent | number | 上传进度 |
 | size | number | 响文件尺寸应码 |
 | status | string | 当前图片上传状态 |
+| response | string / object | 后端返回的内容，可能是对象，也可能是字符串 |
 
 ### Slot
 
