@@ -1,8 +1,6 @@
 node_modules
-example/dist
-example-wx
+example-dist
 lib
-lib-wx
 docs/dist
 docs/public/versions.json
 docs/sitemap.xml

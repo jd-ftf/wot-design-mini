@@ -5,9 +5,9 @@ if [ ! $RELEASE_NAME ]; then
 fi
 
 # get release file
-mv lib wot-design
+mv lib/jd wot-design
 zip -r wot-design-$RELEASE_NAME-jd.zip wot-design/*
-mv wot-design lib
-mv lib-wx wot-design
+mv wot-design lib/jd
+mv lib/wx wot-design
 zip -r wot-design-$RELEASE_NAME-wechat.zip wot-design/*
-mv wot-design lib-wx
+mv wot-design lib/wx
