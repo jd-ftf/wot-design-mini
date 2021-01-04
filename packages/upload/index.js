@@ -29,6 +29,7 @@ VueComponent({
           item[statusKey] = item[statusKey] || 'success'
           item.size = item.size || ''
           item.action = this.action || ''
+          item.response = item.response || ''
           return item
         })
         this.setData({ uploadFiles })
