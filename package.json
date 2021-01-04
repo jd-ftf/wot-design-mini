@@ -33,7 +33,7 @@
     "@vue/babel-preset-app": "^4.0.5",
     "algoliasearch": "^3.35.1",
     "autoprefixer": "^9.7.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-loader": "^8.0.6",
     "chalk": "^3.0.0",
     "commander": "^6.2.1",
