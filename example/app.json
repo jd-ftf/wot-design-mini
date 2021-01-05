@@ -48,7 +48,8 @@
     "pages/popover/index",
     "pages/sticky/index",
     "pages/pagination/index",
-    "pages/resize/index"
+    "pages/resize/index",
+    "pages/calendarView/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
