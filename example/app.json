@@ -47,7 +47,8 @@
     "pages/statusTip/index",
     "pages/popover/index",
     "pages/sticky/index",
-    "pages/pagination/index"
+    "pages/pagination/index",
+    "pages/resize/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
