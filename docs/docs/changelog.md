@@ -9,6 +9,11 @@
 - Upload
   - `file` 对象添加 `response` 字段 (by [@yawuling](https://github.com/yawuling) ) )
 
+#### 优化
+
+- StatusTip
+  - 占位图改用网络地址，小程序打包时会将未使用的组件也打包进去，如果使用本地图片，会明显增大小程序包体积 (by [@yawuling](https://github.com/yawuling) ) )
+
 #### Bug 修复
 
 - MessageBox
