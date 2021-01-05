@@ -29,7 +29,7 @@
     "@babel/preset-env": "^7.8.3",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@ftf/pisces": "0.0.12",
+    "@ftf/pisces": "^1.0.0",
     "@vue/babel-preset-app": "^4.0.5",
     "algoliasearch": "^3.35.1",
     "autoprefixer": "^9.7.1",

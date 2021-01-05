@@ -1,4 +1,4 @@
 <div class="wd-status-tip custom-class">
-	<image jd:if="{{ imgType }}" class="wd-status-tip__image" src="./img/default-{{imgType}}.png"></image>
+	<image jd:if="{{ imgUrl }}" class="wd-status-tip__image" src="{{ imgUrl }}"></image>
 	<view jd:if="{{ tip }}" class="wd-status-tip__text">{{tip}}</view>
 </div>
