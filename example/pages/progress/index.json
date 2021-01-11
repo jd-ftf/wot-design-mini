@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Progress 进度条",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-progress": "../../dist/progress/index"
+    "wd-progress": "../../wot-design/progress/index"
   }
 }

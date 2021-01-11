@@ -2,6 +2,6 @@
   "navigationBarTitleText": "Pagination 分页",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-pagination": "../../dist/pagination/index"
+    "wd-pagination": "../../wot-design/pagination/index"
   }
 }

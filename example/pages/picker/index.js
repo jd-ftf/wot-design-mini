@@ -1,4 +1,4 @@
-import Toast from '../../dist/toast/toast.js'
+import Toast from '../../wot-design/toast/toast.js'
 
 const district = {
   0: [{ label: '北京', value: '110000' }, { label: '广东省', value: '440000' }],

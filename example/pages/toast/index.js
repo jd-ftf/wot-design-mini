@@ -1,4 +1,4 @@
-import Toast from '../../dist/toast/toast.js'
+import Toast from '../../wot-design/toast/toast.js'
 
 Page({
   showToast () {

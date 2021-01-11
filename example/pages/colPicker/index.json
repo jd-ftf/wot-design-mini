@@ -2,9 +2,9 @@
   "navigationBarTitleText": "ColPicker 多列选择器",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-col-picker": "../../dist/colPicker/index",
-    "wd-cell-group": "../../dist/cellGroup/index",
-    "wd-toast": "../../dist/toast/index",
-    "wd-button": "../../dist/button/index"
+    "wd-col-picker": "../../wot-design/colPicker/index",
+    "wd-cell-group": "../../wot-design/cellGroup/index",
+    "wd-toast": "../../wot-design/toast/index",
+    "wd-button": "../../wot-design/button/index"
   }
 }

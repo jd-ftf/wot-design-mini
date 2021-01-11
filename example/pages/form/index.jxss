@@ -1,4 +1,4 @@
-@import "../../dist/button/index.jxss";
+@import "../../wot-design/button/index.jxss";
 
 .inline-txt {
   display: inline-block;
