@@ -1,5 +1,5 @@
-import MessageBox from '../../dist/messageBox/messageBox'
-import Toast from '../../dist/toast/toast'
+import MessageBox from '../../wot-design/messageBox/messageBox'
+import Toast from '../../wot-design/toast/toast'
 
 Page({
   data: {

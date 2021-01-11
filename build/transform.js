@@ -30,7 +30,7 @@ program
       entry: 'packages',
       source: 'jd',
       precss: 'scss',
-      output: path.resolve(__dirname, `../example-dist/${program.platform}/dist/`),
+      output: path.resolve(__dirname, `../example-dist/${program.platform}/wot-design/`),
       platform: program.platform
     })
   })

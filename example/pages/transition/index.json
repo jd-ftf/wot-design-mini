@@ -2,7 +2,7 @@
   "navigationBarTitleText": "Transition 动画",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-button": "../../dist/button/index",
-    "wd-transition": "../../dist/transition/index"
+    "wd-button": "../../wot-design/button/index",
+    "wd-transition": "../../wot-design/transition/index"
   }
 }

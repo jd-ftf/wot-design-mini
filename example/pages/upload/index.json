@@ -2,9 +2,9 @@
   "navigationBarTitleText": "Upload 上传",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-toast": "../../dist/toast/index",
-    "wd-button": "../../dist/button/index",
-    "wd-message-box": "../../dist/messageBox/index",
-    "wd-upload": "../../dist/upload/index"
+    "wd-toast": "../../wot-design/toast/index",
+    "wd-button": "../../wot-design/button/index",
+    "wd-message-box": "../../wot-design/messageBox/index",
+    "wd-upload": "../../wot-design/upload/index"
   }
 }

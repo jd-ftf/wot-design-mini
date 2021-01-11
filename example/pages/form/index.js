@@ -1,5 +1,5 @@
-import Toast from '../../dist/toast/toast.js'
-import MessageBox from '../../dist/messageBox/messageBox.js'
+import Toast from '../../wot-design/toast/toast.js'
+import MessageBox from '../../wot-design/messageBox/messageBox.js'
 import areaData from '../../utils/area'
 
 Page({

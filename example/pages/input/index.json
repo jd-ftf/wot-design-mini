@@ -2,9 +2,9 @@
   "navigationBarTitleText": "Input 输入框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-input": "../../dist/input/index",
-    "wd-icon": "../../dist/icon/index",
-    "wd-cell-group": "../../dist/cellGroup/index",
-    "wd-button": "../../dist/button/index"
+    "wd-input": "../../wot-design/input/index",
+    "wd-icon": "../../wot-design/icon/index",
+    "wd-cell-group": "../../wot-design/cellGroup/index",
+    "wd-button": "../../wot-design/button/index"
   }
 }

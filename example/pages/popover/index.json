@@ -2,9 +2,9 @@
   "navigationBarTitleText": "Popover 文字提示",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-popover": "../../dist/popover/index",
-    "wd-tag": "../../dist/tag/index",
-    "wd-button": "../../dist/button/index",
-    "wd-toast": "../../dist/toast/index"
+    "wd-popover": "../../wot-design/popover/index",
+    "wd-tag": "../../wot-design/tag/index",
+    "wd-button": "../../wot-design/button/index",
+    "wd-toast": "../../wot-design/toast/index"
   }
 }

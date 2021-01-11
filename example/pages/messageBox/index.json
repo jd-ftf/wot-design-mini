@@ -2,9 +2,9 @@
   "navigationBarTitleText": "MessageBox 弹框",
   "usingComponents": {
     "demo-block": "../../components/demo-block/index",
-    "wd-message-box": "../../dist/messageBox/index",
-    "wd-button": "../../dist/button/index",
-    "wd-toast": "../../dist/toast/index",
-    "wd-rate": "../../dist/rate/index"
+    "wd-message-box": "../../wot-design/messageBox/index",
+    "wd-button": "../../wot-design/button/index",
+    "wd-toast": "../../wot-design/toast/index",
+    "wd-rate": "../../wot-design/rate/index"
   }
 }

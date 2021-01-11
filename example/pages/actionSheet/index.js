@@ -1,4 +1,4 @@
-import Toast from '../../dist/toast/toast'
+import Toast from '../../wot-design/toast/toast'
 
 Page({
   data: {
