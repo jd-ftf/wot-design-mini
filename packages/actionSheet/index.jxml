@@ -31,7 +31,7 @@
       <view jd:if="{{ !item.loading && item.subname }}" class="wd-action-sheet__subname">{{ item.subname }}</view>
     </button>
   </view>
-  <view jd:if="formatPanels && formatPanels.length">
+  <view jd:if="{{ formatPanels && formatPanels.length }}">
     <view
       jd:for="{{ formatPanels }}"
       data-index="{{ rowIndex }}"

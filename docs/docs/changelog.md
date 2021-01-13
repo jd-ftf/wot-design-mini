@@ -16,9 +16,15 @@
 
 #### Bug 修复
 
+- ActionSheet
+  - 修复 `panels` 多行快捷方式的条件判断 (by [@yawuling](https://github.com/yawuling) ) )
+- ColPicker
+  - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
 - MessageBox
   - 修复closeOnClickModal 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
   - 修复 messageBox 使用 type 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+- SelectPicker
+  - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
 
 ### 2.2.0
 
