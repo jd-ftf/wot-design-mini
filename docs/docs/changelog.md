@@ -2,7 +2,7 @@
 
 ### 2.2.1
 
-#### 新特效
+#### 新特性
 
 - DatetimePicker
   - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) ) )
