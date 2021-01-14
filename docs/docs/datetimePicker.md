@@ -35,7 +35,7 @@ Page({
 
 ### 设置默认值
 
-`default-vaue` 设置默认日期，打开面板时面板自动选到默认日期。
+`default-value` 设置默认日期，打开面板时面板自动选到默认日期。
 
 ```html
 <wd-datetime-picker value="{{value}}" default-value="{{defaultValue}}" label="日期选择" bind:confirm="handleConfirm" />
