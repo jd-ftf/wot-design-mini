@@ -365,18 +365,4 @@ VueComponent({
       return this.data.formatColumns.slice(0)
     }
   }
-
-  // created () {
-  //   // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
-  //   if (
-  //     (!this.data.value || !this.data.value.length) &&
-  //     this.data.columns.length !== 0
-  //   ) {
-  //     const formatColumns = this.formatArray(this.data.columns)
-  //     this.setData({
-  //       formatColumns,
-  //       selectedIndex: formatColumns.map(() => 0)
-  //     })
-  //   }
-  // }
 })
