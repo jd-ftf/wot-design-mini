@@ -1,6 +1,6 @@
 export default Behavior({
-  props: {
-    border: true
+  properties: {
+    border: Boolean
   },
   methods: {
     /**

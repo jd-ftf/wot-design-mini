@@ -23,6 +23,8 @@
 
 - ActionSheet
   - 修复 `panels` 多行快捷方式的条件判断 (by [@yawuling](https://github.com/yawuling) ) )
+- Cell
+  - 修复 `border` 类型的展示异常问题 (by [@yawuling](https://github.com/yawuling) ) )
 - ColPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
 - MessageBox
