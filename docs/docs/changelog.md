@@ -4,6 +4,8 @@
 
 #### 新特效
 
+- DatetimePicker
+  - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) ) )
 - Input
   - 添加自定义外部类名 `custom-textarea-container-class` (by [@yawuling](https://github.com/yawuling) ) )
 - Upload

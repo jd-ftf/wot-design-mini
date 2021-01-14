@@ -1,13 +1,12 @@
 <wd-toast id="wd-toast"/>
 <demo-block title="日期选择" transparent>
-  {{ value1 }}
   <wd-datetime-picker-view
     value="{{value1}}"
     bind:change="onChange1"
   />
 </demo-block>
 
-<!-- <demo-block title="年月日" transparent>
+<demo-block title="年月日" transparent>
   <wd-datetime-picker-view
     type="date"
     value="{{value2}}"
@@ -45,4 +44,4 @@
     filter="{{filter}}"
     bind:change="onChange6"
   />
-</demo-block> -->
+</demo-block>

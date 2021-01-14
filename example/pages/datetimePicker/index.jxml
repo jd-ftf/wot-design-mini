@@ -11,6 +11,7 @@
 		<wd-datetime-picker label="before-confirm" value="{{value8}}" before-confirm="{{beforeConfirm}}" bind:confirm="handleConfirm8" />
 		<wd-datetime-picker label="错误" value="{{value9}}" error bind:confirm="handleConfirm9" />
 		<wd-datetime-picker label="必填" value="{{value10}}" required bind:confirm="handleConfirm10" />
+		<wd-datetime-picker label="默认日期" default-value="{{ value2 }}" />
 	</wd-cell-group>
 </demo-block>
 <demo-block title="label 不传" transparent>

@@ -17,8 +17,9 @@ Page({
     value11: '',
     value12: '',
     value13: Date.now(),
-    value14: ['', Date.now()],
+    value14: [],
     value15: ['', Date.now()],
+    defaultValue: [Date.now() - 24 * 60 * 60 * 1000, Date.now()],
     showstart: false,
     formatter (type, value) {
       switch (type) {
