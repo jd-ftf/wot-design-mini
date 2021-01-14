@@ -7,8 +7,10 @@ VueComponent({
     // 初始值
     value: {
       type: null,
-      observer (value) {
-        this.selectWithValue(value)
+      observer (value, oldValue) {
+        if (!isEqual(oldValue, value)) {
+          this.selectWithValue(value)
+        }
       }
     },
     // 选择器数据
@@ -40,6 +42,7 @@ VueComponent({
     // 格式化之后，每列选中的下标集合
     selectedIndex: {
       type: Array,
+      value: [],
       observer (val) {
         if (isEqual(val, this.preSelectedIndex)) return
         if (!isEqual(this.getValues(), this.data.value)) {
@@ -65,7 +68,7 @@ VueComponent({
       if (this.data.columns.length === 0) return
 
       // 使其默认选中首项
-      if (!this.data.value) {
+      if (value === '' || value === null || value === undefined || (getType(value) === 'array' && value.length === 0)) {
         value = this.data.formatColumns.map(col => {
           return col[0][this.data.valueKey]
         })
@@ -260,11 +263,21 @@ VueComponent({
 
     handleChange (picker, index) {
       const value = this.getValues()
-      this.$emit('change', {
-        picker,
-        value,
-        index
+
+      // 避免多次触发change
+      if (isEqual(value, this.data.value)) return
+
+      this.setData({
+        value
       })
+      // 延迟一下，避免组件刚渲染时调用者的事件未初始化好
+      setTimeout(() => {
+        this.$emit('change', {
+          picker,
+          value,
+          index
+        })
+      }, 0)
     },
 
     /**
@@ -351,19 +364,19 @@ VueComponent({
     getColumnsData () {
       return this.data.formatColumns.slice(0)
     }
-  },
-
-  created () {
-    // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
-    if (
-      (!this.data.value || !this.data.value.length) &&
-      this.data.columns.length !== 0
-    ) {
-      const formatColumns = this.formatArray(this.data.columns)
-      this.setData({
-        formatColumns,
-        selectedIndex: formatColumns.map(() => 0)
-      })
-    }
   }
+
+  // created () {
+  //   // 如果props初始化的时候value的observer没有格式化formatColumns，此时手动执行一下。
+  //   if (
+  //     (!this.data.value || !this.data.value.length) &&
+  //     this.data.columns.length !== 0
+  //   ) {
+  //     const formatColumns = this.formatArray(this.data.columns)
+  //     this.setData({
+  //       formatColumns,
+  //       selectedIndex: formatColumns.map(() => 0)
+  //     })
+  //   }
+  // }
 })

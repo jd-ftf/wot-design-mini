@@ -371,6 +371,11 @@ VueComponent({
     updateColumnValue (value) {
       const values = this.getPickerValue(value, this.data.type)
       // 更新pickerView的value,columns
+      if (this.data.value !== value) {
+        this.$emit('change', {
+          value
+        })
+      }
       this.setData({
         innerValue: value,
         columns: this.updateColumns(),

@@ -4,7 +4,7 @@ Page({
   data: {
     type: 'date',
     value: Date.now(),
-    value1: Date.now(),
+    value1: '',
     value2: Date.now(),
     value3: Date.now(),
     value4: '09:20',
@@ -67,6 +67,7 @@ Page({
   },
   /** picker触发confirm事件，同步触发confirm事件 */
   handleConfirm1 (event) {
+    console.log(new Date(event.detail.value))
     this.setData({
       value1: event.detail.value
     })

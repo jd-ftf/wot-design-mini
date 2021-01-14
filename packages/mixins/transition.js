@@ -66,7 +66,6 @@ export default function () {
         this.$emit('beforeenter')
 
         requestAnimationFrame(() => {
-          this.checkStatus('enter')
           this.$emit('enter')
 
           this.setData({
@@ -76,7 +75,6 @@ export default function () {
             currentDuration
           }, () => {
             requestAnimationFrame(() => {
-              this.checkStatus('enter')
               this.transitionEnded = false
 
               this.setData({
@@ -97,7 +95,6 @@ export default function () {
         this.$emit('beforeleave')
 
         requestAnimationFrame(() => {
-          this.checkStatus('leave')
           this.$emit('leave')
 
           this.setData({
@@ -106,7 +103,6 @@ export default function () {
           })
 
           requestAnimationFrame(() => {
-            this.checkStatus('leave')
             this.transitionEnded = false
             setTimeout(() => this.onTransitionEnd(), currentDuration)
 
@@ -115,11 +111,6 @@ export default function () {
             })
           })
         })
-      },
-      checkStatus (status) {
-        if (status !== this.status) {
-          throw new Error(`incongruent status: ${status}`)
-        }
       },
       onTransitionEnd () {
         if (this.transitionEnded) return

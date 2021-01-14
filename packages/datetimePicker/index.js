@@ -352,7 +352,7 @@ VueComponent({
       } else {
         const items = this.picker.picker.getSelects()
         this.setData({
-          showValue: value || isConfirm ? this.defaultDisplayFormat(items) : ''
+          showValue: (value || isConfirm) ? this.defaultDisplayFormat(items) : ''
         })
       }
     },
