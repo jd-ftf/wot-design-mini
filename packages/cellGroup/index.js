@@ -13,9 +13,7 @@ VueComponent({
       type: Boolean,
       observer (val) {
         this.children && this.children.forEach(child => {
-          child.setData({
-            border: val
-          })
+          child.setIndexAndStatus(val)
         })
       }
     }

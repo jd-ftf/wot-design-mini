@@ -1,6 +1,6 @@
 export default Behavior({
-  props: {
-    border: true
+  properties: {
+    border: Boolean
   },
   methods: {
     /**
@@ -16,6 +16,7 @@ export default Behavior({
      */
     setIndexAndStatus (border) {
       const index = this.getIndex()
+      console.log(border && index)
       this.setData({
         border: border && index
       })
