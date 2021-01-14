@@ -16,7 +16,6 @@ export default Behavior({
      */
     setIndexAndStatus (border) {
       const index = this.getIndex()
-      console.log(border && index)
       this.setData({
         border: border && index
       })
