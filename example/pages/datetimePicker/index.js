@@ -4,7 +4,7 @@ Page({
   data: {
     type: 'date',
     value: Date.now(),
-    value1: Date.now(),
+    value1: '',
     value2: Date.now(),
     value3: Date.now(),
     value4: '09:20',
@@ -17,8 +17,9 @@ Page({
     value11: '',
     value12: '',
     value13: Date.now(),
-    value14: ['', Date.now()],
+    value14: [],
     value15: ['', Date.now()],
+    defaultValue: [Date.now() - 24 * 60 * 60 * 1000, Date.now()],
     showstart: false,
     formatter (type, value) {
       switch (type) {
@@ -67,6 +68,7 @@ Page({
   },
   /** picker触发confirm事件，同步触发confirm事件 */
   handleConfirm1 (event) {
+    console.log(new Date(event.detail.value))
     this.setData({
       value1: event.detail.value
     })

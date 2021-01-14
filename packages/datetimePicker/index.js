@@ -41,13 +41,18 @@ VueComponent({
         if (getType(val) === 'array') {
           this.setData({
             region: true,
-            innerValue: val[0],
-            endInnerValue: val[1]
+            innerValue: this.getDefaultInnerValue({
+              isRegion: true
+            }),
+            endInnerValue: this.getDefaultInnerValue({
+              isRegion: true,
+              isEnd: true
+            })
           })
         } else {
           // 每次value更新时都需要刷新整个列表
           this.setData({
-            innerValue: val
+            innerValue: this.getDefaultInnerValue()
           })
         }
         this.setShowValue()
@@ -136,6 +141,26 @@ VueComponent({
         // 每次变化需要重置picker的displayFormatTabLabel
         this.updateFn('displayFormatTabLabel', fn)
       }
+    },
+    defaultValue: {
+      type: null,
+      observer (val) {
+        if (getType(val) === 'array') {
+          this.setData({
+            innerValue: this.getDefaultInnerValue({
+              isRegion: true
+            }),
+            endInnerValue: this.getDefaultInnerValue({
+              isRegion: true,
+              isEnd: true
+            })
+          })
+        } else {
+          this.setData({
+            innerValue: this.getDefaultInnerValue()
+          })
+        }
+      }
     }
   },
 
@@ -157,6 +182,20 @@ VueComponent({
 
   methods: {
     noop () { },
+
+    getDefaultInnerValue ({ isRegion, isEnd } = {}) {
+      const { value, defaultValue } = this.data
+
+      if (isRegion) {
+        if (isEnd) {
+          return value[1] || (defaultValue && defaultValue.length ? defaultValue[1] : '')
+        } else {
+          return value[0] || (defaultValue && defaultValue.length ? defaultValue[0] : '')
+        }
+      } else {
+        return value || defaultValue
+      }
+    },
 
     // 对外暴露接口，打开弹框
     open () {
@@ -196,13 +235,18 @@ VueComponent({
         this.setData({
           popupShow: true,
           showStart: true,
-          innerValue: this.data.value[0],
-          endInnerValue: this.data.value[1]
+          innerValue: this.getDefaultInnerValue({
+            isRegion: true
+          }),
+          endInnerValue: this.getDefaultInnerValue({
+            isRegion: true,
+            isEnd: true
+          })
         })
       } else {
         this.setData({
           popupShow: true,
-          innerValue: this.data.value
+          innerValue: this.getDefaultInnerValue()
         })
       }
       this.setShowValue(true, false)
@@ -274,18 +318,26 @@ VueComponent({
      * @description 点击取消按钮触发。关闭popup，触发cancel事件。
      */
     onCancel () {
-      if (this.data.region) {
-        this.setData({
-          popupShow: false,
-          innerValue: this.data.value[0],
-          endInnerValue: this.data.value[1]
-        })
-      } else {
-        this.setData({
-          popupShow: false,
-          innerValue: this.data.value
-        })
-      }
+      this.setData({
+        popupShow: false
+      })
+      setTimeout(() => {
+        if (this.data.region) {
+          this.setData({
+            innerValue: this.getDefaultInnerValue({
+              isRegion: true
+            }),
+            endInnerValue: this.getDefaultInnerValue({
+              isRegion: true,
+              isEnd: true
+            })
+          })
+        } else {
+          this.setData({
+            innerValue: this.getDefaultInnerValue()
+          })
+        }
+      }, 200)
 
       this.$emit('cancel')
     },
@@ -310,13 +362,13 @@ VueComponent({
         })
         return
       }
+      const value = this.data.region ? [this.data.innerValue, this.data.endInnerValue] : this.data.innerValue
       this.setData({
-        popupShow: false
+        popupShow: false,
+        value
       })
-      this.$emit('confirm', this.data.region ? {
-        value: [this.data.innerValue, this.data.endInnerValue]
-      } : {
-        value: this.data.innerValue
+      this.$emit('confirm', {
+        value
       })
       this.setShowValue(false, true)
     },
@@ -352,7 +404,7 @@ VueComponent({
       } else {
         const items = this.picker.picker.getSelects()
         this.setData({
-          showValue: value || isConfirm ? this.defaultDisplayFormat(items) : ''
+          showValue: (value || isConfirm) ? this.defaultDisplayFormat(items) : ''
         })
       }
     },
@@ -533,12 +585,17 @@ VueComponent({
     if (getType(value) === 'array') {
       this.setData({
         region: true,
-        innerValue: value[0],
-        endInnerValue: value[1]
+        innerValue: this.getDefaultInnerValue({
+          isRegion: true
+        }),
+        endInnerValue: this.getDefaultInnerValue({
+          isRegion: true,
+          isEnd: true
+        })
       })
     } else {
       this.setData({
-        innerValue: value
+        innerValue: this.getDefaultInnerValue()
       })
     }
     this.setShowValue(true, false)

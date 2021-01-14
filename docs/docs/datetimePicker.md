@@ -19,10 +19,33 @@
 ```html
 <wd-datetime-picker value="{{value}}" label="日期选择" bind:confirm="handleConfirm" />
 ```
+
 ```javascript
 Page({
   data: {
     value: Date.now(),
+  },
+  handleConfirm (event) {
+    this.setData({
+      value: event.detail.value
+    })
+  }
+})
+```
+
+### 设置默认值
+
+`default-value` 设置默认日期，打开面板时面板自动选到默认日期。
+
+```html
+<wd-datetime-picker value="{{value}}" default-value="{{defaultValue}}" label="日期选择" bind:confirm="handleConfirm" />
+```
+
+```javascript
+Page({
+  data: {
+    value: '',
+    defaultValue: Date.now()
   },
   handleConfirm (event) {
     this.setData({
@@ -278,6 +301,7 @@ Page({
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 选中项，当 type 为 time 时，类型为字符串；当 type 为 Array 时，类型为范围选择；否则为 Date | string / date / array | - |
+| default-value | 默认日期，类型保持与 value 一致，打开面板时面板自动选到默认日期 ｜ string / date / array | - |
 | type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
 | loading | 加载中 | boolean | - | false |
 | loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |

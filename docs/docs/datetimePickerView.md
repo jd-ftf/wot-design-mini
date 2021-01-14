@@ -15,12 +15,17 @@
 `value` 设置绑定值，默认为 'datetime' 类型，展示年月日时分，绑定值为 `时间戳` 类型，如果为 'time' 类型，绑定值为字符串。
 
 ```html
-<wd-datetime-picker-view value="{{value}}" label="日期选择" />
+<wd-datetime-picker-view value="{{value}}" label="日期选择" bind:change="handleChange" />
 ```
 ```javascript
 Page({
   data: {
     value: Date.now(),
+  },
+  handleChange (event) {
+    this.setData({
+      value: event.detail.value
+    })
   }
 })
 ```
