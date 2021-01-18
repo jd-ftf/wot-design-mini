@@ -27,6 +27,8 @@
   - 修复 `border` 类型的展示异常问题 (by [@yawuling](https://github.com/yawuling) ) )
 - ColPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePicker
+  - 修复 `error` 错误状态时 placeholder 未标红问题 (by [@yawuling](https://github.com/yawuling) ) )
 - MessageBox
   - 修复closeOnClickModal 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
   - 修复 messageBox 使用 type 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
