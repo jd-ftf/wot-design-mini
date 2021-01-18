@@ -24,6 +24,8 @@
 
 - ActionSheet
   - 修复 `panels` 多行快捷方式的条件判断 (by [@yawuling](https://github.com/yawuling) ) )
+- Button
+  - 修复 `loading` 属性的类型问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Cell
   - 修复 `border` 类型的展示异常问题 (by [@yawuling](https://github.com/yawuling) ) )
 - ColPicker

@@ -25,7 +25,7 @@ VueComponent({
     },
     icon: String,
     loading: {
-      type: String,
+      type: Boolean,
       observer: 'buildLoadingSvg'
     },
     loadingColor: String,
