@@ -1,4 +1,5 @@
 import VueComponent from '../common/component'
+import { getType } from '../common/util'
 
 VueComponent({
   behaviors: ['jd://form-field'],
@@ -18,19 +19,37 @@ VueComponent({
     size: {
       type: String,
       value: '28px'
-    }
+    },
+    beforeChange: null
   },
   methods: {
     switchValue () {
       if (this.data.disabled) return
 
       const newVal = this.data.value === this.data.activeValue ? this.data.inactiveValue : this.data.activeValue
-      this.setData({
-        value: newVal
-      })
-      this.$emit('change', {
-        value: newVal
-      })
+
+      if (this.data.beforeChange && getType(this.data.beforeChange) === 'function') {
+        this.data.beforeChange({
+          value: newVal,
+          resolve: (pass) => {
+            if (pass) {
+              this.setData({
+                value: newVal
+              })
+              this.$emit('change', {
+                value: newVal
+              })
+            }
+          }
+        })
+      } else {
+        this.setData({
+          value: newVal
+        })
+        this.$emit('change', {
+          value: newVal
+        })
+      }
     }
   },
   attached () {

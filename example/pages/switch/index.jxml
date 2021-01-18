@@ -1,3 +1,5 @@
+<wd-message-box id="wd-message-box"></wd-message-box>
+
 <view>
   <demo-block title="基本用法">
     <wd-switch value="{{ checked1 }}" bind:change="handleChange1" />
@@ -17,5 +19,8 @@
   </demo-block>
   <demo-block title="非选中禁用">
     <wd-switch value="{{ checked6 }}" disabled />
+  </demo-block>
+  <demo-block title="before-change 修改前钩子函数">
+    <wd-switch value="{{ checked7 }}" before-change="{{ beforeChange }}" bind:change="handleChange5" />
   </demo-block>
 </view>
