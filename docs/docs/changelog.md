@@ -16,6 +16,7 @@
 - PickerView
   - 优化多次触发 `change` 事件的问题 (by [@yawuling](https://github.com/yawuling) ) )
   - 优化多列数据的情况下 `value` 为空时，默认触发一次选中首个选项 (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化选中项样式 (by [@yawuling](https://github.com/yawuling) ) )
 - StatusTip
   - 占位图改用网络地址，小程序打包时会将未使用的组件也打包进去，如果使用本地图片，会明显增大小程序包体积 (by [@yawuling](https://github.com/yawuling) ) )
 
@@ -30,8 +31,10 @@
 - DatetimePicker
   - 修复 `error` 错误状态时 placeholder 未标红问题 (by [@yawuling](https://github.com/yawuling) ) )
 - MessageBox
-  - 修复closeOnClickModal 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复 messageBox 使用 type 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `closeOnClickModal` 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `messageBox` 使用 `type` 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Picker
+  - 修复手动设置首选项无效问题 (by [@yawuling](https://github.com/yawuling) ) )
 - SelectPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
 

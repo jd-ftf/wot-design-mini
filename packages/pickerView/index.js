@@ -55,7 +55,7 @@ VueComponent({
   data: {
     // 格式化之后，用于render 列表的数据
     formatColumns: [],
-    itemHeight: 33
+    itemHeight: 35
   },
 
   methods: {
