@@ -21,7 +21,8 @@
   }
   @include when(error) {
     .wd-picker__value,
-    .wd-picker__arrow {
+    .wd-picker__arrow,
+    .wd-picker__placeholder {
       color: $-input-error-color;
     }
   }
