@@ -50,8 +50,6 @@ VueComponent({
     value: {
       type: null,
       observer (value) {
-        if (value === this.data.pickerValue) return
-
         this.setData({
           pickerValue: value
         })

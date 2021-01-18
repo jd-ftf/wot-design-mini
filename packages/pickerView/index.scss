@@ -39,6 +39,15 @@
     z-index: 3;
     background: $-picker-loading-bg;
   }
+
+  @include e(roller) {
+    background: rgba(245,245,245,1);
+    z-index: -1;
+
+    &::before, &::after {
+      display: none;
+    }
+  }
 }
 
 @include b(picker-view-column) {
@@ -49,9 +58,6 @@
   transition-timing-function: cubic-bezier(0.28, 0.8, 0.63, 1);
 
   @include e(item) {
-    @include m(active) {
-      font-size: $-picker-column-active-fs;
-    }
     @include m(disabled) {
       color: $-picker-column-disabled-color;
     }

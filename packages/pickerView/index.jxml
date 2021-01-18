@@ -7,7 +7,7 @@
   </view>
   <picker-view
     mask-class="wd-picker-view__mask"
-    indicator-class=""
+    indicator-class="wd-picker-view__roller"
     indicator-style="height: {{itemHeight}}px;"
     style="height: {{columnsHeight - 20}}px;"
     value="{{selectedIndex}}"
