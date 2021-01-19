@@ -59,6 +59,27 @@ Page({
 
 设置 `disabled` 属性。
 
+### 修改前钩子
+
+设置 `before-change` 属性，修改前钩子，接收 { value, resolve } 参数，`resolve(true)` 表示修改通过，`resolve(false)` 表示不修改。
+
+```html
+<wd-switch value="{{ checked }}" before-change="{{ beforeChange }}" bind:change="handleChange" />
+```
+
+```javascript
+Page({
+  data: {
+    checked: true
+  },
+  handleChange (event) {
+    this.setData({
+      checked: event.detail.value
+    })
+  }
+})
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -71,6 +92,7 @@ Page({
 | inactive-color | 关闭时的背景色，默认为白色，所以有灰色边框，如果设置了该值，则会自动去除灰色边框 | string | - | '#fff' |
 | size | 开关大小，可以为任何单位的字符串尺寸 | string | - | '28px' |
 | name | form 表单中的字段名 | string | - | - |
+｜ before-change | 修改前钩子 ｜ function ｜ - ｜ - ｜
 
 ### Events
 
