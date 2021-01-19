@@ -47,7 +47,7 @@
     </view>
     <!-- 上传状态为上传中时不展示移除按钮 -->
     <wd-icon
-      jd:if="{{file.status !== 'loading'}}"
+      jd:if="{{file.status !== 'loading' && !disabled}}"
       name="error-fill"
       class="wd-upload__close"
       data-index="{{index}}"

@@ -41,6 +41,8 @@
   - 修复手动设置首选项无效问题 (by [@yawuling](https://github.com/yawuling) ) )
 - SelectPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Upload
+  - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) ) )
 
 ### 2.2.0
 
