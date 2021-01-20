@@ -285,3 +285,15 @@ Page({
 | panel-height | 可滚动面板的高度 | number | - | 378 | 2.3.0 |
 | time-filter | type 为 'datetime' 或 'datetimerange' 时有效，用于过滤时间选择器的数据 | function | - | - | 2.3.0 |
 | hide-second | type 为 'datetime' 或 'datetimerange' 时有效，是否不展示秒修改 | boolean | - | false | 2.3.0 |
+
+### Events
+
+| 事件名称 | 说明 | 参数 |
+|---------|-----|-----|
+| bind:change | 绑定值变化时触发 | event.detail = { value } |
+
+### Methods
+
+| 方法名称 | 说明 | 参数 |
+|---------|-----|-----|
+| scrollIntoView | 使当前日期或者选中日期滚动到可视区域，并监听滚动，在面板从 隐藏状态（如 display: none） 切换为展示状态时调用 | thresholds，数字数组，具体使用见 [Intersection Observer](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver) |
