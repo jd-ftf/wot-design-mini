@@ -66,15 +66,13 @@ page({
 
 ### 前后icon
 
-设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
-
-`prefix-icon`、`suffix-icon`属性名对应显示。
+设置前置icon `prefix-icon`，设置后置icon `suffix-icon`，icon 为 [icon](/#/components/icon) 章节中的图标，如果没有你需要的图标，则使用 `prefix`、`suffix` 插槽进行自定义插入。
 
 ```html
 <wd-input
   value="{{ value }}"
-  prefix-icon="wd-icon-person"
-  suffix-icon="wd-icon-tickets"
+  prefix-icon="dong"
+  suffix-icon="list"
   bind:change="handleChange"/>
 ```
 
@@ -187,6 +185,7 @@ page({
 | use-label-slot | 使用 label 插槽 | boolean | - | false |
 | required | cell 类型下必填样式 | boolean | - | false |
 | name | form 表单中的字段名 | string | - | - |
+| no-border | 非 cell 类型下是否隐藏下划线 | boolean | - | false | - |
 
 ### Events
 

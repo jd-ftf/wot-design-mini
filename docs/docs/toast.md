@@ -62,6 +62,8 @@ Toast.close()
 
 ### loading 提示
 
+`loading` 开启后需要用户手动关闭，关闭可以调用 `close`，或者再调用一次 toast 提示，因为 toast 只会存在一个，新的 toast 会自动顶掉旧的 toast。
+
 ```javascript
 Toast.loading('加载中...')
 ```
@@ -101,6 +103,7 @@ Toast.close()
 | zIndex  	 | toast 层级                           |	number   |	—            |	100     |
 | loadingType | [加载中图标类型](/docs#/components/loading) | string | 'ring' | 'outline' |
 | loadingColor | [加载中图标颜色](/docs#/components/loading) | string | '' | '#4D80F0' |
+| context | 引用 `wd-toast` 的页面实例或自定义组件实例 | object | - | 当前页面实例 |
 
 ### Methods
 
@@ -111,7 +114,7 @@ Toast.close()
 | info | 常规提示 | options |
 | warning | 警告提示 | options |
 | loading | 加载提示 | options |
-| close         |手动关闭消息提示框，是Toast实例上的方法| —  |
+| close   |手动关闭消息提示框，是Toast实例上的方法| —  |
 
 ### 外部样式类
 
