@@ -4,6 +4,8 @@
 
 #### 新特性
 
+- CalendarView
+  - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) ) )
 - DatetimePicker
   - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) ) )
 - Input
