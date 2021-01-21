@@ -222,6 +222,7 @@ page({
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
 | duration | 动画持续时间 | number | - | 200(ms) |
 | z-index | 菜单层级 | number | - | 10 |
+| lazy-render | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true |
 
 ### Events
 

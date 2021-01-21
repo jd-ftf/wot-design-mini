@@ -17,7 +17,8 @@ const defaultOptions = {
   inputValidate: '',
   showErr: false,
   selector: '#wd-message-box',
-  zIndex: 99
+  zIndex: 99,
+  lazyRender: true
 }
 
 /**

@@ -29,6 +29,10 @@ VueComponent({
     zIndex: {
       type: Number,
       value: 99
+    },
+    lazyRender: {
+      type: Boolean,
+      value: true
     }
   },
   data: {

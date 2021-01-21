@@ -4,6 +4,8 @@
 
 #### 新特性
 
+- ActionSheet
+  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
 - CalendarView
   - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) ) )
 - ColPicker
@@ -13,8 +15,12 @@
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
 - Input
   - 添加自定义外部类名 `custom-textarea-container-class` (by [@yawuling](https://github.com/yawuling) ) )
+- MessageBox
+  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
 - Picker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
+- Popup
+  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
 - SelectPicker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
 - Switch

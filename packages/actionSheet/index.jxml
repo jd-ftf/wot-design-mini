@@ -5,6 +5,7 @@
   duration="{{ duration }}"
   position="bottom"
   close-on-click-modal="{{ closeOnClickModal }}"
+  lazy-render="{{ lazyRender }}"
   bind:enter="handleOpen"
   bind:close="close"
   bind:afterenter="handleOpened"

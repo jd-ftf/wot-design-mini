@@ -212,6 +212,7 @@ Page({
 | selector      | 组件的id     | string    | - | '#wd-message-box' |
 | context | 引用 `wd-message-box` 的页面实例或自定义组件实例 | object | - | 当前页面实例 |
 | zIndex | 弹窗层级 | number | - | 99 |
+| lazyRender | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true |
 
 ### 外部样式类
 
