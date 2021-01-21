@@ -1,7 +1,7 @@
 <jds src="../../utils.jds" module="utils" />
 
 <view class="wd-month-panel">
-  <view jjd:if="{{ showPanelTitle }}" class="wd-month-panel__title">
+  <view jd:if="{{ showPanelTitle }}" class="wd-month-panel__title">
     {{ title }}
   </view>
   <view class="wd-month-panel__weeks">

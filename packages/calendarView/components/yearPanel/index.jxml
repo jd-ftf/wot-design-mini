@@ -2,7 +2,7 @@
 
 <view class="wd-year-panel">
   <view jd:if="{{ showPanelTitle }}" class="wd-year-panel__title">{{ title }}</view>
-  <scroll-view class="wd-year-panel__container" style="{{ panelHeight ? ('height: ' + panelHeight + 'px') : '' }}" scroll-y scroll-into-view="{{ scrollIntoView }}">
+  <scroll-view class="wd-year-panel__container" style="height: {{ panelHeight || 342 }}px" scroll-y scroll-into-view="{{ scrollIntoView }}">
     <year
       jd:for="{{ utils.getYears(minDate, maxDate) }}"
       jd:key="*this"

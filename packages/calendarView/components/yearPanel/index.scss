@@ -12,7 +12,4 @@
     color: $-calendar-panel-title-color;
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.02);
   }
-  @include e(container) {
-    height: 342px;
-  }
 }

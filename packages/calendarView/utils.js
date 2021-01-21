@@ -152,8 +152,6 @@ export function getWeekRange (date, firstDayOfWeek) {
   const weekStart = new Date(year, month, day - (7 + week - firstDayOfWeek) % 7)
   const weekEnd = new Date(year, month, day + 6 - (7 + week - firstDayOfWeek) % 7)
 
-  console.log(weekStart, weekEnd)
-
   return [weekStart.getTime(), weekEnd.getTime()]
 }
 

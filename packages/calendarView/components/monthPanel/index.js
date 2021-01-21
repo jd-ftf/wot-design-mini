@@ -7,7 +7,7 @@ VueComponent({
     type: {
       type: String,
       observer (val) {
-        if ((val === 'datetime' && this.data.value) || (val === 'datetimerange' && this.data.value && this.data.value.length > 0)) {
+        if ((val === 'datetime' && this.data.value) || (val === 'datetimerange' && this.data.value && this.data.value.length > 0 && this.data.value[0])) {
           this.setTime(this.data.value, 'start')
         }
       }
@@ -17,7 +17,7 @@ VueComponent({
       observer (val, oldVal) {
         if (isEqual(val, oldVal)) return
 
-        if ((this.data.type === 'datetime' && val) || (this.data.type === 'datetimerange' && val && val.length > 0)) {
+        if ((this.data.type === 'datetime' && val) || (this.data.type === 'datetimerange' && val && val.length > 0 && val[0])) {
           this.setTime(val, 'start')
         }
       }
@@ -166,6 +166,7 @@ VueComponent({
     },
     handleDateChange ({ detail: { value, type } }) {
       if (!isEqual(value, this.data.value)) {
+        // 避免 change 事件导致的 value observer 监听事件
         this.setData({
           value
         })

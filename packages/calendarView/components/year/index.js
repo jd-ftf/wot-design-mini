@@ -1,5 +1,5 @@
 import VueComponent from '../../../common/component'
-import { compareDate, compareMonth, getMonthOffset, getMonthByOffset, getDateByDefaultTime } from '../../utils'
+import { compareMonth, getMonthOffset, getMonthByOffset, getDateByDefaultTime } from '../../utils'
 import { getType } from '../../../common/util'
 import Toast from '../../../toast/toast.js'
 
@@ -43,16 +43,12 @@ VueComponent({
       const date = new Date(this.data.date)
       const year = date.getFullYear()
 
-      let value = this.data.value
+      const value = this.data.value
       const valueType = getType(value)
 
-      if (this.data.type.indexOf('range') > -1 && (value && valueType !== 'array')) {
+      if (this.data.type.indexOf('range') > -1 && value && valueType !== 'array') {
         console.error('[wot-design] value should be array when type is range')
         return
-      }
-
-      if ((this.data.type === 'week' || this.data.type === 'weekrange') && value) {
-        value = this.getWeekValue()
       }
 
       for (let month = 0; month < 12; month++) {
@@ -61,21 +57,7 @@ VueComponent({
         if (!type && compareMonth(date, Date.now()) === 0) {
           type = 'current'
         }
-        let monthObj = {
-          date: date,
-          text: month + 1,
-          topInfo: '',
-          bottomInfo: '',
-          type,
-          disabled: compareMonth(date, this.data.minDate) === -1 || compareMonth(date, this.data.maxDate) === 1
-        }
-        if (this.data.formatter) {
-          if (getType(this.data.formatter) === 'function') {
-            monthObj = this.data.formatter(monthObj)
-          } else {
-            console.error('[wot-design] error(wd-calendar-view): the formatter prop of wd-calendar-view should be a function')
-          }
-        }
+        const monthObj = this.getFormatterDate(date, month, type)
         months.push(monthObj)
       }
 
@@ -137,7 +119,7 @@ VueComponent({
     handleMonthRangeChange (date) {
       let value
       const [startDate, endDate] = this.data.value || []
-      const compare = compareDate(date.date, startDate)
+      const compare = compareMonth(date.date, startDate)
 
       // 禁止选择同个日期
       if (!this.data.allowSameDay && compare === 0) return
@@ -159,6 +141,25 @@ VueComponent({
       this.$emit('change', {
         value
       })
+    },
+    getFormatterDate (date, month, type) {
+      let monthObj = {
+        date: date,
+        text: month + 1,
+        topInfo: '',
+        bottomInfo: '',
+        type,
+        disabled: compareMonth(date, this.data.minDate) === -1 || compareMonth(date, this.data.maxDate) === 1
+      }
+      if (this.data.formatter) {
+        if (getType(this.data.formatter) === 'function') {
+          monthObj = this.data.formatter(monthObj)
+        } else {
+          console.error('[wot-design] error(wd-calendar-view): the formatter prop of wd-calendar-view should be a function')
+        }
+      }
+
+      return monthObj
     }
   }
 })

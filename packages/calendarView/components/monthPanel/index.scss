@@ -25,7 +25,6 @@
     text-align: center;
   }
   @include e(container) {
-    height: 378px;
     padding: $-calendar-panel-padding;
     box-sizing: border-box;
   }
