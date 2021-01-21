@@ -42,7 +42,11 @@ export default function () {
         value: 300
       },
       name: String,
-      customStyle: String
+      customStyle: String,
+      lazyRender: {
+        type: Boolean,
+        value: true
+      }
     },
     data: {
       inited: false,
@@ -69,16 +73,21 @@ export default function () {
           this.$emit('enter')
 
           this.setData({
-            inited: true,
-            display: true,
             classes: classNames.enter,
             currentDuration
           }, () => {
             requestAnimationFrame(() => {
-              this.transitionEnded = false
-
               this.setData({
-                classes: classNames['enter-to']
+                inited: true,
+                display: true
+              }, () => {
+                requestAnimationFrame(() => {
+                  this.transitionEnded = false
+
+                  this.setData({
+                    classes: classNames['enter-to']
+                  })
+                })
               })
             })
           })

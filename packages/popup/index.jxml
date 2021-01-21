@@ -8,9 +8,9 @@
   catchtouchmove="noop"
 />
 <view
-  jd:if="{{ inited }}"
+  jd:if="{{ !lazyRender || inited }}"
   class="wd-popup wd-popup--{{ position }} custom-class {{ classes }}"
-  style="z-index: {{ zIndex }}; -webkit-transition-duration: {{ currentDuration }}ms; transition-duration: {{ currentDuration }}ms; {{ display || !hideWhenClose ? '' : 'display: none;' }} {{ customStyle }}"
+  style="z-index: {{ zIndex }}; -webkit-transition-duration: {{ currentDuration }}ms; transition-duration: {{ currentDuration }}ms; {{ (display || !hideWhenClose) ? '' : 'display: none;' }} {{ customStyle }}"
   bind:transitionend="onTransitionEnd"
 >
   <slot/>

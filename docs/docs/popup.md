@@ -48,6 +48,7 @@
 | modal | 是否显示遮罩 | boolean | - | true |
 | modal-style | 自定义modal蒙层样式 | string | - | - |
 | hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true |
+| lazy-render | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true |
 
 ### Events
 
