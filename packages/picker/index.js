@@ -108,6 +108,10 @@ VueComponent({
           this.picker.setData({ columnChange: this.data.columnChange })
         }
       }
+    },
+    zIndex: {
+      type: Number,
+      value: 15
     }
   },
   data: {

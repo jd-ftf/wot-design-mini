@@ -138,7 +138,11 @@ VueComponent({
       type: Boolean,
       value: true
     },
-    autoComplete: Boolean
+    autoComplete: Boolean,
+    zIndex: {
+      type: Number,
+      value: 15
+    }
   },
   methods: {
     // 对外暴露方法，打开弹框

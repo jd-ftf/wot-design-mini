@@ -35,7 +35,10 @@ VueComponent({
       default: 'middle'
     },
     show: Boolean,
-    zIndex: Number,
+    zIndex: {
+      type: Number,
+      value: 100
+    },
     loadingType: {
       type: String,
       default: 'outline'

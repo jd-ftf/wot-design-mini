@@ -19,7 +19,7 @@
 
     text-align: center;
     box-sizing: border-box;
-    z-index: 2000;
+    z-index: 10;
   }
 
   @include e(hidden) {

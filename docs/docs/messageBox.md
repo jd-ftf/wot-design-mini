@@ -211,6 +211,7 @@ Page({
 | cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
 | selector      | 组件的id     | string    | - | '#wd-message-box' |
 | context | 引用 `wd-message-box` 的页面实例或自定义组件实例 | object | - | 当前页面实例 |
+| zIndex | 弹窗层级 | number | - | 99 |
 
 ### 外部样式类
 

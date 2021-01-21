@@ -26,7 +26,10 @@ VueComponent({
     },
     confirmButtonText: String,
     cancelButtonText: String,
-    zIndex: Number
+    zIndex: {
+      type: Number,
+      value: 99
+    }
   },
   data: {
     msg: '',

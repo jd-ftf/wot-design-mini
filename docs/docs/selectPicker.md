@@ -348,6 +348,7 @@ Page({
 | use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false |
 | name | form 表单中的字段名 | string | - | - |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
+| z-index | 弹窗层级 | number | - | 15 |
 
 ### 选项数据结构
 
