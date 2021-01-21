@@ -36,7 +36,7 @@ const Toast = (toastOptions) => {
   // 覆盖模板中的选项
   const options = Object.assign({}, defaultOptions, parseOptions(toastOptions))
   // 获取页面栈中栈顶页面(当前显示的页面)
-  const toast = getContext().selectComponent(options.selector)
+  const toast = (options.context || getContext()).selectComponent(options.selector)
   // 错误提示
   if (!toast) {
     const selector = toastOptions.selector ? toastOptions.selector : 'wd-toast'

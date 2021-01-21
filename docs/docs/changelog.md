@@ -4,12 +4,16 @@
 
 #### 新特性
 
+- CalendarView
+  - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) ) )
 - DatetimePicker
   - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) ) )
 - Input
   - 添加自定义外部类名 `custom-textarea-container-class` (by [@yawuling](https://github.com/yawuling) ) )
 - Switch
-  - 新增 `before-change` 修改前钩子  (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `before-change` 修改前钩子 (by [@yawuling](https://github.com/yawuling) ) )
+- Toast
+  - 新增 `context` 上下文属性 (by [@yawuling](https://github.com/yawuling) ) )
 - Upload
   - `file` 对象添加 `response` 字段 (by [@yawuling](https://github.com/yawuling) ) )
 
@@ -43,6 +47,7 @@
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Upload
   - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复图片删除图标层级过高问题 (by [@yawuling](https://github.com/yawuling) ) )
 
 ### 2.2.0
 

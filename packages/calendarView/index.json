@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wd-action-sheet": "../actionSheet/index",
+    "wd-icon": "../icon/index",
+    "year-panel": "./components/yearPanel/index",
+    "month-panel": "./components/monthPanel/index"
+  }
+}

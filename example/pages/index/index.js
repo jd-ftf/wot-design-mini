@@ -48,6 +48,9 @@ Page({
         open: false,
         pages: [
           {
+            id: 'calendarView',
+            name: 'CalendarView 日历面板'
+          }, {
             id: 'checkbox',
             name: 'Checkbox 复选框'
           }, {

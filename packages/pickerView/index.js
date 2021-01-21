@@ -89,6 +89,11 @@ VueComponent({
        */
       value = value instanceof Array ? value : [value]
       value = value.slice(0, this.data.formatColumns.length)
+
+      if (value.length === 0) {
+        value = this.data.formatColumns.map(() => 0)
+      }
+
       let selectedIndex = this.data.selectedIndex
       value.forEach((target, col) => {
         let row = this.data.formatColumns[col].findIndex(row => {
