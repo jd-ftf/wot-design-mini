@@ -84,6 +84,10 @@ VueComponent({
           throw Error('The type of beforeConfirm must be Function')
         }
       }
+    },
+    zIndex: {
+      type: Number,
+      value: 15
     }
   },
 

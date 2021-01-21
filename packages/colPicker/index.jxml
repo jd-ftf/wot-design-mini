@@ -23,6 +23,7 @@
     duration="{{ 250 }}"
     title="{{ title || '请选择' }}"
     close-on-click-modal="{{ closeOnClickModal }}"
+    z-index="{{ zIndex }}"
     bind:close="handlePickerClose"
   >
     <view class="wd-col-picker__selected">

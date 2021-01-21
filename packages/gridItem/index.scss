@@ -24,7 +24,7 @@
       background-color: $-grid-item-border-color;
       top: 0;
       left: 0;
-      z-index: 100;
+      z-index: 1;
     }
     &::after {
       content: "";
@@ -34,7 +34,7 @@
       background-color: $-grid-item-border-color;
       bottom: 0;
       right: 0;
-      z-index: 100;
+      z-index: 1;
     }
   }
 
@@ -48,7 +48,7 @@
       background-color: $-grid-item-border-color;
       bottom: 0;
       right: 0;
-      z-index: 100;
+      z-index: 1;
     }
   }
 
@@ -98,7 +98,7 @@
         border: 1px solid $-grid-item-border-color;
         transform-origin: top left;
         transform: scale(0.5);
-        z-index: 100;
+        z-index: 1;
         box-sizing: border-box;
       }
     }
