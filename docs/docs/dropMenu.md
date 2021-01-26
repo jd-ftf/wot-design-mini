@@ -21,14 +21,24 @@
 
  通过绑定 `bind:change` 事件，获取当前选中项。
 
+因为小程序组件无法监听点击自己以外的地方，为了在点击页面其他地方时，可以自动关闭 dropmenu ，建议引入组件库的 clickoutside 函数（会关闭所有 dropmenu、popover、toast、swipeAction），在页面的根元素上监听点击事件的冒泡。
+
+:::warning
+如果存在用户手动点击 dropmenu 以外某个地方如按钮弹出 dropmenu 的场景，则需要在点击的元素（在这里上按钮）加上 catchtap 阻止事件冒泡到根元素上，避免触发 clickoutside 把要手动打开的 dropmenu 关闭了。
+:::
+
 ```html
-<wd-drop-menu>
-  <wd-drop-menu-item value="{{ value1 }}" options="{{ option1 }}" bind:change="handleChange1" />
-  <wd-drop-menu-item value="{{ value2 }}" options="{{ option2 }}" bind:change="handleChange2" />
-</wd-drop-menu>
+<view catchtap="clickoutside">
+  <wd-drop-menu>
+    <wd-drop-menu-item value="{{ value1 }}" options="{{ option1 }}" bind:change="handleChange1" />
+    <wd-drop-menu-item value="{{ value2 }}" options="{{ option2 }}" bind:change="handleChange2" />
+  </wd-drop-menu>
+</view>
 ```
 
 ```JavaScript
+import clickoutside from '/wot-design/common/clickoutside'
+
 Page({
   data: {
     value1: 0,
@@ -53,7 +63,8 @@ Page({
     this.setData({
       value1: event.detail.value
     })
-  }
+  },
+  clickoutside: clickoutside
 })
 ```
 
@@ -134,87 +145,6 @@ Page({
   <wd-drop-menu-item value="{{ value1 }}" disabled options="{{ option2 }}" bind:change="handleChange1" />
   <wd-drop-menu-item value="{{ value2 }}" options="{{ option1 }}" bind:change="handleChange2" />
 </wd-drop-menu>
-```
-
-### 点击外部关闭
-
-微信小程序的逻辑层运行在JSCore中，因而缺少相关的DOM API和BOM API，无法监听全局点击事件，因此微信小程序的点击外部关闭需要在实际页面中进行手动处理。
-
-大致思路：
-
-- 1. `drop-menu-item`使用`bind:open`捕获下拉菜单的展开动作
-- 2. 给展示的组件 `drop-menu-item` 绑定id，通过this.selectComponent(idSelector)获取到当前展开的节点
-- 3. 可以通过组件内部的  `open()`/`close()` 方法控制弹出下拉菜单的显隐。
-- 4. 在当前页面的最外层添加点击外部关闭事件，查看当前是否有展开的弹框。
-- 5. 通过`pop.data.showWrapper` 与 `pop.data.showPop`，可以获取该id下下拉菜单的展开情况
-
-```html
-<!-- 当前子页面的最外层 -->
-<view catchtap="clickOutside">
-  <wd-drop-menu>
-    <wd-drop-menu-item
-      id="drop-menu1"
-      value="{{ value1 }}"
-      options="{{ option1 }}"
-      bind:change="handleChange1"
-      bind:open="showDropMenu"
-    />
-    <wd-drop-menu-item
-      id="drop-menu2"
-      value="{{ value2 }}"
-      options="{{ option2 }}"
-      bind:change="handleChange2"
-      bind:open="showDropMenu"
-    />
-  </wd-drop-menu>
-</view>
-```
-
-```JavaScript
-Page({
-  data: {
-    value1: 1,
-    value2: 0,
-    option1: [
-      { label: '全部商品', value: 0 },
-      { label: '新款商品', value: 1, tip: '这是补充信息' },
-      { label: '这是比较长的筛选条件这是比较长的筛选条件', value: 2 }
-    ],
-    option2: [
-      { label: '综合', value: 0 },
-      { label: '销量', value: 1 },
-      { label: '上架时间', value: 2 }
-    ]
-  },
-
-  clickOutside () {
-    this.closeOtherDrop()
-  },
-
-  closeOtherDrop () {
-    if (this.drop && this.drop.data.showWrapper && this.drop.data.showPop) {
-      this.drop.close()
-      this.drop = null
-    }
-  },
-  showDropMenu (event) {
-    const id = event.currentTarget.id
-    if (this.drop && (this.drop.id !== id)) {
-      this.closeOtherDrop()
-    }
-    this.drop = this.selectComponent('#' + id)
-  },
-  handleChange1 ({ detail }) {
-    this.setData({
-      value1: detail.value
-    })
-  },
-  handleChange2 ({ detail }) {
-    this.setData({
-      value2: detail.value
-    })
-  }
-})
 ```
 
 ### DropMenu Attributes

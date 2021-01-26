@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-let ARRAY = []
+import { closeOther } from '../common/clickoutside'
 
 VueComponent({
   data: {
@@ -53,10 +53,6 @@ VueComponent({
     const { windowHeight } = jd.getSystemInfoSync()
     this.windowHeight = windowHeight
     this.children = []
-    ARRAY.push(this)
-  },
-  destroyed () {
-    ARRAY = ARRAY.filter(item => item !== this)
   },
   mounted () {
     this.updateTitle()
@@ -69,12 +65,7 @@ VueComponent({
       const child = this.children[index]
       // 点击当前 menu, 关闭其他 menu
       if (!child.data.disabled) {
-        ARRAY.forEach(item => {
-          if (item && item !== this) {
-            // 如果点击的不是当前 menu 关闭其他的 menu
-            item.fold(-1)
-          }
-        })
+        closeOther(child)
         this.fold(index)
       }
     },

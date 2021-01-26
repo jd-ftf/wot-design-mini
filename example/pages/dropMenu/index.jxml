@@ -26,16 +26,13 @@
   >
     <wd-drop-menu>
       <wd-drop-menu-item
-        id="drop-menu3"
         value="{{ value3 }}"
         options="{{ option1 }}"
         bind:change="handleChange3"
-        bind:open="showDropMenu"
       />
       <wd-drop-menu-item
-        id="drop-menu4"
+        id="drop-menu"
         title="筛选"
-        bind:open="showDropMenu"
       >
         <view>
           <wd-cell
@@ -65,10 +62,8 @@
     <view style="display: flex; background: #fff; text-align: center;">
       <wd-drop-menu style="flex: 1; min-width: 0;">
         <wd-drop-menu-item
-          id="drop-menu5"
           value="{{ value4 }}"
           options="{{ option1 }}"
-          bind:open="showDropMenu"
           bind:change="handleChange4"
         />
       </wd-drop-menu>
@@ -87,18 +82,14 @@
   >
     <wd-drop-menu direction="up">
       <wd-drop-menu-item
-        id="drop-menu6"
         value="{{ value6 }}"
         options="{{ option1 }}"
         bind:change="handleChange6"
-        bind:open="showDropMenu"
       />
       <wd-drop-menu-item
-        id="drop-menu7"
         value="{{ value7 }}"
         options="{{ option2 }}"
         bind:change="handleChange7"
-        bind:open="showDropMenu"
       />
     </wd-drop-menu>
   </demo-block>
@@ -108,18 +99,14 @@
   >
     <wd-drop-menu direction="up">
       <wd-drop-menu-item
-        id="drop-menu8"
         value="{{ value8 }}"
         disabled
         options="{{ option1 }}"
-        bind:open="showDropMenu"
         bind:change="handleChange8"
       />
       <wd-drop-menu-item
-        id="drop-menu9"
         value="{{ value9 }}"
         options="{{ option2 }}"
-        bind:open="showDropMenu"
         bind:change="handleChange9"
       />
     </wd-drop-menu>

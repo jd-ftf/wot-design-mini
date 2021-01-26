@@ -1,3 +1,5 @@
+import { pushToQueue, removeFromQueue, closeOther } from '../common/clickoutside'
+
 /**
  * @description 注意点：
  * 1. 需要控制的位置： 12个
@@ -68,7 +70,10 @@ export default function () {
       show: {
         type: Boolean,
         observer (newValue, oldValue) {
-          newValue && this.control()
+          if (newValue) {
+            this.control()
+            closeOther(this)
+          }
           this.setData({ showStyle: newValue ? 'display: inline-block;' : 'display: none;' })
           this.$emit('change', { show: newValue })
           this.$emit(`${newValue ? 'open' : 'close'}`)
@@ -80,8 +85,16 @@ export default function () {
       this.init()
     },
 
+    beforeCreate () {
+      pushToQueue(this)
+    },
+
     created () {
       this.setData({ showStyle: this.data.show ? 'opacity: 1;' : 'opacity: 0;' })
+    },
+
+    destroyed () {
+      removeFromQueue(this)
     },
 
     methods: {
@@ -145,6 +158,10 @@ export default function () {
         const horizontalX = this.width + arrowSize + offset
         // 左右位（横轴）对应的距离底部的距离
         const horizontalY = this.height / 2
+
+        const offsetX = verticalX - 17 > 0 ? 0 : verticalX - 17
+        const offsetY = horizontalY - 17 > 0 ? 0 : horizontalY - 17
+
         const placements = new Map([
           // 上
           ['top', [
@@ -152,12 +169,12 @@ export default function () {
             'left: 50%;'
           ]],
           ['top-start', [
-            `left:${0}; bottom: ${verticalY}px;`,
-            `left: ${this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25}px;`
+            `left: ${offsetX}px; bottom: ${verticalY}px;`,
+            `left: ${(this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25) - offsetX}px;`
           ]],
           ['top-end', [
-            `right: ${0}; bottom: ${verticalY}px;`,
-            `right: ${this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25}px; transform: translateX(50%);`
+            `right: ${offsetX}px; bottom: ${verticalY}px;`,
+            `right: ${(this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25) - offsetX}px; transform: translateX(50%);`
           ]],
           // 下
           ['bottom', [
@@ -165,12 +182,12 @@ export default function () {
             'left: 50%;'
           ]],
           ['bottom-start', [
-            `left:${0}; top: ${verticalY}px;`,
-            `left: ${this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25}px;`
+            `left: ${offsetX}px; top: ${verticalY}px;`,
+            `left: ${(this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25) - offsetX}px;`
           ]],
           ['bottom-end', [
-            `right: ${0}; top: ${verticalY}px;`,
-            `right: ${this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25}px; transform: translateX(50%);`
+            `right: ${offsetX}px; top: ${verticalY}px;`,
+            `right: ${(this.popWidth >= this.width ? this.width / 2 : this.popWidth - 25) - offsetX}px; transform: translateX(50%);`
           ]],
           // 左
           ['left', [
@@ -178,12 +195,12 @@ export default function () {
             'top: 50%'
           ]],
           ['left-start', [
-            `right: ${horizontalX}px; top: ${0};`,
-            `top: ${this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20}px;`
+            `right: ${horizontalX}px; top: ${offsetY}px;`,
+            `top: ${(this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20) - offsetY}px;`
           ]],
           ['left-end', [
-            `right: ${horizontalX}px; bottom: ${3}px;`,
-            `bottom: ${this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20}px; transform: translateY(50%);`
+            `right: ${horizontalX}px; bottom: ${offsetY}px;`,
+            `bottom: ${(this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20) - offsetY}px; transform: translateY(50%);`
           ]],
           // 右
           ['right', [
@@ -191,12 +208,12 @@ export default function () {
             'top: 50%'
           ]],
           ['right-start', [
-            `left: ${horizontalX}px; top: ${0};`,
-            `top: ${this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20}px;`
+            `left: ${horizontalX}px; top: ${offsetY}px;`,
+            `top: ${(this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20) - offsetY}px;`
           ]],
           ['right-end', [
-            `left: ${horizontalX}px; bottom: ${3}px;`,
-            `bottom: ${this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20}px; transform: translateY(50%);`
+            `left: ${horizontalX}px; bottom: ${offsetY}px;`,
+            `bottom: ${(this.popHeight >= this.height ? this.height / 2 : this.popHeight - 20) - offsetY}px; transform: translateY(50%);`
           ]]
         ])
 

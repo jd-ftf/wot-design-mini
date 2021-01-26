@@ -20,23 +20,33 @@
 
 `wd-swipe-action`分为三部分：'自定义左按钮内容'、'自定义内容'、'自定义右按钮内容'。自定义按钮内容需要设置`slot`开启，自定义内容为默认插槽，无需手动开启。
 
+因为小程序组件无法监听点击自己以外的地方，为了在点击页面其他地方时，可以自动关闭 swipeAction ，建议引入组件库的 clickoutside 函数（会关闭所有 dropmenu、popover、toast、swipeAction），在页面的根元素上监听点击事件的冒泡。
+
+:::warning
+如果存在用户手动点击 swipeAction 以外某个地方如按钮滑出 swipeAction 的场景，则需要在点击的元素（在这里上按钮）加上 catchtap 阻止事件冒泡到根元素上，避免触发 clickoutside 把要手动打开的 swipeAction 关闭了。
+:::
+
 ```html
-<wd-swipe-action>
-  <wd-cell title="标题文字" value="内容"/>
-  <view slot="right" class="action">
-    <view class="button" style="background: #C8C7CD;" bindtap="handleAction" data-action="操作1">操作1</view>
-    <view class="button" style="background: #FFB300;" bindtap="handleAction" data-action="操作2">操作2</view>
-    <view class="button" style="background: #E2231A;" bindtap="handleAction" data-action="操作3">操作3</view>
-  </view>
-</wd-swipe-action>
+<view catchtap="clickoutside">
+  <wd-swipe-action>
+    <wd-cell title="标题文字" value="内容"/>
+    <view slot="right" class="action">
+      <view class="button" style="background: #C8C7CD;" bindtap="handleAction" data-action="操作1">操作1</view>
+      <view class="button" style="background: #FFB300;" bindtap="handleAction" data-action="操作2">操作2</view>
+      <view class="button" style="background: #E2231A;" bindtap="handleAction" data-action="操作3">操作3</view>
+    </view>
+  </wd-swipe-action>
+</view>
 ```
 ```javascript
-import Toast from '../../dist/toast/toast'
+import Toast from '/wot-design/toast/toast'
+import clickoutside from '/wot-design/common/clickoutside'
 
 Page({
   handleAction (event) {
     Toast(`点击了${event.target.dataset.action}`)
-  }
+  },
+  clickoutside: clickoutside
 })
 ```
 ```css

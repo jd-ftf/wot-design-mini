@@ -1,5 +1,6 @@
 import VueComponent from '../common/component'
 import { debounce } from '../common/util'
+import { pushToQueue, removeFromQueue } from '../common/clickoutside'
 
 VueComponent({
   externalClasses: ['custom-title', 'custom-icon'],
@@ -72,7 +73,11 @@ VueComponent({
     }
   },
   beforeCreate () {
+    pushToQueue(this)
     this.updateTitle = debounce(this.updateTitle, 50)
+  },
+  destroyed () {
+    removeFromQueue(this)
   },
   mounted () {
     this.setDisplayTitle()

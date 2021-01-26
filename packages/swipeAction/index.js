@@ -1,5 +1,6 @@
 import VueComponent from '../common/component'
 import touch from '../mixins/touch'
+import { pushToQueue, removeFromQueue, closeOther } from '../common/clickoutside'
 
 VueComponent({
   mixins: [touch()],
@@ -110,6 +111,7 @@ VueComponent({
 
       this.originOffset = this.wrapperOffset
       this.touchStart(event)
+      closeOther(this)
     },
     /**
      * @description 滑动时，逐渐展示按钮
@@ -225,6 +227,7 @@ VueComponent({
     }
   },
   beforeCreate () {
+    pushToQueue(this)
     // 滑动开始时，wrapper的偏移量
     this.originOffset = 0
     // wrapper现在的偏移量
@@ -240,5 +243,8 @@ VueComponent({
     this.touching = true
     this.changeState(this.data.value)
     this.touching = false
+  },
+  destroyed () {
+    removeFromQueue(this)
   }
 })
