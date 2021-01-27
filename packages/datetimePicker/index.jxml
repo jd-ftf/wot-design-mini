@@ -91,6 +91,8 @@
         start-symbol="{{ true }}"
         data-isStart="{{ true }}"
         bindchange="onChangeStart"
+        bind:pickstart="onPickStart"
+        bind:pickend="onPickEnd"
       />
     </view>
     <view class="{{ showStart ? 'wd-picker__hidden' : 'wd-picker__show' }}">
@@ -115,6 +117,8 @@
         min-minute="{{minMinute}}"
         data-isStart="{{ false }}"
         bindchange="onChangeEnd"
+        bind:pickstart="onPickStart"
+        bind:pickend="onPickEnd"
       />
       </view>
   </wd-popup>

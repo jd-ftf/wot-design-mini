@@ -12,6 +12,8 @@
     style="height: {{columnsHeight - 20}}px;"
     value="{{selectedIndex}}"
     bindchange="onChange"
+    bindpickstart="onPickStart"
+    bindpickend="onPickEnd"
   >
     <picker-view-column
       jd:for="{{formatColumns}}"

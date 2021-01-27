@@ -9,4 +9,6 @@
   loading="{{loading}}"
   loading-color="{{loadingColor}}"
   bind:change="onChange"
+  bind:pickstart="onPickStart"
+  bind:pickend="onPickEnd"
 ></wd-picker-view>

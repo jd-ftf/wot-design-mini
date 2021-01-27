@@ -480,6 +480,12 @@ VueComponent({
             : 0
         )
       })
+    },
+    onPickStart () {
+      this.$emit('pickstart')
+    },
+    onPickEnd () {
+      this.$emit('pickend')
     }
   },
 

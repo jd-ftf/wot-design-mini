@@ -55,6 +55,8 @@
       value-key="{{valueKey}}"
       label-key="{{labelKey}}"
       bind:change="pickerViewChange"
+      bind:pickstart="onPickStart"
+      bind:pickend="onPickEnd"
     />
   </wd-popup>
 </view>
