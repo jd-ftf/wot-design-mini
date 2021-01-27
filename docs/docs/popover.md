@@ -16,10 +16,18 @@
 
 Popover 的属性与 [Tooltip](/#/components/tooltip) 很类似，因此对于重复属性，请参考 [Tooltip](/#/components/tooltip) 的文档，在此文档中不做详尽解释。
 
+因为小程序组件无法监听点击自己以外的地方，为了在点击页面其他地方时，可以自动关闭 popover ，建议引入组件库的 clickoutside 函数（会关闭所有 dropmenu、popover、toast、swipeAction），在页面的根元素上监听点击事件的冒泡。
+
+:::warning
+如果存在用户手动点击 popover 以外某个地方如按钮弹出 popover 的场景，则需要在点击的元素（在这里上按钮）加上 catchtap 阻止事件冒泡到根元素上，避免触发 clickoutside 把要手动打开的 popover 关闭了。
+:::
+
 ```html
-<wd-popover show="{{show}}" content="这是一段信息。" bind:change="handleChange">
-  <wd-button >点击展示</wd-button>
-</wd-popover>
+<view catchtap="clickoutside">
+  <wd-popover show="{{show}}" content="这是一段信息。" bind:change="handleChange">
+    <wd-button >点击展示</wd-button>
+  </wd-popover>
+</view>
 ```
 
 ```javascript
@@ -30,7 +38,9 @@ Page({
 
   handleChange (event) {
     this.setData({ show: event.detail.show })
-  }
+  },
+
+  clickoutside: clickoutside
 })
 ```
 
@@ -122,94 +132,6 @@ Page({
   width: 150px;
 }
 
-```
-
-### 点击外部关闭
-
-微信小程序的逻辑层运行在JSCore中，因而缺少相关的DOM API和BOM API，无法监听全局点击事件，因此微信小程序的点击外部关闭需要在实际页面中进行手动处理。
-
-大致思路：
-
-- 1. 唤起项使用`catch`绑定展示逻辑，可以手动操作popover组件展示。
-- 2. 给展示的组件 popover 绑定id，通过this.selectComponent(idSelector)获取到当前展开的节点
-- 3. 可以通过组件内部的  `open()`/`close()` 方法控制弹框的显隐。
-- 4. 在当前页面的最外层添加点击外部关闭事件，查看当前是否有展开的弹框。
-- 5. 通过`pop.data.show`或与pop绑定的`show`变量，可以获取该id下pop的展开情况
-
-页面单个popover情况：
-
-```html
-<!-- 当前子页面的最外层 -->
-<view catchtap="clickOutside">
-  <wd-popover id="pop" content="这是一段信息。">
-    <wd-button bind:tap="showPop">点击展示</wd-button>
-  </wd-popover>
-</view>
-```
-
-```JavaScript
-Page({
-  // 点击外部触发的事件
-  clickOutside () {
-    this.closeOtherPop()
-  },
-
-  // 关闭当前页面展开的其他pop
-  closeOtherPop () {
-    if (this.pop && this.pop.data.show) {
-      this.pop.close()
-      this.pop = null
-    }
-  },
-
-  // 展示popover时，根据id保存当前节点
-  showPop () {
-    if (this.pop && (this.pop.id !== 'pop')) {
-      this.closeOtherPop()
-    }
-    this.pop = this.selectComponent('#pop')
-  }
-})
-```
-
-页面多个popover情况：
-
-```html
-<!-- 当前子页面的最外层 -->
-<view catchtap="clickOutside">
-  <wd-popover id="pop1" content="这是一段信息。">
-    <wd-button bind:tap="showPop" data-id="pop1">点击展示</wd-button>
-  </wd-popover>
-  <wd-popover id="pop2" content="这是一段信息。">
-    <wd-button bind:tap="showPop" data-id="pop2">点击展示</wd-button>
-  </wd-popover>
-  <wd-popover id="pop3" content="这是一段信息。">
-    <wd-button bind:tap="showPop" data-id="pop3">点击展示</wd-button>
-  </wd-popover>
-</view>
-```
-
-```JavaScript
-Page({
-  clickOutside () {
-    this.closeOtherPop()
-  },
-
-  closeOtherPop () {
-    if (this.pop && this.pop.data.show) {
-      this.pop.close()
-      this.pop = null
-    }
-  },
-
-  showPop (event) {
-    const id = event.currentTarget.dataset.id
-    if (this.pop && (this.pop.id !== id)) {
-      this.closeOtherPop()
-    }
-    this.pop = this.selectComponent('#' + id)
-  }
-})
 ```
 
 ### Popover Attributes

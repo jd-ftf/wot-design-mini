@@ -40,6 +40,8 @@
   - 占位图改用网络地址，小程序打包时会将未使用的组件也打包进去，如果使用本地图片，会明显增大小程序包体积 (by [@yawuling](https://github.com/yawuling) ) )
 - 定位层级
   - 优化多个组件的定位层级 (by [@yawuling](https://github.com/yawuling) ) )
+- clickoutside
+  - 给 `wd-drop-menu`, `wd-popover`, `wd-swipe-action`, `wd-tooltip` 添加 `clickoutside` 功能，优化点击非组件区域时关闭组件的方案 (by [@yawuling](https://github.com/yawuling) ) )
 
 #### Bug 修复
 
@@ -59,8 +61,12 @@
   - 修复 `messageBox` 使用 `type` 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Picker
   - 修复手动设置首选项无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Popover
+  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) ) )
 - SelectPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Tooltip
+  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Upload
   - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) ) )
   - 修复图片删除图标层级过高问题 (by [@yawuling](https://github.com/yawuling) ) )

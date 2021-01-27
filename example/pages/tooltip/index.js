@@ -1,4 +1,5 @@
 import Toast from '../../wot-design/toast/toast'
+import clickoutside from '../../wot-design/common/clickoutside'
 
 Page({
   data: {
@@ -100,5 +101,10 @@ Page({
 
   handleChange17 (event) {
     this.setData({ show17: event.detail.show })
+  },
+
+  clickoutside (event) {
+    console.log(event)
+    clickoutside()
   }
 })

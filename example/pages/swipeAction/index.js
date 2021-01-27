@@ -1,4 +1,5 @@
 import Toast from '../../wot-design/toast/toast'
+import clickoutside from '../../wot-design/common/clickoutside'
 
 Page({
   data: {
@@ -22,5 +23,9 @@ Page({
 
   handleAction (event) {
     Toast(`点击了${event.target.dataset.action}`)
-  }
+  },
+
+  clickoutside: clickoutside,
+
+  noop () {}
 })
