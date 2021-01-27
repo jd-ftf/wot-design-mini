@@ -11,7 +11,7 @@
     </block>
   </block>
   <block jd:if="{{ state === 'loading' }}">
-    <wd-loading size="16" custom-class="wd-loadmore__loading" />
+    <wd-loading size="16px" custom-class="wd-loadmore__loading" />
     <text class="wd-loadmore__text">{{ loadingText }}</text>
   </block>
 </view>
