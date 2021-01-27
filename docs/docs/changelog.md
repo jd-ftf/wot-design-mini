@@ -5,79 +5,81 @@
 #### 新特性
 
 - ActionSheet
-  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
 - CalendarView
-  - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
-  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
-  - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePickerView
-  - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) )
 - Input
-  - 添加自定义外部类名 `custom-textarea-container-class` (by [@yawuling](https://github.com/yawuling) ) )
+  - 添加自定义外部类名 `custom-textarea-container-class` (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
-  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
 - Picker
-  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
 - PickerView
-  - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) )
 - Popup
-  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
-  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
 - Switch
-  - 新增 `before-change` 修改前钩子 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `before-change` 修改前钩子 (by [@yawuling](https://github.com/yawuling) )
 - Toast
-  - 新增 `context` 上下文属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `context` 上下文属性 (by [@yawuling](https://github.com/yawuling) )
 - Upload
-  - `file` 对象添加 `response` 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - `file` 对象添加 `response` 字段 (by [@yawuling](https://github.com/yawuling) )
 
 #### 优化
 
 - PickerView
-  - 优化多次触发 `change` 事件的问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 优化多列数据的情况下 `value` 为空时，默认触发一次选中首个选项 (by [@yawuling](https://github.com/yawuling) ) )
-  - 优化选中项样式 (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化多次触发 `change` 事件的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 优化多列数据的情况下 `value` 为空时，默认触发一次选中首个选项 (by [@yawuling](https://github.com/yawuling) )
+  - 优化选中项样式 (by [@yawuling](https://github.com/yawuling) )
 - StatusTip
-  - 占位图改用网络地址，小程序打包时会将未使用的组件也打包进去，如果使用本地图片，会明显增大小程序包体积 (by [@yawuling](https://github.com/yawuling) ) )
+  - 占位图改用网络地址，小程序打包时会将未使用的组件也打包进去，如果使用本地图片，会明显增大小程序包体积 (by [@yawuling](https://github.com/yawuling) )
 - 定位层级
-  - 优化多个组件的定位层级 (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化多个组件的定位层级 (by [@yawuling](https://github.com/yawuling) )
 - clickoutside
-  - 给 `wd-drop-menu`, `wd-popover`, `wd-swipe-action`, `wd-tooltip` 添加 `clickoutside` 功能，优化点击非组件区域时关闭组件的方案 (by [@yawuling](https://github.com/yawuling) ) )
+  - 给 `wd-drop-menu`, `wd-popover`, `wd-swipe-action`, `wd-tooltip` 添加 `clickoutside` 功能，优化点击非组件区域时关闭组件的方案 (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug 修复
 
 - ActionSheet
-  - 修复 `panels` 多行快捷方式的条件判断 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `panels` 多行快捷方式的条件判断 (by [@yawuling](https://github.com/yawuling) )
 - Button
-  - 修复 `loading` 属性的类型问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `loading` 属性的类型问题 (by [@yawuling](https://github.com/yawuling) )
 - Cell
-  - 修复 `border` 类型的展示异常问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `border` 类型的展示异常问题 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
-  - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
-  - 修复 `error` 错误状态时 placeholder 未标红问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复 `open` 和 `close` 无法调用问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `error` 错误状态时 placeholder 未标红问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `open` 和 `close` 无法调用问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) )
+- Loadmore
+  - 修复 loading 图标未正常展示的问题 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
-  - 修复 `closeOnClickModal` 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复 `messageBox` 使用 `type` 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `closeOnClickModal` 无效问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `messageBox` 使用 `type` 无效问题 (by [@yawuling](https://github.com/yawuling) )
 - Picker
-  - 修复手动设置首选项无效问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复手动设置首选项无效问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) )
 - Popover
-  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
-  - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) )
 - Tooltip
-  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
 - Upload
-  - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复图片删除图标层级过高问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复图片删除图标层级过高问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.2.0
 
@@ -86,62 +88,62 @@
 #### 新特性
 
 - ColPicker
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `auto-complete` 属性，自动触发 `column-change` 补全列表初始数据 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `auto-complete` 属性，自动触发 `column-change` 补全列表初始数据 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
 - DropMenu
-  - 新增 `value-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `label-key` 属性，支持自定义 options 中数据结构的 label 字段 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `tip-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `value-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `label-key` 属性，支持自定义 options 中数据结构的 label 字段 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `tip-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) )
 - Picker
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
 - Resize
   - 新增 `wd-resize` 组件，支持监听 dom 宽高变化 (by [@Gkxie](https://github.com/Gkxie) )
 - SelectPicker
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
 - SortButton
-  - 新增 `line` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `line` 属性 (by [@yawuling](https://github.com/yawuling) )
 - Upload
-  - 新增 `name-key` 和 `status-key`，支持自定义 file 数据结构中的 name 字段和 status 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `name-key` 和 `status-key`，支持自定义 file 数据结构中的 name 字段和 status 字段 (by [@yawuling](https://github.com/yawuling) )
 
 #### 优化
 
 - ActionSheet
-  - 给列表添加最大高度限制，为选项过多的情况做展示兜底 (by [@yawuling](https://github.com/yawuling) ) )
+  - 给列表添加最大高度限制，为选项过多的情况做展示兜底 (by [@yawuling](https://github.com/yawuling) )
 - Cell
-  - 将右侧value值的字号从12px调整为14px (by [@yawuling](https://github.com/yawuling) ) )
+  - 将右侧value值的字号从12px调整为14px (by [@yawuling](https://github.com/yawuling) )
 - CheckBox
-  - `true-value` 和 `false-value` 支持空字符串 (by [@yawuling](https://github.com/yawuling) ) )
+  - `true-value` 和 `false-value` 支持空字符串 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
-  - 修改 loading 类型 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修改 loading 类型 (by [@yawuling](https://github.com/yawuling) )
 - Loading
-  - 去掉1.0中的 loading 类型，并做好向下兼容 (by [@yawuling](https://github.com/yawuling) ) )
+  - 去掉1.0中的 loading 类型，并做好向下兼容 (by [@yawuling](https://github.com/yawuling) )
 - Radio
-  - 优化 dot 类型的动画 (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化 dot 类型的动画 (by [@yawuling](https://github.com/yawuling) )
 - Rate
   - `active-color` 支持数组，支持设置两种颜色 (by [@awjing](https://github.com/awjing) )
 - StatusTip
-  - 更新占位图，清晰部分细节 (by [@yawuling](https://github.com/yawuling) ) )
+  - 更新占位图，清晰部分细节 (by [@yawuling](https://github.com/yawuling) )
 - Tabs
-  - 优化 `wd-tab` 组件 `name` 更新渲染问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化 `wd-tab` 组件 `name` 更新渲染问题 (by [@yawuling](https://github.com/yawuling) )
 - Upload
-  - 修正事件传递和参数传递，向下兼容 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修正事件传递和参数传递，向下兼容 (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug 修复
 
 - Cell
-  - 修复 `value` 与 箭头顶对齐 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `value` 与 箭头顶对齐 (by [@yawuling](https://github.com/yawuling) )
 - Collapse
-  - 将展开收起设置为行内块 (by [@yawuling](https://github.com/yawuling) ) )
+  - 将展开收起设置为行内块 (by [@yawuling](https://github.com/yawuling) )
 - DropMenu
-  - 修复 `wd-drop-menu-itemn` 组件 `value` 为 0 时的赋值无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `wd-drop-menu-itemn` 组件 `value` 为 0 时的赋值无效问题 (by [@yawuling](https://github.com/yawuling) )
 - Input
-  - 修复 `label` 插槽展示问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `label` 插槽展示问题 (by [@yawuling](https://github.com/yawuling) )
 - Radio
-  - 修改 `size` 为 'large' 时无效的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修改 `size` 为 'large' 时无效的问题 (by [@yawuling](https://github.com/yawuling) )
 - Search
-  - 修复垂直居中问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复垂直居中问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.1.0
 
@@ -181,19 +183,19 @@
 - Card
   - 新增卡片组件 Card  (by [@awjing](https://github.com/awjing) )
 - Cell
-  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `vertical`, 支持表单属性展示为上下结构 (by [@yawuling](https://github.com/yawuling) )
 - CellGroup
   - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@yawuling](https://github.com/yawuling) )
 - Checkbox
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增自定义样式类 `custom-label-class` 自定义文字结点样式(by [@yawuling](https://github.com/yawuling) ) )
-  - 新增自定义样式类 `custom-shape-class` 自定义单选图标结点样式(by [@yawuling](https://github.com/yawuling) ) )
+  - 新增自定义样式类 `custom-label-class` 自定义文字结点样式(by [@yawuling](https://github.com/yawuling) )
+  - 新增自定义样式类 `custom-shape-class` 自定义单选图标结点样式(by [@yawuling](https://github.com/yawuling) )
 - Collapse
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - CheckboxGroup
   - 新增属性 `cell`, 支持复选框组下的表单模式事件 (by [@Gkxie](https://github.com/Gkxie) )
   - 新增属性 `size`，支持单选框尺寸更改（large） (by [@yawuling](https://github.com/yawuling) )
@@ -206,8 +208,8 @@
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
   - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
@@ -215,8 +217,8 @@
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Grid
   - 新增属性 `bg-color`, 支持宫格设置背景颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -228,15 +230,15 @@
   - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) )
   - 新增事件 `clickprefixicon`, 点击前置图标时触发 (by [@yawuling](https://github.com/yawuling) )
   - 新增事件 `clicksuffixicon`, 点击后置图标时触发 (by [@yawuling](https://github.com/yawuling) )
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - InputNumber
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Loading
-  - 属性 `type` 新增类型 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
-  - 属性 `size` 新增支持类型 `string`，兼容之前版本，推荐使用string类型 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+  - 属性 `type` 新增类型 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 属性 `size` 新增支持类型 `string`，兼容之前版本，推荐使用string类型 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - MessageBox
   - 新增属性 `context`, 引用 wd-message-box 的页面实例或自定义组件实例 (by [@wulin](https://github.com/wlin00) )
 - NoticeBar
@@ -253,14 +255,14 @@
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
   - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
 - PickerView
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -274,27 +276,27 @@
 - RadioGroup
   - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
   - 属性 `type` 新增可选值 `check`，默认值变更为 `check` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Rate
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Search
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 新增单复选选择器组件 selectPicker (by [@HXCStudio123](https://github.com/HXCStudio123))
 - Slider
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - StatusTip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改 (by [@awjing](https://github.com/awjing) )
 - Sticky
   - 新增粘性布局组件 Sticky （by [@Gkxie](https://github.com/Gkxie) ）
 - Switch
-  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `name` (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Tabs
   - 移除属性 `color` (by [@Gkxie](https://github.com/Gkxie) )
   - 移除属性 `inactive-color` (by [@Gkxie](https://github.com/Gkxie) )
@@ -324,37 +326,37 @@
 #### 优化
 
 - Checkbox
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - CheckboxGroup
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Collapse
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePickerView
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - DropMenuItem
-  - `change` 事件传参方式修改为与小程序官方组件一致，新增 `selectedItem` 参数 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致，新增 `selectedItem` 参数 (by [@yawuling](https://github.com/yawuling) )
 - Input
-  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `input` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - InputNumber
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
   - 属性 `min` 支持动态修改重算value （by [@HXCStudio123](https://github.com/HXCStudio123) ）
   - 属性 `max` 支持动态修改重算value （by [@HXCStudio123](https://github.com/HXCStudio123) ）
 - PickerView
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - RadioGrouo
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Rate
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Search
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Slider
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Switch
-  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) ) )
+  - `change` 事件传参方式修改为与小程序官方组件一致 (by [@yawuling](https://github.com/yawuling) )
 - Grid
   - 支持动态渲染GridItem （by [@HXCStudio123](https://github.com/HXCStudio123) ）
   - 支持列项修改后内部GridItem重排 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
