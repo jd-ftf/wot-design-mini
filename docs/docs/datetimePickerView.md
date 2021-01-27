@@ -147,6 +147,8 @@ Page({
 | maxHour | 最大小时，time类型时生效 | number | - | 23 |
 | minMinute | 最小分钟，time类型时生效 | number | - | 0 |
 | maxMinute | 最大分钟，time类型时生效 | number | - | 59 |
+| bind:pickstart | 当滚动选择开始时候触发事件 | - |
+| bind:pickend | 当滚动选择结束时候触发事件 | - |
 
 ### Events
 

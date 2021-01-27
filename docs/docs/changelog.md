@@ -13,12 +13,18 @@
 - DatetimePicker
   - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePickerView
+  - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
 - Input
   - 添加自定义外部类名 `custom-textarea-container-class` (by [@yawuling](https://github.com/yawuling) ) )
 - MessageBox
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
 - Picker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) ) )
+- PickerView
+  - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) ) )
 - Popup
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) ) )
 - SelectPicker
@@ -56,11 +62,13 @@
 - DatetimePicker
   - 修复 `error` 错误状态时 placeholder 未标红问题 (by [@yawuling](https://github.com/yawuling) ) )
   - 修复 `open` 和 `close` 无法调用问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) ) )
 - MessageBox
   - 修复 `closeOnClickModal` 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
   - 修复 `messageBox` 使用 `type` 无效问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Picker
   - 修复手动设置首选项无效问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Popover
   - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) ) )
 - SelectPicker

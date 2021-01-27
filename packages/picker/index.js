@@ -123,7 +123,9 @@ VueComponent({
     showValue: '',
     pickerValue: '',
     displayColumns: [], // 传入 pickerView 的columns
-    resetColumns: [] // 保存之前的 columns，当取消时，将数据源回滚，避免多级联动数据源不正确的情况
+    resetColumns: [], // 保存之前的 columns，当取消时，将数据源回滚，避免多级联动数据源不正确的情况
+    isPicking: false, // 判断pickview是否还在滑动中
+    hasConfirmed: false // 判断用户是否点击了确认按钮
   },
   methods: {
     // 对外暴露方法，打开弹框
@@ -162,6 +164,15 @@ VueComponent({
      */
     onConfirm () {
       if (this.data.loading) return
+
+      // 如果当前还在滑动且未停止下来，则锁住先不确认，等滑完再自动确认，避免pickview值未更新
+      if (this.data.isPicking) {
+        this.setData({
+          hasConfirmed: true
+        })
+        return
+      }
+
       const { beforeConfirm } = this.data
       if (beforeConfirm && getType(beforeConfirm) === 'function') {
         beforeConfirm(this.data.pickerValue, isPass => {
@@ -216,7 +227,24 @@ VueComponent({
         showValue: this.data.displayFormat(items, { valueKey, labelKey })
       })
     },
-    noop () { }
+    noop () { },
+    onPickStart () {
+      this.setData({
+        isPicking: true
+      })
+    },
+    onPickEnd () {
+      this.setData({
+        isPicking: false
+      })
+
+      if (this.data.hasConfirmed) {
+        this.setData({
+          hasConfirmed: false
+        })
+        this.onConfirm()
+      }
+    }
   },
   beforeCreate () {
     // pickerView挂载到全局

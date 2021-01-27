@@ -181,7 +181,9 @@ VueComponent({
     pickerId1: 'wd-datetime-picker-view1',
     handleFilter: null,
     handleColumnFormatter: null,
-    handleFormatter: null
+    handleFormatter: null,
+    isPicking: false, // 判断pickview是否还在滑动中
+    hasConfirmed: false // 判断用户是否点击了确认按钮
   },
 
   methods: {
@@ -349,6 +351,15 @@ VueComponent({
     /** picker触发confirm事件，同步触发confirm事件 */
     onConfirm () {
       if (this.data.loading) return
+
+      // 如果当前还在滑动且未停止下来，则锁住先不确认，等滑完再自动确认，避免pickview值未更新
+      if (this.data.isPicking) {
+        this.setData({
+          hasConfirmed: true
+        })
+        return
+      }
+
       const { beforeConfirm } = this.data
       if (beforeConfirm) {
         beforeConfirm(this.data.innerValue, isPass => {
@@ -357,6 +368,28 @@ VueComponent({
       } else {
         this.handleConfirm()
       }
+    },
+
+    onPickStart () {
+      this.setData({
+        isPicking: true
+      })
+    },
+
+    onPickEnd () {
+      this.setData({
+        isPicking: false
+      })
+
+      // 延迟一会，因为组件层级嵌套过多，日期的计算时间也较长
+      setTimeout(() => {
+        if (this.data.hasConfirmed) {
+          this.setData({
+            hasConfirmed: false
+          })
+          this.onConfirm()
+        }
+      }, 50)
     },
 
     handleConfirm () {
