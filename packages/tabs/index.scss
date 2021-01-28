@@ -55,7 +55,6 @@
   }
   @include e(body) {
     position: relative;
-    display: flex;
   }
   @include e(map) {
     position: absolute;

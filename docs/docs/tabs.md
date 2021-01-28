@@ -99,20 +99,6 @@ Page({
   }
 })
 ```
-### 延迟渲染
-
-设置 `lazy-render` 属性，只有切换到当前页签时，页签的内容才会渲染。
-
-```html
-<wd-tabs value="{{0}}" lazy-render>
-  <block jd:for="{{4}}" jd:key="$this">
-    <wd-tab title="标签{{item + 1}}">
-      <view class="content">内容{{item + 1}}</view>
-    </wd-tab>
-  </block>
-</wd-tabs>
-
-```
 
 ### 手势滑动
 
@@ -141,9 +127,9 @@ Page({
 | map-num | 显示导航地图的标签数阈值 | number | - | 10 |
 | sticky | 粘性布局 | boolean | - | false |
 | offset-top | 粘性布局时距离窗口顶部距离 | number | - | 0 |
-| animated | 开启切换动画 | boolean | - | false |
+| ~~animated~~ | ~~开启切换动画~~，2.3.0 版本修改 tabs 切换方案，去掉该属性 | boolean | - | false |
 | swipeable | 开启手势滑动 | boolean | - | false |
-| lazy-render | 懒渲染标签页 | boolean | - | false |
+| ~~lazy-render~~ | ~~懒渲染标签页~~，2.3.0 版本修改 tabs 切换方案，去掉该属性 | boolean | - | false |
 
 ### Tab Attributes
 

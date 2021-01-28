@@ -1,9 +1,9 @@
 import VueComponent from '../common/component'
 import { getType, checkNumRange, debounce } from '../common/util'
 import touch from '../mixins/touch'
-const $body = '.wd-tabs__body'
 const $item = '.wd-tabs__nav-item'
 const $container = '.wd-tabs__nav-container'
+
 VueComponent({
   mixins: [touch()],
   relations: {
@@ -14,6 +14,27 @@ VueComponent({
         // 在建立relations时tabs保存tab实例中的name的唯一性。
         this.children.push(child)
         this.updateItems()
+
+        // 提前设置好高亮的 tab，避免等到 mounted 时出现闪烁延迟问题
+        let { value, items } = this.data
+        if (
+          getType(value) === 'number' &&
+          value >= items.length
+        ) {
+          return
+        }
+        // 如果是字符串直接匹配，匹配不到用0兜底
+        if (getType(value) === 'string') {
+          const index = items.findIndex(item => item.name === value)
+
+          if (index === -1) return
+
+          value = index
+        }
+        this.children[value].setData({
+          painted: true,
+          isShow: true
+        })
       },
       unlinked (target) {
         this.children = this.children.filter(child => child !== target)
@@ -53,10 +74,6 @@ VueComponent({
       value: 10,
       observer: checkNumRange
     },
-    // // 标题选中时的颜色
-    // color: String,
-    // // 标题未选中时的颜色
-    // inactiveColor: String,
     // 粘性布局
     sticky: {
       type: Boolean,
@@ -67,12 +84,8 @@ VueComponent({
       type: Number,
       value: 0
     },
-    // 开启切换动画
-    animated: Boolean,
     // 开启手势滑动
     swipeable: Boolean,
-    // 懒渲染标签页
-    lazyRender: Boolean,
     // 底部条宽度，单位像素
     lineWidth: {
       type: Number,
@@ -155,56 +168,22 @@ VueComponent({
     },
     /**
      * @description 通过控制tab的active来展示选定的tab
-     * @param {Boolean} animation -是否开启动画。default:true
-     * @param {Boolean} initBody -是否初始化所有tab。default:false
      */
-    setActiveTab (
-      animation = this.data.animated,
-      initBody = false
-    ) {
+    setActiveTab () {
       if (!this.inited) return
-      const { activeIndex, items, lazyRender } = this.data
-      this.getRect($body).then(
-        (rect) => {
-          const { width } = rect
-          const transition = animation ? 'transition: left 0.3s;' : ''
-          const bodyStyle = initBody
-            ? `
-              width: ${width * items.length}px;
-              left: ${-1 * activeIndex * width}px;
-            `
-            : `
-              width: ${width}px;
-              left: ${-1 * activeIndex * width / items.length}px;
-            ` + transition
+      const { activeIndex, items } = this.data
 
-          this.setData({ bodyStyle })
+      this.children.forEach((child, index) => {
+        child.setData({
+          painted: child.data.painted || index === activeIndex,
+          isShow: index === activeIndex
+        })
+      })
 
-          // 懒渲染
-          lazyRender &&
-          !items[activeIndex].painted &&
-          this.children[activeIndex].setData({ painted: true })
-
-          // 初始化时会依次设置child的宽度
-          initBody &&
-          this.children &&
-          this.children.length > 0 &&
-          this.children.forEach((child) => {
-            child.setData(
-              lazyRender
-                ? { width }
-                : {
-                  width,
-                  painted: true
-                })
-          })
-
-          this.$emit('change', {
-            index: activeIndex,
-            name: items[activeIndex].name
-          })
-        }
-      )
+      this.$emit('change', {
+        index: activeIndex,
+        name: items[activeIndex].name
+      })
     },
     /**
      * @description scroll-view滑动到active的tab_nav
@@ -274,19 +253,9 @@ VueComponent({
           this.setActive(activeIndex + 1)
         }
       }
-    }
-  },
-  beforeCreate () {
-    /**
-     * @description 修改选中的tab Index
-     * @param {String |Number } value - radio绑定的value或者tab索引，默认值0
-     * @param {Boolean } init - 是否伴随初始化操作
-     */
-    this.setActive = debounce(function (value = 0, init = false) {
+    },
+    getActiveIndex (value) {
       const { items } = this.data
-      // 没有tab子元素，不执行任何操作
-      if (items.length === 0) return
-
       // name代表的索引超过了items的边界，自动用0兜底
       if (
         getType(value) === 'number' &&
@@ -300,12 +269,28 @@ VueComponent({
         const index = items.findIndex(item => item.name === value)
         value = (index === -1) ? 0 : index
       }
+
+      return value
+    }
+  },
+  beforeCreate () {
+    /**
+     * @description 修改选中的tab Index
+     * @param {String |Number } value - radio绑定的value或者tab索引，默认值0
+     * @param {Boolean } init - 是否伴随初始化操作
+     */
+    this.setActive = debounce(function (value = 0, init = false) {
+      const { items } = this.data
+      // 没有tab子元素，不执行任何操作
+      if (items.length === 0) return
+
+      value = this.getActiveIndex(value)
       // 被禁用，不执行任何操作
       if (items[value].disabled) return
       this.setData({ activeIndex: value })
 
       this.updateLineStyle(init === false)
-      this.setActiveTab(init === false && this.data.animated, init === true)
+      this.setActiveTab()
       this.scrollIntoView()
     }, 100)
   },

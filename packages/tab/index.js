@@ -56,13 +56,9 @@ VueComponent({
     }
   },
   data: {
-    /**
-     * tab的宽度要等于tabs提供`wd-tab__body`的宽度
-     * 由于tab是以slot的方式插入tabs，又因为插槽/组件样式隔离，所以tab的width必须要由tabs来设置
-     */
-    width: '',
     // 初始状态tab不会渲染，必须通过tabs来设置painted使tab渲染
-    painted: false
+    painted: false,
+    isShow: false
   },
   methods: {
     /**
