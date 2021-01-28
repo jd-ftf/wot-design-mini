@@ -62,7 +62,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 1;
   }
   @include e(map-btn) {
     position: absolute;
@@ -73,13 +73,9 @@
     line-height: $-tabs-nav-height;
     text-align: center;
     color: $-tabs-nav-map-arrow-color;
-    z-index: 3;
+    z-index: 1;
     background: $-tabs-nav-bg;
     -webkit-tap-highlight-color: transparent;
-
-    @include when(open) {
-      @include halfPixelBorder;
-    }
 
     &::before {
       position: absolute;
@@ -88,7 +84,7 @@
       left: -24px;
       width: 24px;
       height: $-tabs-nav-height - 1;
-      background: $-tabs-nav-map-btn-before-bg
+      background: $-tabs-nav-map-btn-before-bg;
     }
   }
   @include e(map-arrow) {
@@ -111,6 +107,10 @@
     opacity: 0;
 
     @include halfPixelBorder;
+
+    &::after {
+      z-index: 3;
+    }
   }
   @include e(map-body) {
     display: flex;

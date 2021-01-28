@@ -123,7 +123,7 @@
 }
 
 /* 0.5px 边框 */
-@mixin halfPixelBorder($direction: "bottom", $left: 0) {
+@mixin halfPixelBorder($direction: "bottom", $left: 0, $color: $-color-border-light) {
   &::after {
     position: absolute;
     display: block;
@@ -141,8 +141,7 @@
       top: 0;
     }
     transform: scaleY(0.5);
-    background: $-color-border-light;
-    z-index: 3;
+    background: $color;
   }
 }
 @mixin buttonClear {

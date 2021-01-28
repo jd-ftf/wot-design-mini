@@ -77,3 +77,12 @@
 | default | 卡片内容 |
 | title | 卡片标题 |
 | footer | 底部操作内容 |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根节点自定义样式 |
+| custom-title-class | 标题自定义样式 |
+| custom-content-class | 内容自定义样式 |
+| custom-footer-class | 底部自定义样式 |

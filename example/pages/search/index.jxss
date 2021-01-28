@@ -13,6 +13,7 @@
   top: 5px;
   bottom: 5px;
   background: rgba(0, 0, 0, 0.25);
+  transform: scaleX(0.5);
 }
 .search-type .icon-arrow {
   margin-left: 4px;

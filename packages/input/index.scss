@@ -16,7 +16,6 @@
     background: $-input-border-color;
     transform: scaleY(0.5);
     transition: background-color 0.2s ease-in-out;
-    z-index: 3;
   }
   @include when(not-empty) {
     &:not(.is-disabled) {
@@ -64,7 +63,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    z-index: 1;
   }
   @include e(prefix) {
     margin-right: $-input-icon-margin;
@@ -279,7 +277,6 @@
     right: 14px;
     top: $-input-textarea-padding;
     bottom: 0;
-    z-index: 2;
   }
   @include e(textarea-icon) {
     margin-left: 8px;

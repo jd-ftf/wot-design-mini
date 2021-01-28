@@ -1,14 +1,14 @@
-<view class="wd-card {{type == 'rectangle' ? 'is-rectangle' : ''}}">
-    <view class="wd-card__title-content">
-      <view class="wd-card__title {{type == 'rectangle' ? 'is-rectangle' : ''}}">
-        <text jd:if="{{title}}">{{ title }}</text>
-        <slot jd:else name="title"></slot>
-      </view>
-    </view>
-    <view class="wd-card__content {{type == 'rectangle' ? 'is-rectangle' : ''}}">
-      <slot></slot>
-    </view>
-    <view class="wd-card__footer">
-      <slot name="footer"></slot>
+<view class="wd-card {{type == 'rectangle' ? 'is-rectangle' : ''}} custom-class">
+  <view class="wd-card__title-content custom-title-class">
+    <view class="wd-card__title">
+      <text jd:if="{{title}}">{{ title }}</text>
+      <slot jd:else name="title"></slot>
     </view>
   </view>
+  <view class="wd-card__content custom-content-class">
+    <slot></slot>
+  </view>
+  <view class="wd-card__footer custom-footer-class">
+    <slot name="footer"></slot>
+  </view>
+</view>

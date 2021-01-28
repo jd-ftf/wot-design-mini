@@ -8,6 +8,8 @@
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
 - CalendarView
   - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) )
+- Card
+  - 新增 `custom-class`、`custom-title-class`、`custom-content-class`、`custom-footer-class` 自定义样式 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
@@ -48,6 +50,8 @@
   - 优化多个组件的定位层级 (by [@yawuling](https://github.com/yawuling) )
 - clickoutside
   - 给 `wd-drop-menu`, `wd-popover`, `wd-swipe-action`, `wd-tooltip` 添加 `clickoutside` 功能，优化点击非组件区域时关闭组件的方案 (by [@yawuling](https://github.com/yawuling) )
+- 边框
+  - 边框调整为 0.5 像素 (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug 修复
 

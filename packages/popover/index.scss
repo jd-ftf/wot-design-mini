@@ -12,8 +12,14 @@
   }
 
   @include e(menu-inner) {
+    position: relative;
     padding: $-popover-padding 0;
-    border-top: 1px solid $-popover-border-color;
+
+    @include halfPixelBorder("top", 0, $-popover-border-color);
+
+    &:first-child::after {
+      display: none;
+    }
   }
 
   @include e(menu) {
