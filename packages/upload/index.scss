@@ -12,13 +12,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     width: $-upload-size;
     height: $-upload-size;
     font-size: $-upload-evoke-icon-size;
-
     background-color: $-upload-evoke-bg;
     color: $-upload-evoke-color;
+    margin-bottom: 12px;
 
     @include when(disabled) {
       color: $-upload-evoke-disabled-color;
