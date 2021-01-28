@@ -1,10 +1,8 @@
-<view
-  class="wd-tab custom-class"
-  style="{{ width ? 'width:' + width + 'px;' : '' }}"
->
+<view class="wd-tab custom-class">
   <view
     jd:if="{{painted}}"
     class="wd-tab__body"
+    style="{{ isShow ? '' : 'display: none;' }}"
   >
     <slot/>
   </view>

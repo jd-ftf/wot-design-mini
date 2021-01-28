@@ -9,16 +9,6 @@
   </wd-tabs>
 </demo-block>
 
-<demo-block title="滑动动画" transparent>
-  <wd-tabs value="{{0}}" animated>
-    <block jd:for="{{4}}" jd:key="$this">
-      <wd-tab title="标签{{item + 1}}" name="{{item}}">
-        <view class="content">内容{{item + 1}}</view>
-      </wd-tab>
-    </block>
-  </wd-tabs>
-</demo-block>
-
 <demo-block title="粘性布局" transparent>
   <wd-tabs value="{{0}}" sticky>
     <block jd:for="{{4}}" jd:key="$this">
@@ -41,16 +31,6 @@
 
 <demo-block title="点击事件" transparent>
   <wd-tabs value="{{0}}" bind:click="handleClick">
-    <block jd:for="{{4}}" jd:key="$this">
-      <wd-tab title="标签{{item + 1}}" name="{{item}}">
-        <view class="content">内容{{item + 1}}</view>
-      </wd-tab>
-    </block>
-  </wd-tabs>
-</demo-block>
-
-<demo-block title="延迟渲染" transparent>
-  <wd-tabs value="{{0}}" lazy-render>
     <block jd:for="{{4}}" jd:key="$this">
       <wd-tab title="标签{{item + 1}}" name="{{item}}">
         <view class="content">内容{{item + 1}}</view>

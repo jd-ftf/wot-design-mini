@@ -83,7 +83,7 @@
         bind:touchend="onTouchEnd"
         bind:touchcancel="onTouchEnd"
       >
-        <view class="wd-tabs__body" style="{{bodyStyle}}">
+        <view class="wd-tabs__body">
           <slot/>
         </view>
       </view>
@@ -181,7 +181,7 @@
       bind:touchend="onTouchEnd"
       bind:touchcancel="onTouchEnd"
     >
-      <view class="wd-tabs__body" style="{{bodyStyle}}">
+      <view class="wd-tabs__body">
         <slot/>
       </view>
     </view>
