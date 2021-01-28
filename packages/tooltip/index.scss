@@ -13,10 +13,8 @@
     backdrop-filter: blur($-tooltip-blur);
     background-clip: padding-box;
     border-radius: $-tooltip-radius;
-
     background: $-tooltip-bg;
     color: $-tooltip-color;
-
     text-align: center;
     box-sizing: border-box;
     z-index: 10;

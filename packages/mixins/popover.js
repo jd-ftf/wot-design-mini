@@ -53,7 +53,7 @@ export default function () {
       },
       offset: {
         type: Number,
-        value: 5
+        value: 0
       },
       useContentSlot: {
         type: Boolean,
@@ -153,14 +153,14 @@ export default function () {
         // 上下位（纵轴）对应的距离左边的距离
         const verticalX = this.width / 2
         // 上下位（纵轴）对应的距离底部的距离
-        const verticalY = arrowSize + this.height + offset
+        const verticalY = arrowSize + this.height + 5
         // 左右位（横轴）对应的距离左边的距离
-        const horizontalX = this.width + arrowSize + offset
+        const horizontalX = this.width + arrowSize + 5
         // 左右位（横轴）对应的距离底部的距离
         const horizontalY = this.height / 2
 
-        const offsetX = verticalX - 17 > 0 ? 0 : verticalX - 17
-        const offsetY = horizontalY - 17 > 0 ? 0 : horizontalY - 17
+        const offsetX = (verticalX - 17 > 0 ? 0 : verticalX - 25) + offset
+        const offsetY = (horizontalY - 17 > 0 ? 0 : horizontalY - 25) + offset
 
         const placements = new Map([
           // 上

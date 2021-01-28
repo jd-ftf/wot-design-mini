@@ -77,10 +77,12 @@
   - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) )
 - Popover
   - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) )
 - Tooltip
   - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
 - Upload
   - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) )
   - 修复图片删除图标层级过高问题 (by [@yawuling](https://github.com/yawuling) )

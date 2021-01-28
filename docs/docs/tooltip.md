@@ -153,7 +153,7 @@ Page({
 |  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
 |  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
 |  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
-|  offset        |  出现位置的偏移量  | Number           | — |  5 |
+|  offset        |  出现位置的偏移量  | Number           | — |  0 |
 |  show-close   |  是否显示 Tooltip 内部的关闭按钮 | Boolean | — | false |
 
 ### Events
