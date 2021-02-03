@@ -33,5 +33,7 @@
     time-filter="{{ timeFilter }}"
     hide-second="{{ hideSecond }}"
     bind:change="handleChange"
+    bind:pickstart="handlePickStart"
+    bind:pickend="handlePickEnd"
   />
 </view>

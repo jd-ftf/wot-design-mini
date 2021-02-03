@@ -27,7 +27,7 @@
   <wd-calendar-view type="datetime" value="{{ value1 }}"></wd-calendar-view>
 </demo-block>
 <demo-block title="时间范围类型" hor="{{ 0 }}">
-  <wd-calendar-view type="datetimerange" value="{{ value3 }}"></wd-calendar-view>
+  <wd-calendar-view type="datetimerange" value="{{ value5 }}"></wd-calendar-view>
 </demo-block>
 <demo-block title="限制最大选择范围" hor="{{ 0 }}">
   <wd-calendar-view type="daterange" max-range="{{ 3 }}"></wd-calendar-view>

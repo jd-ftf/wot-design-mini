@@ -43,6 +43,8 @@
         columns="{{ timeData }}"
         columns-height="{{ 125 }}"
         bind:change="handleTimeChange"
+        bind:pickstart="handlePickStart"
+        bind:pickend="handlePickEnd"
       />
     </view>
   </view>

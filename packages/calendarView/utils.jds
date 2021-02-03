@@ -150,10 +150,6 @@ function getItemClass (monthType, value, type) {
   if (type.indexOf('range') > -1) {
     if (!value || !value[1]) {
       classList.push('is-without-end')
-    } else if (value && value[0] && value[1]) {
-      if ((type === 'daterange' && compareDay(value[0], value[1]) === 0) || (type === 'monthrange' && compareMonth(value[0], value[1]) === 0)) {
-        classList.push('is-same-end')
-      }
     }
   }
 
