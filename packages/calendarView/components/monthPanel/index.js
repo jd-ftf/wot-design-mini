@@ -15,7 +15,7 @@ VueComponent({
     value: {
       type: [null, Number, Array],
       observer (val, oldVal) {
-        if (isEqual(val, oldVal)) return
+        if (isEqual(val, this.data.innerValue)) return
 
         if ((this.data.type === 'datetime' && val) || (this.data.type === 'datetimerange' && val && val.length > 0 && val[0])) {
           this.setTime(val, 'start')
@@ -40,7 +40,8 @@ VueComponent({
     scrollIntoView: '',
     timeValue: [],
     timeData: [],
-    timeType: ''
+    timeType: '', // 当前时间类型，是开始还是结束
+    innerValue: '' // 内部保存一个值，用于判断新老值，避免监听器触发
   },
   mounted () {
     this.initRect()
@@ -155,6 +156,10 @@ VueComponent({
       return this.data.hideSecond ? [hour, minute] : [hour, minute, second]
     },
     setTime (value, type) {
+      if (getType(value) === 'array' && value[0] && value[1] && type === 'start' && this.data.timeType === 'start') {
+        type = 'end'
+      }
+
       this.setData({
         timeData: this.getTimeData(value, type),
         timeValue: this.getTimeValue(value, type),
@@ -166,9 +171,9 @@ VueComponent({
     },
     handleDateChange ({ detail: { value, type } }) {
       if (!isEqual(value, this.data.value)) {
-        // 避免 change 事件导致的 value observer 监听事件
+        // 内部保存一个值，用于判断新老值，避免监听器触发
         this.setData({
-          value
+          innerValue: value
         })
         this.handleChange(value)
       }
@@ -217,11 +222,18 @@ VueComponent({
 
         this.setData({
           timeData: this.getTimeData(finalValue, this.data.timeType),
-          timeValue: value
+          timeValue: value,
+          innerValue: finalValue // 内部保存一个值，用于判断新老值，避免监听器触发
         })
 
         this.handleChange(finalValue)
       }
+    },
+    handlePickStart () {
+      this.$emit('pickstart')
+    },
+    handlePickEnd () {
+      this.$emit('pickend')
     }
   },
   beforeCreate () {
