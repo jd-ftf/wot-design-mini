@@ -89,6 +89,7 @@
 - Upload
   - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) )
   - 修复图片删除图标层级过高问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `limit` 二次赋值为 null、undefined 时抛错的问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.2.0
 
