@@ -46,7 +46,7 @@ VueComponent({
     limit: {
       type: Number,
       observer (val) {
-        if (val < this.data.uploadFiles.length) {
+        if (val && val < this.data.uploadFiles.length) {
           throw Error('[wot-design]Error: props limit must less than fileList.length')
         }
       }
