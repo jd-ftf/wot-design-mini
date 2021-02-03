@@ -69,6 +69,7 @@
   - 修复 `error` 错误状态时 placeholder 未标红问题 (by [@yawuling](https://github.com/yawuling) )
   - 修复 `open` 和 `close` 无法调用问题 (by [@yawuling](https://github.com/yawuling) )
   - 修复滚动太快后点击确定按钮，未更新值的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复范围选择二次赋值时值错乱的问题 (by [@yawuling](https://github.com/yawuling) )
 - Loadmore
   - 修复 loading 图标未正常展示的问题 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox

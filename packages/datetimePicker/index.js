@@ -581,7 +581,7 @@ VueComponent({
      */
     customColumnFormatter (picker) {
       const { type, innerValue, endInnerValue } = this.data
-      const { pickerValue: currentValue, startSymbol, formatter } = picker.data
+      const { startSymbol, formatter } = picker.data
       // 校准上下方picker的value值，与内部innerValue对应
       const start = picker.correctValue(innerValue)
       const end = picker.correctValue(endInnerValue)
@@ -589,6 +589,7 @@ VueComponent({
        * 如果是上方picekr 那么将下方picker的值作为下边界
        * 如果是下方picekr 那么将上方picker的值作为上边界
        */
+      const currentValue = startSymbol ? picker.getPickerValue(start, type) : picker.getPickerValue(end, type)
       const boundary = startSymbol ? picker.getPickerValue(end, type) : picker.getPickerValue(start, type)
       // 获取当前picekr中的源列数组
       const columns = picker.getOriginColumns()
