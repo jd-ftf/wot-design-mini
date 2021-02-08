@@ -60,10 +60,10 @@ Page({
 
 ### 周类型选择
 
-设置 `type` 为 `week` 类型，此时 `value` 有值时其值为周的第一天（周日）。
+设置 `type` 为 `week` 类型，如果 `value` 有初始值，建议将周起始日 `first-day-of-week` 设置为 1（周一），避免选中样式和回显匹配不上。
 
 ```html
-<wd-calendar-view type="week" value="{{ value }}" bind:change="handleChange" />
+<wd-calendar-view type="week" value="{{ value }}" first-day-of-week="{{ 1 }}" bind:change="handleChange" />
 ```
 
 ```javascript
@@ -186,7 +186,7 @@ Page({
 
 | 属性      | 类型 | 说明                                 |
 |---------- |---- |---------- |
-| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 ｜
+| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 |
 | date | timestamp | 13位的时间戳 |
 | text | string | 日期文本内容 |
 | topInfo | string | 上方提示信息 |
@@ -252,7 +252,7 @@ Page({
 设置 `max-range` 属性，设置范围选择的最大限制。
 
 ```html
-<wd-calendar-view type="daterange" max-range="{{ 3 }}" />
+<wd-calendar-view type="daterange" max-range="{{ 3 }}" value="{{ value }}" bind:change="handleChange" />
 ```
 
 ### 展示面板标题
@@ -260,7 +260,7 @@ Page({
 `show-panel-title` 默认为 `true`，会自动计算标题并进行展示，可以选择不进行展示。
 
 ```html
-<wd-calendar-view type="daterange" show-panel-title="{{ false }}" />
+<wd-calendar-view type="daterange" show-panel-title="{{ false }}" value="{{ value }}" bind:change="handleChange" />
 ```
 
 ### 设置周起始日

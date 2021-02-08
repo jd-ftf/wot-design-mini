@@ -30,7 +30,14 @@ VueComponent({
       type: Boolean,
       value: true
     },
-    modalStyle: String
+    modalStyle: String,
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: true
+    }
+  },
+  data: {
+    safeBottom: 0
   },
   methods: {
     handleClickModal () {
@@ -65,5 +72,16 @@ VueComponent({
   },
   created () {
     this.observerTransition()
+
+    if (this.data.safeAreaInsetBottom) {
+      const {
+        safeArea: { bottom },
+        screenHeight
+      } = jd.getSystemInfoSync()
+
+      this.setData({
+        safeBottom: screenHeight - bottom
+      })
+    }
   }
 })

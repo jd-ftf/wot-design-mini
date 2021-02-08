@@ -24,6 +24,7 @@
     title="{{ title || '请选择' }}"
     close-on-click-modal="{{ closeOnClickModal }}"
     z-index="{{ zIndex }}"
+    safe-area-inset-bottom="{{ safeAreaInsetBottom }}"
     bind:close="close"
     custom-header-class="wd-select-picker__header"
   >

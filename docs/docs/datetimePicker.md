@@ -298,42 +298,43 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 选中项，当 type 为 time 时，类型为字符串；当 type 为 Array 时，类型为范围选择；否则为 Date | string / date / array | - |
-| default-value | 默认日期，类型保持与 value 一致，打开面板时面板自动选到默认日期 ｜ string / date / array | - |
-| type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
-| loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
-| columns-height | picker内部滚筒高 | number | - | 231 |
-| title | 弹出层标题 | string | - | - |
-| cancel-button-text | 取消按钮文案 | string | - | '取消' |
-| confirm-button-text | 确认按钮文案 | string | - | '完成' |
-| label | 选择器左侧文案，label可以不传 | string | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' |
-| disabled | 禁用 | boolean | - | fasle |
-| readonly | 只读 | boolean | - | false |
-| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
-| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
-| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
-| display-format-tab-label | 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 | function | - | - |
-| minDate | 最小日期 | date | - | 当前日期 - 10年 |
-| maxDate | 最大日期 | date | - | 当前日志 + 10年 |
-| minHour | 最小小时，time类型时生效 | number | - | 0 |
-| maxHour | 最大小时，time类型时生效 | number | - | 23 |
-| minMinute | 最小分钟，time类型时生效 | number | - | 0 |
-| maxMinute | 最大分钟，time类型时生效 | number | - | 59 |
-| required | 表单属性，必填 | boolean | - | false |
-| size | 设置选择器大小 | string | 'large' | - |
-| label-width | 设置左侧标题宽度 | string | - | '33%' |
-| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
-| align-right | 选择器的值靠右展示 | boolean | - | false |
-| use-label-slot | label 使用插槽 | boolean | - | false |
-| use-default-slot | 使用默认插槽 | boolean | - | false |
-| before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| name | form 表单中的字段名 | string | - | - |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
-| z-index | 弹窗层级 | number | - | 15 |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 最低版本 |
+|---------- |------------------------------------ |---------- |------------- |-------- |------|
+| value | 选中项，当 type 为 time 时，类型为字符串；当 type 为 Array 时，类型为范围选择；否则为 Date | string / date / array | - | - | - |
+| default-value | 默认日期，类型保持与 value 一致，打开面板时面板自动选到默认日期 | string / date / array | - | - | - |
+| type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' | - |
+| loading | 加载中 | boolean | - | false | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' | - |
+| columns-height | picker内部滚筒高 | number | - | 231 | - |
+| title | 弹出层标题 | string | - | - | - |
+| cancel-button-text | 取消按钮文案 | string | - | '取消' | - |
+| confirm-button-text | 确认按钮文案 | string | - | '完成' | - |
+| label | 选择器左侧文案，label可以不传 | string | - | - | - |
+| placeholder | 选择器占位符 | string | - | '请选择' | - |
+| disabled | 禁用 | boolean | - | fasle | - |
+| readonly | 只读 | boolean | - | false | - |
+| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | - |
+| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - | - |
+| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - | - |
+| display-format-tab-label | 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 | function | - | - | - |
+| minDate | 最小日期 | date | - | 当前日期 - 10年 | - |
+| maxDate | 最大日期 | date | - | 当前日志 + 10年 | - |
+| minHour | 最小小时，time类型时生效 | number | - | 0 | - |
+| maxHour | 最大小时，time类型时生效 | number | - | 23 | - |
+| minMinute | 最小分钟，time类型时生效 | number | - | 0 | - |
+| maxMinute | 最大分钟，time类型时生效 | number | - | 59 | - |
+| required | 表单属性，必填 | boolean | - | false | - |
+| size | 设置选择器大小 | string | 'large' | - | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' | - |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | - |
+| align-right | 选择器的值靠右展示 | boolean | - | false | - |
+| use-label-slot | label 使用插槽 | boolean | - | false | - |
+| use-default-slot | 使用默认插槽 | boolean | - | false | - |
+| before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - | - |
+| name | form 表单中的字段名 | string | - | - | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| z-index | 弹窗层级 | number | - | 15 | - |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
 
 ### Events
 

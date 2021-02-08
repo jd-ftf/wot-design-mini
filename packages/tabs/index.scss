@@ -4,14 +4,14 @@
 @include b(tabs) {
   position: relative;
   background: #fff;
-  width: $-tabs-width;
+  width: 100%;
 
   @include e(nav) {
     left: 0;
     right: 0;
     height: $-tabs-nav-height;
     background-color: #fff;
-    width: $-tabs-width;
+    width: 100%;
     position: relative;
 
     @include m(wrap) {

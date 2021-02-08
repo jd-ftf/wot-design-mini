@@ -21,7 +21,7 @@
       <wd-radio value="monthrange">monthrange</wd-radio>
     </wd-radio-group>
   </view>
-  <wd-calendar-view type="{{ type2 }}" value="{{ value3 }}" bind:change="handleChange3"></wd-calendar-view>
+  <wd-calendar-view type="{{ type2 }}" allow-same-day value="{{ value3 }}" bind:change="handleChange3"></wd-calendar-view>
 </demo-block>
 <demo-block title="时间类型" hor="{{ 0 }}">
   <wd-calendar-view type="datetime" value="{{ value1 }}"></wd-calendar-view>

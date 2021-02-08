@@ -156,8 +156,76 @@ function getItemClass (monthType, value, type) {
   return classList.join(' ')
 }
 
+/**
+ * 判断是否是范围选择
+ * @param {string} type
+ */
 function isRange (type) {
   return type.indexOf('range') > -1
+}
+
+function padZero (number) {
+  number = number + ''
+
+  while (number.length < 2) {
+    number = '0' + number
+  }
+
+  return number
+}
+
+function getWeekNumber (date) {
+  date = getDate(date)
+  date.setHours(0, 0, 0, 0)
+  // Thursday in current week decides the year.
+  date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7)
+  // January 4 is always in week 1.
+  var week = getDate(date.getFullYear(), 0, 4)
+  // Adjust to Thursday in week 1 and count number of weeks from date to week 1.
+  // Rounding should be fine for Daylight Saving Time. Its shift should never be more than 12 hours.
+  return 1 + Math.round(((date.getTime() - week.getTime()) / 86400000 - 3 + (week.getDay() + 6) % 7) / 7)
+}
+
+function formatRange (value, type, isEnd) {
+  switch (type) {
+    case 'daterange':
+      if (!value) {
+        return isEnd ? '结束时间' : '开始时间'
+      }
+      var date = getDate(value)
+      var year = date.getFullYear()
+      var month = padZero(date.getMonth() + 1)
+      var day = padZero(date.getDate())
+      return year + '年' + month + '月' + day + '日'
+    case 'datetimerange':
+      if (!value) {
+        return isEnd ? '结束时间' : '开始时间'
+      }
+      var date = getDate(value)
+      var year = '' + date.getFullYear()
+      var month = padZero(date.getMonth() + 1)
+      var day = padZero(date.getDate())
+      var hour = padZero(date.getHours())
+      var minute = padZero(date.getMinutes())
+      var second = padZero(date.getSeconds())
+      return year.slice(2) + '年' + month + '月' + day + '日 ' + hour + ':' + minute + ':' + second
+    case 'weekrange':
+      if (!value) {
+        return isEnd ? '结束周' : '开始周'
+      }
+      var date = getDate(value)
+      var year = date.getFullYear()
+      var week = getWeekNumber(value)
+      return year + '年第' + week + '周'
+    case 'monthrange':
+      if (!value) {
+        return isEnd ? '结束月' : '开始月'
+      }
+      var date = getDate(value)
+      var year = date.getFullYear()
+      var month = padZero(date.getMonth() + 1)
+      return year + '年' + month + '月'
+  }
 }
 
 module.exports = {
@@ -168,5 +236,6 @@ module.exports = {
   getYears: getYears,
   formatYearTitle: formatYearTitle,
   getItemClass: getItemClass,
-  isRange: isRange
+  isRange: isRange,
+  formatRange: formatRange
 }

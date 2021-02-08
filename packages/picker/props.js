@@ -49,5 +49,9 @@ export default {
   closeOnClickModal: {
     type: Boolean,
     value: true
+  },
+  safeAreaInsetBottom: {
+    type: Boolean,
+    value: true
   }
 }

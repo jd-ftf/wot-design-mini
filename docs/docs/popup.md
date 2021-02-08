@@ -36,19 +36,20 @@
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| show | 弹出层是否显示 | boolean | - | - |
-| position | 弹出位置 | string | 'center', 'top', 'right', 'bottom', 'left' | 'center' |
-| closable | 关闭按钮 | boolean | - | false |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
-| duration | 动画持续时间 | number / boolean | - | 300(ms) |
-| z-index | 设置层级 | number | - | 10 |
-| custom-style | 自定义弹出层样式 | string | - | - |
-| modal | 是否显示遮罩 | boolean | - | true |
-| modal-style | 自定义modal蒙层样式 | string | - | - |
-| hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true |
-| lazy-render | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 最低版本 |
+|---------- |------------------------------------ |---------- |------------- |-------- |------|
+| show | 弹出层是否显示 | boolean | - | - | - |
+| position | 弹出位置 | string | 'center', 'top', 'right', 'bottom', 'left' | 'center' | - |
+| closable | 关闭按钮 | boolean | - | false | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| duration | 动画持续时间 | number / boolean | - | 300(ms) | - |
+| z-index | 设置层级 | number | - | 10 | - |
+| custom-style | 自定义弹出层样式 | string | - | - | - |
+| modal | 是否显示遮罩 | boolean | - | true | - |
+| modal-style | 自定义modal蒙层样式 | string | - | - | - |
+| hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true | - |
+| lazy-render | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true | - |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
 
 ### Events
 

@@ -48,6 +48,10 @@ Page({
         open: false,
         pages: [
           {
+            id: 'calendar',
+            name: 'Calendar 日历选择'
+          },
+          {
             id: 'calendarView',
             name: 'CalendarView 日历面板'
           }, {

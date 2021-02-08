@@ -88,6 +88,10 @@ VueComponent({
     zIndex: {
       type: Number,
       value: 15
+    },
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: true
     }
   },
 

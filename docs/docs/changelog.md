@@ -6,6 +6,8 @@
 
 - ActionSheet
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
+- Calendar
+  - 新增日历选择器组件 (by [@yawuling](https://github.com/yawuling) )
 - CalendarView
   - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) )
 - Card
