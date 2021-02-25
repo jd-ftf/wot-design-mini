@@ -287,6 +287,10 @@ VueComponent({
         confirmBtnDisabled
       })
 
+      this.$emit('change', {
+        value
+      })
+
       if (this.data.type.indexOf('range') > -1) {
         this.setInnerLabel()
       }

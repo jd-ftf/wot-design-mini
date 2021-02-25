@@ -142,8 +142,7 @@ Page({
 })
 ```
 
-可以设置 `hide-second`，使时间只展示到分钟级别；设置 `time-filter` 属性，可以自定义过滤 时分秒 选项，该属性接收 { type: string, values: array } 参数，返回一个新的数组，type 值为 'hour'、'minute'
- 或 'second'，values 为picker数据列表。
+可以设置 `hide-second`，使时间只展示到分钟级别；设置 `time-filter` 属性，可以自定义过滤 时分秒 选项，该属性接收 { type: string, values: array } 参数，返回一个新的数组，type 值为 'hour'、'minute' 或 'second'，values 为picker数据列表。
 
 ```html
 <wd-calendar type="datetime" value="{{ value }}" bind:confirm="handleConfirm" hide-second time-filter="{{ timeFilter }}" />
@@ -177,7 +176,7 @@ Page({
 设置 `show-type-switch` 属性，展示 日周月 切换功能，支持在日周月类型 `date、week、month` 之间进行来回切换，可以通过 `type` 属性设置初始类型。如果 `type` 为 range 类型如 `daterange`，则日历可以在 `daterange、weekrange、monthrang` 之间进行来回切换。
 
 ```html
-<wd-calendar label="日周月切换" first-day-of-week="{{ 1 }}" show-type-switch value="{{ value }}" bind:confirm="handleConfirm />
+<wd-calendar label="日周月切换" first-day-of-week="{{ 1 }}" show-type-switch value="{{ value }}" bind:confirm="handleConfirm" />
 ```
 
 ### 快捷操作
@@ -210,7 +209,7 @@ Page({
 | disabled | boolean | 是否禁用 |
 
 ```html
-<wd-calendar type="daterange" value="{{ value }}" allow-same-day formatter="{{ formatter }}" bind:confirm="handleConfirm" >
+<wd-calendar type="daterange" value="{{ value }}" allow-same-day formatter="{{ formatter }}" bind:confirm="handleConfirm" />
 ```
 
 ```javascript
@@ -465,6 +464,7 @@ Page({
 |---------|-----|-----|
 | bind:confirm | 绑定值变化时触发 | event.detail = { value } |
 | bind:shortcutclick | 点击快捷选项时触发 | event.detail = { item, index } |
+| bind:change | 点击面板日期时触发 | event.detail = { value } |
 
 ### Methods
 
@@ -472,3 +472,11 @@ Page({
 |---------|-----|-----|
 | open | 打开面板 | - |
 | close | 关闭面板 | - |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |
+| custom-label-class | label 外部自定义样式 |
+| custom-value-class | value 外部自定义样式 |

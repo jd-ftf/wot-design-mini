@@ -228,7 +228,7 @@ VueComponent({
       const compare = compareDate(date.date, startDate)
 
       // 禁止选择同个日期
-      if (!this.data.allowSameDay && compare === 0 && (this.data.type === 'daterange' || (this.data.type === 'datetimerange' && !endDate))) {
+      if (!this.data.allowSameDay && compare === 0 && (this.data.type === 'daterange' || this.data.type === 'datetimerange') && !endDate) {
         return
       }
 

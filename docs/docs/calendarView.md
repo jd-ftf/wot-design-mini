@@ -142,8 +142,7 @@ Page({
 })
 ```
 
-可以设置 `hide-second`，使时间只展示到分钟级别；设置 `time-filter` 属性，可以自定义过滤 时分秒 选项，该属性接收 { type: string, values: array } 参数，返回一个新的数组，type 值为 'hour'、'minute'
- 或 'second'，values 为picker数据列表。
+可以设置 `hide-second`，使时间只展示到分钟级别；设置 `time-filter` 属性，可以自定义过滤 时分秒 选项，该属性接收 { type: string, values: array } 参数，返回一个新的数组，type 值为 'hour'、'minute' 或 'second'，values 为picker数据列表。
 
 ```html
 <wd-calendar-view type="datetime" value="{{ value }}" bind:change="handleChange" hide-second time-filter="{{ timeFilter }}" />
@@ -297,3 +296,9 @@ Page({
 | 方法名称 | 说明 | 参数 |
 |---------|-----|-----|
 | scrollIntoView | 使当前日期或者选中日期滚动到可视区域，并监听滚动，在面板从 隐藏状态（如 display: none） 切换为展示状态时调用 | thresholds，数字数组，具体使用见 [Intersection Observer](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver) |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |

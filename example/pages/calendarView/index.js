@@ -6,8 +6,9 @@ Page({
     value1: Date.now(),
     value2: '',
     value3: [Date.now() - 24 * 60 * 60 * 1000 * 33, Date.now()],
-    value4: [Date.now() - 24 * 60 * 60 * 1000 * 3, Date.now() - 24 * 60 * 60 * 1000],
+    value4: Date.now(),
     value5: [Date.now() - 24 * 60 * 60 * 1000 * 3, Date.now() - 24 * 60 * 60 * 1000],
+    value6: [Date.now() - 24 * 60 * 60 * 1000 * 3, Date.now() - 24 * 60 * 60 * 1000],
     formatter: function (day) {
       const date = new Date(day.date)
       const now = new Date()

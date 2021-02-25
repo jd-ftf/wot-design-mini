@@ -24,7 +24,7 @@
   <wd-calendar-view type="{{ type2 }}" allow-same-day value="{{ value3 }}" bind:change="handleChange3"></wd-calendar-view>
 </demo-block>
 <demo-block title="时间类型" hor="{{ 0 }}">
-  <wd-calendar-view type="datetime" value="{{ value1 }}"></wd-calendar-view>
+  <wd-calendar-view type="datetime" value="{{ value4 }}"></wd-calendar-view>
 </demo-block>
 <demo-block title="时间范围类型" hor="{{ 0 }}">
   <wd-calendar-view type="datetimerange" value="{{ value5 }}"></wd-calendar-view>
@@ -33,7 +33,7 @@
   <wd-calendar-view type="daterange" max-range="{{ 3 }}"></wd-calendar-view>
 </demo-block>
 <demo-block title="自定义日期" hor="{{ 0 }}">
-  <wd-calendar-view type="daterange" allow-same-day value="{{ value4 }}" formatter="{{ formatter }}"></wd-calendar-view>
+  <wd-calendar-view type="daterange" allow-same-day value="{{ value6 }}" formatter="{{ formatter }}"></wd-calendar-view>
 </demo-block>
 <demo-block title="设置周起始日" hor="{{ 0 }}">
   <wd-calendar-view first-day-of-week="{{ 1 }}"></wd-calendar-view>
