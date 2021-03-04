@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/input/index",
+    "pages/imgCropper/index",
     "pages/tooltip/index",
     "pages/upload/index",
     "pages/slider/index",

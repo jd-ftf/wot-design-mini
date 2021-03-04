@@ -139,6 +139,8 @@
               title: Divider 分割线
             - name: img
               title: Img 图片
+            - name: imgCropper
+              title: ImgCropper 图片裁剪
             - name: grid
               title: Grid 宫格
             - name: loadmore

@@ -1,4 +1,10 @@
 ## 更新日志
+### 2.4.0
+
+#### 新特性
+
+- ImgCropper
+  - 新增组件图片裁剪 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
 ### 2.3.0
 
