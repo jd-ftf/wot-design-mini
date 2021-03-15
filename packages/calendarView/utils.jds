@@ -156,6 +156,14 @@ function getItemClass (monthType, value, type) {
   return classList.join(' ')
 }
 
+/**
+ * 判断是否是范围选择
+ * @param {string} type
+ */
+function isRange (type) {
+  return type.indexOf('range') > -1
+}
+
 module.exports = {
   getMonths: getMonths,
   getWeekLabel: getWeekLabel,
