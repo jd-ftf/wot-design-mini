@@ -264,10 +264,10 @@ Page({
 
 ### 快捷选项
 
-设置 `shortcuts` 属性，配置快捷选项列表，通过监听 `bind:shortcutclick` 事件，获取当前点击的选项对象 `event.detail.item` 和 选项下标 `event.detail.index`。`text` 为选项的必传字段，其他字段根据自己需要自行传入。
+设置 `shortcuts` 属性，配置快捷选项列表，传入 `on-shortcuts-click` 属性，`on-shortcuts-click` 是个函数，接收 { item, index } 参数，item 为当前选项，index 为当前选项的下标。当快捷选项被点击时，会调用 `on-shortcuts-click`，接收到日历新的选中值。`text` 为选项的必传字段，其他字段根据自己需要自行传入。
 
 ```html
-<wd-calendar label="快捷选项" shortcuts="{{ shortcuts }}" type="daterange" value="{{ value }}" bind:confirm="handleConfirm" bind:shortcutclick="handleShortcutClick" />
+<wd-calendar label="快捷选项" shortcuts="{{ shortcuts }}" on-shortcuts-click="{{ onShortcutsClick }}" type="daterange" value="{{ value }}" bind:confirm="handleConfirm" />
 ```
 
 ```javascript
@@ -285,21 +285,18 @@ Page({
         text: '近30天',
         id: 30
       }
-    ]
+    ],
+    onShortcutsClick ({ item }) {
+      const dayDiff = item.id
+      const endDate = Date.now() - 24 * 60 * 60 * 1000
+      const startDate = endDate - dayDiff * 24 * 60 * 60 * 1000
+
+      return [startDate, endDate]
+    }
   },
   handleConfirm (event) {
     this.setData({
       value: event.detail.value
-    })
-  },
-  handleShortcutClick (event) {
-    const { item } = event.detail
-
-    const dayDiff = item.id
-    const endDate = Date.now() - 24 * 60 * 60 * 1000
-    const startDate = endDate - dayDiff * 24 * 60 * 60 * 1000
-    this.setData({
-      value: [startDate, endDate]
     })
   }
 })

@@ -14,7 +14,7 @@
     <wd-calendar label="日周月切换" first-day-of-week="{{ 1 }}" show-type-switch value="{{ value10 }}" />
     <wd-calendar label="快捷操作" show-confirm="{{ false }}" />
     <wd-calendar label="日期格式化" type="daterange" value="{{ value11 }}" formatter="{{ formatter }}" />
-    <wd-calendar label="快捷选项" shortcuts="{{ shortcuts }}" type="daterange" value="{{ value12 }}" bind:confirm="handleConfirm3" bind:shortcutclick="handleShortcutClick" />
+    <wd-calendar label="快捷选项" shortcuts="{{ shortcuts }}" on-shortcuts-click="{{ onShortcutsClick }}" type="daterange" value="{{ value12 }}" bind:confirm="handleConfirm3" />
     <wd-calendar label="自定义展示" type="daterange" value="{{ value13 }}" display-format="{{ displayFormat }}" inner-display-format="{{ innerDisplayFormat }}" />
     <wd-calendar label="before-confirm" value="{{ value14 }}" before-confirm="{{ beforeConfirm }}" />
   </wd-cell-group>

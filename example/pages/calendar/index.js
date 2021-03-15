@@ -67,6 +67,13 @@ Page({
         id: 30
       }
     ],
+    onShortcutsClick ({ item }) {
+      const dayDiff = item.id
+      const endDate = Date.now() - 24 * 60 * 60 * 1000
+      const startDate = endDate - dayDiff * 24 * 60 * 60 * 1000
+
+      return [startDate, endDate]
+    },
     displayFormat (value) {
       return dayjs(value[0]).format('YY年MM月DD日') + ' - ' + dayjs(value[1]).format('YY年MM月DD日')
     },
@@ -99,16 +106,6 @@ Page({
   handleConfirm3 (event) {
     this.setData({
       value12: event.detail.value
-    })
-  },
-  handleShortcutClick (event) {
-    const { item } = event.detail
-
-    const dayDiff = item.id
-    const endDate = Date.now() - 24 * 60 * 60 * 1000
-    const startDate = endDate - dayDiff * 24 * 60 * 60 * 1000
-    this.setData({
-      value12: [startDate, endDate]
     })
   },
   handleConfirm4 (event) {

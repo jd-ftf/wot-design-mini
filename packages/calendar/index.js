@@ -18,11 +18,11 @@ const defaultDisplayFormat = (value, type) => {
       return dayjs(item).format('YYYY-MM-DD')
     }).join(', ')
   case 'daterange':
-    return `${dayjs(value[0]).format('YYYY-MM-DD')} 至 ${dayjs(value[1]).format('YYYY-MM-DD')}`
+    return `${value[0] ? dayjs(value[0]).format('YYYY-MM-DD') : '开始时间'} 至 ${value[1] ? dayjs(value[1]).format('YYYY-MM-DD') : '结束时间'}`
   case 'datetime':
     return dayjs(value).format('YYYY-MM-DD HH:mm:ss')
   case 'datetimerange':
-    return `${dayjs(value[0]).format('YY年MM月DD日 HH:mm:ss')} 至\n${dayjs(value[1]).format('YY年MM月DD日 HH:mm:ss')}`
+    return `${value[0] ? dayjs(value[0]).format('YY年MM月DD日 HH:mm:ss') : '开始时间'} 至\n${value[1] ? dayjs(value[1]).format('YY年MM月DD日 HH:mm:ss') : '结束时间'}`
   case 'week': {
     const year = new Date(value).getFullYear()
     const week = getWeekNumber(value)
@@ -33,12 +33,12 @@ const defaultDisplayFormat = (value, type) => {
     const week1 = getWeekNumber(value[0])
     const year2 = new Date(value[1]).getFullYear()
     const week2 = getWeekNumber(value[1])
-    return `${year1} 第 ${padZero(week1)} 周 - ${year2} 第 ${padZero(week2)} 周`
+    return `${value[0] ? `${year1} 第 ${padZero(week1)} 周` : '开始周'} - ${value[1] ? `${year2} 第 ${padZero(week2)} 周` : '结束周'}`
   }
   case 'month':
     return dayjs(value).format('YYYY / MM')
   case 'monthrange':
-    return `${dayjs(value[0]).format('YYYY / MM')} 至 ${dayjs(value[1]).format('YYYY / MM')}`
+    return `${value[0] ? dayjs(value[0]).format('YYYY / MM') : '开始月'} 至 ${value[1] ? dayjs(value[1]).format('YYYY / MM') : '结束月'}`
   }
 }
 
@@ -102,9 +102,7 @@ VueComponent({
           this.scrollIntoView()
         })
 
-        if (val) {
-          this.setShowValue()
-        }
+        this.setShowValue()
 
         if (this.data.type.indexOf('range') > -1) {
           this.setInnerLabel()
@@ -119,7 +117,7 @@ VueComponent({
           const tabs = ['date', 'week', 'month']
           const rangeTabs = ['daterange', 'weekrange', 'monthrange']
 
-          const index = val.indexOf('range') > -1 ? (rangeTabs.indexOf(val) || 0) : tabs.indexOf(tabs)
+          const index = val.indexOf('range') > -1 ? (rangeTabs.indexOf(val) || 0) : tabs.indexOf(val)
           this.setData({
             currentTab: index
           })
@@ -197,6 +195,7 @@ VueComponent({
     ellipsis: Boolean,
     showTypeSwitch: Boolean,
     shortcuts: Array,
+    onShortcutsClick: null,
     safeAreaInsetBottom: {
       type: Boolean,
       value: true
@@ -252,10 +251,13 @@ VueComponent({
         pickerShow: false
       })
       setTimeout(() => {
+        const confirmBtnDisabled = this.getConfirmBtnStatus(this.data.lastCalendarValue)
+
         this.setData({
           calendarValue: this.data.lastCalendarValue,
           currentTab: this.data.lastTab,
-          currentType: this.data.lastCurrentType
+          currentType: this.data.lastCurrentType,
+          confirmBtnDisabled
         })
       }, 250)
       this.$emit('close')
@@ -330,16 +332,30 @@ VueComponent({
       })
     },
     setShowValue () {
-      this.setData({
-        showValue: (this.data.displayFormat || defaultDisplayFormat)(this.data.calendarValue, this.data.currentType)
-      })
+      if ((!(this.data.calendarValue instanceof Array) && this.data.calendarValue) || (this.data.calendarValue instanceof Array && this.data.calendarValue.length)) {
+        this.setData({
+          showValue: (this.data.displayFormat || defaultDisplayFormat)(this.data.calendarValue, this.data.currentType)
+        })
+      } else {
+        this.setData({
+          showValue: ''
+        })
+      }
     },
     handleShortcutClick (event) {
       const { index } = event.target.dataset
-      this.$emit('shortcutclick', {
-        item: this.data.shortcuts[index],
-        index
-      })
+
+      if (this.data.onShortcutsClick && typeof this.data.onShortcutsClick === 'function') {
+        const calendarValue = this.data.onShortcutsClick({
+          item: this.data.shortcuts[index],
+          index
+        })
+        const confirmBtnDisabled = this.getConfirmBtnStatus(calendarValue)
+        this.setData({
+          calendarValue,
+          confirmBtnDisabled
+        })
+      }
 
       if (!this.data.showConfirm) {
         this.handleConfirm()
