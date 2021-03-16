@@ -60,10 +60,10 @@ Page({
 
 ### 周类型选择
 
-设置 `type` 为 `week` 类型，此时 `value` 有值时其值为周的第一天（周日）。
+设置 `type` 为 `week` 类型，如果 `value` 有初始值，建议将周起始日 `first-day-of-week` 设置为 1（周一），避免选中样式和回显匹配不上。
 
 ```html
-<wd-calendar-view type="week" value="{{ value }}" bind:change="handleChange" />
+<wd-calendar-view type="week" value="{{ value }}" first-day-of-week="{{ 1 }}" bind:change="handleChange" />
 ```
 
 ```javascript
@@ -142,8 +142,7 @@ Page({
 })
 ```
 
-可以设置 `hide-second`，使时间只展示到分钟级别；设置 `time-filter` 属性，可以自定义过滤 时分秒 选项，该属性接收 { type: string, values: array } 参数，返回一个新的数组，type 值为 'hour'、'minute'
- 或 'second'，values 为picker数据列表。
+可以设置 `hide-second`，使时间只展示到分钟级别；设置 `time-filter` 属性，可以自定义过滤 时分秒 选项，该属性接收 { type: string, values: array } 参数，返回一个新的数组，type 值为 'hour'、'minute' 或 'second'，values 为picker数据列表。
 
 ```html
 <wd-calendar-view type="datetime" value="{{ value }}" bind:change="handleChange" hide-second time-filter="{{ timeFilter }}" />
@@ -186,7 +185,7 @@ Page({
 
 | 属性      | 类型 | 说明                                 |
 |---------- |---- |---------- |
-| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 ｜
+| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 |
 | date | timestamp | 13位的时间戳 |
 | text | string | 日期文本内容 |
 | topInfo | string | 上方提示信息 |
@@ -252,7 +251,7 @@ Page({
 设置 `max-range` 属性，设置范围选择的最大限制。
 
 ```html
-<wd-calendar-view type="daterange" max-range="{{ 3 }}" />
+<wd-calendar-view type="daterange" max-range="{{ 3 }}" value="{{ value }}" bind:change="handleChange" />
 ```
 
 ### 展示面板标题
@@ -260,7 +259,7 @@ Page({
 `show-panel-title` 默认为 `true`，会自动计算标题并进行展示，可以选择不进行展示。
 
 ```html
-<wd-calendar-view type="daterange" show-panel-title="{{ false }}" />
+<wd-calendar-view type="daterange" show-panel-title="{{ false }}" value="{{ value }}" bind:change="handleChange" />
 ```
 
 ### 设置周起始日
@@ -297,3 +296,9 @@ Page({
 | 方法名称 | 说明 | 参数 |
 |---------|-----|-----|
 | scrollIntoView | 使当前日期或者选中日期滚动到可视区域，并监听滚动，在面板从 隐藏状态（如 display: none） 切换为展示状态时调用 | thresholds，数字数组，具体使用见 [Intersection Observer](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver) |
+
+### 外部样式类
+
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |

@@ -61,7 +61,8 @@
         content="left-start 提示文字"
         bind:change="handleChange7"
       >
-        <wd-button round="{{false}}">left-start</wd-button>
+        <wd-icon name="setting" />
+        <!-- <wd-button round="{{false}}">left-start</wd-button> -->
       </wd-tooltip>
       <wd-tooltip
         show="{{ show8 }}"

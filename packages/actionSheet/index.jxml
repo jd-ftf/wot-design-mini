@@ -5,6 +5,7 @@
   duration="{{ duration }}"
   position="bottom"
   close-on-click-modal="{{ closeOnClickModal }}"
+  safe-area-inset-bottom="{{ safeAreaInsetBottom }}"
   lazy-render="{{ lazyRender }}"
   bind:enter="handleOpen"
   bind:close="close"
@@ -59,6 +60,6 @@
       </view>
     </view>
   </view>
-  <slot/>
+  <slot />
   <button jd:if="{{ cancelText }}" class="wd-action-sheet__cancel" bind:tap="handleCancel">{{ cancelText }}</button>
 </wd-popup>

@@ -517,33 +517,34 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 选中项 | array | - | - |
-| columns | 选择器数据，二维数组 | array | - | - |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
-| tip-key | 选项对象中，提示文案对应的 key | string | - | 'tip' |
-| title | 弹出层标题 | string | - | - |
-| label | 选择器左侧文案 | string | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' |
-| disabled | 禁用 | boolean | - | fasle |
-| readonly | 只读 | boolean | - | false |
-| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
-| column-change | 接收当前列的选中项 item、当前列下标、当前列选中项下标下一列数据处理函数 resolve、结束选择 finish | function | - | - |
-| size | 设置选择器大小 | string | 'large' | - |
-| label-width | 设置左侧标题宽度 | string | - | '33%' |
-| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
-| required | 必填样式 | boolean | - | false |
-| align-right | 选择器的值靠右展示 | boolean | - | false |
-| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| loading-color | loading 图标的颜色 | string | - | '#4d80f0' |
-| use-default-slot | 使用默认插槽时设置该选项 | boolean | - | false |
-| use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false |
-| name | form 表单中的字段名 | string | - | - |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
-| auto-complete | 自动触发 column-change 事件来补全数据，当 columns 为空数组或者 columns 数组长度小于 value 数组长度时，会自动触发 column-change | - | false |
-| z-index | 弹窗层级 | number | - | 15 |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 最低版本 |
+|---------- |------------------------------------ |---------- |------------- |-------- |------|
+| value/v-model | 选中项 | array | - | - | - |
+| columns | 选择器数据，二维数组 | array | - | - | - |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' | - |
+| tip-key | 选项对象中，提示文案对应的 key | string | - | 'tip' | - |
+| title | 弹出层标题 | string | - | - | - |
+| label | 选择器左侧文案 | string | - | - | - |
+| placeholder | 选择器占位符 | string | - | '请选择' | - |
+| disabled | 禁用 | boolean | - | fasle | - |
+| readonly | 只读 | boolean | - | false | - |
+| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | - |
+| column-change | 接收当前列的选中项 item、当前列下标、当前列选中项下标下一列数据处理函数 resolve、结束选择 finish | function | - | - | - |
+| size | 设置选择器大小 | string | 'large' | - | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' | - |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | - |
+| required | 必填样式 | boolean | - | false | - |
+| align-right | 选择器的值靠右展示 | boolean | - | false | - |
+| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - | - |
+| loading-color | loading 图标的颜色 | string | - | '#4d80f0' | - |
+| use-default-slot | 使用默认插槽时设置该选项 | boolean | - | false | - |
+| use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false | - |
+| name | form 表单中的字段名 | string | - | - | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| auto-complete | 自动触发 column-change 事件来补全数据，当 columns 为空数组或者 columns 数组长度小于 value 数组长度时，会自动触发 column-change | - | false | - |
+| z-index | 弹窗层级 | number | - | 15 | - |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
 
 ### 选项数据结构
 

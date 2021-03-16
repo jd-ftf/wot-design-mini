@@ -62,6 +62,9 @@ VueComponent({
       return this.data.type.indexOf('month') > -1 ? this.selectComponent('#yearPanel') : this.selectComponent('#monthPanel')
     },
     handleChange ({ detail: { value } }) {
+      this.setData({
+        value
+      })
       this.$emit('change', {
         value
       })

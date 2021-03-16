@@ -211,18 +211,19 @@ page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| show | 设置菜单显示隐藏 | boolean | - | - |
-| actions | 菜单选项 | array | - | [] |
-| panels | 自定义面板项,可以为字符串数组，也可以为对象数组，如果为二维数组，则为多行展示 | array | - | [] |
-| title | 标题 | string | - | - |
-| cancel-text | 取消按钮文案 | string | - | - |
-| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
-| duration | 动画持续时间 | number | - | 200(ms) |
-| z-index | 菜单层级 | number | - | 10 |
-| lazy-render | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 最低版本 |
+|---------- |------------------------------------ |---------- |------------- |-------- | - |
+| show | 设置菜单显示隐藏 | boolean | - | - | - |
+| actions | 菜单选项 | array | - | [] | - |
+| panels | 自定义面板项,可以为字符串数组，也可以为对象数组，如果为二维数组，则为多行展示 | array | - | [] | - |
+| title | 标题 | string | - | - | - |
+| cancel-text | 取消按钮文案 | string | - | - | - |
+| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| duration | 动画持续时间 | number | - | 200(ms) | - |
+| z-index | 菜单层级 | number | - | 10 | - |
+| lazy-render | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true | - |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
 
 ### Events
 

@@ -228,7 +228,7 @@ VueComponent({
       const compare = compareDate(date.date, startDate)
 
       // 禁止选择同个日期
-      if (!this.data.allowSameDay && compare === 0 && (this.data.type === 'datetime' || (this.data.type === 'datetimerange' && !endDate))) {
+      if (!this.data.allowSameDay && compare === 0 && (this.data.type === 'daterange' || this.data.type === 'datetimerange') && !endDate) {
         return
       }
 
@@ -265,8 +265,6 @@ VueComponent({
       })
     },
     handleWeekChange (date) {
-      if (date.type === 'selected' || date.type === 'middle') return
-
       const [weekStart] = getWeekRange(date.date, this.data.firstDayOfWeek)
 
       // 周的第一天如果是禁用状态，则不可选中

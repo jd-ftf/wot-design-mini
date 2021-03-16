@@ -356,3 +356,19 @@ export function getTimeData ({ date, minDate, maxDate, isHideSecond, filter } = 
 
   return columns
 }
+
+/**
+ * 获取当前是第几周
+ * @param {timestamp} date
+ */
+export function getWeekNumber (date) {
+  date = new Date(date)
+  date.setHours(0, 0, 0, 0)
+  // Thursday in current week decides the year.
+  date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7)
+  // January 4 is always in week 1.
+  const week = new Date(date.getFullYear(), 0, 4)
+  // Adjust to Thursday in week 1 and count number of weeks from date to week 1.
+  // Rounding should be fine for Daylight Saving Time. Its shift should never be more than 12 hours.
+  return 1 + Math.round(((date.getTime() - week.getTime()) / 86400000 - 3 + (week.getDay() + 6) % 7) / 7)
+}

@@ -219,7 +219,7 @@ page({
 | 类名     | 说明                |
 |---------|---------------------|
 | custom-class | 根结点样式 |
-| custom-textarea-container-class | textarea 容器外部自定义样式 ｜
+| custom-textarea-container-class | textarea 容器外部自定义样式 |
 | custom-textarea-class | textarea 外部自定义样式 |
 | custom-input-class | input 外部自定义样式 |
 | custom-label-class | label 外部自定义样式 |

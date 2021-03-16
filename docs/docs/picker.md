@@ -232,35 +232,36 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 选中项，如果为多列选择器，则其类型应为数组 | string / number / boolean / array | - |
-| columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - |
-| loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
-| columns-height | picker内部滚筒高 | number | - | 231 |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
-| title | 弹出层标题 | string | - | - |
-| cancel-button-text | 取消按钮文案 | string | - | '取消' |
-| confirm-button-text | 确认按钮文案 | string | - | '完成' |
-| label | 选择器左侧文案 | string | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' |
-| disabled | 禁用 | boolean | - | fasle |
-| readonly | 只读 | boolean | - | false |
-| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
-| column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
-| size | 设置选择器大小 | string | 'large' | - |
-| label-width | 设置左侧标题宽度 | string | - | '33%' |
-| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
-| required | 表单属性，必填 | boolean | - | false |
-| align-right | 选择器的值靠右展示 | boolean | - | false |
-| use-label-slot | label 使用插槽 | boolean | - | false |
-| use-default-slot | 使用默认插槽 | boolean | - | false |
-| before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| name | form 表单中的字段名 | string | - | - |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
-| z-index | 弹窗层级 | number | - | 15 |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 最低版本 |
+|---------- |------------------------------------ |---------- |------------- |-------- |-----|
+| value | 选中项，如果为多列选择器，则其类型应为数组 | string / number / boolean / array | - | - |
+| columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - | - |
+| loading | 加载中 | boolean | - | false | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' | - |
+| columns-height | picker内部滚筒高 | number | - | 231 | - |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' | - |
+| title | 弹出层标题 | string | - | - | - |
+| cancel-button-text | 取消按钮文案 | string | - | '取消' | - |
+| confirm-button-text | 确认按钮文案 | string | - | '完成' | - |
+| label | 选择器左侧文案 | string | - | - | - |
+| placeholder | 选择器占位符 | string | - | '请选择' | - |
+| disabled | 禁用 | boolean | - | fasle | - |
+| readonly | 只读 | boolean | - | false | - |
+| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | - |
+| column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - | - |
+| size | 设置选择器大小 | string | 'large' | - | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' | - |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | - |
+| required | 表单属性，必填 | boolean | - | false | - |
+| align-right | 选择器的值靠右展示 | boolean | - | false | - |
+| use-label-slot | label 使用插槽 | boolean | - | false | - |
+| use-default-slot | 使用默认插槽 | boolean | - | false | - |
+| before-confirm | 确定前校验函数，接收 (value, resolve, picker) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - | - |
+| name | form 表单中的字段名 | string | - | - | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| z-index | 弹窗层级 | number | - | 15 | - |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
 
 ### Events
 

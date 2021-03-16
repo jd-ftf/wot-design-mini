@@ -318,37 +318,38 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 选中项，`type`类型为`checkbox`时，类型为 array；`type`为`radio` 时 ，类型为 number / boolean / string | array / number / boolean / string | - | - |
-| columns | 选择器数据，一维数组 | array | - | - |
-| type | 单复选选择器类型 | string | checkbox / radio | 'checkbox' |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
-| title | 弹出层标题 | string | - | - |
-| label | 选择器左侧文案 | string | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' |
-| disabled | 禁用 | boolean | - | fasle |
-| loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | String | - | '#4D80F0' |
-| readonly | 只读 | boolean | - | false |
-| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
-| confirm-button-text | 确认按钮文案 | string | - | '确认' |
-| size | 设置选择器大小 | string | 'large' | - |
-| label-width | 设置左侧标题宽度 | string | - | '33%' |
-| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
-| required | 必填样式 | boolean | - | false |
-| align-right | 选择器的值靠右展示 | boolean | - | false |
-| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| select-size | 设置picker内部的选项组尺寸大小 （单/复选框） | string | 'large' | - |
-| min | 最小选中的数量（仅在复选框类型下生效，`type`类型为`checkbox`） | number | - | 0 |
-| max | 最大选中的数量，0 为无限数量，默认为 0（仅在复选框类型下生效，`type`类型为`checkbox`） | number | - | 0 |
-| checked-color | 选中的颜色（单/复选框） | string | - | '#4D80F0' |
-| use-default-slot | 使用默认插槽时设置该选项 | boolean | - | false |
-| use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false |
-| name | form 表单中的字段名 | string | - | - |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
-| z-index | 弹窗层级 | number | - | 15 |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 最低版本 |
+|---------- |------------------------------------ |---------- |------------- |-------- |-------|
+| value | 选中项，`type`类型为`checkbox`时，类型为 array；`type`为`radio` 时 ，类型为 number / boolean / string | array / number / boolean / string | - | - | - |
+| columns | 选择器数据，一维数组 | array | - | - | - |
+| type | 单复选选择器类型 | string | checkbox / radio | 'checkbox' | - |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' | - |
+| title | 弹出层标题 | string | - | - | - |
+| label | 选择器左侧文案 | string | - | - | - |
+| placeholder | 选择器占位符 | string | - | '请选择' | - |
+| disabled | 禁用 | boolean | - | fasle | - |
+| loading | 加载中 | boolean | - | false | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | String | - | '#4D80F0' | - |
+| readonly | 只读 | boolean | - | false | - |
+| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | - |
+| confirm-button-text | 确认按钮文案 | string | - | '确认' | - |
+| size | 设置选择器大小 | string | 'large' | - | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' | - |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | - |
+| required | 必填样式 | boolean | - | false | - |
+| align-right | 选择器的值靠右展示 | boolean | - | false | - |
+| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - | - |
+| select-size | 设置picker内部的选项组尺寸大小 （单/复选框） | string | 'large' | - | - |
+| min | 最小选中的数量（仅在复选框类型下生效，`type`类型为`checkbox`） | number | - | 0 | - |
+| max | 最大选中的数量，0 为无限数量，默认为 0（仅在复选框类型下生效，`type`类型为`checkbox`） | number | - | 0 | - |
+| checked-color | 选中的颜色（单/复选框） | string | - | '#4D80F0' | - |
+| use-default-slot | 使用默认插槽时设置该选项 | boolean | - | false | - |
+| use-label-slot | 使用 label 插槽时设置该选项 | boolean | - | false | - |
+| name | form 表单中的字段名 | string | - | - | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| z-index | 弹窗层级 | number | - | 15 | - |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
 
 ### 选项数据结构
 
