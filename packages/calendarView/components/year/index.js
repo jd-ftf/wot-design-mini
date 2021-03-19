@@ -85,7 +85,7 @@ VueComponent({
         if (this.data.value && compareMonth(date, this.data.value) === 0) {
           return 'selected'
         } else {
-          return []
+          return ''
         }
       }
     },
