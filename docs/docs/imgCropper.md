@@ -19,7 +19,7 @@
 
 ### 基本用法
 
-图片裁剪组件需要绑定 `show` 来控制组件的显示与隐藏，通过属性 `img-src` 控制展示的图片资源位，也可以通过函数 `resetImg` 来控制组件图片的初始化。进入组建后，可以对图片进行拖拽、双指缩放、旋转等操作。监听 `bind:confirm` 事件获取选中值。
+图片裁剪组件需要绑定 `show` 来控制组件的显示与隐藏，通过属性 `img-src` 控制展示的图片资源位，也可以通过函数 `resetImg` 来控制组件图片的初始化。进入组件后，可以对图片进行拖拽、双指缩放、旋转等操作。监听 `bind:confirm` 事件获取选中值。
 
 > *注意：在使用组件时，最好在一个新页面中使用图片裁剪组件，图片裁剪保持`show`为true，完成裁剪时，返回上一页。*
 
@@ -71,7 +71,6 @@ Page({
   },
   handleConfirm (event) {
     const { url } = event.detail
-    // 将控制显示放在外部，避免关闭后
     this.setData({
       src: url,
       imgSrc: url
@@ -92,8 +91,8 @@ Page({
 |---------- |------------------------------------ |---------- |------------- |-------- |-------- |
 | show | 打开图片裁剪组件 | Boolean | - | false |2.4.0|
 | img-src | 图片资源链接 | String | - | - |2.4.0|
-| img-width | 宽度，默认单位为px | Number / String | - | - |2.4.0|
-| img-height | 高度，默认单位为px | Number / String | - | - |2.4.0|
+| img-width | 截屏预览图片的初始宽度，默认单位为px | Number / String | - | - |2.4.0|
+| img-height | 截屏预览图片的初始高度，默认单位为px | Number / String | - | - |2.4.0|
 | disabled-rotate | 禁止图片旋转 | Boolean | - | false |2.4.0|
 | export-scale | 设置导出图片尺寸 | Number | - | 2 |2.4.0|
 | max-scale | 最大缩放倍数 | Number | - | 3 |2.4.0|

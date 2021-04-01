@@ -6,9 +6,9 @@ let CHANGE_TIME = null
 let MOVE_THROTTLE = null
 // 节流标志
 let MOVE_THROTTLE_FLAG = true
-//图片设置尺寸,此值不变（记录最初设定的尺寸）
+// 图片设置尺寸,此值不变（记录最初设定的尺寸）
 let INIT_IMGWIDTH = null
-//图片设置尺寸,此值不变（记录最初设定的尺寸）
+// 图片设置尺寸,此值不变（记录最初设定的尺寸）
 let INIT_IMGHEIGHT = null
 // 顶部裁剪框占比
 const TOP_PERCENT = 0.85
@@ -20,8 +20,8 @@ VueComponent({
       value: false,
       observer (val) {
         if (val) {
-          INIT_IMGWIDTH = this.data.imgWidth;
-          INIT_IMGHEIGHT = this.data.imgHeight;
+          INIT_IMGWIDTH = this.data.imgWidth
+          INIT_IMGHEIGHT = this.data.imgHeight
           this.data.info = jd.getSystemInfoSync()
           const cutSize = this.data.info.windowWidth - this.data.offset * 2
           this.setData({
@@ -33,8 +33,8 @@ VueComponent({
             canvasHeight: cutSize,
             canvasWidth: cutSize
           })
-          //根据开发者设置的图片目标尺寸计算实际尺寸
-          this.initImageSize();
+          // 根据开发者设置的图片目标尺寸计算实际尺寸
+          this.initImageSize()
           // 初始化canvas
           this.initCanvas()
           // 加载图片
@@ -222,7 +222,7 @@ VueComponent({
         imgHeight,
         imgInfo,
         cutWidth,
-        cutHeight,
+        cutHeight
       } = this.data
       if (!INIT_IMGHEIGHT && !INIT_IMGWIDTH) {
         // 没有设置宽高，写入图片的真实宽高
@@ -243,9 +243,9 @@ VueComponent({
           imgHeight = imgInfo.height / imgInfo.width * cutWidth
         }
       } else if (INIT_IMGHEIGHT && !INIT_IMGWIDTH) {
-        imgWidth = imgInfo.width / imgInfo.height * INIT_IMGHEIGHT;
+        imgWidth = imgInfo.width / imgInfo.height * INIT_IMGHEIGHT
       } else if (!INIT_IMGHEIGHT && INIT_IMGWIDTH) {
-        imgHeight = imgInfo.height / imgInfo.width * INIT_IMGWIDTH;
+        imgHeight = imgInfo.height / imgInfo.width * INIT_IMGWIDTH
       }
 
       this.setData({
@@ -269,12 +269,12 @@ VueComponent({
     initImageSize () {
       // 处理宽高特殊单位 %>px
       if (INIT_IMGWIDTH && typeof INIT_IMGWIDTH === 'string' && INIT_IMGWIDTH.indexOf('%') !== -1) {
-        let width = INIT_IMGWIDTH.replace('%', '');
-        INIT_IMGWIDTH = this.data.imgWidth = this.data.info.windowWidth / 100 * width;
+        const width = INIT_IMGWIDTH.replace('%', '')
+        INIT_IMGWIDTH = this.data.imgWidth = this.data.info.windowWidth / 100 * width
       }
       if (INIT_IMGHEIGHT && typeof INIT_IMGHEIGHT === 'string' && INIT_IMGHEIGHT.indexOf('%') !== -1) {
-        let height = this.data.imgHeight.replace('%', '');
-        INIT_IMGHEIGHT = this.data.imgHeight = this.data.info.windowHeight / 100 * height;
+        const height = this.data.imgHeight.replace('%', '')
+        INIT_IMGHEIGHT = this.data.imgHeight = this.data.info.windowHeight / 100 * height
       }
     },
 
@@ -296,7 +296,6 @@ VueComponent({
         imgWidth = this.data.imgHeight
         imgHeight = this.data.imgWidth
       }
-      console.log(imgWidth, imgHeight)
       // 左
       imgLeft = imgWidth * imgScale / 2 + cutLeft >= imgLeft ? imgLeft : imgWidth * imgScale / 2 + cutLeft
       // 右
