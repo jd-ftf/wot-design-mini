@@ -171,6 +171,9 @@ Page({
             id: 'img',
             name: 'Img 图片'
           }, {
+            id: 'imgCropper',
+            name: 'imgCropper 图片裁剪'
+          }, {
             id: 'grid',
             name: 'Grid 宫格'
           }, {

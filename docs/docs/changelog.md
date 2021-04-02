@@ -22,6 +22,8 @@
   - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) )
 - Input
   - 添加自定义外部类名 `custom-textarea-container-class` (by [@yawuling](https://github.com/yawuling) )
+- ImgCropper
+  - 新增组件图片裁剪 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - MessageBox
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
 - Picker

@@ -1,6 +1,6 @@
 {
   "name": "wot-design-mini",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A ui component library for mini program",
   "scripts": {
     "dev:jd": "rimraf example-dist/jd && npm run build:icon && cross-env EFF_ABSOLUTE_PATHS=true node build/transform.js dev -p jd",
@@ -93,6 +93,5 @@
     "webpack-merge": "^4.2.2",
     "webpack-serve": "^3.2.0",
     "yml-loader": "^2.1.0"
-  },
-  "dependencies": {}
+  }
 }
