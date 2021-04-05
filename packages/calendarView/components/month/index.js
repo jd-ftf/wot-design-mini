@@ -283,8 +283,11 @@ VueComponent({
       let value
       const [startDate, endDate] = this.data.value || []
       const [startWeekStartDate] = startDate ? getWeekRange(startDate, this.data.firstDayOfWeek) : []
+      const compare = compareDate(weekStartDate, startWeekStartDate)
 
-      if (startDate && !endDate && compareDate(weekStartDate, startWeekStartDate) > -1) {
+      if (startDate && !endDate && compare > -1) {
+        if (!this.data.allowSameDay && compare === 0) return
+
         value = [this.getDate(startWeekStartDate) + 24 * 60 * 60 * 1000, this.getDate(weekStartDate) + 24 * 60 * 60 * 1000]
       } else {
         value = [this.getDate(weekStartDate) + 24 * 60 * 60 * 1000, null]

@@ -122,7 +122,7 @@ VueComponent({
       const compare = compareMonth(date.date, startDate)
 
       // 禁止选择同个日期
-      if (!this.data.allowSameDay && compare === 0) return
+      if (!this.data.allowSameDay && !endDate && compare === 0) return
 
       if (startDate && !endDate && compare > -1) {
         if (this.data.maxRange && getMonthOffset(date.date, startDate) > this.data.maxRange) {

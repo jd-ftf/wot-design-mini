@@ -460,8 +460,8 @@ Page({
 | 事件名称 | 说明 | 参数 |
 |---------|-----|-----|
 | bind:confirm | 绑定值变化时触发 | event.detail = { value } |
-| bind:shortcutclick | 点击快捷选项时触发 | event.detail = { item, index } |
 | bind:change | 点击面板日期时触发 | event.detail = { value } |
+| bind:cancel | 点击关闭按钮或者蒙层时触发 ｜ - ｜
 
 ### Methods
 
