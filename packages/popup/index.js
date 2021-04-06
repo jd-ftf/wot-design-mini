@@ -31,10 +31,7 @@ VueComponent({
       value: true
     },
     modalStyle: String,
-    safeAreaInsetBottom: {
-      type: Boolean,
-      value: true
-    }
+    safeAreaInsetBottom: Boolean
   },
   data: {
     safeBottom: 0
