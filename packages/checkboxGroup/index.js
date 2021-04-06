@@ -196,20 +196,5 @@ VueComponent({
   beforeCreate () {
     // 设置防抖，避免修改 props(min, max, disabled) 触发多次
     this.resetChildren = debounce(this.resetChildren, 50)
-  },
-  mounted () {
-    // 以下内容用于解决父子组件样式隔离的问题 —— START
-    if (!this.children || this.children.length === 0) return
-
-    const { cell, shape } = this.data
-    if (!cell) return
-    this.children.forEach(child => {
-      child.setData({ cellBox: true })
-    })
-    if (shape !== 'button') return
-    this.children.forEach(child => {
-      child.setData({ buttonBox: true })
-    })
-    // 以下内容用于解决父子组件样式隔离的问题 —— END
   }
 })

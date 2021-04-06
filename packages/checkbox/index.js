@@ -14,7 +14,7 @@ VueComponent({
         this.parent = target
         this.checkName(this, this.data.value)
 
-        const { shape, checkedColor, inline, size } = this.parent.data
+        const { shape, checkedColor, inline, size, cell } = this.parent.data
         const data = {
           shape,
           checkedColor,
@@ -33,7 +33,9 @@ VueComponent({
           }
         })
         renderData(this, Object.assign(will, {
-          isChecked: this.parent.data.value.indexOf(this.data.value) > -1
+          isChecked: this.parent.data.value.indexOf(this.data.value) > -1,
+          cellBox: cell,
+          buttonBox: shape === 'button'
         }))
         // disabled 单独设置
         this.checkDisabled()

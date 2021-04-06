@@ -67,6 +67,8 @@
   - 修复 `loading` 属性的类型问题 (by [@yawuling](https://github.com/yawuling) )
 - Cell
   - 修复 `border` 类型的展示异常问题 (by [@yawuling](https://github.com/yawuling) )
+- Checkbox
+  - 修复设置 `cell` 属性下新增选项时新增的选项缺少表单样式的问题 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
