@@ -2,8 +2,12 @@
 @import '../common/abstracts/mixin';
 
 @include b(action-sheet) {
-  border-radius: $-action-sheet-radius $-action-sheet-radius 0 0;
+  background-color: #fff;
+  padding-bottom: 1px;
 
+  @include e(popup) {
+    border-radius: $-action-sheet-radius $-action-sheet-radius 0 0;
+  }
   @include e(actions) {
     padding: 8px 0;
     max-height: 50vh;
@@ -22,7 +26,6 @@
     border: none;
     background: $-action-sheet-bg;
     outline: none;
-    border-radius: 0;
 
     &:after {
       display: none;

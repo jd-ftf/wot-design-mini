@@ -49,7 +49,7 @@
 | modal-style | 自定义modal蒙层样式 | string | - | - | - |
 | hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true | - |
 | lazy-render | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true | - |
-| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | false | 2.3.0 |
 
 ### Events
 
