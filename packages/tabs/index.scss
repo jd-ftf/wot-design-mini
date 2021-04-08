@@ -18,6 +18,9 @@
       height: 100%;
       overflow: hidden;
     }
+    @include m(sticky) {
+      width: 100vw;
+    }
   }
   @include e(nav-container) {
     position: relative;
