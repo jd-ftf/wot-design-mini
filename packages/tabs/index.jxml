@@ -4,7 +4,7 @@
       class="wd-tabs custom-class {{slidableNum < items.length ? 'is-slide' :''}} {{mapNum < items.length && mapNum !== 0 ? 'is-map' :''}}">
       <wd-sticky offset-Top="{{offsetTop}}">
         <!--头部导航容器-->
-        <view class="wd-tabs__nav">
+        <view class="wd-tabs__nav wd-tabs__nav--sticky">
           <view class="wd-tabs__nav--wrap">
             <scroll-view
               scroll-x="{{slidableNum < items.length}}"
