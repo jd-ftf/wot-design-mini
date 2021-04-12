@@ -35,7 +35,7 @@ VueComponent({
         renderData(this, Object.assign(will, {
           isChecked: this.parent.data.value.indexOf(this.data.value) > -1,
           cellBox: cell,
-          buttonBox: shape === 'button'
+          buttonBox: cell && shape === 'button'
         }))
         // disabled 单独设置
         this.checkDisabled()
