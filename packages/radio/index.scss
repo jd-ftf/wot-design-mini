@@ -195,8 +195,7 @@
   }
 
   @include when(button-radio) {
-    float: left;
-    display: flex;
+    display: inline-flex;
     width: 33.3333%;
     padding: 12px 12px 0px 0px;
     box-sizing: border-box;

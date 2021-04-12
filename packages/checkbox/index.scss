@@ -171,8 +171,7 @@
     }
   }
   @include when(button-box) {
-    float: left;
-    display: flex;
+    display: inline-flex;
     width: 33.3333%;
     padding: 12px 12px 0 0;
     box-sizing: border-box;
