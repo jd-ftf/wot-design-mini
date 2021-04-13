@@ -149,31 +149,31 @@ Page({
 
 ### DropMenu Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| direction | 菜单展开方向，可选值为`up` 或 `down` | string | 'up' / 'down' | 'down' |
-| modal | 是否展示蒙层 | boolean | - | true |
-| close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true |
-| duration | 菜单展开收起动画时间，单位 ms | number | - | 200 |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| direction | 菜单展开方向，可选值为`up` 或 `down` | string | up / down | down | - |
+| modal | 是否展示蒙层 | boolean | - | true | - |
+| close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true | - |
+| duration | 菜单展开收起动画时间，单位 ms | number | - | 200 | - |
 
 ### DropMenuItem Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 当前选中项对应选中的 value | string / number | - | - |
-| disabled | 禁用菜单 | boolean | - | false |
-| options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - |
-| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check' |
-| title | 菜单标题 | string | - | - |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
-| tip-key | 选项对象中，选项说明对应的 key | string | - | 'tip' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| value | 当前选中项对应选中的 value | string / number | - | - | - |
+| disabled | 禁用菜单 | boolean | - | false | - |
+| options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - | - |
+| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | check | - |
+| title | 菜单标题 | string | - | - | - |
+| value-key | 选项对象中，value对应的 key | string | - | value | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | label | - |
+| tip-key | 选项对象中，选项说明对应的 key | string | - | tip | - |
 
 ### DropdownItem Events
 
-| 方法名 | 说明 | 参数 | 返回值 |
-|------|------|------|------|
-| bind:change | 绑定值变化时触发 | event.detail = { value, selectedItem }, value 为选中值，selectedItem 为选中项 |
+| 方法名 | 说明 | 参数 | 最低版本 |
+|------|------|------|------|---------|
+| bind:change | 绑定值变化时触发 | event.detail = { value, selectedItem }, value 为选中值，selectedItem 为选中项 | - |
 | bind:close | 关闭菜单 | - | - |
 | bind:open | 展开菜单 | - | - |
 
@@ -181,33 +181,33 @@ Page({
 
 通过 `this.selectComponent('#selector')` 可以获取到 DropdownItem 实例并调用实例方法
 
-| 方法名 | 说明 | 参数 | 返回值 |
-|------|------|------|------|
-| close | 关闭菜单 | - | - |
-| open | 展开菜单 | - | - |
+| 方法名 | 说明 | 参数 | 返回值 | 最低版本 |
+|------|------|------|------|---------|
+| close | 关闭菜单 | - | - | - |
+| open | 展开菜单 | - | - | - |
 
 ### DropMenu Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 菜单内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 菜单内容 | - |
 
 ### DropMenuItem Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 菜单自定义内部内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 菜单自定义内部内容 | - |
 
 ### DropMenu 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | DropMenu 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | DropMenu 根结点样式 | - |
 
 ### DropMenuItem 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | DropMenuItem 根结点样式 |
-| custom-title | DropMenuItem 左侧文字样式 |
-| custom-icon | DropMenuItem 右侧icon样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | DropMenuItem 根结点样式 | - |
+| custom-title | DropMenuItem 左侧文字样式 | - |
+| custom-icon | DropMenuItem 右侧icon样式 | - |

@@ -72,25 +72,25 @@ mode为小程序原生属性，参考[微信小程序image官方文档](https://
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| src | 图片链接 | string | - | - |
-| width | 宽度，默认单位为px | number / string | - | - |
-| height | 高度，默认单位为px | number / string | - | - |
-| mode | 填充模式 | string | 'top left', 'top right', 'bottom left', 'bottom right', 'right', 'left', 'center', 'bottom', 'top', 'heightFix', 'widthFix', 'aspectFill', 'aspectFit', 'scaleToFill' | - |
-| round | 是否显示为圆形 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| src | 图片链接 | string | - | - | - |
+| width | 宽度，默认单位为px | number / string | - | - | - |
+| height | 高度，默认单位为px | number / string | - | - | - |
+| mode | 填充模式 | string | 'top left' / 'top right' / 'bottom left' / 'bottom right' / 'right' / 'left' / 'center' / 'bottom' / 'top' / 'heightFix' / 'widthFix' / 'aspectFill' / 'aspectFit' / 'scaleToFill' | 'scaleToFill' | - |
+| round | 是否显示为圆形 | boolean | - | false | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:click | 点击事件 | - |
-| bind:load | 当图片载入完毕时触发 | event.detail = {height, width} |
-| bind:error | 当错误发生时触发 | event.detail = {errMsg} |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:click | 点击事件 | - | - |
+| bind:load | 当图片载入完毕时触发 | event.detail = {height, width} | - |
+| bind:error | 当错误发生时触发 | event.detail = {errMsg} | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
-| custom-image| image 外部自定义样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
+| custom-image| image 外部自定义样式 | - |

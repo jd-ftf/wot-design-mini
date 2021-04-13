@@ -6,6 +6,7 @@
 
 - ActionSheet
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Calendar
   - 新增日历选择器组件 (by [@yawuling](https://github.com/yawuling) )
 - CalendarView
@@ -14,9 +15,11 @@
   - 新增 `custom-class`、`custom-title-class`、`custom-content-class`、`custom-footer-class` 自定义样式 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
   - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePickerView
   - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) )
@@ -25,16 +28,20 @@
 - ImgCropper
   - 新增组件图片裁剪 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - MessageBox
+  - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
 - Picker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - PickerView
   - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) )
 - Popup
   - 新增 `lazy-render` 懒渲染属性 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Switch
   - 新增 `before-change` 修改前钩子 (by [@yawuling](https://github.com/yawuling) )
 - Toast
@@ -87,6 +94,7 @@
 - Popover
   - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
   - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
+  - 修改文案过长时显示省略 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 修复自定义 `label` 插槽失败的问题 (by [@yawuling](https://github.com/yawuling) )
 - Tooltip

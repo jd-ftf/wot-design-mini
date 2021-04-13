@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "wd-datetime-picker-view-view": "/wot-design/datetimePickerView/index"
+    "wd-datetime-picker-view": "/wot-design/datetimePickerView/index"
   }
 }
 ```
@@ -132,26 +132,25 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
-| type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
-| loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
-| columns-height | picker内部滚筒高 | number | - | 231 |
-| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
-| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
-| minDate | 最小日期 | date | - | 当前日期 - 10年 |
-| maxDate | 最大日期 | date | - | 当前日志 + 10年 |
-| minHour | 最小小时，time类型时生效 | number | - | 0 |
-| maxHour | 最大小时，time类型时生效 | number | - | 23 |
-| minMinute | 最小分钟，time类型时生效 | number | - | 0 |
-| maxMinute | 最大分钟，time类型时生效 | number | - | 59 |
-| bind:pickstart | 当滚动选择开始时候触发事件 | - |
-| bind:pickend | 当滚动选择结束时候触发事件 | - |
-
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - | - |
+| type | 选择器类型 | string | date / year-month / time | datetime | - |
+| loading | 加载中 | boolean | - | false | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | #4D80F0 | - |
+| columns-height | picker内部滚筒高 | number | - | 231 | - |
+| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - | - |
+| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - | - |
+| minDate | 最小日期 | date | - | 当前日期 - 10年 | - |
+| maxDate | 最大日期 | date | - | 当前日志 + 10年 | - |
+| minHour | 最小小时，time类型时生效 | number | - | 0 | - |
+| maxHour | 最大小时，time类型时生效 | number | - | 23 | - |
+| minMinute | 最小分钟，time类型时生效 | number | - | 0 | - |
+| maxMinute | 最大分钟，time类型时生效 | number | - | 59 | - |
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 切换选项时触发 | 选中的值 event.detail = { value }，value 为当前选中日期的时间戳，'time' 类型则为字符串 |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| bind:change | 切换选项时触发 | 选中的值 event.detail = { value }，value 为当前选中日期的时间戳，'time' 类型则为字符串 | - |
+| bind:pickstart | 当滚动选择开始时候触发事件 | - | - | 2.3.0 |
+| bind:pickend | 当滚动选择结束时候触发事件 | - | - | 2.3.0 |

@@ -5,7 +5,7 @@
 ```json
 {
   "usingComponents": {
-    "wd-picker": "/wot-design/pickerView/index"
+    "wd-picker-view": "/wot-design/pickerView/index"
   }
 }
 ```
@@ -117,37 +117,37 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 选中项，如果为多列选择器，则其类型应为数组 | string / number / boolean / array | - |
-| columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - |
-| loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
-| columns-height | picker内部滚筒高 | number | - | 231 |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
-| column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
-| name | form 表单中的字段名 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value | 选中项，如果为多列选择器，则其类型应为数组 | string / number / boolean / array | - | - | - |
+| columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - | - |
+| loading | 加载中 | boolean | - | false | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | #4D80F0 | - |
+| columns-height | picker内部滚筒高 | number | - | 231 | - |
+| value-key | 选项对象中，value对应的 key | string | - | value | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | label | - |
+| column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - | - |
+| name | form 表单中的字段名 | string | - | - | - |
 
 ### Methods
 
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| getLabels | 获取所有列选中项的文本，返回值为一个数组 |
-| getColumnIndex | 获取某一列的选中项下标 | columnIndex |
-| getColumnData | 获取某一列的选项 | columnIndex |
-| setColumnData | 设置某一列的选项 | columnIndex, values |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| getLabels | 获取所有列选中项的文本，返回值为一个数组 | - |
+| getColumnIndex | 获取某一列的选中项下标 | columnIndex | - |
+| getColumnData | 获取某一列的选项 | columnIndex | - |
+| setColumnData | 设置某一列的选项 | columnIndex, values | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 选项值修改时触发 | event.detail = { value, picker, index }, 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 |
-| bind:pickstart | 当滚动选择开始时候触发事件 | - |
-| bind:pickend | 当滚动选择结束时候触发事件 | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|------|--------|
+| bind:change | 选项值修改时触发 | event.detail = { value, picker, index }, 单列: picker实例, 选中项值, 选中项下标; 多列: picker实例, 所有列选中项值, 当前列的下标 | - |
+| bind:pickstart | 当滚动选择开始时候触发事件 | - | - |
+| bind:pickend | 当滚动选择结束时候触发事件 | - | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |

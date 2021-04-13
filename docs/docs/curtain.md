@@ -130,35 +130,35 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值，展示/关闭幕帘 | boolean | - | - |
-| src | 幕帘图片地址 | string | 在线地址 | - |
-| width | 幕帘图片宽度 | string | - | - |
-| to | 幕帘图片点击链接 | string | - | - |
-| close-position | 关闭按钮位置 | string | 'inset', 'top', 'bottom', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right' | 'inset' |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | false | 
-| hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|--------|
+| value | 绑定值，展示/关闭幕帘 | boolean | - | - | - |
+| src | 幕帘图片地址，必须使用网络地址 | string | - | - | - |
+| width | 幕帘图片宽度 | string | - | - | - |
+| to | 幕帘图片点击链接 | string | - | - | - |
+| close-position | 关闭按钮位置 | string | inset / top / bottom / top-left / top-right / bottom-left / bottom-right | inset | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | false | - |
+| hide-when-close | 是否当关闭时将弹出层隐藏（display: none) | boolean | - | true | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:click | 点击幕帘时触发 | - |
-| bind:close | 弹出层关闭时触发 | - |
-| bind:clickmodal | 点击遮罩时触发 | - |
-| bind:beforeenter | 进入前触发 | - |
-| bind:enter | 进入时触发 | - |
-| bind:afterenter | 进入后触发 | - |
-| bind:beforeleave | 离开前触发 | - |
-| bind:leave | 离开时触发 | - |
-| bind:afterleave | 离开后触发| - |
-| bind:load | 图片加载完成事件 | - |
-| bind:error | 图片加载失败事件，若图片加载失败，则不会展示幕帘组件，即使设置 `value` 为 true | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:click | 点击幕帘时触发 | - | - |
+| bind:close | 弹出层关闭时触发 | - | - |
+| bind:clickmodal | 点击遮罩时触发 | - | - |
+| bind:beforeenter | 进入前触发 | - | - |
+| bind:enter | 进入时触发 | - | - |
+| bind:afterenter | 进入后触发 | - | - |
+| bind:beforeleave | 离开前触发 | - | - |
+| bind:leave | 离开时触发 | - | - |
+| bind:afterleave | 离开后触发| - | - |
+| bind:load | 图片加载完成事件 | - | - |
+| bind:error | 图片加载失败事件，若图片加载失败，则不会展示幕帘组件，即使设置 `value` 为 true | - | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
 

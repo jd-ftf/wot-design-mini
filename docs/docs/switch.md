@@ -82,26 +82,26 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value   |	绑定值 |	boolean / string / number | - |	-  |
-| disabled | 禁用 | boolean | - | false |
-| active-value | 打开时的值 | boolean / string / number | - | true |
-| inactive-value | 关闭时的值 | boolean / string / number | - | false |
-| active-color | 打开时的背景色 | string | - | '#0083ff' |
-| inactive-color | 关闭时的背景色，默认为白色，所以有灰色边框，如果设置了该值，则会自动去除灰色边框 | string | - | '#fff' |
-| size | 开关大小，可以为任何单位的字符串尺寸 | string | - | '28px' |
-| name | form 表单中的字段名 | string | - | - |
-| before-change | 修改前钩子 | function | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value |	绑定值 |	boolean / string / number | - |	-  | - |
+| disabled | 禁用 | boolean | - | false | - |
+| active-value | 打开时的值 | boolean / string / number | - | true | - |
+| inactive-value | 关闭时的值 | boolean / string / number | - | false | - |
+| active-color | 打开时的背景色 | string | - | #4D80F0 | - |
+| inactive-color | 关闭时的背景色，默认为白色，所以有灰色边框，如果设置了该值，则会自动去除灰色边框 | string | - | #fff | - |
+| size | 开关大小，可以为任何单位的字符串尺寸 | string | - | 28px | - |
+| name | form 表单中的字段名 | string | - | - | - |
+| before-change | 修改前钩子 | function | - | - | 2.3.0 |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 值修改事件 | event.detail = { value } |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| bind:change | 值修改事件 | event.detail = { value } | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|-----|---------|
+| custom-class | 根结点样式 | - |

@@ -224,62 +224,62 @@
 
 ### Grid Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| column | 列数 | number | - | - |
-| border | 是否显示边框 | boolean | - | false |
-| gutter | 格子之间的间距，默认单位为`px` | number | - | - |
-| square | 是否将格子固定为正方形 | boolean | - | false |
-| clickable | 是否开启格子点击反馈 | boolean | - | false |
-| bg-color | 背景颜色设置 | string | - | '#ffffff' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| column | 列数 | number | - | - | - |
+| border | 是否显示边框 | boolean | - | false | - |
+| gutter | 格子之间的间距，默认单位为`px` | number | - | - | - |
+| square | 是否将格子固定为正方形 | boolean | - | false | - |
+| clickable | 是否开启格子点击反馈 | boolean | - | false | - |
+| bg-color | 背景颜色设置 | string | - | #ffffff | - |
 
 ### GridItem Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| text | 文字 value | string | - | - |
-| icon | 图标名称，可选值见 `wd-icon` 组件 | string | - | - |
-| is-dot | 是否显示图标右上角小红点 | boolean | - | - | false |
-| type | 图标右上角显示的 `badge` 类型 | string | primary / success / warning / danger / info | - |
-| value | 图标右上角 `badge` 显示值 | string, number | - | - |
-| max | 图标右上角 `badge` 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型 | number | - | - |
-| url | 点击后跳转的链接地址 | string | - | - |
-| link-type | 页面跳转方式, 参考[微信小程序路由文档](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/route.html) | string | navigateTo / switchTab / reLaunch | - |
-| use-slot | 是否开启 `GridItem` 内容插槽 | boolean | - | false |
-| use-icon-slot | 是否开启 `GridItem` icon 插槽 | boolean | - | false |
-| use-text-slot | 是否开启 `GridItem` text 内容插槽 | boolean | - | false |
-| icon-size | 图标大小，默认单位为`px` | string | - | '26px' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| text | 文字 value | string | - | - | - |
+| icon | 图标名称，可选值见 `wd-icon` 组件 | string | - | - | - |
+| is-dot | 是否显示图标右上角小红点 | boolean | - | false | - |
+| type | 图标右上角显示的 `badge` 类型 | string | primary / success / warning / danger / info | - | - |
+| value | 图标右上角 `badge` 显示值 | string, number | - | - | - |
+| max | 图标右上角 `badge` 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型 | number | - | - | - |
+| url | 点击后跳转的链接地址 | string | - | - | - |
+| link-type | 页面跳转方式, 参考[微信小程序路由文档](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/route.html) | string | navigateTo / switchTab / reLaunch | - | - |
+| use-slot | 是否开启 `GridItem` 内容插槽 | boolean | - | false | - |
+| use-icon-slot | 是否开启 `GridItem` icon 插槽 | boolean | - | false | - |
+| use-text-slot | 是否开启 `GridItem` text 内容插槽 | boolean | - | false | - |
+| icon-size | 图标大小 | string | - | 26px | - |
 
 ### GridItem Events
 
-| 方法名 | 说明 | 参数 | 返回值 |
-|------|------|------|------|
-| bind:itemclick | 点击(跳转)事件 | event | - |
+| 方法名 | 说明 | 参数 | 返回值 | 最低版本 |
+|------|------|------|------|---------|
+| bind:itemclick | 点击(跳转)事件 | event | - | - |
 
 ### Grid Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 宫格内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 宫格内容 | - |
 
 ### GridItem Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 宫格中每一格的默认显示全部内容 |
-| icon | 宫格中图标位内容 |
-| text | 宫格中文本位内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 宫格中每一格的默认显示全部内容 | - |
+| icon | 宫格中图标位内容 | - |
+| text | 宫格中文本位内容 | - |
 
 ### Grid 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | Grid 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|-----|---------|
+| custom-class | Grid 根结点样式 | - |
 
 ### GridItem 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | GridItem 根结点样式 |
-| custom-text | GridItem 下方文字样式 |
-| custom-icon | GridItem 上方icon样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | GridItem 根结点样式 | - |
+| custom-text | GridItem 下方文字样式 | - |
+| custom-icon | GridItem 上方icon样式 | - |

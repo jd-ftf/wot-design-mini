@@ -1,6 +1,6 @@
-## Calendar 日历组件
+## Calendar 日历选择器
 
-[2.3.0版本新增]()
+**2.3.0版本新增**
 
 提供日历单选、多选、范围选择、周维度、月维度等功能。
 
@@ -199,14 +199,14 @@ Page({
 
 设置 `formatter` 参数，其值为函数类型，接收一个 `object` 参数，返回一个对象，对象的属性保持跟入参的属性一致，其属性如下：
 
-| 属性      | 类型 | 说明                                 |
-|---------- |---- |---------- |
-| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 |
-| date | timestamp | 13位的时间戳 |
-| text | string | 日期文本内容 |
-| topInfo | string | 上方提示信息 |
-| bottomInfo | string | 下方提示信息 |
-| disabled | boolean | 是否禁用 |
+| 属性 | 类型 | 说明 | 最低版本 |
+|-----|------|-----|---------|
+| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 | 2.3.0 |
+| date | timestamp | 13位的时间戳 | 2.3.0 |
+| text | string | 日期文本内容 | 2.3.0 |
+| topInfo | string | 上方提示信息 | 2.3.0 |
+| bottomInfo | string | 下方提示信息 | 2.3.0 |
+| disabled | boolean | 是否禁用 | 2.3.0 |
 
 ```html
 <wd-calendar type="daterange" value="{{ value }}" allow-same-day formatter="{{ formatter }}" bind:confirm="handleConfirm" />
@@ -419,29 +419,29 @@ Page({
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
 |-----|-----|------|-------|-------|-----|
 | value | 选中值，为 13 位时间戳或时间戳数组 | null / number / array | - | - | 2.3.0 |
-| type | 日期类型 | string | 'date' / 'dates' / 'datetime' / 'week' / 'month' / 'daterange' / 'datetimerange' / 'weekrange' / 'monthrange' | 'date' | 2.3.0 |
+| type | 日期类型 | string | date / dates / datetime / week / month / daterange / datetimerange / weekrange / monthrange | date | 2.3.0 |
 | min-date | 最小日期，为 13 位时间戳 | number | - | 当前日期往前推 6 个月 | 2.3.0 |
 | max-date | 最大日期，为 13 位时间戳 | number | - | 当前日期往后推 6 个月 | 2.3.0 |
 | first-day-of-week | 周起始天 | number | - | 0 | 2.3.0 |
 | formatter | 日期格式化函数 | function | - | - | 2.3.0 |
 | max-range | type 为范围选择时有效，最大日期范围 | number | - | - | 2.3.0 |
-| range-prompt | type 为范围选择时有效，选择超出最大日期范围时的错误提示文案 | string | - | '选择天数不能超过x天' | 2.3.0 |
+| range-prompt | type 为范围选择时有效，选择超出最大日期范围时的错误提示文案 | string | - | 选择天数不能超过x天 | 2.3.0 |
 | allow-same-day | type 为范围选择时有效，是否允许选择同一天 | boolean | - | false | 2.3.0 |
-| default-time | 选中日期所使用的当日内具体时刻 | string / array | - | '00:00:00' | 2.3.0 |
+| default-time | 选中日期所使用的当日内具体时刻 | string / array | - | 00:00:00 | 2.3.0 |
 | time-filter | type 为 'datetime' 或 'datetimerange' 时有效，用于过滤时间选择器的数据 | function | - | - | 2.3.0 |
 | hide-second | type 为 'datetime' 或 'datetimerange' 时有效，是否不展示秒修改 | boolean | - | false | 2.3.0 |
 | show-confirm | 是否显示确定按钮 | boolean | - | true | 2.3.0 |
 | show-type-switch | 是否显示类型切换功能 | boolean | - | false | 2.3.0 |
 | shortcuts | 快捷选项，为对象数组，其中对象的 `text` 必传 | array | - | - | 2.3.0 |
-| title | 弹出层标题 | string | - | '选择日期' | 2.3.0 |
+| title | 弹出层标题 | string | - | 选择日期 | 2.3.0 |
 | label | 选择器左侧文案 | string | - | - | 2.3.0 |
-| placeholder | 选择器占位符 | string | - | '请选择' | 2.3.0 |
+| placeholder | 选择器占位符 | string | - | 请选择 | 2.3.0 |
 | disabled | 禁用 | boolean | - | fasle | 2.3.0 |
 | readonly | 只读 | boolean | - | false | 2.3.0 |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | 2.3.0 |
 | inner-display-format | 自定义范围选择类型的面板内部回显，返回一个字符串 | function | - | - | 2.3.0 |
-| size | 设置选择器大小 | string | 'large' | - | 2.3.0 |
-| label-width | 设置左侧标题宽度 | string | - | '33%' | 2.3.0 |
+| size | 设置选择器大小 | string | large | - | 2.3.0 |
+| label-width | 设置左侧标题宽度 | string | - | 33% | 2.3.0 |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | 2.3.0 |
 | required | 必填样式 | boolean | - | false | 2.3.0 |
 | center | 是否垂直居中 | boolean | - | false | 2.3.0 |
@@ -457,23 +457,23 @@ Page({
 
 ### Events
 
-| 事件名称 | 说明 | 参数 |
-|---------|-----|-----|
-| bind:confirm | 绑定值变化时触发 | event.detail = { value } |
-| bind:change | 点击面板日期时触发 | event.detail = { value } |
-| bind:cancel | 点击关闭按钮或者蒙层时触发 ｜ - ｜
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:confirm | 绑定值变化时触发 | event.detail = { value } | 2.3.0 |
+| bind:change | 点击面板日期时触发 | event.detail = { value } | 2.3.0 |
+| bind:cancel | 点击关闭按钮或者蒙层时触发 ｜ - ｜ 2.3.0 
 
 ### Methods
 
-| 方法名称 | 说明 | 参数 |
-|---------|-----|-----|
-| open | 打开面板 | - |
-| close | 关闭面板 | - |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| open | 打开面板 | - | 2.3.0 |
+| close | 关闭面板 | - | 2.3.0 |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
-| custom-label-class | label 外部自定义样式 |
-| custom-value-class | value 外部自定义样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | 2.3.0 |
+| custom-label-class | label 外部自定义样式 | 2.3.0 |
+| custom-value-class | value 外部自定义样式 | 2.3.0 |

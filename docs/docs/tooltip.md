@@ -146,41 +146,41 @@ Page({
 
 ### Tooltip Attributes
 
-| 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
-|--------------------|----------------------------------------------------------|-------------------|-------------|--------|
-|  show |  状态是否可见  | Boolean           | — |  false |
-|  content        |  显示的内容，也可以通过 `slot#content` 传入  | String/Array            | — | — |
-|  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
-|  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
-|  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
-|  offset        |  出现位置的偏移量  | Number           | — |  0 |
-|  show-close   |  是否显示 Tooltip 内部的关闭按钮 | Boolean | — | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| show | 状态是否可见 | boolean | - |  false | - |
+| content | 显示的内容，也可以通过 `slot#content` 传入 | string / array | - | - | - |
+| placement | Tooltip 的出现位置 | string | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom | - |
+| disabled  | Tooltip 是否可用 | boolean | - |  false | - |
+| visible-arrow |  是否显示 Tooltip 箭头 | boolean | - | true | - |
+| offset | 出现位置的偏移量 | number | - | 0 | - |
+| show-close | 是否显示 Tooltip 内部的关闭按钮 | boolean | - | false | - |
 
 ### Events
 
-| 事件名称           | 说明             | 回调参数                                     |
-| -------------- | -------------- | ---------------------------------------- |
-| bind:open     |显示时触发       | - |
-| bind:close | 隐藏时触发 | - |
-| bind:change | 显隐值变化时触发 | - |
+| 事件名称 | 说明 | 回调参数 | 最低版本 |
+|---------|-----|---------|--------|
+| bind:open |显示时触发 | - | - |
+| bind:close | 隐藏时触发 | - | - |
+| bind:change | 显隐值变化时触发 | - | - |
 
 ### Methods
 
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| open | 打开文字提示弹框 |
-| close | 关闭文字提示弹框 |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| open | 打开文字提示弹框 | - | - |
+| close | 关闭文字提示弹框 | - | - |
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| content | 多行内容或用户自定义样式 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| content | 多行内容或用户自定义样式 | - |
 
 ### Tooltip 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
-| custom-arrow | 尖角样式 |
-| custom-pop | 文字提示样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
+| custom-arrow | 尖角样式 | - |
+| custom-pop | 文字提示样式 | - |

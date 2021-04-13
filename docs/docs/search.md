@@ -161,39 +161,39 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| placeholder	    | 搜索框占位文本                  |	string    |	-         |	'搜索' |
-| placeholder-left  | placeholder居左边              | boolean    | -          | false   |
-| cancel-txt      | 搜索框右侧文本                   | string    | -          | '取消'   |
-| light           | 搜索框亮色（白色）                | boolean   | -          | false   |
-| hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |
-| disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
-| maxlength | 原生属性，设置最大长度。-1表示无限制 | string/number | - | -1 |
-| value | 输入框文案，单向数据绑定 | string | - | - |
-| use-suffix-slot | 是否使用输入框右侧插槽 | boolean | - | false |
-| name | form 表单中的字段名 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| placeholder | 搜索框占位文本 | string |	- |	搜索 | - |
+| placeholder-left | placeholder居左边 | boolean | - | false | - |
+| cancel-txt | 搜索框右侧文本 | string | - | 取消 | - |
+| light | 搜索框亮色（白色） | boolean | - | false | - |
+| hide-cancel | 是否隐藏右侧文本 | boolean | - | false | - |
+| disabled | 是否禁用搜索框 | boolean | - | false | - |
+| maxlength | 原生属性，设置最大长度。-1表示无限制 | string / number | - | -1 | - |
+| value | 输入框文案，单向数据绑定 | string | - | - | - |
+| use-suffix-slot | 是否使用输入框右侧插槽 | boolean | - | false | - |
+| name | form 表单中的字段名 | string | - | - | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:focus        | 输入框聚焦事件                    | event.detail = { value } |
-| bind:blur         | 监听输入框失焦事件                     | event.detail = { value } |
-| bind:search       | 监听输入框搜索事件                      | event.detail = { value } |
-| bind:clear        | 监听输入框清空按钮事件                   | - |
-| bind:cancel       | 监听输入框右侧文本点击事件               | event.detail = { value } |
-| bind:change       | 监听输入框内容变化事件                   | event.detail = { value } |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| bind:focus | 输入框聚焦事件 | event.detail = { value } | - |
+| bind:blur | 监听输入框失焦事件 | event.detail = { value } | - |
+| bind:search | 监听输入框搜索事件 | event.detail = { value } | - |
+| bind:clear | 监听输入框清空按钮事件 | - | - |
+| bind:cancel | 监听输入框右侧文本点击事件 | event.detail = { value } | - |
+| bind:change | 监听输入框内容变化事件 | event.detail = { value } | - |
 
 ### Slots
 
-| name      | 说明                                 |
-|------------- |--------------------------------- |
-| prefix       | 输入框左侧自定义内容 |
-| suffix       | 输入框左侧自定义内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| prefix | 输入框左侧自定义内容 | - |
+| suffix | 输入框左侧自定义内容 | - |
 
 ### 外部样式类
 
-| 类名      | 说明                                 |
-|------------- |--------------------------------- |
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |

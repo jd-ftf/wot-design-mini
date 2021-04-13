@@ -195,27 +195,27 @@ Page({
 
 ### Options Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title      |	标题                        |	string    |	- |	- |
-| msg	    | 消息文案 |	string    |	-         |	- |
-| type      | 弹框类型                      | string    | 'alert', 'confirm', 'prompt'          | 'alert'   |
-| closeOnClickModal      | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为'modal'  | boolean    | -          | true   |
-| inputType      | 当type为prompt时，输入框类型   | string    | -          | 'text'   |
-| inputValue      | 当type为prompt时，输入框初始值   | string / number    | -          | -   |
-| inputPlaceholder      | 当type为prompt时，输入框placeholder      | string    | -          | '请输入内容'   |
-| inputPattern      | 当type为prompt时，输入框正则校验，点击确定按钮时进行校验      | regex    | -          | -   |
-| inputValidate      | 当type为prompt时，输入框校验函数，点击确定按钮时进行校验      | function    | -          | -   |
-| inputError | 当type为prompt时，输入框检验不通过时的错误提示文案 | string | - | '输入的数据不合法' |
-| confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
-| cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
-| selector      | 组件的id     | string    | - | '#wd-message-box' |
-| context | 引用 `wd-message-box` 的页面实例或自定义组件实例 | object | - | 当前页面实例 |
-| zIndex | 弹窗层级 | number | - | 99 |
-| lazyRender | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| title |	标题 | string |	- |	- | - |
+| msg	| 消息文案 | string |	- |	- | - |
+| type | 弹框类型 | string | alert / confirm / prompt | alert | - |
+| closeOnClickModal | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为'modal' | boolean | - | true | - |
+| inputType | 当type为prompt时，输入框类型 | string | - | text | - |
+| inputValue | 当type为prompt时，输入框初始值 | string / number | - | - | - |
+| inputPlaceholder | 当type为prompt时，输入框placeholder | string | - | 请输入内容 | - |
+| inputPattern | 当type为prompt时，输入框正则校验，点击确定按钮时进行校验 | regex | - | - | - |
+| inputValidate | 当type为prompt时，输入框校验函数，点击确定按钮时进行校验 | function | - | - | - |
+| inputError | 当type为prompt时，输入框检验不通过时的错误提示文案 | string | - | 输入的数据不合法 | - |
+| confirmButtonText | 确定按钮文案 | string | - | 确定 | - |
+| cancelButtonText | 取消按钮文案 | string | - | 取消 | - |
+| selector | 组件的id | string | - | #wd-message-box | - |
+| context | 引用 `wd-message-box` 的页面实例或自定义组件实例 | object | - | 当前页面实例 | - |
+| zIndex | 弹窗层级 | number | - | 99 | 2.3.0 |
+| lazyRender | 弹层内容懒渲染，触发展示时才渲染内容 | boolean | - | true | 2.3.0 |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|-----|---------|
+| custom-class | 根结点样式 | - |

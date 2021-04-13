@@ -12,9 +12,9 @@ Wot Design Mini 每1个组件基本都有自定义类名 custom-class，可以�
 
 **主题色**为：
 
-<div class="style-block" style="background: #4d80f0;">
+<div class="style-block" style="background: #4D80F0;">
   <p>Theme Color</p>
-  <p>$-color-theme: #4d80f0</p>
+  <p>$-color-theme: #4D80F0</p>
 </div>
 
 **主题品牌色-小渐变（按钮，渐变更弱）色**：
@@ -131,7 +131,7 @@ npm i
 安装完依赖后，修改 _variable.scss 文件，之后进行打包：
 
 ```bash
-npm run build
+npm run build:jd
 ```
 
 之后会在工程的根目录下生成 `lib` 文件夹，将文件夹名字改为 `wot-design`，将其复制到你的工程中即可。

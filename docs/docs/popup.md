@@ -36,10 +36,10 @@
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 最低版本 |
-|---------- |------------------------------------ |---------- |------------- |-------- |------|
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
 | show | 弹出层是否显示 | boolean | - | - | - |
-| position | 弹出位置 | string | 'center', 'top', 'right', 'bottom', 'left' | 'center' | - |
+| position | 弹出位置 | string | center / top / right / bottom / left | center | - |
 | closable | 关闭按钮 | boolean | - | false | - |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
 | duration | 动画持续时间 | number / boolean | - | 300(ms) | - |
@@ -53,19 +53,19 @@
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:close | 弹出层关闭时触发 | - |
-| bind:clickmodal | 点击遮罩时触发 | - |
-| bind:beforeenter | 进入前触发 | - |
-| bind:enter | 进入时触发 | - |
-| bind:afterenter | 进入后触发 | - |
-| bind:beforeleave | 离开前触发 | - |
-| bind:leave | 离开时触发 | - |
-| bind:afterleave | 离开后触发| - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:close | 弹出层关闭时触发 | - | - |
+| bind:clickmodal | 点击遮罩时触发 | - | - |
+| bind:beforeenter | 进入前触发 | - | - |
+| bind:enter | 进入时触发 | - | - |
+| bind:afterenter | 进入后触发 | - | - |
+| bind:beforeleave | 离开前触发 | - | - |
+| bind:leave | 离开时触发 | - | - |
+| bind:afterleave | 离开后触发| - | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
