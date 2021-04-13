@@ -260,7 +260,7 @@ VueComponent({
           confirmBtnDisabled
         })
       }, 250)
-      this.$emit('close')
+      this.$emit('cancel')
     },
     handleTypeChange ({ detail: { index } }) {
       const tabs = ['date', 'week', 'month']
@@ -276,7 +276,7 @@ VueComponent({
       let confirmBtnDisabled = false
       // 范围选择未选择满，或者多日期选择未选择日期，按钮置灰不可点击
       if ((this.data.type.indexOf('range') > -1 && (!value[0] || !value[1] || !value)) ||
-        (this.data.type === 'dates' && (value.length === 0 || !value))) {
+        (this.data.type === 'dates' && (value.length === 0 || !value)) || !value) {
         confirmBtnDisabled = true
       }
 
