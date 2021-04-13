@@ -23,5 +23,8 @@
 	<wd-input-number value="{{ value7 }}" bind:change="handleChange7" step-strictly step="{{ 2 }}" />
 </demo-block>
 <demo-block title="修改输入框宽度">
-	<wd-input-number value="{{ value8 }}" bind:change="handleChange8" input-width="70px" />
+	<wd-input-number value="{{ value8 }}" input-width="70px" bind:change="handleChange8" />
+</demo-block>
+<demo-block title="允许空值，并设置 placeholder">
+	<wd-input-number value="{{ value9 }}" allow-null placeholder="不限" input-width="70px" bind:change="handleChange9" />
 </demo-block>

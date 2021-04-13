@@ -1,5 +1,5 @@
 import VueComponent from '../common/component'
-import { debounce } from '../common/util'
+import { debounce, getType } from '../common/util'
 
 VueComponent({
   data: {
@@ -45,7 +45,9 @@ VueComponent({
       }
     },
     withoutInput: Boolean,
-    inputWidth: String
+    inputWidth: String,
+    allowNull: Boolean,
+    placeholder: String
   },
 
   methods: {
@@ -88,6 +90,13 @@ VueComponent({
     },
 
     setValue (value, change = true) {
+      const type = getType(value)
+
+      if (this.data.allowNull && (type === 'null' || type === 'undefined' || value === '')) {
+        this.dispatchChangeEvent(value, change)
+        return
+      }
+
       if (this.data.stepStrictly) {
         value = this.toStrictlyStep(value)
       }
@@ -96,6 +105,7 @@ VueComponent({
       }
       if (value > this.data.max) value = this.toPrecision(this.data.max)
       if (value < this.data.min) value = this.toPrecision(this.data.min)
+
       this.dispatchChangeEvent(value, change)
     },
 
@@ -147,6 +157,12 @@ VueComponent({
     },
 
     formatValue (value) {
+      const type = getType(value)
+
+      if (this.data.allowNull && (type === 'null' || type === 'undefined' || value === '')) {
+        return ''
+      }
+
       value = Number(value)
 
       if (isNaN(value)) {

@@ -10,6 +10,7 @@
       type="digit"
       disabled="{{disabled}}"
       value="{{value}}"
+      placeholder="{{placeholder}}"
       bindinput="handleInput"
       bindfocus="handleFocus"
       bindblur="handleBlur"
