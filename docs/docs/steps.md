@@ -97,42 +97,42 @@
 
 ### Steps Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| active | 步骤进度 | number | - | 0 |
-| vertical | 垂直方向 | boolean | - | false |
-| dot | 点状步骤条 | dot | - | false |
-| space | 步骤条间距，默认为自动计算 | string | - | - |
-| align-center | 是否水平居中，只对横向步骤条有效 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| active | 步骤进度 | number | - | 0 | - |
+| vertical | 垂直方向 | boolean | - | false | - |
+| dot | 点状步骤条 | dot | - | false | - |
+| space | 步骤条间距，默认为自动计算 | string | - | - | - |
+| align-center | 是否水平居中，只对横向步骤条有效 | boolean | - | false | - |
 
 ### Step Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 标题，如果没有则为默认文案。当只有标题而没有描述时，标题的字号会小2号 | string | - | - |
-| title-slot | 使用 title 插槽时需要设置该属性 | boolean | - | false |
-| description | 描述 | string | - | - |
-| description-slot | 使用 description 插槽时需要设置该属性 | boolean | - | false |
-| icon | 图标 | string | - | - |
-| icon-slot | 使用 icon 插槽时需要设置该属性 | boolean | - | false |
-| status | 步骤状态 | string | 'finished', 'process', 'error' | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| title | 标题，如果没有则为默认文案。当只有标题而没有描述时，标题的字号会小2号 | string | - | - | - |
+| title-slot | 使用 title 插槽时需要设置该属性 | boolean | - | false | - |
+| description | 描述 | string | - | - | - |
+| description-slot | 使用 description 插槽时需要设置该属性 | boolean | - | false | - |
+| icon | 图标 | string | - | - | - |
+| icon-slot | 使用 icon 插槽时需要设置该属性 | boolean | - | false | - |
+| status | 步骤状态 | string | finished / process / error | - | - |
 
 ### Step Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| icon | 图标 |
-| title | 标题 |
-| description | 描述 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| icon | 图标 | - |
+| title | 标题 | - |
+| description | 描述 | - |
 
 ### Steps 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|-----|---------|
+| custom-class | 根结点样式 | - |
 
 ### Step 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |

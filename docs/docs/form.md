@@ -4,7 +4,7 @@
 
 常见的 form 表单为`单元格`形式的展示，即左侧为表单的标题描述，右侧为表单的输入。
 
-其中，`Input 输入框`、`Picker 选择器`、`ColPicker 多列选择器`、`SelectPicker 单复选选择器` 和 `DatetimePicker 日期时间选择器`具有`单元格`的展示形式，而 `InputNumber 计数器`和 `Switch 开关`需要使用 `Cell 单元格`进行包裹使用。
+其中，`Input 输入框`、`Picker 选择器`、 `Calendar 日历选择器`, `ColPicker 多列选择器`、`SelectPicker 单复选选择器` 和 `DatetimePicker 日期时间选择器`具有`单元格`的展示形式，而 `InputNumber 计数器`和 `Switch 开关`需要使用 `Cell 单元格`进行包裹使用。
 
 所有的表单组件都支持 `name` 属性，可以结合小程序原生的 `form` 组件，监听 `submit` 事件，统一获取到所有表单组件的 `value`，也可以单独对每个表单组件监听 `change` 事件来获取单个表单组件的 `value`。
 

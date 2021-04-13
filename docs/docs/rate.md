@@ -74,29 +74,29 @@ Page({
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value     |	当前分数                |	number    |	—           |	—       |
-| num	    | 评分最大值                      |	number    |	-         |	5 |
-| readonly      | 是否只读                  | boolean | - | false |
-| size   | 图标大小                  | string | - | '16px' |
-| space      | 图标间距        | string | - | '4px' |
-| color       | 未选中的图标颜色  | string | - | '#E8E8E8' |
-| active-color           | 选中的图标颜色(支持传颜色数组，共有 2 个元素，为 2 个分段所对应的颜色)   | string/array | - | 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)' |
-| icon           | 未选中的图标类名                  | string | - | 'wd-icon-star-on' |
-| active-icon    | 选中的图标类名                  | string | - | 'wd-icon-star-on' |
-| disabled           | 是否禁用                  | boolean | - | false |
-| disabled-color    | 禁用的图标颜色                  | string | - | 'linear-gradient(315deg, rgba(177,177,177,1) 0%,rgba(199,199,199,1) 100%)' |
-| name | form 表单中的字段名 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|--------|
+| value |	当前分数 | number | - |	- | - |
+| num	| 评分最大值 | number |	- |	5 | - |
+| readonly | 是否只读 | boolean | - | false | - |
+| size | 图标大小 | string | - | 16px | - |
+| space | 图标间距 | string | - | 4px | - |
+| color | 未选中的图标颜色 | string | - | #E8E8E8 | - |
+| active-color | 选中的图标颜色(支持传颜色数组，共有 2 个元素，为 2 个分段所对应的颜色) | string/array | - | linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%) | - |
+| icon | 未选中的图标类名 | string | - | wd-icon-star-on | - |
+| active-icon | 选中的图标类名 | string | - | wd-icon-star-on | - |
+| disabled | 是否禁用 | boolean | - | false | - |
+| disabled-color | 禁用的图标颜色 | string | - | linear-gradient(315deg, rgba(177,177,177,1) 0%,rgba(199,199,199,1) 100%) | - |
+| name | form 表单中的字段名 | string | - | - | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change       | 点击icon，修改分值事件              | event.detail = { value }  |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:change | 点击icon，修改分值事件 | event.detail = { value } | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |

@@ -106,34 +106,34 @@
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| text | 设置通知栏文案 | string | - | - |
-| type | 设置通知栏类型 | string | `info`|`warning`|`danger` | 'warning' |
-| prefix | 设置左侧图标，使用icon章节中的图标名 | string | - | - |
-| scrollable | 是否可以滚动 | boolean | - | true |
-| delay | 滚动动画初始延时，单位 秒(s) | number | - | 1 |
-| speed | 滚动速度，单位 px/s | number | - | 50 |
-| closable | 是否可以关闭 | boolean | - | false |
-| wrapable | 是否换行展示 | boolean | - | false |
-| color | 文字、图标颜色 | string | - | - |
-| background-color | 背景颜色 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| text | 设置通知栏文案 | string | - | - | - |
+| type | 设置通知栏类型 | string | info / warning / danger | warning | - |
+| prefix | 设置左侧图标，使用icon章节中的图标名 | string | - | - | - |
+| scrollable | 是否可以滚动 | boolean | - | true | - |
+| delay | 滚动动画初始延时，单位 秒(s) | number | - | 1 | - |
+| speed | 滚动速度，单位 px/s | number | - | 50 | - |
+| closable | 是否可以关闭 | boolean | - | false | - |
+| wrapable | 是否换行展示 | boolean | - | false | - |
+| color | 文字、图标颜色 | string | - | - | - |
+| background-color | 背景颜色 | string | - | - | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:close | 关闭按钮点击时 | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| bind:close | 关闭按钮点击时 | - | - |
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| prefix | 前置图标 |
-| suffix | 后置插槽 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| prefix | 前置图标 | - |
+| suffix | 后置插槽 | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |

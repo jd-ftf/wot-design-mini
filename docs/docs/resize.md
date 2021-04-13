@@ -1,4 +1,4 @@
-# Resize 监听元素尺寸变化
+## Resize 监听元素尺寸变化
 
 当组件包裹的文档流尺寸发生变化时，触发 `size` 事件。一般用于监听 dom 内容更新时导致的 dom 尺寸位置的变化，重新获取 dom 尺寸和位置，进行内容展示的计算操作。
 
@@ -45,6 +45,6 @@ Page({
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:size | 尺寸发生变化时触发 | event.detail = { width: number, height: number, top: number, right: number, bottom: number, left: number } |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| bind:size | 尺寸发生变化时触发 | event.detail = { width: number, height: number, top: number, right: number, bottom: number, left: number } | - |

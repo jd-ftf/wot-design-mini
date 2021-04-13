@@ -49,7 +49,7 @@ Page({
         pages: [
           {
             id: 'calendar',
-            name: 'Calendar 日历选择'
+            name: 'Calendar 日历选择器'
           },
           {
             id: 'calendarView',

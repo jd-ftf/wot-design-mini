@@ -80,31 +80,30 @@ page({
 ```
 
 ### Attributes
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value      |	滑块值，如果为array，则为双向滑块                |	number / array    |	—           |	—       |
-| hide-min-max	    | 是否显示左右的最大最小值                      |	boolean    |	-         |	false |
-| hide-label      | 是否显示当前滑块值                  | boolean | - | false |
-| disabled   | 是否禁用                  | boolean | - | false |
-| max      | 最大值        | number | - | 100 |
-| min       | 最小值  | number | - | 0 |
-| step           | 步进值        | number | - | 1 |
-| active-color           | 进度条激活背景颜色        | string | - | 'linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%)' |
-| inactive-color           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
-| name | form 表单中的字段名 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| value |	滑块值，如果为array，则为双向滑块 |	number / array | - | - | - |
+| hide-min-max | 是否显示左右的最大最小值 |	boolean |	- |	false | - |
+| hide-label | 是否显示当前滑块值 | boolean | - | false | - |
+| disabled | 是否禁用 | boolean | - | false | - |
+| max | 最大值 | number | - | 100 | - |
+| min | 最小值 | number | - | 0 | - |
+| step | 步进值 | number | - | 1 | - |
+| active-color | 进度条激活背景颜色 | string | - | linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%) | - |
+| inactive-color | 进度条未激活背景颜色 | string | - | #e5e5e5 | - |
+| name | form 表单中的字段名 | string | - | - | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:dragstart | 开始移动时触发 | event.detail = { value } |
-| bind:dragmove | 移动滑块时触发 | event.detail = { value } |
-| bind:dragend | 移动结束时触发 | event.detail = { value } |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:dragstart | 开始移动时触发 | event.detail = { value } | - |
+| bind:dragmove | 移动滑块时触发 | event.detail = { value } | - |
+| bind:dragend | 移动结束时触发 | event.detail = { value } | - |
 
 ### 外部样式类
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
-| custom-min-class | 最小值自定义样式 |
-| custom-max-class | 最大值自定义样式 |
-
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
+| custom-min-class | 最小值自定义样式 | - |
+| custom-max-class | 最大值自定义样式 | - |

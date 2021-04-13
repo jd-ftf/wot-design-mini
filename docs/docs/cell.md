@@ -209,66 +209,66 @@ Page({
 
 ### CellGroup Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 分组标题 | string | - | - |
-| value | 分组右侧内容 | string | - | - |
-| border | 是否展示边框线 | string | - | - |
-| use-slot | 分组启用插槽 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| title | 分组标题 | string | - | - | - |
+| value | 分组右侧内容 | string | - | - | - |
+| border | 是否展示边框线 | string | - | - | - |
+| use-slot | 分组启用插槽 | boolean | - | false | - |
 
 ### Cell Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 标题 | string | - | - |
-| value | 右侧内容 | string | - | - |
-| icon | 图标类名 | string | - | - |
-| label | 描述信息 | string | - | - |
-| is-link | 是否为跳转链接 | boolean | - | false |
-| to | 跳转地址 | string | - | - |
-| clickable | 开启点击反馈，is-link默认开启 | boolean | - | false |
-| replace | 跳转时是否替换栈顶页面 | boolean | - | false |
-| size | 设置单元格大小 | string | 'large' | - |
-| title-width | 设置左侧标题宽度 | string | - | - |
-| center | 是否垂直居中，默认顶部居中 | boolean | - | false |
-| required | 表单属性，必填 | boolean | - | false |
-| vertical | 表单属性，上下结构 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| title | 标题 | string | - | - | - |
+| value | 右侧内容 | string | - | - | - |
+| icon | 图标类名 | string | - | - | - |
+| label | 描述信息 | string | - | - | - |
+| is-link | 是否为跳转链接 | boolean | - | false | - |
+| to | 跳转地址 | string | - | - | - |
+| clickable | 开启点击反馈，is-link默认开启 | boolean | - | false | - |
+| replace | 跳转时是否替换栈顶页面 | boolean | - | false | - |
+| size | 设置单元格大小 | string | large | - | - |
+| title-width | 设置左侧标题宽度 | string | - | - | - |
+| center | 是否垂直居中，默认顶部居中 | boolean | - | false | - |
+| required | 表单属性，必填 | boolean | - | false | - |
+| vertical | 表单属性，上下结构 | boolean | - | false | - |
 
 ### Cell Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:click | 当 clickable 或 is-link 为 true 时点击单元格触发 | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| bind:click | 当 clickable 或 is-link 为 true 时点击单元格触发 | - | - |
 
 ### CellGroup Slot
 
 > CellGroup必须首先开启`use-slot`,插槽才生效。使用插槽时请通过外部自定义样式类来控制样式。
 
-| name      | 说明       |
-|------------- |----------- |
-| title | 分组标题 |
-| value | 分组右侧内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| title | 分组标题 | - |
+| value | 分组右侧内容 | - |
 
 ### Cell Slot
-| name      | 说明       |
-|------------- |----------- |
-| title | 标题 |
-| default | 右侧内容，使用时不需要设置slot="default" |
-| icon | 图标 |
-| label | 描述信息 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| title | 标题 | - |
+| default | 右侧内容，使用时不需要设置slot="default" | - |
+| icon | 图标 | - |
+| label | 描述信息 | - |
 
 ### CellGroup 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
 
 ### Cell 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
-| custom-icon-class | icon使用slot时的自定义样式 |
-| custom-label-class | label使用slot时的自定义样式 |
-| custom-value-class | value使用slot时的自定义样式 |
-| custom-title-class | title使用slot时的自定义样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
+| custom-icon-class | icon使用slot时的自定义样式 | - |
+| custom-label-class | label使用slot时的自定义样式 | - |
+| custom-value-class | value使用slot时的自定义样式 | - |
+| custom-title-class | title使用slot时的自定义样式 | - |

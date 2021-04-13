@@ -189,7 +189,7 @@ Page({
 ```
 ### 设置选中数量的上限和下限
 
-`min` 属性设置最小选中的数量，`max` 属性设置最大选中的数量。如果要默认设置某个选项固定被选中，则给该复选框设置 disabled，且 `v-model` 中有该选项的值。
+`min` 属性设置最小选中的数量，`max` 属性设置最大选中的数量。如果要默认设置某个选项固定被选中，则给该复选框设置 disabled，且 `value` 中有该选项的值。
 
 ```html
 <wd-checkbox-group value="{{value}}" min="{{1}}" max="{{3}}" bind:change="handleChange">
@@ -225,61 +225,61 @@ Page({
 
 ### Checkbox Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 单选框选中时的值 | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
-| disabled | 禁用 | boolean | - | false |
-| max-width | 文字位置最大宽度 | string | - | '' |
-| true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | true |
-| false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | false |
-| size | 设置大小 | string | 'large' | - |
-| name | form 表单中的字段名 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|--------|
+| value | 单选框选中时的值 | string / number / boolean | - | - | - |
+| shape | 单选框形状 | string | circle / square / button | circle | - |
+| checked-color | 选中的颜色 | string | - | #4D80F0 | - |
+| disabled | 禁用 | boolean | - | false | - |
+| max-width | 文字位置最大宽度 | string | - | - | - |
+| true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | true | - |
+| false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | false | - |
+| size | 设置大小 | string | large | - | - |
+| name | form 表单中的字段名 | string | - | - | - |
 
 ### CheckboxGroup Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 绑定值 | Array | - | - |
-| shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
-| cell | 表单模式 | boolean | - |false |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
-| disabled | 禁用 | boolean | - | false |
-| min | 最小选中的数量 | number | - | 0 |
-| max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 |
-| inline | 同行展示 | boolean | - | false |
-| size | 设置大小 | string | 'large' | - |
-| name | form 表单中的字段名 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| value | 绑定值 | Array | - | - | - |
+| shape | 单选框形状 | string | circle / square / button | circle | - |
+| cell | 表单模式 | boolean | - | false | - |
+| checked-color | 选中的颜色 | string | - | #4D80F0 | - |
+| disabled | 禁用 | boolean | - | false | - |
+| min | 最小选中的数量 | number | - | 0 | - |
+| max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 | - |
+| inline | 同行展示 | boolean | - | false | - |
+| size | 设置大小 | string | large | - | - |
+| name | form 表单中的字段名 | string | - | - | - |
 
 ### Checkbox Methods
 
-| 方法名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| toggle | 切换当前选中状态,同时触发change事件 | - |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| toggle | 切换当前选中状态,同时触发change事件 | - | - |
 
 ### Checkbox Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发，当为复选框组时参数为boolean，表示该复选框是否选中 | event.detail = { value } |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:change | 绑定值变化时触发，当为复选框组时参数为boolean，表示该复选框是否选中 | event.detail = { value } | - |
 
 ### CheckboxGroup Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | event.detail = { value } |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:change | 绑定值变化时触发 | event.detail = { value } | - |
 
 ### Checkbox 外部样式类
 
-| 类名     | 说明                 |
-|---------|---------------------|
-| custom-class | 根结点样式 |
-| custom-label-class | 文字结点样式 |
-| custom-shape-class | 单选图标结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|-----|---------|
+| custom-class | 根结点样式 | - |
+| custom-label-class | 文字结点样式 | - |
+| custom-shape-class | 单选图标结点样式 | - |
 
 ### CheckboxGroup 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |

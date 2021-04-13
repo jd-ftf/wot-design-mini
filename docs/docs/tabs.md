@@ -120,30 +120,29 @@ Page({
 
 ### Tabs Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value | 绑定值 | string / number | - | - |
-| slidable-num | 可滑动的标签数阈值 | number | - | 6 |
-| map-num | 显示导航地图的标签数阈值 | number | - | 10 |
-| sticky | 粘性布局 | boolean | - | false |
-| offset-top | 粘性布局时距离窗口顶部距离 | number | - | 0 |
-| ~~animated~~ | ~~开启切换动画~~，2.3.0 版本修改 tabs 切换方案，去掉该属性 | boolean | - | false |
-| swipeable | 开启手势滑动 | boolean | - | false |
-| ~~lazy-render~~ | ~~懒渲染标签页~~，2.3.0 版本修改 tabs 切换方案，去掉该属性 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value | 绑定值 | string / number | - | - | - |
+| slidable-num | 可滑动的标签数阈值 | number | - | 6 | - |
+| map-num | 显示导航地图的标签数阈值 | number | - | 10 | - |
+| sticky | 粘性布局 | boolean | - | false | - |
+| offset-top | 粘性布局时距离窗口顶部距离 | number | - | 0 | - |
+| ~~animated~~ | ~~开启切换动画~~，2.3.0 版本修改 tabs 切换方案，去掉该属性 | boolean | - | false | - |
+| swipeable | 开启手势滑动 | boolean | - | false | - |
+| ~~lazy-render~~ | ~~懒渲染标签页~~，2.3.0 版本修改 tabs 切换方案，去掉该属性 | boolean | - | false | - |
 
 ### Tab Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| name | 标签页名称 | string | - | - |
-| title | 标题 | string | - | - |
-| disabled | 禁用 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| name | 标签页名称 | string | - | - | - |
+| title | 标题 | string | - | - | - |
+| disabled | 禁用 | boolean | - | false | - |
 
 ### Tabs Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| bind:change | 绑定值变化时触发 | event.detail = { index, name },index为tab下标，name为tab绑定的值 |
-| bind:click | 点击标题时触发 | event.detail = { index, name },index为tab下标，name为tab绑定的值 |
-| bind:disabled | 点击禁用的标题时触发| event.detail = { index, name },index为tab下标，name为tab绑定的值 |
-
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| bind:change | 绑定值变化时触发 | event.detail = { index, name },index为tab下标，name为tab绑定的值 | - |
+| bind:click | 点击标题时触发 | event.detail = { index, name },index为tab下标，name为tab绑定的值 | - |
+| bind:disabled | 点击禁用的标题时触发| event.detail = { index, name },index为tab下标，name为tab绑定的值 | - |

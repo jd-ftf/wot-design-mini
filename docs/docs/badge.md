@@ -103,19 +103,19 @@
 
 ### Attributes
 
-| 参数          | 说明            | 类型            | 可选值                 | 默认值   |
-|------------- |---------------- |---------------- |---------------------- |-------- |
-| value        | 显示值           | string, number  |          —            |    —    |
-| max          | 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型    | number  |         —              |     —    |
-| top    | 为正时，角标向下偏移对应的像素             | Number          | - |    —    |
-| right    | 为正时，角标向左偏移对应的像素              | Number          | - |    —    |
-| is-dot       | 红色点状标注           | boolean         |         —             |  false  |
-| hidden       | 隐藏 badge       | boolean         |         —             |  false  |
-| type         | 类型             | string          | primary / success / warning / danger / info |    —    |
-| bg-color     | 背景色             | string          | 各种颜色的css写法 |    —    |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value | 显示值 | string / number | - | - | - | - |
+| max | 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型 | number | - | - | - |
+| top | 为正时，角标向下偏移对应的像素 | number | - | - | - |
+| right | 为正时，角标向左偏移对应的像素 | number | - | - | - |
+| is-dot | 红色点状标注 | boolean | - | false | - |
+| hidden | 隐藏 badge | boolean | - | false | - |
+| type | 类型 | string | primary / success / warning / danger / info | - | - |
+| bg-color | 背景色 | string | 各种颜色的css写法 | - | - |
 
 ### 外部样式类
 
-| 类名     | 说明                |
-|---------|---------------------|
-| custom-class | 根结点样式 |
+| 类名 | 说明 | 最低版本 |
+|-----|------|--------|
+| custom-class | 根结点样式 | - |
