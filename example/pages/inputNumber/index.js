@@ -7,7 +7,8 @@ Page({
     value5: 1,
     value6: '1.205',
     value7: 1,
-    value8: 2
+    value8: 2,
+    value9: ''
   },
   handleChange1 ({ detail }) {
     this.setData({
@@ -47,6 +48,11 @@ Page({
   handleChange8 ({ detail }) {
     this.setData({
       value8: detail.value
+    })
+  },
+  handleChange9 ({ detail }) {
+    this.setData({
+      value9: detail.value
     })
   }
 })

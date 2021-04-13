@@ -14,7 +14,7 @@
 ```json
 {
   "usingComponents": {
-    "wd-img-cropper": "/wot-design/img-cropper/index"
+    "wd-img-cropper": "/wot-design/imgCropper/index"
   }
 }
 ```
