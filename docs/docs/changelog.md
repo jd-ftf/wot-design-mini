@@ -54,6 +54,8 @@
 
 #### 优化
 
+- Card
+  - 优化卡片组件的样式结构 (by [@yawuling](https://github.com/yawuling) )
 - PickerView
   - 优化多次触发 `change` 事件的问题 (by [@yawuling](https://github.com/yawuling) )
   - 优化多列数据的情况下 `value` 为空时，默认触发一次选中首个选项 (by [@yawuling](https://github.com/yawuling) )
