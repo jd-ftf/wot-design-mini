@@ -28,7 +28,15 @@
     bind:close="close"
     custom-header-class="wd-select-picker__header"
   >
-    <view class='wd-select-picker__wrapper custom-content-class'>
+    <wd-search
+      jd:if="{{ filterable }}"
+      value="{{ filterVal }}"
+      placeholder="{{ filterPlaceholder }}"
+      hide-cancel
+      placeholder-left
+      bind:change="handleFilterChange"
+    />
+    <view class="wd-select-picker__wrapper {{ filterable ? 'is-filterable' : '' }} custom-content-class">
       <!-- 多选 -->
       <wd-checkbox-group
         jd:if="{{ type === 'checkbox' }}"
@@ -41,12 +49,22 @@
         bind:change="handleChange"
       >
         <wd-checkbox
-          jd:for="{{columns}}"
-          jd:key="$this"
+          jd:for="{{filterColumns}}"
+          jd:key="{{ item[valueKey] }}"
           jd:for-item="item"
           value="{{ item[valueKey] }}"
           disabled="{{ item.disabled }}"
-        >{{item[labelKey]}}</wd-checkbox>
+        >
+          <block jd:if="{{ filterable && filterVal }}">
+            <block jd:for="{{ item[labelKey] }}" jd:for-item="text" jd:key="text.label">
+              <text jd:if="{{ text.type === 'active' }}" class="wd-select-picker__text-active">{{ text.label }}</text>
+              <block jd:else>{{ text.label }}</block>
+            </block>
+          </block>
+          <block jd:else>
+            {{ item[labelKey] }}
+          </block>
+        </wd-checkbox>
       </wd-checkbox-group>
       <!-- 单选 -->
       <wd-radio-group
@@ -58,12 +76,21 @@
         bind:change="handleChange"
       >
         <wd-radio
-          jd:for="{{columns}}"
+          jd:for="{{filterColumns}}"
           jd:key="$this"
           jd:for-item="item"
           value="{{ item[valueKey] }}"
           disabled="{{ item.disabled }}"
-        >{{item[labelKey]}}</wd-radio>
+        >
+          <block jd:if="{{ filterable && filterVal }}">
+            <block jd:for="{{item[labelKey]}}" jd:for-item="text" jd:key="text.label">
+              <text clsss="{{ text.type === 'active' ? 'wd-select-picker__text-active' : '' }}">{{ text.label }}</text>
+            </block>
+          </block>
+          <block jd:else>
+            {{ item[labelKey] }}
+          </block>
+        </wd-radio>
       </wd-radio-group>
       <view jd:if="{{ loading }}" class="wd-select-picker__loading" catchtouchmove="noop">
         <wd-loading color="{{ loadingColor }}" />

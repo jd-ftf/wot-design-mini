@@ -178,8 +178,16 @@
   @include e(wrapper) {
     padding: 0 10px;
     position: relative;
-    max-height: 245px;
+    max-height: 356px;
     overflow: auto;
+
+    @include when(filterable) {
+      height: 314px;
+      max-height: 314px;
+    }
+  }
+  @include e(text-active) {
+    color: $-color-theme;
   }
 
   @include e(footer) {

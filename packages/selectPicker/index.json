@@ -8,6 +8,7 @@
     "wd-checkbox": "../checkbox/index",
     "wd-radio-group": "../radioGroup/index",
     "wd-checkbox-group": "../checkboxGroup/index",
-    "wd-loading": "../loading/index"
+    "wd-loading": "../loading/index",
+    "wd-search": "../search/index"
   }
 }

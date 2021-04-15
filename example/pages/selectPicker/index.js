@@ -4,61 +4,73 @@ Page({
   data: {
     columns1: [
       {
-        value: '1',
-        label: '京麦'
+        value: '101',
+        label: '男装'
       },
       {
-        value: '2',
-        label: '京东金融'
+        value: '102',
+        label: '奢侈品'
       },
       {
-        value: '3',
-        label: '京me'
+        value: '103',
+        label: '女装'
       },
       {
-        value: '4',
-        label: '京麦'
+        value: '104',
+        label: '鞋靴'
       },
       {
-        value: '5',
-        label: '京东金融'
+        value: '105',
+        label: '内衣配饰'
       },
       {
-        value: '6',
-        label: '京me'
+        value: '106',
+        label: '箱包'
       },
       {
-        value: '7',
-        label: '京麦'
+        value: '107',
+        label: '美妆护肤'
       },
       {
-        value: '8',
-        label: '京东金融'
+        value: '108',
+        label: '个性清洁'
       },
       {
-        value: '9',
-        label: '京me'
+        value: '109',
+        label: '钟表珠宝'
+      },
+      {
+        value: '110',
+        label: '手机'
+      },
+      {
+        value: '111',
+        label: '数码'
+      },
+      {
+        value: '112',
+        label: '电脑办公'
       }
     ],
     columns2: [
       {
-        value: '1',
-        label: '京麦',
+        value: '101',
+        label: '男装',
         disabled: true
       },
       {
-        value: '2',
-        label: '京东金融'
+        value: '102',
+        label: '奢侈品'
       },
       {
-        value: '3',
-        label: '京me'
+        value: '103',
+        label: '女装'
       }
     ],
-    value1: ['1'],
-    value2: '1',
-    value3: ['2'],
-    value4: ['3'],
+    value1: ['101'],
+    value2: '101',
+    value3: ['102'],
+    value4: ['103'],
     value5: [],
     value6: [],
     value7: [],
@@ -66,12 +78,13 @@ Page({
     value9: [],
     value10: [],
     value11: [],
-    value12: ['3'],
-    value13: ['2'],
-    value14: ['1'],
-    value15: ['3'],
-    value16: ['2'],
-    customShow: '京东金融',
+    value12: ['103'],
+    value13: ['102'],
+    value14: [],
+    value15: ['101'],
+    value16: ['103'],
+    value17: ['102'],
+    customShow: '奢侈品',
 
     displayFormat (items, columns) {
       let showValue = ''
@@ -175,7 +188,12 @@ Page({
   },
   handleConfirm16 ({ detail }) {
     this.setData({
-      value16: detail.value,
+      value16: detail.value
+    })
+  },
+  handleConfirm17 ({ detail }) {
+    this.setData({
+      value17: detail.value,
       customShow: detail.selectedItems.map(item => {
         return item.label
       }).join(', ')

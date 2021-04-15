@@ -274,6 +274,14 @@ Page({
 <wd-select-picker label="值靠右展示" value="{{ value }}" columns="{{ columns }}" align-right binconfirm="handleConfirm"></wd-select-picker>
 ```
 
+### 可搜索
+
+设置 `filterable` 属性支持本地搜索，设置 `filter-placeholder` 属性设置搜索框的占位符。
+
+```html
+<wd-select-picker label="可搜索" value="{{ value }}" columns="{{ columns }}" filterable binconfirm="handleConfirm"></wd-select-picker>
+```
+
 ### 自定义选择器
 
 如果默认的 cell 类型的展示格式不满足需求，可以通过默认插槽进行自定义选择器样式。
@@ -350,6 +358,8 @@ Page({
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
 | z-index | 弹窗层级 | number | - | 15 | 2.3.0 |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
+| filterable | 可搜索（目前只支持本地搜索） | boolean | - | false | 2.3.0 |
+| filter-placeholder | 搜索框占位符 | string | - | 搜索 | 2.3.0 |
 
 ### 选项数据结构
 
