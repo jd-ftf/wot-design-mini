@@ -10,7 +10,7 @@
         <block jd:if="{{label}}">{{ label }}</block>
         <slot jd:else name="label"></slot>
       </view>
-      <view class="wd-picker__value custom-value-class {{ showValue ? '' : 'wd-picker__placeholder' }}">
+      <view class="wd-picker__value {{ ellipsis && 'is-ellipsis' }} custom-value-class {{ showValue ? '' : 'wd-picker__placeholder' }}">
         {{ showValue ? showValue : placeholder }}
       </view>
       <wd-icon

@@ -105,7 +105,8 @@ VueComponent({
       value: true
     },
     filterable: Boolean,
-    filterPlaceholder: String
+    filterPlaceholder: String,
+    ellipsis: Boolean
   },
 
   created () {

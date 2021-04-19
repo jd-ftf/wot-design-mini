@@ -92,6 +92,7 @@
     margin-top: $-cell-wrapper-padding;
     font-size: $-cell-icon-size;
     color: $-cell-arrow-color;
+    line-height: 1.25;
   }
 
   @include e(header) {

@@ -146,7 +146,8 @@ VueComponent({
     safeAreaInsetBottom: {
       type: Boolean,
       value: true
-    }
+    },
+    ellipsis: Boolean
   },
   methods: {
     // 对外暴露方法，打开弹框
