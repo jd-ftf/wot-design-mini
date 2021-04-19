@@ -36,7 +36,7 @@ export default {
 .scroll-top {
   position: fixed;
   display: inline-block;
-  right: 60px;
+  right: 20px;
   bottom: 100px;
   display: inline-block;
   width: 44px;
@@ -58,11 +58,6 @@ export default {
   }
 }
 
-@media (max-width: 1536px) {
-  .scroll-top {
-    right: 20px;
-  }
-}
 @media (max-height: 750px) {
   .scroll-top {
     bottom: 40px;

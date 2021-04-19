@@ -2,9 +2,6 @@
   padding: 40px 40px 30px;
   margin-bottom: 30px;
   background: #fff;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  box-shadow: 0 2px 10px #ddd;
 }
 .page__title {
   text-align: left;
@@ -39,7 +36,7 @@
   align-items: center;
 }
 .wd-cell_access{
-  padding: 15px;
+  padding: 15px 20px;
 }
 .wd-cell__ft{
   padding-right: 16px;
@@ -58,10 +55,9 @@
 }
 
 .kind-list__item {
-  margin: 15px 0;
-  border-radius: 12px;
+  margin: 20px 0;
+  border-radius: 30px;
   background: #fff;
-  box-shadow: 0 0 10px #ddd;
   overflow: hidden;
 }
 .kind-list__item:first-child {
@@ -69,12 +65,12 @@
 }
 
 .kind-list__img {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .kind-list__item-hd {
-  padding: 15px 20px;
+  padding: 15px 30px;
   transition: opacity 0.3s;
 }
 
@@ -94,11 +90,11 @@
 }
 .title {
   font-size: 14px;
-  color: #333;
+  color: rgba(0, 0, 0, 0.85);
 }
 .page-name {
-  font-size: 13px;
-  color: #666;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .wd-tool-right-line-angle::after {

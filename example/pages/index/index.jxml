@@ -10,8 +10,7 @@
   <view class="page__bd">
     <block jd:for="{{list}}" jd:key="id">
       <view class="kind-list__item">
-        <view id="{{item.id}}" class="wd-flex kind-list__item-hd"
-          bindtap="kindToggle">
+        <view id="{{item.id}}" class="wd-flex kind-list__item-hd" bindtap="kindToggle">
           <view class="wd-flex__item title">{{item.name}}</view>
           <image class="kind-list__img" src="../images/icon_nav_{{item.id}}.png"></image>
         </view>
