@@ -30,7 +30,9 @@ VueComponent({
     selectList: '',
     showValue: '',
     isConfirm: false,
-    lastSelectList: []
+    lastSelectList: [],
+    filterVal: '',
+    filterColumns: []
   },
 
   props: {
@@ -49,7 +51,16 @@ VueComponent({
     ...selectProps,
     columns: {
       type: Array,
-      value: []
+      value: [],
+      observer (val) {
+        if (this.data.filterable && this.data.filterVal) {
+          this.formatFilterColumns(val, this.data.filterVal)
+        } else {
+          this.setData({
+            filterColumns: val
+          })
+        }
+      }
     },
     // type: checkbox/radio
     type: {
@@ -92,12 +103,16 @@ VueComponent({
     safeAreaInsetBottom: {
       type: Boolean,
       value: true
-    }
+    },
+    filterable: Boolean,
+    filterPlaceholder: String,
+    ellipsis: Boolean
   },
 
   created () {
     this.setData({
-      selectList: this.valueFormat(this.data.value)
+      selectList: this.valueFormat(this.data.value),
+      filterColumns: this.data.columns
     })
   },
 
@@ -213,6 +228,56 @@ VueComponent({
       }
       this.setData({
         showValue
+      })
+    },
+
+    getFilterText (label, filterVal) {
+      const reg = new RegExp(`(${filterVal})`, 'g')
+
+      return label.split(reg).map((text) => {
+        return {
+          type: text === filterVal ? 'active' : 'normal',
+          label: text
+        }
+      })
+    },
+
+    handleFilterChange ({ detail: { value } }) {
+      if (value === '') {
+        this.setData({
+          filterColumns: [],
+          filterVal: value
+        }, () => {
+          this.setData({
+            filterColumns: this.data.columns
+          })
+        })
+      } else {
+        this.setData({
+          filterVal: value
+        })
+        this.formatFilterColumns(this.data.columns, value)
+      }
+    },
+
+    formatFilterColumns (columns, filterVal) {
+      const filterColumns = columns.filter((item) => {
+        return item[this.data.labelKey].indexOf(filterVal) > -1
+      })
+
+      const formatFilterColumns = filterColumns.map((item) => {
+        return {
+          ...item,
+          [this.data.labelKey]: this.getFilterText(item[this.data.labelKey], filterVal)
+        }
+      })
+
+      this.setData({
+        filterColumns: []
+      }, () => {
+        this.setData({
+          filterColumns: formatFilterColumns
+        })
       })
     }
   }

@@ -9,6 +9,7 @@
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Calendar
   - 新增日历选择器组件 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - CalendarView
   - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) )
 - Card
@@ -16,10 +17,12 @@
 - ColPicker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
   - 新增 `default-value` 属性，支持设置面板默认展示值 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - DatetimePickerView
   - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) )
@@ -36,6 +39,7 @@
 - Picker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - PickerView
   - 新增 `bind:pickstart` 事件，当滚动选择开始时候触发事件 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `bind:pickend` 事件，当滚动选择结束时候触发事件 (by [@yawuling](https://github.com/yawuling) )
@@ -45,6 +49,8 @@
 - SelectPicker
   - 新增 `z-index` 属性，设置弹层层级 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `filterable` 和 `filter-placeholder` 属性，支持本地搜索 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - Switch
   - 新增 `before-change` 修改前钩子 (by [@yawuling](https://github.com/yawuling) )
 - Toast
@@ -109,6 +115,10 @@
   - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) )
   - 修复图片删除图标层级过高问题 (by [@yawuling](https://github.com/yawuling) )
   - 修复 `limit` 二次赋值为 null、undefined 时抛错的问题 (by [@yawuling](https://github.com/yawuling) )
+
+#### 本次更新可能影响范围
+
+- ColPicker、DatetimePicker、Picker、SelectPicker 原先值为超出默认隐藏，显示为省略号，本次调整为默认不隐藏，若需隐藏，需手动设置 `ellipsis` 属性
 
 ### 2.2.0
 

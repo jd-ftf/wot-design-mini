@@ -34,7 +34,7 @@
     position: relative;
     display: flex;
     padding: 0 $-cell-padding;
-    align-items: center;
+    align-items: flex-start;
     background-color: $-color-white;
     text-decoration: none;
     color: $-cell-title-color;
@@ -84,7 +84,10 @@
     padding: $-cell-wrapper-padding 0;
     margin-right: 10px;
     color: $-cell-value-color;
-    @include lineEllipsis;
+    
+    @include when(ellipsis) {
+      @include lineEllipsis;
+    }
   }
 
   @include e(placeholder) {
@@ -93,8 +96,10 @@
 
   @include e(arrow) {
     display: block;
+    margin-top: $-cell-wrapper-padding;
     font-size: $-cell-icon-size;
     color: $-cell-arrow-color;
+    line-height: 1.25;
   }
 
   @include e(toolbar) {

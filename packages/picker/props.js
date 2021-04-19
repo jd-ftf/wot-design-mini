@@ -53,5 +53,6 @@ export default {
   safeAreaInsetBottom: {
     type: Boolean,
     value: true
-  }
+  },
+  ellipsis: Boolean
 }

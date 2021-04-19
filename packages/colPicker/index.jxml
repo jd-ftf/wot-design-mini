@@ -10,7 +10,7 @@
         <block jd:if="{{ label }}">{{ label }}</block>
         <slot jd:else name="label"></slot>
       </view>
-      <view class="wd-col-picker__value custom-value-class {{ showValue ? '' : 'wd-col-picker__value--placeholder'  }}">{{ showValue || placeholder || '请选择' }}</view>
+      <view class="wd-col-picker__value {{ ellipsis && 'is-ellipsis' }} custom-value-class {{ showValue ? '' : 'wd-col-picker__value--placeholder'  }}">{{ showValue || placeholder || '请选择' }}</view>
       <wd-icon
         jd:if="{{!disabled && !readonly}}"
         custom-class="wd-col-picker__arrow"

@@ -58,6 +58,7 @@
   transition-timing-function: cubic-bezier(0.28, 0.8, 0.63, 1);
 
   @include e(item) {
+    padding: $-picker-column-padding;
     @include lineEllipsis;
 
     @include m(disabled) {

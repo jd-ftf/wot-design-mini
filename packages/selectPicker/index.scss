@@ -11,7 +11,7 @@
     position: relative;
     display: flex;
     padding: 0 $-cell-padding;
-    align-items: center;
+    align-items: flex-start;
     background-color: $-color-white;
     text-decoration: none;
     color: $-cell-title-color;
@@ -72,16 +72,20 @@
     padding: $-cell-wrapper-padding 0;
     margin-right: 10px;
     color: $-cell-value-color;
-    @include lineEllipsis;
-
+    
+    @include when(ellipsis) {
+      @include lineEllipsis;
+    }
     @include m(placeholder) {
       color: $-input-placeholder-color;
     }
   }
   @include e(arrow) {
     display: block;
+    margin-top: $-cell-wrapper-padding;
     font-size: $-cell-icon-size;
     color: $-cell-arrow-color;
+    line-height: 1.25;
   }
   @include e(selected) {
     height: $-col-picker-selected-height;
@@ -178,8 +182,16 @@
   @include e(wrapper) {
     padding: 0 10px;
     position: relative;
-    max-height: 245px;
+    max-height: 356px;
     overflow: auto;
+
+    @include when(filterable) {
+      height: 314px;
+      max-height: 314px;
+    }
+  }
+  @include e(text-active) {
+    color: $-color-theme;
   }
 
   @include e(footer) {

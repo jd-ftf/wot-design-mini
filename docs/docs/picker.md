@@ -14,7 +14,7 @@ Picker 组件为 popup 和 pickerView 的组合。
 
 ### 基本用法
 
-`columns` 设置数据源，`label` 设置左侧文本内容，`value` 设置选中项的值。label 可以不传。可以通过 `label-width` 设置标题宽度，默认为 '33%'，监听 `bind:confirm` 事件，获取选中值，传出一个 evnet 对象， `event.detail = { value, selectedItems }`，value 为绑定值，selectedItems 为选中选项的对象。
+`columns` 设置选项数据源，选项可以为字符串，也可以为对象，如果为对象则默认取 `label` 属性为选项内容进行渲染。`label` 设置左侧文本内容，`value` 设置选中项的值。label 可以不传。可以通过 `label-width` 设置标题宽度，默认为 '33%'，监听 `bind:confirm` 事件，获取选中值，传出一个 evnet 对象， `event.detail = { value, selectedItems }`，value 为绑定值，selectedItems 为选中选项的对象。
 
 ```html
 <wd-picker columns="{{columns1}}" label="单列选项" value="{{value}}" bind:confirm="handleConfirm" />
@@ -33,6 +33,14 @@ Page({
   }
 })
 ```
+
+当 `columns` 选项为对象时，其数据结构为：
+
+| 参数 | 类型 | 说明 | 最低版本 |
+|-----|-----|------|---------|
+| value | string / number / boolean | 选项值，如果 value 属性不存在，则使用 label 作为选项的值 | - |
+| label | string | 选项文本内容 | - |
+| disabled | boolean | 选项是否禁用 | - |
 
 ### 禁用
 
@@ -262,6 +270,7 @@ Page({
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
 | z-index | 弹窗层级 | number | - | 15 | 2.3.0 |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
+| ellipsis | 是否超出隐藏 | boolean | - | false | 2.3.0 |
 
 ### Events
 

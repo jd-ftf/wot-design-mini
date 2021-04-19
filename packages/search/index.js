@@ -84,6 +84,9 @@ VueComponent({
         .then(() => {
           this.setData({ focus: true }, () => {
             this.$emit('clear')
+            this.$emit('change', {
+              value: ''
+            })
           })
         })
     },

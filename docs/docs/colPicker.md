@@ -545,6 +545,7 @@ Page({
 | auto-complete | 自动触发 column-change 事件来补全数据，当 columns 为空数组或者 columns 数组长度小于 value 数组长度时，会自动触发 column-change | - | false | - |
 | z-index | 弹窗层级 | number | - | 15 | 2.3.0 |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型） | boolean | - | true | 2.3.0 |
+| ellipsis | 是否超出隐藏 | boolean | - | false | 2.3.0 |
 
 ### 选项数据结构
 

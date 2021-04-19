@@ -13,21 +13,22 @@
 		<wd-select-picker label="标题" value="{{value10}}" title="多选" columns="{{columns1}}" bindconfirm="handleConfirm10" />
 		<wd-select-picker label="错误" error value="{{value11}}" columns="{{columns1}}" bindconfirm="handleConfirm11" />
 		<wd-select-picker label="必填" required value="{{value12}}" columns="{{columns1}}" bindconfirm="handleConfirm12" />
+		<wd-select-picker label="可搜索" filterable value="{{value13}}" columns="{{columns1}}" bindconfirm="handleConfirm13" />
 	</wd-cell-group>
 </view>
 <demo-block title="label不传" transparent>
-  <wd-select-picker value="{{value13}}" columns="{{columns1}}" bindconfirm="handleConfirm13" />
+  <wd-select-picker value="{{value14}}" columns="{{columns1}}" bindconfirm="handleConfirm14" />
 </demo-block>
 <demo-block title="大小" transparent>
-  <wd-select-picker label="大尺寸" value="{{value14}}" size="large" columns="{{columns1}}" bindconfirm="handleConfirm14" />
+  <wd-select-picker label="大尺寸" value="{{value15}}" size="large" columns="{{columns1}}" bindconfirm="handleConfirm15" />
 </demo-block>
 <demo-block title="值靠右展示" transparent>
-  <wd-select-picker label="值靠右展示" align-right value="{{value15}}" columns="{{columns1}}" bindconfirm="handleConfirm15" />
+  <wd-select-picker label="值靠右展示" align-right value="{{value16}}" columns="{{columns1}}" bindconfirm="handleConfirm16" />
 </demo-block>
 <demo-block title="自定义选择器" transparent>
   <view style="margin-left: 15px;">
     <view style="margin-bottom: 10px;">当前选中项: {{ customShow }}</view>
-    <wd-select-picker value="{{value16}}" use-default-slot columns="{{columns1}}" bindconfirm="handleConfirm16" style="display: inline-block;">
+    <wd-select-picker value="{{value17}}" use-default-slot columns="{{columns1}}" bindconfirm="handleConfirm17" style="display: inline-block;">
       <wd-button>唤起多选</wd-button>
     </wd-select-picker>
   </view>
