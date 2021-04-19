@@ -27,6 +27,15 @@ Page({
   }
 })
 ```
+
+当 `columns` 选项为对象时，其数据结构为：
+
+| 参数 | 类型 | 说明 | 最低版本 |
+|-----|-----|------|---------|
+| value | string / number / boolean | 选项值，如果 value 属性不存在，则使用 label 作为选项的值 | - |
+| label | string | 选项文本内容 | - |
+| disabled | boolean | 选项是否禁用 | - |
+
 ### 禁用选项
 
 选项可以为对象，设置 `disabled` 属性。
