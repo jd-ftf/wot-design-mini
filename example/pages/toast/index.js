@@ -37,18 +37,8 @@ Page({
   showLoadingToast2 () {
     Toast.loading({
       msg: '3s后调用close关闭',
-      loadingType: 'circle',
+      loadingType: 'ring',
       loadingColor: '#fff'
-    })
-    setTimeout(() => {
-      Toast.close()
-    }, 3000)
-  },
-  showLoadingToast3 () {
-    Toast.loading({
-      msg: '3s后调用close关闭',
-      loadingType: 'spinner',
-      loadingColor: '#c7c7c7'
     })
     setTimeout(() => {
       Toast.close()

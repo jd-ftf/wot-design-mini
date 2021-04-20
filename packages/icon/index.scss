@@ -19,8 +19,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.wd-icon-rotate:before {
+.wd-icon-keyboard-collapse:before {
   content: "\e900";
+}
+.wd-icon-keyboard-delete:before {
+  content: "\e901";
 }
 .wd-icon-arrow-thin-up:before {
   content: "\e898";
@@ -28,131 +31,134 @@
 .wd-icon-arrow-thin-down:before {
   content: "\e899";
 }
-.wd-icon-setting:before {
-  content: "\e901";
-}
-.wd-icon-arrow-right:before {
+.wd-icon-rotate:before {
   content: "\e902";
 }
-.wd-icon-arrow-down:before {
+.wd-icon-setting:before {
   content: "\e903";
 }
-.wd-icon-arrow-up:before {
+.wd-icon-arrow-right:before {
   content: "\e904";
 }
-.wd-icon-arrow-left:before {
+.wd-icon-arrow-down:before {
   content: "\e905";
 }
-.wd-icon-fill-camera:before {
+.wd-icon-arrow-up:before {
   content: "\e906";
 }
-.wd-icon-star-on:before {
+.wd-icon-arrow-left:before {
   content: "\e907";
 }
-.wd-icon-check-bold:before {
+.wd-icon-fill-camera:before {
   content: "\e908";
 }
-.wd-icon-error-fill:before {
+.wd-icon-star-on:before {
   content: "\e909";
 }
-.wd-icon-warn-bold:before {
+.wd-icon-check-bold:before {
   content: "\e90a";
 }
-.wd-icon-close-outline:before {
+.wd-icon-error-fill:before {
   content: "\e90b";
 }
-.wd-icon-close-bold:before {
+.wd-icon-warn-bold:before {
   content: "\e90c";
 }
-.wd-icon-check-outline:before {
+.wd-icon-close-outline:before {
   content: "\e90d";
 }
-.wd-icon-wifi-error:before {
+.wd-icon-close-bold:before {
   content: "\e90e";
 }
-.wd-icon-subscribe:before {
+.wd-icon-check-outline:before {
   content: "\e90f";
 }
-.wd-icon-detection:before {
+.wd-icon-wifi-error:before {
   content: "\e910";
 }
-.wd-icon-read:before {
+.wd-icon-subscribe:before {
   content: "\e911";
 }
-.wd-icon-fill-arrow-down:before {
+.wd-icon-detection:before {
   content: "\e912";
 }
-.wd-icon-dong:before {
+.wd-icon-read:before {
   content: "\e913";
 }
-.wd-icon-edit-outline:before {
+.wd-icon-fill-arrow-down:before {
   content: "\e914";
 }
-.wd-icon-add-circle:before {
+.wd-icon-dong:before {
   content: "\e915";
 }
-.wd-icon-copy:before {
+.wd-icon-edit-outline:before {
   content: "\e916";
 }
-.wd-icon-bags:before {
+.wd-icon-add-circle:before {
   content: "\e917";
 }
-.wd-icon-decrease:before {
+.wd-icon-copy:before {
   content: "\e918";
 }
-.wd-icon-jdm:before {
+.wd-icon-bags:before {
   content: "\e919";
 }
-.wd-icon-spool:before {
+.wd-icon-decrease:before {
   content: "\e91a";
 }
-.wd-icon-download:before {
+.wd-icon-jdm:before {
   content: "\e91b";
 }
-.wd-icon-phone-compute:before {
+.wd-icon-spool:before {
   content: "\e91c";
 }
-.wd-icon-computer:before {
+.wd-icon-download:before {
   content: "\e91d";
 }
-.wd-icon-clock:before {
+.wd-icon-phone-compute:before {
   content: "\e91e";
 }
-.wd-icon-view:before {
+.wd-icon-computer:before {
   content: "\e91f";
 }
-.wd-icon-eye-close:before {
+.wd-icon-clock:before {
   content: "\e920";
 }
-.wd-icon-picture:before {
+.wd-icon-view:before {
   content: "\e921";
 }
-.wd-icon-evaluation:before {
+.wd-icon-eye-close:before {
   content: "\e922";
 }
-.wd-icon-goods:before {
+.wd-icon-picture:before {
   content: "\e923";
 }
-.wd-icon-lenovo:before {
+.wd-icon-evaluation:before {
   content: "\e924";
 }
-.wd-icon-list:before {
+.wd-icon-goods:before {
   content: "\e925";
 }
-.wd-icon-note:before {
+.wd-icon-lenovo:before {
   content: "\e926";
 }
-.wd-icon-video:before {
+.wd-icon-list:before {
   content: "\e927";
 }
-.wd-icon-warning:before {
+.wd-icon-note:before {
   content: "\e928";
 }
-.wd-icon-camera:before {
+.wd-icon-video:before {
   content: "\e929";
 }
-.wd-icon-transfer:before {
+.wd-icon-warning:before {
   content: "\e92a";
+}
+.wd-icon-camera:before {
+  content: "\e92b";
+}
+.wd-icon-transfer:before {
+  content: "\e92c";
 }
 .wd-icon-keywords:before {
   content: "\e92e";

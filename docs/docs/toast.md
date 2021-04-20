@@ -72,7 +72,7 @@ Toast.loading('加载中...')
 
 ```javascript
 Toast.loading({
-  loadingType: 'spinner',
+  loadingType: 'ring',
   msg: '加载中...'
 })
 ```
