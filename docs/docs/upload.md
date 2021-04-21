@@ -23,7 +23,7 @@
 ```html
 <wd-upload
   file-list="{{fileList}}"
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
 ></wd-upload>
 ```
@@ -50,7 +50,7 @@ Page({
 ```html
 <wd-upload
   file-list="{{fileList}}"
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
   disabled>
 </wd-upload>
@@ -64,7 +64,7 @@ Page({
 <wd-upload
   file-list="{{fileList}}"
   multiple
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
 ></wd-upload>
 ```
@@ -77,7 +77,7 @@ Page({
 <wd-upload
   file-list="{{fileList}}"
   limit="{{3}}"
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
 ></wd-upload>
 ```
@@ -89,7 +89,7 @@ Page({
 ```html
 <wd-upload
   file-list="{{fileList}}"
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
   before-preview="{{beforePreview}}"
 ></wd-upload>
@@ -128,7 +128,7 @@ Page({
 ```html
 <wd-upload
   file-list="{{fileList}}"
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
   before-upload="{{beforeUpload}}"
 ></wd-upload>
@@ -167,7 +167,7 @@ Page({
 ```html
 <wd-upload
   file-list="{{fileList}}"
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
   before-remove="{{beforeRemove}}">
 </wd-upload>
@@ -206,7 +206,7 @@ Page({
 ```html
 <wd-upload
   file-list="{{fileList}}"
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange"
   before-choose="{{beforeChoose}}">
 </wd-upload>
@@ -248,7 +248,7 @@ Page({
 <wd-upload
   file-list="{{fileList}}"
   use-default-slot
-  action="https://jsonplaceholder.typicode.com/posts/"
+  action="https://ftf.jd.com/api/uploadImg"
   bind:change="handleChange">
   <wd-button>上传</wd-button>
 </wd-upload>

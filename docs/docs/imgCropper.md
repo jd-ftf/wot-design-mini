@@ -52,12 +52,7 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success (res) {
-        jd.showLoading({
-          title: '加载中'
-        })
         const tempFilePaths = res.tempFilePaths[0]
-        // 重置图片角度、缩放、位置
-        jd.hideLoading()
         that.setData({
           show: true,
           src: tempFilePaths
@@ -70,9 +65,26 @@ Page({
   },
   handleConfirm (event) {
     const { url } = event.detail
-    this.setData({
-      src: url,
-      imgSrc: url
+    jd.showLoading({
+      title: '加载中'
+    })
+    const _this = this
+    jd.uploadFile({
+      url: 'https://ftf.jd.com/api/uploadImg',
+      filePath: url,
+      name: 'file',
+      formData: {},
+      success (res) {
+        jd.hideLoading()
+        _this.setData({
+          src: url,
+          imgSrc: url
+        })
+        //do something
+      },
+      fail () {
+        jd.hideLoading()
+      }
     })
   },
   preview () {

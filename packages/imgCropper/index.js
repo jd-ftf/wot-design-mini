@@ -422,7 +422,7 @@ VueComponent({
      * @description 旋转图片
      */
     handleRotate () {
-      this.setRoate(this.data.imgAngle + 90)
+      this.setRoate(this.data.imgAngle - 90)
     },
 
     /**
