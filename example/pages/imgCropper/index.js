@@ -33,7 +33,6 @@ Page({
       success (res) {
         jd.hideLoading()
         _this.setData({
-          src: url,
           imgSrc: url
         })
         // do something
@@ -51,11 +50,5 @@ Page({
   },
   handleCancel (event) {
     console.log('取消', event)
-  },
-  preview () {
-    jd.previewImage({
-      current: this.data.imgSrc, // 当前显示图片的http链接
-      urls: [this.data.imgSrc] // 需要预览的图片http链接列表
-    })
   }
 })
