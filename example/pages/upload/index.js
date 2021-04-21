@@ -3,7 +3,7 @@ import Toast from '../../wot-design/toast/toast'
 
 Page({
   data: {
-    action: 'https://jsonplaceholder.typicode.com/posts/',
+    action: 'https://ftf.jd.com/api/uploadImg',
     fileList1: [{
       url: 'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg'
     }],
