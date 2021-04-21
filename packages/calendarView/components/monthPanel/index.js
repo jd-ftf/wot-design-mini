@@ -72,7 +72,7 @@ VueComponent({
       })
     },
     scrollIntoView () {
-      this.requestAnimationFrame().then(() => {
+      setTimeout(() => {
         let activeDate
         const type = getType(this.data.value)
         if (type === 'array') {
@@ -97,7 +97,7 @@ VueComponent({
 
           return false
         })
-      })
+      }, 50)
     },
     /**
      * 获取时间 picker 的数据

@@ -464,7 +464,7 @@ VueComponent({
             show: false
           })
           _this.$emit('confirm', {
-            url: res.tempFilePath,
+            tempFilePath: res.tempFilePath,
             width: cutWidth * exportScale,
             height: cutHeight * exportScale
           })

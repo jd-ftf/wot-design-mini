@@ -20,26 +20,9 @@ Page({
     })
   },
   handleConfirm (event) {
-    const { url } = event.detail
-    jd.showLoading({
-      title: '加载中'
-    })
-    const _this = this
-    jd.uploadFile({
-      url: 'https://ftf.jd.com/api/uploadImg',
-      filePath: url,
-      name: 'file',
-      formData: {},
-      success (res) {
-        jd.hideLoading()
-        _this.setData({
-          imgSrc: url
-        })
-        // do something
-      },
-      fail () {
-        jd.hideLoading()
-      }
+    const { tempFilePath } = event.detail
+    this.setData({
+      imgSrc: tempFilePath
     })
   },
   imgLoaderror (res) {
