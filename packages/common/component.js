@@ -1,3 +1,4 @@
+// wot design mini version: // @echo VERSION
 import basic from '../mixins/basic'
 
 /**

@@ -1,7 +1,7 @@
-#!/usr/bin/env node
 const program = require('commander')
 const { dev, build } = require('@ftf/pisces')
 const path = require('path')
+const pkg = require('../package.json')
 
 program
   .version(require('../package.json').version)
@@ -12,7 +12,10 @@ program
       source: 'jd',
       precss: 'scss',
       output: path.resolve(__dirname, `../lib/${program.platform}/`),
-      platform: program.platform
+      platform: program.platform,
+      env: {
+        VERSION: JSON.stringify(pkg.version)
+      }
     })
   })
 
@@ -31,7 +34,10 @@ program
       source: 'jd',
       precss: 'scss',
       output: path.resolve(__dirname, `../example-dist/${program.platform}/wot-design/`),
-      platform: program.platform
+      platform: program.platform,
+      env: {
+        VERSION: JSON.stringify(pkg.version)
+      }
     })
   })
 

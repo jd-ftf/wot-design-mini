@@ -53,10 +53,7 @@ VueComponent({
       value: '完成'
     },
     // 是否禁用旋转
-    disabledRotate: {
-      type: Boolean,
-      value: false
-    },
+    disabledRotate: Boolean,
     /** canvas绘图参数 start **/
     // canvasToTempFilePath —— fileType
     fileType: {
@@ -130,7 +127,6 @@ VueComponent({
     // 裁剪框的宽高
     cutWidth: 0,
     cutHeight: 0,
-    cutScale: 2,
     offset: 20,
     // 裁剪框的距顶距左
     cutLeft: 0,
@@ -453,13 +449,13 @@ VueComponent({
         quality,
         cutHeight,
         cutWidth,
-        cutScale
+        exportScale
       } = this.data
       jd.canvasToTempFilePath({
-        width: cutWidth * cutScale,
-        height: Math.round(cutHeight * cutScale),
-        destWidth: cutWidth * cutScale,
-        destHeight: Math.round(cutHeight * cutScale),
+        width: cutWidth * exportScale,
+        height: Math.round(cutHeight * exportScale),
+        destWidth: cutWidth * exportScale,
+        destHeight: Math.round(cutHeight * exportScale),
         fileType,
         quality,
         canvasId: 'wd-img-cropper-canvas',
@@ -468,14 +464,12 @@ VueComponent({
             show: false
           })
           _this.$emit('confirm', {
-            res,
-            url: res.tempFilePath,
-            width: cutWidth * cutScale,
-            height: cutHeight * cutScale
+            tempFilePath: res.tempFilePath,
+            width: cutWidth * exportScale,
+            height: cutHeight * exportScale
           })
         },
-        fail (err) {
-          console.log('err', err)
+        fail () {
           _this.setData({
             show: false
           })
@@ -500,19 +494,19 @@ VueComponent({
         cutTop,
         cutHeight,
         cutWidth,
-        cutScale,
+        exportScale,
         disabledRotate
       } = this.data
       const draw = () => {
         // 图片真实大小
-        const width = imgWidth * imgScale * cutScale
-        const height = imgHeight * imgScale * cutScale
+        const width = imgWidth * imgScale * exportScale
+        const height = imgHeight * imgScale * exportScale
         // 取裁剪框和图片的交集
         const x = imgLeft - cutLeft
         const y = imgTop - cutTop
         // 如果直接使用canvas绘制的图片会有锯齿，因此需要*设备像素比
         // 设置（x, y）设置图片在canvas中的位置
-        this.data.ctx.translate(x * cutScale, y * cutScale)
+        this.data.ctx.translate(x * exportScale, y * exportScale)
         // 设置 旋转角度
         if (!disabledRotate) {
           this.data.ctx.rotate(imgAngle * Math.PI / 180)
