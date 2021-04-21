@@ -81,6 +81,9 @@ Page({
           imgSrc: url
         })
         //do something
+      },
+      fail () {
+        jd.hideLoading()
       }
     })
   },
