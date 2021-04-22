@@ -210,7 +210,7 @@ VueComponent({
       if (date.disabled) return
 
       const value = this.data.value || []
-      if (date.type !== 'seleced') {
+      if (date.type !== 'selected') {
         value.push(this.getDate(date.date))
       } else {
         value.splice(value.indexOf(date.date), 1)
