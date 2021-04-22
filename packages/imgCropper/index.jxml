@@ -35,7 +35,7 @@
     <image
       class="wd-img-cropper__img"
       src="{{ imgSrc }}"
-      style="width: {{imgWidth ? imgWidth + 'px' : 'auto'}}; height: {{imgHeight ? imgHeight + 'px' : 'auto'}}; transform: translate({{imgLeft - imgWidth / 2}}px, {{imgTop - imgHeight / 2}}px) scale({{imgScale}}) rotate({{imgAngle}}deg); transition-duration:{{isAnimation?.4:0}}s"
+      style="width: {{picWidth ? picWidth + 'px' : 'auto'}}; height: {{picHeight ? picHeight + 'px' : 'auto'}}; transform: translate({{imgLeft - picWidth / 2}}px, {{imgTop - picHeight / 2}}px) scale({{imgScale}}) rotate({{imgAngle}}deg); transition-duration:{{isAnimation?.4:0}}s"
       lazy-load="false"
       bind:touchstart="handleImgTouchStart"
       bind:touchmove="handleImgTouchMove"

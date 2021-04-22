@@ -125,6 +125,8 @@ VueComponent({
 
   data: {
     // 裁剪框的宽高
+    picWidth: 0,
+    picHeight: 0,
     cutWidth: 0,
     cutHeight: 0,
     offset: 20,
@@ -214,16 +216,16 @@ VueComponent({
      */
     computeImgSize () {
       let {
-        imgWidth,
-        imgHeight,
+        picWidth,
+        picHeight,
         imgInfo,
         cutWidth,
         cutHeight
       } = this.data
       if (!INIT_IMGHEIGHT && !INIT_IMGWIDTH) {
         // 没有设置宽高，写入图片的真实宽高
-        imgWidth = imgInfo.width
-        imgHeight = imgInfo.height
+        picWidth = imgInfo.width
+        picHeight = imgInfo.height
         /**
          * 设 a = imgWidth; b = imgHeight; x = cutWidth; y = cutHeight
          * 共有三种宽高比：1、a/b > x/y 2、a/b < x/y 3、a/b = x/y
@@ -231,22 +233,22 @@ VueComponent({
          * 2、已知 a = x => b = b/a*x
          * 3、可用上方任意公式
          */
-        if (imgWidth / imgHeight > cutWidth / cutHeight) {
-          imgHeight = cutHeight
-          imgWidth = imgInfo.width / imgInfo.height * cutHeight
+        if (picWidth / picHeight > cutWidth / cutHeight) {
+          picHeight = cutHeight
+          picWidth = imgInfo.width / imgInfo.height * cutHeight
         } else {
-          imgWidth = cutWidth
-          imgHeight = imgInfo.height / imgInfo.width * cutWidth
+          picWidth = cutWidth
+          picHeight = imgInfo.height / imgInfo.width * cutWidth
         }
       } else if (INIT_IMGHEIGHT && !INIT_IMGWIDTH) {
-        imgWidth = imgInfo.width / imgInfo.height * INIT_IMGHEIGHT
-      } else if (!INIT_IMGHEIGHT && INIT_IMGWIDTH) {
-        imgHeight = imgInfo.height / imgInfo.width * INIT_IMGWIDTH
+        picWidth = imgInfo.width / imgInfo.height * INIT_IMGHEIGHT
+      } else if ((!INIT_IMGHEIGHT && INIT_IMGWIDTH) || (INIT_IMGHEIGHT && INIT_IMGWIDTH)) {
+        picHeight = imgInfo.height / imgInfo.width * INIT_IMGWIDTH
       }
 
       this.setData({
-        imgWidth,
-        imgHeight
+        picWidth,
+        picHeight
       })
     },
 
@@ -266,11 +268,25 @@ VueComponent({
       // 处理宽高特殊单位 %>px
       if (INIT_IMGWIDTH && typeof INIT_IMGWIDTH === 'string' && INIT_IMGWIDTH.indexOf('%') !== -1) {
         const width = INIT_IMGWIDTH.replace('%', '')
-        INIT_IMGWIDTH = this.data.imgWidth = this.data.info.windowWidth / 100 * width
+        INIT_IMGWIDTH = this.data.info.windowWidth / 100 * width
+        this.setData({
+          picWidth: INIT_IMGWIDTH
+        })
+      } else if (INIT_IMGWIDTH && typeof INIT_IMGWIDTH === 'number') {
+        this.setData({
+          picWidth: INIT_IMGWIDTH
+        })
       }
       if (INIT_IMGHEIGHT && typeof INIT_IMGHEIGHT === 'string' && INIT_IMGHEIGHT.indexOf('%') !== -1) {
         const height = this.data.imgHeight.replace('%', '')
         INIT_IMGHEIGHT = this.data.imgHeight = this.data.info.windowHeight / 100 * height
+        this.setData({
+          picWidth: INIT_IMGHEIGHT
+        })
+      } else if (INIT_IMGHEIGHT && typeof INIT_IMGHEIGHT === 'number') {
+        this.setData({
+          picWidth: INIT_IMGWIDTH
+        })
       }
     },
 
@@ -286,20 +302,20 @@ VueComponent({
         imgAngle
       } = this.data
       const imgScale = scale || this.data.imgScale
-      let { imgWidth, imgHeight, imgLeft, imgTop } = this.data
+      let { picWidth, picHeight, imgLeft, imgTop } = this.data
       // 翻转后宽高切换
       if (imgAngle / 90 % 2) {
-        imgWidth = this.data.imgHeight
-        imgHeight = this.data.imgWidth
+        picWidth = this.data.picHeight
+        picHeight = this.data.picWidth
       }
       // 左
-      imgLeft = imgWidth * imgScale / 2 + cutLeft >= imgLeft ? imgLeft : imgWidth * imgScale / 2 + cutLeft
+      imgLeft = picWidth * imgScale / 2 + cutLeft >= imgLeft ? imgLeft : picWidth * imgScale / 2 + cutLeft
       // 右
-      imgLeft = cutLeft + cutWidth - imgWidth * imgScale / 2 <= imgLeft ? imgLeft : cutLeft + cutWidth - imgWidth * imgScale / 2
+      imgLeft = cutLeft + cutWidth - picWidth * imgScale / 2 <= imgLeft ? imgLeft : cutLeft + cutWidth - picWidth * imgScale / 2
       // 上
-      imgTop = imgHeight * imgScale / 2 + cutTop >= imgTop ? imgTop : imgHeight * imgScale / 2 + cutTop
+      imgTop = picHeight * imgScale / 2 + cutTop >= imgTop ? imgTop : picHeight * imgScale / 2 + cutTop
       // 下
-      imgTop = cutTop + cutHeight - imgHeight * imgScale / 2 <= imgTop ? imgTop : cutTop + cutHeight - imgHeight * imgScale / 2
+      imgTop = cutTop + cutHeight - picHeight * imgScale / 2 <= imgTop ? imgTop : cutTop + cutHeight - picHeight * imgScale / 2
 
       this.setData({
         imgLeft,
@@ -313,17 +329,17 @@ VueComponent({
      */
     detectImgScaleIsEdge () {
       const { cutHeight, cutWidth, imgAngle } = this.data
-      let { imgWidth, imgHeight, imgScale } = this.data
+      let { picWidth, picHeight, imgScale } = this.data
       // 翻转后宽高切换
       if (imgAngle / 90 % 2) {
-        imgWidth = this.data.imgHeight
-        imgHeight = this.data.imgWidth
+        picWidth = this.data.picHeight
+        picHeight = this.data.picWidth
       }
-      if (imgWidth * imgScale < cutWidth) {
-        imgScale = cutWidth / imgWidth
+      if (picWidth * imgScale < cutWidth) {
+        imgScale = cutWidth / picWidth
       }
-      if (imgHeight * imgScale < cutHeight) {
-        imgScale = cutHeight / imgHeight
+      if (picHeight * imgScale < cutHeight) {
+        imgScale = cutHeight / picHeight
       }
       this.detectImgPosIsEdge(imgScale)
     },
@@ -484,8 +500,8 @@ VueComponent({
       if (!this.data.imgSrc) return
       const {
         imgSrc,
-        imgWidth,
-        imgHeight,
+        picWidth,
+        picHeight,
         imgLeft,
         imgTop,
         imgScale,
@@ -499,8 +515,8 @@ VueComponent({
       } = this.data
       const draw = () => {
         // 图片真实大小
-        const width = imgWidth * imgScale * exportScale
-        const height = imgHeight * imgScale * exportScale
+        const width = picWidth * imgScale * exportScale
+        const height = picHeight * imgScale * exportScale
         // 取裁剪框和图片的交集
         const x = imgLeft - cutLeft
         const y = imgTop - cutTop
