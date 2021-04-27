@@ -65,8 +65,9 @@ VueComponent({
       const child = this.children[index]
       // 点击当前 menu, 关闭其他 menu
       if (!child.data.disabled) {
+        const currentIndex = index === this.data.currentIndex ? -1 : index
         closeOther(child)
-        this.fold(index)
+        this.fold(currentIndex)
       }
     },
     /**
@@ -74,7 +75,6 @@ VueComponent({
      * @param {Number} currentIndex 当前选的索引
      */
     fold (currentIndex) {
-      currentIndex = currentIndex === this.data.currentIndex ? -1 : currentIndex
       this.setData({ currentIndex })
 
       if (currentIndex === -1) {
