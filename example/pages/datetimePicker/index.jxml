@@ -21,7 +21,7 @@
 	<wd-datetime-picker label="日期选择" size="large" value="{{value12}}" bind:confirm="handleConfirm12" />
 </demo-block>
 <demo-block title="值靠右展示" transparent>
-	<wd-datetime-picker label="日期选择"    align-right value="{{value13}}" bind:confirm="handleConfirm13" />
+	<wd-datetime-picker label="日期选择" align-right value="{{value13}}" bind:confirm="handleConfirm13" />
 </demo-block>
 <demo-block title="区域选择" transparent>
 	<wd-datetime-picker label="日期选择" value="{{value14}}" bind:confirm="handleConfirm14" />

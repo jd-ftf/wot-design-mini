@@ -3,7 +3,6 @@ import Toast from '../../wot-design/toast/toast.js'
 Page({
   data: {
     type: 'date',
-    value: Date.now(),
     value1: '',
     value2: Date.now(),
     value3: Date.now(),
